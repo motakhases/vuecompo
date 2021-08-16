@@ -1,0 +1,72 @@
+{
+  "name": "@zarinpal/web-components",
+  "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
+  "version": "2.0.22",
+  "author": "ZarinPal front-end team",
+  "main": "dist/zwc.umd.js",
+  "types": "index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "ZarinPal",
+    "Component Library",
+    "Web Components",
+    "Vue",
+    "TailwindCSS"
+  ],
+  "private": false,
+  "scripts": {
+    "build": "npm run build:vue && npm run build:tailwind",
+    "build:vue": "vue-cli-service build src/index.js --target lib --name zwc --inline-vue && rm ./dist/demo.html",
+    "build:tailwind": "rimraf dist/tailwind-preset.js && rollup --config rollup.config.js",
+    "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
+    "test": "npm run test:unit",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^1.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "typescript": "~4.1.5",
+    "vue-template-compiler": "^2.6.11",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@rollup/plugin-commonjs": "^19.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.2",
+    "babel-eslint": "^10.1.0",
+    "rollup": "^2.53.3",
+    "vue": "^2.6.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZarinPal/web-components"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
+  },
+  "license": "ZarinPal"
+}
