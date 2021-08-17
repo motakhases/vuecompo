@@ -20,7 +20,7 @@
   "private": false,
   "scripts": {
     "build": "npm run build:vue && npm run build:tailwind",
-    "build:vue": "vue-cli-service build src/index.js --target lib --name zwc --inline-vue && rm ./dist/demo.html",
+    "build:vue": "vue-cli-service build src/index.ts --target lib --name zwc --inline-vue && rm ./dist/demo.html",
     "build:tailwind": "rimraf dist/tailwind-preset.js && rollup --config rollup.config.js",
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
