@@ -1,7 +1,7 @@
 {
   "name": "@zarinpal/web-components",
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "author": "ZarinPal front-end team",
   "main": "dist/zwc.umd.js",
   "types": "index.d.ts",
@@ -71,7 +71,9 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
-    "testMatch": ["**/src/**/*.test.js"],
+    "testMatch": [
+      "**/src/**/*.test.js"
+    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "<rootDir>/src/components/**/*.vue"
