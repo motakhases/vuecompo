@@ -2,7 +2,6 @@
   <div class="p-[36px]">
     <Button
       size="large"
-      disabled
     >
       Button
     </Button>

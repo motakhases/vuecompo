@@ -1,0 +1,25 @@
+.zpl-button {
+  /* Default */
+  @apply bg-[#0A33FF] text-white rounded-[4px];
+
+  /* Hover */
+  @apply hover:bg-[#082BD5];
+
+  /* Active */
+  @apply active:bg-[#0722AA];
+
+  /* Disabled */
+  @apply disabled:bg-[#9DADFF] disabled:cursor-default;
+
+  &.small {
+    @apply px-[12px] py-[4px];
+  }
+
+  &.medium {
+    @apply px-[16px] py-[8px];
+  }
+
+  &.large {
+    @apply px-[24px] py-[12px];
+  }
+}
