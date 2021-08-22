@@ -54,7 +54,7 @@ module.exports = {
 
     container: {},
 
-    cursor: {},
+    // cursor: {},
 
     fontFamily: {
       sans: ['system-ui'],
