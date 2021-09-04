@@ -8,6 +8,10 @@ export default Vue.extend({
       type: String,
       default: 'medium',
     },
+    type: {
+      type: String,
+      default: 'primary',
+    },
     disabled: {
       type: Boolean,
       default: false,

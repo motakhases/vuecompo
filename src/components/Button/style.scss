@@ -1,15 +1,37 @@
 .zpl-button {
   /* Default */
-  @apply bg-[#0A33FF] text-white rounded-[4px];
-
-  /* Hover */
-  @apply hover:bg-[#082BD5];
-
-  /* Active */
-  @apply active:bg-[#0722AA];
+  @apply rounded-[4px];
 
   /* Disabled */
-  @apply disabled:bg-[#9DADFF] disabled:cursor-default;
+  @apply disabled:cursor-default;
+
+  &.primary {
+    /* Default */
+    @apply bg-[#0A33FF] text-white;
+
+    /* Hover */
+    @apply hover:bg-[#082BD5];
+
+    /* Active */
+    @apply active:bg-[#0722AA];
+
+    /* Disabled */
+    @apply disabled:bg-[#9DADFF];
+  }
+
+  &.secondary {
+    /* Default */
+    @apply bg-[#F5F5F5] text-[#2E2E38];
+
+    /* Hover */
+    @apply hover:bg-[#EDEDED];
+
+    /* Active */
+    @apply active:bg-[#F0F0F0];
+
+    /* Disabled */
+    @apply disabled:bg-[#F0F0F0];
+  }
 
   &.small {
     @apply px-[12px] py-[4px];

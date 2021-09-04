@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['zpl-button', size]"
+    :class="['zpl-button', size, type]"
     :disabled="disabled"
   >
     <slot />

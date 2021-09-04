@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-    <Component :size="size" :disabled="disabled">
+    <Component :type="type" :size="size" :disabled="disabled">
       {{ text }}
     </Component>
   `,
@@ -22,10 +22,15 @@ Default.argTypes = {
     options: ['small', 'medium', 'large'],
     control: { type: 'radio' },
   },
+  type: {
+    options: ['primary', 'secondary', 'tertitary'],
+    control: { type: 'radio' },
+  },
 };
 
 Default.args = {
   text: 'Button',
   size: 'large',
+  type: 'primary',
   disabled: false,
 };
