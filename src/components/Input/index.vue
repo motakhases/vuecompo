@@ -1,5 +1,5 @@
 <template functional>
-  <span class="text-gray-500">
+  <span class="text-surface">
     No provided component yet
   </span>
 </template>

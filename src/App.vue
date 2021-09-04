@@ -1,14 +1,14 @@
 <template>
-  <div class="p-[36px] dark:bg-black flex gap-[8px]">
-    <button class="z-button">
+  <div class="p-xl m-2xl bg-zarin flex md:my-4xl">
+    <button class="bg-zarin-dark-heavy lg:bg-primarySurface">
       Button
     </button>
-    <button
-      class="z-button"
-      disabled
-    >
-      Button
-    </button>
+    <p class="text-ls-xl">salam</p>
+    <p class="text-btn">salam</p>
+    <p class="text-ls-btn">salam</p>
+    <p class="text-ls-cp">salam</p>
+    <div class="w-1/3 rounded-md border-sm border-surface bg-surface-dark text-surface">test</div>
+    <div class="w-1/3 rounded-circle border-md border-surface-dark ">test</div>
   </div>
 </template>
 
@@ -20,18 +20,4 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
-.z-button {
-  // Default
-  @apply p-btn-md bg-primary-light text-white dark:bg-primary-dark dark:text-text;
-
-  // Hover
-  @apply hover:bg-primary-light-hover hover:dark:bg-primary-dark-hover;
-
-  // Active
-  @apply active:bg-primary-light-active active:dark:bg-primary-dark-active;
-
-  // Disabled
-  @apply disabled:bg-primary-light-disabled disabled:dark:bg-primary-dark-disabled;
-}
-</style>
+<style></style>
