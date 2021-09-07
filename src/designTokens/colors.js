@@ -1,5 +1,7 @@
 module.exports = {
   colors: {
+    transparent: 'transparent',
+
     primaryZarinpal: {
       DEFAULT: '#0A33FF',
       hover: '#082BD5',
