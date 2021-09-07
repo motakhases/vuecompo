@@ -23,7 +23,7 @@ Default.argTypes = {
     control: { type: 'radio' },
   },
   type: {
-    options: ['primary', 'secondary', 'tertitary'],
+    options: ['primary', 'secondary', 'tertiary'],
     control: { type: 'radio' },
   },
 };

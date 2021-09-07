@@ -1,47 +1,72 @@
 .zpl-button {
   /* Default */
-  @apply rounded-[4px];
+  @apply rounded-sm;
 
   /* Disabled */
   @apply disabled:cursor-default;
 
   &.primary {
     /* Default */
-    @apply bg-[#0A33FF] text-white;
+    @apply bg-primaryZarinpal text-text-onPrimary;
+    @apply dark:bg-primaryZarinpal-dark dark:text-text-dark-onPrimary;
 
     /* Hover */
-    @apply hover:bg-[#082BD5];
+    @apply hover:bg-primaryZarinpal-hover;
+    @apply dark:hover:bg-primaryZarinpal-dark-hover;
 
     /* Active */
-    @apply active:bg-[#0722AA];
+    @apply active:bg-primaryZarinpal-active;
+    @apply dark:active:bg-primaryZarinpal-dark-active;
 
     /* Disabled */
-    @apply disabled:bg-[#9DADFF];
+    @apply disabled:bg-primaryZarinpal-disabled;
+    @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
   }
 
   &.secondary {
     /* Default */
-    @apply bg-[#F5F5F5] text-[#2E2E38];
+    @apply bg-secondary text-text;
+    @apply dark:bg-secondary-dark dark:text-text-dark;
 
     /* Hover */
-    @apply hover:bg-[#EDEDED];
+    @apply hover:bg-secondary-hover;
+    @apply dark:hover:bg-secondary-dark-hover;
 
     /* Active */
-    @apply active:bg-[#F0F0F0];
+    @apply active:bg-secondary-active;
+    @apply dark:active:bg-secondary-dark-active;
 
     /* Disabled */
-    @apply disabled:bg-[#F0F0F0];
+    @apply disabled:bg-secondary-disabled;
+    @apply dark:disabled:bg-secondary-dark-disabled;
+  }
+  &.tertiary {
+    /* Default */
+    @apply bg-surface  text-text;
+    @apply dark:bg-surface-dark dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-surface-hover;
+    @apply dark:hover:bg-surface-dark-hover;
+
+    /* Active */
+    @apply active:bg-surface-active;
+    @apply dark:active:bg-surface-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-surface-disabled;
+    @apply dark:disabled:bg-surface-dark-disabled;
   }
 
   &.small {
-    @apply px-[12px] py-[4px];
+    @apply px-sm py-2xs;
   }
 
   &.medium {
-    @apply px-[16px] py-[8px];
+    @apply px-md py-xs;
   }
 
   &.large {
-    @apply px-[24px] py-[12px];
+    @apply px-xl py-sm;
   }
 }

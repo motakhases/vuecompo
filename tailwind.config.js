@@ -1,7 +1,7 @@
 const colors =  require("./src/designTokens/colors").colors
 module.exports = {
   mode: 'jit',
-  darkMode: 'media',
+  darkMode: 'class',
   purge: [
     './public/**/*.html',
     './src/**/*.vue',
