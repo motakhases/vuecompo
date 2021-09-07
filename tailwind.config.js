@@ -64,11 +64,6 @@ module.exports = {
       btn: ['14px', { lineHeight: '24px' }],
     },
 
-    borderWidth: {
-      sm: '1px',
-      md: '2px',
-    },
-
     borderRadius: {
       none: '0',
       xs: '2px',
@@ -77,6 +72,11 @@ module.exports = {
       lg: '12px',
       xl: '16px',
       circle: '100%',
+    },
+
+    ringColor: {
+      light: colors.interactive.focus,
+      dark: colors.interactive.dark.focus,
     },
   },
   variants: {},

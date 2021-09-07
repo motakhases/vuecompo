@@ -1,3 +1,17 @@
 @tailwind base;
+
+@layer base {
+  a {
+    /* Default */
+    @apply text-interactive-link dark:text-interactive-dark-link border-b border-transparent border-dashed p-2xs;
+
+    /* Hover */
+    @apply hover:border-interactive-link dark:hover:border-interactive-dark-link;
+
+    /* Focus */
+    @apply focus:ring-2 focus:ring-light dark:focus:ring-dark focus:hover:border-transparent;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
