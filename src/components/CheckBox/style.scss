@@ -26,4 +26,8 @@
       @apply block; 
     }
   }
+
+  input:disabled ~ .checkmark {
+    @apply bg-primaryZarinpal-disabled;
+  }
 }
