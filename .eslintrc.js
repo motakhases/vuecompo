@@ -9,7 +9,7 @@ module.exports = {
     'plugin:vue/strongly-recommended',
     'plugin:vue/recommended',
     '@vue/airbnb',
-    "@vue/typescript/recommended"
+    '@vue/typescript/recommended',
   ],
   parserOptions: {
     parser: 'babel-eslint',
@@ -18,7 +18,7 @@ module.exports = {
   rules: {
     'import/no-extraneous-dependencies': 0,
     'max-len': ['error', { code: 180 }],
-    'vue/no-v-html': 0
+    'vue/no-v-html': 0,
   },
   overrides: [
     {
