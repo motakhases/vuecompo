@@ -5,6 +5,10 @@
   /* Disabled */
   @apply disabled:cursor-default;
 
+  /* focused */
+  @apply focus:shadow-light-outline focus:border focus:border-surface;
+  @apply dark:focus:shadow-dark-outline dark:focus:border-surface-dark;
+
   &.primary {
     /* Default */
     @apply bg-primaryZarinpal text-text-onPrimary;
@@ -21,6 +25,10 @@
     /* Disabled */
     @apply disabled:bg-primaryZarinpal-disabled;
     @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-primaryZarinpal;
+    @apply dark:focus:bg-primaryZarinpal-dark;
   }
 
   &.secondary {
@@ -39,7 +47,12 @@
     /* Disabled */
     @apply disabled:bg-secondary-disabled;
     @apply dark:disabled:bg-secondary-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-secondary;
+    @apply dark:focus:bg-secondary-dark;
   }
+
   &.tertiary {
     /* Default */
     @apply bg-surface  text-text;
@@ -56,6 +69,10 @@
     /* Disabled */
     @apply disabled:bg-surface-disabled;
     @apply dark:disabled:bg-surface-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-surface;
+    @apply dark:focus:bg-surface-dark;
   }
 
   &.small {
@@ -65,8 +82,12 @@
   &.medium {
     @apply px-md py-xs;
   }
-
+	
   &.large {
     @apply px-xl py-sm;
+  }
+	
+	&.fill {
+    @apply w-full;
   }
 }

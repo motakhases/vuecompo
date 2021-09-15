@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-    <Component :type="type" :size="size" :disabled="disabled">
+    <Component :type="type" :size="size" :disabled="disabled" :fill="fill">
       {{ text }}
     </Component>
   `,
@@ -33,4 +33,5 @@ Default.args = {
   size: 'large',
   type: 'primary',
   disabled: false,
+  fill: false,
 };
