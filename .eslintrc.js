@@ -18,7 +18,11 @@ module.exports = {
   rules: {
     'import/no-extraneous-dependencies': 0,
     'max-len': ['error', { code: 180 }],
-    'vue/no-v-html': 0
+    'vue/no-v-html': 0,
+    'linebreak-style': [
+      'error',
+      process.env.NODE_ENV === 'prod' ? 'unix' : 'windows',
+    ],
   },
   overrides: [
     {
