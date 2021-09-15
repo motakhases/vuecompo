@@ -6,8 +6,8 @@
   @apply disabled:cursor-default;
 
   /* focused */
-  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
-  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+  @apply focus:shadow-light-outline focus:border focus:border-surface;
+  @apply dark:focus:shadow-dark-outline dark:focus:border-surface-dark;
 
   &.primary {
     /* Default */
@@ -86,38 +86,8 @@
   &.large {
     @apply px-xl py-sm;
   }
-
-  &.fill {
+	
+	&.fill {
     @apply w-full;
-  }
-}
-.zpl-button-loading {
-  /* Default */
-  @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
-}
-
-.zpl-button-loading-1,
-.zpl-button-loading-2 {
-  /* Default */
-  @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
-	@apply dark:bg-black-40;
-
-  animation: bounce 2s infinite ease-in-out;
-}
-
-.zpl-button-loading-2 {
-  /* Default */
-  animation-delay: -1s;
-}
-
-/* animation */
-@keyframes bounce {
-  0%,
-  100% {
-    transform: scale(0);
-  }
-
-  50% {
-    transform: scale(1);
   }
 }
