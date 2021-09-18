@@ -1,5 +1,4 @@
 @tailwind base;
-
 @layer base {
   a {
     /* Default */
@@ -14,4 +13,14 @@
 }
 
 @tailwind components;
+
 @tailwind utilities;
+@layer utilities {
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
+}
