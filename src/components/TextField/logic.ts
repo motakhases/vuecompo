@@ -27,6 +27,10 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    unit: {
+      type: String,
+      default: '',
+    },
     limit: {
       type: Number,
       default: 0,
@@ -38,16 +42,16 @@ export default Vue.extend({
     };
   },
   methods: {
-    // update value of textarea
+    // update value of input
     onInput(event: any) {
       this.$emit('input', event.target.value);
     },
-    // after focusing move the label
     onFocusIn() {
+      // for adding active label style
       this.activeLabel = true;
     },
-    // if textarea is empty put label inside textarea on focusing out
     onFocusOut() {
+      // if input is empty put label inside input on focusing out
       if (!this.value) {
         this.activeLabel = false;
       }
