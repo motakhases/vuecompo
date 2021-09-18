@@ -8,7 +8,8 @@
     @apply hover:border-interactive-link dark:hover:border-interactive-dark-link;
 
     /* Focus */
-    @apply focus:ring-2 focus:ring-light dark:focus:ring-dark focus:hover:border-transparent;
+    @apply focus:shadow-light-outline focus:border focus:border-surface;
+    @apply dark:focus:shadow-dark-outline dark:focus:border-surface-dark;
   }
 }
 
