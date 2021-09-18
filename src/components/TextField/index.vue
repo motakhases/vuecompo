@@ -1,14 +1,26 @@
 <template>
   <div :class="['zpl-textfield-group']">
-    <input
+    <div
       :class="['zpl-textfield', { error }]"
-      :value="value"
       :disabled="disabled"
-      :maxlength="limit > 0 ? limit : undefined"
-      @input="onInput"
-      @focusout="onFocusOut"
-      @focusin="onFocusIn"
     >
+      <input
+        class="zpl-textfield-input"
+        :value="value"
+        :disabled="disabled"
+        :maxlength="limit > 0 ? limit : undefined"
+        @input="onInput"
+        @focusout="onFocusOut"
+        @focusin="onFocusIn"
+      >
+      <span
+        v-if="unit"
+        class="zpl-textfield-unit"
+      >
+        {{ unit }}
+      </span>
+    </div>
+
     <!-- show when we have label -->
     <label
       v-if="label"
@@ -17,7 +29,10 @@
       {{ label }}
     </label>
     <!-- show when we have hint text or limit -->
-    <div class="zpl-textfield-hint-box">
+    <div
+      v-if="hintText || limit"
+      class="zpl-textfield-hint-box"
+    >
       <!-- show when we have hint text -->
       <span
         v-if="hintText"

@@ -22,6 +22,7 @@ const Template = (_, { argTypes }) => ({
 		:value="value"
 		:hint="hint"
 		:hint-text="hintText"
+		:unit="unit"
 		:limit="limit"
 		/>  `,
 });
@@ -42,5 +43,6 @@ Default.args = {
   label: 'label',
   value: '',
   hintText: '',
+  unit: '',
   limit: 0,
 };
