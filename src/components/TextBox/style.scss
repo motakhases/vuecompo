@@ -24,12 +24,14 @@
   }
 
   &.error {
-    /* Default */
-    @apply border border-border-danger;
-    @apply dark:border-border-dark-danger;
+    &:not(:disabled) {
+      /* Default */
+      @apply border border-border-danger;
+      @apply dark:border-border-dark-danger;
 
-    /* focused */
-    @apply focus:border-border-danger outline-none;
+      /* focused */
+      @apply focus:border-border-danger outline-none;
+    }
   }
 }
 .zpl-textbox-label {
