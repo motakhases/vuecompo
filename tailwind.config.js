@@ -92,11 +92,6 @@ module.exports = {
       xl: '16px',
       circle: '100%',
     },
-
-    ringColor: {
-      light: colors.interactive.focus,
-      dark: colors.interactive.dark.focus,
-    },
   },
   variants: {},
 };
