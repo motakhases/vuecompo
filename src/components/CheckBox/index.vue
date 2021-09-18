@@ -1,18 +1,50 @@
 <template>
-  <label :class="['zpl-checkbox']"> <slot />
-    <input
-      type="checkbox"
-      :disabled="disabled"
-      :checked="checked"
+  <div>
+    <label
+      v-for="(option,index) in options"
+      :key="index"
+      :class="['zpl-checkbox']"
     >
-    <span class="checkmark" />
-  </label>
+      {{ option.label }}
+      <input
+        v-model="model"
+        :value="option.value"
+        type="checkbox"
+      >
+      <span class="checkmark" />
+    </label>
+  </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import logic from './logic';
+<script>
+
 import './style.scss';
 
-export default Vue.extend({ mixins: [logic] });
+export default ({
+  name: 'CheckBox',
+
+  props: {
+    value: {
+      type: [String, Boolean, Number],
+      default: null,
+    },
+    options: {
+      type: Array,
+      required: true,
+    },
+  },
+  computed: {
+    model: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit('input', value);
+        return value;
+      },
+    },
+  },
+
+});
+
 </script>
