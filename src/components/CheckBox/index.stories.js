@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-    <Component v-for="(option,index) in options" :key="index" :options="option">
+    <Component dir="rtl" v-for="(option,index) in options" :key="index" :options="option">
     </Component>
   `,
 });

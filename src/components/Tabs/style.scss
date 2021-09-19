@@ -1,0 +1,20 @@
+.zpl-tabs {
+  @apply flex w-full border-b-2 text-b2;
+  @apply text-text-soft dark:text-text-dark-soft;
+  @apply border-border-divider dark:border-border-dark-divider;
+  // when fill-container is false
+  .tab{
+    @apply ml-2xl pb-[16px] relative top-[2px] text-center cursor-pointer; 
+    &.active{
+      @apply border-b-2; 
+      @apply text-text dark:text-text-dark;
+      @apply border-primaryZarinpal dark:border-primaryZarinpal-dark;
+    }
+  }
+  // when fill-container is true
+  &.full-tabs{
+    .tab{
+      @apply flex-1 ml-0;
+    }
+  }
+}
