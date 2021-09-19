@@ -1,15 +1,19 @@
 <template>
-  <div :class="['zpl-tabs' , {'full-tabs':fillContainer }]">
-    <div
-      v-for="(option, index) in options"
-      :key="index"
-      :class="['tab', {active:activeTab==index}]"
-      @click="changeFilter(index,option.name)"
-    >
-      <span>
-        {{ option.label }}
-      </span>
-    </div>
+  <div>
+    <ul :class="['zpl-tabs', {'full-tabs':fillContainer}]">
+      <li
+        v-for="(tab, index) in tabs"
+        :key="tab.title"
+        :class="['tab', {active:index==selectedIndex}]"
+        @click="selectTab(index)"
+      >
+        <span>
+          {{ tab.title }}
+        </span>
+        <i v-show="false" class="warn-circle" />
+      </li>
+    </ul>
+    <slot />
   </div>
 </template>
 
@@ -24,21 +28,29 @@ export default ({
       type: Boolean,
       default: false,
     },
-    options: {
-      type: Array,
-      required: true,
-      // contains : {label , name}
-    },
   },
   data() {
     return {
-      activeTab: 0,
+      selectedIndex: 0, // the index of the selected tab,
+      tabs: [], // all of the tabs
     };
   },
+  created() {
+    this.tabs = this.$children;
+    console.log(this.tabs);
+  },
+  mounted() {
+    this.selectTab(0);
+  },
+
   methods: {
-    changeFilter(index, tab) {
-      this.activeTab = index;
-      this.$emit('activeTab', tab);
+    selectTab(i) {
+      this.selectedIndex = i;
+      // loop over all the tabs
+      this.tabs.forEach((tab, index) => {
+        const activeTab = tab;
+        activeTab.isActive = (index === i);
+      });
     },
   },
 });

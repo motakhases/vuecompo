@@ -8,24 +8,29 @@
       :options="testChecks"
     />
     <br>
+    <br>
     <Tag :btn="true">
       برچسب
     </Tag>
     <br>
-    <Tabs
-      :options="testTabs"
-      :fill-container="true"
-      @activeTab="getActiveTab"
-    />
-    <div v-if="activeTab=='first'">
-      first tab is active
-    </div>
-    <div v-if="activeTab=='second'">
-      second tab is active
-    </div>
-    <div v-if="activeTab=='third'">
-      third tab is active
-    </div>
+    <br>
+    <br>
+    <br>
+    <tabs>
+      <tab title="لیبل تب">Hello From Tab 1</tab>
+      <tab title="لیبل تب">Hello From Tab 2</tab>
+      <tab title="لیبل تب">Hello From Tab 3</tab>
+      <tab title="لیبل تب">Hello From Tab 4</tab>
+    </tabs>
+    <br>
+    <br>
+    <br>
+    <tabs :fill-container="true">
+      <tab title="لیبل تب">Hello From Tab 1</tab>
+      <tab title="لیبل تب">Hello From Tab 2</tab>
+      <tab title="لیبل تب">Hello From Tab 3</tab>
+      <tab title="لیبل تب">Hello From Tab 4</tab>
+    </tabs>
   </div>
 </template>
 
@@ -33,24 +38,22 @@
 import Vue from 'vue';
 import CheckBox from './components/CheckBox/index.vue';
 import Tag from './components/Tag/index.vue';
-import Tabs from './components/Tabs/index.vue';
+import tabs from './components/Tabs/index.vue';
+import tab from './components/Tabs/Tab/index.vue';
 
 export default Vue.extend({
   name: 'App',
-  components: { CheckBox, Tag, Tabs },
+  components: {
+    CheckBox, Tag, tabs, tab,
+  },
   data() {
     return {
       testChecks: [
-        { label: 'test', value: false },
-        { label: 'secondTest', value: true },
+        { label: 'تسس', value: 'test' },
+        { label: 'تست', value: 'testt' },
+        { label: 'تسستس', value: 'testttt' },
       ],
       selcted: [],
-      testTabs: [
-        { label: 'تست', name: 'first' },
-        { label: 'تست', name: 'second' },
-        { label: 'تست', name: 'third' },
-      ],
-      activeTab: '',
     };
   },
   created() {

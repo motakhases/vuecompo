@@ -1,5 +1,6 @@
 .zpl-tabs {
-  @apply flex w-full border-b-2 text-b2;
+  @apply w-max flex border-b-2 text-b2;
+  @apply sm:w-full;
   @apply text-text-soft dark:text-text-dark-soft;
   @apply border-border-divider dark:border-border-dark-divider;
   // when fill-container is false
@@ -10,6 +11,13 @@
       @apply text-text dark:text-text-dark;
       @apply border-primaryZarinpal dark:border-primaryZarinpal-dark;
     }
+    &:last-child{
+      @apply ml-0;
+    }
+    .warn-circle{
+      @apply inline-block w-xs h-xs rounded-circle bg-icon-danger;
+    }
+    
   }
   // when fill-container is true
   &.full-tabs{
