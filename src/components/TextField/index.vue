@@ -1,52 +1,56 @@
 <template>
-  <div :class="['zpl-textfield-group']">
-    <div
-      :class="['zpl-textfield', { error }]"
-      :disabled="disabled"
-    >
-      <input
-        class="zpl-textfield-input"
-        :value="value"
+  <div class="rtl">
+    <div :class="['zpl-textfield-group']">
+      <div
+        :class="['zpl-textfield', { error }]"
         :disabled="disabled"
-        :maxlength="limit > 0 ? limit : undefined"
-        @input="onInput"
-        @focusout="onFocusOut"
-        @focusin="onFocusIn"
       >
-      <span
-        v-if="unit"
-        class="zpl-textfield-unit"
+        <input
+          :class="['zpl-textfield-input', { ltr: type === 'number' }]"
+          :value="formattedValue"
+          :disabled="disabled"
+          :maxlength="limit > 0 ? limit : undefined"
+          :separator="separator"
+          @input="onInput"
+          @focusout="onFocusOut"
+          @focusin="onFocusIn"
+          @keypress="onlyNumber"
+        >
+        <!-- unit -->
+        <span
+          v-if="unit"
+          class="zpl-textfield-unit"
+        >
+          {{ unit }}
+        </span>
+      </div>
+      <!-- label -->
+      <label
+        v-if="label"
+        :class="['zpl-textfield-label', { activeLabel }]"
       >
-        {{ unit }}
-      </span>
-    </div>
-
-    <!-- show when we have label -->
-    <label
-      v-if="label"
-      :class="['zpl-textfield-label', { activeLabel }]"
-    >
-      {{ label }}
-    </label>
-    <!-- show when we have hint text or limit -->
-    <div
-      v-if="hintText || limit"
-      class="zpl-textfield-hint-box"
-    >
-      <!-- show when we have hint text -->
-      <span
-        v-if="hintText"
-        :class="['zpl-textfield-hint', hint]"
+        {{ label }}
+      </label>
+      <!--  hint text or limit container -->
+      <div
+        v-if="hintText || limit"
+        class="zpl-textfield-hint-box"
       >
-        {{ hintText }}
-      </span>
-      <!-- show when we have limit -->
-      <span
-        v-if="limit"
-        class="zpl-textfield-hint-limit"
-      >
-        {{ limit }}/{{ value.length }}
-      </span>
+        <!-- hint text -->
+        <span
+          v-if="hintText"
+          :class="['zpl-textfield-hint', hint]"
+        >
+          {{ hintText }}
+        </span>
+        <!-- limit -->
+        <span
+          v-if="limit"
+          class="zpl-textfield-hint-limit"
+        >
+          {{ limit }}/{{ value.length }}
+        </span>
+      </div>
     </div>
   </div>
 </template>

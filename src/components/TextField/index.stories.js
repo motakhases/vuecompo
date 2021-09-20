@@ -16,10 +16,11 @@ const Template = (_, { argTypes }) => ({
   template: `
 		<Component
 		v-model="value"
+		:type="type"
+		:separator="separator"
 		:disabled="disabled"
 		:error="error"
 		:label="label"
-		:value="value"
 		:hint="hint"
 		:hint-text="hintText"
 		:unit="unit"
@@ -32,7 +33,17 @@ export const Default = Template.bind({});
 Default.argTypes = {
   hint: {
     options: ['helper', 'error', 'success'],
+    control: { type: 'radio' }, 
+  }, 
+	type: {
+    options: ['text', 'number'],
     control: { type: 'radio' },
+  },
+	separator: {
+    options: ['comma', 'dash', 'none'],
+    control: { type: 'radio' },
+		description: 'implementing separator requires type to be number',
+
   },
 };
 
@@ -40,9 +51,11 @@ Default.args = {
   hint: 'helper',
   disabled: false,
   error: false,
-  label: 'label',
+  label: '',
   value: '',
   hintText: '',
   unit: '',
   limit: 0,
+	type: 'text',
+	separator: 'none'
 };

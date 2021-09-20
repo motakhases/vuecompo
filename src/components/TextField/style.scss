@@ -1,7 +1,6 @@
 .zpl-textfield-group {
   /* Default */
   @apply relative flex flex-col;
-  direction: rtl;
 }
 .zpl-textfield {
   /* Default */
@@ -19,7 +18,7 @@
     @apply dark:bg-surface-dark-disabled dark:border-border-dark-disabled;
   }
 
-  /* focused */
+  /* focus */
   &:focus-within:not(.error) {
     @apply border-interactive-focus outline-none shadow-border-focus;
     @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus;
@@ -38,8 +37,9 @@
   @apply bg-transparent border-none outline-none flex-auto p-sm min-w-0;
 }
 .zpl-textfield-unit {
+  /* Default */
   @apply p-xs bg-surface-soft rounded-[2px] text-text text-b2 m-2xs;
-	@apply dark:bg-surface-dark-soft dark:text-text-dark
+  @apply dark:bg-surface-dark-soft dark:text-text-dark;
 }
 .zpl-textfield-label {
   /* Default */
@@ -77,6 +77,7 @@
   }
 }
 .zpl-textfield-hint-limit {
+  /* Default */
   @apply py-2xs px-xs mr-auto	text-b3 text-text-soft;
   @apply dark:text-text-dark-soft;
 }
