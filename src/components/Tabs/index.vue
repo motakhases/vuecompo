@@ -10,7 +10,10 @@
         <span>
           {{ tab.title }}
         </span>
-        <i v-show="tab.warn" class="warn-circle" />
+        <i
+          v-show="tab.warn"
+          class="warn-circle"
+        />
       </li>
     </ul>
     <slot />

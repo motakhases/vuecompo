@@ -12,7 +12,8 @@
     @apply hover:bg-surface-hover ;
     @apply disabled:border-border-disabled;
     &:after{
-      @apply absolute hidden top-[6px] left-[6px] w-[8px] h-[8px] bg-surface rounded-circle ; 
+      @apply absolute hidden top-[6px] left-[6px] w-[8px] h-[8px] rounded-circle ;
+      @apply bg-surface dark:bg-surface-dark; 
       content: "";
     }
   }
