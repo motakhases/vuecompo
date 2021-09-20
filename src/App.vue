@@ -25,9 +25,9 @@
     <br>
     <br>
     <tabs>
-      <tab title="۱لیبل تب">Hello From Tab 1</tab>
-      <tab title="۲لیبل تب">Hello From Tab 2</tab>
-      <tab title="۳لیبل تب">Hello From Tab 3</tab>
+      <tab title="۱لیبل تب" >Hello From Tab 1</tab>
+      <tab title="۲لیبل تب" warn>Hello From Tab 2</tab>
+      <tab title="۳لیبل تب" warn>Hello From Tab 3</tab>
       <tab title="۴لیبل تب">Hello From Tab 4</tab>
     </tabs>
     <br>

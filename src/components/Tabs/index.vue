@@ -10,7 +10,7 @@
         <span>
           {{ tab.title }}
         </span>
-        <i v-show="false" class="warn-circle" />
+        <i v-show="tab.warn" class="warn-circle" />
       </li>
     </ul>
     <slot />
@@ -37,7 +37,6 @@ export default ({
   },
   created() {
     this.tabs = this.$children;
-    console.log(this.tabs);
   },
   mounted() {
     this.selectTab(0);
@@ -50,6 +49,9 @@ export default ({
       this.tabs.forEach((tab, index) => {
         const activeTab = tab;
         activeTab.isActive = (index === i);
+        if (activeTab.isActive) {
+          activeTab.warn = false;
+        }
       });
     },
   },

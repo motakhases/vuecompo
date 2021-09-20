@@ -11,11 +11,16 @@ export default {
       type: String,
       default: 'Tab',
     },
+    warn: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       isActive: true,
     };
   },
+
 };
 </script>
