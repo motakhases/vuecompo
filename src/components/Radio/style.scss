@@ -1,4 +1,4 @@
-.zpl-checkbox {
+.zpl-radio {
   /* Default */
   direction: rtl;
   @apply block relative pr-[30px] cursor-pointer text-text text-[14px];
@@ -8,13 +8,12 @@
   }
 
   .checkmark { 
-    @apply absolute top-0 right-0 h-lg w-lg bg-surface border-2 border-border rounded-sm;
+    @apply absolute top-0 right-0 h-lg w-lg bg-surface border-2 border-border rounded-circle;
     @apply hover:bg-surface-hover ;
     @apply disabled:border-border-disabled;
     &:after{
-      @apply absolute hidden top-[3px] left-[7px] w-[6px] h-[12px] border-r-2 border-b-2 border-surface ; 
+      @apply absolute hidden top-[6px] left-[6px] w-[8px] h-[8px] bg-surface rounded-circle ; 
       content: "";
-      transform: rotate(45deg);
     }
   }
 
