@@ -1,5 +1,12 @@
 import Vue from 'vue';
 
+const ARROW_DOWN_KEYCODE = 40;
+const ARROW_UP_KEYCODE = 38;
+const ARROW_LEFT_KEYCODE = 37;
+const ARROW_RIGHT_KEYCODE = 39;
+const ENTER_KEYCODE = 13;
+const TAB_KEYCODE = 9;
+
 export default Vue.extend({
   name: 'Dropdown',
   props: {
@@ -35,33 +42,57 @@ export default Vue.extend({
       type: Array,
       default: () => [],
     },
+    disabledOptionId: {
+      type: Number,
+      default: null,
+    },
   },
-  data() {
+  data() :{
+    activeLabel: boolean;
+    focused: boolean;
+    searchIndex: number;
+    filteredOptions: Array<any>;} {
     return {
       activeLabel: !!this.value.length,
-      showList: false,
+      focused: false,
+      searchIndex: -1,
+      filteredOptions: this.options,
     };
+  },
+  mounted() {
+    document.documentElement.addEventListener('click', this.outsideClick, false);
+  },
+  beforeDestroy() {
+    document.documentElement.removeEventListener('click', this.outsideClick, false);
   },
   methods: {
     onInput(event: any) {
-      // update value of input and if they have , or - remove them
-      const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
+      // format all the numbers to English numbers and if they have , or - remove them
+      const newValue = this.toEnNumber(
+        event.target.value.replace(/,/g, '').replace(/-/g, ''),
+      );
+      // update value of input
       this.$emit('input', this.toEnNumber(newValue));
     },
-    onFocusIn() {
+    onFocusIn(event:any) {
       // for adding active label style
       this.activeLabel = true;
-
-      // for showing dropdown list
-      // this.showList = !this.showList;
+      // open dropdown
+      this.showOptions();
+      const isEnterKey = event.keyCode === ENTER_KEYCODE;
+      if (isEnterKey) {
+        this.showOptions();
+      }
     },
     onFocusOut() {
-      // if input is empty put label inside input on focusing out
+      // if input is empty put label inside input
       if (!this.value) {
         this.activeLabel = false;
       }
+      // to remove active class
+      this.searchIndex = -1;
     },
-    toEnNumber(str: String) {
+    toEnNumber(str: string) {
       // change all the Persian or Arabic numbers to English
       if (str === '') {
         return str;
@@ -80,15 +111,89 @@ export default Vue.extend({
       }
       return true;
     },
-    selectOption(value: String) {
-      // this.showList = false;
-      this.$emit('input', this.toEnNumber(value));
+    selectOption(value: string) {
+      // update the value of input with selected option
+      this.$emit('input', value);
+
+      // close the dropdown
+      this.hideOptions();
+
+      // for adding active label style
+      this.activeLabel = true;
     },
-    click() {
-      this.showList = !this.showList;
+    showOptions() {
+      // open dropdown
+      this.focused = true;
     },
-    blur() {
-      this.showList = false;
+    hideOptions() {
+      // close dropdown
+      this.$nextTick(() => {
+        this.focused = false;
+      });
+    },
+    outsideClick(e:any) {
+      // close dropdown on clicking outside
+      if (!this.$el.contains(e.target)) {
+        this.hideOptions();
+      }
+    },
+    onKeyUp(e:any) {
+      const isEnterKey = e.keyCode === ENTER_KEYCODE;
+      const isArrowDownKey = e.keyCode === ARROW_DOWN_KEYCODE;
+      const isArrowUpKey = e.keyCode === ARROW_UP_KEYCODE;
+      const isTabKey = e.keyCode === TAB_KEYCODE;
+      const isArrowLeftKey = e.keyCode === ARROW_LEFT_KEYCODE;
+      const isArrowRightKey = e.keyCode === ARROW_RIGHT_KEYCODE;
+
+      if (isEnterKey
+        || isArrowDownKey
+        || isArrowUpKey
+        || isTabKey
+        || isArrowLeftKey
+        || isArrowRightKey) {
+        return;
+      }
+      if (this.value.length) {
+        this.filteredOptions = this.options.filter(
+          (option:any) => option.name.toLowerCase().includes(this.value),
+        );
+      } else {
+        this.filteredOptions = this.options;
+      }
+    },
+    onKeyDown(e:any) {
+      const isArrowDownKey = e.keyCode === ARROW_DOWN_KEYCODE;
+      const isArrowUpKey = e.keyCode === ARROW_UP_KEYCODE;
+      const isEnterKey = e.keyCode === ENTER_KEYCODE;
+      if (this.focused) {
+        if (isArrowDownKey) {
+          if (this.searchIndex < 0) {
+            this.searchIndex = 0;
+          } else if (this.searchIndex < this.filteredOptions.length - 1) {
+            this.searchIndex += 1;
+          } else if (this.searchIndex >= this.filteredOptions.length - 1) {
+            this.searchIndex = 0;
+          }
+        } else if (isArrowUpKey) {
+          if (this.searchIndex < 0) {
+            this.searchIndex = 0;
+          } else if (this.searchIndex === 0) {
+            this.searchIndex = this.filteredOptions.length - 1;
+          } else if (this.searchIndex <= this.filteredOptions.length - 1) {
+            this.searchIndex -= 1;
+          }
+        } else if (isEnterKey) {
+          if (this.searchIndex >= 0) {
+            if (this.filteredOptions.length) {
+              const newValue = this.filteredOptions[this.searchIndex].name;
+              this.$emit('input', this.toEnNumber(newValue));
+              this.hideOptions();
+            }
+          }
+        }
+      } else if (isEnterKey) {
+        this.showOptions();
+      }
     },
   },
 });

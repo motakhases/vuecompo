@@ -2,13 +2,11 @@
   <div class="rtl">
     <div
       :class="['zpl-textfield-group']"
-      tabindex="0"
-      @click="click"
-      @blur="blur"
     >
       <div
         :class="['zpl-textfield', { error }]"
         :disabled="disabled"
+        @click="showOptions"
       >
         <input
           :class="['zpl-textfield-input']"
@@ -18,13 +16,22 @@
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keypress="onlyNumber"
+          @keyup="onKeyUp"
+          @keydown="onKeyDown"
         >
       </div>
-      <ul :class="['zpl-dropdown-list', { showList }]">
+      <ul :class="['zpl-dropdown-list', { 'showList':focused }]">
         <li
-          v-for="option in options"
+          v-for="(option,i) in filteredOptions"
           :key="option.id"
-          class="zpl-dropdown-item"
+          :class="[
+            'zpl-dropdown-item',
+            {
+              disabled: disabledOptionId == option.id,
+              selected: value === option.name,
+              active: searchIndex === i
+            },
+          ]"
           @click="selectOption(option.name)"
         >
           {{ option.name }}
@@ -32,6 +39,8 @@
       </ul>
       <!-- label -->
       {{ value }}
+      {{ disabledOptionId }}
+      {{ focused }}
       <label
         v-if="label"
         :class="['zpl-textfield-label', { activeLabel }]"

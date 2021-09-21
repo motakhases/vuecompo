@@ -22,6 +22,7 @@ const Template = (_, { argTypes }) => ({
 		:hint="hint"
 		:hint-text="hintText"
 		:options="options"
+		:disabledOptionId="disabledOptionId"
 		/>  `,
 });
 
@@ -38,11 +39,15 @@ Default.args = {
   hint: 'helper',
   disabled: false,
   error: false,
-  label: '',
+  label: 'laabler',
   value: '',
-  hintText: '',
+  hintText: 'ghint',
   options: [
-    { id: 1, name: "Option 1" },
-    { id: 2, name: "Option 2" },
+    { id: 1, name: 'Barney' },
+    { id: 2, name: 'Homer' },
+    { id: 3, name: 'Apu' },
+    { id: 4, name: 'Bart' },
+    { id: 5, name: 'Flanders' },
   ],
+	disabledOptionId: null
 };
