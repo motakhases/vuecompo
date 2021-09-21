@@ -84,7 +84,7 @@
 }
 .zpl-dropdown-item {
   /* Default */
-  @apply py-xs px-sm text-text text-b2 truncate rounded-sm cursor-pointer	;
+  @apply py-xs px-sm text-text text-b2 truncate rounded-sm cursor-pointer;
 
   &:not(:last-child) {
     @apply mb-2xs;
@@ -92,12 +92,26 @@
   /* Hover */
   @apply hover:bg-surface-hover;
   @apply dark:hover:bg-surface-dark-hover;
-
+	
   /* Active */
   @apply active:bg-surface-active;
   @apply dark:active:bg-surface-dark-active;
 
   /* Disabled */
-  @apply disabled:bg-surface-disabled;
-  @apply dark:disabled:bg-surface-dark-disabled;
+  &.disabled {
+    @apply bg-surface-disabled pointer-events-none text-text-disabled;
+    @apply dark:bg-surface-dark-disabled dark:text-text-dark-disabled;
+  }
+  &.selected {
+    @apply bg-surface-select text-text relative flex items-center;
+    @apply dark:bg-surface-dark-select dark:text-text-dark;
+    &:after {
+      content: "";
+      @apply absolute bg-primaryZarinpal w-2xs h-2xs left-md;
+    }
+  }
+  &.active {
+    @apply bg-surface-active;
+    @apply dark:bg-surface-dark-active;
+  }
 }
