@@ -39,9 +39,9 @@ Default.args = {
   hint: 'helper',
   disabled: false,
   error: false,
-  label: 'laabler',
+  label: '',
   value: '',
-  hintText: 'ghint',
+  hintText: '',
   options: [
     { id: 1, name: 'Barney' },
     { id: 2, name: 'Homer' },

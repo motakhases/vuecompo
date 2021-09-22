@@ -24,23 +24,23 @@
         <li
           v-for="(option,i) in filteredOptions"
           :key="option.id"
+          ref="optionRef"
           :class="[
             'zpl-dropdown-item',
             {
               disabled: disabledOptionId == option.id,
               selected: value === option.name,
-              active: searchIndex === i
+              active: activeOptionIndex === i || activeOption
             },
           ]"
           @click="selectOption(option.name)"
+          @mouseenter="activateOption"
+          @mouseleave="deactivateOption"
         >
           {{ option.name }}
         </li>
       </ul>
       <!-- label -->
-      {{ value }}
-      {{ disabledOptionId }}
-      {{ focused }}
       <label
         v-if="label"
         :class="['zpl-textfield-label', { activeLabel }]"
