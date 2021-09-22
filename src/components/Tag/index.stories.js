@@ -2,15 +2,14 @@ import Component from './index.vue';
 
 export default {
   component: Component,
-  title: 'Components/CheckBox',
+  title: 'Components/Tag',
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-    <Component dir="rtl" v-for="(option,index) in options" :key="index" :options="option">
-    </Component>
+    <Component :btn="true'></Component>
   `,
 });
 
@@ -20,7 +19,5 @@ Default.argTypes = {
 };
 
 Default.args = {
-  options: [
-    { label: 'لیبل', value: true },
-  ],
+  button: false,
 };

@@ -65,6 +65,24 @@ module.exports = {
       btn: ['14px', { lineHeight: '24px' }],
     },
 
+    boxShadow: {
+      // shadow box
+      'elevation-50': 'box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05)',
+      'elevation-100': '0px 4px 8px 2px rgba(96, 96, 108, 0.1)',
+      'elevation-200': '0px 4px 16px rgba(96, 96, 108, 0.2)',
+      'dark-elevation-50': '0px 1px 4px rgba(0, 0, 0, 0.4)',
+      'dark-elevation-100': '0px 4px 8px -2px rgba(0, 0, 0, 0.6)',
+      'dark-elevation-200': '0px 4px 15px rgba(0, 0, 0, 0.6)',
+      // border effect
+      'border-hover': '0px 0px 0px 2px rgba(218, 219, 225, 0.4)',
+      'border-focus': '0px 0px 0px 2px rgba(102, 166, 255, 0.4)',
+      'dark-border-hover': '0px 0px 0px 2px rgba(82, 82, 82, 0.4)',
+      'dark-border-focus': '0px 0px 0px 2px rgba(255, 214, 10, 0.4)',
+      'light-outline': '0 0 0 2px #66A6FF',
+      'dark-outline': '0 0 0 2px #FFCB66',
+
+    },
+
     borderRadius: {
       none: '0',
       xs: '2px',
@@ -73,11 +91,6 @@ module.exports = {
       lg: '12px',
       xl: '16px',
       circle: '100%',
-    },
-
-    ringColor: {
-      light: colors.interactive.focus,
-      dark: colors.interactive.dark.focus,
     },
   },
   variants: {},

@@ -16,9 +16,12 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
+    indent: ['error', 2],
+    'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/no-extraneous-dependencies': 0,
     'max-len': ['error', { code: 180 }],
     'vue/no-v-html': 0,
+    'linebreak-style': 0,
   },
   overrides: [
     {

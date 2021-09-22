@@ -3,13 +3,13 @@
     <label
       v-for="(option,index) in options"
       :key="index"
-      :class="['zpl-checkbox']"
+      :class="['zpl-radio']"
     >
       {{ option.label }}
       <input
         v-model="model"
-        type="checkbox"
-        :name="`check-${name}`"
+        type="radio"
+        :name="`radio-${name}`"
         :value="option.value"
         :disabled="disabled"
       >
@@ -23,12 +23,12 @@
 import './style.scss';
 
 export default ({
-  name: 'CheckBox',
+  name: 'Radio',
 
   props: {
     value: {
-      type: Array,
-      default: () => [],
+      type: [String, Boolean, Number],
+      default: null,
     },
     options: {
       // contains label & value
