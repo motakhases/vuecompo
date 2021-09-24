@@ -8,8 +8,8 @@
     @apply hover:border-interactive-link dark:hover:border-interactive-dark-link;
 
     /* Focus */
-    @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
-    @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+    @apply focus:shadow-light-outline focus:border focus:border-surface;
+    @apply dark:focus:shadow-dark-outline dark:focus:border-surface-dark;
   }
 }
 
