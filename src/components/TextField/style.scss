@@ -4,7 +4,7 @@
 }
 .zpl-textfield {
   /* Default */
-  @apply flex border border-border rounded-sm w-full text-text-soft h-3xl;
+  @apply bg-surface flex border border-border rounded-sm w-full text-text-soft h-3xl;
   @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
 
   /* hover */
@@ -34,22 +34,26 @@
 }
 .zpl-textfield-input {
   /* Default */
-  @apply bg-transparent border-none outline-none flex-auto p-sm min-w-0;
+  @apply bg-transparent border-none outline-none flex-auto p-sm min-w-0 z-10;
 }
 .zpl-textfield-unit {
   /* Default */
-  @apply p-xs bg-surface-soft rounded-[2px] text-text text-b2 m-2xs;
+  @apply p-xs bg-surface-soft rounded-[2px] text-text text-b2 m-2xs select-none;
   @apply dark:bg-surface-dark-soft dark:text-text-dark;
 }
 .zpl-textfield-label {
   /* Default */
-  @apply absolute top-sm right-sm text-ls-cp 
-	z-10 bg-surface py-[2px] px-2xs transition-all	
-	ease-in-out	delay-100;
-  @apply dark:bg-surface-dark text-text-dark-soft;
+  @apply absolute top-sm right-sm z-0 px-2xs transition-all	ease-in-out	delay-100 text-text-soft;
+  @apply dark:text-text-dark-soft;
 
-  &.activeLabel {
-    @apply -top-xs;
+  &:not(.active) {
+    @apply text-b2;
+  }
+
+  &.active {
+    /* Default */
+    @apply -top-xs bg-surface text-ls-cp py-[2px];
+    @apply dark:bg-surface-dark;
   }
 }
 .zpl-textfield-hint-box {

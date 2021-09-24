@@ -6,7 +6,7 @@
         :disabled="disabled"
       >
         <input
-          :class="['zpl-textfield-input', { ltr: type === 'number' }]"
+          :class="['zpl-textfield-input', { 'ltr': type === 'number' }]"
           :value="formattedValue"
           :disabled="disabled"
           :maxlength="limit > 0 ? limit : undefined"
@@ -23,14 +23,14 @@
         >
           {{ unit }}
         </span>
+        <!-- label -->
+        <label
+          v-if="label"
+          :class="['zpl-textfield-label', { 'active' : activeLabel }]"
+        >
+          {{ label }}
+        </label>
       </div>
-      <!-- label -->
-      <label
-        v-if="label"
-        :class="['zpl-textfield-label', { activeLabel }]"
-      >
-        {{ label }}
-      </label>
       <!--  hint text or limit container -->
       <div
         v-if="hintText || limit"
