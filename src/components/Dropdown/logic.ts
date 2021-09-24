@@ -4,6 +4,7 @@ const ARROW_DOWN_KEYCODE = 40;
 const ARROW_UP_KEYCODE = 38;
 const ENTER_KEYCODE = 13;
 const keyList = [9, 13, 16, 17, 18, 20, 32, 37, 38, 39, 40, 46];
+
 export default Vue.extend({
   name: 'Dropdown',
   props: {
@@ -30,10 +31,6 @@ export default Vue.extend({
     hintText: {
       type: String,
       default: '',
-    },
-    type: {
-      type: String,
-      default: 'text',
     },
     options: {
       type: Array,

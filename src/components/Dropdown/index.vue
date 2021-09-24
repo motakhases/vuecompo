@@ -1,15 +1,14 @@
 <template>
   <div class="rtl">
     <div
-      :class="['zpl-textfield-group']"
+      :class="['zpl-dropdown-group']"
     >
       <div
-        :class="['zpl-textfield', { error }]"
+        :class="['zpl-dropdown', { error }]"
         :disabled="disabled"
-        @click="showOptions"
       >
         <input
-          :class="['zpl-textfield-input']"
+          :class="['zpl-dropdown-input']"
           :value="value"
           :disabled="disabled"
           @input="onInput"
@@ -19,7 +18,22 @@
           @keyup="onKeyUp"
           @keydown="onKeyDown"
         >
+        <!-- label -->
+        <label
+          v-if="label"
+          :class="['zpl-dropdown-label', { activeLabel }]"
+        >
+          {{ label }}
+        </label>
       </div>
+      <!-- hint text -->
+      <span
+        v-if="hintText"
+        :class="['zpl-dropdown-hint', hint]"
+      >
+        {{ hintText }}
+      </span>
+      <!-- dropdown list -->
       <ul :class="['zpl-dropdown-list', { 'showList':focused }]">
         <li
           v-for="(option,i) in filteredOptions"
@@ -40,26 +54,6 @@
           {{ option.name }}
         </li>
       </ul>
-      <!-- label -->
-      <label
-        v-if="label"
-        :class="['zpl-textfield-label', { activeLabel }]"
-      >
-        {{ label }}
-      </label>
-      <!--  hint text container -->
-      <div
-        v-if="hintText"
-        class="zpl-textfield-hint-box"
-      >
-        <!-- hint text -->
-        <span
-          v-if="hintText"
-          :class="['zpl-textfield-hint', hint]"
-        >
-          {{ hintText }}
-        </span>
-      </div>
     </div>
   </div>
 </template>
