@@ -78,8 +78,11 @@ module.exports = {
       'border-focus-soft': '0px 0px 0px 2px rgba(102, 166, 255, 0.4)',
       'border-focus-heavy': '0px 0px 0px 2px #66A6FF',
       'dark-border-hover': '0px 0px 0px 2px rgba(82, 82, 82, 0.4)',
-      'dark-border-focus-soft': '0px 0px 0px 2px rgba(255, 203, 102, 0.4)',
-      'dark-border-focus-heavy': ' 0px 0px 0px 2px #FFCB66',
+      'dark-border-focus-soft': '0px 0px 0px 2px rgba(255, 214, 10, 0.4)',
+      'dark-border-focus-heavy': '0px 0px 0px 2px #FFD60A',
+      'light-outline': '0 0 0 2px #66A6FF',
+      'dark-outline': '0 0 0 2px #FFCB66',
+
     },
 
     borderRadius: {
