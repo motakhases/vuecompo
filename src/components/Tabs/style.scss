@@ -1,0 +1,39 @@
+.zpl-tabs {
+  // default styles
+  @apply w-max flex border-b-2 text-b2;
+  @apply sm:w-full;
+  @apply text-text-soft;
+  @apply border-border-divider;
+  // dark states
+  @apply dark:text-text-dark-soft;
+  @apply dark:border-border-dark-divider;
+
+  // when fill-container is false
+  .tab{
+    @apply ml-2xl pb-[16px] relative top-[2px] text-center cursor-pointer; 
+    &.active{
+      @apply border-b-2; 
+      @apply text-text;
+      @apply border-primaryZarinpal;
+      // dark states
+      @apply dark:text-text-dark;
+      @apply dark:border-primaryZarinpal-dark;
+    }
+    &:last-child{
+      @apply ml-0;
+    }
+    .warn-circle{
+      @apply inline-block w-xs h-xs rounded-circle;
+      @apply bg-icon-danger;
+      // dark states
+      @apply dark:bg-icon-dark-danger;
+    }
+    
+  }
+  // when fill-container is true
+  &.full-tabs{
+    .tab{
+      @apply flex-1 ml-0;
+    }
+  }
+}

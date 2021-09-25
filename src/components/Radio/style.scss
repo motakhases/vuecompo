@@ -1,0 +1,50 @@
+.zpl-radio {
+  /* Default */
+  direction: rtl;
+  @apply block relative pr-[30px] cursor-pointer text-[14px];
+  @apply text-text;
+  // dark states
+  @apply dark:text-text-dark;
+
+  input{
+    @apply hidden;
+  }
+
+  .checkmark { 
+    @apply absolute top-0 right-0 h-lg w-lg rounded-circle border-2;
+    @apply bg-surface border-border;
+    @apply hover:bg-surface-hover;
+    @apply disabled:border-border-disabled;
+    // dark states
+    @apply dark:bg-surface-dark dark:border-border-dark;
+    @apply dark:hover:bg-surface-dark-hover ;
+    @apply dark:disabled:border-border-dark-disabled;
+    &:after{
+      @apply absolute hidden top-[6px] left-[6px] w-[8px] h-[8px] rounded-circle ;
+      @apply bg-surface;
+      // dark states
+      @apply dark:bg-surface-dark;
+      content: "";
+    }
+  }
+
+  input:checked ~ .checkmark {
+    @apply border-none;
+    @apply bg-primaryZarinpal;
+    @apply hover:bg-primaryZarinpal-hover;
+    @apply disabled:bg-primaryZarinpal-disabled;
+    // dark states
+    @apply bg-primaryZarinpal-dark;
+    @apply hover:bg-primaryZarinpal-dark-hover;
+    @apply disabled:bg-primaryZarinpal-dark-disabled;
+    &:after{
+      @apply block; 
+    }
+  }
+
+  input:disabled ~ .checkmark {
+    @apply bg-primaryZarinpal-disabled;
+    // dark states
+    @apply bg-primaryZarinpal-dark-disabled;
+  }
+}
