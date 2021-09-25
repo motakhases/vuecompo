@@ -1,16 +1,16 @@
-import Component from './index.vue';
+import Radio from './index.vue';
 
 export default {
-  component: Component,
-  title: 'Components/CheckBox',
+  component: Radio,
+  title: 'Components/Radio',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Radio },
   props: Object.keys(argTypes),
   template: `
-    <Component dir="rtl" v-for="(option,index) in options" :key="index" :options="option">
-    </Component>
+    <Radio dir="rtl" :name="name" :options="options" :disabled="disabled">
+    </Radio>
   `,
 });
 
@@ -21,6 +21,10 @@ Default.argTypes = {
 
 Default.args = {
   options: [
-    { label: 'لیبل', value: true },
+    { label: 'لیبل', value: 'test' },
+    { label: 'لیبل', value: 'test2' },
+    { label: 'لیبل', value: 'test3' },
   ],
+  name:'test',
+  disabled:false
 };

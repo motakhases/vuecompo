@@ -1,15 +1,17 @@
-import Component from './index.vue';
+import Tag from './index.vue';
 
 export default {
-  component: Component,
+  component: Tag,
   title: 'Components/Tag',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Tag },
   props: Object.keys(argTypes),
   template: `
-    <Component :btn="true'></Component>
+    <Tag dir="rtl" :btn="button">
+    {{text}}
+    </Tag>
   `,
 });
 
@@ -19,5 +21,6 @@ Default.argTypes = {
 };
 
 Default.args = {
+  text: 'لیبل',
   button: false,
 };
