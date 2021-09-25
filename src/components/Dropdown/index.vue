@@ -14,7 +14,6 @@
           @input="onInput"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
-          @keypress="onlyNumber"
           @keyup="onKeyUp"
           @keydown="onKeyDown"
         >
@@ -34,26 +33,51 @@
         {{ hintText }}
       </span>
       <!-- dropdown list -->
-      <ul :class="['zpl-dropdown-list', { 'showList':focused }]">
-        <li
-          v-for="(option,i) in filteredOptions"
-          :key="option.id"
-          ref="optionRef"
-          :class="[
-            'zpl-dropdown-item',
-            {
-              disabled: disabledOptionId == option.id,
-              selected: value === option.name,
-              active: activeOptionIndex === i || activeOption
-            },
-          ]"
-          @click="selectOption(option.name)"
-          @mouseenter="activateOption"
-          @mouseleave="deactivateOption"
-        >
-          {{ option.name }}
-        </li>
-      </ul>
+      <div :class="['zpl-dropdown-list', { 'showList':focused }]">
+        <!-- shows option list when loading is false -->
+        <ul v-if="!loading">
+          <li
+            v-for="(option,i) in filteredOptions"
+            :key="option.id"
+            ref="optionRef"
+            :class="[
+              'zpl-dropdown-item',
+              {
+                disabled: disabledOptionId == option.id,
+                selected: value === option.name,
+                active: activeOptionIndex === i
+              },
+            ]"
+            @click="selectOption(option.name)"
+            @mouseenter="activateOption"
+            @mouseleave="deactivateOption"
+          >
+            {{ option.name }}
+          </li>
+        </ul>
+
+        <!-- loading skeleton shows when loading is true -->
+        <div v-if="loading">
+          <div class="zpl-dropdown-skeleton-box">
+            <span
+              class="zpl-dropdown-skeleton"
+              style="width:27%;"
+            />
+          </div>
+          <div class="zpl-dropdown-skeleton-box">
+            <span
+              class="zpl-dropdown-skeleton"
+              style="width:48%;"
+            />
+          </div>
+          <div class="zpl-dropdown-skeleton-box">
+            <span
+              class="zpl-dropdown-skeleton"
+              style="width:36%;"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

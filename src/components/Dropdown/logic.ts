@@ -40,33 +40,37 @@ export default Vue.extend({
       type: Number,
       default: null,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() :{
     activeLabel: boolean;
     focused: boolean;
     activeOptionIndex: number;
-    filteredOptions: Array<any>;} {
+    filteredOptions: Array<any>;
+    optionRef: any;
+    } {
     return {
       activeLabel: !!this.value.length,
       focused: false,
       activeOptionIndex: -1,
       filteredOptions: this.options,
+      optionRef: '',
     };
   },
   mounted() {
     document.documentElement.addEventListener('click', this.outsideClick, false);
+    this.optionRef = this.$refs.optionRef;
   },
   beforeDestroy() {
     document.documentElement.removeEventListener('click', this.outsideClick, false);
   },
   methods: {
     onInput(event: any) {
-      // format all the numbers to English numbers and if they have , or - remove them
-      const newValue = this.toEnNumber(
-        event.target.value.replace(/,/g, '').replace(/-/g, ''),
-      );
       // update value of input
-      this.$emit('input', this.toEnNumber(newValue));
+      this.$emit('input', event.target.value);
     },
     onFocusIn(event:any) {
       // for adding active label style
@@ -85,25 +89,6 @@ export default Vue.extend({
       }
       // to remove active class
       this.activeOptionIndex = -1;
-    },
-    toEnNumber(str: string) {
-      // change all the Persian or Arabic numbers to English
-      if (str === '') {
-        return str;
-      }
-      return str
-        .toString()
-        .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: String) => (d.charCodeAt(0) - 1632).toString())
-        .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: String) => (d.charCodeAt(0) - 1776).toString());
-    },
-    onlyNumber(event: any) {
-      // just accept number and dot
-      if (this.type === 'number') {
-        if (!/\d/.test(event.key) && event.key !== '.') {
-          return event.preventDefault();
-        }
-      }
-      return true;
     },
     selectOption(value: string) {
       // update the value of input with selected option
@@ -152,13 +137,13 @@ export default Vue.extend({
         if (isArrowDownKey || isArrowUpKey) {
           for (let i = 0; i < this.filteredOptions.length; i += 1) {
             // find the active option based on class
-            const activeOption = (this.$refs.optionRef[i]).classList.contains('active');
+            const activeOption = (this.optionRef[i]).classList.contains('active');
 
             // if there is active option then remove the active class and
             // update the index of active option in order to move active class
             if (activeOption) {
               this.activeOptionIndex = i;
-              (this.$refs.optionRef[i]).classList.remove('active');
+              (this.optionRef[i]).classList.remove('active');
             }
           }
         }
@@ -200,7 +185,7 @@ export default Vue.extend({
               ? this.filteredOptions[this.activeOptionIndex].name : '';
 
             // update the value of input
-            this.$emit('input', this.toEnNumber(newValue));
+            this.$emit('input', newValue);
 
             // close the dropdown
             this.hideOptions();

@@ -23,6 +23,7 @@ const Template = (_, { argTypes }) => ({
 		:hint-text="hintText"
 		:options="options"
 		:disabledOptionId="disabledOptionId"
+		:loading="loading"
 		/>  `,
 });
 
@@ -49,5 +50,6 @@ Default.args = {
     { id: 4, name: 'Bart' },
     { id: 5, name: 'Flanders' },
   ],
-	disabledOptionId: null
+	disabledOptionId: null,
+	loading: false
 };
