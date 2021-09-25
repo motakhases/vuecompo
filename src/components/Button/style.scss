@@ -99,8 +99,9 @@
 .zpl-button-loading-1,
 .zpl-button-loading-2 {
   /* Default */
-  @apply w-full h-full rounded-circle bg-surface absolute top-0 left-0;
-  opacity: 0.6;
+  @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
+  @apply dark:bg-black-40;
+
   animation: bounce 2s infinite ease-in-out;
 }
 
