@@ -20,5 +20,9 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
 });

@@ -3,7 +3,14 @@
     :class="['zpl-button', size, type, { fill }]"
     :disabled="disabled"
   >
-    <slot />
+    <slot v-if="!loading" />
+    <div
+      v-if="loading"
+      class="zpl-button-loading"
+    >
+      <div class="zpl-button-loading-1" />
+      <div class="zpl-button-loading-2" />
+    </div>
   </button>
 </template>
 

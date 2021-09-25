@@ -82,12 +82,41 @@
   &.medium {
     @apply px-md py-xs;
   }
-	
+
   &.large {
     @apply px-xl py-sm;
   }
-	
-	&.fill {
+
+  &.fill {
     @apply w-full;
+  }
+}
+.zpl-button-loading {
+  /* Default */
+  @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
+}
+
+.zpl-button-loading-1,
+.zpl-button-loading-2 {
+  /* Default */
+  @apply w-full h-full rounded-circle bg-surface absolute top-0 left-0;
+  opacity: 0.6;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.zpl-button-loading-2 {
+  /* Default */
+  animation-delay: -1s;
+}
+
+/* animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
   }
 }
