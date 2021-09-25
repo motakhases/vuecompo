@@ -34,28 +34,6 @@
       </span>
       <!-- dropdown list -->
       <div :class="['zpl-dropdown-list', { 'showList':focused }]">
-        <!-- shows option list when loading is false -->
-        <ul v-if="!loading">
-          <li
-            v-for="(option,i) in filteredOptions"
-            :key="option.id"
-            ref="optionRef"
-            :class="[
-              'zpl-dropdown-item',
-              {
-                disabled: disabledOptionId == option.id,
-                selected: value === option.name,
-                active: activeOptionIndex === i
-              },
-            ]"
-            @click="selectOption(option.name)"
-            @mouseenter="activateOption"
-            @mouseleave="deactivateOption"
-          >
-            {{ option.name }}
-          </li>
-        </ul>
-
         <!-- loading skeleton shows when loading is true -->
         <div v-if="loading">
           <div class="zpl-dropdown-skeleton-box">
@@ -77,6 +55,27 @@
             />
           </div>
         </div>
+        <!-- shows option list when loading is false -->
+        <ul v-else>
+          <li
+            v-for="(option,i) in filteredOptions"
+            :key="option.id"
+            ref="optionRef"
+            :class="[
+              'zpl-dropdown-item',
+              {
+                disabled: disabledOptionId == option.id,
+                selected: value === option.name,
+                active: activeOptionIndex === i
+              },
+            ]"
+            @click="selectOption(option.name)"
+            @mouseenter="activateOption"
+            @mouseleave="deactivateOption"
+          >
+            {{ option.name }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
