@@ -75,12 +75,11 @@ module.exports = {
       'dark-elevation-200': '0px 4px 15px rgba(0, 0, 0, 0.6)',
       // border effect
       'border-hover': '0px 0px 0px 2px rgba(218, 219, 225, 0.4)',
-      'border-focus': '0px 0px 0px 2px rgba(102, 166, 255, 0.4)',
+      'border-focus-soft': '0px 0px 0px 2px rgba(102, 166, 255, 0.4)',
+      'border-focus-heavy': '0px 0px 0px 2px #66A6FF',
       'dark-border-hover': '0px 0px 0px 2px rgba(82, 82, 82, 0.4)',
-      'dark-border-focus': '0px 0px 0px 2px rgba(255, 214, 10, 0.4)',
-      'light-outline': '0 0 0 2px #66A6FF',
-      'dark-outline': '0 0 0 2px #FFCB66',
-
+      'dark-border-focus-soft': '0px 0px 0px 2px rgba(255, 203, 102, 0.4)',
+      'dark-border-focus-heavy': ' 0px 0px 0px 2px #FFCB66',
     },
 
     borderRadius: {
