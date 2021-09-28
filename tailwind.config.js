@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { colors } = require('./src/designTokens/colors');
+const { fontFamily } = require('./src/designTokens/fontFamily');
 
 module.exports = {
   mode: 'jit',
@@ -19,6 +20,8 @@ module.exports = {
 
     colors,
 
+    fontFamily,
+
     spacing: {
       0: '0px',
       '2xs': '4px',
@@ -32,11 +35,6 @@ module.exports = {
       '4xl': '64px',
       '5xl': '96px',
       '6xl': '128px',
-    },
-
-    fontFamily: {
-      sans: ['system-ui'],
-      serif: ['Georgia'],
     },
 
     fontSize: {
