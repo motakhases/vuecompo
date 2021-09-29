@@ -1,7 +1,9 @@
 <template>
-  <div :class="['zpl-segment-group' , { fill } ]">
+  <button
+    :class="['zpl-segment-button', { active }]"
+  >
     <slot />
-  </div>
+  </button>
 </template>
 
 <script lang="ts">

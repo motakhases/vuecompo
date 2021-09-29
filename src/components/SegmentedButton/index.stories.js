@@ -1,36 +1,28 @@
-import Component from './index.vue';
+import Component from "./index.vue";
+import Button from "./Button/index.vue";
 
 export default {
   component: Component,
-  title: 'Components/SegmentedButton',
+  title: "Components/SegmentedButton",
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
     Component,
+    Button,
   },
   props: Object.keys(argTypes),
   template: `
-    <Component :segments="segments" :fill="fill"></Component>
+    <Component :fill="fill">
+			<Button> bnt1 </Button>
+			<Button active="true" > btn2 </Button>
+			<Button> bnt3 </Button>
+		</Component>
   `,
 });
 
 export const Default = Template.bind({});
 
 Default.args = {
-  segments: [
-    {
-      title: 'btn1',
-      id: '0',
-    },
-    {
-      title: 'btn2',
-      id: '1',
-    },
-    {
-      title: 'btn3',
-      id: '2',
-    },
-  ],
   fill: false,
 };
