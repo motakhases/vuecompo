@@ -20,44 +20,10 @@
   </div>
 </template>
 
-<script>
-
+<script lang="ts">
+import Vue from 'vue';
+import logic from './logic';
 import './style.scss';
 
-export default ({
-  name: 'Tabs',
-  props: {
-    fillContainer: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data() {
-    return {
-      selectedIndex: 0, // the index of the selected tab,
-      tabs: [], // all of the tabs
-    };
-  },
-  created() {
-    this.tabs = this.$children;
-  },
-  mounted() {
-    this.selectTab(0);
-  },
-
-  methods: {
-    selectTab(i) {
-      this.selectedIndex = i;
-      // loop over all the tabs
-      this.tabs.forEach((tab, index) => {
-        const activeTab = tab;
-        activeTab.isActive = (index === i);
-        if (activeTab.isActive) {
-          activeTab.warn = false;
-        }
-      });
-    },
-  },
-});
-
+export default Vue.extend({ mixins: [logic] });
 </script>
