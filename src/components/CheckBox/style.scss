@@ -46,6 +46,11 @@
   }
 
   input:disabled ~ .checkmark {
+    @apply border-border-disabled;
+    // dark states
+    @apply dark:border-border-dark-disabled;
+  }
+  input:checked:disabled ~ .checkmark {
     @apply bg-primaryZarinpal-disabled;
     // dark states
     @apply dark:bg-primaryZarinpal-dark-disabled;
