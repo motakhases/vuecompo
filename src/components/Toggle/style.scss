@@ -7,25 +7,30 @@
   .slider {
     @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 rounded-xl;
     @apply bg-surface-heavy;
-    @apply disabled:bg-surface;
+    @apply dark:bg-surface-dark-heavy;
   }
   .slider:before {
     @apply absolute rounded-circle right-2xs bottom-2xs h-md w-md;
     @apply sm:w-sm sm:h-sm;
     @apply bg-surface;
+    @apply dark:bg-surface-dark;
     content: "";
   }
+  // checked and disabled states
   input:checked + .slider {
    @apply bg-primaryZarinpal;
+   @apply dark:bg-primaryZarinpal-dark;
   }
   input:checked + .slider:before {
     @apply right-[unset] left-2xs;
   }
   input:disabled + .slider {
    @apply bg-surface-disabled;
+   @apply dark:bg-surface-dark-disabled;
   }
   input:checked:disabled + .slider {
     @apply bg-primaryZarinpal-disabled;
+    @apply dark:bg-primaryZarinpal-dark-disabled;
   }
  
 
