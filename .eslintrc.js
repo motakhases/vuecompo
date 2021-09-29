@@ -12,7 +12,6 @@ module.exports = {
     '@vue/typescript/recommended',
   ],
   parserOptions: {
-    parser: 'babel-eslint',
     ecmaVersion: 2020,
   },
   rules: {
