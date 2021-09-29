@@ -12,4 +12,15 @@ describe('SegmentedButton', () => {
     });
     expect(wrapper.classes()).toContain('fill');
   });
+
+  it('children must be greater than 2', async () => {
+    const wrapper = shallowMount(SegmentedButton, {
+      slots: {
+        default: `<Button>btn1</Button>
+                  <Button>btn2</Button>`,
+      },
+    });
+    const buttons = wrapper.findAll('Button');
+    expect(buttons.length).toBeGreaterThanOrEqual(2);
+  });
 });

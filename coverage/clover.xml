@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632936372575" clover="3.2.0">
-  <project timestamp="1632936372575" name="All files">
-    <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="10" coveredelements="6" complexity="0" loc="10" ncloc="10" packages="4" files="4" classes="4"/>
+<coverage generated="1632953319105" clover="3.2.0">
+  <project timestamp="1632953319105" name="All files">
+    <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="13" coveredelements="9" complexity="0" loc="13" ncloc="13" packages="5" files="5" classes="5"/>
     <package name="Button">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Button\index.vue">
@@ -34,6 +34,15 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="SegmentedButton.Button">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\SegmentedButton\Button\index.vue">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
     </package>
   </project>
