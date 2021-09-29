@@ -34,17 +34,22 @@
     @apply hover:bg-primaryZarinpal-hover;
     @apply disabled:bg-primaryZarinpal-disabled;
     // dark states
-    @apply bg-primaryZarinpal-dark;
-    @apply hover:bg-primaryZarinpal-dark-hover;
-    @apply disabled:bg-primaryZarinpal-dark-disabled;
+    @apply dark:bg-primaryZarinpal-dark;
+    @apply dark:hover:bg-primaryZarinpal-dark-hover;
+    @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
     &:after{
       @apply block; 
     }
   }
 
   input:disabled ~ .checkmark {
+    @apply border-border-disabled;
+    // dark states
+    @apply dark:border-border-dark-disabled;
+  }
+  input:checked:disabled ~ .checkmark {
     @apply bg-primaryZarinpal-disabled;
     // dark states
-    @apply bg-primaryZarinpal-dark-disabled;
+    @apply dark:bg-primaryZarinpal-dark-disabled;
   }
 }
