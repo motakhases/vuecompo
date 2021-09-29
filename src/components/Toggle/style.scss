@@ -1,0 +1,32 @@
+.zpl-toggle{
+  @apply relative inline-block w-[40px] h-[24px];
+  @apply sm:w-[36px] sm:h-[20px];
+  input{
+    @apply opacity-0 w-0 h-0;
+  }
+  .slider {
+    @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 rounded-xl;
+    @apply bg-surface-heavy;
+    @apply disabled:bg-surface;
+  }
+  .slider:before {
+    @apply absolute rounded-circle right-2xs bottom-2xs h-md w-md;
+    @apply sm:w-sm sm:h-sm;
+    @apply bg-surface;
+    content: "";
+  }
+  input:checked + .slider {
+   @apply bg-primaryZarinpal;
+  }
+  input:checked + .slider:before {
+    @apply right-[unset] left-2xs;
+  }
+  input:disabled + .slider {
+   @apply bg-surface-disabled;
+  }
+  input:checked:disabled + .slider {
+    @apply bg-primaryZarinpal-disabled;
+  }
+ 
+
+}
