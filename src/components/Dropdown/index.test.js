@@ -22,7 +22,7 @@ describe('Dropdown', () => {
     await wrapper.trigger('keydown.enter');
 
     expect(wrapper.vm.activeLabel).toBe(true);
-    expect(wrapper.vm.focused).toBe(true);
+    expect(wrapper.vm.showList).toBe(true);
     expect(list.classes()).toContain('showList');
   });
 
@@ -55,7 +55,7 @@ describe('Dropdown', () => {
 
     expect(input.element.value).toBe(option.at(0).text());
     expect(wrapper.vm.activeLabel).toBe(true);
-    expect(wrapper.vm.focused).toBe(false);
+    expect(wrapper.vm.showList).toBe(false);
   });
 
   it('adds active class to next option when key down is pressed', async () => {
@@ -68,12 +68,12 @@ describe('Dropdown', () => {
       },
     });
     const input = wrapper.find('input');
-    const options = wrapper.findAll('li');
+    const option = wrapper.findAll('li').at(0);
 
+    await wrapper.setData({ showList: true });
     await input.trigger('keydown.down');
     await input.setValue('option');
-    console.log(wrapper.findAll('li').at(0).classes());
-    console.log(options.filter((i) => i));
-    expect(options.filter((i) => i)).toBe(true);
+
+    expect(option.classes()).toContain('active');
   });
 });

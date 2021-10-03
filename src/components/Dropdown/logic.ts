@@ -47,14 +47,14 @@ export default Vue.extend({
   },
   data() :{
     activeLabel: boolean;
-    focused: boolean;
+    showList: boolean;
     activeOptionIndex: number;
     filteredOptions: Array<any>;
     optionRef: any;
     } {
     return {
       activeLabel: !!this.value.length,
-      focused: false,
+      showList: false,
       activeOptionIndex: -1,
       filteredOptions: this.options,
       optionRef: '',
@@ -102,12 +102,12 @@ export default Vue.extend({
     },
     showOptions() {
       // open dropdown
-      this.focused = true;
+      this.showList = true;
     },
     hideOptions() {
       // close dropdown
       this.$nextTick(() => {
-        this.focused = false;
+        this.showList = false;
       });
     },
     outsideClick(e:any) {
@@ -130,9 +130,10 @@ export default Vue.extend({
       const isArrowDownKey = e.keyCode === ARROW_DOWN_KEYCODE;
       const isArrowUpKey = e.keyCode === ARROW_UP_KEYCODE;
       const isEnterKey = e.keyCode === ENTER_KEYCODE;
+      console.log(e.keyCode);
 
       // if dropdown is open
-      if (this.focused) {
+      if (this.showList) {
         // if arrow up or down key is pressed
         if (isArrowDownKey || isArrowUpKey) {
           for (let i = 0; i < this.filteredOptions.length; i += 1) {
@@ -179,20 +180,18 @@ export default Vue.extend({
           // if enter key is pressed
         } else if (isEnterKey) {
           // if there's active option and we have filter list
-          if (this.activeOptionIndex >= 0 && this.filteredOptions) {
-            // take the name of active option
-            const newValue = this.filteredOptions[this.activeOptionIndex]
-              ? this.filteredOptions[this.activeOptionIndex].name : '';
+          // take the name of active option
+          const newValue = this.filteredOptions[this.activeOptionIndex]
+            ? this.filteredOptions[this.activeOptionIndex].name : '';
 
-            // update the value of input
-            this.$emit('input', newValue);
+          // update the value of input
+          this.$emit('input', newValue);
 
-            // close the dropdown
-            this.hideOptions();
+          // close the dropdown
+          this.hideOptions();
 
-            // disable the active option
-            this.activeOptionIndex = -1;
-          }
+          // disable the active option
+          this.activeOptionIndex = -1;
         }
         // if dropdown is closed and enter key is pressed
       } else if (isEnterKey) {

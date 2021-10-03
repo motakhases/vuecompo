@@ -33,7 +33,7 @@
         {{ hintText }}
       </span>
       <!-- dropdown list -->
-      <div :class="['zpl-dropdown-list', { 'showList':focused }]">
+      <div :class="['zpl-dropdown-list', { showList }]">
         <!-- loading skeleton shows when loading is true -->
         <div v-if="loading">
           <div class="zpl-dropdown-skeleton-box">
