@@ -117,7 +117,7 @@ export default Vue.extend({
       }
     },
     onKeyUp(e:any) {
-      // if any key in the list is pressed do nothing
+      // if any key code in the list is pressed do nothing
       if (keyList.includes(e.keyCode)) {
         return;
       }
