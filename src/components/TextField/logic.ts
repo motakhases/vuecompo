@@ -95,7 +95,7 @@ export default Vue.extend({
         .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: String) => (d.charCodeAt(0) - 1776).toString());
     },
     onlyNumber(event: any) {
-      // just accept number and dot
+      // just accepts number and dot
       if (this.type === 'number') {
         if (!/\d/.test(event.key) && event.key !== '.') {
           return event.preventDefault();
