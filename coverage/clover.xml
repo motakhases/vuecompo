@@ -1,21 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1629192286394" clover="3.2.0">
-  <project timestamp="1629192286395" name="All files">
-    <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="4" coveredelements="3" complexity="0" loc="4" ncloc="4" packages="2" files="2" classes="2"/>
+<coverage generated="1633387748868" clover="3.2.0">
+  <project timestamp="1633387748868" name="All files">
+    <metrics statements="28" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0" elements="41" coveredelements="3" complexity="0" loc="28" ncloc="28" packages="8" files="8" classes="8"/>
     <package name="Button">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.vue" path="/Users/apple/Documents/Projects/zarinpal/web-components/src/components/Button/index.vue">
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Button\index.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="ButtonGroup">
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\ButtonGroup\index.vue">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="CheckBox">
+      <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\CheckBox\index.vue">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
       </file>
     </package>
     <package name="Input">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.vue" path="/Users/apple/Documents/Projects/zarinpal/web-components/src/components/Input/index.vue">
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Input\index.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Radio">
+      <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Radio\index.vue">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Tabs">
+      <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Tabs\index.vue">
+        <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="56" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Tabs.Tab">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Tabs\Tab\index.vue">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Tag">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\Tag\index.vue">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="15" count="0" type="stmt"/>
       </file>
     </package>
   </project>

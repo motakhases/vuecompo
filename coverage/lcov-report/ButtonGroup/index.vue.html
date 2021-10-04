@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Input/index.vue</title>
+    <title>Code coverage report for ButtonGroup/index.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\prettify.css" />
     <link rel="stylesheet" href="..\base.css" />
@@ -18,13 +18,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="..\index.html">All files</a> / <a href="index.html">Input</a> index.vue</h1>
+        <h1><a href="..\index.html">All files</a> / <a href="index.html">ButtonGroup</a> index.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
@@ -45,7 +45,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
@@ -77,23 +77,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template functional&gt;
-  &lt;span class="text-surface"&gt;
-    No provided component yet
-  &lt;/span&gt;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div class="zpl-button-group"&gt;
+    &lt;slot /&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script lang="ts"&gt;
 <span class="cstat-no" title="statement not covered" >import Vue from 'vue';</span>
+<span class="cstat-no" title="statement not covered" >import logic from './logic';</span>
+<span class="cstat-no" title="statement not covered" >import './style.scss';</span>
 &nbsp;
-export default Vue.extend({
-  name: 'Input',
-});
+export default Vue.extend({ mixins: [logic] });
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 
