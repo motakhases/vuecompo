@@ -1,6 +1,6 @@
 .zpl-button {
   /* Default */
-  @apply rounded-sm flex justify-center items-center text-center;
+  @apply rounded-sm flex justify-center items-center text-center gap-x-xs;
 
   /* Disabled */
   @apply disabled:cursor-default;
@@ -90,6 +90,9 @@
   &.fill {
     @apply w-full;
   }
+}
+.zpl-button-icon {
+  @apply text-[24px];
 }
 .zpl-button-loading {
   /* Default */

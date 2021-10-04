@@ -24,5 +24,13 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    rightIcon: {
+      type: String,
+      default: '',
+    },
+    leftIcon: {
+      type: String,
+      default: '',
+    },
   },
 });

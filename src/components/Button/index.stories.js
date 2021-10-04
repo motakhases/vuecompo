@@ -9,9 +9,17 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-    <Component :type="type" :size="size" :disabled="disabled" :fill="fill" :loading="loading">
-      {{ text }}
-    </Component>
+		<Component
+		:type="type"
+		:size="size"
+		:disabled="disabled"
+		:fill="fill"
+		:loading="loading"
+		:rightIcon="rightIcon"
+		:leftIcon="leftIcon"
+	>
+		{{ text }}
+	</Component>
   `,
 });
 
