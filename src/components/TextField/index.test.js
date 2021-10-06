@@ -63,14 +63,18 @@ describe('TextField', () => {
     expect(hint.classes()).toContain('success');
   });
 
-  it('checks hint to exist with specific type', async () => {
+  it(`increases value by one when clicking on stepper up,
+      if type is number and stepper is true`, async () => {
     const wrapper = shallowMount(TextField, {
       propsData: {
         type: 'number',
+        stepper: true,
       },
     });
-    const input = wrapper.find('input');
+    const stepperBtn = wrapper.findAll('.zpl-textfield-stepper-btn').at(0);
 
-    expect(input.classes()).toContain('ltr');
+    await stepperBtn.trigger('click');
+
+    expect(wrapper.emitted().input[0][0]).toBe('1');
   });
 });

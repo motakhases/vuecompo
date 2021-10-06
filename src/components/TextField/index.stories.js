@@ -25,6 +25,9 @@ const Template = (_, { argTypes }) => ({
 		:hint-text="hintText"
 		:unit="unit"
 		:limit="limit"
+		:beforeIcon="beforeIcon"
+		:afterIcon="afterIcon"
+		:stepper="stepper"
 		/>  `,
 });
 
@@ -57,5 +60,8 @@ Default.args = {
   unit: '',
   limit: 0,
 	type: 'text',
-	separator: 'none'
+	separator: 'none',
+	beforeIcon: '',
+	afterIcon: '',
+	stepper: false
 };

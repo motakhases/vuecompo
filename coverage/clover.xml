@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633369282730" clover="3.2.0">
-  <project timestamp="1633369282731" name="All files">
+<coverage generated="1633557020680" clover="3.2.0">
+  <project timestamp="1633557020681" name="All files">
     <metrics statements="13" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="13" coveredelements="6" complexity="0" loc="13" ncloc="13" packages="5" files="5" classes="5"/>
     <package name="Button">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -40,9 +40,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.vue" path="C:\Users\zarinpal\Documents\GitHub\web-components\src\components\TextField\index.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
       </file>
     </package>
   </project>

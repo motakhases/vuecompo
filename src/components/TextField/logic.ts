@@ -43,6 +43,18 @@ export default Vue.extend({
       type: String,
       default: 'none',
     },
+    beforeIcon: {
+      type: String,
+      default: 'none',
+    },
+    afterIcon: {
+      type: String,
+      default: 'none',
+    },
+    stepper: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -102,6 +114,23 @@ export default Vue.extend({
         }
       }
       return true;
+    },
+    increment() {
+      if (this.type === 'number') {
+        if (this.value.length === 0) {
+          this.$emit('input', this.toEnNumber('1'));
+        } else {
+          const newValue = (Number(this.value) + 1).toString();
+          this.$emit('input', this.toEnNumber(newValue));
+        }
+      }
+    },
+    decrement() {
+      const numberValue = Number(this.value);
+      if (this.type === 'number' && numberValue > 0) {
+        const newValue = (numberValue - 1).toString();
+        this.$emit('input', this.toEnNumber(newValue));
+      }
     },
   },
 });

@@ -5,8 +5,13 @@
         :class="['zpl-textfield', { error }]"
         :disabled="disabled"
       >
+        <!-- icon comes before input -->
+        <span
+          v-if="beforeIcon"
+          :class="['zpl-textfield-icon', beforeIcon]"
+        />
         <input
-          :class="['zpl-textfield-input', { 'ltr': type === 'number' }]"
+          class="zpl-textfield-input"
           :value="formattedValue"
           :disabled="disabled"
           :maxlength="limit > 0 ? limit : undefined"
@@ -16,6 +21,26 @@
           @focusin="onFocusIn"
           @keypress="onlyNumber"
         >
+        <!-- icon comes after input -->
+        <span
+          v-if="afterIcon"
+          :class="['zpl-textfield-icon', afterIcon]"
+        />
+        <!-- shows stepper to increase number or descrease -->
+        <div
+          v-if="stepper && type === 'number'"
+          class="zpl-textfield-stepper"
+        >
+          <button
+            class="zpl-textfield-stepper-btn Icon-Caret-Up-Fill"
+            @click="increment"
+          />
+
+          <button
+            class="zpl-textfield-stepper-btn Icon-Caret-Down-Fill"
+            @click="decrement"
+          />
+        </div>
         <!-- unit -->
         <span
           v-if="unit"
