@@ -1,8 +1,9 @@
 import Vue from 'vue';
+import BaseIcon from '../BaseIcon/index.vue';
 
 export default Vue.extend({
   name: 'Button',
-
+  components: { BaseIcon },
   props: {
     size: {
       type: String,

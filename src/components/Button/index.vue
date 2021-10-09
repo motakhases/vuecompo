@@ -4,6 +4,10 @@
     :disabled="disabled"
   >
     <slot />
+    <BaseIcon
+      name="ChevronUp"
+      class="text-xl text-blue-500"
+    />
   </button>
 </template>
 
