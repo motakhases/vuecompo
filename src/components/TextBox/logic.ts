@@ -45,14 +45,14 @@ export default Vue.extend({
     rowsNumber() {
       // check the size to choose the correct number for textarea rows
       switch (this.size) {
-        case 'small':
-          return 2;
-        case 'medium':
-          return 3;
-        case 'large':
-          return 4;
-        default:
-          return 3;
+      case 'small':
+        return 2;
+      case 'medium':
+        return 3;
+      case 'large':
+        return 4;
+      default:
+        return 3;
       }
     },
   },
