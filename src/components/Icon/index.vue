@@ -3,7 +3,6 @@
     :is="iconComponent"
     role="img"
     class="inline-block fill-current"
-    style="height: 1em; width: 1em;"
   />
 </template>
 
