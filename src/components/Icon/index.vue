@@ -1,7 +1,9 @@
-<template lang="html">
-  <div v-show="isActive">
-    <slot />
-  </div>
+<template>
+  <component
+    :is="iconComponent"
+    role="img"
+    class="inline-block"
+  />
 </template>
 
 <script lang="ts">
@@ -10,4 +12,3 @@ import logic from './logic';
 
 export default Vue.extend({ mixins: [logic] });
 </script>
-

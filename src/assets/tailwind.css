@@ -1,3 +1,5 @@
+@import url('https://cdn.zarinpal.com/assets/fonts/all.css');
+
 @tailwind base;
 @layer base {
   a {
