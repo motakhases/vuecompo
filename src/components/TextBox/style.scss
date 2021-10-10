@@ -19,8 +19,8 @@
 
   /* focused */
   &:not(.error):focus {
-    @apply border-interactive-focus outline-none shadow-border-focus;
-    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus;
+    @apply border-interactive-focus outline-none shadow-border-focus-soft;
+    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
   }
 
   &.error {
@@ -52,6 +52,10 @@
   /* Default */
   @apply py-2xs px-sm text-b3 text-text-soft;
 
+	svg {
+    @apply w-xl h-xl;
+  }
+	
   &.helper {
     /* Default */
     @apply flex-1;

@@ -24,7 +24,10 @@
         v-if="hintText"
         :class="['zpl-textbox-hint', hint]"
       >
-        {{ hintText }}
+        <Icon :name="hintIcon" />
+        <span>
+          {{ hintText }}
+        </span>
       </span>
       <!-- show when we have limit -->
       <span

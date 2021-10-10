@@ -1,7 +1,9 @@
 import Vue from 'vue';
+import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextBox',
+  components: { Icon },
   props: {
     value: {
       type: String,
@@ -53,6 +55,19 @@ export default Vue.extend({
         return 4;
       default:
         return 3;
+      }
+    },
+    hintIcon(): string {
+      // choose proper icon based on hint type
+      switch (this.hint) {
+      case 'error':
+        return 'warning';
+      case 'success':
+        return 'checkmarkCircle';
+      case 'helper':
+        return '';
+      default:
+        return '';
       }
     },
   },
