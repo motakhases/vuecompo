@@ -5,6 +5,12 @@ export default Vue.extend({
 
   components: {
     chevronUp: () => import('./icons/ChevronUp.vue'),
+    angleDown: () => import('./icons/AngleDown.vue'),
+    checkmarkCircle: () => import('./icons/CheckmarkCircle.vue'),
+    filledArrowDown: () => import('./icons/FilledArrowDown.vue'),
+    filledArrowUp: () => import('./icons/FilledArrowUp.vue'),
+    tickLarge: () => import('./icons/TickLarge.vue'),
+    warning: () => import('./icons/Warning.vue'),
   },
 
   props: {

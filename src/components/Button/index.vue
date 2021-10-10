@@ -4,10 +4,6 @@
     :disabled="disabled"
   >
     <slot />
-    <Icon
-      name="chevronUp"
-      class="text-surface w-md h-xs"
-    />
   </button>
 </template>
 

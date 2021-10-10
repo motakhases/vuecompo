@@ -2,7 +2,7 @@
   <component
     :is="iconComponent"
     role="img"
-    class="inline-block fill-current"
+    class="inline-block"
   />
 </template>
 
