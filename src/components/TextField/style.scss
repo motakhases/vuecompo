@@ -5,7 +5,7 @@
 .zpl-textfield {
   /* Default */
   @apply bg-surface flex items-center border border-border
-	 rounded-sm w-full text-text-soft h-3xl gap-x-xs;
+	 rounded-sm w-full text-text-soft h-3xl gap-x-xs px-sm;
   @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
 
   /* hover */
@@ -35,29 +35,32 @@
 }
 .zpl-textfield-input {
   /* Default */
-  @apply bg-transparent border-none outline-none flex-auto min-w-0 z-10 p-sm;
+  @apply bg-transparent border-none outline-none flex-1 min-w-0 z-10 py-sm;
 }
 .zpl-textfield-icon {
-  @apply text-[24px];
+  /* Default */
+  @apply h-xl w-xl;
 }
 .zpl-textfield-unit {
   /* Default */
   @apply flex items-center justify-center p-xs bg-surface-soft
-	       rounded-[2px] text-text text-b2 m-2xs select-none;
+	       rounded-[2px] text-text text-b2 my-2xs mr-2xs -ml-xs select-none;
   @apply dark:bg-surface-dark-soft dark:text-text-dark;
 }
 .zpl-textfield-stepper {
   /* Default */
-  @apply flex flex-col mx-2xs;
+  @apply flex flex-col  mr-2xs -ml-xs;
 }
 .zpl-textfield-stepper-btn {
   /* Default */
-  @apply px-2xs py-[7px] bg-surface-soft rounded-[2px] text-text;
-  @apply dark:bg-surface-dark-soft dark:text-text-dark;
-  line-height: 8px;
-  &::before {
-    font-size: 8px;
-    line-height: 5px;
+  @apply flex px-2xs py-[7px] bg-surface-soft rounded-[2px] text-icon;
+  @apply dark:bg-surface-dark-soft dark:text-icon-dark;
+
+  /* Disabled */
+  @apply disabled:bg-surface-disabled disabled:text-icon-disabled disabled:cursor-default;
+  @apply dark:disabled:bg-surface-dark-disabled dark:disabled:text-icon-dark-disabled;
+  svg {
+    @apply w-xs h-[5];
   }
   &:last-child {
     /* Default */
@@ -85,8 +88,11 @@
 }
 .zpl-textfield-hint {
   /* Default */
-  @apply py-2xs px-sm text-b3 text-text-soft;
+  @apply flex items-center gap-x-2xs py-2xs px-sm text-b3 text-text-soft;
 
+  svg {
+    @apply w-xl h-xl;
+  }
   &.helper {
     /* Default */
     @apply flex-1;

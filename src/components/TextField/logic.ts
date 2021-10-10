@@ -1,7 +1,9 @@
 import Vue from 'vue';
+import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextField',
+  components: { Icon },
   props: {
     value: {
       type: String,
@@ -62,7 +64,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    formattedValue(): String {
+    formattedValue(): string {
       // format the value based on separator for type === number
       if (this.type === 'number') {
         switch (this.separator) {
@@ -77,6 +79,19 @@ export default Vue.extend({
         }
       } else {
         return this.value;
+      }
+    },
+    hintIcon(): string {
+      // choose proper icon based on hint type
+      switch (this.hint) {
+      case 'error':
+        return 'warning';
+      case 'success':
+        return 'checkmarkCircle';
+      case 'helper':
+        return '';
+      default:
+        return '';
       }
     },
   },
@@ -96,15 +111,15 @@ export default Vue.extend({
         this.activeLabel = false;
       }
     },
-    toEnNumber(str: String) {
+    toEnNumber(str: string) {
       // change all the Persian or Arabic numbers to English
       if (str === '') {
         return str;
       }
       return str
         .toString()
-        .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: String) => (d.charCodeAt(0) - 1632).toString())
-        .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: String) => (d.charCodeAt(0) - 1776).toString());
+        .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
+        .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
     },
     onlyNumber(event: any) {
       // just accepts number and dot

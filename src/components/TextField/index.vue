@@ -6,9 +6,10 @@
         :disabled="disabled"
       >
         <!-- icon comes before input -->
-        <span
+        <Icon
           v-if="beforeIcon"
-          :class="['zpl-textfield-icon', beforeIcon]"
+          :name="beforeIcon"
+          class="zpl-textfield-icon"
         />
         <input
           class="zpl-textfield-input"
@@ -22,9 +23,10 @@
           @keypress="onlyNumber"
         >
         <!-- icon comes after input -->
-        <span
+        <Icon
           v-if="afterIcon"
-          :class="['zpl-textfield-icon', afterIcon]"
+          :name="afterIcon"
+          class="zpl-textfield-icon"
         />
         <!-- shows stepper to increase number or descrease -->
         <div
@@ -32,14 +34,19 @@
           class="zpl-textfield-stepper"
         >
           <button
-            class="zpl-textfield-stepper-btn Icon-Caret-Up-Fill"
+            class="zpl-textfield-stepper-btn"
             @click="increment"
-          />
+          >
+            <Icon name="filledArrowUp" />
+          </button>
 
           <button
-            class="zpl-textfield-stepper-btn Icon-Caret-Down-Fill"
+            class="zpl-textfield-stepper-btn"
+            :disabled="value==0"
             @click="decrement"
-          />
+          >
+            <Icon name="filledArrowDown" />
+          </button>
         </div>
         <!-- unit -->
         <span
@@ -62,12 +69,13 @@
         class="zpl-textfield-hint-box"
       >
         <!-- hint text -->
-        <span
+        <div
           v-if="hintText"
           :class="['zpl-textfield-hint', hint]"
         >
-          {{ hintText }}
-        </span>
+          <Icon :name="hintIcon" />
+          <span>{{ hintText }}</span>
+        </div>
         <!-- limit -->
         <span
           v-if="limit"
