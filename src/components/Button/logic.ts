@@ -1,7 +1,9 @@
 import Vue from 'vue';
+import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'Button',
+  components: { Icon },
   props: {
     size: {
       type: String,
@@ -23,11 +25,11 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    rightIcon: {
+    beforeIcon: {
       type: String,
       default: '',
     },
-    leftIcon: {
+    afterIcon: {
       type: String,
       default: '',
     },

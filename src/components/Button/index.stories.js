@@ -15,8 +15,8 @@ const Template = (_, { argTypes }) => ({
 		:disabled="disabled"
 		:fill="fill"
 		:loading="loading"
-		:rightIcon="rightIcon"
-		:leftIcon="leftIcon"
+		:beforeIcon="beforeIcon"
+		:afterIcon="afterIcon"
 	>
 		{{ text }}
 	</Component>
@@ -42,5 +42,7 @@ Default.args = {
   type: "primary",
   disabled: false,
   fill: false,
-	loading: false
+  loading: false,
+  afterIcon: "",
+  beforeIcon: "",
 };
