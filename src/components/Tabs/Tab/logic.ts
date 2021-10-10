@@ -1,19 +1,22 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Button',
+  name: 'Tab',
+
   props: {
-    size: {
+    title: {
       type: String,
-      default: 'medium',
+      default: 'Tab',
     },
-    type: {
-      type: String,
-      default: 'primary',
-    },
-    disabled: {
+    warn: {
       type: Boolean,
       default: false,
     },
+  },
+
+  data() {
+    return {
+      isActive: true,
+    };
   },
 });
