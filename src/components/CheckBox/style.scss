@@ -1,0 +1,58 @@
+.zpl-checkbox {
+  /* Default */
+  direction: rtl;
+  @apply block relative pr-[30px] cursor-pointer text-[14px];
+  @apply text-text;
+  // dark states
+  @apply dark:text-text-dark;
+
+  input{
+    @apply hidden;
+  }
+
+  .checkmark { 
+    @apply absolute top-0 right-0 h-lg w-lg rounded-sm;
+    @apply bg-surface border-2 border-border;
+    @apply hover:bg-surface-hover;
+    @apply disabled:border-border-disabled;
+    // dark states
+    @apply dark:bg-surface-dark dark:bg-border-dark;
+    @apply dark:hover:bg-surface-dark-hover;
+    @apply dark:disabled:border-border-dark-disabled;
+    
+    &:after{
+      @apply absolute hidden top-[3px] left-[7px] w-[6px] h-[12px] border-r-2 border-b-2;
+      @apply border-surface ; 
+      // dark states
+      @apply dark:border-surface-dark ; 
+      content: "";
+      transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ .checkmark {
+    @apply border-none;
+    @apply bg-primaryZarinpal;
+    @apply hover:bg-primaryZarinpal-hover;
+    @apply disabled:bg-primaryZarinpal-disabled;
+    // dark states
+    @apply dark:bg-primaryZarinpal-dark;
+    @apply dark:hover:bg-primaryZarinpal-dark-hover;
+    @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
+    
+    &:after{
+      @apply block; 
+    }
+  }
+
+  input:disabled ~ .checkmark {
+    @apply border-border-disabled;
+    // dark states
+    @apply dark:border-border-dark-disabled;
+  }
+  input:checked:disabled ~ .checkmark {
+    @apply bg-primaryZarinpal-disabled;
+    // dark states
+    @apply dark:bg-primaryZarinpal-dark-disabled;
+  }
+}
