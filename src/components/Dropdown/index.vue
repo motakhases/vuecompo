@@ -24,6 +24,9 @@
         >
           {{ label }}
         </label>
+        <span class="zpl-dropdown-icon">
+          <Icon name="angleDown" />
+        </span>
       </div>
       <!-- hint text -->
       <span
