@@ -2,6 +2,7 @@
   <button
     :class="['zpl-button', size, type, { fill }]"
     :disabled="disabled"
+    @click="onClick"
   >
     <!-- shows if loading is true -->
     <div

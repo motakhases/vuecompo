@@ -17,6 +17,7 @@ const Template = (_, { argTypes }) => ({
 		:loading="loading"
 		:beforeIcon="beforeIcon"
 		:afterIcon="afterIcon"
+		:onClick="onClick"
 	>
 		{{ text }}
 	</Component>
@@ -45,4 +46,5 @@ Default.args = {
   loading: false,
   afterIcon: "",
   beforeIcon: "",
+	onClick: () => alert('clicked')
 };
