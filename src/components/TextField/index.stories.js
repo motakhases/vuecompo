@@ -2,6 +2,7 @@
 /* eslint-disable no-multiple-empty-lines */
 
 import Component from './index.vue';
+import './validation';
 
 export default {
   component: Component,
@@ -28,6 +29,7 @@ const Template = (_, { argTypes }) => ({
 		:beforeIcon="beforeIcon"
 		:afterIcon="afterIcon"
 		:stepper="stepper"
+		:rules="rules"
 		/>  `,
 });
 
@@ -35,7 +37,7 @@ export const Default = Template.bind({});
 
 Default.argTypes = {
   hint: {
-    options: ['helper', 'error', 'success'],
+    options: ['helper', 'success'],
     control: { type: 'radio' }, 
   }, 
 	type: {
@@ -51,7 +53,7 @@ Default.argTypes = {
 };
 
 Default.args = {
-  hint: 'helper',
+  hint: 'success',
   disabled: false,
   error: false,
   label: '',
@@ -63,5 +65,6 @@ Default.args = {
 	separator: 'none',
 	beforeIcon: '',
 	afterIcon: '',
-	stepper: false
+	stepper: false,
+	rules: 'odd|required|min'
 };

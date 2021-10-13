@@ -1,9 +1,10 @@
 import Vue from 'vue';
+import { ValidationProvider } from 'vee-validate';
 import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextField',
-  components: { Icon },
+  components: { ValidationProvider, Icon },
   props: {
     value: {
       type: String,
@@ -57,6 +58,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    rules: {
+      type: String,
+      default: 'none',
+    },
   },
   data() {
     return {
@@ -79,19 +84,6 @@ export default Vue.extend({
         }
       } else {
         return this.value;
-      }
-    },
-    hintIcon(): string {
-      // choose proper icon based on hint type
-      switch (this.hint) {
-      case 'error':
-        return 'warning';
-      case 'success':
-        return 'checkmarkCircle';
-      case 'helper':
-        return '';
-      default:
-        return '';
       }
     },
   },
