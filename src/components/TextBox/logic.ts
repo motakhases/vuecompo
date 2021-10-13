@@ -1,9 +1,10 @@
 import Vue from 'vue';
+import { ValidationProvider } from 'vee-validate';
 import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextBox',
-  components: { Icon },
+  components: { ValidationProvider, Icon },
   props: {
     value: {
       type: String,
@@ -14,10 +15,6 @@ export default Vue.extend({
       default: 'medium',
     },
     disabled: {
-      type: Boolean,
-      default: false,
-    },
-    error: {
       type: Boolean,
       default: false,
     },
@@ -36,6 +33,10 @@ export default Vue.extend({
     limit: {
       type: Number,
       default: 0,
+    },
+    rules: {
+      type: String,
+      default: '',
     },
   },
   data() {

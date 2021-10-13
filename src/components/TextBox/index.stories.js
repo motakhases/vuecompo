@@ -2,6 +2,7 @@
 /* eslint-disable no-multiple-empty-lines */
 
 import Component from './index.vue';
+import './validation';
 
 export default {
   component: Component,
@@ -18,12 +19,12 @@ const Template = (_, { argTypes }) => ({
 		v-model="value"
 		:size="size"
 		:disabled="disabled"
-		:error="error"
 		:label="label"
 		:value="value"
 		:hint="hint"
 		:hint-text="hintText"
 		:limit="limit"
+		:rules="rules"
 		/>  `,
 });
 
@@ -35,7 +36,7 @@ Default.argTypes = {
     control: { type: 'radio' },
   },
   hint: {
-    options: ['helper', 'error', 'success'],
+    options: ['helper', 'success'],
     control: { type: 'radio' },
   },
 };
@@ -44,9 +45,9 @@ Default.args = {
   size: 'medium',
   hint: 'helper',
   disabled: false,
-  error: false,
   label: 'label',
   value: '',
   hintText: '',
   limit: 0,
+	rules: 'odd|required|min'
 };
