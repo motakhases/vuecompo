@@ -55,11 +55,15 @@
 }
 .zpl-dropdown-hint-box {
   /* Default */
-  @apply flex w-full justify-between;
+  @apply flex w-full justify-between absolute;
 }
 .zpl-dropdown-hint {
   /* Default */
   @apply py-2xs px-sm text-b3 text-text-soft;
+
+	svg {
+    @apply w-xl h-xl;
+  }
 
   &.helper {
     /* Default */

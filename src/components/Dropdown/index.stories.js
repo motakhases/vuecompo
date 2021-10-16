@@ -2,7 +2,7 @@
 /* eslint-disable no-multiple-empty-lines */
 
 import Component from './index.vue';
-
+import "../../utils/validations.js"
 export default {
   component: Component,
   title: 'Components/Dropdown',
@@ -17,13 +17,13 @@ const Template = (_, { argTypes }) => ({
 		<Component
 		v-model="value"
 		:disabled="disabled"
-		:error="error"
 		:label="label"
 		:hint="hint"
 		:hint-text="hintText"
 		:options="options"
 		:disabledOptionId="disabledOptionId"
 		:loading="loading"
+		:rules="rules"
 		/>  `,
 });
 
@@ -31,7 +31,7 @@ export const Default = Template.bind({});
 
 Default.argTypes = {
   hint: {
-    options: ['helper', 'error', 'success'],
+    options: ['helper', 'success'],
     control: { type: 'radio' },
   },
 };
@@ -39,7 +39,6 @@ Default.argTypes = {
 Default.args = {
   hint: 'helper',
   disabled: false,
-  error: false,
   label: '',
   value: '',
   hintText: '',
@@ -51,5 +50,6 @@ Default.args = {
     { id: 5, name: 'Flanders' },
   ],
 	disabledOptionId: null,
-	loading: false
+	loading: false,
+	rules: 'required'
 };

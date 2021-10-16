@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { ValidationProvider } from 'vee-validate';
 import Icon from '../Icon/index.vue';
 
 const ARROW_DOWN_KEYCODE = 40;
@@ -8,17 +9,13 @@ const keyList = [9, 13, 16, 17, 18, 20, 32, 37, 38, 39, 40, 46];
 
 export default Vue.extend({
   name: 'Dropdown',
-  components: { Icon },
+  components: { ValidationProvider, Icon },
   props: {
     value: {
       type: String,
       default: '',
     },
     disabled: {
-      type: Boolean,
-      default: false,
-    },
-    error: {
       type: Boolean,
       default: false,
     },
@@ -45,6 +42,10 @@ export default Vue.extend({
     loading: {
       type: Boolean,
       default: false,
+    },
+    rules: {
+      type: String,
+      default: '',
     },
   },
   data() :{
