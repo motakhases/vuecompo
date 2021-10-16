@@ -22,11 +22,11 @@ export default Vue.extend({
       type: String,
       default: 'label',
     },
-    hint: {
+    helperHint: {
       type: String,
-      default: 'helper',
+      default: '',
     },
-    hintText: {
+    successHint: {
       type: String,
       default: '',
     },
@@ -56,19 +56,6 @@ export default Vue.extend({
         return 4;
       default:
         return 3;
-      }
-    },
-    hintIcon(): string {
-      // choose proper icon based on hint type
-      switch (this.hint) {
-      case 'error':
-        return 'warning';
-      case 'success':
-        return 'checkmarkCircle';
-      case 'helper':
-        return '';
-      default:
-        return '';
       }
     },
   },

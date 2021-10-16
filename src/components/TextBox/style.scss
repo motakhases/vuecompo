@@ -50,10 +50,10 @@
 }
 .zpl-textbox-hint {
   /* Default */
-  @apply py-2xs px-sm text-b3 text-text-soft;
+  @apply flex items-center py-2xs px-sm text-b3 text-text-soft;
 
 	svg {
-    @apply w-xl h-xl;
+    @apply w-xl h-xl ml-2xs;
   }
 	
   &.helper {

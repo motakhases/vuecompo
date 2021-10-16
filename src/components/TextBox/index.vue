@@ -1,8 +1,7 @@
 <template>
   <ValidationProvider
-    v-slot="{ invalid , errors, passed}"
+    v-slot="{ invalid , errors, passed }"
     :rules="rules"
-    class="zpl-textfield-input-box"
   >
     <div :class="['zpl-textbox-group']">
       <textarea
@@ -24,19 +23,28 @@
       </label>
       <!-- show when we have hint text or limit -->
       <div class="zpl-textbox-hint-box">
-        <!-- show when we have hint text -->
+        <!-- show when we have helperHint -->
         <div
-          v-if="hint === 'success' ? (passed ? hintText : '') : errors.length === 0 && hintText"
-          :class="['zpl-textbox-hint', hint]"
+          v-if="helperHint && !successHint && !errors.length"
+          class="zpl-textbox-hint helper"
+        >
+          <span>
+            {{ helperHint }}
+          </span>
+        </div>
+        <!-- show when we have successHint -->
+        <div
+          v-if="successHint && passed"
+          class="zpl-textbox-hint success"
         >
           <Icon
-            v-if="hint === 'success'"
             name="checkmarkCircle"
           />
           <span>
-            {{ hintText }}
+            {{ successHint }}
           </span>
         </div>
+        <!-- show when we have errors -->
         <div
           v-if="errors.length"
           class="zpl-textbox-hint error"
