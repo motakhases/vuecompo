@@ -14,19 +14,15 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    error: {
-      type: Boolean,
-      default: false,
-    },
     label: {
       type: String,
       default: 'label',
     },
-    hint: {
+    helperHint: {
       type: String,
-      default: 'helper',
+      default: '',
     },
-    hintText: {
+    successHint: {
       type: String,
       default: '',
     },
@@ -85,6 +81,11 @@ export default Vue.extend({
       } else {
         return this.value;
       }
+    },
+  },
+  watch: {
+    formattedValue() {
+      this.activeLabel = !!this.value.length;
     },
   },
   methods: {

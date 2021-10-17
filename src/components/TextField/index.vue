@@ -2,10 +2,9 @@
   <ValidationProvider
     v-slot="{ invalid , errors, passed}"
     :rules="rules"
-    class="zpl-textfield-input-box"
   >
     <div class="rtl">
-      <div :class="['zpl-textfield-group']">
+      <div class="zpl-textfield-group">
         <div
           :class="['zpl-textfield', { 'invalid': errors.length }]"
           :disabled="disabled"
@@ -74,17 +73,28 @@
         <div
           class="zpl-textfield-hint-box"
         >
-          <!-- hint text -->
+          <!-- show when we have helperHint -->
           <div
-            v-if="hint === 'success' ? (passed ? hintText : '') : errors.length === 0 && hintText"
-            :class="['zpl-textfield-hint', hint]"
+            v-if="helperHint && !(successHint && passed) && !errors.length"
+            class="zpl-textfield-hint helper"
+          >
+            <span>
+              {{ helperHint }}
+            </span>
+          </div>
+          <!-- show when we have successHint -->
+          <div
+            v-if="successHint && passed"
+            class="zpl-textfield-hint success"
           >
             <Icon
-              v-if="hint === 'success'"
               name="checkmarkCircle"
             />
-            <span>{{ hintText }}</span>
+            <span>
+              {{ successHint }}
+            </span>
           </div>
+          <!-- show when we have errors -->
           <div
             v-if="errors.length"
             class="zpl-textfield-hint error"

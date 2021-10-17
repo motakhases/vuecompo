@@ -2,7 +2,7 @@
 /* eslint-disable no-multiple-empty-lines */
 
 import Component from './index.vue';
-import './validation';
+import '../../utils/validations';
 
 export default {
   component: Component,
@@ -22,8 +22,8 @@ const Template = (_, { argTypes }) => ({
 		:disabled="disabled"
 		:error="error"
 		:label="label"
-		:hint="hint"
-		:hint-text="hintText"
+		:helperHint="helperHint"
+		:successHint="successHint"
 		:unit="unit"
 		:limit="limit"
 		:beforeIcon="beforeIcon"
@@ -36,10 +36,6 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.argTypes = {
-  hint: {
-    options: ['helper', 'success'],
-    control: { type: 'radio' }, 
-  }, 
 	type: {
     options: ['text', 'number'],
     control: { type: 'radio' },
@@ -48,17 +44,15 @@ Default.argTypes = {
     options: ['comma', 'dash', 'none'],
     control: { type: 'radio' },
 		description: 'implementing separator requires type to be number',
-
   },
 };
 
 Default.args = {
-  hint: 'success',
   disabled: false,
-  error: false,
-  label: '',
+  label: 'label',
   value: '',
-  hintText: '',
+  helperHint: 'helper',
+	successHint: 'succe',
   unit: '',
   limit: 0,
 	type: 'text',
