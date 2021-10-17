@@ -18,8 +18,8 @@ const Template = (_, { argTypes }) => ({
 		v-model="value"
 		:disabled="disabled"
 		:label="label"
-		:hint="hint"
-		:hint-text="hintText"
+		:helperHint="helperHint"
+		:successHint="successHint"
 		:options="options"
 		:disabledOptionId="disabledOptionId"
 		:loading="loading"
@@ -29,19 +29,12 @@ const Template = (_, { argTypes }) => ({
 
 export const Default = Template.bind({});
 
-Default.argTypes = {
-  hint: {
-    options: ['helper', 'success'],
-    control: { type: 'radio' },
-  },
-};
-
 Default.args = {
-  hint: 'helper',
   disabled: false,
   label: '',
   value: '',
-  hintText: '',
+  helperHint: 'ik',
+	successHint: 'succe',
   options: [
     { id: 1, name: 'Barney' },
     { id: 2, name: 'Homer' },

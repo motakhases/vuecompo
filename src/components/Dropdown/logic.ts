@@ -23,11 +23,11 @@ export default Vue.extend({
       type: String,
       default: 'label',
     },
-    hint: {
+    helperHint: {
       type: String,
-      default: 'helper',
+      default: '',
     },
-    hintText: {
+    successHint: {
       type: String,
       default: '',
     },
@@ -62,6 +62,11 @@ export default Vue.extend({
       filteredOptions: this.options,
       optionRef: '',
     };
+  },
+  watch: {
+    formattedValue() {
+      this.activeLabel = !!this.value.length;
+    },
   },
   mounted() {
     document.documentElement.addEventListener('click', this.outsideClick, false);
