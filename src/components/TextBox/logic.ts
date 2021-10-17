@@ -59,6 +59,11 @@ export default Vue.extend({
       }
     },
   },
+  watch: {
+    formattedValue() {
+      this.activeLabel = !!this.value.length;
+    },
+  },
   methods: {
     // update value of textarea
     onInput(event: any) {

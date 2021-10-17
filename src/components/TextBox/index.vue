@@ -25,7 +25,7 @@
       <div class="zpl-textbox-hint-box">
         <!-- show when we have helperHint -->
         <div
-          v-if="helperHint && !successHint && !errors.length"
+          v-if="helperHint && !(successHint && passed) && !errors.length"
           class="zpl-textbox-hint helper"
         >
           <span>
