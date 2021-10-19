@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['zpl-logo', size, type, `dark:logo-dark `]"
+    :class="['zpl-logo', size, type, `dark:${type}-dark `]"
     :language="language"
     :name="name"
   />

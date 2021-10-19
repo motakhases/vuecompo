@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl">
+  <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl dark">
     <h1 class="font-bold text-ls-md mb-sm">
       @zarinpal/web-components
     </h1>
@@ -10,13 +10,20 @@
       TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
       and <a href="https://vuejs.org/">Vuejs</a>.
     </p>
+    <Logo
+      size="medium"
+      name="zarinpal"
+      type="logo"
+    />
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue';
+import Logo from './components/Logo/index.vue';
 
 export default Vue.extend({
   name: 'App',
+  components: { Logo },
 });
 </script>

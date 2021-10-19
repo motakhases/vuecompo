@@ -9,7 +9,7 @@ const { borderRadius } = require('./src/designTokens/borderRadius');
 
 module.exports = {
   mode: 'jit',
-  darkMode: 'media',
+  darkMode: 'class',
   purge: [
     './public/**/*.html',
     './src/**/*.vue',
