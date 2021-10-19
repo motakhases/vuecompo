@@ -2,7 +2,7 @@ import Component from "./index.vue";
 
 export default {
   component: Component,
-  title: "Components/Button",
+  title: "Components/Logo",
 };
 
 const Template = (_, { argTypes }) => ({

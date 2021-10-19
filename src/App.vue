@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl">
+  <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl dark">
     <h1 class="font-bold text-ls-md mb-sm">
       @zarinpal/web-components
     </h1>
