@@ -8,7 +8,7 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component :size="size" :image="image" :darkImage="darkImage" :language="language" />
+		<Component :size="size" :name="name" :type="type" :language="language" />
 		`,
 });
 
