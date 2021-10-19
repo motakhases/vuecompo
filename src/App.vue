@@ -10,20 +10,13 @@
       TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
       and <a href="https://vuejs.org/">Vuejs</a>.
     </p>
-    <Logo
-      size="medium"
-      name="zarinpal"
-      type="logo"
-    />
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue';
-import Logo from './components/Logo/index.vue';
 
 export default Vue.extend({
   name: 'App',
-  components: { Logo },
 });
 </script>
