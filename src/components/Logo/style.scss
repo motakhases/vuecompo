@@ -1,0 +1,56 @@
+.zpl-logo-link {
+  /* Default */
+  @apply flex items-center;
+}
+.zpl-logo {
+  /* Default */
+  @apply w-full bg-cover	bg-no-repeat bg-center text-text-dark;
+  text-indent: -1000em;
+
+  &.medium {
+    /* Default */
+    @apply h-xl;
+  }
+
+  &.large {
+    /* Default */
+    @apply h-2xl;
+  }
+  &[name="zarinpal"] {
+
+		@apply dark:logo-dark dark:w-full;
+		
+    &.logo {
+      &[language="fa"] {
+        /* Default */
+        background-image: url("../../assets/images/ZarinPal-Logo-fa.svg");
+      }
+      &[language="en"] {
+        /* Default */
+        background-image: url("../../assets/images/ZarinPal-Logo-en.svg");
+      }
+    }
+    &.logo-dark {
+    }
+    &.logoType {
+      /* Default */
+      // background-image: url("../../assets/images/ZarinPal-Logo-fa.svg");
+    }
+    &.logoMark {
+    }
+  }
+}
+
+.dark {
+  .logo-dark {
+    /* Default */
+    &[language="fa"] {
+      /* Default */
+      background-image: url("../../assets/images/ZarinPal-Logo-fa-dark.svg");
+    }
+    &[language="en"] {
+      /* Default */
+      background-image: url("../../assets/images/ZarinPal-Logo-en-dark.svg");
+    }
+  }
+}
