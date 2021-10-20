@@ -2,17 +2,10 @@
   <div class="rtl">
     <div class="zpl-topbar-container">
       <div class="zpl-topbar-right-side">
-        <Icon
-          name="angleDown"
-          class="zpl-topbar-menu"
-        />
-
-        <div>
-          <a href="#1">logo</a>
-        </div>
+        <slot name="right-side" />
       </div>
-      <div class="zpl-topbar-right-side">
-        fd
+      <div class="zpl-topbar-left-side">
+        <slot name="left-side" />
       </div>
     </div>
   </div>
