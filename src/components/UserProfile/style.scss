@@ -20,3 +20,7 @@
   @apply mr-xs ml-2xs text-text;
   @apply dark:text-text-dark;
 }
+.zpl-user-profile-desktop {
+  /* Default */
+  @apply hidden lg:block;
+}

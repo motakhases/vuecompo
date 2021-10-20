@@ -8,12 +8,12 @@
         name="profile"
         class="zpl-button-icon"
       />
-      <span class="zpl-user-profile-username">
+      <span class="zpl-user-profile-username zpl-user-profile-desktop">
         {{ username }}
       </span>
       <Icon
         name="angleDown"
-        class="zpl-button-icon"
+        class="zpl-button-icon zpl-user-profile-desktop"
       />
     </button>
   </div>
