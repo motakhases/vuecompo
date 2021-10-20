@@ -9,17 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component
-		:username="username"
-		:size="size"
-		:disabled="disabled"
-		:fill="fill"
-		:loading="loading"
-		:beforeIcon="beforeIcon"
-		:afterIcon="afterIcon"
-		:onClick="onClick"
-	>
-	</Component>
+		<Component :username="username"></Component>
   `,
 });
 
