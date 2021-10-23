@@ -1,0 +1,33 @@
+.zpl-nav-bar-icon {
+  @apply h-xl w-xl cursor-pointer;
+}
+.zpl-nav-bar-menu {
+  @apply w-[256px] bg-surface p-md fixed;
+}
+.zpl-nav-bar-header {
+  @apply flex items-center;
+  svg {
+    @apply h-xl w-xl;
+  }
+}
+.zpl-nav-bar-header-title {
+  @apply flex-1;
+}
+.zpl-nav-bar-terminal-icon {
+  @apply bg-surface-soft border border-border-soft p-xs rounded-md ml-sm;
+}
+.zpl-nav-bar-title {
+  @apply text-btn text-text truncate;
+}
+.zpl-nav-bar-link {
+  @apply text-ls-cp text-text-soft mt-2xs truncate;
+}
+.zpl-nav-bar-content {
+  @apply mt-2xl;
+}
+.zpl-nav-bar-item {
+  @apply flex items-center rounded-sm p-xs;
+  svg {
+    @apply h-xl w-xl ml-md;
+  }
+}
