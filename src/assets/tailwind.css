@@ -26,17 +26,22 @@
   .ltr {
     direction: ltr;
   }
+  .truncate {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
   @variants dark {
-    .zpl-logo[name=zarinpal].logo-dark[language="fa"] {
+    .zpl-logo[name="zarinpal"].logo-dark[language="fa"] {
       background-image: url("./images/ZarinPal-Logo-fa-dark.svg");
     }
-    .zpl-logo[name=zarinpal].logo-dark[language="en"] {
+    .zpl-logo[name="zarinpal"].logo-dark[language="en"] {
       background-image: url("./images/ZarinPal-Logo-en-dark.svg");
     }
-		.zpl-logo[name=zarinpal].logo-type-dark[language="fa"] {
+    .zpl-logo[name="zarinpal"].logo-type-dark[language="fa"] {
       background-image: url("./images/ZarinPal-Logo-type-fa-dark.svg");
     }
-    .zpl-logo[name=zarinpal].logo-type-dark[language="en"] {
+    .zpl-logo[name="zarinpal"].logo-type-dark[language="en"] {
       background-image: url("./images/ZarinPal-Logo-type-en-dark.svg");
     }
   }
