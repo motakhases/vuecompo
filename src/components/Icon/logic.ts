@@ -15,6 +15,10 @@ export default Vue.extend({
     profile: () => import('./icons/Profile.vue'),
     questionCircle: () => import('./icons/QuestionCircle.vue'),
     notification: () => import('./icons/Notification.vue'),
+    angleLeft: () => import('./icons/AngleLeft.vue'),
+    chartSquare: () => import('./icons/ChartSquare.vue'),
+    plus: () => import('./icons/Plus.vue'),
+    terminal: () => import('./icons/Terminal.vue'),
   },
 
   props: {
