@@ -11,6 +11,14 @@ export default Vue.extend({
     filledArrowUp: () => import('./icons/FilledArrowUp.vue'),
     tickLarge: () => import('./icons/TickLarge.vue'),
     warning: () => import('./icons/Warning.vue'),
+    menuBurger: () => import('./icons/MenuBurger.vue'),
+    profile: () => import('./icons/Profile.vue'),
+    questionCircle: () => import('./icons/QuestionCircle.vue'),
+    notification: () => import('./icons/Notification.vue'),
+    angleLeft: () => import('./icons/AngleLeft.vue'),
+    chartSquare: () => import('./icons/ChartSquare.vue'),
+    plus: () => import('./icons/Plus.vue'),
+    terminal: () => import('./icons/Terminal.vue'),
   },
 
   props: {
