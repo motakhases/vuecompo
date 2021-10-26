@@ -38,4 +38,14 @@ export default Vue.extend({
       required: true,
     },
   },
+  data() {
+    return {
+      toggle: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.toggle = !this.toggle;
+    },
+  },
 });
