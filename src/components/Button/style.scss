@@ -1,9 +1,13 @@
 .zpl-button {
   /* Default */
-  @apply rounded-sm;
+  @apply rounded-sm flex justify-center items-center text-center gap-x-xs;
 
   /* Disabled */
   @apply disabled:cursor-default;
+
+  /* focused */
+  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
 
   &.primary {
     /* Default */
@@ -21,6 +25,10 @@
     /* Disabled */
     @apply disabled:bg-primaryZarinpal-disabled;
     @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-primaryZarinpal;
+    @apply dark:focus:bg-primaryZarinpal-dark;
   }
 
   &.secondary {
@@ -39,7 +47,12 @@
     /* Disabled */
     @apply disabled:bg-secondary-disabled;
     @apply dark:disabled:bg-secondary-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-secondary;
+    @apply dark:focus:bg-secondary-dark;
   }
+
   &.tertiary {
     /* Default */
     @apply bg-surface  text-text;
@@ -56,6 +69,10 @@
     /* Disabled */
     @apply disabled:bg-surface-disabled;
     @apply dark:disabled:bg-surface-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-surface;
+    @apply dark:focus:bg-surface-dark;
   }
 
   &.small {
@@ -68,5 +85,42 @@
 
   &.large {
     @apply px-xl py-sm;
+  }
+
+  &.fill {
+    @apply w-full;
+  }
+}
+.zpl-button-icon {
+  @apply h-xl w-xl;
+}
+.zpl-button-loading {
+  /* Default */
+  @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
+}
+
+.zpl-button-loading-1,
+.zpl-button-loading-2 {
+  /* Default */
+  @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
+  @apply dark:bg-black-40;
+
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.zpl-button-loading-2 {
+  /* Default */
+  animation-delay: -1s;
+}
+
+/* animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
   }
 }
