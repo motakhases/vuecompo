@@ -1,12 +1,17 @@
 <template>
   <div class="rtl">
-    <nav class="zpl-nav-bar-icon">
-      <Icon name="menuBurger" />
+    <nav
+      class="zpl-nav-bar-icon"
+      @click="toggleMenu"
+    >
+      <Icon
+        name="menuBurger"
+      />
     </nav>
-    <nav class="zpl-nav-bar-menu">
+    <nav :class="['zpl-nav-bar-menu', { toggle }]">
       <div class="zpl-nav-bar-header">
         <div class="zpl-nav-bar-terminal-icon">
-          <Icon name="profile" />
+          <Icon name="terminal" />
         </div>
         <div class="zpl-nav-bar-header-title">
           <div class="zpl-nav-bar-title">
@@ -16,17 +21,33 @@
             link
           </div>
         </div>
-        <Icon name="angleDown" />
+        <Icon
+          name="angleLeft"
+          class="zpl-nav-bar-arrow"
+        />
+        <div class="zpl-nav-bar-popover">
+          <ul class="zpl-nav-bar-popover-list">
+            <li class="zpl-nav-bar-popover-item">
+              <div class="zpl-nav-bar-terminal-icon">
+                <Icon name="terminal" />
+              </div>
+              <div class="zpl-nav-bar-header-title">
+                <div class="zpl-nav-bar-title">
+                  title
+                </div>
+                <div class="zpl-nav-bar-link">
+                  link
+                </div>
+                <div class="zpl-nav-bar-popover-status inactive">
+                  acyo
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="zpl-nav-bar-content">
-        <ul class="zpl-nav-bar-list">
-          <li class="zpl-nav-bar-item">
-            <Icon name="tickLarge" />
-            <div class="zpl-nav-bar-title">
-              لیبل
-            </div>
-          </li>
-        </ul>
+        <slot name="list" />
       </div>
     </nav>
   </div>
