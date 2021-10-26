@@ -1,6 +1,7 @@
 <template>
   <button
     :class="['zpl-segment-button', { active }]"
+    @click="onClick"
   >
     <slot />
   </button>

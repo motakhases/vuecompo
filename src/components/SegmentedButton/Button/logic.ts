@@ -8,5 +8,9 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    onClick: {
+      type: Function,
+      required: true,
+    },
   },
 });

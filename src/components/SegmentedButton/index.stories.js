@@ -14,9 +14,9 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <Component :fill="fill">
-			<Button> bnt1 </Button>
-			<Button active="true" > btn2 </Button>
-			<Button> bnt3 </Button>
+			<Button :onClick='onClick' > bnt1 </Button>
+			<Button :onClick='onClick'  active="true" > btn2 </Button>
+			<Button :onClick='onClick' > bnt3 </Button>
 		</Component>
   `,
 });
@@ -25,4 +25,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   fill: false,
+  onClick: () => alert("clicked"),
 };

@@ -47,4 +47,9 @@ export default Vue.extend({
       });
     });
   },
+  methods: {
+    clickFirstBtn() {
+      console.log('first');
+    },
+  },
 });
