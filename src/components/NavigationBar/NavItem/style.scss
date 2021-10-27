@@ -7,10 +7,6 @@
   @apply hover:bg-primarySurface-hover;
   @apply dark:hover:bg-primarySurface-dark-hover;
 
-  /* Disabled */
-  @apply disabled:bg-primarySurface-disabled;
-  @apply dark:disabled:bg-primarySurface-dark-disabled;
-
   /* Active */
   @apply active:bg-primarySurface active:shadow-border-focus-heavy;
   @apply dark:active:bg-primarySurface-dark dark:active:shadow-dark-border-focus-heavy;
