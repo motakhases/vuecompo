@@ -14,27 +14,30 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-		<Component
-		v-model="value"
-		:disabled="disabled"
-		:label="label"
-		:helperHint="helperHint"
-		:successHint="successHint"
-		:options="options"
-		:disabledOptionId="disabledOptionId"
-		:loading="loading"
-		:rules="rules"
-		/>  `,
+    <div class="dark:bg-background-dark p-sm rounded-md h-full">
+      <Component
+        v-model="value"
+        :disabled="disabled"
+        :label="label"
+        :helperHint="helperHint"
+        :successHint="successHint"
+        :options="options"
+        :disabledOptionId="disabledOptionId"
+        :loading="loading"
+        :rules="rules"
+      />
+    </div>
+  `,
 });
 
 export const Default = Template.bind({});
 
 Default.args = {
   disabled: false,
-  label: '',
+  label: 'یک لیبل تستی',
   value: '',
-  helperHint: 'ik',
-	successHint: 'succe',
+  helperHint: 'یک توضیح کوتاه',
+	successHint: 'عملیات موفقیت آمیز بود',
   options: [
     { id: 1, name: 'Barney' },
     { id: 2, name: 'Homer' },
