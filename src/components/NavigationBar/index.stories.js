@@ -1,70 +1,38 @@
 import Component from "./index.vue";
-import Icon from '../Icon/index.vue';
-
+import Icon from "../Icon/index.vue";
+import NavItem from "./NavItem/index.vue";
 export default {
   component: Component,
   title: "Components/NavigationBar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, Icon},
+  components: { Component, Icon, NavItem },
   props: Object.keys(argTypes),
   template: `
-		<Component
-	>
-		{{ text }}
-		<template v-slot:list>
-		<ul class="zpl-nav-bar-list">
-		<li class="zpl-nav-bar-item active">
-			<Icon name="questionCircle" />
-			<div class="zpl-nav-bar-title">
-				لیبل
-			</div>
-		</li>
-		<li class="zpl-nav-bar-item">
-			<Icon name="questionCircle" />
-			<div class="zpl-nav-bar-title">
-				لیبل
-			</div>
-		</li>
-		<li class="zpl-nav-bar-item">
-			<Icon name="questionCircle" />
-			<div class="zpl-nav-bar-title">
-				لیبل
-			</div>
-		</li>
-	</ul>
-	<ul class="zpl-nav-bar-list">
-	<li class="zpl-nav-bar-item">
-		<Icon name="questionCircle" />
-		<div class="zpl-nav-bar-title">
-			لیبل
-		</div>
-	</li>
-	<li class="zpl-nav-bar-item">
-		<Icon name="questionCircle" />
-		<div class="zpl-nav-bar-title">
-			لیبل
-		</div>
-	</li>
-	<li class="zpl-nav-bar-item">
-		<Icon name="questionCircle" />
-		<div class="zpl-nav-bar-title">
-			لیبل
-		</div>
-	</li>
-</ul>
-		</template>
+		<Component>
+			<ul class="zpl-nav-bar-list">
+				<NavItem active>
+	      <Icon name="questionCircle" />
+      <span class="zpl-nav-item-title">
+        لیبل
+      </span>
+				</NavItem>
+				<NavItem>
+	     <a> <Icon name="questionCircle" />
+			 <span class="zpl-nav-item-title">
+				 لیبل
+			 </span></a>
+				</NavItem>
+	  	</ul>
 	</Component>
   `,
 });
 
 export const Default = Template.bind({});
 
-Default.argTypes = {
-};
+Default.argTypes = {};
 
 Default.args = {
-  text: "Button",
   size: "large",
 };

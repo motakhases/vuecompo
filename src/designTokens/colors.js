@@ -67,7 +67,7 @@ module.exports = {
       disabled: '#E3E5EC',
       dark: {
         DEFAULT: '#37383C',
-        hover: '#4C4D5',
+        hover: '#4C4D52',
         active: '#5F616A',
         focus: '#37383C',
         select: '#37383C',

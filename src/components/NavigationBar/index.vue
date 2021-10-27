@@ -47,6 +47,7 @@
         </div>
       </div>
       <div class="zpl-nav-bar-content">
+        <slot />
         <slot name="list" />
       </div>
     </nav>
