@@ -2,25 +2,27 @@ import Component from "./index.vue";
 
 export default {
   component: Component,
-  title: "Components/Logo",
+  title: "Components/Button",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
+  <div class="dark:bg-background-dark p-sm rounded-md">
 		<Component
-		:type="type"
-		:size="size"
-		:disabled="disabled"
-		:fill="fill"
-		:loading="loading"
-		:beforeIcon="beforeIcon"
-		:afterIcon="afterIcon"
-		:onClick="onClick"
-	>
-		{{ text }}
-	</Component>
+      :type="type"
+      :size="size"
+      :disabled="disabled"
+      :fill="fill"
+      :loading="loading"
+      :beforeIcon="beforeIcon"
+      :afterIcon="afterIcon"
+      :onClick="onClick"
+    >
+      {{ text }}
+    </Component>
+  </div>
   `,
 });
 

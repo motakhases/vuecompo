@@ -13,14 +13,16 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-    <Component>
-      <Button type="primary">
-        Primary
-      </Button>
-      <Button type="secondary">
-        Secondary
-      </Button>
-    </Component>
+    <div class="dark:bg-background-dark p-sm rounded-md">
+      <Component>
+        <Button type="primary">
+          Primary
+        </Button>
+        <Button type="secondary">
+          Secondary
+        </Button>
+      </Component>
+    </div>
   `,
 });
 
