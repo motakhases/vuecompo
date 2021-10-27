@@ -9,8 +9,13 @@ const Template = (_, { argTypes }) => ({
   components: { Radio },
   props: Object.keys(argTypes),
   template: `
-    <Radio dir="rtl" :name="name" :options="options" :disabled="disabled">
-    </Radio>
+  <div class="dark:bg-background-dark p-sm rounded-md">
+    <Radio
+      :name="name"
+      :options="options"
+      :disabled="disabled"
+    />
+  </div>
   `,
 });
 
@@ -21,9 +26,9 @@ Default.argTypes = {
 
 Default.args = {
   options: [
-    { label: 'لیبل', value: 'test' },
-    { label: 'لیبل', value: 'test2' },
-    { label: 'لیبل', value: 'test3' },
+    { label: 'اپل', value: 'apple' },
+    { label: 'لنوو', value: 'lenovo' },
+    { label: 'شیائومی', value: 'xiaomi' },
   ],
   name:'test',
   disabled:false
