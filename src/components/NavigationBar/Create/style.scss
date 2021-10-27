@@ -1,0 +1,11 @@
+.zpl-nav-create {
+  @apply flex items-center py-md px-sm text-text text-b2 gap-sm;
+
+  /* Hover */
+  @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
+
+  /* Active */
+  @apply active:bg-surface active:shadow-border-focus-heavy;
+  @apply dark:active:bg-surface-dark dark:active:shadow-dark-border-focus-heavy;
+}
