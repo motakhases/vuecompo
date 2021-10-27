@@ -14,7 +14,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-    <div class="dark:bg-background-dark p-sm rounded-md h-full">
+    <div class="dark:bg-surface-dark p-sm rounded-md h-full">
       <Component
         v-model="value"
         :disabled="disabled"

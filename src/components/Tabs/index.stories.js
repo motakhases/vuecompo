@@ -10,7 +10,7 @@ const Template = (_, { argTypes }) => ({
   components: { Tabs, Tab },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-background-dark p-sm rounded-md">
+  <div class="dark:bg-surface-dark p-sm rounded-md">
     <Tabs dir="rtl" :fill-container="fillContainer">
       <tab
         v-for="(tab, index) in tabs"

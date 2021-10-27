@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { CheckBox },
   props: Object.keys(argTypes),
   template: `
-    <div class="dark:bg-background-dark p-sm rounded-md">
+    <div class="dark:bg-surface-dark p-sm rounded-md">
       <CheckBox
         :name="name"
         :options="options"
