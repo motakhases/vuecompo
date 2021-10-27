@@ -13,6 +13,7 @@ module.exports = {
   purge: [
     './public/**/*.html',
     './src/**/*.vue',
+    './src/**/*.js',
   ],
   theme: {
     screens,
