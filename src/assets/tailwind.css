@@ -2,17 +2,7 @@
 
 @tailwind base;
 @layer base {
-  a {
-    /* Default */
-    @apply text-interactive-link dark:text-interactive-dark-link border-b border-transparent border-dashed;
-
-    /* Hover */
-    @apply hover:border-interactive-link dark:hover:border-interactive-dark-link;
-
-    /* Focus */
-    @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
-    @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
-  }
+  
 }
 
 @tailwind components;

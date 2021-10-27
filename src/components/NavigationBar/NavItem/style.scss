@@ -1,0 +1,40 @@
+.zpl-nav-item {
+  @apply flex items-center rounded-sm p-xs gap-md cursor-pointer mb-sm
+	       text-text text-b2;
+  @apply dark:text-text-dark;
+
+  /* Hover */
+  @apply hover:bg-primarySurface-hover;
+  @apply dark:hover:bg-primarySurface-dark-hover;
+
+  /* Disabled */
+  @apply disabled:bg-primarySurface-disabled;
+  @apply dark:disabled:bg-primarySurface-dark-disabled;
+
+  /* Active */
+  @apply active:bg-primarySurface active:shadow-border-focus-heavy;
+  @apply dark:active:bg-primarySurface-dark dark:active:shadow-dark-border-focus-heavy;
+
+  svg {
+    @apply h-xl w-xl;
+    flex: 0 0 24px;
+  }
+  a {
+    @apply flex items-center gap-md;
+  }
+  &.active {
+    @apply bg-primarySurface;
+    @apply dark:bg-primarySurface-dark-select;
+    &:before {
+      content: "";
+      @apply bg-primaryZarinpal w-2xs h-2xl absolute right-0 rounded-tl-sm rounded-bl-sm;
+    }
+    svg {
+      @apply text-primaryZarinpal;
+			@apply text-primaryZarinpal-dark;
+    }
+  }
+}
+.zpl-nav-item-title {
+  @apply flex-1;
+}
