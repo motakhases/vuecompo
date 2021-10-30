@@ -1,5 +1,4 @@
 import Component from "./index.vue";
-import Icon from '../Icon/index.vue';
 
 export default {
   component: Component,
@@ -7,36 +6,18 @@ export default {
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, Icon },
+  components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component>
-			<Icon name="terminal" />
-		</Component>
+		<Component :icon="icon" :img="img" alt="alt" />
   `,
 });
 
 export const Default = Template.bind({});
 
-Default.argTypes = {
-  size: {
-    options: ["small", "medium", "large"],
-    control: { type: "radio" },
-  },
-  type: {
-    options: ["primary", "secondary", "tertiary"],
-    control: { type: "radio" },
-  },
-};
 
 Default.args = {
-  text: "Button",
-  size: "large",
-  type: "primary",
-  disabled: false,
-  fill: false,
-  loading: false,
-  afterIcon: "",
-  beforeIcon: "",
-	onClick: () => alert('clicked')
+  icon: "terminal",
+  alt: "",
+  img: "",
 };

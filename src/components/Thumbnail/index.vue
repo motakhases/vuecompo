@@ -1,6 +1,14 @@
 <template>
   <div class="zpl-thumbnail">
-    <slot />
+    <Icon
+      v-if="icon && !img"
+      :name="icon"
+    />
+    <img
+      v-if="img"
+      :src="img"
+      :alt="alt"
+    >
   </div>
 </template>
 
