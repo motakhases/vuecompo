@@ -3,7 +3,7 @@ import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
 
 export default Vue.extend({
-  name: 'Create',
+  name: 'SwitchTerminalItem',
   components: { Thumbnail, Icon },
   props: {
     active: {
@@ -11,6 +11,10 @@ export default Vue.extend({
       default: false,
     },
     link: {
+      type: String,
+      default: '',
+    },
+    icon: {
       type: String,
       default: '',
     },

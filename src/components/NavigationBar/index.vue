@@ -9,6 +9,9 @@
       />
     </nav>
     <nav :class="['zpl-nav-bar-menu', { toggle }]">
+      <router-link to="/">
+        dd
+      </router-link>
       <div class="zpl-nav-bar-header">
         <div class="zpl-nav-bar-terminal-icon">
           <Icon name="terminal" />
@@ -26,29 +29,17 @@
           class="zpl-nav-bar-arrow"
         />
         <div class="zpl-nav-bar-popover">
-          <ul class="zpl-nav-bar-popover-list">
-            <li class="zpl-nav-bar-popover-item">
-              <div class="zpl-nav-bar-terminal-icon">
-                <Icon name="terminal" />
-              </div>
-              <div class="zpl-nav-bar-header-title">
-                <div class="zpl-nav-bar-title">
-                  title
-                </div>
-                <div class="zpl-nav-bar-link">
-                  link
-                </div>
-                <div class="zpl-nav-bar-popover-status inactive">
-                  acyo
-                </div>
-              </div>
-            </li>
-          </ul>
+          <ul class="zpl-nav-bar-popover-list" />
         </div>
       </div>
       <div class="zpl-nav-bar-content">
         <slot />
-        <slot name="list" />
+        <ul class="zpl-nav-bar-list">
+          <slot name="firstList" />
+        </ul>
+        <ul class="zpl-nav-bar-list">
+          <slot name="secondList" />
+        </ul>
       </div>
     </nav>
   </div>

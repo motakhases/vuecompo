@@ -20,18 +20,11 @@
 .zpl-nav-bar-arrow {
   @apply h-xl w-xl;
 }
-.zpl-nav-bar-header-title {
-  @apply flex-1;
-}
+
 .zpl-nav-bar-terminal-icon {
   @apply bg-surface-soft border border-border-soft p-xs rounded-md;
 }
-.zpl-nav-bar-title {
-  @apply text-btn text-text truncate;
-}
-.zpl-nav-bar-link {
-  @apply text-ls-cp text-text-soft mt-2xs truncate;
-}
+
 .zpl-nav-bar-content {
   @apply mt-2xl;
 }

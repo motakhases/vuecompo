@@ -3,7 +3,7 @@ import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
 
 export default Vue.extend({
-  name: 'Create',
+  name: 'Overview',
   components: { Thumbnail, Icon },
   props: {
     active: {

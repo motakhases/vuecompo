@@ -90,6 +90,8 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "vee-validate": "^3.4.13"
+    "storybook-vue-router": "^1.0.7",
+    "vee-validate": "^3.4.13",
+    "vue-router": "^3.5.3"
   }
 }

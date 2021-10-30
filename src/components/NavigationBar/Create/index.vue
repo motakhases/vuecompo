@@ -1,8 +1,13 @@
 <template>
   <div class="rtl">
-    <div class="zpl-nav-create">
-      <slot />
-    </div>
+    <router-link :to="link">
+      <div class="zpl-nav-create">
+        <Thumbnail>
+          <Icon name="plus" />
+        </Thumbnail>
+        <slot />
+      </div>
+    </router-link>
   </div>
 </template>
 
