@@ -2,22 +2,29 @@ import Component from "./index.vue";
 
 export default {
   component: Component,
-  title: "Components/Thumbnail",
+  title: "Components/StoreStatus",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component :icon="icon" :img="img" alt="alt" />
+		<Component :state="state">
+			{{ text }}
+		</Component>
   `,
 });
 
 export const Default = Template.bind({});
 
+Default.argTypes = {
+  state: {
+    options: ["inactive", "active", "pending", "deactive"],
+    control: { type: "radio" },
+  },
+};
 
 Default.args = {
-  icon: "terminal",
-  alt: "",
-  img: "",
+  text: "وضعیت",
+  state: "active",
 };

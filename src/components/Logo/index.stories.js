@@ -8,8 +8,15 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component :size="size" :name="name" :type="type" :language="language" />
-		`,
+		<div class="dark:bg-surface-dark p-sm rounded-md">
+      <Component
+        :size="size"
+        :name="name"
+        :type="type"
+        :language="language"
+      />
+    </div>
+  `,
 });
 
 export const Default = Template.bind({});
