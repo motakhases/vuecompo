@@ -10,9 +10,13 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    title: {
+      type: String,
+      default: 'عنوان درگاه',
+    },
     link: {
       type: String,
-      default: '',
+      default: 'zarinp.al/getway',
     },
     icon: {
       type: String,

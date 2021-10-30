@@ -9,20 +9,23 @@
   /* Active */
   @apply active:bg-surface active:shadow-border-focus-heavy active:relative active:z-10;
   @apply dark:active:bg-surface-dark dark:active:shadow-dark-border-focus-heavy;
-
-  &.active {
-    &:after {
-      content: "";
-      @apply flex items-center justify-center w-[18px] h-[18px] bg-primaryZarinpal;
-    }
-  }
 }
 .zpl-nav-terminal-header {
-  @apply flex-1;
+  @apply flex-1 relative;
 }
 .zpl-nav-terminal-title {
   @apply text-btn text-text truncate;
+  @apply dark:text-text-dark;
 }
 .zpl-nav-terminal-link {
   @apply text-ls-cp text-text-soft mt-2xs truncate;
+  @apply dark:text-text-dark-soft;
+}
+.zpl-nav-terminal-active {
+  @apply flex items-center justify-center w-[18px] h-[18px] bg-primaryZarinpal;
+  @apply rounded-circle absolute left-0 top-xl;
+
+  svg {
+    @apply text-icon-onPrimary w-[7px] h-[5px];
+  }
 }

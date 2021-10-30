@@ -44,7 +44,7 @@ const Template = (_, { argTypes }) => ({
 	</template>
 	<SwitchTerminalPopover>
 		<Overview link="overview"> نمای کلی </Overview>
-		<SwitchTerminalItem link="navItem" icon="plus">
+		<SwitchTerminalItem title="عنوان درگاه" link="zarinp.al/getway" icon="terminal" active="true">
 
 		</SwitchTerminalItem>
 		<Create link="/home"> sds </Create>

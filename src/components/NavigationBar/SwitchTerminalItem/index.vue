@@ -6,13 +6,19 @@
       </Thumbnail>
       <div class="zpl-nav-terminal-header">
         <div class="zpl-nav-terminal-title">
-          title
+          {{ title }}
         </div>
         <div class="zpl-nav-terminal-link">
-          link
+          {{ link }}
         </div>
         <div class="zpl-nav-bar-popover-status inactive">
           acyo
+        </div>
+        <div
+          v-if="active"
+          class="zpl-nav-terminal-active"
+        >
+          <Icon name="tickLarge" />
         </div>
       </div>
     </div>
