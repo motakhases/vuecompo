@@ -10,6 +10,7 @@ export default Vue.extend({
     filledArrowDown: () => import('./icons/FilledArrowDown.vue'),
     filledArrowUp: () => import('./icons/FilledArrowUp.vue'),
     tickLarge: () => import('./icons/TickLarge.vue'),
+    tickSmall: () => import('./icons/TickSmall.vue'),
     warning: () => import('./icons/Warning.vue'),
     menuBurger: () => import('./icons/MenuBurger.vue'),
     profile: () => import('./icons/Profile.vue'),
