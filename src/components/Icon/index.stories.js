@@ -16,5 +16,5 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-  name: 'menuBurger'
+  name: 'tickSmall'
 };
