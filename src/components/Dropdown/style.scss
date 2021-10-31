@@ -61,7 +61,7 @@
   /* Default */
   @apply flex items-center gap-x-2xs py-2xs px-sm text-b3 text-text-soft;
 
-	svg {
+  svg {
     @apply w-xl h-xl;
   }
 
@@ -112,18 +112,16 @@
   &.selected {
     @apply bg-surface-select text-text relative flex items-center;
     @apply dark:bg-surface-dark-select dark:text-text-dark;
-
-    /* icon */
-    &:after {
-      content: "";
-      @apply absolute bg-primaryZarinpal w-2xs h-2xs left-md;
-    }
   }
 
   &.active:not(.selected):not(.disabled) {
     @apply bg-surface-hover;
     @apply dark:bg-surface-dark-hover;
   }
+}
+.zpl-dropdown-selected-icon {
+  /* Default */
+  @apply absolute text-primaryZarinpal w-xl h-xl left-sm;
 }
 .zpl-dropdown-skeleton-box {
   /* Default */
