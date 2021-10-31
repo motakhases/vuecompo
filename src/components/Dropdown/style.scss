@@ -122,6 +122,7 @@
 .zpl-dropdown-selected-icon {
   /* Default */
   @apply absolute text-primaryZarinpal w-xl h-xl left-sm;
+  @apply dark:text-primaryZarinpal-dark;
 }
 .zpl-dropdown-skeleton-box {
   /* Default */
