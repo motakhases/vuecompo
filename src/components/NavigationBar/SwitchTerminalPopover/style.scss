@@ -1,4 +1,8 @@
 .zpl-nav-popover {
-  @apply w-[320px] bg-surface shadow-elevation-100 rounded-sm;
+  @apply w-[320px] bg-surface shadow-elevation-100 rounded-sm absolute hidden;
   @apply dark:bg-surface-dark;
+	
+  &.show {
+    @apply block;
+  }
 }

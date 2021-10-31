@@ -1,9 +1,18 @@
 <template>
-  <div class="rtl">
-    <li :class="['zpl-nav-item', { active }]">
-      <slot />
-    </li>
-  </div>
+  <li class="zpl-nav-item">
+    <router-link
+      :to="link"
+      :class="['zpl-nav-item-link', { active }]"
+    >
+      <Icon :name="icon" />
+      <span class="zpl-nav-item-title">
+        {{ title }}
+      </span>
+      <NavBadge v-if="badge">
+        {{ badge }}
+      </NavBadge>
+    </router-link>
+  </li>
 </template>
 
 <script lang="ts">

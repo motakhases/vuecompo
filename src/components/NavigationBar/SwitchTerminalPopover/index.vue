@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-nav-popover">
+  <div :class="['zpl-nav-popover', { show }]">
     <slot />
   </div>
 </template>

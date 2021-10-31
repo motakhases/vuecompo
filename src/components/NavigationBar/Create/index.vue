@@ -2,9 +2,7 @@
   <div class="rtl">
     <router-link :to="link">
       <div class="zpl-nav-create">
-        <Thumbnail>
-          <Icon name="plus" />
-        </Thumbnail>
+        <Thumbnail icon="plus" />
         <slot />
       </div>
     </router-link>

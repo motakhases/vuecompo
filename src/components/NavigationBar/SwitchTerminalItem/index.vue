@@ -1,9 +1,11 @@
 <template>
   <router-link :to="link">
     <div class="zpl-nav-terminal-item">
-      <Thumbnail>
-        <Icon :name="icon" />
-      </Thumbnail>
+      <Thumbnail
+        :icon="icon"
+        :img="img"
+        :alt="alt"
+      />
       <div class="zpl-nav-terminal-header">
         <div class="zpl-nav-terminal-title">
           {{ title }}
@@ -11,14 +13,14 @@
         <div class="zpl-nav-terminal-link">
           {{ link }}
         </div>
-        <div class="zpl-nav-bar-popover-status inactive">
-          acyo
-        </div>
+        <StoreStatus :state="state">
+          {{ stateText }}
+        </StoreStatus>
         <div
           v-if="active"
           class="zpl-nav-terminal-active"
         >
-          <Icon name="tickLarge" />
+          <Icon name="tickSmall" />
         </div>
       </div>
     </div>

@@ -5,7 +5,8 @@ import SwitchTerminalPopover from "./SwitchTerminalPopover/index.vue";
 import SwitchTerminalItem from "./SwitchTerminalItem/index.vue";
 import Overview from "./Overview/index.vue";
 import Thumbnail from "../Thumbnail/index.vue";
-import Create from "./Create/index.vue"
+import Create from "./Create/index.vue";
+import SwitchTerminal from "./SwitchTerminal/index.vue";
 import { storiesOf } from "@storybook/vue";
 import StoryRouter from "storybook-vue-router";
 
@@ -26,29 +27,45 @@ const Template = (_, { argTypes }) => ({
     SwitchTerminalPopover,
     Overview,
     SwitchTerminalItem,
-		Create,
-		Thumbnail
+    SwitchTerminal,
+    Create,
+    Thumbnail,
   },
   props: Object.keys(argTypes),
   template: `
 	<Component>
-	<NavItem active>
-		<Icon name="questionCircle" />
-		<span class="zpl-nav-item-title"> لیبل </span>
-	</NavItem>
-	<template v-slot:firstList>
-		<NavItem>
-			<Icon name="questionCircle" />
-			<span class="zpl-nav-item-title"> لیبل </span>
-		</NavItem>
-	</template>
-	<SwitchTerminalPopover>
-		<Overview link="overview"> نمای کلی </Overview>
-		<SwitchTerminalItem title="عنوان درگاه" link="zarinp.al/getway" icon="terminal" active="true">
+	<SwitchTerminal title="عنوان درگاه" link="zarinp.al/getway" icon="terminal" :toggle="toggle" :show="show">
 
-		</SwitchTerminalItem>
-		<Create link="/home"> sds </Create>
-	</SwitchTerminalPopover>
+	</SwitchTerminal>
+	<template v-slot:popover>
+	<SwitchTerminalPopover :show="show" >
+	<Overview
+		link="overview"
+		active
+	>
+		نمای کلی
+	</Overview>
+	<SwitchTerminalItem
+		title="عنوان درگاه"
+		link="zarinp.al/getway"
+		icon="terminal"
+		active="true"
+		state="active"
+		state-text="وضعیت"
+	/>
+	<Create link="/home">
+		ایجاد درگاه جدید
+	</Create>
+</SwitchTerminalPopover>
+	</template>
+	<template v-slot:firstList>
+	  <NavItem active link="/" title="لیبل" icon="questionCircle" badge="12"/>
+	  <NavItem link="/" title="لیبل" icon="questionCircle" badge="12"/>
+	</template>
+	<template v-slot:secondList>
+		<NavItem link="/" title="لیبل" icon="questionCircle" badge="12"/>
+		<NavItem link="/" title="لیبل" icon="questionCircle" badge="12"/>
+	</template>
 </Component>
   `,
 });
@@ -58,5 +75,7 @@ export const Default = Template.bind({});
 Default.argTypes = {};
 
 Default.args = {
-  size: "large",
+  show: false,
+  toggle: () => {
+  },
 };

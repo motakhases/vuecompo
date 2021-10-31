@@ -1,9 +1,17 @@
 <template>
-  <router-link :to="link">
-    <div class="zpl-nav-terminal-item">
-      <Thumbnail>
-        <Icon :name="icon" />
-      </Thumbnail>
+  <router-link
+    :to="link"
+  >
+    {{ toggle }}
+    <div
+      class="zpl-nav-terminal"
+      @mouseenter="toggle"
+    >
+      <Thumbnail
+        :icon="icon"
+        :img="img"
+        :alt="alt"
+      />
       <div class="zpl-nav-terminal-header">
         <div class="zpl-nav-terminal-title">
           {{ title }}
@@ -11,8 +19,9 @@
         <div class="zpl-nav-terminal-link">
           {{ link }}
         </div>
-        <Icon name="angleLeft" />
       </div>
+      <Icon name="angleLeft" />
+      <slot />
     </div>
   </router-link>
 </template>

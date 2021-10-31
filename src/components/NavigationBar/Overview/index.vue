@@ -1,9 +1,7 @@
 <template>
   <router-link :to="link">
     <div class="zpl-nav-overview">
-      <Thumbnail>
-        <Icon name="chartSquare" />
-      </Thumbnail>
+      <Thumbnail icon="chartSquare" />
       <div class="zpl-nav-overview-title">
         <slot />
       </div>
@@ -11,7 +9,7 @@
         v-if="active"
         class="zpl-nav-overview-active"
       >
-        <Icon name="tickLarge" />
+        <Icon name="tickSmall" />
       </div>
     </div>
   </router-link>
