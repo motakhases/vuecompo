@@ -2,22 +2,22 @@ import Component from "./index.vue";
 
 export default {
   component: Component,
-  title: "Components/Thumbnail",
+  title: "Components/NotificationBadge",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component :icon="icon" :img="img" alt="alt" />
+		<Component :numeric="numeric">
+		  {{ text }}
+		</Component>
   `,
 });
 
 export const Default = Template.bind({});
 
-
 Default.args = {
-  icon: "terminal",
-  alt: "",
-  img: "",
+  text: "۱۲",
+  numeric: true,
 };

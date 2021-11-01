@@ -106,6 +106,11 @@
               @mouseleave="deactivateOption"
             >
               {{ option.name }}
+              <Icon
+                v-if="value === option.name"
+                name="tickLarge"
+                class="zpl-dropdown-selected-icon"
+              />
             </li>
           </ul>
         </div>

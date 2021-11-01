@@ -1,15 +1,7 @@
 <template>
-  <div class="zpl-thumbnail">
-    <Icon
-      v-if="icon && !img"
-      :name="icon"
-    />
-    <img
-      v-if="img"
-      :src="img"
-      :alt="alt"
-    >
-  </div>
+  <span :class="['zpl-notification-badge', numeric ? 'full' : 'empty']">
+    <slot v-if="numeric" />
+  </span>
 </template>
 
 <script lang="ts">
