@@ -6,6 +6,7 @@ const { spacing } = require('./src/designTokens/spacing');
 const { fontSize } = require('./src/designTokens/fontSize');
 const { boxShadow } = require('./src/designTokens/boxShadow');
 const { borderRadius } = require('./src/designTokens/borderRadius');
+const { rotate } = require('./src/designTokens/rotate');
 
 module.exports = {
   mode: 'jit',
@@ -23,6 +24,7 @@ module.exports = {
     fontSize,
     boxShadow,
     borderRadius,
+    rotate,
   },
   variants: {},
 };
