@@ -1,8 +1,11 @@
 <template>
   <div class="zpl-tooltip-container">
     <slot />
-    <div :class="['zpl-tooltip', position]">
-      <Indicator :position="position" />
+    <div :class="['zpl-tooltip', position, space, size]">
+      <Indicator
+        v-if="indicator"
+        :position="position"
+      />
       <span>{{ text }}</span>
     </div>
   </div>

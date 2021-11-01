@@ -9,8 +9,14 @@ const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component :text="text" :position="position">
-		  <button> Hover Me </button>
+			<Component
+			:text="text"
+			:position="position"
+			:space="space"
+			:indicator="indicator"
+			:size="size"
+		>
+			<button>Hover Me</button>
 		</Component>
   `,
 });
@@ -26,15 +32,25 @@ Default.argTypes = {
       "topLeft",
       "topCenter",
       "topRight",
-			"left",
-			"right",
-			"none"
+      "left",
+      "right",
     ],
+    control: { type: "radio" },
+  },
+  space: {
+    options: ["smallSpace", "largeSpace"],
+    control: { type: "radio" },
+  },
+  size: {
+    options: ["small", "large"],
     control: { type: "radio" },
   },
 };
 
 Default.args = {
   text: "راهنمای ابزار",
-	position: "bottomLeft"
+  position: "bottomLeft",
+  space: "smallSpace",
+  indicator: true,
+  size: "small",
 };

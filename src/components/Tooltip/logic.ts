@@ -15,5 +15,20 @@ export default Vue.extend({
       default: 'bottomLeft',
       required: true,
     },
+    space: {
+      type: String,
+      default: 'smallSpace',
+      required: true,
+    },
+    indicator: {
+      type: Boolean,
+      default: true,
+      required: true,
+    },
+    size: {
+      type: String,
+      default: 'small',
+      required: true,
+    },
   },
 });
