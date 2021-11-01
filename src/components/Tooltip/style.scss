@@ -1,0 +1,19 @@
+.zpl-tooltip-container {
+  /* Default */
+  @apply relative inline-block;
+
+  /* hover */
+  &:hover {
+    .zpl-tooltip {
+      @apply inline-block;
+    }
+  }
+}
+.zpl-tooltip {
+  /* Default */
+  @apply bg-surface-dark rounded-sm py-[6px] px-xs text-text-dark;
+  @apply text-b3 absolute hidden z-10;
+  @apply dark:bg-surface-dark-soft dark:text-text-dark;
+
+
+}

@@ -1,0 +1,18 @@
+.zpl-tooltip-indicator {
+  @apply w-xs h-xs absolute bg-surface-dark rounded-tl-[2px];
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  // transform: rotate(-135deg);
+
+  &.bottomLeft {
+    @apply -bottom-2xs left-sm transform rotate-[45px];
+  }
+  &.bottomCenter {
+    @apply -bottom-2xs left-0 right-0 mx-auto;
+  }
+  &.bottomRight {
+    @apply -bottom-2xs right-sm;
+  }
+  &.topLeft {
+    @apply -bottom-2xs left-sm;
+  }
+}
