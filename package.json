@@ -10,7 +10,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "build:tailwind": "rimraf dist/tailwind-preset.js && rollup --config rollup.config.js",
-    "build:vue": "vue-cli-service build src/index.ts --target lib --name zwc --inline-vue && rm ./dist/demo.html",
+    "build:vue": "vue-cli-service build src/index.ts --target lib --name zwc && rm ./dist/demo.html",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test": "yarn test:unit"
