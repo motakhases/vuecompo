@@ -1,0 +1,39 @@
+.zpl-store-status {
+  /* Default */
+  @apply flex items-center py-[6px] text-ls-cp text-text-soft gap-2xs;
+  @apply dark:text-text-dark;
+	
+  /* circle */
+  &:before {
+    content: "";
+    @apply w-xs h-xs rounded-circle;
+  }
+
+  &.inactive {
+    &:before {
+      @apply bg-icon-disabled;
+      @apply dark:bg-icon-dark-disabled;
+    }
+  }
+
+  &.active {
+    &:before {
+      @apply bg-icon-success;
+      @apply dark:bg-icon-dark-success;
+    }
+  }
+
+  &.pending {
+    &:before {
+      @apply bg-icon-warning;
+      @apply dark:bg-icon-dark-warning;
+    }
+  }
+
+  &.deactive {
+    &:before {
+      @apply bg-icon-danger;
+      @apply dark:bg-icon-dark-danger;
+    }
+  }
+}

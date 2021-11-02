@@ -9,8 +9,9 @@ const Template = (_, { argTypes }) => ({
   components: { Toggle },
   props: Object.keys(argTypes),
   template: `
-    <Toggle dir="rtl" :disabled="disabled">
-    </Toggle>
+  <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
+    <Toggle :disabled="disabled" />
+  </div>
   `,
 });
 
