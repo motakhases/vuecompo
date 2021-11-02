@@ -9,5 +9,6 @@
 
   /* Focus */
   @apply focus:shadow-border-focus-heavy focus:border focus:border-surface focus:rounded-sm;
-  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark 
+	dark:focus:border-solid;
 }
