@@ -2,6 +2,7 @@ import Component from "./index.vue";
 import Logo from "../Logo/index.vue";
 import Icon from "../Icon/index.vue";
 import UserProfile from "../UserProfile/index.vue";
+import Notification from "./Notification/index.vue";
 
 export default {
   component: Component,
@@ -9,7 +10,7 @@ export default {
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, Logo, Icon, UserProfile },
+  components: { Component, Logo, Icon, UserProfile, Notification },
   props: Object.keys(argTypes),
   template: `
   <Component>
@@ -21,7 +22,7 @@ const Template = (_, { argTypes }) => ({
     </template>
     <template v-slot:left-side>
       <Icon name="questionCircle" class="zpl-topbar-menu" />
-      <Icon name="notification" class="zpl-topbar-menu" />
+			<Notification :badge="badge" />
       <UserProfile username="نام کاربر" />
     </template>
   </Component>
@@ -29,3 +30,6 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
+Default.args = {
+  badge: "۹۹",
+};
