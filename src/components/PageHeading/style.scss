@@ -29,7 +29,7 @@
   &.fixed-page-heading{
     @apply bg-surface shadow-elevation-100;
     @apply dark:bg-surface-dark dark:shadow-dark-elevation-100;
-    @apply sticky top-0 py-xs px-xs;
+    @apply sticky z-10 top-0 py-xs px-xs;
     @apply sm:py-md sm:px-md;
     .heading-content{
       @apply order-none w-auto mt-0;

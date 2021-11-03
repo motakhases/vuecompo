@@ -1,0 +1,60 @@
+.zpl-notification-modal{
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 50; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  .zpl-notification-center{
+    direction: rtl;
+    max-width: 340px;
+    height: 100vh;
+    background: white;
+    .notif-card{
+      @apply max-w-[340px] px-md pt-md;
+      @apply bg-surface;
+      .notif-img{
+        @apply max-w-[308px] h-[173px] mb-md overflow-hidden;
+      }
+      .content{
+        @apply flex flex-col shadow-divider-bottom;
+        .title{
+          @apply text-b2 text-text;
+        }
+        .desc{
+          @apply mt-2xs text-b3 text-text-soft;
+        }
+        .extra-data{
+          @apply mt-sm mb-md;
+          .date{
+            @apply text-b3 text-text-soft;
+          }
+          .link{
+            @apply float-left text-b2;
+          }
+        }
+      }
+    }
+    .no-notif{
+      @apply max-w-[340px] h-[260px];
+      @apply bg-surface;
+      .bg-empty-box{
+        @apply w-full h-[120px] bg-no-repeat bg-center relative top-[40px];
+      }
+      .content{
+        @apply mt-[72px] text-center;
+        .title{
+          @apply text-b2 text-text;
+          @apply mb-xs;
+        }
+        .desc{
+          @apply text-ls-cp text-text-soft;
+        }
+      }
+    }
+  }
+}

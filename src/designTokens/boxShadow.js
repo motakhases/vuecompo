@@ -14,5 +14,8 @@ module.exports = {
     'dark-border-hover': '0px 0px 0px 2px rgba(82, 82, 82, 0.4)',
     'dark-border-focus-soft': '0px 0px 0px 2px rgba(255, 203, 102, 0.4)',
     'dark-border-focus-heavy': ' 0px 0px 0px 2px #FFCB66',
+    // divider effect
+    'divider-bottom': 'inset 0px -1px 0px #EEEEF1',
+    'dark-divider-bottom': 'inset 0px -1px 0px #2E2E2E',
   },
 };

@@ -34,10 +34,10 @@
       background-image: url("./images/ZarinPal-Logo-en-dark.svg");
     }
 		.zpl-logo[name=zarinpal].logo-type-dark[language="fa"] {
-      background-image: url("./images/ZarinPal-logo-type-fa-dark.svg");
+      background-image: url("./images/ZarinPal-Logo-type-fa-dark.svg");
     }
     .zpl-logo[name=zarinpal].logo-type-dark[language="en"] {
-      background-image: url("./images/ZarinPal-logo-type-en-dark.svg");
+      background-image: url("./images/ZarinPal-Logo-type-en-dark.svg");
     }
   }
 }
