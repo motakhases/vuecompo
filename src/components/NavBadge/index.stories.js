@@ -2,7 +2,7 @@ import Component from "./index.vue";
 
 export default {
   component: Component,
-  title: "Components/NavBadge",
+  title: "Components/Tooltip",
 };
 
 const Template = (_, { argTypes }) => ({
