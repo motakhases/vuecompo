@@ -1,20 +1,40 @@
-.zpl-nav-terminal-item {
+.zpl-terminal-item {
+  /* Default */
   @apply flex items-center py-md px-sm text-text text-b2 gap-sm;
   @apply border-t border-border-divider;
   @apply dark:border-border-dark-divider;
+
   /* Hover */
   @apply hover:bg-surface-hover;
   @apply dark:hover:bg-surface-dark-hover;
 
-  /* Active */
-  @apply active:bg-surface active:shadow-border-focus-heavy active:relative active:z-10;
-  @apply dark:active:bg-surface-dark dark:active:shadow-dark-border-focus-heavy;
+  /* active */
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
+
+  /* focus */
+  @apply focus:bg-surface focus:shadow-border-focus-heavy focus:relative focus:z-10;
+  @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
 }
-.zpl-nav-terminal-active {
+
+.zpl-terminal-item-header {
+  @apply flex-1 relative overflow-hidden;
+}
+.zpl-terminal-item-title {
+  @apply text-btn text-text truncate;
+  @apply dark:text-text-dark;
+}
+.zpl-terminal-item-link {
+  @apply text-ls-cp text-text-soft mt-2xs truncate;
+  @apply dark:text-text-dark-soft;
+}
+.zpl-terminal-item-active {
+  /* Default */
   @apply flex items-center justify-center w-[18px] h-[18px] bg-primaryZarinpal;
   @apply rounded-circle absolute left-0 top-xl;
   @apply dark:bg-primaryZarinpal-dark;
 
+  /* icon */
   svg {
     @apply text-icon-onPrimary;
     @apply dark:text-icon-dark-onPrimary;

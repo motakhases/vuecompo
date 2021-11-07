@@ -1,27 +1,28 @@
 <template>
-  <router-link :to="link">
-    <div class="zpl-nav-terminal-item">
-      <Thumbnail
-        :icon="icon"
-        :img="img"
-        :alt="alt"
-      />
-      <div class="zpl-nav-terminal-header">
-        <div class="zpl-nav-terminal-title">
-          {{ title }}
-        </div>
-        <div class="zpl-nav-terminal-link">
-          {{ link }}
-        </div>
-        <StoreStatus :state="state">
-          {{ stateText }}
-        </StoreStatus>
-        <div
-          v-if="active"
-          class="zpl-nav-terminal-active"
-        >
-          <Icon name="tickSmall" />
-        </div>
+  <router-link
+    :to="link"
+    class="zpl-terminal-item"
+  >
+    <Thumbnail
+      :icon="icon"
+      :img="img"
+      :alt="alt"
+    />
+    <div class="zpl-terminal-item-header">
+      <div class="zpl-terminal-item-title">
+        {{ title }}
+      </div>
+      <div class="zpl-terminal-item-link">
+        {{ link }}
+      </div>
+      <StoreStatus :state="state">
+        {{ stateText }}
+      </StoreStatus>
+      <div
+        v-if="active === true"
+        class="zpl-terminal-item-active"
+      >
+        <Icon name="tickSmall" />
       </div>
     </div>
   </router-link>

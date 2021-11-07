@@ -1,16 +1,17 @@
 <template>
-  <router-link :to="link">
-    <div class="zpl-nav-overview">
-      <Thumbnail icon="chartSquare" />
-      <div class="zpl-nav-overview-title">
-        <slot />
-      </div>
-      <div
-        v-if="active"
-        class="zpl-nav-overview-active"
-      >
-        <Icon name="tickSmall" />
-      </div>
+  <router-link
+    :to="link"
+    class="zpl-nav-overview"
+  >
+    <Thumbnail icon="chartSquare" />
+    <div class="zpl-nav-overview-title">
+      <slot />
+    </div>
+    <div
+      v-if="active === true"
+      class="zpl-nav-overview-active"
+    >
+      <Icon name="tickSmall" />
     </div>
   </router-link>
 </template>

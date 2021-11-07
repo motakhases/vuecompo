@@ -1,6 +1,9 @@
 <template>
-  <div :class="['zpl-nav-popover', { show }]">
-    <slot />
+  <div class="zpl-nav-popover-container">
+    <slot name="terminal" />
+    <div class="zpl-nav-popover">
+      <slot name="menu" />
+    </div>
   </div>
 </template>
 

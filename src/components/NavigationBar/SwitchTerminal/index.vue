@@ -2,10 +2,8 @@
   <router-link
     :to="link"
   >
-    {{ toggle }}
     <div
       class="zpl-nav-terminal"
-      @mouseenter="toggle"
     >
       <Thumbnail
         :icon="icon"
@@ -19,8 +17,11 @@
         <div class="zpl-nav-terminal-link">
           {{ link }}
         </div>
+        <Icon
+          name="angleLeft"
+          class="zpl-nav-terminal-arrow"
+        />
       </div>
-      <Icon name="angleLeft" />
       <slot />
     </div>
   </router-link>
