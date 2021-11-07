@@ -1,0 +1,93 @@
+.zpl-tooltip-container {
+  /* Default */
+  @apply relative inline-block;
+  margin: 100px;
+  /* hover */
+  &:hover {
+    .zpl-tooltip {
+      @apply inline-block;
+    }
+  }
+}
+.zpl-tooltip {
+  /* Default */
+  @apply bg-surface-dark rounded-sm px-xs absolute z-10 w-max	max-w-[328px] hidden;
+  @apply dark:bg-surface;
+
+  span {
+    @apply flex text-text-dark text-right;
+    @apply dark:text-text;
+  }
+
+  &.small {
+    @apply py-2xs text-ls-cp;
+  }
+
+  &.large {
+    @apply py-[6px] text-b3;
+  }
+
+  &.bottomLeft,
+  &.topLeft {
+    @apply left-0;
+  }
+
+  &.bottomCenter,
+  &.topCenter {
+    @apply left-2/4;
+    transform: translateX(-50%);
+  }
+
+  &.bottomRight,
+  &.topRight {
+    @apply right-0;
+  }
+
+  &.bottomLeft,
+  &.bottomCenter,
+  &.bottomRight {
+    &.smallSpace {
+      bottom: calc(100% + 8px);
+    }
+    &.largeSpace {
+      bottom: calc(100% + 16px);
+    }
+  }
+
+  &.topLeft,
+  &.topCenter,
+  &.topRight {
+    &.smallSpace {
+      top: calc(100% + 8px);
+    }
+    &.largeSpace {
+      top: calc(100% + 16px);
+    }
+  }
+
+  &.left {
+    &.smallSpace {
+      left: calc(100% + 8px);
+      transform: translateY(-50%);
+      @apply top-2/4;
+    }
+    &.largeSpace {
+      left: calc(100% + 16px);
+      transform: translateY(-50%);
+      @apply top-2/4;
+    }
+  }
+
+  &.right {
+    &.smallSpace {
+      right: calc(100% + 8px);
+      transform: translateY(-50%);
+      @apply top-2/4;
+    }
+    &.largeSpace {
+      right: calc(100% + 16px);
+      transform: translateY(-50%);
+      @apply top-2/4;
+    }
+  }
+}

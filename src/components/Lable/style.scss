@@ -1,0 +1,36 @@
+.zpl-lable {
+  /* Default */
+  @apply rounded-sm text-center;
+
+  &.positive {
+    /* Default */
+    @apply bg-successSurface text-text-success;
+    @apply dark:bg-successSurface-dark dark:text-text-dark-success;
+  }
+
+  &.negative {
+    /* Default */
+    @apply bg-dangerSurface text-text-danger;
+    @apply dark:bg-dangerSurface-dark dark:text-text-dark-danger;
+  }
+
+  &.neutral {
+    /* Default */
+    @apply bg-surface-soft  text-text-soft;
+    @apply dark:bg-surface-dark-soft dark:text-text-dark-soft;
+  }
+
+  &.outlined {
+    /* Default */
+    @apply bg-surface  text-text border border-border;
+    @apply dark:bg-surface-dark dark:text-text-dark dark:border-border-dark;
+  }
+
+  &.small {
+    @apply px-xs py-[2px] text-b3;
+  }
+
+  &.medium {
+    @apply px-xs py-2xs text-b2;
+  }
+}

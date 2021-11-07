@@ -2,14 +2,14 @@ import Component from "./index.vue";
 
 export default {
   component: Component,
-  title: "Components/Tooltip",
+  title: "Components/NotificationBadge",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Component },
   props: Object.keys(argTypes),
   template: `
-		<Component>
+		<Component :numeric="numeric">
 		  {{ text }}
 		</Component>
   `,
@@ -18,5 +18,6 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-  text: "12",
+  text: "۱۲",
+  numeric: true,
 };
