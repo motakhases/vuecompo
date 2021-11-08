@@ -10,11 +10,17 @@ const Template = (_, { argTypes }) => ({
   components: { Tabs, Tab },
   props: Object.keys(argTypes),
   template: `
+  <div class="dark:bg-surface-dark p-sm rounded-md">
     <Tabs dir="rtl" :fill-container="fillContainer">
-      <tab :title="label">Hello From Tab 1</tab>
-      <tab :title="secondLabel">Hello From Tab 2</tab>
-      <tab :title="thirdLabel" :warn="true">Hello From Tab 3</tab>
+      <tab
+        v-for="(tab, index) in tabs"
+        :key="index"
+        :title="tab.title"
+      >
+        {{ tab.content }}
+      </tab>
     </Tabs>
+  </div>
   `,
 });
 
@@ -25,7 +31,18 @@ Default.argTypes = {
 
 Default.args = {
   fillContainer:false,
-  label:'۱لیبل تب',
-  secondLabel:'۲لیبل تب',
-  thirdLabel:'۳لیبل تب',
+  tabs: [
+    {
+      title: 'حساب‌های بانکی',
+      content: 'تب اول'
+    },
+    {
+      title: 'درگاه‌های فعال',
+      content: 'تب دوم'
+    },
+    {
+      title: 'نشست‌های اخیر',
+      content: 'تب سوم'
+    },
+  ]
 };

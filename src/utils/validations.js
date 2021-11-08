@@ -19,5 +19,8 @@ extend('required', {
 extend('min', {
   validate: (value) => value.length >= 3,
   message: 'تعداد کاراکتر باید بیشتر از 3 باشد',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8693da966b37e1dd85aff0cfc82994b54cccabd2
 });

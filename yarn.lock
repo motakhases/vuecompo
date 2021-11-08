@@ -13865,6 +13865,11 @@ storybook-tailwind-dark-mode@^1.0.11:
   resolved "https://registry.yarnpkg.com/storybook-tailwind-dark-mode/-/storybook-tailwind-dark-mode-1.0.11.tgz#6e92a01434142972e4ce838fe99c8f8a00ddc5a0"
   integrity sha512-Y0FP/aOxgdkSbzTQ9xoo346c1BKvp9WtxDVKg3P6S40wypOwK0dBxQEGehrLVB5gDuGiQru81UfitywI6clrcw==
 
+storybook-vue-router@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/storybook-vue-router/-/storybook-vue-router-1.0.7.tgz#366451212149d9d0a32557545b244667bb01768e"
+  integrity sha512-R+DYARQ40YVbMbV5moLDmQvodJX5FQPVy5cULb782P1gD5rAkulWtgt8yrM7pmjYru+LTPdLS4blrFPnWlb0sQ==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -15222,6 +15227,11 @@ vue-loader@^15.9.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.5.3.tgz#041048053e336829d05dafacf6a8fb669a2e7999"
+  integrity sha512-FUlILrW3DGitS2h+Xaw8aRNvGTwtuaxrRkNSHWTizOfLUie7wuYwezeZ50iflRn8YPV5kxmU2LQuu3nM/b3Zsg==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.3"

@@ -28,7 +28,29 @@ describe('Button', () => {
         disabled: true,
       },
     });
-
     expect(wrapper.attributes('disabled')).toBeDefined();
+  });
+
+  it('renders icon on the left when leftIcon has been set', () => {
+    const wrapper = shallowMount(Button, {
+      propsData: {
+        leftIcon: 'Icon-Angle-Large-Left',
+      },
+    });
+    const icon = wrapper.find('.Icon-Angle-Large-Left');
+
+    expect(icon.exists()).toBe(true);
+  });
+
+  it('renders loading and doesnt show slot when loading is true', () => {
+    const wrapper = shallowMount(Button, {
+      propsData: {
+        loading: true,
+      },
+    });
+    const loading = wrapper.find('.zpl-button-loading');
+
+    expect(loading.exists()).toBe(true);
+    expect(wrapper.text()).toBe('');
   });
 });
