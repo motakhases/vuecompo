@@ -9,9 +9,11 @@ const Template = (_, { argTypes }) => ({
   components: { Tag },
   props: Object.keys(argTypes),
   template: `
-    <Tag dir="rtl" :btn="button">
-    {{text}}
+  <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
+    <Tag :btn="button">
+      {{ text }}
     </Tag>
+  </div>
   `,
 });
 
@@ -21,6 +23,6 @@ Default.argTypes = {
 };
 
 Default.args = {
-  text: 'لیبل',
+  text: 'عنوان تگ',
   button: false,
 };
