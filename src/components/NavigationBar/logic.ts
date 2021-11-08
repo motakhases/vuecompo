@@ -5,15 +5,9 @@ export default Vue.extend({
   name: 'NavigationBar',
   components: { Icon },
   props: {
-  },
-  data() {
-    return {
-      toggle: false,
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.toggle = !this.toggle;
+    toggle: {
+      type: Boolean,
+      default: false,
     },
   },
 });

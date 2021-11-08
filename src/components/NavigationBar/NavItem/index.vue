@@ -1,17 +1,25 @@
 <template>
   <li class="zpl-nav-item">
-    <router-link
-      :to="link"
-      :class="['zpl-nav-item-link', { active }]"
+    <Tooltip
+      :text="title"
+      position="right"
+      space="largeSpace"
+      size="large"
+      indicator
     >
-      <Icon :name="icon" />
-      <span class="zpl-nav-item-title">
-        {{ title }}
-      </span>
-      <NavBadge v-if="badge">
-        {{ badge }}
-      </NavBadge>
-    </router-link>
+      <router-link
+        :to="link"
+        :class="['zpl-nav-item-link', { active }]"
+      >
+        <Icon :name="icon" />
+        <span class="zpl-nav-item-title">
+          {{ title }}
+        </span>
+        <NavBadge v-if="badge">
+          {{ badge }}
+        </NavBadge>
+      </router-link>
+    </Tooltip>
   </li>
 </template>
 

@@ -1,7 +1,7 @@
 .zpl-tooltip-container {
   /* Default */
-  @apply relative inline-block;
-  margin: 100px;
+  @apply relative inline-block w-full;
+
   /* hover */
   &:hover {
     .zpl-tooltip {

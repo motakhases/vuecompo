@@ -1,5 +1,15 @@
 .zpl-nav-item {
+  /* default */
   @apply mb-sm;
+
+  /* tooltip */
+  .zpl-tooltip-container {
+    &:hover {
+      .zpl-tooltip {
+        @apply hidden;
+      }
+    }
+  }
 }
 .zpl-nav-item-link {
   @apply flex items-center rounded-sm p-xs gap-md cursor-pointer text-text text-b2;
@@ -10,8 +20,12 @@
   @apply dark:hover:bg-primarySurface-dark-hover;
 
   /* Active */
-  @apply active:bg-primarySurface active:shadow-border-focus-heavy;
-  @apply dark:active:bg-primarySurface-dark dark:active:shadow-dark-border-focus-heavy;
+  @apply active:bg-primarySurface-active;
+  @apply dark:active:bg-primarySurface-dark-active;
+
+  /* focus */
+  @apply focus:bg-primarySurface focus:shadow-border-focus-heavy;
+  @apply dark:focus:bg-primarySurface-dark dark:focus:shadow-dark-border-focus-heavy;
 
   svg {
     @apply h-xl w-xl;

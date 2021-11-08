@@ -1,16 +1,12 @@
 <template>
   <div class="rtl">
-    <nav
-      class="zpl-nav-bar-icon"
-      @click="toggleMenu"
-    >
-      <Icon
-        name="menuBurger"
-      />
-    </nav>
     <nav class="zpl-nav-bar-container">
       <slot name="popover" />
-      <div :class="['zpl-nav-bar-menu', { toggle } ]">
+
+      <div :class="['zpl-nav-bar-menu', { toggle }]">
+        <div class="zpl-nav-bar-logo">
+          <slot name="logo" />
+        </div>
         <slot />
         <div class="zpl-nav-bar-content">
           <ul class="zpl-nav-bar-list">

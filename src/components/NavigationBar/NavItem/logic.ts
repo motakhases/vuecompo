@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import NavBadge from '../../NavBadge/index.vue';
 import Icon from '../../Icon/index.vue';
+import Tooltip from '../../Tooltip/index.vue';
 
 export default Vue.extend({
   name: 'NavItem',
-  components: { NavBadge, Icon },
+  components: { NavBadge, Icon, Tooltip },
   props: {
     active: {
       type: Boolean,
