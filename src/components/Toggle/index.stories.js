@@ -1,16 +1,16 @@
-import Toggle from './index.vue';
+import Component from './index.vue';
 
 export default {
-  component: Toggle,
+  component: Component,
   title: 'Components/Toggle',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Toggle },
+  components: { Component },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
-    <Toggle :disabled="disabled" />
+    <Component :disabled="disabled" />
   </div>
   `,
 });
