@@ -1,2 +1,9 @@
 export { default as Button } from './Button/index.vue';
+export { default as ButtonGroup } from './ButtonGroup/index.vue';
+export { default as CheckBox } from './CheckBox/index.vue';
+export { default as Dropdown } from './Dropdown/index.vue';
+export { default as Icon } from './Icon/index.vue';
+export { default as Lable } from './Lable/index.vue';
+export { default as Logo } from './Logo/index.vue';
+export { default as NavBadge } from './NavBadge/index.vue';
 export { default as Input } from './Input/index.vue';
