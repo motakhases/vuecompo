@@ -1,16 +1,16 @@
-import CheckBox from './index.vue';
+import Component from './index.vue';
 
 export default {
-  component: CheckBox,
+  component: Component,
   title: 'Components/CheckBox',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { CheckBox },
+  components: { Component },
   props: Object.keys(argTypes),
   template: `
     <div class="dark:bg-surface-dark p-sm rounded-md">
-      <CheckBox
+      <Component
         :name="name"
         :options="options"
         :disabled="disabled"

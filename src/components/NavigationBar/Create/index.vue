@@ -1,6 +1,12 @@
 <template>
-  <div class="zpl-button-group">
-    <slot />
+  <div class="rtl">
+    <router-link
+      :to="link"
+      class="zpl-nav-create"
+    >
+      <Thumbnail icon="plus" />
+      <slot />
+    </router-link>
   </div>
 </template>
 

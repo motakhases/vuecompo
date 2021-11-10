@@ -1,0 +1,18 @@
+.zpl-nav-create {
+  /* Default */
+  @apply flex items-center py-md px-sm text-text text-b2 gap-sm;
+  @apply border-t border-border-divider;
+  @apply dark:text-text-dark dark:border-border-dark-divider;
+
+  /* Hover */
+  @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
+
+  /* active */
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
+
+  /* focus */
+  @apply focus:bg-surface focus:shadow-border-focus-heavy focus:relative focus:z-10;
+  @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
+}

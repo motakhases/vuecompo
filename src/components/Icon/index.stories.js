@@ -1,15 +1,15 @@
-import Icon from './index.vue';
+import Component from './index.vue';
 
 export default {
-  component: Icon,
+  component: Component,
   title: 'Components/Icon',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Icon },
+  components: { Component },
   props: Object.keys(argTypes),
   template: `
-    <Icon :name="name" :class="classes" />
+    <component :name="name" :class="classes" />
   `,
 });
 

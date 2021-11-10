@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.0.33",
+  "version": "2.0.34",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
@@ -92,6 +92,8 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "vee-validate": "^3.4.13"
+    "storybook-vue-router": "^1.0.7",
+    "vee-validate": "^3.4.13",
+    "vue-router": "^3.5.3"
   }
 }
