@@ -1,18 +1,18 @@
-import Tag from './index.vue';
+import Component from './index.vue';
 
 export default {
-  component: Tag,
+  component: Component,
   title: 'Components/Tag',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Tag },
+  components: { Component },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
-    <Tag :btn="button">
+    <Component :btn="button">
       {{ text }}
-    </Tag>
+    </Component>
   </div>
   `,
 });

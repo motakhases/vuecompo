@@ -1,0 +1,119 @@
+.zpl-textfield-group {
+  /* Default */
+  @apply relative flex flex-col;
+}
+.zpl-textfield {
+  /* Default */
+  @apply bg-surface flex items-center border border-border
+	 rounded-sm w-full text-text-soft h-3xl gap-x-xs px-sm;
+  @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
+
+  /* hover */
+  &:not(:focus-within):not(.invalid):not([disabled]):hover {
+    @apply shadow-border-hover;
+  }
+
+  /* Disabled */
+  &[disabled] {
+    @apply bg-surface-disabled border-border-disabled;
+    @apply dark:bg-surface-dark-disabled dark:border-border-dark-disabled;
+  }
+
+  /* focus */
+  &:focus-within:not(.invalid) {
+    @apply border-interactive-focus outline-none shadow-border-focus-soft;
+    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
+  }
+
+  &.invalid {
+    &:not([disabled]) {
+      /* Default */
+      @apply border border-border-danger;
+      @apply dark:border-border-dark-danger;
+    }
+  }
+}
+.zpl-textfield-input-box {
+  @apply flex-1 min-w-0;
+}
+.zpl-textfield-input {
+  /* Default */
+  @apply bg-transparent border-none outline-none w-full z-10 py-sm;
+}
+.zpl-textfield-icon {
+  /* Default */
+  @apply h-xl w-xl;
+}
+.zpl-textfield-unit {
+  /* Default */
+  @apply flex items-center justify-center p-xs bg-surface-soft
+	       rounded-[2px] text-text text-b2 my-2xs mr-2xs -ml-xs select-none;
+  @apply dark:bg-surface-dark-soft dark:text-text-dark;
+}
+.zpl-textfield-stepper {
+  /* Default */
+  @apply flex flex-col  mr-2xs -ml-xs;
+}
+.zpl-textfield-stepper-btn {
+  /* Default */
+  @apply flex px-2xs py-[7px] bg-surface-soft rounded-[2px] text-icon;
+  @apply dark:bg-surface-dark-soft dark:text-icon-dark;
+
+  /* Disabled */
+  @apply disabled:bg-surface-disabled disabled:text-icon-disabled disabled:cursor-default;
+  @apply dark:disabled:bg-surface-dark-disabled dark:disabled:text-icon-dark-disabled;
+  svg {
+    @apply w-xs h-[5];
+  }
+  &:last-child {
+    /* Default */
+    @apply mt-[2px];
+  }
+}
+.zpl-textfield-label {
+  /* Default */
+  @apply absolute top-sm right-sm z-0 px-2xs transition-all	ease-in-out	delay-100 text-text-soft;
+  @apply dark:text-text-dark-soft;
+
+  &:not(.active) {
+    @apply text-b2;
+  }
+
+  &.active {
+    /* Default */
+    @apply -top-xs bg-surface text-ls-cp py-[2px];
+    @apply dark:bg-surface-dark;
+  }
+}
+.zpl-textfield-hint-box {
+  /* Default */
+  @apply flex w-full justify-between;
+}
+.zpl-textfield-hint {
+  /* Default */
+  @apply flex items-center gap-x-2xs py-2xs px-sm text-b3 text-text-soft;
+
+  svg {
+    @apply w-xl h-xl;
+  }
+  &.helper {
+    /* Default */
+    @apply flex-1;
+    @apply dark:text-text-dark-soft;
+  }
+  &.error {
+    /* Default */
+    @apply absolute text-text-danger;
+    @apply dark:text-text-dark-danger;
+  }
+  &.success {
+    /* Default */
+    @apply absolute text-text-success;
+    @apply dark:text-text-dark-success;
+  }
+}
+.zpl-textfield-hint-limit {
+  /* Default */
+  @apply py-2xs px-xs mr-auto	text-b3 text-text-soft;
+  @apply dark:text-text-dark-soft;
+}

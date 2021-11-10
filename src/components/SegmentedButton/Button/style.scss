@@ -1,0 +1,22 @@
+.zpl-segment-button {
+  /* Default */
+  @apply bg-transparent px-sm py-2xs rounded-sm text-text;
+  @apply dark:text-text-dark;
+  &:not(:last-child) {
+    @apply mr-2xs;
+  }
+  /* Hover */
+  @apply hover:bg-transparent;
+  @apply dark:hover:bg-transparent;
+
+  /* Active */
+  @apply active:bg-transparent;
+  @apply dark:active:bg-transparent;
+
+  /* active button */
+  &.active {
+    /* Default */
+    @apply bg-surface;
+    @apply dark:bg-surface-dark;
+  }
+}

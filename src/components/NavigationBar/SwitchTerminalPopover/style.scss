@@ -1,0 +1,12 @@
+.zpl-nav-popover-container {
+  &:hover {
+    .zpl-nav-popover {
+      @apply block;
+    }
+  }
+}
+.zpl-nav-popover {
+  @apply w-[320px] bg-surface shadow-elevation-100 rounded-sm absolute hidden top-0;
+  @apply dark:bg-surface-dark;
+	right: calc(100% - 8px);
+}

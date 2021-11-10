@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.0.32",
+  "version": "2.0.34",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
@@ -54,11 +54,13 @@
     "sass": "^1.38.0",
     "sass-loader": "^10",
     "storybook-tailwind-dark-mode": "^1.0.11",
+    "storybook-vue-router": "^1.0.7",
     "style-loader": "^3.2.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "typescript": "~4.1.5",
     "vue": "^2.6.14",
     "vue-cli-plugin-storybook": "~2.1.0",
+    "vue-router": "^3.5.3",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
@@ -90,6 +92,8 @@
   },
   "types": "index.d.ts",
   "dependencies": {
-    "vee-validate": "^3.4.13"
+    "storybook-vue-router": "^1.0.7",
+    "vee-validate": "^3.4.13",
+    "vue-router": "^3.5.3"
   }
 }

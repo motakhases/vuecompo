@@ -1,0 +1,15 @@
+.zpl-segment-group {
+  /* Default */
+  @apply inline-flex bg-secondary p-2xs rounded-md;
+  @apply dark:bg-secondary-dark text-text-onPrimary;
+
+  /* fill mode */
+  &.fill {
+    @apply w-full;
+
+    /* style of each button in fill mode */
+    button {
+      @apply flex-1;
+    }
+  }
+}
