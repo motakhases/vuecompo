@@ -7,6 +7,7 @@
       <div class="zpl-topbar-left-side">
         <slot name="left-side" />
       </div>
+      <slot />
     </div>
   </div>
 </template>
