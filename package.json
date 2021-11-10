@@ -92,6 +92,7 @@
   },
   "types": "index.d.ts",
   "dependencies": {
+    "moment-jalali": "^0.3.9",
     "vee-validate": "^3.4.13"
   }
 }

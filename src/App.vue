@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NotificationCenter :cards="notifCards" />
+    <NotificationCenter :announcements="announcements" />
 
     <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl relative">
       <PageHeading
@@ -89,6 +89,7 @@
 </template>
 
 <script lang="js">
+import moment from 'moment-jalali';
 import Vue from 'vue';
 import PageHeading from './components/PageHeading/index.vue';
 import NotificationCenter from './components/NotificationCenter/index.vue';
@@ -98,34 +99,90 @@ export default Vue.extend({
   components: { PageHeading, NotificationCenter },
   data() {
     return {
-      notifCards: [
+      announcements: [
         {
           title: 'عنوان',
-          desc: 'توضیحات',
-          date: 'شنبه ۱۳ مرداد',
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: 'https://www.w3schools.com/css/lights600x400.jpg',
-        },
-        {
-          title: 'عنوان',
-          desc: '',
-          date: 'شنبه ۱۳ مرداد',
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: 'https://www.w3schools.com/css/lights600x400.jpg',
-        },
-        {
-          title: 'عنوان',
-          desc: 'توضیحات',
-          date: 'شنبه ۱۳ مرداد',
+          message: 'توضیحات',
+          date: moment().format('YYYY-M-D'),
           link: 'https://next.zarinpal.com/panel/dashboard',
           image: '',
         },
         {
           title: 'عنوان',
-          desc: 'توضیحات',
-          date: 'شنبه ۱۳ مرداد',
-          link: '',
+          message: '',
+          date: moment().format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
           image: 'https://www.w3schools.com/css/lights600x400.jpg',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(1, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(2, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(3, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(4, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(5, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(6, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(7, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(8, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(9, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(10, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
         },
       ],
     };

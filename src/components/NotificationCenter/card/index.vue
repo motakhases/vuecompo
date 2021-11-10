@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="(card,index) in $parent.cards"
+      v-for="(card,index) in cards"
       :key="index"
       class="notif-card"
     >
@@ -17,9 +17,9 @@
         </div>
         <span class="title"> {{ card.title }} </span>
         <span
-          v-if="card.desc"
+          v-if="card.message"
           class="desc"
-        > {{ card.desc }} </span>
+        > {{ card.message }} </span>
         <div class="extra-data">
           <span class="date">
             {{ card.date }}
@@ -38,9 +38,28 @@
 </template>
 
 <script>
+import moment from 'moment-jalali';
 
 export default ({
   name: 'NotificationCard',
+  props: {
+    cards: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  computed: {
+    todayCards() {
+      return this.cards.filter((card) => card.date === moment().format('YYYY-M-D'));
+    },
+    yesterdayCards() {
+      return this.cards.filter((card) => card.date === moment().subtract(1, 'days').format('YYYY-M-D'));
+    },
+    thisWeekCards() {
+      const thisWeekNotifs = this.cards.filter((card) => card.date >= moment().subtract(6, 'days').format('YYYY-M-D'));
+      return thisWeekNotifs.filter((card) => card.date <= moment().subtract(2, 'days').format('YYYY-M-D'));
+    },
+  },
 });
 
 </script>

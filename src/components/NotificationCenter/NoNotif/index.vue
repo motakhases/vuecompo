@@ -2,8 +2,12 @@
   <div class="no-notif">
     <div class="bg-empty-box" />
     <div class="content">
-      <p class="title">اعلانی وجود ندارد</p>
-      <p class="desc">هنوز اعلانی دریافت نکرده‌اید</p>
+      <p class="title">
+        {{ `${notifType} وجود ندارد` }}
+      </p>
+      <p class="desc">
+        {{ `هنوز ${notifType} دریافت نکرده‌اید` }}
+      </p>
     </div>
   </div>
 </template>
@@ -13,5 +17,11 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'NoNotif',
+  props: {
+    notifType: {
+      type: String,
+      default: 'اعلانی',
+    },
+  },
 });
 </script>
