@@ -1,7 +1,7 @@
 import Component from "./index.vue";
 import Logo from "../Logo/index.vue";
 import Icon from "../Icon/index.vue";
-import UserProfile from "../UserProfile/index.vue";
+import UserProfile from "./UserProfile/index.vue";
 import Notification from "./Notification/index.vue";
 
 export default {
