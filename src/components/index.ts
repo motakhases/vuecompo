@@ -20,4 +20,3 @@ export { default as Thumbnail } from './Thumbnail/index.vue';
 // export { default as Toggle } from './Toggle/index.vue';
 export { default as Tooltip } from './Tooltip/index.vue';
 export { default as Input } from './Input/index.vue';
-ش
