@@ -63,7 +63,7 @@
   @apply disabled:bg-surface-disabled disabled:text-icon-disabled disabled:cursor-default;
   @apply dark:disabled:bg-surface-dark-disabled dark:disabled:text-icon-dark-disabled;
   svg {
-    @apply w-xs h-[5];
+    @apply w-xs h-[5px];
   }
   &:last-child {
     /* Default */

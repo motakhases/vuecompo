@@ -1,0 +1,10 @@
+.zpl-table-row-item {
+  @apply p-md text-b2 text-text text-right flex items-center gap-sm;
+  svg {
+    @apply w-xs h-[5px];
+  }
+}
+
+.zpl-table-row-sub {
+  @apply text-ls-cp text-text-soft mt-2xs;
+}
