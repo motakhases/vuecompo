@@ -14,6 +14,7 @@ export default Vue.extend({
     warning: () => import('./icons/Warning.vue'),
     menuBurger: () => import('./icons/MenuBurger.vue'),
     profile: () => import('./icons/Profile.vue'),
+    profileFill: () => import('./icons/ProfileFill.vue'),
     questionCircle: () => import('./icons/QuestionCircle.vue'),
     notification: () => import('./icons/Notification.vue'),
     angleLeft: () => import('./icons/AngleLeft.vue'),
