@@ -4,6 +4,7 @@
     :href="href"
     :to="to"
     :exact="exact"
+    :target="target"
     class="zpl-link"
   >
     <slot />

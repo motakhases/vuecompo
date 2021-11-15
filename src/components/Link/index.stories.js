@@ -21,6 +21,7 @@ const Template = (_, { argTypes }) => ({
       :to="to"
       :href="href"
       :exact="exact"
+      :target="target"
     >
       {{ text }}
     </Link>
@@ -31,9 +32,17 @@ const Template = (_, { argTypes }) => ({
 
 export const Default = Template.bind({});
 
+Default.argTypes = {
+	target: {
+    options: ['_blank', '_self', '_parent', '_top'],
+    control: { type: "select" },
+  }
+};
+
 Default.args = {
   text: "صنعت چاپ",
   to: "",
+  target: "_blank",
   href: "https://fa.wikipedia.org/wiki/%DA%86%D8%A7%D9%BE",
   exact: false,
 };

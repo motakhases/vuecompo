@@ -8,6 +8,10 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    target: {
+      type: String,
+      default: '',
+    },
     to: {
       type: String,
       default: '',
