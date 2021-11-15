@@ -1,16 +1,16 @@
-import Component from "./index.vue";
+import UserProfile from "./index.vue";
 
 export default {
-  component: Component,
+  component: UserProfile,
   title: "Components/UserProfile",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { UserProfile },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Component :username="username"></Component>
+		<UserProfile :username="username" />
   </div>
   `,
 });
