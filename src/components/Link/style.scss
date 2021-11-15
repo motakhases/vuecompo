@@ -1,14 +1,18 @@
 .zpl-link {
   /* Default */
-  @apply text-interactive-link px-2xs border-b border-transparent border-dashed;
+  @apply text-interactive-link px-2xs relative inline-block;
   @apply dark:text-interactive-dark-link;
 
+  /* Before */
+  @apply before:border-b before:border-transparent before:border-dashed;
+  @apply before:absolute before:-bottom-2xs before:w-[calc(100%-8px)] before:h-[1px];
+
   /* Hover */
-  @apply hover:border-interactive-link;
-  @apply dark:hover:border-interactive-dark-link;
+  @apply hover:before:border-interactive-link;
+  @apply dark:hover:before:border-interactive-dark-link;
 
   /* Focus */
-  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface focus:rounded-sm;
-  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark 
-	dark:focus:border-solid;
+  @apply focus:outline-none focus:shadow-border-focus-heavy focus:border-surface focus:rounded-sm;
+  @apply dark:focus:shadow-dark-border-focus-heavy;
+  @apply focus:hover:before:hidden;
 }
