@@ -1,16 +1,16 @@
-import Component from "./index.vue";
+import Radio from "./index.vue";
 
 export default {
-  component: Component,
+  component: Radio,
   title: "Components/Radio",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Radio },
   props: Object.keys(argTypes),
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md">
-		<Component
+		<Radio
 			:name="name"
 			:options="options"
 			:disabled="disabled"

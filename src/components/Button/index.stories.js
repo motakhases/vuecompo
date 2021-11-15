@@ -1,16 +1,16 @@
-import Component from "./index.vue";
+import Button from "./index.vue";
 
 export default {
-  component: Component,
+  component: Button,
   title: "Components/Button",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Button },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Component
+		<Button
       :type="type"
       :size="size"
       :disabled="disabled"
@@ -21,7 +21,7 @@ const Template = (_, { argTypes }) => ({
       :onClick="onClick"
     >
       {{ text }}
-    </Component>
+    </Button>
   </div>
   `,
 });

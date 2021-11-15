@@ -1,15 +1,15 @@
-import Component from "./index.vue";
+import Thumbnail from "./index.vue";
 
 export default {
-  component: Component,
+  component: Thumbnail,
   title: "Components/Thumbnail",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Thumbnail },
   props: Object.keys(argTypes),
   template: `
-		<Component :icon="icon" :img="img" alt="alt" />
+		<Thumbnail :icon="icon" :img="img" alt="alt" />
   `,
 });
 

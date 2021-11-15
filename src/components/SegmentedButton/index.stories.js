@@ -1,23 +1,23 @@
-import Component from "./index.vue";
+import SegmentedButton from "./index.vue";
 import Button from "./Button/index.vue";
 
 export default {
-  component: Component,
+  component: SegmentedButton,
   title: "Components/SegmentedButton",
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    SegmentedButton,
     Button,
   },
   props: Object.keys(argTypes),
   template: `
-    <Component :fill="fill">
+    <SegmentedButton :fill="fill">
 			<Button :onClick='onClick' > bnt1 </Button>
 			<Button :onClick='onClick'  active="true" > btn2 </Button>
 			<Button :onClick='onClick' > bnt3 </Button>
-		</Component>
+		</SegmentedButton>
   `,
 });
 

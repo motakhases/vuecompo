@@ -1,21 +1,21 @@
 /* eslint-disable no-tabs */
 /* eslint-disable no-multiple-empty-lines */
 
-import Component from './index.vue';
+import Dropdown from './index.vue';
 import "../../utils/validations.js"
 export default {
-  component: Component,
+  component: Dropdown,
   title: 'Components/Dropdown',
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    Dropdown,
   },
   props: Object.keys(argTypes),
   template: `
     <div class="dark:bg-surface-dark p-sm rounded-md h-full">
-      <Component
+      <Dropdown
         v-model="value"
         :disabled="disabled"
         :label="label"

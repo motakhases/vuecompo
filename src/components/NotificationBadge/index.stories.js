@@ -1,17 +1,17 @@
-import Component from "./index.vue";
+import NotificationBadge from "./index.vue";
 
 export default {
-  component: Component,
+  component: NotificationBadge,
   title: "Components/NotificationBadge",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { NotificationBadge },
   props: Object.keys(argTypes),
   template: `
-		<Component :numeric="numeric">
+		<NotificationBadge :numeric="numeric">
 		  {{ text }}
-		</Component>
+		</NotificationBadge>
   `,
 });
 
