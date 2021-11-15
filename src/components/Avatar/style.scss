@@ -1,37 +1,44 @@
 .zpl-avatar {
   /* Default */
-  @apply rounded-circle inline-flex items-center;
-}
-.zpl-avatar-icon {
-  /* Default */
-  @apply rounded-circle inline-flex items-center text-icon;
+  @apply rounded-circle overflow-hidden inline-flex items-center;
 
-  svg {
-    @apply h-xl w-xl;
+  &-icon {
+    /* Default */
+    @apply rounded-circle inline-flex items-center text-icon;
+
+    svg {
+      @apply h-xl w-xl;
+    }
+
+    &.small {
+      @apply dark:text-icon-dark;
+    }
+
+    &.medium {
+      @apply p-xs bg-surface-soft;
+      @apply dark:bg-surface-dark-soft;
+    }
+
+    &.large {
+      @apply p-lg bg-surface-soft;
+      @apply dark:bg-surface-dark-soft;
+    }
   }
-  &.small {
-    @apply dark:text-icon-dark;
-  }
-  &.medium {
-    @apply p-xs bg-surface-soft;
-    @apply dark:bg-surface-dark-soft;
-  }
-  &.large {
-    @apply p-lg bg-surface-soft;
-    @apply dark:bg-surface-dark-soft;
-  }
-}
-.zpl-avatar-img {
-  /* Default */
-  @apply bg-contain	bg-no-repeat bg-center overflow-hidden;
-	
-  &.small {
-    @apply w-xl h-xl;
-  }
-  &.medium {
-    @apply w-[40px] h-[40px];
-  }
-  &.large {
-    @apply w-4xl h-4xl;
+
+  &-img {
+    /* Default */
+    @apply bg-no-repeat bg-center bg-cover overflow-hidden;
+    
+    &.small {
+      @apply w-xl h-xl;
+    }
+
+    &.medium {
+      @apply w-[40px] h-[40px];
+    }
+
+    &.large {
+      @apply w-4xl h-4xl;
+    }
   }
 }

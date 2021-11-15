@@ -2,13 +2,14 @@
   <div
     :class="['zpl-avatar', size]"
   >
-    <!-- show image if we have img prop -->
+    <!-- with image -->
     <div
       v-if="img"
       :class="['zpl-avatar-img', size]"
       :style="{ backgroundImage: 'url(' + img + ')' }"
     />
-    <!-- else show icon -->
+
+    <!-- without image -->
     <div
       v-else
       :class="['zpl-avatar-icon', size]"
