@@ -2,17 +2,9 @@ import Vue from 'vue';
 import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
-  name: 'Table',
+  name: 'TableHeaderItem',
   components: { Icon },
   props: {
-    size: {
-      type: String,
-      default: 'medium',
-    },
-    type: {
-      type: String,
-      default: 'primary',
-    },
     arrowUp: {
       type: Boolean,
       default: false,
@@ -21,10 +13,5 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-
   },
 });

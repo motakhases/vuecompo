@@ -1,10 +1,9 @@
-.zpl-table-row-item {
-  @apply p-md text-b2 text-text text-right flex items-center gap-sm;
-  svg {
-    @apply w-xs h-[5px];
-  }
-}
+.zpl-table-row {
+  /* Hover */
+  @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
 
-.zpl-table-row-sub {
-  @apply text-ls-cp text-text-soft mt-2xs;
+  /* Active */
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
 }

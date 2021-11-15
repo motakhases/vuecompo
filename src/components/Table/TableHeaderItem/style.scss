@@ -1,5 +1,9 @@
-.zpl-table-header {
-  @apply p-md text-b2 text-text text-right flex items-center gap-xs;
+.zpl-table-header-item {
+  /* Default */
+  @apply p-md text-b2 text-text text-right font-normal gap-xs;
+  @apply dark:text-text-dark;
+
+  /* icon */
   svg {
     @apply w-xs h-[5px];
   }

@@ -1,9 +1,7 @@
 <template>
-  <thead>
-    <tr>
-      <slot />
-    </tr>
-  </thead>
+  <tr>
+    <slot />
+  </tr>
 </template>
 
 <script lang="ts">

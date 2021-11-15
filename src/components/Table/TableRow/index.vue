@@ -1,12 +1,6 @@
 <template>
-  <tr class="zpl-table-row-item">
+  <tr class="zpl-table-row">
     <slot />
-    <span>
-      <slot name="text" />
-    </span>
-    <span class="zpl-table-row-sub">
-      <slot name="subText" />
-    </span>
   </tr>
 </template>
 

@@ -1,30 +1,15 @@
 import Vue from 'vue';
-import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'TableRowItem',
-  components: { Icon },
   props: {
-    size: {
+    title: {
       type: String,
-      default: 'medium',
+      default: '',
     },
-    type: {
+    subText: {
       type: String,
-      default: 'primary',
+      default: '',
     },
-    arrowUp: {
-      type: Boolean,
-      default: false,
-    },
-    arrowDown: {
-      type: Boolean,
-      default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-
   },
 });

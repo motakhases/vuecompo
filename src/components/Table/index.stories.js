@@ -2,22 +2,79 @@ import Component from "./index.vue";
 import TableHeader from "./TableHeader/index.vue";
 import TableHeaderItem from "./TableHeaderItem/index.vue";
 import CheckBox from "@/components/CheckBox/index.vue";
+import TableRow from "./TableRow/index.vue";
+import TableRowItem from "./TableRowItem/index.vue";
+import Lable from "@/components/Lable/index.vue";
+import Thumbnail from "@/components/Thumbnail/index.vue";
 export default {
   component: Component,
   title: "Components/Table",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, TableHeader, TableHeaderItem, CheckBox },
+  components: {
+    Component,
+    TableHeader,
+    TableHeaderItem,
+    CheckBox,
+    TableRow,
+    TableRowItem,
+    Lable,
+    Thumbnail,
+  },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Component>
-			<TableHeader>
-    	  <TableHeaderItem :arrowUp="arrowUp" :arrowDown="arrowDown">
-					header
-				</TableHeaderItem>
-			</TableHeader>
+    <Component>
+      <template v-slot:header>
+        <TableHeader>
+          <TableHeaderItem> عنوان یک </TableHeaderItem>
+          <TableHeaderItem arrow-up> عنوان دو </TableHeaderItem>
+          <TableHeaderItem> عنوان سه </TableHeaderItem>
+          <TableHeaderItem arrow-up> عنوان چهار </TableHeaderItem>
+          <TableHeaderItem> عنوان پنج </TableHeaderItem>
+        </TableHeader>
+      </template>
+      <template v-slot:body>
+        <TableRow>
+          <TableRowItem title="نام و نام خانوادگی" subText="زیرنویس"> 
+						<Thumbnail img="https://www.digikala.com/static/files/fd4840b2.svg" />
+					</TableRowItem>
+          <TableRowItem> دو </TableRowItem>
+					<TableRowItem> 
+					<Lable size="small" type="positive"> سه </Lable>
+					</TableRowItem>
+          <TableRowItem> چهار </TableRowItem>
+          <TableRowItem> پنج </TableRowItem>
+        </TableRow>
+				<TableRow>
+          <TableRowItem> یک </TableRowItem>
+          <TableRowItem> دو </TableRowItem>
+					<TableRowItem> 
+					<Lable size="small" type="positive"> سه </Lable>
+					</TableRowItem>
+          <TableRowItem> چهار </TableRowItem>
+          <TableRowItem> پنج </TableRowItem>
+        </TableRow>
+				<TableRow>
+          <TableRowItem> یک </TableRowItem>
+          <TableRowItem> دو </TableRowItem>
+					<TableRowItem> 
+					<Lable size="small" type="positive"> سه </Lable>
+				</TableRowItem>
+        <TableRowItem> چهار </TableRowItem>
+          <TableRowItem> پنج </TableRowItem>
+        </TableRow>
+				<TableRow>
+          <TableRowItem> یک </TableRowItem>
+          <TableRowItem> دو </TableRowItem>
+          <TableRowItem> 
+						<Lable size="small" type="positive"> سه </Lable>
+					</TableRowItem>
+          <TableRowItem> چهار </TableRowItem>
+          <TableRowItem> پنج </TableRowItem>
+        </TableRow>
+      </template>
     </Component>
   </div>
   `,

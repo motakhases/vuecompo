@@ -1,7 +1,12 @@
 <template>
   <div class="rtl">
     <table>
-      <slot />
+      <thead>
+        <slot name="header" />
+      </thead>
+      <tbody>
+        <slot name="body" />
+      </tbody>
     </table>
   </div>
 </template>

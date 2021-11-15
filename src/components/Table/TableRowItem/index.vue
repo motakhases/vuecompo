@@ -1,12 +1,16 @@
 <template>
   <td class="zpl-table-row-item">
-    <slot />
-    <span>
-      <slot name="text" />
-    </span>
-    <span class="zpl-table-row-sub">
-      <slot name="subText" />
-    </span>
+    <div class="zpl-table-row-container">
+      <slot />
+      <div class="zpl-table-row-title">
+        <span>
+          {{ title }}
+        </span>
+        <span class="zpl-table-row-sub">
+          {{ subText }}
+        </span>
+      </div>
+    </div>
   </td>
 </template>
 

@@ -1,19 +1,15 @@
 <template>
-  <thead>
-    <tr>
-      <th class="zpl-table-header">
-        <slot />
-        <Icon
-          v-if="arrowDown"
-          name="filledArrowDown"
-        />
-        <Icon
-          v-if="arrowUp"
-          name="filledArrowUp"
-        />
-      </th>
-    </tr>
-  </thead>
+  <th class="zpl-table-header-item">
+    <slot />
+    <Icon
+      v-if="arrowDown"
+      name="filledArrowDown"
+    />
+    <Icon
+      v-if="arrowUp"
+      name="filledArrowUp"
+    />
+  </th>
 </template>
 
 <script lang="ts">
