@@ -1,6 +1,6 @@
 .zpl-table-header-item {
   /* Default */
-  @apply p-md text-b2 text-text text-right font-normal gap-xs;
+  @apply p-md text-b2 text-text text-right font-normal gap-xs whitespace-nowrap;
   @apply dark:text-text-dark;
 
   /* icon */

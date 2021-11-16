@@ -4,6 +4,7 @@ import TableHeaderItem from "./TableHeaderItem/index.vue";
 import CheckBox from "@/components/CheckBox/index.vue";
 import TableRow from "./TableRow/index.vue";
 import TableRowItem from "./TableRowItem/index.vue";
+import TableRowAction from "./TableRowAction/index.vue";
 import Lable from "@/components/Lable/index.vue";
 import Thumbnail from "@/components/Thumbnail/index.vue";
 export default {
@@ -21,11 +22,12 @@ const Template = (_, { argTypes }) => ({
     TableRowItem,
     Lable,
     Thumbnail,
+    TableRowAction,
   },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-    <Component>
+    <Component :fixed="fixed">
       <template v-slot:header>
         <TableHeader>
           <TableHeaderItem> عنوان یک </TableHeaderItem>
@@ -36,6 +38,7 @@ const Template = (_, { argTypes }) => ({
         </TableHeader>
       </template>
       <template v-slot:body>
+
         <TableRow>
           <TableRowItem title="نام و نام خانوادگی" subText="زیرنویس"> 
 						<Thumbnail img="https://www.digikala.com/static/files/fd4840b2.svg" />
@@ -46,6 +49,9 @@ const Template = (_, { argTypes }) => ({
 					</TableRowItem>
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
+					<TableRowAction/>
+
+
         </TableRow>
 				<TableRow>
           <TableRowItem> یک </TableRowItem>
@@ -55,6 +61,7 @@ const Template = (_, { argTypes }) => ({
 					</TableRowItem>
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
+					<TableRowAction/>
         </TableRow>
 				<TableRow>
           <TableRowItem> یک </TableRowItem>
@@ -64,6 +71,7 @@ const Template = (_, { argTypes }) => ({
 				</TableRowItem>
         <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
+					<TableRowAction/>
         </TableRow>
 				<TableRow>
           <TableRowItem> یک </TableRowItem>
@@ -73,6 +81,7 @@ const Template = (_, { argTypes }) => ({
 					</TableRowItem>
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
+					<TableRowAction></TableRowAction>
         </TableRow>
       </template>
     </Component>
@@ -96,7 +105,7 @@ Default.argTypes = {
 Default.args = {
   text: "Button",
   size: "large",
-  type: "primary",
+  fixed: false,
   arrowUp: false,
   arrowDown: false,
 };

@@ -1,13 +1,16 @@
 <template>
-  <div class="rtl">
-    <table>
-      <thead>
-        <slot name="header" />
-      </thead>
-      <tbody>
-        <slot name="body" />
-      </tbody>
-    </table>
+  <div class="rtl over">
+    <div class="zpl-table-container">
+      <div class="zpl-table-overflow">
+        <table :class="['zpl-table', { 'table-fixed':fixed }]">
+          <thead>
+            <slot name="header" />
+          </thead>
+
+          <slot name="body" />
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 

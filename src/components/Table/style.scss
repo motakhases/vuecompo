@@ -1,0 +1,10 @@
+.zpl-table-container {
+  @apply relative;
+}
+.zpl-table-overflow {
+  @apply overflow-x-scroll;
+
+}
+.zpl-table {
+  @apply w-full;
+}

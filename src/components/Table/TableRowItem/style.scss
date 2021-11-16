@@ -1,5 +1,5 @@
 .zpl-table-row-item {
-  @apply p-md text-b2 text-text text-right border-t border-border-divider;
+  @apply p-md text-b2 text-text text-right border-t border-border-divider whitespace-nowrap	w-auto;
   @apply dark:text-text-dark dark:border-border-dark-divider;
 }
 .zpl-table-row-container {
