@@ -12,10 +12,10 @@ const Template = (_, { argTypes }) => ({
     <div class="dark:bg-surface-dark p-sm rounded-md h-[100vh]">
       <CheckBox
         :disabled="disabled"
+        :name="name"
         :val="val"
-      >
-        {{ name }}
-      </CheckBox>
+        :text="text"
+      />
     </div>
   `,
 });
@@ -26,7 +26,8 @@ Default.argTypes = {
 };
 
 Default.args = {
-  name: 'یک عنوان',
+  name: 'some name',
+  text: 'یک عنوان',
   val: 'value',
   disabled: false
 };
