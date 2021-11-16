@@ -16,6 +16,7 @@ module.exports = {
   },
   rules: {
     indent: ['error', 2],
+    '@typescript-eslint/no-var-requires': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/no-extraneous-dependencies': 0,
     'max-len': ['error', { code: 180 }],

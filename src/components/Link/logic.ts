@@ -21,7 +21,11 @@ export default Vue.extend({
       default: false,
     },
   },
-
+  data() {
+    return {
+      // today: moment().format('jYYYY/jMM/jDD'),
+    };
+  },
   computed: {
     linkComponentDetector() {
       return this.href ? 'a' : 'router-link';
