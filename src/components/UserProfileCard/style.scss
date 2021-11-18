@@ -1,0 +1,30 @@
+.zpl-user-profile {
+  /* Default */
+  @apply inline-flex items-center bg-surface rounded-sm p-xs text-icon text-b2
+	 cursor-pointer;
+  @apply dark:bg-surface-dark dark:text-icon-dark;
+  /* Hover */
+  @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
+
+  /* Active */
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
+
+  /* focused */
+  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+}
+.zpl-user-profile-username {
+  /* Default */
+  @apply mr-xs ml-2xs text-text;
+  @apply dark:text-text-dark;
+}
+.zpl-user-profile-desktop {
+  /* Default */
+  @apply hidden lg:block;
+}
+
+.check {
+  @apply inline-flex flex-col;
+}
