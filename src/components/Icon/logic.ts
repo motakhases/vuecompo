@@ -21,6 +21,7 @@ export default Vue.extend({
     chartSquare: () => import('./icons/ChartSquare.vue'),
     plus: () => import('./icons/Plus.vue'),
     terminal: () => import('./icons/Terminal.vue'),
+    undoneCheck: () => import('./icons/UndoneCheck.vue'),
   },
 
   props: {

@@ -1,0 +1,37 @@
+.zpl-user-card-check {
+  /* Default */
+  @apply inline-flex relative;
+  svg {
+    @apply w-xl h-xl;
+  }
+  &:not(:first-child) {
+    @apply mt-2xl;
+
+    &:before {
+      content: "";
+      @apply w-[1px] h-2xl border-l border-primaryZarinpal absolute bottom-full left-1/2;
+      @apply dark:border-primaryZarinpal-dark;
+      transform: translateX(-50%);
+    }
+  }
+  &.complete {
+    svg {
+      @apply text-primaryZarinpal;
+      @apply dark:text-primaryZarinpal-dark;
+      path {
+        @apply text-icon-onPrimary;
+        @apply dark:text-icon-dark-onPrimary;
+      }
+    }
+  }
+  &.incomplete {
+    svg {
+      @apply text-icon-disabled;
+    }
+    &:not(:first-child) {
+      &:before {
+        @apply border-dashed;
+      }
+    }
+  }
+}
