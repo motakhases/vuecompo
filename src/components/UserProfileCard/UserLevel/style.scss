@@ -1,0 +1,8 @@
+.zpl-user-card-level {
+  /* Default */
+  @apply flex items-center text-b2 text-text-soft gap-x-xs;
+	@apply dark:text-text-dark-soft
+}
+.zpl-user-card-task-title {
+  @apply flex-1;
+}
