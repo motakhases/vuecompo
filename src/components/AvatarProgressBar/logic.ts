@@ -17,25 +17,11 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    fill: {
-      type: Boolean,
-      default: false,
+
+    percent: {
+      type: Number,
+      default: 50,
     },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    beforeIcon: {
-      type: String,
-      default: '',
-    },
-    afterIcon: {
-      type: String,
-      default: '',
-    },
-    onClick: {
-      type: Function,
-      required: true,
-    },
+
   },
 });

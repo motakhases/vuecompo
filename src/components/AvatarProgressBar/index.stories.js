@@ -14,11 +14,8 @@ const Template = (_, { argTypes }) => ({
       :type="type"
       :size="size"
       :disabled="disabled"
-      :fill="fill"
-      :loading="loading"
-      :beforeIcon="beforeIcon"
-      :afterIcon="afterIcon"
-      :onClick="onClick"
+      :percent="percent"
+
     >
       {{ text }}
     </Component>
@@ -42,11 +39,5 @@ Default.argTypes = {
 Default.args = {
   text: "Button",
   size: "large",
-  type: "primary",
-  disabled: false,
-  fill: false,
-  loading: false,
-  afterIcon: "",
-  beforeIcon: "",
-	onClick: () => alert('clicked')
+  percent: 10,
 };

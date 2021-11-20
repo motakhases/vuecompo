@@ -6,18 +6,22 @@
     <svg
       viewBox="0 0 33.83098862 33.83098862"
       xmlns="http://www.w3.org/2000/svg"
-    ><circle
-      class="circle-chart__background"
-      cx="50%"
-      cy="50%"
-      r="calc(50% - 1px)"
-    /><circle
-      class="circle-chart__circle success-stroke"
-      stroke-dasharray="90,100"
-      cx="50%"
-      cy="50%"
-      r="calc(50% - 1px)"
-    /></svg>
+    >
+      <circle
+        class="zpl-avatar-progress-circle"
+        cx="50%"
+        cy="50%"
+        r="calc(50% - 2px)"
+      />
+      <circle
+        v-if="percent !== 0"
+        class="circle-chart__circle success-stroke"
+        :stroke-dasharray="[percent, 100]"
+        cx="50%"
+        cy="50%"
+        r="calc(50% - 2px)"
+      />
+    </svg>
   </div>
 </template>
 
