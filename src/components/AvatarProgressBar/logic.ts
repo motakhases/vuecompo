@@ -1,27 +1,19 @@
 import Vue from 'vue';
-import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'AvatarProgressBar',
-  components: { Icon },
   props: {
     size: {
       type: String,
-      default: 'medium',
+      default: 'small',
     },
     type: {
       type: String,
-      default: 'primary',
+      default: 'beginner',
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-
     percent: {
       type: Number,
       default: 50,
     },
-
   },
 });

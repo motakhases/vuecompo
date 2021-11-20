@@ -1,51 +1,36 @@
-.zpl-avatar-progress {
-  @apply inline-flex rounded-circle relative;
-  width: 80px;
-  height: 80px;
+.zpl-avatar-progress-box {
+  @apply inline-flex rounded-circle relative overflow-hidden;
 }
-
+.zpl-avatar-progress {
+  @apply inline-flex rounded-circle overflow-hidden m-xs;
+}
+.zpl-avatar-progress-icon {
+  @apply absolute top-0 left-0;
+}
 .zpl-avatar-progress-circle {
   fill: none;
-  @apply stroke-current text-border-soft stroke-[3px];
+  @apply stroke-current text-border-soft stroke-2;
+  @apply dark:text-border-dark-soft;
 }
-.circle-chart {
-  width: 150px;
-  height: 150px;
-}
-
-.circle-chart__circle {
-  stroke: #00acc1;
-  stroke-width: 3;
+.zpl-avatar-progress-level {
+  @apply stroke-current stroke-2;
   stroke-linecap: round;
   fill: none;
-  animation: circle-chart-fill 2s reverse; /* 1 */
-  transform: rotate(-90deg); /* 2, 3 */
-  transform-origin: center; /* 4 */
-}
+  transform: rotate(-90deg);
+  transform-origin: center;
 
-.circle-chart__circle--negative {
-  transform: rotate(-90deg) scale(1, -1); /* 1, 2, 3 */
-}
+  &.beginner {
+    @apply text-primaryZarinpal;
+    @apply dark:text-primaryZarinpal-dark;
+  }
 
-.circle-chart__background {
-}
+  &.silver {
+    @apply text-black-20;
+    @apply dark:text-white-60;
+  }
 
-.circle-chart__percent {
-  alignment-baseline: central;
-  text-anchor: middle;
-  font-size: 8px;
-}
-
-.single-skill {
-  width: 25%;
-  margin-bottom: 80px;
-}
-
-.success-stroke {
-  stroke: rgb(129, 86, 252);
-}
-
-.circle-chart__background {
-  stroke: #ede4e4;
-  stroke-width: 1;
+  &.gold {
+    @apply text-zarin;
+    @apply dark:text-zarin-dark;
+  }
 }

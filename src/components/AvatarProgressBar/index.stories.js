@@ -1,12 +1,12 @@
 import Component from "./index.vue";
-
+import Avatar from "@/components/Avatar/index.vue";
 export default {
   component: Component,
   title: "Components/AvatarProgressBar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Component, Avatar },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
@@ -17,7 +17,7 @@ const Template = (_, { argTypes }) => ({
       :percent="percent"
 
     >
-      {{ text }}
+		<Avatar :size="size"/>
     </Component>
   </div>
   `,
@@ -31,13 +31,13 @@ Default.argTypes = {
     control: { type: "radio" },
   },
   type: {
-    options: ["primary", "secondary", "tertiary"],
+    options: ["beginner", "silver", "gold"],
     control: { type: "radio" },
   },
 };
 
 Default.args = {
-  text: "Button",
+  type: "beginner",
   size: "large",
   percent: 10,
 };
