@@ -1,4 +1,4 @@
-import Component from "./index.vue";
+import NavigationBar from "./index.vue";
 import Icon from "../Icon/index.vue";
 import NavItem from "./NavItem/index.vue";
 import SwitchTerminalPopover from "./SwitchTerminalPopover/index.vue";
@@ -13,16 +13,16 @@ import StoryRouter from "storybook-vue-router";
 
 storiesOf("Components/NavigationBar", module)
   .addDecorator(StoryRouter())
-  .add("default", () => Component);
+  .add("default", () => NavigationBar);
 
 export default {
-  component: Component,
+  component: NavigationBar,
   title: "Components/NavigationBar",
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    NavigationBar,
     Icon,
     NavItem,
     SwitchTerminalPopover,
@@ -35,7 +35,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-  <Component :toggle="toggle">
+  <NavigationBar :toggle="toggle">
     <SwitchTerminalPopover>
       <template v-slot:terminal>
         <SwitchTerminal
@@ -76,7 +76,7 @@ const Template = (_, { argTypes }) => ({
       <NavItem link="/" title="لیبل" icon="questionCircle" />
       <NavItem link="/" title="لیبل" icon="questionCircle" />
     </template>
-  </Component>
+  </NavigationBar>
   `,
 });
 

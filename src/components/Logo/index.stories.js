@@ -1,15 +1,15 @@
-import Component from "./index.vue";
+import Logo from "./index.vue";
 export default {
-  component: Component,
+  component: Logo,
   title: "Components/Logo",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Logo },
   props: Object.keys(argTypes),
   template: `
 		<div class="dark:bg-surface-dark p-sm rounded-md">
-      <Component
+      <Logo
         :size="size"
         :name="name"
         :type="type"

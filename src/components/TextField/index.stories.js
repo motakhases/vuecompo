@@ -1,35 +1,35 @@
 /* eslint-disable no-tabs */
 /* eslint-disable no-multiple-empty-lines */
 
-import Component from './index.vue';
+import TextField from './index.vue';
 import '../../utils/validations';
 
 export default {
-  component: Component,
+  component: TextField,
   title: 'Components/TextField',
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    TextField,
   },
   props: Object.keys(argTypes),
   template: `
-		<Component
-		v-model="value"
-		:type="type"
-		:separator="separator"
-		:disabled="disabled"
-		:error="error"
-		:label="label"
-		:helperHint="helperHint"
-		:successHint="successHint"
-		:unit="unit"
-		:limit="limit"
-		:beforeIcon="beforeIcon"
-		:afterIcon="afterIcon"
-		:stepper="stepper"
-		:rules="rules"
+		<TextField
+			v-model="value"
+			:type="type"
+			:separator="separator"
+			:disabled="disabled"
+			:error="error"
+			:label="label"
+			:helperHint="helperHint"
+			:successHint="successHint"
+			:unit="unit"
+			:limit="limit"
+			:beforeIcon="beforeIcon"
+			:afterIcon="afterIcon"
+			:stepper="stepper"
+			:rules="rules"
 		/>  `,
 });
 

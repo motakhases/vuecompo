@@ -1,17 +1,17 @@
-import Component from "./index.vue";
+import NavBadge from "./index.vue";
 
 export default {
-  component: Component,
+  component: NavBadge,
   title: "Components/Tooltip",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { NavBadge },
   props: Object.keys(argTypes),
   template: `
-		<Component>
+		<NavBadge>
 		  {{ text }}
-		</Component>
+		</NavBadge>
   `,
 });
 

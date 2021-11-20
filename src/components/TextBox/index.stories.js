@@ -1,30 +1,30 @@
 /* eslint-disable no-tabs */
 /* eslint-disable no-multiple-empty-lines */
 
-import Component from './index.vue';
+import TextBox from './index.vue';
 import '../../utils/validations';
 
 export default {
-  component: Component,
+  component: TextBox,
   title: 'Components/TextBox',
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    TextBox,
   },
   props: Object.keys(argTypes),
   template: `
-		<Component
-		v-model="value"
-		:size="size"
-		:disabled="disabled"
-		:label="label"
-		:value="value"
-		:helperHint="helperHint"
-		:successHint="successHint"
-	  :limit="limit"
-		:rules="rules"
+		<TextBox
+      v-model="value"
+      :size="size"
+      :disabled="disabled"
+      :label="label"
+      :value="value"
+      :helperHint="helperHint"
+      :successHint="successHint"
+      :limit="limit"
+      :rules="rules"
 		/>  `,
 });
 
