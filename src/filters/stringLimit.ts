@@ -1,4 +1,4 @@
-export default (value: any, stop: any, fromEnd: any) => {
+export default function stringLimit(value: string, stop: number, fromEnd: boolean) {
   if (typeof value === 'undefined') {
     return value;
   }
@@ -6,4 +6,4 @@ export default (value: any, stop: any, fromEnd: any) => {
     return value.slice(-stop) + (stop < value.length ? '....' : '');
   }
   return value.slice(0, stop) + (stop < value.length ? '....' : '');
-};
+}

@@ -1,9 +1,11 @@
 import Vue from 'vue';
-
-alert('filter');
+import strLimit from './stringLimit';
+import numberFormat from './numberFormat';
 
 Vue.filter(
-  'strLimit',
-  require('./stringLimit'),
+  'strLimit', strLimit,
+);
+Vue.filter(
+  'numberFormat', numberFormat,
 );
 

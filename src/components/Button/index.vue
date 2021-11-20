@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>{{ text |strLimit(3) }}</p>
     <button
       :class="['zpl-button', size, type, { fill }]"
       :disabled="disabled"
