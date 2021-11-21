@@ -1,8 +1,9 @@
 <template>
-  <a
+  <router-link
+    :to="link"
     class="zpl-user-card-task"
     :disabled="disabled"
-    href="#sss"
+    :event="disabled ? '' : 'click'"
   >
     <span class="zpl-user-card-task-title">
       <slot />
@@ -11,7 +12,7 @@
       v-if="!disabled"
       name="angleLeft"
     />
-  </a>
+  </router-link>
 </template>
 
 <script lang="ts">
