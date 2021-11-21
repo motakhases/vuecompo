@@ -1,4 +1,5 @@
 export { default as Button } from './Button/index.vue';
+export { default as FilterSample } from './FilterSample/index.vue';
 export { default as ButtonGroup } from './ButtonGroup/index.vue';
 export { default as CheckBox } from './CheckBox/index.vue';
 export { default as Dropdown } from './Dropdown/index.vue';

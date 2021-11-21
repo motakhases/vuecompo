@@ -38,4 +38,9 @@ export default Vue.extend({
       required: true,
     },
   },
+  computed: {
+    text() {
+      return 'tesssssssssssst';
+    },
+  },
 });
