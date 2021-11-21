@@ -1,7 +1,30 @@
 <template>
   <div dir="rtl">
-    <p>{{ text |strLimit(25,false) }}</p>
-    <p>{{ number |numberFormat }}</p>
+    <p v-if="limitation">
+      {{ text |strLimit(25,false) }}
+    </p>
+    <p v-if="numberFormat">
+      {{ number |numberFormat }}
+    </p>
+    <div v-if="customDate">
+      <p>
+        {{ yesterday }}
+        <br>
+        {{ yesterday |cJalaali }}
+      </p>
+      <p>--------------------------------------------------</p>
+      <p>
+        {{ time }}
+        <br>
+        {{ time |cJalaali }}
+      </p>
+      <p>--------------------------------------------------</p>
+      <p>
+        {{ tomarrow }}
+        <br>
+        {{ tomarrow |cJalaali }}
+      </p>
+    </div>
   </div>
 </template>
 
