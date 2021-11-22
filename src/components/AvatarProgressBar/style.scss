@@ -1,0 +1,36 @@
+.zpl-avatar-progress-box {
+  @apply inline-flex rounded-circle relative overflow-hidden;
+}
+.zpl-avatar-progress {
+  @apply inline-flex rounded-circle overflow-hidden m-xs;
+}
+.zpl-avatar-progress-icon {
+  @apply absolute top-0 left-0;
+}
+.zpl-avatar-progress-circle {
+  fill: none;
+  @apply stroke-current text-border-soft stroke-2;
+  @apply dark:text-border-dark-soft;
+}
+.zpl-avatar-progress-level {
+  @apply stroke-current stroke-2;
+  stroke-linecap: round;
+  fill: none;
+  transform: rotate(-90deg);
+  transform-origin: center;
+
+  &.beginner {
+    @apply text-primaryZarinpal;
+    @apply dark:text-primaryZarinpal-dark;
+  }
+
+  &.silver {
+    @apply text-black-20;
+    @apply dark:text-white-60;
+  }
+
+  &.gold {
+    @apply text-zarin;
+    @apply dark:text-zarin-dark;
+  }
+}
