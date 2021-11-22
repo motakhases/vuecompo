@@ -1,30 +1,19 @@
-.zpl-user-profile {
+.zpl-user-profile-card {
   /* Default */
-  @apply inline-flex items-center bg-surface rounded-sm p-xs text-icon text-b2
-	 cursor-pointer;
-  @apply dark:bg-surface-dark dark:text-icon-dark;
-  /* Hover */
-  @apply hover:bg-surface-hover;
-  @apply dark:hover:bg-surface-dark-hover;
-
-  /* Active */
-  @apply active:bg-surface-active;
-  @apply dark:active:bg-surface-dark-active;
-
-  /* focused */
-  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
-  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+  @apply bg-surface shadow-elevation-50 rounded-md p-xl;
+  @apply dark:bg-surface-dark;
 }
-.zpl-user-profile-username {
+.zpl-user-profile-card-header {
   /* Default */
-  @apply mr-xs ml-2xs text-text;
+  @apply flex items-center justify-between mb-xs;
+}
+
+.zpl-user-profile-card-name {
+  /* Default */
+  @apply text-ls-h2 text-text font-bold mb-xs;
   @apply dark:text-text-dark;
 }
-.zpl-user-profile-desktop {
+.zpl-user-profile-card-level {
   /* Default */
-  @apply hidden lg:block;
-}
-
-.check {
-  @apply inline-flex flex-col;
+  @apply mb-2xl;
 }

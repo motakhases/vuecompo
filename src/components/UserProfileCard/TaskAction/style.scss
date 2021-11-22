@@ -19,7 +19,7 @@
   }
 
   /* focused */
-  @apply focus:bg-surface focus:shadow-border-focus-heavy;
+  @apply focus:bg-surface focus:shadow-border-focus-heavy focus:outline-none;
   @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
 
   svg {

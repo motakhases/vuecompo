@@ -1,16 +1,16 @@
-import Component from "./index.vue";
+import AvatarProgressBar from "./index.vue";
 import Avatar from "@/components/Avatar/index.vue";
 export default {
-  component: Component,
+  component: AvatarProgressBar,
   title: "Components/AvatarProgressBar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, Avatar },
+  components: { AvatarProgressBar, Avatar },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Component
+		<AvatarProgressBar
       :type="type"
       :size="size"
       :disabled="disabled"
@@ -18,7 +18,7 @@ const Template = (_, { argTypes }) => ({
 
     >
 		<Avatar :size="size"/>
-    </Component>
+    </AvatarProgressBar>
   </div>
   `,
 });
