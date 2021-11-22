@@ -19,10 +19,8 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
 		<TaskAction :disabled="disabled" :link="link">
-task
+			task
 		</TaskAction>
-
-
   </div>
   `,
 });

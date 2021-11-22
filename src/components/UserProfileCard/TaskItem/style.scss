@@ -1,35 +1,4 @@
-.zpl-user-card-task {
+.zpl-user-card-item {
   /* Default */
-  @apply py-sm pr-sm pl-xs bg-surface-soft flex items-center gap-x-sm rounded-sm;
-  @apply text-b2 text-text;
-  @apply dark:bg-surface-dark dark:text-text-dark;
-
-  /* Disabled */
-  @apply disabled:cursor-default;
-
-  /* Hover */
-  @apply hover:bg-surface-hover;
-  @apply dark:hover:bg-surface-dark-hover;
-
-  // /* Active */
-  // @apply active:bg-surface-active;
-  // @apply dark:active:bg-surface-dark-active;
-
-  /* Disabled */
-  @apply disabled:bg-surface-disabled;
-  @apply dark:disabled:bg-surface-dark-disabled;
-
-  /* focused */
-  @apply focus:bg-surface;
-  @apply dark:focus:bg-surface-dark;
-  /* focused */
-  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
-  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
-
-  svg {
-    @apply w-xl h-xl;
-  }
-}
-.zpl-user-card-task-title {
-  @apply flex-1;
+  @apply flex items-center w-full gap-x-md mb-xs;
 }

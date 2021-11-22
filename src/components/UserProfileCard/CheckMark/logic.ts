@@ -9,5 +9,9 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    before: {
+      type: Boolean,
+      default: false,
+    },
   },
 });
