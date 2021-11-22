@@ -1,7 +1,7 @@
 .zpl-user-card-task {
   /* Default */
   @apply py-sm pr-sm pl-xs bg-surface-soft flex items-center gap-x-sm rounded-sm;
-  @apply text-b2 text-text;
+  @apply text-b2 text-text w-full;
   @apply dark:bg-surface-dark-soft dark:text-text-dark;
 
   /* Hover */
@@ -16,7 +16,6 @@
   &[disabled] {
     @apply bg-surface-disabled cursor-default text-text-disabled;
     @apply dark:bg-surface-dark-disabled dark:text-text-dark-disabled;
-	 
   }
 
   /* focused */

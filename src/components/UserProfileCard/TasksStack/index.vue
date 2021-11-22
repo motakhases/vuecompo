@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-user-card-item">
+  <div class="zpl-user-card-stack">
     <slot />
   </div>
 </template>
