@@ -2,8 +2,7 @@
   @apply relative;
 }
 .zpl-table-overflow {
-  @apply overflow-x-scroll;
-
+  @apply overflow-x-auto;
 }
 .zpl-table {
   @apply w-full;

@@ -29,7 +29,7 @@ const Template = (_, { argTypes }) => ({
   <div class="dark:bg-surface-dark p-sm rounded-md">
     <Component :fixed="fixed">
       <template v-slot:header>
-        <TableHeader>
+        <TableHeader :fixed="fixed">
           <TableHeaderItem> عنوان یک </TableHeaderItem>
           <TableHeaderItem arrow-up> عنوان دو </TableHeaderItem>
           <TableHeaderItem> عنوان سه </TableHeaderItem>
@@ -50,8 +50,6 @@ const Template = (_, { argTypes }) => ({
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
 					<TableRowAction/>
-
-
         </TableRow>
 				<TableRow>
           <TableRowItem> یک </TableRowItem>
@@ -103,7 +101,6 @@ Default.argTypes = {
 };
 
 Default.args = {
-  text: "Button",
   size: "large",
   fixed: false,
   arrowUp: false,

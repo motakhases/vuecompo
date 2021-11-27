@@ -2,11 +2,10 @@
   <div class="rtl over">
     <div class="zpl-table-container">
       <div class="zpl-table-overflow">
-        <table :class="['zpl-table', { 'table-fixed':fixed }]">
+        <table :class="['zpl-table', { 'table-fixed': fixed }]">
           <thead>
             <slot name="header" />
           </thead>
-
           <slot name="body" />
         </table>
       </div>

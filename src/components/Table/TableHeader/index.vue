@@ -1,6 +1,10 @@
 <template>
   <tr>
     <slot />
+    <th
+      v-if="fixed"
+      class="zpl-table-fixed-cell"
+    />
   </tr>
 </template>
 
