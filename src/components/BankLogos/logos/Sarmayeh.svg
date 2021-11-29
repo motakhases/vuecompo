@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Bank-Sarmayeh" clip-path="url(#clip-path)">
+    <rect id="Boundary" width="48" height="48" fill="none"/>
+    <path id="Shape" d="M7.059,41.962A6.043,6.043,0,1,1,13.1,48,6.052,6.052,0,0,1,7.059,41.962ZM0,16.372C9.975,16.05,18.808,9.793,26.961,0L27,16.06C18,26.8,9,30.235,0,30.405Z" transform="translate(14.5)" fill="#1f1f48"/>
+    <path id="Shape-2" data-name="Shape" d="M26.975,0V14.033C17.009,14.355,8.184,20.613.038,30.405L0,14.345C8.992,3.61,17.984.17,26.975,0Z" transform="translate(6.5 17.594)" fill="#afb2ae"/>
+  </g>
+</svg>

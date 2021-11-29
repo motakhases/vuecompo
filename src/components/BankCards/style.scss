@@ -1,0 +1,165 @@
+$bankLogos: (
+  "saman": (
+    "color": #20b3ea,
+  ),
+  "refah": (
+    "color": #173576,
+  ),
+  "dey": (
+    "color": #008b9a,
+  ),
+  "hekmat": (
+    "color": #324c88,
+  ),
+  "agriculture": (
+    "color": #1f261a,
+  ),
+  "melal": (
+    "color": #ff7f31,
+  ),
+  "sanatmadan": (
+    "color": #9b814c,
+  ),
+  "tosetavon": (
+    "color": #51b5d1,
+  ),
+  "mellat": (
+    "color": #ba0b22,
+  ),
+  "eghtesadnovin": (
+    "color": #662892,
+  ),
+  "khavarmiane": (
+    "color": #f29200,
+  ),
+  "melli": (
+    "color": #f1af0e,
+  ),
+  "parsian": (
+    "color": #b27d53,
+  ),
+  "pasargad": (
+    "color": #fecc09,
+  ),
+  "kosar": (
+    "color": #ae1977,
+  ),
+  "sepah": (
+    "color": #1b5fc1,
+  ),
+  "cbi": (
+    "color": #00194a,
+  ),
+  "tourismbank": (
+    "color": #b11116,
+  ),
+  "iranzamin": (
+    "color": #4c2a93,
+  ),
+  "mehr": (
+    "color": #029a4c,
+  ),
+  "ayandeh": (
+    "color": #b27d53,
+  ),
+  "zarincard": (
+    "color": #ffb012,
+  ),
+  "karafarin": (
+    "color": #ab7342,
+  ),
+  "postbank": (
+    "color": #14763e,
+  ),
+  "sina": (
+    "color": #277eb5,
+  ),
+  "ansar": (
+    "color": #b27d53,
+  ),
+  "citybank": (
+    "color": #d8262c,
+  ),
+  "tejarat": (
+    "color": #2f4a98,
+  ),
+  "sarmayeh": (
+    "color": #1f1f47,
+  ),
+  "tejarat-old": (
+    "color": #263e94,
+  ),
+  "saderat": (
+    "color": #29166f,
+  ),
+  "ghavamin": (
+    "color": #007d3d,
+  ),
+  "maskan": (
+    "color": #ec520d,
+  ),
+  "resalat": (
+    "color": #00bbe6,
+  ),
+  "noor": (
+    "color": #0bbbb9,
+  ),
+  "tosesaderat": (
+    "color": #006d08,
+  ),
+  "toseetebari": (
+    "color": #8f2426,
+  ),
+);
+/**-------------------------------------------------------------------------------------------------------------------
+css for logo and card-bank
+-------------------------------------------------------------------------------------------------------------------- */
+@for $i from 1 through length($bankLogos) {
+  $name: nth(map-keys($bankLogos), $i);
+  $obj: map-get($bankLogos, $name);
+  $color: map-get($obj, "color");
+
+  .#{$name}-card {
+    background: $color;
+    &::after {
+      background-color: $color !important;
+    }
+  }
+}
+
+.zpl-bank-cards {
+  @apply bg-surface border border-border-soft shadow-elevation-50;
+  @apply rounded-md relative overflow-hidden px-xs pt-xs pb-md;
+  @apply after:bg-zarin after:absolute after:w-full after:h-xl after:top-0 after:z-0;
+  @apply after:left-0 after:right-0;
+}
+.zpl-bank-cards-top {
+  @apply relative bg-surface rounded-[6px] p-xs z-10 mb-xs gap-x-xs flex items-center;
+}
+.zpl-bank-cards-name {
+  @apply text-text text-b3;
+}
+.zpl-bank-cards-username {
+  @apply flex items-center text-text-soft text-ls-cp;
+  // circle icon
+  &:before {
+    content: "";
+    @apply w-[2px] h-[2px] rounded-circle bg-text-soft ml-xs;
+  }
+}
+.zpl-bank-cards-favorite {
+  @apply flex text-zarin mr-auto;
+}
+.zpl-bank-cards-amount-box {
+  @apply flex items-center justify-center relative bg-surface-soft rounded-sm;
+  @apply p-xs z-10 mb-md text-center;
+}
+.zpl-bank-cards-amount {
+  @apply text-text text-ls-h1 font-bold ml-2xs;
+}
+.zpl-bank-cards-currency {
+  @apply text-text text-b2;
+}
+.zpl-bank-cards-iban {
+  @apply relative z-10 text-center text-text-soft text-b2;
+}

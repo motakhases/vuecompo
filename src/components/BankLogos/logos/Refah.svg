@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Bank-Refah" clip-path="url(#clip-path)">
+    <rect id="Boundary" width="48" height="48" transform="translate(0)" fill="none"/>
+    <path id="Shape" d="M6335,3945a6,6,0,1,1,6,6A6,6,0,0,1,6335,3945Zm-13.369-7.532a16.774,16.774,0,0,1-.491-22.606h13.287c-4.758,2.062-8.023,6.292-8.023,11.171a11.965,11.965,0,0,0,5.632,9.87h17.927a11.96,11.96,0,0,0,5.632-9.87c0-4.878-3.265-9.108-8.024-11.171h13.288a16.774,16.774,0,0,1-.491,22.606Zm7.341-5.861c5.112-1.947,8.681-6.339,8.681-11.437,0-4.878-3.265-9.108-8.024-11.171h13.288a16.78,16.78,0,0,1-.492,22.608Z" transform="translate(-6316.999 -3906)" fill="#173576" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

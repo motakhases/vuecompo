@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="40px" viewBox="0 0 40 40" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-1.11022302e-14%" y1="1.72254642e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFEE00" offset="0%"></stop>
+            <stop stop-color="#FFCE00" offset="100%"></stop>
+        </linearGradient>
+        <path d="M0.628988066,0 L7.18005869,0 C7.73442105,0 8.01693264,0.667261843 7.6278129,1.05914578 L1.0927335,7.6205539 C0.698283361,8.01773357 0.0213216294,7.74235567 0.0213216294,7.18630413 L0,0.624896012 C0,0.280673632 0.277181182,0 0.628988066,0 Z M22.8054095,23.4244283 L16.2447752,23.4244283 C15.6900549,23.4244283 15.4073609,22.7571665 15.7967319,22.3652825 L22.3306969,15.8038744 C22.7254018,15.4066948 23.4027473,15.6820727 23.4027473,16.2381242 L23.424136,22.7995323 C23.4348037,23.1437547 23.1521097,23.4244283 22.8054095,23.4244283 Z M0.974830189,17.7478619 L17.7521708,0.97463397 C19.0519444,-0.32487799 21.1555253,-0.32487799 22.4495981,0.97463397 C23.7493717,2.27408894 23.7493717,4.37709722 22.4495981,5.67090982 L5.67225753,22.4498371 C4.37818471,23.7492921 2.26890301,23.7492921 0.974830189,22.4498371 C-0.324943396,21.1503251 -0.324943396,19.0473169 0.974830189,17.7478619 Z"
+              id="path-2"></path>
+        <filter x="-27.7%" y="-23.5%" width="155.5%" height="155.5%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.968085672   0 0 0 0 0.793450609   0 0 0 0 0  0 0 0 1 0" type="matrix"
+                           in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-8" transform="translate(-922.000000, -492.000000)">
+            <g id="Group-6" transform="translate(922.000000, 492.000000)">
+                <g id="Group" fill="url(#linearGradient-1)">
+                    <rect id="Rectangle-3" x="0" y="0" width="40" height="40" rx="9.09090909"></rect>
+                </g>
+                <g id="Group-2" transform="translate(8.281250, 8.281250)">
+                    <g id="Combined-Shape">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
