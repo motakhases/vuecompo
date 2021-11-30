@@ -1,4 +1,3 @@
-
 <template>
   <svg
     viewBox="0 0 18 20"

@@ -1,27 +1,24 @@
-import Button from "./index.vue";
-
+import Component from "./index.vue";
+import Avatar from "@/components/Avatar/index.vue";
 export default {
-  component: Button,
-  title: "Components/Button",
+  component: Component,
+  title: "Components/AvatarProgressBar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Button },
+  components: { Component, Avatar },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Button
+		<Component
       :type="type"
       :size="size"
       :disabled="disabled"
-      :fill="fill"
-      :loading="loading"
-      :beforeIcon="beforeIcon"
-      :afterIcon="afterIcon"
-      :onClick="onClick"
+      :percent="percent"
+
     >
-      {{ text }}
-    </Button>
+		<Avatar :size="size"/>
+    </Component>
   </div>
   `,
 });
@@ -34,19 +31,13 @@ Default.argTypes = {
     control: { type: "radio" },
   },
   type: {
-    options: ["primary", "secondary", "tertiary"],
+    options: ["beginner", "silver", "gold"],
     control: { type: "radio" },
   },
 };
 
 Default.args = {
-  text: "Button",
+  type: "beginner",
   size: "large",
-  type: "primary",
-  disabled: false,
-  fill: false,
-  loading: false,
-  afterIcon: "",
-  beforeIcon: "",
-	onClick: () => alert('clicked')
+  percent: 10,
 };

@@ -1,17 +1,17 @@
-import Component from "./index.vue";
+import Label from "./index.vue";
 
 export default {
-  component: Component,
-  title: "Components/Lable",
+  component: Label,
+  title: "Components/Label",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Label },
   props: Object.keys(argTypes),
   template: `
-		<Component :type="type" :size="size">
+		<Label :type="type" :size="size">
       {{ text }}
-    </Component>
+    </Label>
   `,
 });
 

@@ -1,15 +1,15 @@
-import Component from "./index.vue";
+import Tooltip from "./index.vue";
 
 export default {
-  component: Component,
+  component: Tooltip,
   title: "Components/Tooltip",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Tooltip },
   props: Object.keys(argTypes),
   template: `
-			<Component
+    <Tooltip
 			:text="text"
 			:position="position"
 			:space="space"
@@ -17,7 +17,7 @@ const Template = (_, { argTypes }) => ({
 			:size="size"
 		>
 			<button>Hover Me</button>
-		</Component>
+		</Tooltip>
   `,
 });
 
