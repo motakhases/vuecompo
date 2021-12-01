@@ -120,46 +120,56 @@ css for logo and card-bank
   $color: map-get($obj, "color");
 
   .#{$name}-card {
-    background: $color;
     &::after {
       background-color: $color !important;
     }
+		// @apply bg-#{$name}
   }
 }
 
 .zpl-bank-cards {
   @apply bg-surface border border-border-soft shadow-elevation-50;
-  @apply rounded-md relative overflow-hidden px-xs pt-xs pb-md;
+  @apply rounded-md relative overflow-hidden px-xs pt-xs pb-md min-w-[320px];
   @apply after:bg-zarin after:absolute after:w-full after:h-xl after:top-0 after:z-0;
   @apply after:left-0 after:right-0;
+  @apply dark:bg-surface-dark dark:border-border-dark-soft dark:shadow-dark-elevation-50;
 }
 .zpl-bank-cards-top {
   @apply relative bg-surface rounded-[6px] p-xs z-10 mb-xs gap-x-xs flex items-center;
+  @apply dark:bg-surface-dark;
 }
 .zpl-bank-cards-name {
   @apply text-text text-b3;
+  @apply dark:text-text-dark;
 }
 .zpl-bank-cards-username {
   @apply flex items-center text-text-soft text-ls-cp;
+  @apply dark:text-text-dark-soft;
+
   // circle icon
   &:before {
     content: "";
     @apply w-[2px] h-[2px] rounded-circle bg-text-soft ml-xs;
   }
 }
-.zpl-bank-cards-favorite {
-  @apply flex text-zarin mr-auto;
+
+.zpl-bank-cards-container {
+  @apply bg-surface-soft rounded-sm p-xs z-10 mb-xs text-text text-center;
+  @apply dark:bg-surface-dark-soft dark:text-text-dark;
 }
 .zpl-bank-cards-amount-box {
-  @apply flex items-center justify-center relative bg-surface-soft rounded-sm;
-  @apply p-xs z-10 mb-md text-center;
+  @apply flex items-center justify-center p-xs z-10 mb-sm;
 }
 .zpl-bank-cards-amount {
-  @apply text-text text-ls-h1 font-bold ml-2xs;
+  @apply text-ls-h1 font-bold ml-2xs;
 }
 .zpl-bank-cards-currency {
-  @apply text-text text-b2;
+  @apply text-b2;
 }
 .zpl-bank-cards-iban {
-  @apply relative z-10 text-center text-text-soft text-b2;
+  @apply relative z-10 text-b2;
+}
+.zpl-bank-cards-rrn {
+  @apply py-2xs px-xs flex justify-between text-text-soft text-b3;
+  @apply text-text-dark-soft;
 }

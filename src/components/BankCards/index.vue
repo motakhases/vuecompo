@@ -6,26 +6,32 @@
         {{ bankName }}
       </div>
       <div class="zpl-bank-cards-username">
-        {{ username }}
-      </div>
-      <div
-        v-if="favorite"
-        class="zpl-bank-cards-favorite"
-      >
-        <Icon name="star" />
+        <span v-if="defaultAccount"> حساب پیش‌فرض تسویه </span>
+        <span v-else>
+          {{ username }}
+        </span>
       </div>
     </div>
-    <div class="zpl-bank-cards-amount-box">
-      <span class="zpl-bank-cards-amount">
-        <FilterSample
-          :number="amount"
-          number-format
-        />
+    <div class="zpl-bank-cards-container">
+      <div class="zpl-bank-cards-amount-box">
+        <span class="zpl-bank-cards-amount">
+          <FilterSample
+            :number="amount"
+            number-format
+          />
+        </span>
+        <span class="zpl-bank-cards-currency">ریال</span>
+      </div>
+      <div class="zpl-bank-cards-iban">
+        {{ iban }}
+      </div>
+    </div>
+
+    <div class="zpl-bank-cards-rrn">
+      <span>شناسه واریز پایا</span>
+      <span>
+        {{ rrn }}
       </span>
-      <span class="zpl-bank-cards-currency">ریال</span>
-    </div>
-    <div class="zpl-bank-cards-iban">
-      {{ iban }}
     </div>
   </div>
 </template>

@@ -71,5 +71,6 @@ Default.args = {
   logo: "saman",
   amount: "5120000",
   iban: "IR870560085577703153460001",
-  favorite: false,
+  rrn: "892938820001277640002746",
+  defaultAccount: false,
 };

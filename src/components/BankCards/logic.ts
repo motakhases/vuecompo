@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import FilterSample from '@/components/FilterSample/index.vue';
-import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'BankCards',
-  components: { FilterSample, Icon },
+  components: { FilterSample },
   props: {
     bankName: {
       type: String,
@@ -26,7 +25,11 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    favorite: {
+    rrn: {
+      type: String,
+      default: '',
+    },
+    defaultAccount: {
       type: Boolean,
       default: false,
     },
