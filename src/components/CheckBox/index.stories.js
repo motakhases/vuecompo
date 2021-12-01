@@ -9,11 +9,12 @@ const Template = (_, { argTypes }) => ({
   components: { CheckBox },
   props: Object.keys(argTypes),
   template: `
-    <div class="dark:bg-surface-dark p-sm rounded-md">
+    <div class="dark:bg-surface-dark p-sm rounded-md h-[100vh]">
       <CheckBox
-        :name="name"
-        :options="options"
         :disabled="disabled"
+        :name="name"
+        :val="val"
+        :text="text"
       />
     </div>
   `,
@@ -25,11 +26,8 @@ Default.argTypes = {
 };
 
 Default.args = {
-  options: [
-    { label: 'اپل', value: 'apple' },
-    { label: 'لنوو', value: 'lenovo' },
-    { label: 'شیائومی', value: 'xiaomi' },
-  ],
   name: 'some name',
+  text: 'یک عنوان',
+  val: 'value',
   disabled: false
 };
