@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Bank-Karafarin" clip-path="url(#clip-path)">
+    <rect id="Boundary" width="48" height="48" fill="none"/>
+    <path id="Shape" d="M24-14.5A9.5,9.5,0,0,1,14.5-24,9.5,9.5,0,0,1,24-33.5,9.5,9.5,0,0,1,33.5-24,9.5,9.5,0,0,1,24-14.5Z" transform="translate(0 48)" fill="#ab7341" fill-rule="evenodd"/>
+    <path id="Shape-2" data-name="Shape" d="M12-12,0-24,24-48,36-36,48-24,36-12,24,0,12-12H36V-36H12Z" transform="translate(0 48)" fill="#0c7309" fill-rule="evenodd"/>
+  </g>
+</svg>

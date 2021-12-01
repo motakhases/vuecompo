@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48.001" viewBox="0 0 48 48.001">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="48" height="48.001" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Bank-Maskan" clip-path="url(#clip-path)">
+    <rect id="Boundary" width="48" height="48" fill="none"/>
+    <path id="Shape" d="M0,48H48V0H0Zm6.858-6.858H41.142V6.855H6.858ZM39.822,30.855V23.472L24,17.142,8.178,23.472v7.383L24,24.528Z" fill="#ec520d" fill-rule="evenodd"/>
+  </g>
+</svg>
