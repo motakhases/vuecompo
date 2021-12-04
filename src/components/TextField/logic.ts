@@ -16,7 +16,7 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      default: 'label',
+      default: '',
     },
     helperHint: {
       type: String,
@@ -44,11 +44,11 @@ export default Vue.extend({
     },
     beforeIcon: {
       type: String,
-      default: 'none',
+      default: '',
     },
     afterIcon: {
       type: String,
-      default: 'none',
+      default: '',
     },
     stepper: {
       type: Boolean,
@@ -57,6 +57,10 @@ export default Vue.extend({
     rules: {
       type: String,
       default: 'none',
+    },
+    id: {
+      type: String,
+      default: '',
     },
   },
   data() {
@@ -93,6 +97,7 @@ export default Vue.extend({
       // update value of input and if they have , or - remove them
       const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
       this.$emit('input', this.toEnNumber(newValue));
+      console.log(event.target.value);
     },
     onFocusIn() {
       // for adding active label style

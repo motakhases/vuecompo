@@ -1,0 +1,37 @@
+.vpd-container {
+  @apply font-YekanBakhFaNum;
+}
+.vpd-day-effect {
+  @apply rounded-sm;
+}
+.vpd-day {
+  @apply text-text text-b3 flex justify-center items-center;
+  &:not([disabled]) {
+    &:hover {
+      @apply text-text;
+
+      .vpd-day-effect {
+        background-color: #f7f7f8 !important;
+      }
+    }
+    &:active {
+      .vpd-day-effect {
+        @apply shadow-border-focus-heavy;
+      }
+    }
+    &.vpd-selected {
+      .vpd-day-effect {
+        background-color: #0a33ff !important;
+      }
+      &:hover {
+        @apply text-text-onPrimary;
+        .vpd-day-effect {
+          background-color: #082bd5 !important;
+        }
+      }
+    }
+  }
+}
+.vpd-actions {
+  @apply hidden;
+}

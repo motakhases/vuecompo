@@ -14,23 +14,7 @@ const Template = (_, { argTypes }) => ({
     TextField,
   },
   props: Object.keys(argTypes),
-  template: `
-		<TextField
-			v-model="value"
-			:type="type"
-			:separator="separator"
-			:disabled="disabled"
-			:error="error"
-			:label="label"
-			:helperHint="helperHint"
-			:successHint="successHint"
-			:unit="unit"
-			:limit="limit"
-			:beforeIcon="beforeIcon"
-			:afterIcon="afterIcon"
-			:stepper="stepper"
-			:rules="rules"
-		/>  `,
+  template: `<TextField v-bind="$props"/>`,
 });
 
 export const Default = Template.bind({});
@@ -52,7 +36,7 @@ Default.args = {
   label: 'label',
   value: '',
   helperHint: 'helper',
-	successHint: 'succe',
+	successHint: 'success',
   unit: '',
   limit: 0,
 	type: 'text',
@@ -60,5 +44,6 @@ Default.args = {
 	beforeIcon: '',
 	afterIcon: '',
 	stepper: false,
+	id: '',
 	rules: 'odd|required|min'
 };

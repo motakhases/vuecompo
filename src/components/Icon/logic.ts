@@ -22,6 +22,7 @@ export default Vue.extend({
     plus: () => import('./icons/Plus.vue'),
     terminal: () => import('./icons/Terminal.vue'),
     star: () => import('./icons/Star.vue'),
+    calender: () => import('./icons/Calender.vue'),
   },
 
   props: {
