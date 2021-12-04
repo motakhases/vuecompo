@@ -1,8 +1,8 @@
-import moment from 'moment-jalali';
+import moment from 'moment-jalaali';
 
 moment.loadPersian();
 
-export default (value) => {
+export default (value:string) => {
   if (value !== null) {
     return moment(value).format('dddd jDD jMMMM');
   }

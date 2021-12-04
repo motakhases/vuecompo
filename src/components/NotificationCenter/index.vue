@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import { now, yesterday, beforeDays } from '@/utils/momentCustom';
+import { now, yesterday, beforeDays } from '@/utils/momentCustom.ts';
 import './style.scss';
 import card from './card/index.vue';
 import noNotif from './NoNotif/index.vue';

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NotificationCenter :announcements="announcements" />
+    <NotificationCenter v-if="false" :announcements="announcements" />
 
-    <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl relative">
+    <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl mb-2xl relative">
       <PageHeading
         :sticky="true"
         title="عنوان"
@@ -89,7 +89,7 @@
 </template>
 
 <script lang="js">
-import moment from 'moment-jalali';
+import moment from 'moment-jalaali';
 import Vue from 'vue';
 import PageHeading from './components/PageHeading/index.vue';
 import NotificationCenter from './components/NotificationCenter/index.vue';

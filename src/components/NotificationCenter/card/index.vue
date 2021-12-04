@@ -38,18 +38,18 @@
 </template>
 
 <script>
-import JdateName from '@/utils/filters/JdateName';
+import JdateName from '@/filters/JdateName';
 
 export default ({
   name: 'NotificationCard',
+  filters: {
+    JdateName,
+  },
   props: {
     cards: {
       type: Array,
       default: () => [],
     },
-  },
-  filters: {
-    JdateName,
   },
 });
 
