@@ -1,0 +1,138 @@
+/**-------------------------------------------------------------------------------------------------------------------
+card-bank-variable
+-------------------------------------------------------------------------------------------------------------------- */
+$bankLogos: (
+  "saman": (
+    "uri": "Saman.svg",
+  ),
+  "refah": (
+    "uri": "Refah.svg",
+  ),
+  "dey": (
+    "uri": "Dey.svg",
+  ),
+  "hekmat": (
+    "uri": "Hekmat.svg",
+  ),
+  "agriculture": (
+    "uri": "Keshavarzi.svg",
+  ),
+  "melal": (
+    "uri": "Melall.svg",
+  ),
+  "sanatmadan": (
+    "uri": "SanatMadan.svg",
+  ),
+  "tosetavon": (
+    "uri": "ToseeTaavon.svg",
+  ),
+  "mellat": (
+    "uri": "Mellat.svg",
+  ),
+  "eghtesadnovin": (
+    "uri": "EghtesadNovin.svg",
+  ),
+  "khavarmiane": (
+    "uri": "KhavarMianeh.svg",
+  ),
+  "melli": (
+    "uri": "Melli.svg",
+  ),
+  "parsian": (
+    "uri": "Parsian.svg",
+  ),
+  "pasargad": (
+    "uri": "Pasargad.svg",
+  ),
+  "kosar": (
+    "uri": "Kosar.svg",
+  ),
+  "sepah": (
+    "uri": "Sepah.svg",
+  ),
+  "cbi": (
+    "uri": "Markazi.svg",
+  ),
+  "tourismbank": (
+    "uri": "TourismBank.svg",
+  ),
+  "iranzamin": (
+    "uri": "IranZamin.svg",
+  ),
+  "mehr": (
+    "uri": "Mehr.svg",
+  ),
+  "ayandeh": (
+    "uri": "Ayandeh.svg",
+  ),
+  "zarincard": (
+    "uri": "ZarinCard.svg",
+  ),
+  "karafarin": (
+    "uri": "Karafarin.svg",
+  ),
+  "postbank": (
+    "uri": "Postbank.svg",
+  ),
+  "sina": (
+    "uri": "Sina.svg",
+  ),
+  "ansar": (
+    "uri": "Ansar.svg",
+  ),
+  "citybank": (
+    "uri": "CityBank.svg",
+  ),
+  "tejarat": (
+    "uri": "Tejarat.svg",
+  ),
+  "sarmayeh": (
+    "uri": "Sarmayeh.svg",
+  ),
+  "tejarat-old": (
+    "uri": "Tejarat.svg",
+  ),
+  "saderat": (
+    "uri": "Saderat.svg",
+  ),
+  "ghavamin": (
+    "uri": "Ghavamin.svg",
+  ),
+  "maskan": (
+    "uri": "Maskan.svg",
+  ),
+  "resalat": (
+    "uri": "Resalat.svg",
+  ),
+  "noor": (
+    "uri": "Noor.svg",
+  ),
+  "tosesaderat": (
+    "uri": "ToseeSaderat.svg",
+  ),
+  "toseetebari": (
+    "uri": "Tosee.svg",
+  ),
+);
+/**-------------------------------------------------------------------------------------------------------------------
+css for logo
+-------------------------------------------------------------------------------------------------------------------- */
+@for $i from 1 through length($bankLogos) {
+  $name: nth(map-keys($bankLogos), $i);
+  $obj: map-get($bankLogos, $name);
+  $uri: map-get($obj, "uri");
+  .dark {
+    .logo-#{$name} {
+      &:before {
+        background-image: url("./logos/dark-mode/#{$uri}");
+      }
+    }
+  }
+  .logo-#{$name} {
+    &:before {
+      @apply h-3xl w-3xl bg-cover	bg-no-repeat flex;
+      content: "";
+      background-image: url("./logos/#{$uri}");
+    }
+  }
+}

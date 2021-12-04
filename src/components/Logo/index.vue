@@ -1,6 +1,15 @@
 <template>
   <div
-    :class="['zpl-logo', size, type, `dark:${type}-dark `]"
+    :class="[
+      'zpl-logo',
+      size,
+      type,
+      type === 'logo'
+        ? 'dark:logo'
+        : type === 'logo-type'
+          ? 'dark:logo-type'
+          : '',
+    ]"
     :language="language"
     :name="name"
   />

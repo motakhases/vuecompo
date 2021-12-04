@@ -1,0 +1,23 @@
+.zpl-topbar-container {
+  /* Default */
+  @apply bg-surface px-md py-xs flex items-center justify-between;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
+  @apply dark:bg-surface-dark dark:text-text-dark;
+}
+.zpl-topbar-right-side {
+  /* Default */
+  @apply flex flex-1 items-center;
+}
+.zpl-topbar-left-side {
+  /* Default */
+  @apply flex items-center gap-x-2xs;
+}
+.zpl-topbar-menu {
+  /* Default */
+  @apply w-xl h-xl ml-xs;
+}
+.zpl-topbar-logo {
+  flex: 0 0 108px;
+  max-width: 108px;
+  @apply hidden lg:block;
+}

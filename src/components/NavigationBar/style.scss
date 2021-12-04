@@ -1,0 +1,53 @@
+.zpl-nav-bar-container {
+  /* Default */
+  @apply relative;
+}
+.zpl-nav-bar-menu {
+  /* Default */
+  @apply w-[256px] bg-surface fixed transition-all ease-in-out duration-200 right-0;
+  @apply dark:bg-surface-dark;
+
+  /* toggle */
+  &.toggle {
+    @apply lg:w-[72px] transition-all ease-in duration-200 right-[-500px] lg:right-0;
+    @apply sm:h-screen hidden;
+    transition-timing-function: ease-in;
+    .zpl-nav-bar-header-title,
+    .zpl-nav-bar-arrow,
+    .zpl-nav-item-title,
+    .zpl-nav-badge,
+    .zpl-nav-terminal-header {
+      @apply hidden;
+    }
+    .zpl-tooltip-container {
+      &:hover {
+        .zpl-tooltip {
+          @apply block;
+        }
+      }
+    }
+  }
+}
+.zpl-nav-bar-content {
+  /* Default */
+  @apply p-md;
+}
+.zpl-nav-bar-list {
+  /* Default */
+  @apply list-none;
+
+  &:first-child {
+    @apply pb-2xl;
+  }
+  &:last-child {
+    @apply pt-2xl border-t border-border-divider;
+    @apply dark:border-border-dark-divider;
+  }
+}
+.zpl-nav-bar-logo {
+  /* Default */
+  @apply p-md lg:hidden;
+  div {
+    @apply w-[108px];
+  }
+}

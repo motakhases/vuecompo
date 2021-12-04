@@ -1,5 +1,4 @@
 @import url("https://cdn.zarinpal.com/assets/fonts/all.css");
-
 @tailwind base;
 
 @tailwind components;
@@ -13,17 +12,18 @@
   .ltr {
     direction: ltr;
   }
+
   @variants dark {
-    .zpl-logo[name=zarinpal].logo-dark[language="fa"] {
+    .zpl-logo[name="zarinpal"].logo[language="fa"] {
       background-image: url("./images/ZarinPal-Logo-fa-dark.svg");
     }
-    .zpl-logo[name=zarinpal].logo-dark[language="en"] {
+    .zpl-logo[name="zarinpal"].logo[language="en"] {
       background-image: url("./images/ZarinPal-Logo-en-dark.svg");
     }
-		.zpl-logo[name=zarinpal].logo-type-dark[language="fa"] {
+    .zpl-logo[name="zarinpal"].logo-type[language="fa"] {
       background-image: url("./images/ZarinPal-Logo-type-fa-dark.svg");
     }
-    .zpl-logo[name=zarinpal].logo-type-dark[language="en"] {
+    .zpl-logo[name="zarinpal"].logo-type[language="en"] {
       background-image: url("./images/ZarinPal-Logo-type-en-dark.svg");
     }
   }

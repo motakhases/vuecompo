@@ -1,27 +1,27 @@
-import Component from './index.vue';
+import ButtonGroup from './index.vue';
 import Button from '../Button/index.vue';
 
 export default {
-  component: Component,
+  component: ButtonGroup,
   title: 'Components/ButtonGroup',
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    ButtonGroup,
     Button,
   },
   props: Object.keys(argTypes),
   template: `
     <div class="dark:bg-surface-dark p-sm rounded-md">
-      <Component>
+      <ButtonGroup>
         <Button type="primary">
           Primary
         </Button>
         <Button type="secondary">
           Secondary
         </Button>
-      </Component>
+      </ButtonGroup>
     </div>
   `,
 });

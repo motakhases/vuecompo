@@ -1,0 +1,13 @@
+.zpl-topbar-navigation {
+  /* Default */
+  @apply flex relative p-xs;
+  // @apply dark:bg-surface-dark dark:text-text-dark;
+}
+.zpl-topbar-navigation-icon {
+  /* Default */
+  @apply w-xl h-xl;
+}
+.zpl-topbar-navigation-badge {
+  /* Default */
+  @apply absolute top-[2px] right-[2px];
+}
