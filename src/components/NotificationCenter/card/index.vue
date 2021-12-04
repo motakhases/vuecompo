@@ -22,7 +22,7 @@
         > {{ card.message }} </span>
         <div class="extra-data">
           <span class="date">
-            {{ card.date }}
+            {{ card.date | JdateName }}
           </span>
           <a
             v-if="card.link"
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import moment from 'moment-jalali';
+import JdateName from '@/utils/filters/JdateName';
 
 export default ({
   name: 'NotificationCard',
@@ -48,17 +48,8 @@ export default ({
       default: () => [],
     },
   },
-  computed: {
-    todayCards() {
-      return this.cards.filter((card) => card.date === moment().format('YYYY-M-D'));
-    },
-    yesterdayCards() {
-      return this.cards.filter((card) => card.date === moment().subtract(1, 'days').format('YYYY-M-D'));
-    },
-    thisWeekCards() {
-      const thisWeekNotifs = this.cards.filter((card) => card.date >= moment().subtract(6, 'days').format('YYYY-M-D'));
-      return thisWeekNotifs.filter((card) => card.date <= moment().subtract(2, 'days').format('YYYY-M-D'));
-    },
+  filters: {
+    JdateName,
   },
 });
 

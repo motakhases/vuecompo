@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import moment from 'moment-jalali';
+import { now, yesterday, beforeDays } from '@/utils/momentCustom';
 import './style.scss';
 import card from './card/index.vue';
 import noNotif from './NoNotif/index.vue';
@@ -140,17 +140,18 @@ export default ({
   },
   methods: {
     todayCards(data) {
-      return data.filter((item) => item.date === moment().format('YYYY-M-D'));
+      console.log(beforeDays());
+      return data.filter((item) => item.date === now('YYYY-M-D'));
     },
     yesterdayCards(data) {
-      return data.filter((item) => item.date === moment().subtract(1, 'days').format('YYYY-M-D'));
+      return data.filter((item) => item.date === yesterday('YYYY-M-D'));
     },
     thisWeekCards(data) {
-      const thisWeekNotifs = data.filter((item) => item.date >= moment().subtract(6, 'days').format('YYYY-M-D'));
-      return thisWeekNotifs.filter((item) => item.date <= moment().subtract(2, 'days').format('YYYY-M-D'));
+      const thisWeekNotifs = data.filter((item) => item.date >= beforeDays(6, 'YYYY-M-D'));
+      return thisWeekNotifs.filter((item) => item.date <= beforeDays(2, 'YYYY-M-D'));
     },
     archiveAnnouncements() {
-      return this.announcements.filter((item) => item.date < moment().subtract(6, 'days').format('YYYY-M-D'));
+      return this.announcements.filter((item) => item.date < beforeDays(6, 'YYYY-M-D'));
     },
   },
 });
