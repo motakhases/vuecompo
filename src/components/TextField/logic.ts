@@ -56,7 +56,7 @@ export default Vue.extend({
     },
     rules: {
       type: String,
-      default: 'none',
+      default: '',
     },
     id: {
       type: String,
@@ -97,7 +97,6 @@ export default Vue.extend({
       // update value of input and if they have , or - remove them
       const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
       this.$emit('input', this.toEnNumber(newValue));
-      console.log(event.target.value);
     },
     onFocusIn() {
       // for adding active label style

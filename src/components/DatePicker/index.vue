@@ -15,14 +15,19 @@
       custom-input="#editable-input"
       auto-submit
       :range="range"
+      class="zpl-date-picker"
     />
     <div>
+      <!-- <TextField
+        v-modal="value"
+        rules="odd|required|min"
+      /> -->
       <TextField
         id="editable-input"
-        type="text"
+        v-model="value"
         after-icon="calender"
-        value=""
       />
+      <slot />
     </div>
   </div>
 </template>

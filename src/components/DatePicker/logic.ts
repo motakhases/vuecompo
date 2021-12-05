@@ -11,10 +11,20 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    value: {
+      type: String,
+      default: '',
+    },
+    preview: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       date: this.range ? [] : '',
+      // value: '',
     };
   },
+
 });

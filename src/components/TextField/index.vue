@@ -1,7 +1,7 @@
 <template>
   <ValidationProvider
     v-slot="{ invalid , errors, passed}"
-    :rules="rules"
+    :rules="rules ? rules : null"
   >
     <div class="rtl">
       <div class="zpl-textfield-group">
@@ -17,6 +17,7 @@
           />
 
           <input
+            :id="id"
             class="zpl-textfield-input"
             :value="formattedValue"
             :disabled="disabled"
