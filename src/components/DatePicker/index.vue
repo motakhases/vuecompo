@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="zpl-date-picker-container">
     <!-- <input
       id="editable-input"
       type="text"
       placeholder="YYYY/MM/DD"
     > -->
     {{ date }}
+    {{ finalData }}
     <VuePersianDatetimePicker
       v-model="date"
       inline
@@ -15,20 +16,70 @@
       custom-input="#editable-input"
       auto-submit
       :range="range"
-      class="zpl-date-picker"
-    />
-    <div>
-      <!-- <TextField
-        v-modal="value"
-        rules="odd|required|min"
-      /> -->
-      <TextField
-        id="editable-input"
-        v-model="value"
-        after-icon="calender"
+      :class="['zpl-date-picker', { 'no-preview': !preview }]"
+    >
+      <Icon
+        slot="prev-month"
+        name="leftArrow"
       />
-      <slot />
+      <Icon
+        slot="next-month"
+        name="rightArrow"
+      />
+      <!-- slot for "month-name" -->
+      <template #month-name="{ vm, date }">
+        {{ date.xFormat('jMMMM') }}
+        <Icon
+          name="angleDown"
+        />
+      </template>
+      <template #header-year="{ vm, selectedDate }">
+        {{ selectedDate.xYear() }}
+        <Icon
+          name="angleDown"
+        />
+      </template>
+      <!-- slot for "close-btn" -->
+      <template #close-btn="">
+        <Icon
+          name="close"
+        />
+      </template>
+    </VuePersianDatetimePicker>
+    <div
+      v-if="range"
+      class="zpl-date-picker-range"
+    >
+      <input
+        v-model="from"
+        after-icon="calender"
+        placeholder="روز/ماه/سال"
+        @input="(e)=>focusOut(e,0)"
+      >
+      <input
+        v-model="to"
+        after-icon="calender"
+        placeholder="روز/ماه/سال"
+        @input="(e)=>focusOut(e,1)"
+      >
+      <!-- <TextField
+        v-model="to"
+        after-icon="calender"
+        placeholder="روز/ماه/سال"
+        @input="(e)=>focusOut(e,1)"
+      /> -->
     </div>
+    <TextField
+      v-else
+      id="editable-input"
+      v-model="value"
+      after-icon="calender"
+      placeholder="روز/ماه/سال"
+      disabled
+    />
+    {{ from }}
+    <br>
+    <!-- {{ rangeData }} -->
   </div>
 </template>
 

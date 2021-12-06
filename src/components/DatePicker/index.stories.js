@@ -14,7 +14,7 @@ const Template = (_, { argTypes }) => ({
   components: { DatePicker, TextField },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md">
+  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
 		<DatePicker v-bind="$props">
 
     </DatePicker>
@@ -39,4 +39,6 @@ Default.args = {
   label: "label",
   value: "",
   id: "",
+  fromInput: "",
+  toInput: "",
 };

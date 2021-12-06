@@ -62,6 +62,10 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    placeholder: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {

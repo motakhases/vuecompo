@@ -27,4 +27,6 @@ module.exports = {
     rotate,
   },
   variants: {},
+  important: true,
+
 };

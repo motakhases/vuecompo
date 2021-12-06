@@ -23,6 +23,10 @@ export default Vue.extend({
     terminal: () => import('./icons/Terminal.vue'),
     star: () => import('./icons/Star.vue'),
     calender: () => import('./icons/Calender.vue'),
+    rightArrow: () => import('./icons/RightArrow.vue'),
+    leftArrow: () => import('./icons/LeftArrow.vue'),
+    close: () => import('./icons/Close.vue'),
+
   },
 
   props: {
