@@ -11,12 +11,12 @@ module.exports = {
     'ls-cp': ['11px', { lineHeight: '12px' }],
     // small screen
     'ss-xl': ['44px', { lineHeight: '84px' }],
-    'ss-lg': ['26px', { lineHeight: '64px' }],
-    'ss-md': ['32px', { lineHeight: '52px' }],
+    'ss-lg': ['36px', { lineHeight: '56px' }],
+    'ss-md': ['32px', { lineHeight: '44px' }],
     'ss-sm': ['28px', { lineHeight: '40px' }],
-    'ss-h1': ['18px', { lineHeight: '32px' }],
-    'ss-h2': ['14px', { lineHeight: '28px' }],
-    'ss-h3': ['12px', { lineHeight: '24px' }],
+    'ss-h1': ['20px', { lineHeight: '32px' }],
+    'ss-h2': ['18px', { lineHeight: '32px' }],
+    'ss-h3': ['18px', { lineHeight: '24px' }],
     'ss-cp': ['12px', { lineHeight: '12px' }],
     // use in both (b = body)
     b1: ['18px', { lineHeight: '32px' }],

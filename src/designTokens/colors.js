@@ -293,10 +293,10 @@ module.exports = {
       },
     },
     alpha: {
-      overlay: '#',
+      overlay: 'rgba(22, 21, 32, 0.45)',
       fade: '#',
       dark: {
-        overlay: '#',
+        overlay: 'rgba(5, 4, 11, 0.6)',
         fade: '#',
       },
     },

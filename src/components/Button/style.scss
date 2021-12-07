@@ -1,6 +1,6 @@
 .zpl-button {
   /* Default */
-  @apply rounded-sm flex justify-center items-center text-center gap-x-xs w-max;
+  @apply rounded-sm inline-flex justify-center items-center text-center gap-x-xs w-max;
 
   /* Disabled */
   @apply disabled:cursor-default;
@@ -90,27 +90,28 @@
   &.fill {
     @apply w-full;
   }
-}
-.zpl-button-icon {
-  @apply h-xl w-xl;
-}
-.zpl-button-loading {
-  /* Default */
-  @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
-}
-
-.zpl-button-loading-1,
-.zpl-button-loading-2 {
-  /* Default */
-  @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
-  @apply dark:bg-black-40;
-
-  animation: bounce 2s infinite ease-in-out;
-}
-
-.zpl-button-loading-2 {
-  /* Default */
-  animation-delay: -1s;
+  .zpl-button-icon {
+    @apply h-xl w-xl;
+  }
+  .zpl-button-loading {
+    /* Default */
+    @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
+  }
+  
+  .zpl-button-loading-1,
+  .zpl-button-loading-2 {
+    /* Default */
+    @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
+    @apply dark:bg-black-40;
+  
+    animation: bounce 2s infinite ease-in-out;
+  }
+  
+  .zpl-button-loading-2 {
+    /* Default */
+    animation-delay: -1s;
+  }
+  
 }
 
 /* animation */

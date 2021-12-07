@@ -33,10 +33,6 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    onClick: {
-      type: Function,
-      required: true,
-    },
   },
   computed: {
     text() {

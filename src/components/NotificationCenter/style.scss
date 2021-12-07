@@ -1,0 +1,87 @@
+.zpl-notification-modal{
+  @apply block fixed z-50 left-0 top-0 w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)];
+  .zpl-notification-center{
+    direction: rtl;
+    @apply max-w-[360px] h-[100vh] rounded-xl overflow-scroll;
+    @apply sm:max-w-[340px] sm:rounded-none;
+    @apply  bg-surface;
+    @apply  dark:bg-surface-dark;
+    .notif-header{
+      @apply h-[56px];
+      .archive-title{
+        @apply text-center text-ls-h3 text-text py-md;
+        @apply dark:text-text-dark;
+      }
+    }
+    .notif-card{
+      @apply max-w-[360px] px-md pt-md;
+      @apply sm:max-w-[340px];
+      @apply bg-surface;
+      @apply dark:bg-surface-dark;
+      .notif-img{
+        @apply h-[173px] mb-md overflow-hidden;
+      }
+      .content{
+        @apply flex flex-col shadow-divider-bottom;
+        @apply dark:shadow-dark-divider-bottom;
+        .title{
+          @apply text-b2 text-text;
+          @apply dark:text-text-dark;
+        }
+        .desc{
+          @apply mt-2xs text-b3 text-text-soft;
+          @apply dark:text-text-dark-soft;
+        }
+        .extra-data{
+          @apply mt-sm mb-md;
+          .date{
+            @apply text-b3 text-text-soft;
+            @apply dark:text-text-dark-soft;
+          }
+          .link{
+            @apply float-left text-b2;
+          }
+        }
+      }
+    }
+    .no-notif{
+      @apply max-w-[360px] h-[260px];
+      @apply sm:max-w-[340px];
+      @apply bg-surface;
+      @apply dark:bg-surface-dark;
+      .bg-empty-box{
+        @apply w-full h-[120px] bg-no-repeat bg-center relative top-[40px];
+      }
+      .content{
+        @apply mt-[72px] text-center;
+        .title{
+          @apply mb-xs text-b2 text-text;
+          @apply dark:text-text-dark;
+        }
+        .desc{
+          @apply text-ls-cp text-text-soft;
+          @apply dark:text-text-dark-soft;
+        }
+      }
+    }
+    .notif-period{
+      @apply px-md pt-md block;
+      @apply text-ls-cp text-text-soft bg-surface;
+      @apply dark:text-text-dark-soft dark:bg-surface-dark;
+    }
+    //icons
+    .close-icon{
+      @apply m-md cursor-pointer;
+    }
+    .archive-icon{
+      @apply m-md float-left cursor-pointer;
+    }
+    .return-icon{
+      @apply absolute m-md cursor-pointer;
+    }
+  }
+  .announce-archives{
+    @apply border-t border-t-border-divider;
+    @apply border-t dark:border-t-border-dark-divider;
+  }
+}
