@@ -66,6 +66,14 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    inputHandler: {
+      type: String,
+      default: '',
+    },
+    focusout: {
+      type: Function,
+      default: () => 1,
+    },
   },
   data() {
     return {
@@ -107,6 +115,9 @@ export default Vue.extend({
       this.activeLabel = true;
     },
     onFocusOut() {
+      if (this.focusout) {
+        this.focusout();
+      }
       // if input is empty put label inside input on focusing out
       if (!this.value) {
         this.activeLabel = false;

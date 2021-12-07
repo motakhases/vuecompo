@@ -34,47 +34,57 @@ export default Vue.extend({
     to: string;
     } {
     return {
-      date: '',
-      // from: this.date.length ? this.date[0] : fromInput,
-      // to: date.length ? date[0] : fromInput,
+      date: [],
       from: this.fromInput,
       to: this.toInput,
     };
   },
   computed: {
-    finalData(): any {
-      // format the value based on separator for type === number
-      if (this.range) {
-        return this.date === [];
-      }
-      return this.date === '';
+    firstInput: {
+
+      get(): string {
+        return this.to;
+      },
+      set(val) {
+        this.to = val;
+      },
     },
-    // finalData(): any {
-    //   get() {
-    //     return this.range;
-    //   },
-    //   set() {
-    //     this.date = this.range ? [] : '';
-    //   },
-    // },
+    secondInput: {
+      // if (this.date.length) {
+      //   const [firstDate, secondDate] = this.date;
+      //   return secondDate;
+      // }
+      // return '';
+      get(): string {
+        // if (this.date.length) {
+        //   const [firstDate, secondDate] = this.date;
+        //   this.to = secondDate;
+        // }
+        return this.to;
+        // if (this.date.length) {
+        //   const [firstDate, secondDate] = this.date;
+        //   return secondDate;
+        // }
+        // return '';
+      },
+      set(val) {
+        this.to = val;
+      },
+    },
   },
   watch: {
     date() {
-      // this.from = 'chand';
-      console.log('changing');
       const [firstDate, secondDate] = this.date;
-
       this.from = firstDate;
       this.to = secondDate;
-      // const date = this as any;
-      // return 'date.length ? date[0] : this.fromInput';
     },
   },
   methods: {
-    focusOut(index: number, e: any) {
-      console.log('focus out', e, index);
-      // this.rangeData = this.rangeData.splice(1, 1, '2020/10/24');
-      // this.date.splice(index, 1, e.target.value);
+    firstInputHandler(e) {
+      this.date.splice(0, 1, this.from);
+    },
+    secondInputHandler(e) {
+      this.date.splice(1, 1, this.to);
     },
   },
 });

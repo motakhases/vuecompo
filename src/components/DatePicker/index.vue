@@ -1,14 +1,8 @@
 <template>
   <div class="zpl-date-picker-container">
-    <!-- <input
-      id="editable-input"
-      type="text"
-      placeholder="YYYY/MM/DD"
-    > -->
-    {{ date }}
-    {{ finalData }}
     <VuePersianDatetimePicker
       v-model="date"
+      locale="fa"
       inline
       :editable="true"
       format="YYYY-MM-DD"
@@ -17,6 +11,7 @@
       auto-submit
       :range="range"
       :class="['zpl-date-picker', { 'no-preview': !preview }]"
+      @change="dateMoment=$event"
     >
       <Icon
         slot="prev-month"
@@ -50,24 +45,19 @@
       v-if="range"
       class="zpl-date-picker-range"
     >
-      <input
+      <TextField
         v-model="from"
+        type="text"
         after-icon="calender"
         placeholder="روز/ماه/سال"
-        @input="(e)=>focusOut(e,0)"
-      >
-      <input
-        v-model="to"
+        :focusout="firstInputHandler"
+      />
+      <TextField
+        v-model="secondInput"
         after-icon="calender"
         placeholder="روز/ماه/سال"
-        @input="(e)=>focusOut(e,1)"
-      >
-      <!-- <TextField
-        v-model="to"
-        after-icon="calender"
-        placeholder="روز/ماه/سال"
-        @input="(e)=>focusOut(e,1)"
-      /> -->
+        :focusout="secondInputHandler"
+      />
     </div>
     <TextField
       v-else
@@ -75,11 +65,7 @@
       v-model="value"
       after-icon="calender"
       placeholder="روز/ماه/سال"
-      disabled
     />
-    {{ from }}
-    <br>
-    <!-- {{ rangeData }} -->
   </div>
 </template>
 
