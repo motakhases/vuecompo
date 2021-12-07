@@ -9,18 +9,8 @@ const Template = (_, { argTypes }) => ({
   components: { Button },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Button
-      :type="type"
-      :size="size"
-      :disabled="disabled"
-      :fill="fill"
-      :loading="loading"
-      :beforeIcon="beforeIcon"
-      :afterIcon="afterIcon"
-    >
-      {{ text }}
-    </Button>
+  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
+		<Button v-bind="$props" />
   </div>
   `,
 });
@@ -47,4 +37,5 @@ Default.args = {
   loading: false,
   afterIcon: "",
   beforeIcon: "",
+	icon: ""
 };

@@ -33,10 +33,13 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-  },
-  computed: {
-    text() {
-      return 'tesssssssssssst';
+    icon: {
+      type: String,
+      default: '',
+    },
+    text: {
+      type: String,
+      default: 'button',
     },
   },
 });
