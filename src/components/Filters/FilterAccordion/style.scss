@@ -1,0 +1,18 @@
+.zpl-filter-status {
+}
+.zpl-filter-status {
+  @apply bg-surface-soft p-md shadow-border-divider-bottom;
+  @apply dark:bg-surface-dark-soft dark:shadow-dark-border-divider-bottom;
+  .zpl-radio {
+    &:not(:last-child) {
+      @apply mb-md lg:mb-sm;
+    }
+  }
+}
+.accordion-item-enter-active, .accordion-item-leave-active {
+  will-change: height;
+  transition: height 0.2s ease;
+}
+.accordion-item-enter, .accordion-item-leave-to {
+  height: 0 !important;
+}

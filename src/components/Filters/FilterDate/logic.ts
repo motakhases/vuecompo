@@ -1,8 +1,9 @@
 import Vue, { PropType } from 'vue';
+import Dropdown from '@/components/Dropdown/index.vue';
 
 export default Vue.extend({
-  name: 'CheckBox',
-
+  name: 'FilterDate',
+  components: { Dropdown },
   props: {
     val: {
       type: String,
@@ -24,20 +25,16 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    change: {
-      type: Function,
-      default: () => 1,
-    },
   },
-
-  computed: {
-    model: {
-      get():string[] {
-        return this.value;
-      },
-      set(value:string[]):void {
-        this.$emit('input', value);
-      },
-    },
+  data() {
+    return {
+      options: [
+        { id: 1, name: 'Barney' },
+        { id: 2, name: 'Homer' },
+        { id: 3, name: 'Apu' },
+        { id: 4, name: 'Bart' },
+        { id: 5, name: 'Flanders' },
+      ],
+    };
   },
 });
