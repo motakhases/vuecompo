@@ -6,7 +6,13 @@
     <div
       v-if="returnBTN"
       class="return-btn"
-    />
+      @click="router.go(-1)"
+    >
+      <Icon
+        name="arrowRight"
+        class="return-icon"
+      />
+    </div>
     <div class="heading-content">
       <span class="title">
         {{ title }}
@@ -35,11 +41,12 @@
 <script>
 
 import './style.scss';
+import Icon from '../Icon/index.vue';
 import btn from '../Button/index.vue';
 
 export default ({
   name: 'PageHeading',
-  components: { btn },
+  components: { Icon, btn },
   props: {
     returnBTN: {
       type: Boolean,
