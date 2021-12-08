@@ -77,14 +77,26 @@
 
   &.small {
     @apply px-sm py-2xs;
+
+    &.icon {
+      @apply p-2xs;
+    }
   }
 
   &.medium {
     @apply px-md py-xs;
+
+    &.icon {
+      @apply p-xs;
+    }
   }
 
   &.large {
     @apply px-xl py-sm;
+
+    &.icon {
+      @apply p-sm;
+    }
   }
 
   &.fill {
@@ -97,21 +109,20 @@
     /* Default */
     @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
   }
-  
+
   .zpl-button-loading-1,
   .zpl-button-loading-2 {
     /* Default */
     @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
     @apply dark:bg-black-40;
-  
+
     animation: bounce 2s infinite ease-in-out;
   }
-  
+
   .zpl-button-loading-2 {
     /* Default */
     animation-delay: -1s;
   }
-  
 }
 
 /* animation */

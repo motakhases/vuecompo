@@ -1,4 +1,4 @@
-<template>
+<template dir="rtl">
   <nav class="zpl-nav-bar-container">
     <slot name="popover" />
 

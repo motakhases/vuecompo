@@ -129,7 +129,7 @@ css for logo and card-bank
 
 .zpl-bank-cards {
   @apply bg-surface border border-border-soft shadow-elevation-50;
-  @apply rounded-md relative overflow-hidden px-xs pt-xs pb-md min-w-[320px];
+  @apply rounded-md relative overflow-hidden px-xs pt-xs pb-md w-[320px];
   @apply after:bg-zarin after:absolute after:w-full after:h-xl after:top-0 after:z-0;
   @apply after:left-0 after:right-0;
   @apply dark:bg-surface-dark dark:border-border-dark-soft dark:shadow-dark-elevation-50;

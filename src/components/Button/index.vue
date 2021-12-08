@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['zpl-button', size, type, { fill }]"
+    :class="['zpl-button', size, type, { fill, icon }]"
     :disabled="disabled"
   >
     <!-- shows if loading is true -->
@@ -20,14 +20,21 @@
     />
 
     <!-- shows if before icon exists -->
-    <span v-if="!loading">
-      <slot />
+    <span v-if="!loading && text">
+      {{ text }}
     </span>
 
     <!-- shows if after icon exists -->
     <Icon
       v-if="afterIcon && !loading"
       :name="afterIcon"
+      class="zpl-button-icon"
+    />
+    <!-- shows if icon exists -->
+
+    <Icon
+      v-if="icon && !loading"
+      :name="icon"
       class="zpl-button-icon"
     />
   </button>
