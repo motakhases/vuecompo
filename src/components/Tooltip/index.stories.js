@@ -9,6 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Tooltip },
   props: Object.keys(argTypes),
   template: `
+	<div class="dark:bg-surface-dark rounded-md m-2xl dark:text-text-dark">
     <Tooltip
 			:text="text"
 			:position="position"
@@ -18,6 +19,7 @@ const Template = (_, { argTypes }) => ({
 		>
 			<button>Hover Me</button>
 		</Tooltip>
+	</div>
   `,
 });
 

@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
-  <defs>
-    <clipPath id="clip-path">
-      <rect width="48" height="48" fill="none"/>
-    </clipPath>
-  </defs>
-  <g id="Bank-Ansar" clip-path="url(#clip-path)">
-    <rect id="Boundary" width="48" height="48" fill="none"/>
-    <path id="Shape" d="M0,34V24.02H33.95V34ZM.05,9.98V0H34V9.98Z" transform="translate(7 7)" fill="#eeb900"/>
-    <path id="Shape-2" data-name="Shape" d="M16.957,40.948,40.982,16.994,48,24.046,23.975,48ZM0,23.954,24.025,0l7.018,7.052L7.018,31.007Z" fill="#aa1a1f"/>
-  </g>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M41 16.9803H7.05046V7H41V16.9803Z" fill="#EEB900"/>
+<path d="M40.9495 41H7V31.0197H40.9495V41Z" fill="#EEB900"/>
+<path d="M24.0247 0L0 23.9542L7.01847 31.0064L31.0432 7.05218L24.0247 0Z" fill="#AA1A1F"/>
+<path d="M40.9815 16.9936L16.9568 40.9478L23.9753 48L48 24.0458L40.9815 16.9936Z" fill="#AA1A1F"/>
 </svg>

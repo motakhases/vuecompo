@@ -28,6 +28,4 @@ const Template = (_, { argTypes }) => ({
 
 export const Default = Template.bind({});
 
-Default.args = {
-  segmented: false,
-};
+

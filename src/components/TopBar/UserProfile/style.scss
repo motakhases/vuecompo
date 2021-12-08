@@ -14,6 +14,9 @@
   /* focused */
   @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
   @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+  .zpl-button-icon {
+    @apply w-xl h-xl;	
+  }
 }
 .zpl-user-profile-username {
   /* Default */

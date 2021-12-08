@@ -11,25 +11,34 @@ $bankLogos: (
   "hekmat": (
     "color": #324c88,
   ),
-  "agriculture": (
+  "iranEurope": (
+    "color": #324c88,
+  ),
+  "iranVenezuela": (
+    "color": #324c88,
+  ),
+  "keshavarzi": (
     "color": #1f261a,
   ),
-  "melal": (
+  "melall": (
     "color": #ff7f31,
   ),
-  "sanatmadan": (
+  "sanatMadan": (
     "color": #9b814c,
   ),
-  "tosetavon": (
+  "toseeTaavon": (
     "color": #51b5d1,
   ),
   "mellat": (
     "color": #ba0b22,
   ),
-  "eghtesadnovin": (
+  "eghtesadNovin": (
     "color": #662892,
   ),
-  "khavarmiane": (
+  "futurebank": (
+    "color": #662892,
+  ),
+  "khavarMianeh": (
     "color": #f29200,
   ),
   "melli": (
@@ -47,22 +56,19 @@ $bankLogos: (
   "sepah": (
     "color": #1b5fc1,
   ),
-  "cbi": (
-    "color": #00194a,
-  ),
-  "tourismbank": (
+  "gardeshgari": (
     "color": #b11116,
   ),
-  "iranzamin": (
+  "iranZamin": (
     "color": #4c2a93,
-  ),
-  "mehr": (
-    "color": #029a4c,
   ),
   "ayandeh": (
     "color": #b27d53,
   ),
-  "zarincard": (
+  "caspian": (
+    "color": #b27d53,
+  ),
+  "zarinCard": (
     "color": #ffb012,
   ),
   "karafarin": (
@@ -77,7 +83,7 @@ $bankLogos: (
   "ansar": (
     "color": #b27d53,
   ),
-  "citybank": (
+  "shahr": (
     "color": #d8262c,
   ),
   "tejarat": (
@@ -86,7 +92,13 @@ $bankLogos: (
   "sarmayeh": (
     "color": #1f1f47,
   ),
-  "tejarat-old": (
+  "standardChartered": (
+    "color": #263e94,
+  ),
+  "taavonEslami": (
+    "color": #263e94,
+  ),
+  "tosee": (
     "color": #263e94,
   ),
   "saderat": (
@@ -98,17 +110,23 @@ $bankLogos: (
   "maskan": (
     "color": #ec520d,
   ),
+  "mehrEghtesad": (
+    "color": #00bbe6,
+  ),
+  "mehrIran": (
+    "color": #00bbe6,
+  ),
   "resalat": (
     "color": #00bbe6,
   ),
   "noor": (
     "color": #0bbbb9,
   ),
-  "tosesaderat": (
-    "color": #006d08,
+  "bankMarkazi": (
+    "color": #0bbbb9,
   ),
-  "toseetebari": (
-    "color": #8f2426,
+  "toseeSaderat": (
+    "color": #006d08,
   ),
 );
 /**-------------------------------------------------------------------------------------------------------------------
@@ -121,9 +139,9 @@ css for logo and card-bank
 
   .#{$name}-card {
     &::after {
-      background-color: $color !important;
+      @apply bg-bank-#{$name} #{!important};
     }
-		// @apply bg-#{$name}
+    // @apply bg-#{$name}
   }
 }
 
