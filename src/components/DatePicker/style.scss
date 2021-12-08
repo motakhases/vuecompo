@@ -7,8 +7,11 @@
       @apply hidden;
     }
   }
+  .vpd-wrapper {
+    @apply mt-0;
+  }
   .vpd-container {
-    @apply font-YekanBakhFaNum;
+    @apply font-YekanBakhFaNum my-0;
   }
   .vpd-content {
     @apply bg-surface border border-border rounded-sm p-xs w-[298px];
@@ -56,6 +59,12 @@
             @apply dark:bg-primaryZarinpal-dark-hover #{!important};
           }
         }
+      }
+    }
+    &.vpd-range-between {
+      @apply bg-primarySurface border-t border-b border-primaryZarinpal text-primaryZarinpal;
+      .vpd-day-effect {
+        @apply bg-transparent #{!important};
       }
     }
   }
@@ -128,10 +137,19 @@
     @apply left-0 top-xs w-[40px] h-[40px];
     @apply dark:bg-surface-dark dark:text-icon-dark;
   }
-}
-
-.vpd-day-effect {
-  @apply rounded-sm;
+  .vpd-range-first {
+    .vpd-day-effect {
+      @apply border border-primaryZarinpal rounded-r-[96px];
+    }
+  }
+  .vpd-range-last {
+    .vpd-day-effect {
+      @apply border border-primaryZarinpal rounded-l-[96px];
+    }
+  }
+  .vpd-day-effect {
+    @apply rounded-sm top-0 left-0 w-[40px] h-[40px];
+  }
 }
 
 .vpd-actions {
@@ -139,10 +157,13 @@
 }
 
 .zpl-date-picker-range {
-  @apply flex;
-  input {
-    &:first-child {
-      @apply ml-sm;
-    }
+  @apply flex mt-xs;
+  label {
+    @apply inline-block mr-2xs mb-xs text-text-soft;
+  }
+}
+.zpl-date-picker-range-input {
+  &:first-child {
+    @apply ml-sm;
   }
 }

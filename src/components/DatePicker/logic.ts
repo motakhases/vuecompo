@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
+import moment from 'moment-jalaali';
 import Icon from '../Icon/index.vue';
 import TextField from '@/components/TextField/index.vue';
 
@@ -29,7 +30,7 @@ export default Vue.extend({
     },
   },
   data(): {
-    date: string | Array<string>;
+    date: Array<string>;
     from: string;
     to: string;
     } {
@@ -56,16 +57,7 @@ export default Vue.extend({
       // }
       // return '';
       get(): string {
-        // if (this.date.length) {
-        //   const [firstDate, secondDate] = this.date;
-        //   this.to = secondDate;
-        // }
         return this.to;
-        // if (this.date.length) {
-        //   const [firstDate, secondDate] = this.date;
-        //   return secondDate;
-        // }
-        // return '';
       },
       set(val) {
         this.to = val;
@@ -75,16 +67,24 @@ export default Vue.extend({
   watch: {
     date() {
       const [firstDate, secondDate] = this.date;
-      this.from = firstDate;
-      this.to = secondDate;
+      console.log(this.date);
+
+      this.from = moment(firstDate, 'YYYY-M-D').format('jYYYY/jM/jD');
+
+      this.to = secondDate ? moment(secondDate, 'YYYY-M-D').format('jYYYY/jM/jD') : '';
     },
   },
   methods: {
     firstInputHandler(e) {
-      this.date.splice(0, 1, this.from);
+      const newValue = moment(this.from, 'jYYYY/jM/jD').format('YYYY-M-D');
+      this.date.splice(0, 1, newValue);
     },
     secondInputHandler(e) {
-      this.date.splice(1, 1, this.to);
+      const newValue = moment(this.to, 'jYYYY/jM/jD').format('YYYY-M-D');
+      this.date.splice(1, 1, this.gregorianToJalali(this.to));
+    },
+    gregorianToJalali(value : string) {
+      return moment(value, 'jYYYY/jM/jD').format('YYYY-M-D');
     },
   },
 });

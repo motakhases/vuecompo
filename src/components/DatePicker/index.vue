@@ -41,23 +41,30 @@
         />
       </template>
     </VuePersianDatetimePicker>
+    {{ to }}
     <div
       v-if="range"
       class="zpl-date-picker-range"
     >
-      <TextField
-        v-model="from"
-        type="text"
-        after-icon="calender"
-        placeholder="روز/ماه/سال"
-        :focusout="firstInputHandler"
-      />
-      <TextField
-        v-model="secondInput"
-        after-icon="calender"
-        placeholder="روز/ماه/سال"
-        :focusout="secondInputHandler"
-      />
+      <div class="zpl-date-picker-range-input">
+        <label for="">شروع</label>
+        <TextField
+          v-model="from"
+          type="text"
+          after-icon="calender"
+          placeholder="روز/ماه/سال"
+          :focusout="firstInputHandler"
+        />
+      </div>
+      <div class="zpl-date-picker-range-input">
+        <label for="">پایان</label>
+        <TextField
+          v-model="secondInput"
+          after-icon="calender"
+          placeholder="روز/ماه/سال"
+          :focusout="secondInputHandler"
+        />
+      </div>
     </div>
     <TextField
       v-else
