@@ -16,7 +16,7 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      default: 'label',
+      default: '',
     },
     helperHint: {
       type: String,
@@ -44,11 +44,11 @@ export default Vue.extend({
     },
     beforeIcon: {
       type: String,
-      default: 'none',
+      default: '',
     },
     afterIcon: {
       type: String,
-      default: 'none',
+      default: '',
     },
     stepper: {
       type: Boolean,
@@ -56,7 +56,7 @@ export default Vue.extend({
     },
     rules: {
       type: String,
-      default: 'none',
+      default: '',
     },
   },
   data() {
