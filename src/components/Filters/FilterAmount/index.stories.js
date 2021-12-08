@@ -1,22 +1,20 @@
 import Radio from "@/components/Radio/index.vue";
 
-import FilterStatus from "./index.vue";
+import FilterَAmount from "./index.vue";
 
 export default {
-  component: FilterStatus,
-  title: "Components/Filters/FilterStatus",
+  component: FilterَAmount,
+  title: "Components/Filters/FilterَAmount",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { FilterStatus, Radio },
+  components: { FilterَAmount, Radio },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<FilterStatus v-bind='$props'>
-		<Radio :disabled="disabled" :name="name" :val="val" :text="text" />
-		<Radio :disabled="disabled" :name="name" :val="val" :text="text" />
+		<FilterَAmount v-bind='$props'>
 
-		</FilterStatus>
+		</FilterَAmount>
   </div>
   `,
 });

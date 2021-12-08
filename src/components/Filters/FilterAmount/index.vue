@@ -1,5 +1,10 @@
 <template>
-  <div class="zpl-filter-status">
+  <div class="zpl-filter">
+    <Dropdown
+      v-model="value"
+      :options="options"
+      placeholder="بازه تاریخ"
+    />
     <slot />
   </div>
 </template>

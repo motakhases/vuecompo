@@ -2,16 +2,12 @@
   <div class="zpl-filter-actions">
     <Dropdown
       v-model="value"
-      :disabled="disabled"
-      :label="label"
-      :helper-hint="helperHint"
-      :success-hint="successHint"
       :options="options"
-      :disabled-option-id="disabledOptionId"
-      :loading="loading"
-      :rules="rules"
+      placeholder="بازه تاریخ"
     />
     <slot />
+    <!-- {{ value }} -->
+    {{ selectedType }}
   </div>
 </template>
 

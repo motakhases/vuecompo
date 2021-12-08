@@ -1,18 +1,15 @@
 import Vue, { PropType } from 'vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 
+const date = {
+  TODAY: 'امروز',
+  CURRENT_WEEK: 'هفته جاری',
+  OPTIONAL_PERIOD: 'بازه دلخواه',
+};
 export default Vue.extend({
   name: 'FilterDate',
   components: { Dropdown },
   props: {
-    val: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: Array as PropType<string[]>,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
@@ -29,12 +26,39 @@ export default Vue.extend({
   data() {
     return {
       options: [
-        { id: 1, name: 'Barney' },
-        { id: 2, name: 'Homer' },
-        { id: 3, name: 'Apu' },
-        { id: 4, name: 'Bart' },
-        { id: 5, name: 'Flanders' },
+        { id: 1, name: date.TODAY },
+        { id: 2, name: date.CURRENT_WEEK },
+        { id: 3, name: date.OPTIONAL_PERIOD },
       ],
+      value: '',
+      selectedType: 'ew',
     };
+  },
+  computed: {
+    test() {
+      if (this.value === date.TODAY) {
+        // return 'shayeste';
+        return this.selectedType === 'today';
+      }
+      return 'erte';
+    },
+  },
+  watch: {
+    value() {
+      switch (this.value) {
+      case date.TODAY:
+        this.selectedType = date.TODAY;
+        break;
+      case date.CURRENT_WEEK:
+        this.selectedType = date.CURRENT_WEEK;
+        break;
+      case date.OPTIONAL_PERIOD:
+        this.selectedType = date.OPTIONAL_PERIOD;
+        break;
+      default:
+        return '';
+      }
+      return '';
+    },
   },
 });

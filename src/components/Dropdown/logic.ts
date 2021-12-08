@@ -21,7 +21,7 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      default: 'label',
+      default: '',
     },
     helperHint: {
       type: String,
@@ -44,6 +44,10 @@ export default Vue.extend({
       default: false,
     },
     rules: {
+      type: String,
+      default: '',
+    },
+    placeholder: {
       type: String,
       default: '',
     },
