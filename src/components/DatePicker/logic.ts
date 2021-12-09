@@ -76,12 +76,21 @@ export default Vue.extend({
   },
   methods: {
     firstInputHandler(e) {
-      const newValue = moment(this.from, 'jYYYY/jM/jD').format('YYYY-M-D');
-      this.date.splice(0, 1, newValue);
+      console.log(this.from, this.date);
+      if (this.from) {
+        const newValue = moment(this.from, 'jYYYY/jM/jD').format('YYYY-M-D');
+        this.date.splice(0, 1, newValue);
+      }
     },
     secondInputHandler(e) {
-      const newValue = moment(this.to, 'jYYYY/jM/jD').format('YYYY-M-D');
-      this.date.splice(1, 1, this.gregorianToJalali(this.to));
+      console.log(this.to, this.date);
+      if (this.to) {
+        const newValue = moment(this.to, 'jYYYY/jM/jD').format('YYYY-M-D');
+        this.date.splice(1, 1, newValue);
+      }
+
+      // const newValue = moment(this.to, 'jYYYY/jM/jD').format('YYYY-M-D');
+      // this.date.splice(1, 1, this.gregorianToJalali(this.to));
     },
     gregorianToJalali(value : string) {
       return moment(value, 'jYYYY/jM/jD').format('YYYY-M-D');

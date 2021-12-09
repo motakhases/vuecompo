@@ -41,7 +41,6 @@
         />
       </template>
     </VuePersianDatetimePicker>
-    {{ to }}
     <div
       v-if="range"
       class="zpl-date-picker-range"
