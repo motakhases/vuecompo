@@ -19,8 +19,8 @@ export default Vue.extend({
       default: '',
     },
     amount: {
-      type: Number,
-      default: null,
+      type: String,
+      default: '',
     },
     iban: {
       type: String,

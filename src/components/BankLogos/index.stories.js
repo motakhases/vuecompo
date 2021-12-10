@@ -9,7 +9,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { BankLogos },
   template: `
-	<div class="dark:bg-surface-dark p-sm rounded-md h-3xl rtl">
+	<div class="dark:bg-surface-dark p-sm rounded-md h-5xl rtl">
 		<BankLogos v-bind="$props" />
 	</div>
 	`,

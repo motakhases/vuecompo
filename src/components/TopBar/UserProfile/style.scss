@@ -1,7 +1,7 @@
 .zpl-user-profile {
   /* Default */
   @apply inline-flex items-center bg-surface rounded-sm p-xs text-icon text-b2
-	 cursor-pointer border-2 border-transparent	;
+	 cursor-pointer border-2 border-transparent;
   @apply dark:bg-surface-dark dark:text-icon-dark;
   /* Hover */
   @apply hover:bg-surface-hover;
@@ -15,7 +15,7 @@
   @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
   @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
   .zpl-button-icon {
-    @apply w-xl h-xl;	
+    @apply w-xl h-xl;
   }
 }
 .zpl-user-profile-username {

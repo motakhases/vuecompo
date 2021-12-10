@@ -1,4 +1,11 @@
+export { default as Avatar } from './Avatar/index.vue';
+export { default as AvatarProgressBar } from './AvatarProgressBar/index.vue';
+export { default as BankCards } from './BankCards/index.vue';
+export { default as BankLogos } from './BankLogos/index.vue';
 export { default as Button } from './Button/index.vue';
+
+                                                                                                                                                                                                                                                        
+
 export { default as FilterSample } from './FilterSample/index.vue';
 export { default as ButtonGroup } from './ButtonGroup/index.vue';
 export { default as CheckBox } from './CheckBox/index.vue';
@@ -23,11 +30,8 @@ export { default as TopBar } from './TopBar/index.vue';
 export { default as Notification } from './TopBar/Notification/index.vue';
 export { default as UserProfile } from './TopBar/UserProfile/index.vue';
 
-export { default as Avatar } from './Avatar/index.vue';
-export { default as AvatarProgressBar } from './AvatarProgressBar/index.vue';
 
-export { default as BankCards } from './BankCards/index.vue';
-export { default as BankLogos } from './BankLogos/index.vue';
+
 
 
 // export { default as Radio } from './Radio/index.vue';

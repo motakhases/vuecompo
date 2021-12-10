@@ -1,156 +1,27 @@
-$bankLogos: (
-  "saman": (
-    "color": #20b3ea,
-  ),
-  "refah": (
-    "color": #173576,
-  ),
-  "dey": (
-    "color": #008b9a,
-  ),
-  "hekmat": (
-    "color": #324c88,
-  ),
-  "iranEurope": (
-    "color": #324c88,
-  ),
-  "iranVenezuela": (
-    "color": #324c88,
-  ),
-  "keshavarzi": (
-    "color": #1f261a,
-  ),
-  "melall": (
-    "color": #ff7f31,
-  ),
-  "sanatMadan": (
-    "color": #9b814c,
-  ),
-  "toseeTaavon": (
-    "color": #51b5d1,
-  ),
-  "mellat": (
-    "color": #ba0b22,
-  ),
-  "eghtesadNovin": (
-    "color": #662892,
-  ),
-  "futurebank": (
-    "color": #662892,
-  ),
-  "khavarMianeh": (
-    "color": #f29200,
-  ),
-  "melli": (
-    "color": #f1af0e,
-  ),
-  "parsian": (
-    "color": #b27d53,
-  ),
-  "pasargad": (
-    "color": #fecc09,
-  ),
-  "kosar": (
-    "color": #ae1977,
-  ),
-  "sepah": (
-    "color": #1b5fc1,
-  ),
-  "gardeshgari": (
-    "color": #b11116,
-  ),
-  "iranZamin": (
-    "color": #4c2a93,
-  ),
-  "ayandeh": (
-    "color": #b27d53,
-  ),
-  "caspian": (
-    "color": #b27d53,
-  ),
-  "zarinCard": (
-    "color": #ffb012,
-  ),
-  "karafarin": (
-    "color": #ab7342,
-  ),
-  "postbank": (
-    "color": #14763e,
-  ),
-  "sina": (
-    "color": #277eb5,
-  ),
-  "ansar": (
-    "color": #b27d53,
-  ),
-  "shahr": (
-    "color": #d8262c,
-  ),
-  "tejarat": (
-    "color": #2f4a98,
-  ),
-  "sarmayeh": (
-    "color": #1f1f47,
-  ),
-  "standardChartered": (
-    "color": #263e94,
-  ),
-  "taavonEslami": (
-    "color": #263e94,
-  ),
-  "tosee": (
-    "color": #263e94,
-  ),
-  "saderat": (
-    "color": #29166f,
-  ),
-  "ghavamin": (
-    "color": #007d3d,
-  ),
-  "maskan": (
-    "color": #ec520d,
-  ),
-  "mehrEghtesad": (
-    "color": #00bbe6,
-  ),
-  "mehrIran": (
-    "color": #00bbe6,
-  ),
-  "resalat": (
-    "color": #00bbe6,
-  ),
-  "noor": (
-    "color": #0bbbb9,
-  ),
-  "bankMarkazi": (
-    "color": #0bbbb9,
-  ),
-  "toseeSaderat": (
-    "color": #006d08,
-  ),
-);
-/**-------------------------------------------------------------------------------------------------------------------
-css for logo and card-bank
--------------------------------------------------------------------------------------------------------------------- */
-@for $i from 1 through length($bankLogos) {
-  $name: nth(map-keys($bankLogos), $i);
-  $obj: map-get($bankLogos, $name);
-  $color: map-get($obj, "color");
+$bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
+  melall, sanatMadan, toseeTaavon, mellat, eghtesadNovin, futurebank,
+  khavarMianeh, melli, parsian, pasargad, kosar, sepah, gardeshgari, iranZamin,
+  ayandeh, caspian, zarinCard, karafarin, postbank, sina, ansar, shahr, tejarat,
+  sarmayeh, standardChartered, taavonEslami, tosee, saderat, ghavamin, maskan,
+  mehrEghtesad, mehrIran, resalat, noor, bankMarkazi, toseeSaderat;
 
-  .#{$name}-card {
+@each $bankLogo in $bankLogos {
+  .#{$bankLogo}-card {
     &::after {
-      @apply bg-bank-#{$name} #{!important};
+      @apply bg-bank-#{$bankLogo};
     }
-    // @apply bg-#{$name}
   }
 }
 
 .zpl-bank-cards {
   @apply bg-surface border border-border-soft shadow-elevation-50;
-  @apply rounded-md relative overflow-hidden px-xs pt-xs pb-md w-[320px];
-  @apply after:bg-zarin after:absolute after:w-full after:h-xl after:top-0 after:z-0;
-  @apply after:left-0 after:right-0;
+  @apply rounded-md relative overflow-hidden p-xs w-[320px];
   @apply dark:bg-surface-dark dark:border-border-dark-soft dark:shadow-dark-elevation-50;
+
+  &::after {
+    content: "";
+    @apply absolute w-full h-xl top-0 z-0 left-0 right-0;
+  }
 }
 .zpl-bank-cards-top {
   @apply relative bg-surface rounded-[6px] p-xs z-10 mb-xs gap-x-xs flex items-center;

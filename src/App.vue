@@ -1,6 +1,28 @@
 <template>
   <div>
-    <TopBar>
+    <Avatar
+      size="medium"
+      img="https://www.digikala.com/static/files/fd4840b2.svg"
+    />
+    <AvatarProgressBar
+      size="large"
+      type="silver"
+      :percent="10"
+    />
+    <BankCards
+      username="شایسته ملک پور"
+      bank-name="بانک سامان"
+      logo="saman"
+      amount="5120000"
+      iban="IR870560085577703153460001"
+      rrn="892938820001277640002746"
+      :default-account="false"
+    />
+    <Button
+      text="me"
+      fill
+    />
+    <!-- <TopBar>
       <template v-slot:right-side>
         <Icon
           name="menuBurger"
@@ -24,7 +46,7 @@
         <UserProfile username="نام کاربر" />
       </template>
     </TopBar>
-    <Icon name="terminal" />
+    <Icon name="terminal" /> -->
   </div>
 </template>
 
@@ -36,11 +58,19 @@ import Logo from '@/components/Logo/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import UserProfile from '@/components/TopBar/UserProfile/index.vue';
 import Notification from '@/components/TopBar/Notification/index.vue';
+import Avatar from '@/components/Avatar/index.vue';
+import AvatarProgressBar from '@/components/AvatarProgressBar/index.vue';
+import BankCards from '@/components/BankCards/index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    TopBar, Logo, Icon, UserProfile, Notification,
+    // TopBar, Logo, Icon, UserProfile, Notification,
+    Avatar,
+    AvatarProgressBar,
+    BankCards,
+    Button,
   },
   data() {
     return {

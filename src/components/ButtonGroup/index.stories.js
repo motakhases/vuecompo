@@ -15,12 +15,8 @@ const Template = (_, { argTypes }) => ({
   template: `
     <div class="dark:bg-surface-dark p-sm rounded-md">
       <ButtonGroup>
-        <Button type="primary">
-          Primary
-        </Button>
-        <Button type="secondary">
-          Secondary
-        </Button>
+        <Button type="primary" :text="firstBtn" />
+        <Button type="secondary" :text="secondBtn" />
       </ButtonGroup>
     </div>
   `,
@@ -29,3 +25,7 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 
+Default.args = {
+  firstBtn: "دکمه",
+  secondBtn: "دکمه",
+};
