@@ -22,9 +22,8 @@ const Template = (_, { argTypes }) => ({
       :href="href"
       :exact="exact"
       :target="target"
-    >
-      {{ text }}
-    </Link>
+			:text="text"
+    />
     و با استفاده از طراحان گرافیک است.
   </div>
   `,

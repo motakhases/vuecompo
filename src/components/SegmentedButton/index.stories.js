@@ -14,9 +14,9 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <SegmentedButton :fill="fill">
-			<Button :onClick='onClick' > bnt1 </Button>
-			<Button :onClick='onClick'  active="true" > btn2 </Button>
-			<Button :onClick='onClick' > bnt3 </Button>
+			<Button @click.native="onClick" text="دکمه" />
+			<Button @click.native="onClick" text="دکمه"  active />
+			<Button @click.native="onClick" text="دکمه" />
 		</SegmentedButton>
   `,
 });
@@ -25,5 +25,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   fill: false,
-  onClick: () => alert("clicked"),
+  onClick: () => console.log("clicked"),
 };

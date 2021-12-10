@@ -5,7 +5,7 @@
       class="zpl-topbar-navigation-icon"
     />
     <NotificationBadge
-      numeric="true"
+      numeric
       class="zpl-topbar-navigation-badge"
     >
       {{ badge }}

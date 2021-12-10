@@ -2,16 +2,14 @@ import NavBadge from "./index.vue";
 
 export default {
   component: NavBadge,
-  title: "Components/Tooltip",
+  title: "Components/NavBadge",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { NavBadge },
   props: Object.keys(argTypes),
   template: `
-		<NavBadge>
-		  {{ text }}
-		</NavBadge>
+		<NavBadge :text="text" />
   `,
 });
 

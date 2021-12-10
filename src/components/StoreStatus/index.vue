@@ -1,7 +1,7 @@
 <template>
   <div class="rtl">
     <div :class="['zpl-store-status', state ]">
-      <slot />
+      {{ text }}
     </div>
   </div>
 </template>

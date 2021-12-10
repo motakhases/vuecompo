@@ -9,9 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { StoreStatus },
   props: Object.keys(argTypes),
   template: `
-		<StoreStatus :state="state">
-			{{ text }}
-		</StoreStatus>
+		<StoreStatus :state="state" :text="text" />
   `,
 });
 

@@ -15,9 +15,10 @@
         <span class="zpl-nav-item-title">
           {{ title }}
         </span>
-        <NavBadge v-if="badge">
-          {{ badge }}
-        </NavBadge>
+        <NavBadge
+          v-if="badge"
+          :text="badge"
+        />
       </router-link>
     </Tooltip>
   </li>
