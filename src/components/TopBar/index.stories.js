@@ -1,19 +1,19 @@
-import Component from "./index.vue";
-import Logo from "../Logo/index.vue";
-import Icon from "../Icon/index.vue";
+import TopBar from "./index.vue";
+import Logo from "@/components/Logo/index.vue";
+import Icon from "@/components/Icon/index.vue";
 import UserProfile from "./UserProfile/index.vue";
 import Notification from "./Notification/index.vue";
 
 export default {
-  component: Component,
+  component: TopBar,
   title: "Components/TopBar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, Logo, Icon, UserProfile, Notification },
+  components: { TopBar, Logo, Icon, UserProfile, Notification },
   props: Object.keys(argTypes),
   template: `
-  <Component>
+  <TopBar>
     <template v-slot:right-side>
       <Icon name="menuBurger" class="zpl-topbar-menu" />
       <div class="zpl-topbar-logo">
@@ -25,7 +25,7 @@ const Template = (_, { argTypes }) => ({
 			<Notification :badge="badge" />
       <UserProfile username="نام کاربر" />
     </template>
-  </Component>
+  </TopBar>
   `,
 });
 

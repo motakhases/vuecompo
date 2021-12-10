@@ -1,5 +1,5 @@
 import ButtonGroup from './index.vue';
-import Button from '../Button/index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default {
   component: ButtonGroup,
@@ -13,14 +13,10 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-    <div class="dark:bg-surface-dark p-sm rounded-md">
+    <div class="dark:bg-surface-dark p-sm rounded-md rtl">
       <ButtonGroup>
-        <Button type="primary">
-          Primary
-        </Button>
-        <Button type="secondary">
-          Secondary
-        </Button>
+        <Button type="primary" :text="firstBtn" />
+        <Button type="secondary" :text="secondBtn" />
       </ButtonGroup>
     </div>
   `,
@@ -29,3 +25,7 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 
+Default.args = {
+  firstBtn: "دکمه",
+  secondBtn: "دکمه",
+};

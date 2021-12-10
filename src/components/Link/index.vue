@@ -7,7 +7,7 @@
     :target="target"
     class="zpl-link"
   >
-    <slot />
+    {{ text }}
   </component>
 </template>
 

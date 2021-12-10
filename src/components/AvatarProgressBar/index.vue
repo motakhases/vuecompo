@@ -26,7 +26,10 @@
           r="calc(50% - 1px)"
         />
       </svg>
-      <slot />
+      <Avatar
+        :size="size"
+        :img="img"
+      />
     </div>
   </div>
 </template>

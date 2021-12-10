@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Lable',
+  name: 'Label',
   props: {
     size: {
       type: String,
@@ -10,6 +10,10 @@ export default Vue.extend({
     type: {
       type: String,
       default: 'positive',
+    },
+    text: {
+      type: String,
+      default: '',
     },
   },
 });

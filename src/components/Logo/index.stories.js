@@ -9,12 +9,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
 		<div class="dark:bg-surface-dark p-sm rounded-md">
-      <Logo
-        :size="size"
-        :name="name"
-        :type="type"
-        :language="language"
-      />
+      <Logo v-bind="$props" />
     </div>
   `,
 });

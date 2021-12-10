@@ -1,11 +1,17 @@
 import Vue from 'vue';
+import Button from './Button/index.vue';
 
 export default Vue.extend({
   name: 'SegmentedButton',
+  components: { Button },
   props: {
     fill: {
       type: Boolean,
       default: false,
+    },
+    items: {
+      type: Array,
+      default: () => [],
     },
   },
   data(): {
