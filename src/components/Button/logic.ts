@@ -39,7 +39,7 @@ export default Vue.extend({
     },
     text: {
       type: String,
-      default: 'button',
+      default: '',
     },
   },
 });
