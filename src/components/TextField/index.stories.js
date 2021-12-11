@@ -1,8 +1,5 @@
-/* eslint-disable no-tabs */
-/* eslint-disable no-multiple-empty-lines */
-
-import TextField from "./index.vue";
-import "../../utils/validations";
+import TextField from './index.vue';
+import '@/utils/validations';
 
 export default {
   component: TextField,
@@ -15,10 +12,10 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-	<div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<TextField v-model="value" v-bind="$props"/>
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<TextField v-model="value" v-bind="$props" />  
 	</div>
- `,
+	`,
 });
 
 export const Default = Template.bind({});
@@ -37,11 +34,11 @@ Default.argTypes = {
 
 Default.args = {
   disabled: false,
-  label: "label",
-  value: "",
-  helperHint: "helper",
-  successHint: "succe",
-  unit: "",
+  label: 'label',
+  value: '',
+  helperHint: 'helper',
+	successHint: 'success',
+  unit: '',
   limit: 0,
   type: "text",
   separator: "none",

@@ -1,12 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
-  <defs>
-    <clipPath id="clip-path">
-      <rect width="48" height="48" fill="none"/>
-    </clipPath>
-  </defs>
-  <g id="Bank-Sina" clip-path="url(#clip-path)">
-    <rect id="Boundary" width="48" height="48" fill="none"/>
-    <path id="Shape" d="M10.192,42.03l-1.327-.8L29.348,29.286V18.952L22,14.682,33.55,7.745,41,12.179V36.059L20.462,48ZM0,35.822V11.94L20.539,0,30.808,5.971l1.327.8L11.651,18.715V29.048L19,33.318,7.45,40.254Z" transform="translate(4)" fill="#277eb5"/>
-    <path id="Shape-2" data-name="Shape" d="M7,14A7,7,0,1,0,0,7a7.014,7.014,0,0,0,7,7" transform="translate(17.5 17)" fill="#dbaf2e"/>
-  </g>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M34.3083 5.97032L35.6347 6.76623L15.1518 18.7144V29.0476L22.4974 33.3181L10.9503 40.2542L3.5 35.8215V11.9406L24.0389 0L34.3083 5.97032Z" fill="#277EB5"/>
+<path d="M13.6918 42.0297L12.3653 41.2338L32.8484 29.2856V18.9524L25.5027 14.6819L37.0499 7.74575L44.5 12.1785V36.0595L23.9611 48L13.6918 42.0297Z" fill="#277EB5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.9999 31C27.8555 31 31 27.8555 31 24C31 20.1445 27.8555 17 23.9999 17C20.1445 17 17 20.1445 17 24C17 27.8555 20.1445 31 23.9999 31" fill="#DBAF2E"/>
 </svg>

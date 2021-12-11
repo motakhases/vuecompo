@@ -9,9 +9,9 @@ const Template = (_, { argTypes }) => ({
   components: { Label },
   props: Object.keys(argTypes),
   template: `
-		<Label :type="type" :size="size">
-      {{ text }}
-    </Label>
+	<div class="dark:bg-surface-dark p-sm rounded-md h-full rtl">
+		<Label v-bind="$props" />
+	</div>
   `,
 });
 

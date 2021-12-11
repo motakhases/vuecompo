@@ -15,9 +15,10 @@
       <div class="zpl-terminal-item-link">
         {{ link }}
       </div>
-      <StoreStatus :state="state">
-        {{ stateText }}
-      </StoreStatus>
+      <StoreStatus
+        :state="state"
+        :text="stateText"
+      />
       <div
         v-if="active === true"
         class="zpl-terminal-item-active"

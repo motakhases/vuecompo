@@ -1,6 +1,6 @@
 <template>
   <div class="zpl-nav-badge">
-    <slot />
+    {{ text }}
   </div>
 </template>
 

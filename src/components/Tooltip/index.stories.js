@@ -9,15 +9,11 @@ const Template = (_, { argTypes }) => ({
   components: { Tooltip },
   props: Object.keys(argTypes),
   template: `
-    <Tooltip
-			:text="text"
-			:position="position"
-			:space="space"
-			:indicator="indicator"
-			:size="size"
-		>
+	<div class="dark:bg-surface-dark rounded-md m-2xl dark:text-text-dark">
+    <Tooltip v-bind="$props">
 			<button>Hover Me</button>
 		</Tooltip>
+	</div>
   `,
 });
 

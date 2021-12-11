@@ -1,20 +1,16 @@
 import BankCards from "./index.vue";
-import BankLogos from "@/components/BankLogos/index.vue";
+
 export default {
   component: BankCards,
   title: "Components/BankCards",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { BankCards, BankLogos },
+  components: { BankCards },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<BankCards v-bind="$props">
-      <template v-slot:logo>
-				<BankLogos :logo="logo"/>
-			</template>
-    </BankCards>
+		<BankCards v-bind="$props" />
   </div>
   `,
 });
@@ -30,26 +26,24 @@ Default.argTypes = {
       "refah",
       "dey",
       "hekmat",
-      "agriculture",
-      "melal",
-      "tosetavon",
-      "sanatmadan",
-      "khavarmiane",
+      "keshavarzi",
+      "melall",
+      "toseeTaavon",
+      "sanatMadan",
+      "khavarMianeh",
       "mellat",
-      "eghtesadnovin",
+      "eghtesadNovin",
       "melli",
       "parsian",
       "kosar",
       "sepah",
-      "cbi",
-      "iranzamin",
-      "mehr",
-      "tourismbank",
-      "zarincard",
+      "iranZamin",
+      "gardeshgari",
+      "zarinCard",
       "karafarin",
       "postbank",
       "sina",
-      "citybank",
+      "shahr",
       "ansar",
       "tejarat",
       "sarmayeh",
@@ -58,8 +52,17 @@ Default.argTypes = {
       "maskan",
       "resalat",
       "noor",
-      "toseetebari",
-      "tosesaderat",
+      "toseeSaderat",
+			"caspian",
+			"futurebank",
+			"iranEurope",
+			"iranVenezuela",
+			"mehrEghtesad",
+			"mehrIran",
+			"standardChartered",
+			"taavonEslami",
+			"tosee",
+			"bankMarkazi"
     ],
     control: { type: "select" },
   },

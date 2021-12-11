@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { ValidationProvider } from 'vee-validate';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextField',
@@ -40,7 +40,7 @@ export default Vue.extend({
     },
     separator: {
       type: String,
-      default: 'none',
+      default: '',
     },
     beforeIcon: {
       type: String,

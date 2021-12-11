@@ -1,14 +1,15 @@
 <template>
-  <div class="rtl">
-    <div class="zpl-topbar-container">
-      <div class="zpl-topbar-right-side">
-        <slot name="right-side" />
-      </div>
-      <div class="zpl-topbar-left-side">
-        <slot name="left-side" />
-      </div>
-      <slot />
+  <div
+    class="zpl-topbar-container"
+    dir="rtl"
+  >
+    <div class="zpl-topbar-right-side">
+      <slot name="right-side" />
     </div>
+    <div class="zpl-topbar-left-side">
+      <slot name="left-side" />
+    </div>
+    <slot />
   </div>
 </template>
 

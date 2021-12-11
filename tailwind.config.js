@@ -24,6 +24,9 @@ module.exports = {
     fontSize,
     boxShadow,
     borderRadius,
+    backgroundImage: {
+      'empty-box': "url('./Illustration/EmptyBox.svg')",
+    },
     rotate,
   },
   variants: {},

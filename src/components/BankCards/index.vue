@@ -1,7 +1,10 @@
 <template>
-  <div :class="['zpl-bank-cards', `${logo}-card`]">
+  <div
+    :class="['zpl-bank-cards', `${logo}-card`]"
+    dir="rtl"
+  >
     <div class="zpl-bank-cards-top">
-      <slot name="logo" />
+      <BankLogos :logo="logo" />
       <div class="zpl-bank-cards-name">
         {{ bankName }}
       </div>
@@ -26,7 +29,6 @@
         {{ iban }}
       </div>
     </div>
-
     <div class="zpl-bank-cards-rrn">
       <span>شناسه واریز پایا</span>
       <span>
