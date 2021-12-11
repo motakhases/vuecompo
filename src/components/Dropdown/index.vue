@@ -91,7 +91,7 @@
         <ul
           v-else
           id="dropdown"
-          ref="myDropdown"
+          ref="dropdownRef"
         >
           <li
             v-for="(option,i) in filteredOptions"
