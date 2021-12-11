@@ -1,6 +1,7 @@
 .zpl-button {
   /* Default */
-  @apply rounded-sm inline-flex justify-center items-center text-center gap-x-xs w-max;
+  @apply rounded-sm inline-flex justify-center items-center text-center gap-x-xs w-max
+	border border-surface outline-none;
 
   /* Disabled */
   @apply disabled:cursor-default;

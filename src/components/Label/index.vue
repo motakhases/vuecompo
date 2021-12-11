@@ -2,7 +2,7 @@
   <span
     :class="['zpl-lable', size, type]"
   >
-    <slot />
+    {{ text }}
   </span>
 </template>
 

@@ -9,7 +9,9 @@ const Template = (_, { argTypes }) => ({
   components: { StoreStatus },
   props: Object.keys(argTypes),
   template: `
-		<StoreStatus :state="state" :text="text" />
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<StoreStatus v-bind="$props" />
+	</div>
   `,
 });
 

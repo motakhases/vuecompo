@@ -1,5 +1,4 @@
 import SegmentedButton from "./index.vue";
-import Button from "./Button/index.vue";
 
 export default {
   component: SegmentedButton,
@@ -9,15 +8,12 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: {
     SegmentedButton,
-    Button,
   },
   props: Object.keys(argTypes),
   template: `
-    <SegmentedButton :fill="fill">
-			<Button @click.native="onClick" text="دکمه" />
-			<Button @click.native="onClick" text="دکمه"  active />
-			<Button @click.native="onClick" text="دکمه" />
-		</SegmentedButton>
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<SegmentedButton v-bind="$props" />
+	</div>
   `,
 });
 
@@ -25,5 +21,24 @@ export const Default = Template.bind({});
 
 Default.args = {
   fill: false,
-  onClick: () => console.log("clicked"),
+  items: [
+    {
+      id: 1,
+      text: "دکمه 1",
+      click: () => console.log("clicked"),
+      active: true,
+    },
+    {
+      id: 2,
+      text: "دکمه 2",
+      click: () => console.log("clicked"),
+      active: false,
+    },
+    {
+      id: 3,
+      text: "دکمه 3",
+      click: () => console.log("clicked"),
+      active: false,
+    },
+  ],
 };

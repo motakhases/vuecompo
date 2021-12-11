@@ -9,7 +9,9 @@ const Template = (_, { argTypes }) => ({
   components: { Thumbnail },
   props: Object.keys(argTypes),
   template: `
-		<Thumbnail :icon="icon" :img="img" alt="alt" />
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<Thumbnail v-bind="$props" />  
+	</div>
   `,
 });
 

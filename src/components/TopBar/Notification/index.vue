@@ -5,11 +5,9 @@
       class="zpl-topbar-navigation-icon"
     />
     <NotificationBadge
-      numeric
       class="zpl-topbar-navigation-badge"
-    >
-      {{ badge }}
-    </NotificationBadge>
+      :text="badge"
+    />
   </div>
 </template>
 

@@ -10,7 +10,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Avatar :size="size" :img="img" />
+		<Avatar v-bind="$props" />
   </div>
   `,
 });

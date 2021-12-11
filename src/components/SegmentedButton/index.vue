@@ -1,6 +1,12 @@
 <template>
   <div :class="['zpl-segment-group' , { fill } ]">
-    <slot />
+    <Button
+      v-for="item in items"
+      :key="item.id"
+      :text="item.text"
+      :active="item.active"
+      @click.native="item.click"
+    />
   </div>
 </template>
 

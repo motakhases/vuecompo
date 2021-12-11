@@ -40,8 +40,8 @@ Default.argTypes = {
 
 Default.args = {
   text: "صنعت چاپ",
-  to: "",
+  to: "/home",
   target: "_blank",
-  href: "https://fa.wikipedia.org/wiki/%DA%86%D8%A7%D9%BE",
+  href: "",
   exact: false,
 };
