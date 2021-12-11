@@ -9,19 +9,8 @@ const Template = (_, { argTypes }) => ({
   components: { Button },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Button
-      :type="type"
-      :size="size"
-      :disabled="disabled"
-      :fill="fill"
-      :loading="loading"
-      :beforeIcon="beforeIcon"
-      :afterIcon="afterIcon"
-      :onClick="onClick"
-    >
-      {{ text }}
-    </Button>
+  <div class="dark:bg-text-dark-onPrimary p-sm rounded-md rtl">
+		<Button v-bind="$props" />
   </div>
   `,
 });
@@ -40,7 +29,7 @@ Default.argTypes = {
 };
 
 Default.args = {
-  text: "Button",
+  text: "دکمه",
   size: "large",
   type: "primary",
   disabled: false,
@@ -48,5 +37,5 @@ Default.args = {
   loading: false,
   afterIcon: "",
   beforeIcon: "",
-	onClick: () => alert('clicked')
+	icon: ""
 };

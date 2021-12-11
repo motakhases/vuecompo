@@ -20,7 +20,7 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      default: 'label',
+      default: '',
     },
     helperHint: {
       type: String,

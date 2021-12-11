@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'Button',
@@ -33,14 +33,13 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    onClick: {
-      type: Function,
-      required: true,
+    icon: {
+      type: String,
+      default: '',
     },
-  },
-  computed: {
-    text() {
-      return 'tesssssssssssst';
+    text: {
+      type: String,
+      default: '',
     },
   },
 });

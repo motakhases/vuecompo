@@ -22,6 +22,10 @@ export default Vue.extend({
     plus: () => import('./icons/Plus.vue'),
     terminal: () => import('./icons/Terminal.vue'),
     undoneCheck: () => import('./icons/UndoneCheck.vue'),
+    delete: () => import('./icons/Delete.vue'),
+    clockRefresh: () => import('./icons/ClockRefresh.vue'),
+    arrowRight: () => import('./icons/ArrowRight.vue'),
+    star: () => import('./icons/Star.vue'),
   },
 
   props: {

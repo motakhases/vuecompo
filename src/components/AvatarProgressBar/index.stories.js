@@ -1,24 +1,15 @@
 import AvatarProgressBar from "./index.vue";
-import Avatar from "@/components/Avatar/index.vue";
 export default {
   component: AvatarProgressBar,
   title: "Components/AvatarProgressBar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { AvatarProgressBar, Avatar },
+  components: { AvatarProgressBar },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<AvatarProgressBar
-      :type="type"
-      :size="size"
-      :disabled="disabled"
-      :percent="percent"
-
-    >
-		<Avatar :size="size"/>
-    </AvatarProgressBar>
+		<AvatarProgressBar v-bind="$props" />
   </div>
   `,
 });
@@ -40,4 +31,5 @@ Default.args = {
   type: "beginner",
   size: "large",
   percent: 10,
+	img: "https://www.digikala.com/static/files/fd4840b2.svg",
 };

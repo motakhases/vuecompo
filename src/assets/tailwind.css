@@ -14,17 +14,6 @@
   }
 
   @variants dark {
-    .zpl-logo[name="zarinpal"].logo[language="fa"] {
-      background-image: url("./images/ZarinPal-Logo-fa-dark.svg");
-    }
-    .zpl-logo[name="zarinpal"].logo[language="en"] {
-      background-image: url("./images/ZarinPal-Logo-en-dark.svg");
-    }
-    .zpl-logo[name="zarinpal"].logo-type[language="fa"] {
-      background-image: url("./images/ZarinPal-Logo-type-fa-dark.svg");
-    }
-    .zpl-logo[name="zarinpal"].logo-type[language="en"] {
-      background-image: url("./images/ZarinPal-Logo-type-en-dark.svg");
-    }
+   
   }
 }

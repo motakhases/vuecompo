@@ -1,0 +1,156 @@
+/**-------------------------------------------------------------------------------------------------------------------
+card-bank-variable
+-------------------------------------------------------------------------------------------------------------------- */
+$bankLogos: (
+	"saman": (
+    "uri": "Saman.svg",
+  ),
+  "refah": (
+    "uri": "Refah.svg",
+  ),
+  "dey": (
+    "uri": "Dey.svg",
+  ),
+  "hekmat": (
+    "uri": "Hekmat.svg",
+  ),
+  "iranEurope": (
+    "uri": "IranEurope.svg",
+  ),
+  "iranVenezuela": (
+    "uri": "IranVenezuela.svg",
+  ),
+  "keshavarzi": (
+    "uri": "Keshavarzi.svg",
+  ),
+  "melall": (
+    "uri": "Melall.svg",
+  ),
+  "sanatMadan": (
+    "uri": "SanatMadan.svg",
+  ),
+  "toseeTaavon": (
+    "uri": "ToseeTaavon.svg",
+  ),
+  "mellat": (
+    "uri": "Mellat.svg",
+  ),
+  "eghtesadNovin": (
+    "uri": "EghtesadNovin.svg",
+  ),
+  "futurebank": (
+    "uri": "Futurebank.svg",
+  ),
+  "khavarMianeh": (
+    "uri": "KhavarMianeh.svg",
+  ),
+  "melli": (
+    "uri": "Melli.svg",
+  ),
+  "parsian": (
+    "uri": "Parsian.svg",
+  ),
+  "pasargad": (
+    "uri": "Pasargad.svg",
+  ),
+  "kosar": (
+    "uri": "Kosar.svg",
+  ),
+  "sepah": (
+    "uri": "Sepah.svg",
+  ),
+  "gardeshgari": (
+    "uri": "Gardeshgari.svg",
+  ),
+  "iranZamin": (
+    "uri": "IranZamin.svg",
+  ),
+  "ayandeh": (
+    "uri": "Ayandeh.svg",
+  ),
+  "caspian": (
+    "uri": "Caspian.svg",
+  ),
+  "zarinCard": (
+    "uri": "ZarinCard.svg",
+  ),
+  "karafarin": (
+    "uri": "Karafarin.svg",
+  ),
+  "postbank": (
+    "uri": "Postbank.svg",
+  ),
+  "sina": (
+    "uri": "Sina.svg",
+  ),
+  "ansar": (
+    "uri": "Ansar.svg",
+  ),
+  "shahr": (
+    "uri": "Shahr.svg",
+  ),
+  "tejarat": (
+    "uri": "Tejarat.svg",
+  ),
+  "sarmayeh": (
+    "uri": "Sarmayeh.svg",
+  ),
+  "standardChartered": (
+    "uri": "StandardChartered.svg",
+  ),
+  "taavonEslami": (
+    "uri": "TaavonEslami.svg",
+  ),
+  "tosee": (
+    "uri": "Tosee.svg",
+  ),
+  "saderat": (
+    "uri": "Saderat.svg",
+  ),
+  "ghavamin": (
+    "uri": "Ghavamin.svg",
+  ),
+  "maskan": (
+    "uri": "Maskan.svg",
+  ),
+  "mehrEghtesad": (
+    "uri": "MehrEghtesad.svg",
+  ),
+  "mehrIran": (
+    "uri": "MehrIran.svg",
+  ),
+  "resalat": (
+    "uri": "Resalat.svg",
+  ),
+  "noor": (
+    "uri": "Noor.svg",
+  ),
+  "bankMarkazi": (
+    "uri": "BankMarkazi.svg",
+  ),
+  "toseeSaderat": (
+    "uri": "ToseeSaderat.svg",
+  )
+);
+/**-------------------------------------------------------------------------------------------------------------------
+css for logo
+-------------------------------------------------------------------------------------------------------------------- */
+@for $i from 1 through length($bankLogos) {
+  $name: nth(map-keys($bankLogos), $i);
+  $obj: map-get($bankLogos, $name);
+  $uri: map-get($obj, "uri");
+  .dark {
+    .logo-#{$name} {
+      &:before {
+        background-image: url("./logos/dark-mode/#{$uri}");
+      }
+    }
+  }
+  .logo-#{$name} {
+    &:before {
+      @apply h-3xl w-3xl bg-cover	bg-no-repeat flex;
+      content: "";
+      background-image: url("./logos/#{$uri}");
+    }
+  }
+}

@@ -2,7 +2,7 @@
   /* Default */
   direction: rtl;
   @apply block relative pr-[30px] cursor-pointer text-[14px];
-  @apply text-text;
+  @apply text-text min-h-[21px];
   // dark states
   @apply dark:text-text-dark;
 

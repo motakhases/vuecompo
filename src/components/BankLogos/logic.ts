@@ -1,11 +1,11 @@
 import Vue from 'vue';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
-  name: 'UserProfile',
+  name: 'BankCards',
   components: { Icon },
   props: {
-    username: {
+    logo: {
       type: String,
       default: '',
     },

@@ -36,12 +36,12 @@
 }
 .zpl-textbox-label {
   /* Default */
-  @apply absolute top-sm right-sm text-ls-cp 
-	z-10 py-[2px] px-2xs transition-all	
+  @apply absolute top-sm right-sm text-ls-cp z-10 py-[2px] px-2xs transition-all	
 	ease-in-out	delay-100;
   @apply dark:bg-surface-dark text-text-dark-soft;
   &.activeLabel {
     @apply bg-surface -top-xs;
+    @apply dark:bg-surface-dark;
   }
 }
 .zpl-textbox-hint-box {
@@ -52,10 +52,10 @@
   /* Default */
   @apply flex items-center gap-x-2xs py-2xs px-sm text-b3 text-text-soft;
 
-	svg {
+  svg {
     @apply w-xl h-xl ml-2xs;
   }
-	
+
   &.helper {
     /* Default */
     @apply flex-1;
