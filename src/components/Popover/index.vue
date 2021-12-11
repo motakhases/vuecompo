@@ -16,36 +16,13 @@
   </ul>
 </template>
 <script>
-import './style.scss';
-import Icon from '../Icon/index.vue';
-
 // usage: it should be child of this component => div.absolute
 // and width of that is equal to parrent(last comment) div width
 
-export default {
-  components: { Icon },
-  props: {
-    items: {
-      type: Array,
-      required: true,
-    },
-    parrentWidth: {
-      type: Boolean,
-      default: false,
-    },
-    iconName: {
-      type: String,
-      default: '',
-    },
-    negative: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  methods: {
-    select(val) {
-      this.$emit('select', val);
-    },
-  },
-};
+import Vue from 'vue';
+import logic from './logic';
+import './style.scss';
+
+export default Vue.extend({ mixins: [logic] });
+
 </script>
