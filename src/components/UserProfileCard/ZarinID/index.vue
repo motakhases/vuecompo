@@ -3,11 +3,11 @@
     class="zpl-user-card-id"
   >
     <span class="zpl-user-card-task-title">
-      <slot />
+      {{ id }}
     </span>
     <div
-      v-if="level"
-      :class="['circle',level]"
+      v-if="type"
+      :class="['circle',type]"
     />
   </div>
 </template>

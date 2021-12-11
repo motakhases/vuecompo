@@ -1,6 +1,14 @@
 <template>
   <div class="zpl-user-card-stack">
-    <slot />
+    <TaskItem
+      v-for="{ id, complete, before, disabled, link, text } in items"
+      :key="id"
+      :complete="complete"
+      :before="before"
+      :disabled="disabled"
+      :link="link"
+      :text="text"
+    />
   </div>
 </template>
 

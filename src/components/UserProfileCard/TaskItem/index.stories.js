@@ -1,6 +1,4 @@
 import TaskItem from "./index.vue";
-import CheckMark from "../CheckMark/index.vue";
-import TaskAction from "../TaskAction/index.vue";
 import { storiesOf } from "@storybook/vue";
 import StoryRouter from "storybook-vue-router";
 
@@ -15,18 +13,11 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: {
     TaskItem,
-    CheckMark,
-    TaskAction,
   },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl w-full">
-		<TaskItem>
-			<CheckMark :complete="complete" :before="before" />
-			<TaskAction :disabled="disabled" :link="link">
-				{{text}}
-			</TaskAction>
-		</TaskItem>
+		<TaskItem v-bind="$props" />
   </div>
   `,
 });

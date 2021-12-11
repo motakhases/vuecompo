@@ -1,4 +1,9 @@
 .zpl-user-card-item {
   /* Default */
   @apply flex items-center w-full gap-x-md mb-xs;
+  &:first-child {
+    .before {
+      @apply before:hidden;
+    }
+  }
 }

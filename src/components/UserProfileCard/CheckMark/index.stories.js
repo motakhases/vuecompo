@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl inline-flex flex-col">
-		<CheckMark :complete="complete" :before="before" />
+		<CheckMark v-bind="$props" />
   </div>
   `,
 });

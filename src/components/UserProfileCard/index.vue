@@ -1,17 +1,31 @@
 <template>
-  <div class="rtl">
-    <div class="zpl-user-profile-card">
-      <div class="zpl-user-profile-card-header">
-        <slot name="header" />
-      </div>
-      <div class="zpl-user-profile-card-name">
-        <slot name="fullname" />
-      </div>
-      <div class="zpl-user-profile-card-level">
-        <slot name="userLevel" />
-      </div>
-      <slot />
+  <div
+    class="zpl-user-profile-card"
+    dir="rtl"
+  >
+    <div class="zpl-user-profile-card-header">
+      <AvatarProgressBar
+        :type="avatarType"
+        :size="avatarSize"
+        :percent="avatarPercent"
+        :img="avatarImg"
+      />
+      <ZarinID
+        :id="zarinId"
+        :type="zarinIdType"
+      />
     </div>
+    <div class="zpl-user-profile-card-name">
+      {{ fullname }}
+    </div>
+    <div class="zpl-user-profile-card-level">
+      <UserLevel
+        :text="levelText"
+        :list="labelList"
+      />
+    </div>
+    <TasksStack :items="taskItems" />
+    <slot />
   </div>
 </template>
 

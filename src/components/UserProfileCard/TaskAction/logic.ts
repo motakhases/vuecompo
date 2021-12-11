@@ -13,5 +13,13 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    complete: {
+      type: Boolean,
+      default: false,
+    },
+    text: {
+      type: String,
+      default: '',
+    },
   },
 });

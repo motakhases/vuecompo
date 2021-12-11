@@ -1,6 +1,6 @@
 .zpl-user-profile-card {
   /* Default */
-  @apply bg-surface shadow-elevation-50 rounded-md p-xl;
+  @apply bg-surface shadow-elevation-50 rounded-md p-xl w-[368px];
   @apply dark:bg-surface-dark;
 }
 .zpl-user-profile-card-header {

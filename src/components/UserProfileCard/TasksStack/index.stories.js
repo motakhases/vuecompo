@@ -1,7 +1,4 @@
 import TasksStack from "./index.vue";
-import TaskItem from "../TaskItem/index.vue";
-import CheckMark from "../CheckMark/index.vue";
-import TaskAction from "../TaskAction/index.vue";
 import { storiesOf } from "@storybook/vue";
 import StoryRouter from "storybook-vue-router";
 
@@ -16,27 +13,11 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: {
     TasksStack,
-    TaskItem,
-    CheckMark,
-    TaskAction,
   },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl w-full">
-		<TasksStack>
-			<TaskItem>
-				<CheckMark :complete="complete" :before="before" />
-				<TaskAction :disabled="disabled" :link="link">
-					{{text}}
-				</TaskAction>
-			</TaskItem>
-			<TaskItem>
-				<CheckMark :before="before" />
-				<TaskAction :link="link">
-					{{text}}
-				</TaskAction>
-			</TaskItem>
-		</TasksStack>
+		<TasksStack v-bind="$props" />
   </div>
   `,
 });
@@ -44,9 +25,30 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-  complete: true,
-  before: true,
-  disabled: false,
-  link: "#link",
-  text: "عنوان تسک",
+  items: [
+    {
+      id: 1,
+      complete: true,
+      before: true,
+      disabled: false,
+      link: "#link",
+      text: "عنوان تسک",
+    },
+    {
+      id: 2,
+      complete: true,
+      before: true,
+      disabled: false,
+      link: "#link",
+      text: "عنوان تسک",
+    },
+    {
+      id: 3,
+      complete: false,
+      before: true,
+      disabled: false,
+      link: "#link",
+      text: "عنوان تسک",
+    },
+  ],
 };

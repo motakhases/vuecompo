@@ -5,11 +5,11 @@ export default Vue.extend({
   name: 'ZarinID',
   components: { Icon },
   props: {
-    disabled: {
-      type: Boolean,
-      default: false,
+    id: {
+      type: String,
+      default: '',
     },
-    level: {
+    type: {
       type: String,
       default: '',
     },

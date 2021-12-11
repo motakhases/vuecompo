@@ -5,11 +5,11 @@
     :disabled="disabled"
     :event="disabled ? '' : 'click'"
   >
-    <span class="zpl-user-card-task-title">
-      <slot />
+    <span :class="['zpl-user-card-task-title', { complete }]">
+      {{ text }}
     </span>
     <Icon
-      v-if="!disabled"
+      v-if="!disabled && !complete"
       name="angleLeft"
     />
   </router-link>

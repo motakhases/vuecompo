@@ -1,6 +1,15 @@
 <template>
   <div class="zpl-user-card-item">
-    <slot />
+    <CheckMark
+      :complete="complete"
+      :before="before"
+    />
+    <TaskAction
+      :disabled="disabled"
+      :link="link"
+      :complete="complete"
+      :text="text"
+    />
   </div>
 </template>
 

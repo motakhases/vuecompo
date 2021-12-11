@@ -18,9 +18,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<TaskAction :disabled="disabled" :link="link">
-			task
-		</TaskAction>
+		<TaskAction v-bind="$props" />
   </div>
   `,
 });
@@ -28,6 +26,8 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-  disabled: true,
+  disabled: false,
   link: "#link",
+  text: "item",
+  complete: true,
 };

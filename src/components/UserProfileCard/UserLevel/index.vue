@@ -1,7 +1,16 @@
 <template>
-  <div class="zpl-user-card-level">
-    <span>{{ title }}</span>
-    <slot />
+  <div
+    class="zpl-user-card-level"
+    dir="rtl"
+  >
+    <span v-if="text">{{ text }}</span>
+    <Label
+      v-for="{ id, type, size, text } in list"
+      :key="id"
+      :type="type"
+      :size="size"
+      :text="text"
+    />
   </div>
 </template>
 

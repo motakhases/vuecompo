@@ -28,4 +28,8 @@
 }
 .zpl-user-card-task-title {
   @apply flex-1;
+  &.complete {
+    @apply text-text-disabled;
+		@apply dark:text-text-dark-disabled
+  }
 }
