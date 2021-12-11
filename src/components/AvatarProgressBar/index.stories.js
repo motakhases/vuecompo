@@ -1,5 +1,4 @@
 import AvatarProgressBar from "./index.vue";
-
 export default {
   component: AvatarProgressBar,
   title: "Components/AvatarProgressBar",
