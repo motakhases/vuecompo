@@ -54,15 +54,15 @@ export default Vue.extend({
     activeOptionIndex: number;
     filteredOptions: Array<any>;
     optionRef: any;
-optionsList:Array<any>;
-} {
+    dropdownRef:any
+    } {
     return {
       activeLabel: !!this.value.length,
       showList: false,
       activeOptionIndex: -1,
       filteredOptions: this.options,
       optionRef: '',
-      optionsList: [],
+      dropdownRef: '',
     };
   },
   watch: {
@@ -73,7 +73,7 @@ optionsList:Array<any>;
   mounted() {
     document.documentElement.addEventListener('click', this.outsideClick, false);
     this.optionRef = this.$refs.optionRef;
-    this.optionsList = document.getElementById('dropdown')?.children;
+    this.dropdownRef = this.$refs.dropdownRef;
   },
   beforeDestroy() {
     document.documentElement.removeEventListener('click', this.outsideClick, false);
@@ -148,13 +148,14 @@ optionsList:Array<any>;
         if (isArrowDownKey || isArrowUpKey) {
           for (let i = 0; i < this.filteredOptions.length; i += 1) {
             // find the active option based on class
-            const activeOption = (this.optionsList[i]).classList.contains('active');
+            const item = this.dropdownRef.children[i];
+            const activeOption = (item).classList.contains('active');
 
             // if there is active option then remove the active class and
             // update the index of active option in order to move active class
             if (activeOption) {
               this.activeOptionIndex = i;
-              (this.optionsList[i]).classList.remove('active');
+              (item).classList.remove('active');
             }
           }
         }
