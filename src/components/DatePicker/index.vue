@@ -48,7 +48,7 @@
       <div class="zpl-date-picker-range-input">
         <label for="">شروع</label>
         <TextField
-          v-model="from"
+          v-model="startInput"
           type="text"
           after-icon="calender"
           placeholder="روز/ماه/سال"

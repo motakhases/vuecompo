@@ -12,15 +12,15 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    value: {
+    singleInput: {
       type: String,
       default: '',
     },
-    fromInput: {
+    startInput: {
       type: String,
       default: '',
     },
-    toInput: {
+    endInput: {
       type: String,
       default: '',
     },
@@ -36,18 +36,18 @@ export default Vue.extend({
     } {
     return {
       date: [],
-      from: this.fromInput,
-      to: this.toInput,
+      from: this.startInput,
+      to: this.endInput,
     };
   },
   computed: {
     firstInput: {
 
       get(): string {
-        return this.to;
+        return this.from;
       },
       set(val) {
-        this.to = val;
+        this.from = val;
       },
     },
     secondInput: {

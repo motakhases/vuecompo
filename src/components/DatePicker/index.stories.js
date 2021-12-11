@@ -15,9 +15,14 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<DatePicker v-bind="$props">
+		<DatePicker v-bind="$props"
+		@singleInput="singleInput = $event"
+		@startInput="startInput = $event"
+		@endInput="endInput = $event"
+		>
 
     </DatePicker>
+		{{startInput}}
   </div>
   `,
 });
@@ -37,7 +42,9 @@ Default.args = {
 Default.args = {
   range: false,
   label: "label",
-  value: "",
+  singleInput: "1399/10/10",
+  startInput: "1399/10/10",
+  endInput: "",
   id: "",
   fromInput: "",
   toInput: "",

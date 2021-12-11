@@ -19,6 +19,7 @@
         />
 
         <input
+          :id="id"
           class="zpl-textfield-input"
           :value="formattedValue"
           :disabled="disabled"
