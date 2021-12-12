@@ -1,8 +1,23 @@
 <template>
   <div>
-    <Avatar
-      size="medium"
-      img="https://www.digikala.com/static/files/fd4840b2.svg"
+    <Modal
+      v-if="showModal"
+      title="تست عنوان"
+      @close="showModal = false"
+    >
+      <div slot="body">
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+      </div>
+      <div slot="footer">
+        <button> footer </button>
+      </div>
+    </Modal>
+    <NotificationCenter
+      v-if="true"
+      :announcements="announcements"
     />
     <AvatarProgressBar
       size="large"
@@ -169,92 +184,105 @@
 </template>
 
 <script lang="js">
+import moment from 'moment-jalaali';
 import Vue from 'vue';
-// import TopBar from '@/components/TopBar/index.vue';
-import SegmentedButton from '@/components/SegmentedButton/index.vue';
-import Logo from '@/components/Logo/index.vue';
-import Icon from '@/components/Icon/index.vue';
-// import UserProfile from '@/components/TopBar/UserProfile/index.vue';
-// import Notification from '@/components/TopBar/Notification/index.vue';
-import Avatar from '@/components/Avatar/index.vue';
-import AvatarProgressBar from '@/components/AvatarProgressBar/index.vue';
-import BankCards from '@/components/BankCards/index.vue';
-import Button from '@/components/Button/index.vue';
-import ButtonGroup from '@/components/ButtonGroup/index.vue';
-import Dropdown from '@/components/Dropdown/index.vue';
-import Label from '@/components/Label/index.vue';
-import Link from '@/components/Link/index.vue';
-import NavBadge from '@/components/NavBadge/index.vue';
-import StoreStatus from '@/components/StoreStatus/index.vue';
-import NavigationBar from '@/components/NavigationBar/index.vue';
-import NavItem from '@/components/NavigationBar/NavItem/index.vue';
-import SwitchTerminalPopover from '@/components/NavigationBar/SwitchTerminalPopover/index.vue';
-import SwitchTerminalItem from '@/components/NavigationBar/SwitchTerminalItem/index.vue';
-import Overview from '@/components/NavigationBar/Overview/index.vue';
-import Thumbnail from '@/components/Thumbnail/index.vue';
-import Create from '@/components/NavigationBar/Create/index.vue';
-import SwitchTerminal from '@/components/NavigationBar/SwitchTerminal/index.vue';
-import NotificationBadge from '@/components/NotificationBadge/index.vue';
-import TextBox from '@/components/TextBox/index.vue';
-import TextField from '@/components/TextField/index.vue';
+import PageHeading from './components/PageHeading/index.vue';
+import Pagination from './components/Pagination/index.vue';
+import Modal from './components/Modal/index.vue';
+import NotificationCenter from './components/NotificationCenter/index.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    // TopBar, Logo, Icon, UserProfile, Notification,
-    Avatar,
-    AvatarProgressBar,
-    BankCards,
-    Button,
-    ButtonGroup,
-    Dropdown,
-    Icon,
-    Label,
-    Link,
-    Logo,
-    NavBadge,
-    NavigationBar,
-    NavItem,
-    SwitchTerminalPopover,
-    Overview,
-    SwitchTerminalItem,
-    SwitchTerminal,
-    Create,
-    NotificationBadge,
-    SegmentedButton,
-    StoreStatus,
-    TextBox,
-    TextField,
-    Thumbnail,
+    PageHeading, Modal, NotificationCenter, Pagination,
   },
   data() {
     return {
-      options: [
-        { id: 1, name: 'Barney' },
-        { id: 2, name: 'Homer' },
-        { id: 3, name: 'Apu' },
-        { id: 4, name: 'Bart' },
-        { id: 5, name: 'Flanders' },
-      ],
-      value: '',
-      items: [
+      showModal: false,
+      announcements: [
         {
-          id: 1,
-          text: 'دکمه 1',
-          click: () => console.log('clicked'),
-          active: true,
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
         },
         {
-          id: 2,
-          text: 'دکمه 2',
-          click: () => console.log('clicked'),
-          active: false,
+          title: 'عنوان',
+          message: '',
+          date: moment().format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: 'https://www.w3schools.com/css/lights600x400.jpg',
         },
         {
-          id: 3,
-          text: 'دکمه 3',
-          click: () => console.log('clicked'),
-          active: false,
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(1, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(2, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(3, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(4, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(5, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(6, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(7, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(8, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(9, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(10, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
         },
       ],
     };

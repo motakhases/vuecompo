@@ -1,0 +1,19 @@
+.zpl-user-profile-card {
+  /* Default */
+  @apply bg-surface shadow-elevation-50 rounded-md p-xl w-[368px];
+  @apply dark:bg-surface-dark;
+}
+.zpl-user-profile-card-header {
+  /* Default */
+  @apply flex items-center justify-between mb-xs;
+}
+
+.zpl-user-profile-card-name {
+  /* Default */
+  @apply text-ls-h2 text-text font-bold mb-xs;
+  @apply dark:text-text-dark;
+}
+.zpl-user-profile-card-level {
+  /* Default */
+  @apply mb-2xl;
+}

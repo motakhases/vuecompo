@@ -12,8 +12,8 @@
     />
     <path
       d="M8.4425 12.3391L10.6104 14.507L10.5964 14.493L15.4874 9.60199"
-      stroke="white"
-      stroke-width="1.5"
+      stroke="currentColor"
+      stroke-width="1"
       stroke-linecap="round"
       stroke-linejoin="round"
     />

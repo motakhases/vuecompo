@@ -5,6 +5,7 @@
         <h1>{{ title }}</h1>
         <Icon
           name="delete"
+          class="cursor-pointer"
           @click.native="close"
         />
       </div>
@@ -19,24 +20,10 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import logic from './logic';
 import './style.scss';
-import Icon from '../Icon/index.vue';
 
-export default {
-  name: 'Modal',
-  components: { Icon },
-  props: {
-    title: {
-      type: String,
-      default: 'عنوان',
-    },
-  },
-  methods: {
-    close() {
-      this.$emit('close');
-    },
-  },
-
-};
+export default Vue.extend({ mixins: [logic] });
 
 </script>
