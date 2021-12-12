@@ -24,13 +24,13 @@
           <span class="date">
             {{ card.date | JdateName }}
           </span>
-          <a
+          <Link
             v-if="card.link"
             class="link"
             :href="card.link"
           >
             لینک
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -38,20 +38,10 @@
 </template>
 
 <script>
-import JdateName from '@/filters/JdateName';
+import Vue from 'vue';
+import logic from './logic';
 
-export default ({
-  name: 'NotificationCard',
-  filters: {
-    JdateName,
-  },
-  props: {
-    cards: {
-      type: Array,
-      default: () => [],
-    },
-  },
-});
+export default Vue.extend({ mixins: [logic] });
 
 </script>
 

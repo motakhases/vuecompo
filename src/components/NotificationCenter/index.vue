@@ -110,50 +110,10 @@
 </template>
 
 <script>
-import { now, yesterday, beforeDays } from '@/utils/momentCustom.ts';
+import Vue from 'vue';
+import logic from './logic';
 import './style.scss';
-import card from './card/index.vue';
-import noNotif from './NoNotif/index.vue';
-import Tabs from '../Tabs/index.vue';
-import Tab from '../Tabs/Tab/index.vue';
-import Icon from '../Icon/index.vue';
 
-export default ({
-  name: 'NotificationCenter',
-  components: {
-    card, noNotif, Tabs, Tab, Icon,
-  },
-  props: {
-    announcements: {
-      type: Array,
-      default: () => [],
-    },
-    notifs: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  data() {
-    return {
-      showArchives: false,
-    };
-  },
-  methods: {
-    todayCards(data) {
-      console.log(beforeDays());
-      return data.filter((item) => item.date === now('YYYY-M-D'));
-    },
-    yesterdayCards(data) {
-      return data.filter((item) => item.date === yesterday('YYYY-M-D'));
-    },
-    thisWeekCards(data) {
-      const thisWeekNotifs = data.filter((item) => item.date >= beforeDays(6, 'YYYY-M-D'));
-      return thisWeekNotifs.filter((item) => item.date <= beforeDays(2, 'YYYY-M-D'));
-    },
-    archiveAnnouncements() {
-      return this.announcements.filter((item) => item.date < beforeDays(6, 'YYYY-M-D'));
-    },
-  },
-});
+export default Vue.extend({ mixins: [logic] });
 
 </script>
