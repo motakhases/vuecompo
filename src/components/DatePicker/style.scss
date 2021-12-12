@@ -62,9 +62,24 @@
       }
     }
     &.vpd-range-between {
+      /* Default */
+
       @apply bg-primarySurface border-t border-b border-primaryZarinpal text-primaryZarinpal;
+
+      /* dark */
+      @apply dark:bg-primarySurface-dark dark:border-primaryZarinpal-dark 
+			dark:text-primaryZarinpal-dark;
+
+      /* hover */
+      @apply hover:bg-primarySurface-hover hover:text-primaryZarinpal #{!important};
+      @apply dark:hover:bg-primarySurface-dark-hover dark:hover:text-primaryZarinpal-dark #{!important};
+
+      /* active */
+      @apply active:shadow-border-focus-heavy active:z-10;
+      @apply dark:active:shadow-dark-border-focus-heavy;
+
       .vpd-day-effect {
-        @apply bg-transparent #{!important};
+        @apply hidden #{!important};
       }
     }
   }

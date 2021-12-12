@@ -136,12 +136,20 @@
     <SegmentedButton :items="items" />
     <StoreStatus text="me" />
     <TextBox v-model="value" />
-    <TextField v-model="value" />
+    <TextField
+      :value="me"
+      @value="me = $event"
+    />
+    {{ me }}
     <DatePicker
       range
-      :startinpu="startinput"
+      :start-input="startInput"
+      :end-input="endInput"
+      @startInput="startInput = $event"
+      @endInput="endInput = $event"
     />
-    {{ startinput }}
+    {{ startInput }}
+    {{ endInput }}
     <!-- <TopBar>
       <template v-slot:right-side>
         <Icon
@@ -233,7 +241,9 @@ export default Vue.extend({
   },
   data() {
     return {
-      startinput: '',
+      startInput: '',
+      endInput: '',
+      me: '',
       options: [
         { id: 1, name: 'Barney' },
         { id: 2, name: 'Homer' },

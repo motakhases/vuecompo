@@ -11,7 +11,7 @@
       auto-submit
       :range="range"
       :class="['zpl-date-picker', { 'no-preview': !preview }]"
-      @change="dateMoment=$event"
+      @change="dateMoment = $event"
     >
       <Icon
         slot="prev-month"
@@ -23,22 +23,16 @@
       />
       <!-- slot for "month-name" -->
       <template #month-name="{ vm, date }">
-        {{ date.xFormat('jMMMM') }}
-        <Icon
-          name="angleDown"
-        />
+        {{ date.xFormat("jMMMM") }}
+        <Icon name="angleDown" />
       </template>
       <template #header-year="{ vm, selectedDate }">
         {{ selectedDate.xYear() }}
-        <Icon
-          name="angleDown"
-        />
+        <Icon name="angleDown" />
       </template>
       <!-- slot for "close-btn" -->
       <template #close-btn="">
-        <Icon
-          name="close"
-        />
+        <Icon name="close" />
       </template>
     </VuePersianDatetimePicker>
     <div
@@ -48,29 +42,32 @@
       <div class="zpl-date-picker-range-input">
         <label for="">شروع</label>
         <TextField
-          v-model="startInput"
+          :value="startValue"
           type="text"
           after-icon="calender"
           placeholder="روز/ماه/سال"
           :focusout="firstInputHandler"
+          @value="startValue = $event"
         />
       </div>
       <div class="zpl-date-picker-range-input">
         <label for="">پایان</label>
         <TextField
-          v-model="secondInput"
+          :value="endValue"
           after-icon="calender"
           placeholder="روز/ماه/سال"
           :focusout="secondInputHandler"
+          @value="endValue = $event"
         />
       </div>
     </div>
     <TextField
       v-else
       id="editable-input"
-      v-model="value"
+      :value="singleInput"
       after-icon="calender"
       placeholder="روز/ماه/سال"
+      @value="singleInput = $event"
     />
   </div>
 </template>

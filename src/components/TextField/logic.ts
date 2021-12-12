@@ -66,6 +66,12 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    focusout: {
+      type: Function,
+      default: (): void => {
+        console.log('focusout');
+      },
+    },
   },
   data() {
     return {
@@ -100,13 +106,16 @@ export default Vue.extend({
     onInput(event: any) {
       // update value of input and if they have , or - remove them
       const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
-      this.$emit('input', this.toEnNumber(newValue));
+      this.$emit('value', this.toEnNumber(newValue));
     },
     onFocusIn() {
       // for adding active label style
       this.activeLabel = true;
     },
     onFocusOut() {
+      if (this.focusout) {
+        this.focusout();
+      }
       // if input is empty put label inside input on focusing out
       if (!this.value) {
         this.activeLabel = false;
