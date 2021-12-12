@@ -10,6 +10,7 @@
         <p>salam</p>
         <p>salam</p>
         <p>salam</p>
+        <p>salam</p>
       </div>
       <div slot="footer">
         <button> footer </button>
@@ -194,7 +195,7 @@ import NotificationCenter from './components/NotificationCenter/index.vue';
 export default Vue.extend({
   name: 'App',
   components: {
-    PageHeading, Modal, NotificationCenter, Pagination,
+    Modal, NotificationCenter,
   },
   data() {
     return {
