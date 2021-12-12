@@ -5,7 +5,7 @@
         <span class="limit-title">تعداد سطر در هر صفحه:</span>
         <div class="inline-block relative">
           <Button
-            :text="limit"
+            :text="String(limit)"
             type="secondary"
             size="small"
             after-icon="angleDown"
@@ -28,7 +28,7 @@
       <div class="page">
         <div class="inline-block relative">
           <Button
-            :text="page"
+            :text="String(page)"
             type="tertiary"
             size="small"
             after-icon="angleDown"

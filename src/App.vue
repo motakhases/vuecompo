@@ -1,14 +1,31 @@
 <template>
   <div>
-    <NotificationCenter v-if="false" :announcements="announcements" />
-
+    <Modal
+      v-if="showModal"
+      title="تست عنوان"
+      @close="showModal = false"
+    >
+      <div slot="body">
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+      </div>
+      <div slot="footer">
+        <button> footer </button>
+      </div>
+    </Modal>
+    <NotificationCenter
+      v-if="true"
+      :announcements="announcements"
+    />
     <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl mb-2xl relative">
       <PageHeading
         :sticky="true"
         title="عنوان"
         desc="توضیحات صفحه"
         has-button
-        :btn="{ label: 'تست'}"
+        :btn="{ text: 'تست'}"
         @btnClick="testMethod()"
       />
       <h1 class="font-bold text-ls-md mb-sm">
@@ -84,6 +101,7 @@
         TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
         and <a href="https://vuejs.org/">Vuejs</a>.
       </p>
+      <Pagination />
     </div>
   </div>
 </template>
@@ -92,13 +110,18 @@
 import moment from 'moment-jalaali';
 import Vue from 'vue';
 import PageHeading from './components/PageHeading/index.vue';
+import Pagination from './components/Pagination/index.vue';
+import Modal from './components/Modal/index.vue';
 import NotificationCenter from './components/NotificationCenter/index.vue';
 
 export default Vue.extend({
   name: 'App',
-  components: { PageHeading, NotificationCenter },
+  components: {
+    PageHeading, Modal, NotificationCenter, Pagination,
+  },
   data() {
     return {
+      showModal: false,
       announcements: [
         {
           title: 'عنوان',
