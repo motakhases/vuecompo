@@ -13,12 +13,15 @@ import ProfileFill from './icons/ProfileFill.vue';
 import QuestionCircle from './icons/QuestionCircle.vue';
 import Notification from './icons/Notification.vue';
 import AngleLeft from './icons/AngleLeft.vue';
+import AngleRight from './icons/AngleRight.vue';
 import ChartSquare from './icons/ChartSquare.vue';
 import Plus from './icons/Plus.vue';
 import Terminal from './icons/Terminal.vue';
 import Delete from './icons/Delete.vue';
 import ClockRefresh from './icons/ClockRefresh.vue';
 import ArrowRight from './icons/ArrowRight.vue';
+import ArrowFirst from './icons/ArrowFirst.vue';
+import ArrowLast from './icons/ArrowLast.vue';
 import Star from './icons/Star.vue';
 
 export default Vue.extend({
@@ -26,6 +29,8 @@ export default Vue.extend({
   components: {
     ChevronUp,
     AngleDown,
+    AngleRight,
+    AngleLeft,
     CheckmarkCircle,
     FilledArrowDown,
     FilledArrowUp,
@@ -37,13 +42,14 @@ export default Vue.extend({
     ProfileFill,
     QuestionCircle,
     Notification,
-    AngleLeft,
     ChartSquare,
     Plus,
     Terminal,
     Delete,
     ClockRefresh,
     ArrowRight,
+    ArrowFirst,
+    ArrowLast,
     Star,
   },
 
