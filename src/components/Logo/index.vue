@@ -3,12 +3,7 @@
     :class="[
       'zpl-logo',
       size,
-      type,
-      type === 'logo'
-        ? 'dark:logo'
-        : type === 'logo-type'
-          ? 'dark:logo-type'
-          : '',
+      type
     ]"
     :language="language"
     :name="name"

@@ -20,6 +20,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    text: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {

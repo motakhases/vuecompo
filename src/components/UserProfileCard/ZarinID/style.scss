@@ -1,0 +1,44 @@
+.zpl-user-card-id {
+  /* Default */
+  @apply py-xs px-sm border border-border-soft rounded-sm inline-flex items-center;
+  @apply gap-x-xs text-b2 text-text bg-surface;
+  @apply dark:bg-surface-dark dark:border-border-dark-soft dark:text-text-dark;
+
+  .circle {
+    @apply rounded-circle w-md h-md flex items-center justify-center;
+    &:after {
+      content: "";
+      @apply w-xs h-xs rounded-circle;
+    }
+  }
+
+  .blue {
+    @apply bg-primarySurface;
+    @apply dark:bg-primarySurface-dark;
+
+    &:after {
+      @apply bg-primaryZarinpal;
+      @apply dark:bg-primaryZarinpal-dark;
+    }
+  }
+
+  .silver {
+    @apply bg-gray-60;
+    @apply dark:bg-white-dark-20;
+
+    &:after {
+      @apply bg-black-20;
+      @apply bg-white-dark-60;
+    }
+  }
+
+  .gold {
+    @apply bg-warningSurface;
+    @apply dark:bg-warningSurface-dark;
+
+    &:after {
+      @apply bg-zarin;
+      @apply dark:bg-zarin-dark;
+    }
+  }
+}

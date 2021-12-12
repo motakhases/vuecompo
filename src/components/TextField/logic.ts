@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { ValidationProvider } from 'vee-validate';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextField',
@@ -16,7 +16,7 @@ export default Vue.extend({
     },
     label: {
       type: String,
-      default: 'label',
+      default: '',
     },
     helperHint: {
       type: String,
@@ -40,15 +40,15 @@ export default Vue.extend({
     },
     separator: {
       type: String,
-      default: 'none',
+      default: '',
     },
     beforeIcon: {
       type: String,
-      default: 'none',
+      default: '',
     },
     afterIcon: {
       type: String,
-      default: 'none',
+      default: '',
     },
     stepper: {
       type: Boolean,
@@ -56,7 +56,7 @@ export default Vue.extend({
     },
     rules: {
       type: String,
-      default: 'none',
+      default: '',
     },
   },
   data() {

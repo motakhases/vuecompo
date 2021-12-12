@@ -1,8 +1,9 @@
 <template>
-  <div class="rtl">
-    <div :class="['zpl-store-status', state ]">
-      <slot />
-    </div>
+  <div
+    :class="['zpl-store-status', state ]"
+    dir="rtl"
+  >
+    {{ text }}
   </div>
 </template>
 

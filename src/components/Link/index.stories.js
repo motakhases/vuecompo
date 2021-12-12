@@ -22,9 +22,8 @@ const Template = (_, { argTypes }) => ({
       :href="href"
       :exact="exact"
       :target="target"
-    >
-      {{ text }}
-    </Link>
+			:text="text"
+    />
     و با استفاده از طراحان گرافیک است.
   </div>
   `,
@@ -41,8 +40,8 @@ Default.argTypes = {
 
 Default.args = {
   text: "صنعت چاپ",
-  to: "",
+  to: "/home",
   target: "_blank",
-  href: "https://fa.wikipedia.org/wiki/%DA%86%D8%A7%D9%BE",
+  href: "",
   exact: false,
 };
