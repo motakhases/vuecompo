@@ -39,7 +39,7 @@
             @apply dark:text-text-dark-soft;
           }
           .link{
-            @apply float-left text-b2;
+            @apply float-left;
           }
         }
       }
@@ -71,13 +71,16 @@
     }
     //icons
     .close-icon{
-      @apply m-md cursor-pointer;
+      @apply m-md cursor-pointer text-icon;
+      @apply dark:text-icon-dark;
     }
     .archive-icon{
-      @apply m-md float-left cursor-pointer;
+      @apply m-md float-left cursor-pointer text-icon;
+      @apply dark:text-icon-dark;
     }
     .return-icon{
-      @apply absolute m-md cursor-pointer;
+      @apply absolute m-md cursor-pointer text-icon;
+      @apply dark:text-icon-dark;
     }
   }
   .announce-archives{

@@ -2,16 +2,12 @@ import Vue from 'vue';
 import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
-  name: 'Tag',
+  name: 'Modal',
   components: { Icon },
   props: {
-    label: {
+    title: {
       type: String,
-      default: '',
-    },
-    btn: {
-      type: Boolean,
-      default: false,
+      default: 'عنوان',
     },
   },
   methods: {

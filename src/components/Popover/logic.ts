@@ -2,21 +2,24 @@ import Vue from 'vue';
 import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
-  name: 'Tag',
   components: { Icon },
   props: {
-    label: {
+    items: {
+      type: Array,
+      required: true,
+    },
+    iconName: {
       type: String,
       default: '',
     },
-    btn: {
+    negative: {
       type: Boolean,
       default: false,
     },
   },
   methods: {
-    close():void {
-      this.$emit('close');
+    select(val:any) {
+      this.$emit('select', val);
     },
   },
 });

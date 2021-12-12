@@ -18,6 +18,7 @@ export default Vue.extend({
     questionCircle: () => import('./icons/QuestionCircle.vue'),
     notification: () => import('./icons/Notification.vue'),
     angleLeft: () => import('./icons/AngleLeft.vue'),
+    angleRight: () => import('./icons/AngleRight.vue'),
     chartSquare: () => import('./icons/ChartSquare.vue'),
     plus: () => import('./icons/Plus.vue'),
     terminal: () => import('./icons/Terminal.vue'),
@@ -25,6 +26,8 @@ export default Vue.extend({
     delete: () => import('./icons/Delete.vue'),
     clockRefresh: () => import('./icons/ClockRefresh.vue'),
     arrowRight: () => import('./icons/ArrowRight.vue'),
+    arrowFirst: () => import('./icons/ArrowFirst.vue'),
+    arrowLast: () => import('./icons/ArrowLast.vue'),
     star: () => import('./icons/Star.vue'),
   },
 
