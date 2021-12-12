@@ -19,90 +19,167 @@
       v-if="true"
       :announcements="announcements"
     />
-    <div class="w-full mx-auto max-w-[1024px] bg-secondary rounded-md p-xl mt-2xl mb-2xl relative">
-      <PageHeading
-        :sticky="true"
-        title="عنوان"
-        desc="توضیحات صفحه"
-        has-button
-        :btn="{ text: 'تست'}"
-        @btnClick="testMethod()"
+    <AvatarProgressBar
+      size="large"
+      type="silver"
+      :percent="10"
+    />
+    <BankCards
+      username="شایسته ملک پور"
+      bank-name="بانک سامان"
+      logo="saman"
+      amount="5120000"
+      iban="IR870560085577703153460001"
+      rrn="892938820001277640002746"
+      :default-account="false"
+    />
+    <Thumbnail icon="terminal" />
+    <Button text="me" />
+    <ButtonGroup>
+      <Button text="me" />
+      <Button
+        text="me"
+        type="tertiary"
       />
-      <h1 class="font-bold text-ls-md mb-sm">
-        @zarinpal/web-components
-      </h1>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <p>
-        This package providing a new design system for <a href="https://zarinpal.com/">ZarinPal</a> that contains a foundation and many components based on
-        the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in
-        the future. In order to increase development speed and consistency on the style guide, we decided to use
-        TailwindCSS. So this package uses <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
-        and <a href="https://vuejs.org/">Vuejs</a>.
-      </p>
-      <Pagination />
-    </div>
+    </ButtonGroup>
+    <Dropdown
+      v-model="value"
+      label="یک
+      لیبل
+      تستی"
+      value=""
+      helper-hint="یک
+      توضیح
+      کوتاه"
+      success-hint="عملیات
+      موفقیت
+      آمیز
+      بود"
+      :options="options"
+    />
+    <Icon
+      name="terminal"
+      class="w-xl h-xl"
+    />
+    <Label
+      text="لیبل"
+      size="small"
+      type="positive"
+    />
+    <Link
+      href="href"
+      text="صنعت چاپ"
+    />
+    <Logo
+      name="zarinpal"
+      type="logo"
+    />
+    <NavBadge text="text" />
+    <NavigationBar>
+      <SwitchTerminalPopover>
+        <template v-slot:terminal>
+          <SwitchTerminal
+            title="عنوان درگاه"
+            link="zarinp.al/getway"
+            icon="terminal"
+          />
+        </template>
+        <template v-slot:menu>
+          <Overview
+            link="overview"
+            active
+          >
+            نمای کلی
+          </Overview>
+          <SwitchTerminalItem
+            title="عنوان درگاه"
+            link="zarinp.al/getway"
+            icon="terminal"
+            active
+            state="active"
+            state-text="وضعیت"
+          />
+          <SwitchTerminalItem
+            title="عنوان درگاه"
+            link="zarinp.al/getway"
+            icon="terminal"
+            state="inactive"
+            state-text="وضعیت"
+          />
+          <Create link="/home">
+            ایجاد درگاه جدید
+          </Create>
+        </template>
+      </SwitchTerminalPopover>
+      <template v-slot:logo>
+        <Logo
+          name="zarinpal"
+          type="logo"
+          language="fa"
+          size="medium"
+        />
+      </template>
+      <template v-slot:firstList>
+        <NavItem
+          active
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+          badge="12"
+        />
+        <NavItem
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+          badge="12"
+        />
+      </template>
+      <template v-slot:secondList>
+        <NavItem
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+        />
+        <NavItem
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+        />
+      </template>
+    </NavigationBar>
+    <NotificationBadge text="41" />
+    <SegmentedButton :items="items" />
+    <StoreStatus text="me" />
+    <TextBox v-model="value" />
+    <TextField
+      :value="value"
+      @value="value = $event"
+    />
+    <!-- <TopBar>
+      <template v-slot:right-side>
+        <Icon
+          name="menuBurger"
+          class="zpl-topbar-menu"
+        />
+        <div class="zpl-topbar-logo">
+          <Logo
+            size="medium"
+            name="zarinpal"
+            type="logo"
+            language="fa"
+          />
+        </div>
+      </template>
+      <template v-slot:left-side>
+        <Icon
+          name="questionCircle"
+          class="zpl-topbar-menu"
+        />
+        <Notification badge="2" />
+        <UserProfile username="نام کاربر" />
+      </template>
+    </TopBar>
+    <Icon name="terminal" /> -->
   </div>
 </template>
 

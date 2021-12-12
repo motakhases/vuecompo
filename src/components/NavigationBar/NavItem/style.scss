@@ -4,6 +4,7 @@
 
   /* tooltip */
   .zpl-tooltip-container {
+		@apply w-full;
     &:hover {
       .zpl-tooltip {
         @apply hidden;
@@ -12,7 +13,7 @@
   }
 }
 .zpl-nav-item-link {
-  @apply flex items-center rounded-sm p-xs gap-md cursor-pointer text-text text-b2;
+  @apply flex items-center rounded-sm p-xs gap-md cursor-pointer text-text text-b2 w-full;
   @apply dark:text-text-dark;
 
   /* Hover */
