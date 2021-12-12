@@ -4,7 +4,11 @@
       size="medium"
       img="https://www.digikala.com/static/files/fd4840b2.svg"
     />
-    <AvatarProgressBar size="large" type="silver" :percent="10" />
+    <AvatarProgressBar
+      size="large"
+      type="silver"
+      :percent="10"
+    />
     <BankCards
       username="شایسته ملک پور"
       bank-name="بانک سامان"
@@ -18,7 +22,10 @@
     <Button text="me" />
     <ButtonGroup>
       <Button text="me" />
-      <Button text="me" type="tertiary" />
+      <Button
+        text="me"
+        type="tertiary"
+      />
     </ButtonGroup>
     <Dropdown
       v-model="value"
@@ -35,10 +42,23 @@
       بود"
       :options="options"
     />
-    <Icon name="terminal" class="w-xl h-xl" />
-    <Label text="لیبل" size="small" type="positive" />
-    <Link href="href" text="صنعت چاپ" />
-    <Logo name="zarinpal" type="logo" />
+    <Icon
+      name="terminal"
+      class="w-xl h-xl"
+    />
+    <Label
+      text="لیبل"
+      size="small"
+      type="positive"
+    />
+    <Link
+      href="href"
+      text="صنعت چاپ"
+    />
+    <Logo
+      name="zarinpal"
+      type="logo"
+    />
     <NavBadge text="text" />
     <NavigationBar>
       <SwitchTerminalPopover>
@@ -50,7 +70,12 @@
           />
         </template>
         <template v-slot:menu>
-          <Overview link="overview" active> نمای کلی </Overview>
+          <Overview
+            link="overview"
+            active
+          >
+            نمای کلی
+          </Overview>
           <SwitchTerminalItem
             title="عنوان درگاه"
             link="zarinp.al/getway"
@@ -66,11 +91,18 @@
             state="inactive"
             state-text="وضعیت"
           />
-          <Create link="/home"> ایجاد درگاه جدید </Create>
+          <Create link="/home">
+            ایجاد درگاه جدید
+          </Create>
         </template>
       </SwitchTerminalPopover>
       <template v-slot:logo>
-        <Logo name="zarinpal" type="logo" language="fa" size="medium" />
+        <Logo
+          name="zarinpal"
+          type="logo"
+          language="fa"
+          size="medium"
+        />
       </template>
       <template v-slot:firstList>
         <NavItem
@@ -80,18 +112,34 @@
           icon="questionCircle"
           badge="12"
         />
-        <NavItem link="/" title="لیبل" icon="questionCircle" badge="12" />
+        <NavItem
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+          badge="12"
+        />
       </template>
       <template v-slot:secondList>
-        <NavItem link="/" title="لیبل" icon="questionCircle" />
-        <NavItem link="/" title="لیبل" icon="questionCircle" />
+        <NavItem
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+        />
+        <NavItem
+          link="/"
+          title="لیبل"
+          icon="questionCircle"
+        />
       </template>
     </NavigationBar>
     <NotificationBadge text="41" />
     <SegmentedButton :items="items" />
     <StoreStatus text="me" />
     <TextBox v-model="value" />
-    <TextField v-model="value" />
+    <TextField
+      :value="value"
+      @value="value = $event"
+    />
     <!-- <TopBar>
       <template v-slot:right-side>
         <Icon

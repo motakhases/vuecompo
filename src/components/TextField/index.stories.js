@@ -13,7 +13,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md">
-		<TextField v-model="value" v-bind="$props" />  
+		<TextField @value="value = $event" v-bind="$props" />  
 	</div>
 	`,
 });
