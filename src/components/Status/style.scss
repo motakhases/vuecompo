@@ -1,0 +1,41 @@
+.zpl-status {
+  /* Default */
+  @apply rounded-xl flex items-center py-[2px] px-xs text-b3;
+  @apply dark:text-text-dark;
+	
+  /* circle */
+  .circle {
+    @apply w-xs h-xs rounded-circle ml-[6px];
+  }
+
+  &.neutral {
+		@apply bg-surface text-text-soft;
+		@apply dark:bg-surface-dark dark:text-text-dark-soft;
+
+    .circle {
+      @apply bg-icon-disabled;
+      @apply dark:bg-icon-dark-disabled;
+    }
+  }
+
+  &.active {
+    &:before {
+      @apply bg-icon-success;
+      @apply dark:bg-icon-dark-success;
+    }
+  }
+
+  &.pending {
+    &:before {
+      @apply bg-icon-warning;
+      @apply dark:bg-icon-dark-warning;
+    }
+  }
+
+  &.deactive {
+    &:before {
+      @apply bg-icon-danger;
+      @apply dark:bg-icon-dark-danger;
+    }
+  }
+}
