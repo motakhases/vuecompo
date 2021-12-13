@@ -1,0 +1,38 @@
+.zpl-inline-msg {
+  @apply flex rounded-sm border p-md w-full;
+
+  .zpl-warning-icon {
+    @apply w-xl h-xl;
+  }
+  .zpl-inline-msg-main {
+    @apply flex-1 mr-xs;
+  }
+  .zpl-inline-msg-header {
+    @apply flex;
+
+    svg {
+      @apply w-xl h-xl text-icon mr-sm cursor-pointer;
+    }
+  }
+  .zpl-inline-msg-title {
+    @apply text-text text-btn flex-1;
+  }
+  .zpl-inline-msg-des {
+    @apply text-text text-b3 mt-xs;
+  }
+  &.neutral {
+    @apply bg-surface border-border;
+
+    .zpl-warning-icon {
+      @apply text-icon-disabled;
+    }
+  }
+
+	&.informative {
+    @apply  border-border;
+
+    .zpl-warning-icon {
+      @apply text-icon-disabled;
+    }
+  }
+}
