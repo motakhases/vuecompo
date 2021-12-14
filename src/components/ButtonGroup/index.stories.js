@@ -3,7 +3,7 @@ import Button from '@/components/Button/index.vue';
 
 export default {
   component: ButtonGroup,
-  title: 'Components/ButtonGroup',
+  title: 'Components/Button',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -22,10 +22,10 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-export const Default = Template.bind({});
+export const Group = Template.bind({});
 
 
-Default.args = {
+Group.args = {
   firstBtn: "دکمه",
   secondBtn: "دکمه",
 };
