@@ -1,0 +1,19 @@
+.zpl-table-action-container {
+  /* Default */
+  @apply text-icon cursor-pointer absolute top-auto;
+  @apply  left-md mt-[11px];
+  @apply dark:bg-surface-dark dark:text-icon-dark;
+
+}
+
+.zpl-table-action {
+  /* Default */
+  @apply bg-surface rounded-sm p-2xs text-icon;
+
+  @apply dark:bg-surface-dark dark:text-icon-dark;
+
+  /* icon */
+  svg {
+    @apply w-xl h-xl;
+  }
+}
