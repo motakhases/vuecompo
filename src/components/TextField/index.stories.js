@@ -11,9 +11,13 @@ const Template = (_, { argTypes }) => ({
     TextField,
   },
   props: Object.keys(argTypes),
+  data: () => ({
+    inputValue: ''
+  }),
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md">
-		<TextField @value="value = $event" v-bind="$props" />  
+		<TextField v-model="inputValue" v-bind="$props" />  
+    {{ inputValue }}
 	</div>
 	`,
 });
@@ -34,10 +38,10 @@ Default.argTypes = {
 
 Default.args = {
   disabled: false,
-  label: 'label',
+  label: 'یک فیلد متنی',
   value: '',
-  helperHint: 'helper',
-	successHint: 'success',
+  helperHint: 'می‌توانید در این فیلد هر چیزی بنویسید',
+	successHint: 'متن با موفقیت خوانده شد',
   unit: '',
   limit: 0,
 	type: 'text',

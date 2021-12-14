@@ -8,14 +8,34 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { Radio },
   props: Object.keys(argTypes),
+  data: () => ({
+    selectedOption: 'val1'
+  }),
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md h-[100vh]">
     <Radio
+      v-model="selectedOption"
       :disabled="disabled"
       :name="name"
-      :val="val"
-      :text="text"
+      val="val1"
+      text="text1"
     />
+    <Radio
+      v-model="selectedOption"
+      :disabled="disabled"
+      :name="name"
+      val="val2"
+      text="text2"
+    />
+    <Radio
+      v-model="selectedOption"
+      :disabled="disabled"
+      :name="name"
+      val="val3"
+      text="text3"
+    />
+
+    {{ selectedOption }}
   </div>
   `,
 });
