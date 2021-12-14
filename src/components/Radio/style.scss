@@ -28,6 +28,10 @@
     }
   }
 
+  &-disabled {
+    @apply text-text-disabled dark:text-text-dark-disabled pointer-events-none;
+  }
+
   input:checked ~ .checkmark {
     @apply border-none;
     @apply bg-primaryZarinpal;
