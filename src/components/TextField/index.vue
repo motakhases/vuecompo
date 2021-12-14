@@ -19,20 +19,12 @@
         />
 
         <input
-<<<<<<< Updated upstream
-=======
           :id="id"
           v-model="model"
->>>>>>> Stashed changes
           class="zpl-textfield-input"
           :disabled="disabled"
           :maxlength="limit > 0 ? limit : undefined"
-<<<<<<< Updated upstream
-          :separator="separator"
-          @input="onInput"
-=======
           :placeholder="placeholder"
->>>>>>> Stashed changes
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keypress="onlyNumber"
