@@ -1,17 +1,17 @@
-import Component from './index.vue';
+import Tabs from './index.vue';
 import Tab from './Tab/index.vue';
 
 export default {
-  component: Component,
+  component: Tabs,
   title: 'Components/Tabs',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component, Tab },
+  components: { Tabs, Tab },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-    <Component dir="rtl" :fill-container="fillContainer">
+    <Tabs dir="rtl" :fill-container="fillContainer">
       <tab
         v-for="(tab, index) in tabs"
         :key="index"
@@ -19,7 +19,7 @@ const Template = (_, { argTypes }) => ({
       >
         {{ tab.content }}
       </tab>
-    </Component>
+    </Tabs>
   </div>
   `,
 });

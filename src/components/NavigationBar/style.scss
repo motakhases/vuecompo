@@ -10,7 +10,7 @@
   /* toggle */
   &.toggle {
     @apply lg:w-[72px] transition-all ease-in duration-200 right-[-500px] lg:right-0;
-		@apply sm:h-screen	;
+    @apply sm:h-screen hidden sm:block;
     transition-timing-function: ease-in;
     .zpl-nav-bar-header-title,
     .zpl-nav-bar-arrow,

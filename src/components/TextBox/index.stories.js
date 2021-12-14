@@ -1,49 +1,39 @@
-/* eslint-disable no-tabs */
-/* eslint-disable no-multiple-empty-lines */
-
-import Component from './index.vue';
-import '../../utils/validations';
+import TextBox from "./index.vue";
+import "@/utils/validations";
 
 export default {
-  component: Component,
-  title: 'Components/TextBox',
+  component: TextBox,
+  title: "Components/TextBox",
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    TextBox,
   },
   props: Object.keys(argTypes),
   template: `
-		<Component
-		v-model="value"
-		:size="size"
-		:disabled="disabled"
-		:label="label"
-		:value="value"
-		:helperHint="helperHint"
-		:successHint="successHint"
-	  :limit="limit"
-		:rules="rules"
-		/>  `,
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<TextBox v-model="value" v-bind="$props" />
+	</div>
+	`,
 });
 
 export const Default = Template.bind({});
 
 Default.argTypes = {
   size: {
-    options: ['small', 'medium', 'large'],
-    control: { type: 'radio' },
+    options: ["small", "medium", "large"],
+    control: { type: "radio" },
   },
 };
 
 Default.args = {
-  size: 'medium',
+  size: "medium",
   disabled: false,
-  label: 'label',
-  value: '',
-  helperHint: '',
-	successHint: '',
+  label: "label",
+  value: "",
+  helperHint: "",
+  successHint: "",
   limit: 0,
-	rules: 'odd|required|min'
+  rules: "odd|required|min",
 };

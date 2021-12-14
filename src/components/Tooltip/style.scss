@@ -1,6 +1,6 @@
 .zpl-tooltip-container {
   /* Default */
-  @apply relative inline-block w-full;
+  @apply relative inline-block w-max;
 
   /* hover */
   &:hover {

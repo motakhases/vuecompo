@@ -1,27 +1,25 @@
 <template>
   <div :class="['zpl-tag']">
     <span :class="{'with-btn' : btn}">
-      <slot />
+      {{ label }}
     </span>
-    <div
+    <button
       v-if="btn"
-      class="zpl-tag-icon"
-    />
+      class="clear-btn"
+    >
+      <Icon
+        name="delete"
+        @click.native="close"
+      />
+    </button>
   </div>
 </template>
 
 <script>
-
+import Vue from 'vue';
+import logic from './logic';
 import './style.scss';
 
-export default ({
-  name: 'Tag',
-  props: {
-    btn: {
-      type: Boolean,
-      default: false,
-    },
-  },
-});
+export default Vue.extend({ mixins: [logic] });
 
 </script>

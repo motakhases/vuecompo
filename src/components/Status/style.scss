@@ -1,0 +1,60 @@
+.zpl-status {
+  /* Default */
+  @apply rounded-xl flex items-center py-[2px] px-xs text-b3 w-max;
+  @apply dark:text-text-dark;
+
+  /* circle */
+  .circle {
+    @apply w-xs h-xs rounded-circle ml-[6px];
+  }
+
+  &.neutral {
+    @apply bg-surface-soft text-text-soft;
+    @apply dark:bg-surface-dark-soft dark:text-text-dark-soft;
+
+    .circle {
+      @apply bg-icon-disabled;
+      @apply dark:bg-icon-dark-disabled;
+    }
+  }
+
+  &.informative {
+    @apply bg-informationSurface text-text-information;
+    @apply dark:bg-informationSurface-dark dark:text-text-dark-information;
+
+    .circle {
+      @apply bg-icon-information;
+      @apply dark:bg-icon-dark-information;
+    }
+  }
+
+  &.warning {
+    @apply bg-warningSurface text-text-warning;
+    @apply dark:bg-warningSurface-dark dark:text-text-dark-warning;
+
+    .circle {
+      @apply bg-icon-warning;
+      @apply dark:bg-icon-dark-warning;
+    }
+  }
+
+  &.negative {
+    @apply bg-dangerSurface text-text-danger;
+    @apply dark:bg-dangerSurface-dark dark:text-text-dark-danger;
+
+    .circle {
+      @apply bg-icon-danger;
+      @apply dark:bg-icon-dark-danger;
+    }
+  }
+
+  &.positive {
+    @apply bg-successSurface text-text-success;
+    @apply dark:bg-successSurface-dark dark:text-text-dark-success;
+
+    .circle {
+      @apply bg-icon-success;
+      @apply dark:bg-icon-dark-success;
+    }
+  }
+}

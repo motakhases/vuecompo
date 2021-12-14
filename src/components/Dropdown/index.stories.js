@@ -1,31 +1,18 @@
-/* eslint-disable no-tabs */
-/* eslint-disable no-multiple-empty-lines */
-
-import Component from './index.vue';
-import "../../utils/validations.js"
+import Dropdown from "./index.vue";
+import "@/utils/validations.js";
 export default {
-  component: Component,
-  title: 'Components/Dropdown',
+  component: Dropdown,
+  title: "Components/Dropdown",
 };
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Component,
+    Dropdown,
   },
   props: Object.keys(argTypes),
   template: `
     <div class="dark:bg-surface-dark p-sm rounded-md h-full">
-      <Component
-        v-model="value"
-        :disabled="disabled"
-        :label="label"
-        :helperHint="helperHint"
-        :successHint="successHint"
-        :options="options"
-        :disabledOptionId="disabledOptionId"
-        :loading="loading"
-        :rules="rules"
-      />
+      <Dropdown v-model="value" v-bind="$props" />
     </div>
   `,
 });
@@ -34,18 +21,18 @@ export const Default = Template.bind({});
 
 Default.args = {
   disabled: false,
-  label: 'یک لیبل تستی',
-  value: '',
-  helperHint: 'یک توضیح کوتاه',
-	successHint: 'عملیات موفقیت آمیز بود',
+  label: "یک لیبل تستی",
+  value: "",
+  helperHint: "یک توضیح کوتاه",
+  successHint: "عملیات موفقیت آمیز بود",
   options: [
-    { id: 1, name: 'Barney' },
-    { id: 2, name: 'Homer' },
-    { id: 3, name: 'Apu' },
-    { id: 4, name: 'Bart' },
-    { id: 5, name: 'Flanders' },
+    { id: 1, name: "Barney" },
+    { id: 2, name: "Homer" },
+    { id: 3, name: "Apu" },
+    { id: 4, name: "Bart" },
+    { id: 5, name: "Flanders" },
   ],
-	disabledOptionId: null,
-	loading: false,
-	rules: 'required'
+  disabledOptionId: null,
+  loading: false,
+  rules: "required",
 };

@@ -1,15 +1,15 @@
-import Component from './index.vue';
+import Icon from './index.vue';
 
 export default {
-  component: Component,
+  component: Icon,
   title: 'Components/Icon',
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Icon },
   props: Object.keys(argTypes),
   template: `
-    <component :name="name" :class="classes" />
+    <Icon :name="name" :class="classes" />
   `,
 });
 
@@ -18,21 +18,21 @@ export const Default = Template.bind({});
 Default.argTypes = {
   name: {
     options: [
-      "chevronUp",
-      "angleDown",
-      "checkmarkCircle",
-      "filledArrowDown",
-      "filledArrowUp",
-      "tickLarge",
-      "warning",
-      "menuBurger",
-      "profile",
-      "questionCircle",
-      "notification",
-      "angleLeft",
-      "chartSquare",
-      "plus",
-      "terminal"
+      "ChevronUp",
+      "AngleDown",
+      "CheckmarkCircle",
+      "FilledArrowDown",
+      "FilledArrowUp",
+      "TickLarge",
+      "Warning",
+      "MenuBurger",
+      "Profile",
+      "QuestionCircle",
+      "Notification",
+      "AngleLeft",
+      "ChartSquare",
+      "Plus",
+      "Terminal"
     ],
     control: { type: "select" },
   },

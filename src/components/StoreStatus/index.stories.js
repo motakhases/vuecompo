@@ -1,17 +1,17 @@
-import Component from "./index.vue";
+import StoreStatus from "./index.vue";
 
 export default {
-  component: Component,
+  component: StoreStatus,
   title: "Components/StoreStatus",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { StoreStatus },
   props: Object.keys(argTypes),
   template: `
-		<Component :state="state">
-			{{ text }}
-		</Component>
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<StoreStatus v-bind="$props" />
+	</div>
   `,
 });
 

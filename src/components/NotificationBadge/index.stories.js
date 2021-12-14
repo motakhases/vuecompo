@@ -1,17 +1,17 @@
-import Component from "./index.vue";
+import NotificationBadge from "./index.vue";
 
 export default {
-  component: Component,
+  component: NotificationBadge,
   title: "Components/NotificationBadge",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { NotificationBadge },
   props: Object.keys(argTypes),
   template: `
-		<Component :numeric="numeric">
-		  {{ text }}
-		</Component>
+	<div class="dark:bg-surface-dark p-sm rounded-md">
+		<NotificationBadge v-bind="$props" />
+	</div>
   `,
 });
 
@@ -19,5 +19,4 @@ export const Default = Template.bind({});
 
 Default.args = {
   text: "۱۲",
-  numeric: true,
 };

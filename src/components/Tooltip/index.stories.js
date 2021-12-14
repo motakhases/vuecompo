@@ -1,23 +1,19 @@
-import Component from "./index.vue";
+import Tooltip from "./index.vue";
 
 export default {
-  component: Component,
+  component: Tooltip,
   title: "Components/Tooltip",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Tooltip },
   props: Object.keys(argTypes),
   template: `
-			<Component
-			:text="text"
-			:position="position"
-			:space="space"
-			:indicator="indicator"
-			:size="size"
-		>
+	<div class="dark:bg-surface-dark rounded-md m-2xl dark:text-text-dark">
+    <Tooltip v-bind="$props">
 			<button>Hover Me</button>
-		</Component>
+		</Tooltip>
+	</div>
   `,
 });
 
