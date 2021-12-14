@@ -1,6 +1,6 @@
 <template>
-  <span :class="['zpl-notification-badge', numeric ? 'full' : 'empty']">
-    <slot v-if="numeric" />
+  <span :class="['zpl-notification-badge', text ? 'full' : 'empty']">
+    {{ text }}
   </span>
 </template>
 

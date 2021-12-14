@@ -1,7 +1,7 @@
 .zpl-button {
   /* Default */
-  @apply rounded-sm flex justify-center items-center text-center gap-x-xs w-max;
-
+  @apply rounded-sm inline-flex justify-center items-center text-center gap-x-xs w-max
+	border border-transparent outline-none;
   /* Disabled */
   @apply disabled:cursor-default;
 
@@ -29,6 +29,13 @@
     /* focused */
     @apply focus:bg-primaryZarinpal;
     @apply dark:focus:bg-primaryZarinpal-dark;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-white-60;
+      @apply dark:bg-black-40;
+    }
   }
 
   &.secondary {
@@ -51,6 +58,13 @@
     /* focused */
     @apply focus:bg-secondary;
     @apply dark:focus:bg-secondary-dark;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
   }
 
   &.tertiary {
@@ -73,44 +87,239 @@
     /* focused */
     @apply focus:bg-surface;
     @apply dark:focus:bg-surface-dark;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
+
+  &.neutral {
+    /* Default */
+    @apply border-border text-text;
+    @apply dark:border-border-dark dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-secondary-hover;
+    @apply dark:hover:bg-secondary-dark-hover;
+
+    /* Active */
+    @apply active:bg-secondary-active;
+    @apply dark:active:bg-secondary-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-secondary-disabled disabled:text-text-disabled;
+    @apply dark:disabled:bg-secondary-dark-disabled dark:disabled:text-text-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-secondary;
+    @apply dark:focus:bg-secondary-dark;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
+
+  &.informative {
+    /* Default */
+    @apply border-border-information text-text;
+    @apply dark:border-border-dark-information dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-informationSurface-hover;
+    @apply dark:hover:bg-informationSurface-dark-hover;
+
+    /* Active */
+    @apply active:bg-informationSurface-active;
+    @apply dark:active:bg-informationSurface-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-informationSurface-disabled disabled:text-text-disabled disabled:border-border;
+    @apply dark:disabled:bg-informationSurface-dark-disabled dark:disabled:text-text-dark-disabled;
+    @apply dark:disabled:border-border-dark;
+
+    /* focused */
+    @apply focus:bg-informationSurface-focus;
+    @apply dark:focus:bg-informationSurface-dark-focus;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
+
+  &.warning {
+    /* Default */
+    @apply border-border-warning text-text;
+    @apply dark:border-border-dark-warning dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-warningSurface-hover;
+    @apply dark:hover:bg-warningSurface-dark-hover;
+
+    /* Active */
+    @apply active:bg-warningSurface-active;
+    @apply dark:active:bg-warningSurface-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-warningSurface-disabled disabled:text-text-disabled disabled:border-border;
+    @apply dark:disabled:bg-warningSurface-dark-disabled dark:disabled:text-text-dark-disabled;
+    @apply dark:disabled:border-border-dark;
+
+    /* focused */
+    @apply focus:bg-warningSurface-focus;
+    @apply dark:focus:bg-warningSurface-dark-focus;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
+
+  &.negative {
+    /* Default */
+    @apply border-border-danger text-text;
+    @apply dark:border-border-dark-danger dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-dangerSurface-hover;
+    @apply dark:hover:bg-dangerSurface-dark-hover;
+
+    /* Active */
+    @apply active:bg-dangerSurface-active;
+    @apply dark:active:bg-dangerSurface-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-dangerSurface-disabled disabled:text-text-disabled disabled:border-border;
+    @apply dark:disabled:bg-dangerSurface-dark-disabled dark:disabled:text-text-dark-disabled;
+    @apply dark:disabled:border-border-dark;
+
+    /* focused */
+    @apply focus:bg-dangerSurface-focus;
+    @apply dark:focus:bg-dangerSurface-dark-focus;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
+
+  &.positive {
+    /* Default */
+    @apply border-border-success text-text;
+    @apply dark:border-border-dark-success dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-successSurface-hover;
+    @apply dark:hover:bg-successSurface-dark-hover;
+
+    /* Active */
+    @apply active:bg-successSurface-active;
+    @apply dark:active:bg-successSurface-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-successSurface-disabled disabled:text-text-disabled disabled:border-border;
+    @apply dark:disabled:bg-successSurface-dark-disabled dark:disabled:text-text-dark-disabled;
+    @apply dark:disabled:border-border-dark;
+
+    /* focused */
+    @apply focus:bg-successSurface-focus;
+    @apply dark:focus:bg-successSurface-dark-focus;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
+
+  &.decretive {
+    /* Default */
+    @apply bg-decretive text-text-onDanger;
+    @apply dark:bg-decretive-dark dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-decretive-hover;
+    @apply dark:hover:bg-decretive-dark-hover;
+
+    /* Active */
+    @apply active:bg-decretive-active;
+    @apply dark:active:bg-decretive-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-decretive-disabled disabled:text-text-disabled;
+    @apply dark:disabled:bg-decretive-dark-disabled dark:disabled:text-text-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-decretive;
+    @apply dark:focus:bg-decretive-dark;
+
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-white-60;
+    }
   }
 
   &.small {
     @apply px-sm py-2xs;
+
+    &.icon {
+      @apply p-2xs;
+    }
   }
 
   &.medium {
     @apply px-md py-xs;
+
+    &.icon {
+      @apply p-xs;
+    }
   }
 
   &.large {
     @apply px-xl py-sm;
+
+    &.icon {
+      @apply p-sm;
+    }
   }
 
   &.fill {
     @apply w-full;
   }
-}
-.zpl-button-icon {
-  @apply h-xl w-xl;
-}
-.zpl-button-loading {
-  /* Default */
-  @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
-}
+  .zpl-button-icon {
+    @apply h-xl w-xl;
+  }
+  .zpl-button-loading {
+    /* Default */
+    @apply h-xl w-xl relative z-10 transition-all duration-[300ms];
+  }
 
-.zpl-button-loading-1,
-.zpl-button-loading-2 {
-  /* Default */
-  @apply w-full h-full rounded-circle bg-white-60 absolute top-0 left-0;
-  @apply dark:bg-black-40;
+  .zpl-button-loading-1,
+  .zpl-button-loading-2 {
+    /* Default */
+    @apply w-full h-full rounded-circle  absolute top-0 left-0;
 
-  animation: bounce 2s infinite ease-in-out;
-}
+    animation: bounce 2s infinite ease-in-out;
+  }
 
-.zpl-button-loading-2 {
-  /* Default */
-  animation-delay: -1s;
+  .zpl-button-loading-2 {
+    /* Default */
+    animation-delay: -1s;
+  }
 }
 
 /* animation */

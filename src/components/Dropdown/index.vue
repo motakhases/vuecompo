@@ -4,7 +4,7 @@
     :rules="rules"
   >
     <div
-      :class="['zpl-dropdown-group ']"
+      :class="['zpl-dropdown-group']"
       dir="rtl"
     >
       <div
@@ -15,7 +15,6 @@
           :class="['zpl-dropdown-input']"
           :value="value"
           :disabled="disabled"
-          :placeholder="placeholder"
           @input="onInput"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
@@ -89,7 +88,11 @@
           </div>
         </div>
         <!-- shows option list when loading is false -->
-        <ul v-else>
+        <ul
+          v-else
+          id="dropdown"
+          ref="dropdownRef"
+        >
           <li
             v-for="(option,i) in filteredOptions"
             :key="option.id"

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { ValidationProvider } from 'vee-validate';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextField',
@@ -40,7 +40,7 @@ export default Vue.extend({
     },
     separator: {
       type: String,
-      default: 'none',
+      default: '',
     },
     beforeIcon: {
       type: String,
@@ -92,7 +92,7 @@ export default Vue.extend({
     onInput(event: any) {
       // update value of input and if they have , or - remove them
       const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
-      this.$emit('input', this.toEnNumber(newValue));
+      this.$emit('value', this.toEnNumber(newValue));
     },
     onFocusIn() {
       // for adding active label style

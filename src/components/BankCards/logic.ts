@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import FilterSample from '@/components/FilterSample/index.vue';
+import BankLogos from '@/components/BankLogos/index.vue';
 
 export default Vue.extend({
   name: 'BankCards',
-  components: { FilterSample },
+  components: { FilterSample, BankLogos },
   props: {
     bankName: {
       type: String,
@@ -18,8 +19,8 @@ export default Vue.extend({
       default: '',
     },
     amount: {
-      type: Number,
-      default: null,
+      type: String,
+      default: '',
     },
     iban: {
       type: String,

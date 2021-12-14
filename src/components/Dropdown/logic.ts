@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { ValidationProvider } from 'vee-validate';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 const ARROW_DOWN_KEYCODE = 40;
 const ARROW_UP_KEYCODE = 38;
@@ -58,6 +58,7 @@ export default Vue.extend({
     activeOptionIndex: number;
     filteredOptions: Array<any>;
     optionRef: any;
+    dropdownRef:any
     } {
     return {
       activeLabel: !!this.value.length,
@@ -65,6 +66,7 @@ export default Vue.extend({
       activeOptionIndex: -1,
       filteredOptions: this.options,
       optionRef: '',
+      dropdownRef: '',
     };
   },
   watch: {
@@ -75,6 +77,7 @@ export default Vue.extend({
   mounted() {
     document.documentElement.addEventListener('click', this.outsideClick, false);
     this.optionRef = this.$refs.optionRef;
+    this.dropdownRef = this.$refs.dropdownRef;
   },
   beforeDestroy() {
     document.documentElement.removeEventListener('click', this.outsideClick, false);
@@ -149,13 +152,14 @@ export default Vue.extend({
         if (isArrowDownKey || isArrowUpKey) {
           for (let i = 0; i < this.filteredOptions.length; i += 1) {
             // find the active option based on class
-            const activeOption = (this.optionRef[i]).classList.contains('active');
+            const item = this.dropdownRef.children[i];
+            const activeOption = (item).classList.contains('active');
 
             // if there is active option then remove the active class and
             // update the index of active option in order to move active class
             if (activeOption) {
               this.activeOptionIndex = i;
-              (this.optionRef[i]).classList.remove('active');
+              (item).classList.remove('active');
             }
           }
         }

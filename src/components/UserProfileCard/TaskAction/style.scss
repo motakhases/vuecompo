@@ -1,0 +1,35 @@
+.zpl-user-card-task {
+  /* Default */
+  @apply py-sm pr-sm pl-xs bg-surface-soft flex items-center gap-x-sm rounded-sm;
+  @apply text-b2 text-text w-full;
+  @apply dark:bg-surface-dark-soft dark:text-text-dark;
+
+  /* Hover */
+  @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
+
+  /* Active */
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
+
+  /* Disabled */
+  &[disabled] {
+    @apply bg-surface-disabled cursor-default text-text-disabled;
+    @apply dark:bg-surface-dark-disabled dark:text-text-dark-disabled;
+  }
+
+  /* focused */
+  @apply focus:bg-surface focus:shadow-border-focus-heavy focus:outline-none;
+  @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
+
+  svg {
+    @apply w-xl h-xl;
+  }
+}
+.zpl-user-card-task-title {
+  @apply flex-1;
+  &.complete {
+    @apply text-text-disabled;
+		@apply dark:text-text-dark-disabled
+  }
+}

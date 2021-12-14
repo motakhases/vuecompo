@@ -1,27 +1,56 @@
 import Vue from 'vue';
+import ChevronUp from './icons/ChevronUp.vue';
+import AngleDown from './icons/AngleDown.vue';
+import CheckmarkCircle from './icons/CheckmarkCircle.vue';
+import FilledArrowDown from './icons/FilledArrowDown.vue';
+import FilledArrowUp from './icons/FilledArrowUp.vue';
+import TickLarge from './icons/TickLarge.vue';
+import TickSmall from './icons/TickSmall.vue';
+import Warning from './icons/Warning.vue';
+import MenuBurger from './icons/MenuBurger.vue';
+import Profile from './icons/Profile.vue';
+import ProfileFill from './icons/ProfileFill.vue';
+import QuestionCircle from './icons/QuestionCircle.vue';
+import Notification from './icons/Notification.vue';
+import AngleLeft from './icons/AngleLeft.vue';
+import AngleRight from './icons/AngleRight.vue';
+import ChartSquare from './icons/ChartSquare.vue';
+import Plus from './icons/Plus.vue';
+import Terminal from './icons/Terminal.vue';
+import Delete from './icons/Delete.vue';
+import ClockRefresh from './icons/ClockRefresh.vue';
+import ArrowRight from './icons/ArrowRight.vue';
+import ArrowFirst from './icons/ArrowFirst.vue';
+import ArrowLast from './icons/ArrowLast.vue';
+import Star from './icons/Star.vue';
 
 export default Vue.extend({
-  name: 'BaseIcon',
-
+  name: 'Icon',
   components: {
-    chevronUp: () => import('./icons/ChevronUp.vue'),
-    angleDown: () => import('./icons/AngleDown.vue'),
-    checkmarkCircle: () => import('./icons/CheckmarkCircle.vue'),
-    filledArrowDown: () => import('./icons/FilledArrowDown.vue'),
-    filledArrowUp: () => import('./icons/FilledArrowUp.vue'),
-    tickLarge: () => import('./icons/TickLarge.vue'),
-    tickSmall: () => import('./icons/TickSmall.vue'),
-    warning: () => import('./icons/Warning.vue'),
-    menuBurger: () => import('./icons/MenuBurger.vue'),
-    profile: () => import('./icons/Profile.vue'),
-    profileFill: () => import('./icons/ProfileFill.vue'),
-    questionCircle: () => import('./icons/QuestionCircle.vue'),
-    notification: () => import('./icons/Notification.vue'),
-    angleLeft: () => import('./icons/AngleLeft.vue'),
-    chartSquare: () => import('./icons/ChartSquare.vue'),
-    plus: () => import('./icons/Plus.vue'),
-    terminal: () => import('./icons/Terminal.vue'),
-    star: () => import('./icons/Star.vue'),
+    ChevronUp,
+    AngleDown,
+    AngleRight,
+    AngleLeft,
+    CheckmarkCircle,
+    FilledArrowDown,
+    FilledArrowUp,
+    TickLarge,
+    TickSmall,
+    Warning,
+    MenuBurger,
+    Profile,
+    ProfileFill,
+    QuestionCircle,
+    Notification,
+    ChartSquare,
+    Plus,
+    Terminal,
+    Delete,
+    ClockRefresh,
+    ArrowRight,
+    ArrowFirst,
+    ArrowLast,
+    Star,
   },
 
   props: {

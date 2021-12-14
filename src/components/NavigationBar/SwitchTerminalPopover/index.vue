@@ -1,5 +1,8 @@
 <template>
-  <div class="zpl-nav-popover-container">
+  <div
+    class="zpl-nav-popover-container"
+    dir="rtl"
+  >
     <slot name="terminal" />
     <div class="zpl-nav-popover">
       <slot name="menu" />

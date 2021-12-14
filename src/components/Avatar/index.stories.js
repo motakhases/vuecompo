@@ -1,16 +1,16 @@
-import Component from "./index.vue";
+import Avatar from "./index.vue";
 
 export default {
-  component: Component,
+  component: Avatar,
   title: "Components/Avatar",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Component },
+  components: { Avatar },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Component :size="size" :img="img" />
+		<Avatar v-bind="$props" />
   </div>
   `,
 });
