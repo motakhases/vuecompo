@@ -4,12 +4,11 @@ const Template = (_, { argTypes }) => ({
   components: { Button },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-text-dark-onPrimary p-sm rounded-md rtl">
-    <Button type="primary" text="Primary" afterIcon="" />
-    <Button type="informative" text="Informative" />
-    <Button type="warning" text="Warning" />
-    <Button type="negative" text="Negative" />
-    <Button type="positive" text="Positive" />
+  <div class="dark:bg-text-dark-onPrimary p-sm rounded-md rtl flex gap-2xs">
+    <Button type="primary" text="Before Icon" beforeIcon="QuestionCircle" />
+    <Button type="primary" text="After Icon" afterIcon="QuestionCircle" />
+    <Button type="primary" text="both Icons" beforeIcon="QuestionCircle" afterIcon="QuestionCircle" />
+    <Button type="primary" icon="QuestionCircle" />
   </div>
   `,
 });

@@ -13,7 +13,9 @@ Custom Buttons for actions in forms, dialogs, and more with support for multiple
 
 
 export { default as Button } from './examples/default.js';
+export { default as Fill } from './examples/fill.js';
 export { default as Icon } from './examples/icon.js';
+export { default as Loading } from './examples/loading.js';
 export { default as Outline } from './examples/outline.js';
 export { default as Types } from './examples/types.js';
 export { default as Sizes } from './examples/sizes.js';

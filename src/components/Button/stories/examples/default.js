@@ -28,7 +28,6 @@ Default.argTypes = {
       'warning',
       'negative',
       'positive',
-
     ],
     control: { type: 'select' },
   },
