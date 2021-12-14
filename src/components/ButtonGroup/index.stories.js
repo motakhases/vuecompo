@@ -22,10 +22,10 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-export const ButtonGroup = Template.bind({});
+export const Group = Template.bind({});
 
 
-ButtonGroup.args = {
+Group.args = {
   firstBtn: "دکمه",
   secondBtn: "دکمه",
 };
