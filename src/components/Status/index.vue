@@ -1,7 +1,6 @@
 <template>
   <div
     :class="['zpl-status', type ]"
-    dir="rtl"
   >
     <span
       v-if="indicator"
