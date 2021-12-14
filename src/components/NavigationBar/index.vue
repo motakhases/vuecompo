@@ -4,7 +4,6 @@
     dir="rtl"
   >
     <slot name="popover" />
-
     <div :class="['zpl-nav-bar-menu', { toggle }]">
       <div class="zpl-nav-bar-logo">
         <slot name="logo" />

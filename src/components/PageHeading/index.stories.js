@@ -9,6 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { PageHeading },
   props: Object.keys(argTypes),
   template: `
+  <div class="h-[2000px] rtl">
     <PageHeading
       :returnBTN="returnBTN"
       :sticky="sticky"
@@ -18,6 +19,7 @@ const Template = (_, { argTypes }) => ({
       :btn="btn"
       @btnClick="onClick()"
     />
+  </div>  
   `,
 });
 
@@ -35,7 +37,7 @@ Default.args = {
 	onClick: () => alert('clicked'),
   label: "test",
   btn:{
-    label: "تست",
+    text: "تست",
     type: "primary",
     size: "medium",
     disabled: false,

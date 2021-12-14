@@ -1,0 +1,37 @@
+.zpl-pagination{
+  direction: rtl;
+  @apply flex justify-between text-b2 text-text;
+  @apply dark:text-text-dark;
+  .right-side{
+    @apply flex items-center;
+    .limit{
+      @apply border-l border-border-divider pl-md;
+      @apply dark:border-border-dark-divider;
+      .limit-title{
+        @apply ml-xs;
+      }
+    }
+    .offset{
+      @apply mr-md;
+    }
+  }
+  .left-side{
+    @apply flex items-center;
+    .page{
+      @apply border-l border-border-divider pl-md;
+      @apply dark:border-border-dark-divider;
+      .page-title{
+        @apply mr-sm;
+      }
+    }
+    .arrows{
+      @apply mr-md flex;
+      .arrow{
+        @apply ml-xs;
+      }
+    }
+  }
+  .items-box{
+    @apply absolute top-[36px] w-full;
+  }
+}

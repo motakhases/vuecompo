@@ -14,14 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import logic from './logic';
 
-export default Vue.extend({
-  name: 'NoNotif',
-  props: {
-    notifType: {
-      type: String,
-      default: 'اعلانی',
-    },
-  },
-});
+export default Vue.extend({ mixins: [logic] });
 </script>

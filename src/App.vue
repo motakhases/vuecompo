@@ -1,8 +1,29 @@
 <template>
   <div>
-    <Avatar
-      size="medium"
-      img="https://www.digikala.com/static/files/fd4840b2.svg"
+    <Modal
+      v-if="showModal"
+      title="تست عنوان"
+      @close="showModal = false"
+    >
+      <div slot="body">
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+        <p>salam</p>
+      </div>
+      <div slot="footer">
+        <button> footer </button>
+      </div>
+    </Modal>
+    <NotificationCenter
+      v-if="true"
+      :announcements="announcements"
+    />
+    <AvatarProgressBar
+      size="large"
+      type="silver"
+      :percent="10"
     />
     <AvatarProgressBar
       size="large"
@@ -179,6 +200,7 @@
 </template>
 
 <script lang="js">
+import moment from 'moment-jalaali';
 import Vue from 'vue';
 // import TopBar from '@/components/TopBar/index.vue';
 import SegmentedButton from '@/components/SegmentedButton/index.vue';
@@ -254,22 +276,25 @@ export default Vue.extend({
       value: '',
       items: [
         {
-          id: 1,
-          text: 'دکمه 1',
-          click: () => console.log('clicked'),
-          active: true,
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(8, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
         },
         {
-          id: 2,
-          text: 'دکمه 2',
-          click: () => console.log('clicked'),
-          active: false,
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(9, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
         },
         {
-          id: 3,
-          text: 'دکمه 3',
-          click: () => console.log('clicked'),
-          active: false,
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(10, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
         },
       ],
     };

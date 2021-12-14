@@ -1,5 +1,5 @@
 <template>
-  <div
+  <component
     :is="iconComponent"
     role="img"
     class="inline-block"
