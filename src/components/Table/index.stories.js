@@ -5,7 +5,7 @@ import CheckBox from "@/components/CheckBox/index.vue";
 import TableRow from "./TableRow/index.vue";
 import TableRowItem from "./TableRowItem/index.vue";
 import TableRowAction from "./TableRowAction/index.vue";
-import Lable from "@/components/Lable/index.vue";
+import Label from "@/components/Label/index.vue";
 import Thumbnail from "@/components/Thumbnail/index.vue";
 export default {
   component: Component,
@@ -20,7 +20,7 @@ const Template = (_, { argTypes }) => ({
     CheckBox,
     TableRow,
     TableRowItem,
-    Lable,
+    Label,
     Thumbnail,
     TableRowAction,
   },
@@ -45,7 +45,7 @@ const Template = (_, { argTypes }) => ({
 					</TableRowItem>
           <TableRowItem> دو </TableRowItem>
 					<TableRowItem> 
-					<Lable size="small" type="positive"> سه </Lable>
+					<Label size="small" type="positive" text="سه"/>
 					</TableRowItem>
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
@@ -55,7 +55,7 @@ const Template = (_, { argTypes }) => ({
           <TableRowItem> یک </TableRowItem>
           <TableRowItem> دو </TableRowItem>
 					<TableRowItem> 
-					<Lable size="small" type="positive"> سه </Lable>
+					<Label size="small" type="positive" text="سه"/> 
 					</TableRowItem>
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
@@ -65,7 +65,7 @@ const Template = (_, { argTypes }) => ({
           <TableRowItem> یک </TableRowItem>
           <TableRowItem> دو </TableRowItem>
 					<TableRowItem> 
-					<Lable size="small" type="positive"> سه </Lable>
+					<Label size="small" type="positive" text="سه"/>
 				</TableRowItem>
         <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
@@ -75,7 +75,7 @@ const Template = (_, { argTypes }) => ({
           <TableRowItem> یک </TableRowItem>
           <TableRowItem> دو </TableRowItem>
           <TableRowItem> 
-						<Lable size="small" type="positive"> سه </Lable>
+						<Label size="small" type="positive" text="سه"/>
 					</TableRowItem>
           <TableRowItem> چهار </TableRowItem>
           <TableRowItem> پنج </TableRowItem>
