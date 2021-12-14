@@ -1,5 +1,10 @@
 <template>
-  <label :class="['zpl-checkbox']">
+  <label
+    :class="[
+      'zpl-checkbox',
+      { 'zpl-checkbox-disabled': disabled }
+    ]"
+  >
     {{ text }}
 
     <input

@@ -3,7 +3,6 @@
   direction: rtl;
   @apply block relative pr-[30px] cursor-pointer text-[14px];
   @apply text-text min-h-[21px];
-  // dark states
   @apply dark:text-text-dark;
 
   input{
@@ -12,12 +11,12 @@
 
   .checkmark { 
     @apply absolute top-0 right-0 h-lg w-lg rounded-sm;
-    @apply bg-surface border-2 border-border;
+    @apply border-2 border-border;
     @apply hover:bg-surface-hover;
     @apply disabled:border-border-disabled;
+    
     // dark states
-    @apply dark:bg-surface-dark dark:bg-border-dark;
-    @apply dark:hover:bg-surface-dark-hover;
+    @apply dark:hover:bg-surface-dark-hover dark:border-border-dark;
     @apply dark:disabled:border-border-dark-disabled;
     
     &:after{
@@ -28,6 +27,10 @@
       content: "";
       transform: rotate(45deg);
     }
+  }
+
+  &-disabled {
+    @apply text-text-disabled dark:text-text-dark-disabled pointer-events-none;
   }
 
   input:checked ~ .checkmark {
@@ -50,6 +53,7 @@
     // dark states
     @apply dark:border-border-dark-disabled;
   }
+
   input:checked:disabled ~ .checkmark {
     @apply bg-primaryZarinpal-disabled;
     // dark states
