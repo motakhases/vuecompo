@@ -1,0 +1,14 @@
+.zpl-table-row-item {
+  @apply p-md text-b2 text-text text-right border-t border-border-divider whitespace-nowrap	w-auto;
+  @apply dark:text-text-dark dark:border-border-dark-divider;
+}
+.zpl-table-row-container {
+  @apply flex gap-sm;
+}
+.zpl-table-row-title {
+  @apply flex flex-col;
+}
+.zpl-table-row-sub {
+  @apply text-ls-cp text-text-soft mt-2xs;
+  @apply dark:text-text-dark-soft;
+}

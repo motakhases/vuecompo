@@ -1,0 +1,9 @@
+.zpl-table-container {
+  @apply relative;
+}
+.zpl-table-overflow {
+  @apply overflow-x-auto;
+}
+.zpl-table {
+  @apply w-full;
+}
