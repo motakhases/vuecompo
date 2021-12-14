@@ -5,41 +5,31 @@ export default Vue.extend({
   name: 'InlineMessage',
   components: { Icon },
   props: {
-    size: {
+    title: {
       type: String,
-      default: 'medium',
+      default: '',
     },
     type: {
       type: String,
       default: 'neutral',
     },
-    disabled: {
+    description: {
+      type: String,
+      default: '',
+    },
+    toggle: {
       type: Boolean,
       default: false,
     },
-    fill: {
-      type: Boolean,
-      default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    beforeIcon: {
-      type: String,
-      default: '',
-    },
-    afterIcon: {
-      type: String,
-      default: '',
-    },
-    icon: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
+  },
+  data() {
+    return {
+      show: true,
+    };
+  },
+  methods: {
+    showAlertHandler() {
+      this.show = false;
     },
   },
 });

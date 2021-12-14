@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="['zpl-inline-msg', size, type, { fill, icon }]"
-    dir="rtl"
+    v-if="show"
+    :class="['zpl-inline-msg', type]"
   >
     <Icon
       name="warning"
@@ -10,13 +10,21 @@
     <div class="zpl-inline-msg-main">
       <div class="zpl-inline-msg-header">
         <div class="zpl-inline-msg-title">
-          title
+          {{ title }}
         </div>
-        <Icon name="delete" />
+        <Icon
+          v-if="toggle"
+          name="delete"
+          @click.native="showAlertHandler"
+        />
       </div>
-      <div class="zpl-inline-msg-des">
-        desscription
+      <div
+        v-if="description"
+        class="zpl-inline-msg-des"
+      >
+        {{ description }}
       </div>
+      <slot />
     </div>
   </div>
 </template>

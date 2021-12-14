@@ -1,6 +1,10 @@
 .zpl-inline-msg {
   @apply flex rounded-sm border p-md w-full;
 
+  button {
+    @apply mt-xl;
+  }
+
   .zpl-warning-icon {
     @apply w-xl h-xl;
   }
@@ -12,27 +16,64 @@
 
     svg {
       @apply w-xl h-xl text-icon mr-sm cursor-pointer;
+      @apply dark:text-icon-dark;
     }
   }
   .zpl-inline-msg-title {
     @apply text-text text-btn flex-1;
+    @apply dark:text-text-dark;
   }
   .zpl-inline-msg-des {
     @apply text-text text-b3 mt-xs;
+    @apply dark:text-text-dark;
   }
   &.neutral {
-    @apply bg-surface border-border;
+    @apply bg-surface-soft border-border;
+    @apply dark:bg-surface-dark-soft dark:border-border-dark;
 
     .zpl-warning-icon {
       @apply text-icon-disabled;
+      @apply dark:text-icon-dark-disabled;
     }
   }
 
-	&.informative {
-    @apply  border-border;
+  &.informative {
+    @apply bg-informationSurface border-border-information;
+    @apply dark:bg-informationSurface-dark dark:border-border-dark-information;
 
     .zpl-warning-icon {
-      @apply text-icon-disabled;
+      @apply text-icon-information;
+      @apply dark:text-icon-dark-information;
+    }
+  }
+
+  &.warning {
+    @apply bg-warningSurface border-border-warning;
+    @apply dark:bg-warningSurface-dark dark:border-border-dark-warning;
+
+    .zpl-warning-icon {
+      @apply text-icon-warning;
+      @apply dark:text-icon-dark-warning;
+    }
+  }
+
+  &.negative {
+    @apply bg-dangerSurface border-border-danger;
+    @apply dark:bg-dangerSurface-dark dark:border-border-dark-danger;
+
+    .zpl-warning-icon {
+      @apply text-icon-danger;
+      @apply dark:text-icon-dark-danger;
+    }
+  }
+
+  &.positive {
+    @apply bg-successSurface border-border-success;
+    @apply dark:bg-successSurface-dark dark:border-border-dark-success;
+
+    .zpl-warning-icon {
+      @apply text-icon-success;
+      @apply dark:text-icon-dark-success;
     }
   }
 }
