@@ -2,7 +2,6 @@
   <button
     :class="['zpl-button', size, type, { fill, icon }]"
     :disabled="disabled"
-    dir="rtl"
   >
     <!-- shows if loading is true -->
     <div
