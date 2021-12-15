@@ -1,5 +1,5 @@
-import TextBox from '../../index.vue';
-import '../../../../utils/validations';
+import TextBox from './index.vue';
+import '@/utils/validations';
 
 const Template = (_, { argTypes }) => ({
   components: {

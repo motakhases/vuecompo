@@ -1,5 +1,5 @@
-import Dropdown from '../../index.vue';
-import '../../../../utils/validations';
+import Dropdown from './index.vue';
+import '@/utils/validations';
 
 const Template = (_, { argTypes }) => ({
   components: {

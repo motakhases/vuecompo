@@ -1,4 +1,4 @@
-import Radio from '../../index.vue';
+import Radio from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { Radio },

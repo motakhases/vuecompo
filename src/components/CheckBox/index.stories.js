@@ -1,4 +1,4 @@
-import CheckBox from '../../index.vue';
+import CheckBox from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { CheckBox },

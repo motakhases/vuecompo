@@ -3,7 +3,7 @@ export default {
 };
 
 export { default as TextField } from '@/components/TextField/index.stories.js';
-export { default as TextBox } from '@/components/TextBox/stories/examples/textbox.js';
-export { default as Dropdown } from '@/components/Dropdown/stories/examples/dropdown.js';
-export { default as Radio } from '@/components/Radio/stories/examples/radio.js';
-export { default as CheckBox } from '@/components/CheckBox/stories/examples/checkbox.js';
+export { default as TextBox } from '@/components/TextBox/index.stories.js';
+export { default as Dropdown } from '@/components/Dropdown/index.stories.js';
+export { default as Radio } from '@/components/Radio/index.stories.js';
+export { default as CheckBox } from '@/components/CheckBox/index.stories.js';
