@@ -11,6 +11,7 @@
       auto-submit
       :range="range"
       :class="['zpl-date-picker', { 'no-preview': !preview }]"
+      :highlight="highlightToday"
       @change="dateMoment = $event"
     >
       <Icon
@@ -42,32 +43,33 @@
       <div class="zpl-date-picker-range-input">
         <label for="">شروع</label>
         <TextField
-          :value="startValue"
+          v-model="startValue"
           type="text"
           after-icon="calender"
           placeholder="روز/ماه/سال"
           :focusout="firstInputHandler"
-          @value="startValue = $event"
+          :disabled="disableStart"
         />
       </div>
       <div class="zpl-date-picker-range-input">
         <label for="">پایان</label>
         <TextField
-          :value="endValue"
+          v-model="endValue"
           after-icon="calender"
           placeholder="روز/ماه/سال"
           :focusout="secondInputHandler"
-          @value="endValue = $event"
+          :disabled="disableEnd"
         />
       </div>
     </div>
     <TextField
       v-else
-      v-model="sing"
+      id="editable-input"
+      v-model="singleValue"
       after-icon="calender"
       placeholder="روز/ماه/سال"
+      :disabled="disableSingle"
     />
-    {{ sing }}
   </div>
 </template>
 

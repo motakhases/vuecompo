@@ -165,6 +165,18 @@
   .vpd-day-effect {
     @apply rounded-sm top-0 left-0 w-[40px] h-[40px];
   }
+  .is-today {
+    @apply text-primaryZarinpal relative #{!important};
+    .vpd-day-text {
+      @apply relative;
+
+      &:after {
+        content: "";
+				transform: translateX(-50%);
+        @apply w-[2px] h-[2px] absolute bottom-0 left-[50%] bg-primaryZarinpal rounded-circle;
+      }
+    }
+  }
 }
 
 .vpd-actions {

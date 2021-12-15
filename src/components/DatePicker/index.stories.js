@@ -1,8 +1,3 @@
-// import Vue from "vue";
-import TextField from "@/components/TextField/index.vue";
-
-// import VuePersianDatetimePicker from "vue-persian-datetime-picker";
-// Vue.component("date-picker", VuePersianDatetimePicker);
 import DatePicker from "./index.vue";
 
 export default {
@@ -11,27 +6,35 @@ export default {
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { DatePicker, TextField },
+  components: { DatePicker },
   props: Object.keys(argTypes),
   data() {
     return {
-      me: "valuere",
-      startInput: "",
-      endInput: "",
+      single: "",
+      start: "",
+      end: "",
     };
   },
   methods: {
-    handle(val) {
-      this.me = val;
+    singleHandler(val) {
+      this.single = val;
+    },
+    startHandler(val) {
+      this.start = val;
+    },
+    endHandler(val) {
+      this.end = val;
     },
   },
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<DatePicker :value="me" @val="handle" >
-
+		<DatePicker 
+		:singleInput="single" @singleValueHandler="singleHandler"
+		:startInput="start" @startValueHandler="startHandler"
+		:endInput="end" @endValueHandler="endHandler"
+		v-bind="$props"
+		>
     </DatePicker>
-		<TextField v-model="me" />
-{{me}}
   </div>
   `,
 });
@@ -41,4 +44,7 @@ export const Default = Template.bind({});
 Default.args = {
   range: false,
   label: "label",
+  disableSingle: false,
+  disableStart: false,
+  disableEnd: false,
 };
