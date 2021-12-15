@@ -4,7 +4,9 @@ import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'TextField',
+
   components: { ValidationProvider, Icon },
+
   props: {
     value: {
       type: String,
@@ -73,18 +75,37 @@ export default Vue.extend({
       },
     },
   },
+
   data() {
     return {
       activeLabel: !!this.value.length,
     };
   },
+
   computed: {
+    model: {
+      get():string {
+        return this.formattedValue();
+      },
+      set(value:string[]):void {
+        this.$emit('input', value);
+      },
+    },
+  },
+
+  watch: {
+    formattedValue() {
+      this.activeLabel = !!this.value.length;
+    },
+  },
+
+  methods: {
     formattedValue(): string {
       // format the value based on separator for type === number
       if (this.type === 'number') {
         switch (this.separator) {
         case 'comma':
-          return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return this.value.toLocaleString();
         case 'dash':
           return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
         case 'none':
@@ -96,13 +117,6 @@ export default Vue.extend({
         return this.value;
       }
     },
-  },
-  watch: {
-    formattedValue() {
-      this.activeLabel = !!this.value.length;
-    },
-  },
-  methods: {
     onInput(event: any) {
       // update value of input and if they have , or - remove them
       const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');

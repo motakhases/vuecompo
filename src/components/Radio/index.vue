@@ -1,5 +1,12 @@
 <template>
-  <label :class="['zpl-radio']">
+  <label
+    :class="
+      [
+        'zpl-radio',
+        { 'zpl-radio-disabled': disabled }
+      ]
+    "
+  >
     {{ text }}
 
     <input

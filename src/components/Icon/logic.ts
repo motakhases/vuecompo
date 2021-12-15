@@ -23,6 +23,7 @@ import ArrowRight from './icons/ArrowRight.vue';
 import ArrowFirst from './icons/ArrowFirst.vue';
 import ArrowLast from './icons/ArrowLast.vue';
 import Star from './icons/Star.vue';
+import DotsMenu from './icons/DotsMenu.vue';
 
 export default Vue.extend({
   name: 'Icon',
@@ -51,6 +52,7 @@ export default Vue.extend({
     ArrowFirst,
     ArrowLast,
     Star,
+    DotsMenu,
   },
 
   props: {
