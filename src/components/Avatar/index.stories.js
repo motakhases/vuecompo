@@ -1,10 +1,5 @@
 import Avatar from "./index.vue";
 
-export default {
-  component: Avatar,
-  title: "Components/Avatar",
-};
-
 const Template = (_, { argTypes }) => ({
   components: { Avatar },
   props: Object.keys(argTypes),
@@ -15,16 +10,32 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-export const Default = Template.bind({});
+const avatar = Template.bind({});
 
-Default.argTypes = {
+avatar.argTypes = {
+  img: {
+    description: 'Image URL',
+    table: {
+      defaultValue: {
+        summary: 'null'
+      }
+    }
+  },
   size: {
     options: ["small", "medium", "large"],
-    control: { type: "radio" },
+    control: { type: "select" },
+    description: 'Size of the avatar',
+    table: {
+      defaultValue: {
+        summary: 'medium'
+      }
+    }
   },
 };
 
-Default.args = {
-  img: "https://www.digikala.com/static/files/fd4840b2.svg",
-  size: "large",
+avatar.args = {
+  img: "",
+  size: 'medium'
 };
+
+export default avatar

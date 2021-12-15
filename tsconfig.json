@@ -37,7 +37,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "index.d.ts"
-  ],
+, "stories/form.stories.js"  ],
   "exclude": [
     "node_modules",
     "dist"
