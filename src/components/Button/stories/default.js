@@ -1,4 +1,4 @@
-import Button from '../../index.vue';
+import Button from '../index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { Button },
@@ -15,7 +15,7 @@ const Default = Template.bind({});
 Default.argTypes = {
   size: {
     options: ['small', 'medium', 'large'],
-    control: { type: 'radio' },
+    control: { type: 'select' },
   },
   type: {
     options: [

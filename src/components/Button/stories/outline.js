@@ -1,4 +1,4 @@
-import Button from '../../index.vue';
+import Button from '../index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { Button },

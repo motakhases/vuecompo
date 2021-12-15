@@ -1,44 +1,41 @@
 import SegmentedButton from "./index.vue";
 
-export default {
-  component: SegmentedButton,
-  title: "Components/SegmentedButton",
-};
-
 const Template = (_, { argTypes }) => ({
   components: {
     SegmentedButton,
   },
   props: Object.keys(argTypes),
   template: `
-	<div class="dark:bg-surface-dark p-sm rounded-md">
+	<div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
 		<SegmentedButton v-bind="$props" />
 	</div>
   `,
 });
 
-export const Default = Template.bind({});
+const segmentedButton = Template.bind({});
 
-Default.args = {
+segmentedButton.args = {
   fill: false,
   items: [
     {
       id: 1,
-      text: "دکمه 1",
+      text: "بانک ملی",
       click: () => console.log("clicked"),
       active: true,
     },
     {
       id: 2,
-      text: "دکمه 2",
+      text: "بانک سامان",
       click: () => console.log("clicked"),
       active: false,
     },
     {
       id: 3,
-      text: "دکمه 3",
+      text: "بانک پاسارگاد",
       click: () => console.log("clicked"),
       active: false,
     },
   ],
 };
+
+export default segmentedButton
