@@ -10,4 +10,19 @@ export default Vue.extend({
       default: '',
     },
   },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  methods: {
+    showPopoverHandler() {
+      this.show = !this.show;
+    },
+    focusoutHandler() {
+      console.log('go');
+
+      this.show = false;
+    },
+  },
 });

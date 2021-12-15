@@ -23,7 +23,11 @@ const Template = (_, { argTypes }) => ({
     <template v-slot:left-side>
       <Icon name="questionCircle" class="zpl-topbar-menu" />
 			<Notification :badge="badge" />
-      <UserProfile username="نام کاربر" />
+      <UserProfile username="نام کاربر" >
+				<div class="absolute bg-surface p-md rounded-sm">
+					popover
+				</div>
+			</UserProfile>
     </template>
   </TopBar>
   `,
