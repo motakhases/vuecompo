@@ -84,7 +84,7 @@
 .zpl-dropdown-list {
   /* Default */
   @apply flex-col bg-surface border border-border shadow-elevation-100 rounded-sm 
-	p-xs absolute w-full mt-2xs hidden;
+	p-xs absolute w-full mt-2xs hidden z-20;
   @apply dark:bg-surface-dark dark:border-border-dark	dark:shadow-dark-elevation-100;
 
   &.showList {
