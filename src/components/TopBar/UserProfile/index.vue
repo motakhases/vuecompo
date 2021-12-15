@@ -4,7 +4,6 @@
       type="button"
       class="zpl-user-profile"
       @click="showPopoverHandler"
-      @focusout="focusoutHandler"
     >
       <Icon
         name="profile"

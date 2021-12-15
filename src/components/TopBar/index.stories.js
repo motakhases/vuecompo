@@ -24,7 +24,7 @@ const Template = (_, { argTypes }) => ({
       <Icon name="questionCircle" class="zpl-topbar-menu" />
 			<Notification :badge="badge" />
       <UserProfile username="نام کاربر" >
-				<div class="absolute bg-surface p-md rounded-sm">
+				<div class="absolute bg-surface p-md rounded-sm w-[127px]">
 					popover
 				</div>
 			</UserProfile>

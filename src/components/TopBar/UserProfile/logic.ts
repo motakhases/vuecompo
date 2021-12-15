@@ -15,14 +15,21 @@ export default Vue.extend({
       show: false,
     };
   },
+  mounted() {
+    document.documentElement.addEventListener('click', this.outsideClick, false);
+  },
+  beforeDestroy() {
+    document.documentElement.removeEventListener('click', this.outsideClick, false);
+  },
   methods: {
     showPopoverHandler() {
       this.show = !this.show;
     },
-    focusoutHandler() {
-      console.log('go');
-
-      this.show = false;
+    outsideClick(e:any) {
+      // close popover on clicking outside
+      if (!this.$el.contains(e.target)) {
+        this.show = false;
+      }
     },
   },
 });
