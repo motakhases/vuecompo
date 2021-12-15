@@ -63,12 +63,11 @@
     </div>
     <TextField
       v-else
-      id="editable-input"
-      :value="singleInput"
+      v-model="sing"
       after-icon="calender"
       placeholder="روز/ماه/سال"
-      @value="singleInput = $event"
     />
+    {{ sing }}
   </div>
 </template>
 

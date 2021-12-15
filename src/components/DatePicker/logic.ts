@@ -12,7 +12,7 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    singleInput: {
+    value: {
       type: String,
       default: '',
     },
@@ -33,22 +33,37 @@ export default Vue.extend({
     date: Array<string>;
     startValue: string;
     endValue: string;
-    } {
+sing:string
+} {
     return {
       date: [],
       startValue: this.startInput,
       endValue: this.endInput,
+      sing: this.value,
     };
   },
+  computed: {
+    model: {
+      get():string {
+        return this.sing;
+      },
+      set(value:string[]):void {
+        this.$emit('input', value);
+      },
+    },
+  },
   watch: {
+    sing(val) {
+      this.$emit('val', val);
+    },
     date() {
       const [firstDate, secondDate] = this.date;
       this.startValue = moment(firstDate, 'YYYY-M-D').format('jYYYY/jM/jD');
       this.endValue = secondDate ? moment(secondDate, 'YYYY-M-D').format('jYYYY/jM/jD') : '';
 
       if (moment(firstDate).isAfter(secondDate)) {
-        this.date.splice(0, 1, secondDate);
-        this.date.splice(1, 1, firstDate);
+        // this.date.splice(0, 1, secondDate);
+        // this.date.splice(1, 1, firstDate);
       }
     },
     startValue(val) {

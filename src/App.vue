@@ -157,11 +157,13 @@
     <SegmentedButton :items="items" />
     <StoreStatus text="me" />
     <TextBox v-model="value" />
+    ndn
+    <br>
     <TextField
-      :value="me"
-      @value="me = $event"
+      v-model="me"
     />
     {{ me }}
+    <br>
     <DatePicker
       range
       :start-input="startInput"
@@ -235,7 +237,6 @@ export default Vue.extend({
   name: 'App',
   components: {
     // TopBar, Logo, Icon, UserProfile, Notification,
-    Avatar,
     AvatarProgressBar,
     BankCards,
     Button,

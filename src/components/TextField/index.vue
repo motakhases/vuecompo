@@ -74,7 +74,6 @@
           {{ label }}
         </label>
       </div>
-
       <!--  hint text or limit container -->
       <div class="zpl-textfield-hint-box">
         <!-- show when we have helperHint -->

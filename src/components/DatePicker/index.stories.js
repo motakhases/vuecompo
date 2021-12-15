@@ -13,31 +13,32 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { DatePicker, TextField },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      me: "valuere",
+      startInput: "",
+      endInput: "",
+    };
+  },
+  methods: {
+    handle(val) {
+      this.me = val;
+    },
+  },
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<DatePicker v-bind="$props"  @startInput="startInput = $event"
-		@endInput="endInput = $event">
+		<DatePicker :value="me" @val="handle" >
 
     </DatePicker>
-	
-		{{startInput}}
-		<br/>
-		{{endInput}}
-		{{singleInput}}
+		<TextField v-model="me" />
+{{me}}
   </div>
   `,
 });
 
 export const Default = Template.bind({});
 
-
 Default.args = {
   range: false,
   label: "label",
-  singleInput: "1399/10/10",
-  startInput: "",
-  endInput: "",
-  id: "",
-  fromInput: "",
-  toInput: "",
 };
