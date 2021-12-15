@@ -60,6 +60,14 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    id: {
+      type: String,
+      default: '',
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
@@ -89,7 +97,6 @@ export default Vue.extend({
     formattedValue(): string {
       // format the value based on separator for type === number
       if (this.type === 'number') {
-        console.log('R Num');
         switch (this.separator) {
         case 'comma':
           return this.value.toLocaleString();
@@ -101,7 +108,6 @@ export default Vue.extend({
           return this.value;
         }
       } else {
-        console.log('R String');
         return this.value;
       }
     },
