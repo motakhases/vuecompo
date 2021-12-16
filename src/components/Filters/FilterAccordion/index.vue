@@ -1,12 +1,11 @@
 <template>
-  <div
-    class="zpl-filter-acc"
-  >
+  <div class="zpl-filter-acc">
     <FilterToggle
-      text="text"
+      :text="text"
+      :disabled="disabled"
+      :name="name"
+      :val="val"
       :change="check"
-      val=""
-      name="d"
     />
     <transition
       name="accordion-item"

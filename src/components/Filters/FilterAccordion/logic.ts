@@ -9,6 +9,30 @@ export default Vue.extend({
       type: String,
       default: 'large',
     },
+    val: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: Array,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      default: '',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    change: {
+      type: Function,
+      default: () => 1,
+    },
   },
   data() {
     return {
@@ -22,12 +46,12 @@ export default Vue.extend({
     toggleHandler() {
       this.isActive = !this.isActive;
     },
-    startTransition(el) {
+    startTransition(el:any) {
       const element = el;
       element.style.height = `${el.scrollHeight}px`;
     },
 
-    endTransition(el) {
+    endTransition(el:any) {
       const element = el;
       element.style.height = '';
     },

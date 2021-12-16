@@ -1,4 +1,4 @@
-import Vue, { PropType } from 'vue';
+import Vue, { PropOptions } from 'vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 
 const date = {
@@ -23,7 +23,11 @@ export default Vue.extend({
       default: false,
     },
   },
-  data() {
+  data():{
+    options:Array<any>;
+    value:string;
+    selectedType:string
+    } {
     return {
       options: [
         { id: 1, name: date.TODAY },
@@ -31,13 +35,12 @@ export default Vue.extend({
         { id: 3, name: date.OPTIONAL_PERIOD },
       ],
       value: '',
-      selectedType: 'ew',
+      selectedType: '',
     };
   },
   computed: {
     test() {
       if (this.value === date.TODAY) {
-        // return 'shayeste';
         return this.selectedType === 'today';
       }
       return 'erte';

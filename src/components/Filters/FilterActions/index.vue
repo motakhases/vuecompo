@@ -1,9 +1,18 @@
 <template>
   <div class="zpl-filter-actions">
-    <div>
+    <Button
+      text="حذف"
+      type="secondary"
+      size="small"
+    />
+    <div class="filter-text">
       فیلتر
     </div>
-    <slot />
+    <Button
+      text="اعمال"
+      type="primary"
+      size="small"
+    />
   </div>
 </template>
 

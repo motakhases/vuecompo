@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-filter-actions">
+  <div class="zpl-filter-actons">
     <Dropdown
       v-model="value"
       :options="options"

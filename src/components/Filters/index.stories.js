@@ -1,4 +1,8 @@
 import Filters from "./index.vue";
+import FilterActions from "./FilterActions/index.vue";
+import Radio from "@/components/Radio/index.vue";
+import FilterAccordion from "./FilterAccordion/index.vue";
+import FilterDate from "./FilterDate/index.vue";
 
 export default {
   component: Filters,
@@ -6,21 +10,21 @@ export default {
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Filters },
+  components: { Filters, FilterActions, FilterAccordion, Radio, FilterDate },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md">
-		<Filters
-      :type="type"
-      :size="size"
-      :disabled="disabled"
-      :fill="fill"
-      :loading="loading"
-      :beforeIcon="beforeIcon"
-      :afterIcon="afterIcon"
-      :onClick="onClick"
-    >
-      {{ text }}
+		<Filters>
+      <FilterActions/>
+				<FilterAccordion  v-bind='$props'>
+					<Radio :disabled="disabled" :name="name" :val="val" :text="text" />
+					<Radio :disabled="disabled" :name="name" :val="val" :text="text" />
+
+				</FilterAccordion>
+				<FilterAccordion text="تاریخ">
+					<FilterDate/>
+
+				</FilterAccordion>
     </Filters>
   </div>
   `,
@@ -40,13 +44,8 @@ Default.argTypes = {
 };
 
 Default.args = {
-  text: "Filters",
-  size: "large",
-  type: "primary",
+  name: "some name",
+  text: "عنوان فیلتر",
+  val: "value",
   disabled: false,
-  fill: false,
-  loading: false,
-  afterIcon: "",
-  beforeIcon: "",
-	onClick: () => alert('clicked')
 };

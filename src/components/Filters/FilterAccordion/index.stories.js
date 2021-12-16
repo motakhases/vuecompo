@@ -1,5 +1,4 @@
 import Radio from "@/components/Radio/index.vue";
-
 import FilterAccordion from "./index.vue";
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="zpl-filters">
     <slot />
   </div>
 </template>

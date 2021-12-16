@@ -1,6 +1,6 @@
 <template>
   <ValidationProvider
-    v-slot="{ invalid, errors, passed}"
+    v-slot="{ invalid, errors, passed }"
     :rules="rules"
   >
     <div
@@ -8,13 +8,14 @@
       dir="rtl"
     >
       <div
-        :class="['zpl-dropdown', { 'error': errors.length }]"
+        :class="['zpl-dropdown', { error: errors.length }]"
         :disabled="disabled"
       >
         <input
           :class="['zpl-dropdown-input']"
           :value="value"
           :disabled="disabled"
+          :placeholder="placeholder"
           @input="onInput"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
@@ -48,9 +49,7 @@
           v-if="successHint && passed"
           class="zpl-dropdown-hint success"
         >
-          <Icon
-            name="checkmarkCircle"
-          />
+          <Icon name="checkmarkCircle" />
           <span>
             {{ successHint }}
           </span>
@@ -71,19 +70,19 @@
           <div class="zpl-dropdown-skeleton-box">
             <span
               class="zpl-dropdown-skeleton"
-              style="width:27%;"
+              style="width: 27%"
             />
           </div>
           <div class="zpl-dropdown-skeleton-box">
             <span
               class="zpl-dropdown-skeleton"
-              style="width:48%;"
+              style="width: 48%"
             />
           </div>
           <div class="zpl-dropdown-skeleton-box">
             <span
               class="zpl-dropdown-skeleton"
-              style="width:36%;"
+              style="width: 36%"
             />
           </div>
         </div>
@@ -94,7 +93,7 @@
           ref="dropdownRef"
         >
           <li
-            v-for="(option,i) in filteredOptions"
+            v-for="(option, i) in filteredOptions"
             :key="option.id"
             ref="optionRef"
             :class="[
@@ -102,7 +101,7 @@
               {
                 disabled: disabledOptionId == option.id,
                 selected: value === option.name,
-                active: activeOptionIndex === i
+                active: activeOptionIndex === i,
               },
             ]"
             @click="selectOption(option.name)"
