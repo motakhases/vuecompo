@@ -19,12 +19,12 @@
         />
 
         <input
+          :id="id"
+          v-model="model"
           class="zpl-textfield-input"
-          :value="formattedValue"
           :disabled="disabled"
           :maxlength="limit > 0 ? limit : undefined"
-          :separator="separator"
-          @input="onInput"
+          :placeholder="placeholder"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keypress="onlyNumber"
@@ -36,6 +36,7 @@
           :name="afterIcon"
           class="zpl-textfield-icon"
         />
+
         <!-- shows stepper to increase number or descrease -->
         <div
           v-if="stepper && type === 'number'"
@@ -56,6 +57,7 @@
             <Icon name="filledArrowDown" />
           </button>
         </div>
+
         <!-- unit -->
         <span
           v-if="unit"
@@ -63,6 +65,7 @@
         >
           {{ unit }}
         </span>
+
         <!-- label -->
         <label
           v-if="label"
@@ -71,10 +74,9 @@
           {{ label }}
         </label>
       </div>
+
       <!--  hint text or limit container -->
-      <div
-        class="zpl-textfield-hint-box"
-      >
+      <div class="zpl-textfield-hint-box">
         <!-- show when we have helperHint -->
         <div
           v-if="helperHint && !(successHint && passed) && !errors.length"
@@ -84,13 +86,14 @@
             {{ helperHint }}
           </span>
         </div>
+
         <!-- show when we have successHint -->
         <div
           v-if="successHint && passed"
           class="zpl-textfield-hint success"
         >
           <Icon
-            name="checkmarkCircle"
+            name="CheckmarkCircle"
           />
           <span>
             {{ successHint }}
