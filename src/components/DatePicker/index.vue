@@ -47,7 +47,6 @@
           type="text"
           after-icon="calender"
           placeholder="روز/ماه/سال"
-          :focusout="firstInputHandler"
           :disabled="disableStart"
         />
       </div>
@@ -57,7 +56,6 @@
           v-model="model[1]"
           after-icon="calender"
           placeholder="روز/ماه/سال"
-          :focusout="secondInputHandler"
           :disabled="disableEnd"
         />
       </div>

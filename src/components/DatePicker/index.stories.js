@@ -18,7 +18,6 @@ const Template = (_, { argTypes }) => ({
 		<DatePicker  v-model="single" v-bind="$props"
 		>
     </DatePicker>
-		{{single}}
   </div>
   `,
 });

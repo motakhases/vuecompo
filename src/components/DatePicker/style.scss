@@ -32,6 +32,10 @@
     @apply text-text text-b3 flex justify-center items-center;
     @apply dark:text-text-dark;
     &:not([disabled]) {
+      &.vpd-selected {
+        @apply text-text-onPrimary #{!important};
+        @apply dark:text-text-dark-onPrimary #{!important};
+      }
       &:hover {
         @apply text-text;
         @apply dark:text-text-dark;
@@ -172,7 +176,7 @@
 
       &:after {
         content: "";
-				transform: translateX(-50%);
+        transform: translateX(-50%);
         @apply w-[2px] h-[2px] absolute bottom-0 left-[50%] bg-primaryZarinpal rounded-circle;
       }
     }
