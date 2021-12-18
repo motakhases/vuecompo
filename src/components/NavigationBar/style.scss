@@ -4,7 +4,7 @@
 }
 .zpl-nav-bar-menu {
   /* Default */
-  @apply w-[256px] bg-surface fixed transition-all ease-in-out duration-200 right-0;
+  @apply w-[256px] h-full bg-surface fixed transition-all ease-in-out duration-200 right-0;
   @apply dark:bg-surface-dark;
 
   /* toggle */

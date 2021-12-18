@@ -1,162 +1,6 @@
 <template>
-  <div>
-    <Modal
-      v-if="showModal"
-      title="تست عنوان"
-      @close="showModal = false"
-    >
-      <div slot="body">
-        <p>salam</p>
-        <p>salam</p>
-        <p>salam</p>
-        <p>salam</p>
-        <p>salam</p>
-      </div>
-      <div slot="footer">
-        <button> footer </button>
-      </div>
-    </Modal>
-    <NotificationCenter
-      v-if="true"
-      :announcements="announcements"
-    />
-    <AvatarProgressBar
-      size="large"
-      type="silver"
-      :percent="10"
-    />
-    <BankCards
-      username="شایسته ملک پور"
-      bank-name="بانک سامان"
-      logo="saman"
-      amount="5120000"
-      iban="IR870560085577703153460001"
-      rrn="892938820001277640002746"
-      :default-account="false"
-    />
-    <Thumbnail icon="terminal" />
-    <Button text="me" />
-    <ButtonGroup>
-      <Button text="me" />
-      <Button
-        text="me"
-        type="tertiary"
-      />
-    </ButtonGroup>
-    <Dropdown
-      v-model="value"
-      label="یک
-      لیبل
-      تستی"
-      value=""
-      helper-hint="یک
-      توضیح
-      کوتاه"
-      success-hint="عملیات
-      موفقیت
-      آمیز
-      بود"
-      :options="options"
-    />
-    <Icon
-      name="terminal"
-      class="w-xl h-xl"
-    />
-    <Label
-      text="لیبل"
-      size="small"
-      type="positive"
-    />
-    <Link
-      href="href"
-      text="صنعت چاپ"
-    />
-    <Logo
-      name="zarinpal"
-      type="logo"
-    />
-    <NavBadge text="text" />
-    <NavigationBar>
-      <SwitchTerminalPopover>
-        <template v-slot:terminal>
-          <SwitchTerminal
-            title="عنوان درگاه"
-            link="zarinp.al/getway"
-            icon="terminal"
-          />
-        </template>
-        <template v-slot:menu>
-          <Overview
-            link="overview"
-            active
-          >
-            نمای کلی
-          </Overview>
-          <SwitchTerminalItem
-            title="عنوان درگاه"
-            link="zarinp.al/getway"
-            icon="terminal"
-            active
-            state="active"
-            state-text="وضعیت"
-          />
-          <SwitchTerminalItem
-            title="عنوان درگاه"
-            link="zarinp.al/getway"
-            icon="terminal"
-            state="inactive"
-            state-text="وضعیت"
-          />
-          <Create link="/home">
-            ایجاد درگاه جدید
-          </Create>
-        </template>
-      </SwitchTerminalPopover>
-      <template v-slot:logo>
-        <Logo
-          name="zarinpal"
-          type="logo"
-          language="fa"
-          size="medium"
-        />
-      </template>
-      <template v-slot:firstList>
-        <NavItem
-          active
-          link="/"
-          title="لیبل"
-          icon="questionCircle"
-          badge="12"
-        />
-        <NavItem
-          link="/"
-          title="لیبل"
-          icon="questionCircle"
-          badge="12"
-        />
-      </template>
-      <template v-slot:secondList>
-        <NavItem
-          link="/"
-          title="لیبل"
-          icon="questionCircle"
-        />
-        <NavItem
-          link="/"
-          title="لیبل"
-          icon="questionCircle"
-        />
-      </template>
-    </NavigationBar>
-    <NotificationBadge text="41" />
-    <SegmentedButton :items="items" />
-    <StoreStatus text="me" />
-    <TextBox v-model="value" />
-    <TextField
-      :value="value"
-      @value="value = $event"
-    />
-    <!-- <TopBar>
+  <div dir="rtl">
+    <TopBar>
       <template v-slot:right-side>
         <Icon
           name="menuBurger"
@@ -176,122 +20,156 @@
           name="questionCircle"
           class="zpl-topbar-menu"
         />
-        <Notification badge="2" />
+        <Notification :badge="badge" />
         <UserProfile username="نام کاربر" />
       </template>
     </TopBar>
-    <Icon name="terminal" /> -->
+    <NavigationBar
+      :terminals="terminals"
+      :above-links="alinks"
+      :below-links="blinks"
+    />
   </div>
 </template>
 
 <script lang="js">
-import moment from 'moment-jalaali';
 import Vue from 'vue';
-import PageHeading from './components/PageHeading/index.vue';
-import Pagination from './components/Pagination/index.vue';
-import Modal from './components/Modal/index.vue';
-import NotificationCenter from './components/NotificationCenter/index.vue';
+import NavigationBar from '@/components/NavigationBar/index.vue';
+import TopBar from '@/components/TopBar/index.vue';
+import Logo from '@/components/Logo/index.vue';
+import Icon from '@/components/Icon/index.vue';
+import Notification from '@/components/TopBar/Notification/index.vue';
+import UserProfile from '@/components/TopBar/UserProfile/index.vue';
 
 export default Vue.extend({
   name: 'App',
+
   components: {
-    Modal, NotificationCenter,
+    Logo,
+    Icon,
+    TopBar,
+    Notification,
+    UserProfile,
+    NavigationBar,
   },
+
   data() {
     return {
-      showModal: false,
-      announcements: [
+      terminals: [
         {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
+          id: '297226',
+          owner_id: null,
+          mcc_id: '26',
+          notify_set_reconcile: false,
+          can_payout: false,
+          permissions: ['SESSION', 'PRODUCT', 'PRODUCT_EDIT', 'RECONCILE', 'TERMINAL_EDIT', 'COUPON'],
+          is_default: false,
+          fee_type: 'MERCHANT',
+          reconcile_priority: 'DAILY',
+          preferred_bank_account_id: '219280',
+          active_psp: [{ psp: 'WPep', system_status: 'ACTIVE' }],
+          reconcile_status: { last_session_id: null, amount: null },
+          domain: 'zarin.express\\/mrtestian',
+          psp_priority: [],
+          zarin_gate: [{
+            psp: 'WPep', merchant_id: null, status: 'Active', terminal_id: null, error: null,
+          }],
+          today_session: { count: 0, amount: 0 },
+          yesterday_session: { count: 0, amount: 0 },
+          server_ip: null,
+          support_phone: '09385586943',
+          key: '1a931b83-bf32-440a-8b51-7655defc1dee',
+          flag: 'NORMAL',
+          name: '\u0645\u0633\u062a\u0631 \u062a\u0633\u062a\u06cc\u0627\u0646',
+          description: null,
+          status: 'ACTIVE',
+          logo: 'https:\\/\\/logoland.zarinpal.com\\/ed1a2005266f4c34cc28c692c78eb994',
+          created_at: '2021-12-10T18:08:30+03:30',
+          updated_at: '2021-12-15T13:20:07+03:30',
+          deleted_at: null,
+        }, {
+          id: '177111',
+          owner_id: null,
+          mcc_id: '42',
+          notify_set_reconcile: false,
+          can_payout: false,
+          permissions: ['SESSION', 'PRODUCT', 'PRODUCT_EDIT', 'RECONCILE', 'TERMINAL_EDIT', 'COUPON'],
+          is_default: false,
+          fee_type: 'MERCHANT',
+          reconcile_priority: 'DAILY',
+          preferred_bank_account_id: null,
+          active_psp: [{ psp: 'WPep', system_status: 'ACTIVE' }],
+          reconcile_status: { last_session_id: null, amount: null },
+          domain: 'zarinp.al\\/armanshojaei',
+          psp_priority: [],
+          zarin_gate: [{
+            psp: 'WPep', merchant_id: null, status: 'Active', terminal_id: null, error: null,
+          }, {
+            psp: 'Pna', merchant_id: null, status: 'InProgressShaparakError', terminal_id: null, error: ['["MANDATORY_FIELD-TaxPayerCode-Shop"]'],
+          }, {
+            psp: 'Mca', merchant_id: null, status: 'InProgressShaparakError', terminal_id: null, error: ['["MANDATORY_FIELD-TaxPayerCode-Shop"]'],
+          }, {
+            psp: 'Pep', merchant_id: null, status: 'InProgressShaparakError', terminal_id: null, error: ['["MANDATORY_FIELD-TaxPayerCode-Shop"]'],
+          }, {
+            psp: 'Ikc', merchant_id: null, status: 'InProgressShaparakError', terminal_id: null, error: ['["MANDATORY_FIELD-TaxPayerCode-Shop"]'],
+          }],
+          today_session: { count: 0, amount: 0 },
+          yesterday_session: { count: 0, amount: 0 },
+          server_ip: null,
+          support_phone: '09385586943',
+          key: 'acb0ab40-6c30-47a6-a508-1014846cba73',
+          flag: 'PERSONAL_LINK',
+          name: '\u0622\u0631\u0645\u0627\u0646 \u0634\u062c\u0627\u0639\u06cc',
+          description: '\u0644\u06cc\u0646\u06a9 \u0634\u062e\u0635\u06cc',
+          status: 'ACTIVE',
+          logo: 'https:\\/\\/logoland.zarinpal.com\\/eb0839c84a89dfed1b06a0a7d0cd744e',
+          created_at: '2020-09-08T17:29:18+04:30',
+          updated_at: '2021-12-02T21:15:12+03:30',
+          deleted_at: null,
+        },
+      ],
+      alinks: [
+        {
+          title: 'نمای کلی',
+          link: '/',
+          icon: 'QuestionCircle',
+          active: true,
         },
         {
-          title: 'عنوان',
-          message: '',
-          date: moment().format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: 'https://www.w3schools.com/css/lights600x400.jpg',
+          title: 'پیشخوان',
+          link: '/',
+          icon: 'QuestionCircle',
         },
         {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(1, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
+          title: 'تراکنش‌ها',
+          link: '/',
+          icon: 'QuestionCircle',
         },
         {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(2, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
+          title: 'تسویه حساب',
+          link: '/',
+          icon: 'QuestionCircle',
         },
         {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(3, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
+          title: 'محصولات',
+          link: '/',
+          icon: 'QuestionCircle',
         },
+      ],
+      blinks: [
         {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(4, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(5, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(6, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(7, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(8, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(9, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(10, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
+          title: 'حساب‌های بانکی',
+          link: '/',
+          icon: 'QuestionCircle',
         },
       ],
     };
   },
-  methods: {
-    testMethod() {
-      console.log('hiii');
-    },
-  },
 });
 </script>
+
+<style>
+body {
+  @apply bg-background
+}
+</style>

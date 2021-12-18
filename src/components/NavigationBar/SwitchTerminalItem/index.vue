@@ -17,7 +17,7 @@
       </div>
       <StoreStatus
         :state="state"
-        :text="stateText"
+        :text="stateText(state)"
       />
       <div
         v-if="active === true"
