@@ -1,8 +1,5 @@
-<template dir="rtl">
-  <nav
-    class="zpl-nav-bar-container"
-    dir="rtl"
-  >
+<template>
+  <nav class="zpl-nav-bar-container">
     <slot name="popover" />
     <div :class="['zpl-nav-bar-menu', { toggle }]">
       <div class="zpl-nav-bar-logo">

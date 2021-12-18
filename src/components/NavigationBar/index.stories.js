@@ -74,7 +74,7 @@ const Template = (_, { argTypes }) => ({
           <NavItem link="/" title="لیبل" icon="questionCircle" />
         </template>
       </NavigationBar>
-    <div>
+    </div>
   `,
 });
 
