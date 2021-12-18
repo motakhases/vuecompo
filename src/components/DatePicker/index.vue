@@ -5,7 +5,7 @@
       locale="fa"
       inline
       :editable="true"
-      format="YYYY-MM-DD"
+      format="jYYYY-jMM-jDD"
       display-format="jYYYY/jMM/jDD"
       custom-input="#editable-input"
       auto-submit
@@ -43,7 +43,7 @@
       <div class="zpl-date-picker-range-input">
         <label for="">شروع</label>
         <TextField
-          v-model="model"
+          v-model="model[0]"
           type="text"
           after-icon="calender"
           placeholder="روز/ماه/سال"
@@ -54,7 +54,7 @@
       <div class="zpl-date-picker-range-input">
         <label for="">پایان</label>
         <TextField
-          v-model="model"
+          v-model="model[1]"
           after-icon="calender"
           placeholder="روز/ماه/سال"
           :focusout="secondInputHandler"
@@ -70,7 +70,6 @@
       placeholder="روز/ماه/سال"
       :disabled="disableSingle"
     />
-    {{ value }}
   </div>
 </template>
 

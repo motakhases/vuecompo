@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import Vue from 'vue';
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 import moment from 'moment-jalaali';
@@ -14,7 +15,9 @@ declare interface Attributes {
 }
 export default Vue.extend({
   name: 'DatePicker',
+
   components: { Icon, VuePersianDatetimePicker, TextField },
+
   props: {
     range: {
       type: Boolean,
@@ -32,18 +35,6 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    singleInput: {
-      type: String,
-      default: '',
-    },
-    startInput: {
-      type: String,
-      default: '',
-    },
-    endInput: {
-      type: String,
-      default: '',
-    },
     preview: {
       type: Boolean,
       default: false,
@@ -53,102 +44,35 @@ export default Vue.extend({
       default: '',
     },
   },
-  data(): {
-    date: any;
-    startValue: string;
-    endValue: string;
-    singleValue: string;
-    } {
-    return {
-      date: [],
-      startValue: this.value,
-      endValue: this.endInput,
-      singleValue: this.singleInput,
-    };
-  },
+
   computed: {
     model: {
-      get():string {
-        return this.updateDate();
+      get():string|string[] {
+        return this.getModel();
       },
       set(value:string[]):void {
         this.$emit('input', value);
       },
     },
   },
-  watch: {
-    singleValue(val) {
-      this.$emit('singleValueHandler', val);
-    },
-    date(val) {
-      this.$emit('singleValueHandler', this.gregorianToJalali(val));
-      if (this.range) {
-        const [firstDate, secondDate] = this.date;
-        this.startValue = moment(firstDate, 'YYYY-M-D').format('jYYYY/jM/jD');
-        this.endValue = secondDate
-          ? moment(secondDate, 'YYYY-M-D').format('jYYYY/jM/jD')
-          : '';
 
-        if (moment(firstDate).isAfter(secondDate)) {
-          this.date.splice(0, 1, secondDate);
-          this.date.splice(1, 1, firstDate);
-        }
-      }
-    },
-    startValue(val) {
-      this.$emit('startInput', val);
-    },
-    endValue(val) {
-      this.$emit('endInput', val);
-    },
-  },
   methods: {
-    firstInputHandler() {
-      if (this.startValue) {
-        const isValid = moment(this.startValue, 'jYYYY/jMM/jDD').isValid();
-        if (isValid) {
-          const newValue = moment(this.startValue, 'jYYYY/jM/jD').format(
-            'YYYY-M-D',
-          );
-          this.date.splice(0, 1, newValue);
-        }
+    getModel() {
+      let result:string|string[] = this.value;
+
+      if (moment(this.value[0]).isAfter(this.value[1])) {
+        result = [this.value[1], this.value[0]];
       }
+
+      return result;
     },
-    secondInputHandler() {
-      if (this.endValue) {
-        const isValid = moment(this.endValue, 'jYYYY/jMM/jDD').isValid();
-        if (isValid) {
-          const newValue = moment(this.endValue, 'jYYYY/jM/jD').format(
-            'YYYY-M-D',
-          );
-          this.date.splice(1, 1, newValue);
-        }
-      }
-    },
-    gregorianToJalali(value: string) {
-      return moment(value, 'YYYY-M-D').format('jYYYY/jM/jD');
-    },
-    jalaliTogregorian(value: string) {
-      return moment(value, 'jYYYY/jM/jD').format('YYYY-M-D');
-    },
+
     highlightToday(formatted: string, dateMoment: DateMoment) {
       const attributes = {} as Attributes;
       if (dateMoment.format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')) {
         attributes.class = 'is-today';
       }
       return attributes;
-    },
-    updateDate() {
-      let result;
-      if (typeof this.value === 'string') {
-        result = this.jalaliTogregorian(this.value);
-      }
-      if (typeof this.value === 'object') {
-        const start = this.jalaliTogregorian(this.value[0]);
-        const end = this.jalaliTogregorian(this.value[1]);
-        result = [start, end];
-      }
-      return result;
     },
   },
 });

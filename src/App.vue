@@ -13,19 +13,15 @@ import DatePicker from '@/components/DatePicker/index.vue';
 
 export default Vue.extend({
   name: 'App',
+
   components: {
     DatePicker,
   },
+
   data() {
     return {
       date: '',
-      value: '',
     };
-  },
-  methods: {
-    testMethod() {
-      console.log('hiii');
-    },
   },
 });
 </script>
