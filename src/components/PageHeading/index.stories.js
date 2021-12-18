@@ -18,12 +18,12 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-const Default = Template.bind({});
+const pageHeading = Template.bind({});
 
-Default.argTypes = {
+pageHeading.argTypes = {
 };
 
-Default.args = {
+pageHeading.args = {
   title: "عنوان",
   desc: "توضیحات صفحه",
   sticky: true,
@@ -42,4 +42,4 @@ Default.args = {
   },
 };
 
-export default Default
+export default pageHeading

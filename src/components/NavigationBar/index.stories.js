@@ -78,12 +78,12 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-const Default = Template.bind({});
+const navigationBar = Template.bind({});
 
-Default.argTypes = {};
+navigationBar.argTypes = {};
 
-Default.args = {
+navigationBar.args = {
   toggle: false,
 };
 
-export default Default
+export default navigationBar

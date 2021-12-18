@@ -24,10 +24,10 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-const Default = Template.bind({});
+const topBar = Template.bind({});
 
-Default.args = {
+topBar.args = {
   badge: "۹۹",
 };
 
-export default Default
+export default topBar
