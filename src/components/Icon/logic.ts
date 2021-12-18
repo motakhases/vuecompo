@@ -27,6 +27,7 @@ import DotsMenu from './icons/DotsMenu.vue';
 import Calender from './icons/Calender.vue';
 import LeftArrow from './icons/LeftArrow.vue';
 import RightArrow from './icons/RightArrow.vue';
+import Close from './icons/Close.vue';
 
 export default Vue.extend({
   name: 'Icon',
@@ -59,6 +60,7 @@ export default Vue.extend({
     Calender,
     LeftArrow,
     RightArrow,
+    Close,
   },
 
   props: {
