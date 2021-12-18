@@ -1,4 +1,17 @@
-.zpl-filter-actions {
-  // @apply bg-surface-soft p-md shadow-border-divider-bottom;
-  // @apply dark:bg-surface-dark-soft dark:shadow-dark-divider-bottom;
+.zpl-filter-date {
+  .today {
+    @apply block mt-md;
+  }
+  .range-box {
+    @apply mt-md flex;
+    label {
+      @apply inline-block mr-2xs mb-xs text-text-soft;
+    }
+  }
+  .range-input {
+    @apply flex-1;
+    &:first-child {
+      @apply ml-sm;
+    }
+  }
 }

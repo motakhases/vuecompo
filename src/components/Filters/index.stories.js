@@ -13,7 +13,7 @@ const Template = (_, { argTypes }) => ({
   components: { Filters, FilterActions, FilterAccordion, Radio, FilterDate },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md">
+  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
 		<Filters>
       <FilterActions/>
 				<FilterAccordion  v-bind='$props'>
