@@ -15,10 +15,6 @@ storiesOf("Components/NavigationBar", module)
   .addDecorator(StoryRouter())
   .add("default", () => NavigationBar);
 
-export default {
-  component: NavigationBar,
-  title: "Components/NavigationBar",
-};
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -35,55 +31,59 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-  <NavigationBar :toggle="toggle">
-    <SwitchTerminalPopover>
-      <template v-slot:terminal>
-        <SwitchTerminal
-          title="عنوان درگاه"
-          link="zarinp.al/getway"
-          icon="terminal"
-        >
-        </SwitchTerminal>
-      </template>
-      <template v-slot:menu>
-        <Overview link="overview" active> نمای کلی </Overview>
-        <SwitchTerminalItem
-          title="عنوان درگاه"
-          link="zarinp.al/getway"
-          icon="terminal"
-          active
-          state="active"
-          state-text="وضعیت"
-        />
-        <SwitchTerminalItem
-          title="عنوان درگاه"
-          link="zarinp.al/getway"
-          icon="terminal"
-          state="inactive"
-          state-text="وضعیت"
-        />
-        <Create link="/home"> ایجاد درگاه جدید </Create>
-      </template>
-    </SwitchTerminalPopover>
-		<template v-slot:logo>
-		<Logo name="zarinpal" type="logo" language="fa" size="medium" />
-		</template>
-    <template v-slot:firstList>
-      <NavItem active link="/" title="لیبل" icon="questionCircle" badge="12" />
-      <NavItem link="/" title="لیبل" icon="questionCircle" badge="12" />
-    </template>
-    <template v-slot:secondList>
-      <NavItem link="/" title="لیبل" icon="questionCircle" />
-      <NavItem link="/" title="لیبل" icon="questionCircle" />
-    </template>
-  </NavigationBar>
+    <div class="relative">
+      <NavigationBar :toggle="toggle">
+        <SwitchTerminalPopover>
+          <template v-slot:terminal>
+            <SwitchTerminal
+              title="عنوان درگاه"
+              link="zarinp.al/getway"
+              icon="terminal"
+            >
+            </SwitchTerminal>
+          </template>
+          <template v-slot:menu>
+            <Overview link="overview" active> نمای کلی </Overview>
+            <SwitchTerminalItem
+              title="عنوان درگاه"
+              link="zarinp.al/getway"
+              icon="terminal"
+              active
+              state="active"
+              state-text="وضعیت"
+            />
+            <SwitchTerminalItem
+              title="عنوان درگاه"
+              link="zarinp.al/getway"
+              icon="terminal"
+              state="inactive"
+              state-text="وضعیت"
+            />
+            <Create link="/home"> ایجاد درگاه جدید </Create>
+          </template>
+        </SwitchTerminalPopover>
+        <template v-slot:logo>
+        <Logo name="zarinpal" type="logo" language="fa" size="medium" />
+        </template>
+        <template v-slot:firstList>
+          <NavItem active link="/" title="لیبل" icon="questionCircle" badge="12" />
+          <NavItem link="/" title="لیبل" icon="questionCircle" badge="12" />
+        </template>
+        <template v-slot:secondList>
+          <NavItem link="/" title="لیبل" icon="questionCircle" />
+          <NavItem link="/" title="لیبل" icon="questionCircle" />
+        </template>
+      </NavigationBar>
+    <div>
   `,
 });
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
 
 Default.argTypes = {};
 
 Default.args = {
   toggle: false,
 };
+
+export default Default

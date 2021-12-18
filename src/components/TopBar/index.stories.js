@@ -4,11 +4,6 @@ import Icon from "@/components/Icon/index.vue";
 import UserProfile from "./UserProfile/index.vue";
 import Notification from "./Notification/index.vue";
 
-export default {
-  component: TopBar,
-  title: "Components/TopBar",
-};
-
 const Template = (_, { argTypes }) => ({
   components: { TopBar, Logo, Icon, UserProfile, Notification },
   props: Object.keys(argTypes),
@@ -29,7 +24,10 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-export const Default = Template.bind({});
+const Default = Template.bind({});
+
 Default.args = {
   badge: "۹۹",
 };
+
+export default Default
