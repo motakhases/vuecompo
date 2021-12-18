@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['zpl-store-status', state ]"
+    :class="['zpl-store-status', state.toLowerCase() ]"
     dir="rtl"
   >
     {{ text }}
