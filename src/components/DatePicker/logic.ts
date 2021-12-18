@@ -48,6 +48,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    value: {
+      type: String,
+      default: '',
+    },
   },
   data(): {
     date: any;
@@ -57,10 +61,20 @@ export default Vue.extend({
     } {
     return {
       date: [],
-      startValue: this.startInput,
+      startValue: this.value,
       endValue: this.endInput,
       singleValue: this.singleInput,
     };
+  },
+  computed: {
+    model: {
+      get():string {
+        return this.updateDate();
+      },
+      set(value:string[]):void {
+        this.$emit('input', value);
+      },
+    },
   },
   watch: {
     singleValue(val) {
@@ -87,17 +101,6 @@ export default Vue.extend({
     endValue(val) {
       this.$emit('endInput', val);
     },
-  },
-  mounted() {
-    if (this.singleInput) {
-      this.date = this.jalaliTogregorian(this.singleInput);
-    }
-    if (this.startInput) {
-      this.date.splice(0, 1, this.jalaliTogregorian(this.startInput));
-    }
-    if (this.endInput) {
-      this.date.splice(1, 1, this.jalaliTogregorian(this.endInput));
-    }
   },
   methods: {
     firstInputHandler() {
@@ -134,6 +137,18 @@ export default Vue.extend({
         attributes.class = 'is-today';
       }
       return attributes;
+    },
+    updateDate() {
+      let result;
+      if (typeof this.value === 'string') {
+        result = this.jalaliTogregorian(this.value);
+      }
+      if (typeof this.value === 'object') {
+        const start = this.jalaliTogregorian(this.value[0]);
+        const end = this.jalaliTogregorian(this.value[1]);
+        result = [start, end];
+      }
+      return result;
     },
   },
 });

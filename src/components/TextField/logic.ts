@@ -70,7 +70,7 @@ export default Vue.extend({
     },
     focusout: {
       type: Function,
-      default: () => 1,
+      default: () => Function,
     },
   },
 

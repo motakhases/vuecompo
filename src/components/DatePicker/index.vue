@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-date-picker-container">
     <VuePersianDatetimePicker
-      v-model="date"
+      v-model="model"
       locale="fa"
       inline
       :editable="true"
@@ -43,7 +43,7 @@
       <div class="zpl-date-picker-range-input">
         <label for="">شروع</label>
         <TextField
-          v-model="startValue"
+          v-model="model"
           type="text"
           after-icon="calender"
           placeholder="روز/ماه/سال"
@@ -54,7 +54,7 @@
       <div class="zpl-date-picker-range-input">
         <label for="">پایان</label>
         <TextField
-          v-model="endValue"
+          v-model="model"
           after-icon="calender"
           placeholder="روز/ماه/سال"
           :focusout="secondInputHandler"
@@ -65,11 +65,12 @@
     <TextField
       v-else
       id="editable-input"
-      v-model="singleValue"
+      v-model="model"
       after-icon="calender"
       placeholder="روز/ماه/سال"
       :disabled="disableSingle"
     />
+    {{ value }}
   </div>
 </template>
 
