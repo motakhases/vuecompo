@@ -1,7 +1,7 @@
 <template>
   <ValidationProvider
     v-slot="{ invalid , errors, passed}"
-    :rules="rules"
+    :rules="rules ? rules : null"
   >
     <div
       class="zpl-textfield-group"
@@ -74,7 +74,6 @@
           {{ label }}
         </label>
       </div>
-
       <!--  hint text or limit container -->
       <div class="zpl-textfield-hint-box">
         <!-- show when we have helperHint -->
