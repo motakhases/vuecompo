@@ -1,29 +1,5 @@
 <template>
   <div dir="rtl">
-    <TopBar>
-      <template v-slot:right-side>
-        <Icon
-          name="menuBurger"
-          class="zpl-topbar-menu"
-        />
-        <div class="zpl-topbar-logo">
-          <Logo
-            size="medium"
-            name="zarinpal"
-            type="logo"
-            language="fa"
-          />
-        </div>
-      </template>
-      <template v-slot:left-side>
-        <Icon
-          name="questionCircle"
-          class="zpl-topbar-menu"
-        />
-        <Notification :badge="badge" />
-        <UserProfile username="نام کاربر" />
-      </template>
-    </TopBar>
     <NavigationBar
       :terminals="terminals"
       :above-links="alinks"
@@ -35,21 +11,11 @@
 <script lang="js">
 import Vue from 'vue';
 import NavigationBar from '@/components/NavigationBar/index.vue';
-import TopBar from '@/components/TopBar/index.vue';
-import Logo from '@/components/Logo/index.vue';
-import Icon from '@/components/Icon/index.vue';
-import Notification from '@/components/TopBar/Notification/index.vue';
-import UserProfile from '@/components/TopBar/UserProfile/index.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    Logo,
-    Icon,
-    TopBar,
-    Notification,
-    UserProfile,
     NavigationBar,
   },
 
