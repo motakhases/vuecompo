@@ -14,10 +14,8 @@ const Template = (_, { argTypes }) => ({
     };
   },
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<DatePicker  v-model="single" v-bind="$props"
-		>
-    </DatePicker>
+  <div class="dark:bg-surface-dark p-sm rounded-md rtl w-[298px]">
+		<DatePicker  v-model="single" v-bind="$props" />
   </div>
   `,
 });

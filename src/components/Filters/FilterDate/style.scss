@@ -1,9 +1,12 @@
 .zpl-filter-date {
+  .dropdown {
+    @apply mb-md block;
+  }
   .today {
-    @apply block mt-md;
+    @apply block;
   }
   .range-box {
-    @apply mt-md flex;
+    @apply flex;
     label {
       @apply inline-block mr-2xs mb-xs text-text-soft;
     }

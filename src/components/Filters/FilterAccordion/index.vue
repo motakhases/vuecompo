@@ -1,6 +1,7 @@
 <template>
   <div class="zpl-filter-acc">
     <FilterToggle
+      v-model="model"
       :text="text"
       :disabled="disabled"
       :name="name"

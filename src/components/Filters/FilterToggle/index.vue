@@ -1,13 +1,13 @@
 <template>
   <div class="zpl-filter-toggle">
     <CheckBox
+      v-model="model"
       :text="text"
       :disabled="disabled"
       :name="name"
       :val="val"
       :change="change"
     />
-    <slot />
   </div>
 </template>
 

@@ -1,18 +1,41 @@
 <template>
   <div class="zpl-filter-amount">
     <Dropdown
-      v-model="value"
+      v-model="amountType"
       :options="options"
       placeholder="بازه تاریخ"
+      class="dropdown"
     />
-    <TextField
-      v-model="amountValue"
+    <Textfield
+      v-if="amountType !== 'بازه مبلغ'"
+      v-model="model"
       type="number"
       separator="comma"
       unit="ریال"
     />
-    {{ amount.GREATER_THAN }}
-    <slot />
+    <div
+      v-if="amountType === 'بازه مبلغ'"
+      class="range-box"
+    >
+      <div class="range-input">
+        <label>از</label>
+        <Textfield
+          v-model="model[0]"
+          type="number"
+          separator="comma"
+          unit="ریال"
+        />
+      </div>
+      <div class="range-input">
+        <label>تا</label>
+        <Textfield
+          v-model="model[1]"
+          type="number"
+          separator="comma"
+          unit="ریال"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

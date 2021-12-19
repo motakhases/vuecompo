@@ -10,28 +10,14 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      value: "",
+      dateValue: "",
     };
   },
-  methods: {
-    updateDate(val) {
-      this.value = val;
-    },
-  },
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<FilterDate v-bind='$props' @date="updateDate"/>
-
-ty  -{{value}}
-</div>
+  <div class="dark:bg-surface-dark p-sm rounded-md rtl w-[296px]">
+		<FilterDate v-model="dateValue"/>
+	</div>
   `,
 });
 
 export const Default = Template.bind({});
-
-Default.args = {
-  name: "some name",
-  text: "عنوان فیلتر",
-  val: "value",
-  disabled: false,
-};

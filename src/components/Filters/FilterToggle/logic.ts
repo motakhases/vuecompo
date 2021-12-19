@@ -7,15 +7,15 @@ export default Vue.extend({
   props: {
     val: {
       type: String,
-      required: true,
+      default: '',
     },
     value: {
       type: Array as PropType<string[]>,
-      required: true,
+      default: '',
     },
     name: {
       type: String,
-      required: true,
+      default: '',
     },
     text: {
       type: String,
@@ -31,4 +31,14 @@ export default Vue.extend({
     },
   },
 
+  computed: {
+    model: {
+      get():string|string[] {
+        return this.value;
+      },
+      set(value:string[]):void {
+        this.$emit('input', value);
+      },
+    },
+  },
 });

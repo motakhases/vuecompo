@@ -1,5 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 import moment from 'moment-jalaali';
 import Icon from '@/components/Icon/index.vue';
@@ -40,7 +40,7 @@ export default Vue.extend({
       default: false,
     },
     value: {
-      type: String,
+      type: [String, Array] as PropType<string[] | string>,
       default: '',
     },
   },

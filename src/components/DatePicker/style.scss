@@ -1,5 +1,4 @@
 .zpl-date-picker-container {
-  @apply w-[298px];
 }
 .zpl-date-picker {
   &.no-preview {
@@ -11,10 +10,10 @@
     @apply mt-0;
   }
   .vpd-container {
-    @apply font-YekanBakhFaNum mt-0 mb-xs;
+    @apply font-YekanBakhFaNum mt-0 mb-xs w-full;
   }
   .vpd-content {
-    @apply bg-surface border border-border rounded-sm p-xs w-[298px];
+    @apply bg-surface border border-border rounded-sm p-xs w-full;
     @apply dark:bg-surface-dark dark:border-border-dark;
   }
   .vpd-header {
@@ -25,11 +24,14 @@
     @apply p-0 text-text-soft text-b3;
     @apply dark:text-text-dark-soft;
   }
+  .vpd-weekday {
+    @apply w-[14.28%];
+  }
   .vpd-days {
     @apply p-0;
   }
   .vpd-day {
-    @apply text-text text-b3 flex justify-center items-center;
+    @apply text-text text-b3 flex justify-center items-center w-[14.28%];
     @apply dark:text-text-dark;
     &:not([disabled]) {
       &.vpd-selected {

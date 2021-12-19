@@ -1,8 +1,8 @@
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import FilterToggle from '../FilterToggle/index.vue';
 
 export default Vue.extend({
-  name: 'FilterStatus',
+  name: 'FilterAccordion',
   components: { FilterToggle },
   props: {
     size: {
@@ -14,7 +14,7 @@ export default Vue.extend({
       required: true,
     },
     value: {
-      type: Array,
+      type: Array as PropType<string[]>,
       required: true,
     },
     name: {
@@ -39,6 +39,17 @@ export default Vue.extend({
       isActive: false,
     };
   },
+
+  computed: {
+    model: {
+      get(): string[] {
+        return this.value;
+      },
+      set(value: string[]): void {
+        this.$emit('input', value);
+      },
+    },
+  },
   methods: {
     check() {
       this.isActive = !this.isActive;
@@ -46,12 +57,12 @@ export default Vue.extend({
     toggleHandler() {
       this.isActive = !this.isActive;
     },
-    startTransition(el:any) {
+    startTransition(el: HTMLElement) {
       const element = el;
       element.style.height = `${el.scrollHeight}px`;
     },
 
-    endTransition(el:any) {
+    endTransition(el: HTMLElement) {
       const element = el;
       element.style.height = '';
     },

@@ -17,25 +17,3 @@ const Template = (_, { argTypes }) => ({
 
 export const Default = Template.bind({});
 
-Default.argTypes = {
-  size: {
-    options: ["small", "medium", "large"],
-    control: { type: "radio" },
-  },
-  type: {
-    options: ["primary", "secondary", "tertiary"],
-    control: { type: "radio" },
-  },
-};
-
-Default.args = {
-  text: "FilterActions",
-  size: "large",
-  type: "primary",
-  disabled: false,
-  fill: false,
-  loading: false,
-  afterIcon: "",
-  beforeIcon: "",
-	onClick: () => alert('clicked')
-};

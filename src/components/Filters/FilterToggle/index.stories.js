@@ -8,9 +8,16 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { FilterToggle },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      data: [],
+    };
+  },
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
-		<FilterToggle v-bind='$props'/>
+		<FilterToggle v-bind='$props' v-model="data"/>
+		{{data}}
+		{{val}}
   </div>
   `,
 });
@@ -18,8 +25,8 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-	name: 'some name',
-  text: 'عنوان فیلتر',
-  val: 'value',
-  disabled: false
+  name: "some name",
+  text: "عنوان فیلتر",
+  val: "value",
+  disabled: false,
 };

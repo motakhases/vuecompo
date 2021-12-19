@@ -12,11 +12,10 @@
         :disabled="disabled"
       >
         <input
+          v-model="model"
           :class="['zpl-dropdown-input']"
-          :value="value"
           :disabled="disabled"
           :placeholder="placeholder"
-          @input="onInput"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keyup="onKeyUp"
