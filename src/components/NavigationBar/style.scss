@@ -1,6 +1,6 @@
 .zpl-nav-bar-container {
   /* Default */
-  @apply relative;
+  @apply relative h-full;
 }
 .zpl-nav-bar-menu {
   /* Default */
@@ -26,6 +26,11 @@
         }
       }
     }
+  }
+}
+.zpl-nav-bar-storybook {
+  .zpl-nav-bar-menu {
+    @apply absolute
   }
 }
 .zpl-nav-bar-content {
