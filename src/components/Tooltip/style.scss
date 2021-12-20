@@ -9,6 +9,13 @@
     }
   }
 }
+
+.zpl-tooltip-active {
+  .zpl-tooltip {
+    @apply inline-block;
+  }
+}
+
 .zpl-tooltip {
   /* Default */
   @apply bg-surface-dark rounded-sm px-xs absolute z-10 w-max	max-w-[328px] hidden;
