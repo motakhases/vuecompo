@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-    <div class="relative bg-background dark:bg-background-dark border-border-dark-soft h-[768px]" dir="rtl">
+    <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border-1 border-border h-[768px]" dir="rtl">
       <NavigationBar
         :toggle="toggle"
         :terminals="terminals"

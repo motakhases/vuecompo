@@ -4,7 +4,7 @@ const Template = (_, { argTypes }) => ({
   components: { PageHeading },
   props: Object.keys(argTypes),
   template: `
-  <div class="rtl">
+  <div class="rtl bg-background dark:bg-background-dark p-sm">
     <PageHeading
       :returnBTN="returnBTN"
       :sticky="sticky"
