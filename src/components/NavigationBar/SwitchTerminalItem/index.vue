@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <a
     :to="link"
     class="zpl-terminal-item"
   >
@@ -26,7 +26,7 @@
         <Icon name="tickSmall" />
       </div>
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">

@@ -32,7 +32,7 @@ export default Vue.extend({
   },
   computed: {
     linkComponentDetector() {
-      return this.href ? 'a' : 'router-link';
+      return this.href ? 'a' : 'a';
     },
   },
 });

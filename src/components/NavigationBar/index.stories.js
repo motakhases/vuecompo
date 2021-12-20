@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   template: `
-    <div class="relative bg-background dark:bg-background-dark">
+    <div class="relative bg-background dark:bg-background-dark border-border-dark-soft h-[768px]" dir="rtl">
       <NavigationBar
         :toggle="toggle"
         :terminals="terminals"
