@@ -20,11 +20,11 @@ const Template = (_, { argTypes }) => ({
     limitNum: 5,
   }),
   template: `
-  <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-x-sm gap-y-md rtl">
+  <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">
   	<TextField
   	  v-model="hint"
   	  class="col-span-1"
-  	  label="سایز کوچک"
+  	  label="فیلد عادی"
   	/>
   	<TextField
   	  v-model="number"
@@ -63,7 +63,7 @@ const Template = (_, { argTypes }) => ({
   	  label="فیلد غیر فعال"
   	  disabled
   	/>
-  	<h1 class="col-span-2">
+  	<h1 class="col-span-2 dark:text-secondary mt-md">
   	  اعتبارسنجی
   	</h1>
   	<TextField

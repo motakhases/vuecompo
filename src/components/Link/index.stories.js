@@ -10,7 +10,8 @@ const Template = (_, { argTypes }) => ({
   components: { Link },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark dark:text-text-dark p-sm rounded-md" dir="rtl">
+  <div class="dark:bg-surface-dark dark:text-text-dark p-sm text-b2 rounded-md" dir="rtl">
+    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از 
     <Link
       :to="to"
       :href="href"
@@ -18,6 +19,7 @@ const Template = (_, { argTypes }) => ({
       :target="target"
 			:text="text"
     />
+    و با استفاده از طراحان گرافیک است. 
   </div>
   `,
 });
