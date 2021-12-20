@@ -9,8 +9,7 @@ const Template = (_, { argTypes }) => ({
     ],
   }),
   template: `
-  <div class="dark:bg-surface-dark flex flex-row-reverse p-sm rounded-md">
-    <div class="w-full">
+  <div class="dark:bg-surface-dark grid gap-y-md p-sm rounded-md">
       <CheckBox
         v-model="data"
         name="firstCheckBox"
@@ -43,11 +42,6 @@ const Template = (_, { argTypes }) => ({
         val="پنجمین گزینه"
         text="پنجمین گزینه"
       />
-    </div>
-
-    <div>
-      <pre v-if="data" class="dark:text-secondary"><code>{{data}}</code></pre>
-    </div>
   </div>
   `,
 });

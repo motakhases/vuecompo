@@ -25,7 +25,7 @@ export default Vue.extend({
     },
     link: {
       type: String,
-      default: 'zarinp.al/getway',
+      default: '',
     },
     icon: {
       type: String,

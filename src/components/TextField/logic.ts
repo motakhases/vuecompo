@@ -2,6 +2,11 @@ import Vue from 'vue';
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 
+interface KeyboardEvent {
+  key: string;
+  preventDefault: () => void;
+}
+
 export default Vue.extend({
   name: 'TextField',
 
@@ -60,6 +65,14 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    id: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
@@ -70,10 +83,10 @@ export default Vue.extend({
 
   computed: {
     model: {
-      get():string {
+      get(): string {
         return this.formattedValue();
       },
-      set(value:string[]):void {
+      set(value: string[]): void {
         this.$emit('input', value);
       },
     },
@@ -89,7 +102,6 @@ export default Vue.extend({
     formattedValue(): string {
       // format the value based on separator for type === number
       if (this.type === 'number') {
-        console.log('R Num');
         switch (this.separator) {
         case 'comma':
           return this.value.toLocaleString();
@@ -101,13 +113,14 @@ export default Vue.extend({
           return this.value;
         }
       } else {
-        console.log('R String');
         return this.value;
       }
     },
-    onInput(event: any) {
+    onInput(event: Event) {
       // update value of input and if they have , or - remove them
-      const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
+      const newValue = (event.target as HTMLInputElement).value
+        .replace(/,/g, '')
+        .replace(/-/g, '');
       this.$emit('value', this.toEnNumber(newValue));
     },
     onFocusIn() {
@@ -130,7 +143,7 @@ export default Vue.extend({
         .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
         .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
     },
-    onlyNumber(event: any) {
+    onlyNumber(event: KeyboardEvent) {
       // just accepts number and dot
       if (this.type === 'number') {
         if (!/\d/.test(event.key) && event.key !== '.') {

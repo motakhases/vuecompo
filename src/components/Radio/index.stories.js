@@ -7,8 +7,7 @@ const Template = (_, { argTypes }) => ({
     data: '',
   }),
   template: `
-  <div class="dark:bg-surface-dark flex flex-row-reverse p-sm rounded-md">
-    <div class="w-full">
+  <div class="dark:bg-surface-dark grid gap-y-md p-md rounded-md">
       <Radio
         v-model="data"
         name="radio"
@@ -28,11 +27,6 @@ const Template = (_, { argTypes }) => ({
         val="سومین گزینه"
         text="سومین گزینه"
       />
-    </div>
-
-    <div>
-      <pre v-if="data" class="dark:text-secondary"><code>{{data}}</code></pre>
-    </div>
   </div>
   `,
 });

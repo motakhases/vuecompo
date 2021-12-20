@@ -11,9 +11,9 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
     <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px]">
-      <Dropdown v-model="data" v-bind="$props" class="col-span-1" />
-      <Dropdown disabled class="col-span-1" label="حالت غیر فعال" />
-      <Dropdown loading class="col-span-1" label="حالت لودینگ"/>
+      <Dropdown v-model="data" v-bind="$props" class="col-span-3" />
+      <Dropdown disabled class="col-span-3" label="حالت غیر فعال" />
+      <Dropdown loading class="col-span-3" label="حالت لودینگ"/>
     </div>
   `,
 });

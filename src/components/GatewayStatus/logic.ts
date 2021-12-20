@@ -1,13 +1,13 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'StoreStatus',
+  name: 'GatewayStatus',
   props: {
     text: {
       type: String,
       default: '',
     },
-    state: {
+    type: {
       type: String,
       default: 'active',
     },

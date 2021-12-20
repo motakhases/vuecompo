@@ -1,5 +1,5 @@
-import TextField from './index.vue';
-import '@/utils/validations';
+import TextField from "./index.vue";
+import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -7,46 +7,80 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    disabled: 'سلام از طرف یک فیلد غیر فعال',
-    hint: '',
-    number: '',
-    icon1: '',
-    icon2: '',
+    disabled: "سلام از طرف یک فیلد غیر فعال",
+    hint: "",
+    number: "",
+    icon1: "",
+    icon2: "",
+    unit: "",
+    helper: "",
+    success: "",
+    error: "",
+    limit: "",
+    limitNum: 5,
   }),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md grid grid-cols-2 gap-sm">
-    <TextField
-      class="col-span-2"
-      v-model="disabled"
-      label="فیلد غیر فعال"
-      disabled
-    />
-    <TextField
-      class="col-span-1"
-      v-model="hint"
-      label="سایز کوچک"
-      helperHint="می‌توانید در این فیلد هر چیزی بنویسید"
-      successHint="متن با موفقیت خوانده شد"
-    />
-    <TextField
-      class="col-span-1"
-      v-model="number"
-      label="فیلد عددی"
-      stepper
-      type="number"
-    />
-    <TextField
-      class="col-span-1"
-      v-model="icon1"
-      label="فیلد آیکن دار"
-      beforeIcon="Star"
-    />
-    <TextField
-      class="col-span-1"
-      v-model="icon2"
-      label="فیلد آیکن دار"
-      afterIcon="Star"
-    />
+  <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-x-sm gap-y-md rtl">
+  	<TextField
+  	  v-model="hint"
+  	  class="col-span-1"
+  	  label="سایز کوچک"
+  	/>
+  	<TextField
+  	  v-model="number"
+  	  class="col-span-1"
+  	  label="فیلد عددی"
+  	  stepper
+  	  type="number"
+  	/>
+  	<TextField
+  	  v-model="icon1"
+  	  class="col-span-1"
+  	  before-icon="Star"
+  	  placeholder="فیلد آیکن دار"
+  	/>
+  	<TextField
+  	  v-model="icon2"
+  	  class="col-span-1"
+  	  label="فیلد آیکن دار"
+  	  after-icon="Star"
+  	/>
+  	<TextField
+  	  v-model="unit"
+  	  class="col-span-1"
+  	  label="فیلد واحد دار"
+  	  unit="ریال"
+  	/>
+		<TextField
+			v-model="limit"
+			class="col-span-1"
+			label="فیلد با تعداد کاراکتر محدود"
+			:limit="limitNum"
+		/> 
+		<TextField
+  	  v-model="disabled"
+  	  class="col-span-1"
+  	  label="فیلد غیر فعال"
+  	  disabled
+  	/>
+  	<h1 class="col-span-2">
+  	  اعتبارسنجی
+  	</h1>
+  	<TextField
+  	  v-model="helper"
+  	  class="col-span-2"
+  	  helper-hint="می‌توانید در این فیلد هر چیزی بنویسید"
+  	/>
+  	<TextField
+  	  v-model="success"
+  	  class="col-span-1 mb-lg"
+  	  success-hint="متن با موفقیت خوانده شد"
+  	/>
+  	<TextField
+  	  v-model="error"
+  	  class="col-span-1"
+  	  rules="required"
+  	/>
   </div>
   `,
 });
