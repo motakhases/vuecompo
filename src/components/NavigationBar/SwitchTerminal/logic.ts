@@ -7,7 +7,7 @@ import Overview from '../Overview/index.vue';
 import Create from '../Create/index.vue';
 
 export default Vue.extend({
-  name: 'SwitchTerminal',
+  name: 'SwitchTerminals',
   components: {
     Thumbnail,
     Icon,
@@ -27,7 +27,7 @@ export default Vue.extend({
     },
     link: {
       type: String,
-      default: 'zarinp.al/getway',
+      default: '',
     },
     icon: {
       type: String,

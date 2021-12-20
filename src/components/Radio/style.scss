@@ -6,21 +6,21 @@
   // dark states
   @apply dark:text-text-dark;
 
-  input{
+  input {
     @apply hidden;
   }
 
-  .checkmark { 
+  .checkmark {
     @apply absolute top-0 right-0 h-lg w-lg rounded-circle border-2;
     @apply bg-surface border-border;
     @apply hover:bg-surface-hover;
     @apply disabled:border-border-disabled;
     // dark states
     @apply dark:bg-surface-dark dark:border-border-dark;
-    @apply dark:hover:bg-surface-dark-hover ;
+    @apply dark:hover:bg-surface-dark-hover;
     @apply dark:disabled:border-border-dark-disabled;
-    &:after{
-      @apply absolute hidden top-[6px] left-[6px] w-[8px] h-[8px] rounded-circle ;
+    &:after {
+      @apply absolute hidden top-[6px] left-[6px] w-[8px] h-[8px] rounded-circle;
       @apply bg-surface;
       // dark states
       @apply dark:bg-surface-dark;
@@ -41,8 +41,8 @@
     @apply dark:bg-primaryZarinpal-dark;
     @apply dark:hover:bg-primaryZarinpal-dark-hover;
     @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
-    &:after{
-      @apply block; 
+    &:after {
+      @apply block;
     }
   }
 

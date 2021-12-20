@@ -1,16 +1,16 @@
-import StoreStatus from "./index.vue";
+import GatewayStatus from "./index.vue";
 
 export default {
-  component: StoreStatus,
-  title: "Components/StoreStatus",
+  component: GatewayStatus,
+  title: "Components/GatewayStatus",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { StoreStatus },
+  components: { GatewayStatus },
   props: Object.keys(argTypes),
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md">
-		<StoreStatus v-bind="$props" />
+		<GatewayStatus v-bind="$props" />
 	</div>
   `,
 });

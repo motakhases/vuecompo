@@ -15,7 +15,7 @@
       <div class="zpl-terminal-item-link">
         {{ link }}
       </div>
-      <StoreStatus
+      <GatewayStatus
         :state="state"
         :text="stateText(state)"
       />

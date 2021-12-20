@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'StoreStatus',
+  name: 'GatewayStatus',
   props: {
     text: {
       type: String,
