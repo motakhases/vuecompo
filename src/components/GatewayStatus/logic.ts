@@ -7,7 +7,7 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    state: {
+    type: {
       type: String,
       default: 'active',
     },

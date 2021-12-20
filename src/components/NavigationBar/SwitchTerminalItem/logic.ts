@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
-import GatewayStatus from '../../GatewayStatus/index.vue';
+import GatewayStatus from '@/components/GatewayStatus/index.vue';
 
 export default Vue.extend({
   name: 'SwitchTerminalItem',

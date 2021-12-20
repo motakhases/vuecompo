@@ -16,7 +16,7 @@
         {{ link }}
       </div>
       <GatewayStatus
-        :state="state"
+        :type="state"
         :text="stateText(state)"
       />
       <div
