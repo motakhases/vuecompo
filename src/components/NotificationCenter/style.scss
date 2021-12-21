@@ -1,8 +1,8 @@
-.zpl-notification-modal{
-  @apply block fixed z-50 left-0 top-0 w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)];
-  .zpl-notification-center{
-    direction: rtl;
-    @apply max-w-[360px] h-[100vh] rounded-xl overflow-scroll;
+.zpl-notification-modal {
+  @apply hidden justify-end fixed z-50 left-0 top-0 w-full h-full overflow-auto;
+
+  .zpl-notification-center {
+    @apply w-[360px] min-w-[360px] h-[100vh] rounded-xl overflow-scroll;
     @apply sm:max-w-[340px] sm:rounded-none;
     @apply  bg-surface;
     @apply  dark:bg-surface-dark;
@@ -83,8 +83,19 @@
       @apply dark:text-icon-dark;
     }
   }
-  .announce-archives{
+
+  .announce-archives {
     @apply border-t border-t-border-divider;
     @apply border-t dark:border-t-border-dark-divider;
+  }
+
+  &.show {
+    @apply flex bg-alpha-overlay dark:bg-alpha-dark-overlay
+  }
+}
+
+.zpl-notification-storybook {
+  .zpl-notification-modal {
+    @apply absolute
   }
 }

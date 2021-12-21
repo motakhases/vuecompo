@@ -1,13 +1,16 @@
 <template>
-  <div class="zpl-notification-modal">
+  <div :class="['zpl-notification-modal', { 'show': isOpen }]">
     <div
+      v-click-outside="close"
       :class="['zpl-notification-center']"
     >
+      <!-- Header -->
       <div class="notif-header">
         <div v-show="!showArchives">
           <Icon
             name="delete"
             class="close-icon"
+            @click="close"
           />
           <Icon
             name="clockRefresh"
@@ -26,6 +29,8 @@
           </h3>
         </div>
       </div>
+
+      <!-- Tabs -->
       <Tabs
         v-show="!showArchives"
         :fill-container="true"
@@ -92,6 +97,8 @@
           />
         </Tab>
       </Tabs>
+
+      <!-- Archive -->
       <div
         v-show="showArchives"
         class="announce-archives"
@@ -115,5 +122,4 @@ import logic from './logic';
 import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
-
 </script>

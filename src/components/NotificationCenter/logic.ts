@@ -9,9 +9,11 @@ import Icon from '../Icon/index.vue';
 
 export default Vue.extend({
   name: 'NotificationCenter',
+
   components: {
     card, noNotif, Tabs, Tab, Icon,
   },
+
   props: {
     announcements: {
       type: Array,
@@ -22,12 +24,22 @@ export default Vue.extend({
       default: () => [],
     },
   },
+
   data() {
     return {
       showArchives: false,
+      isOpen: false,
     };
   },
+
   methods: {
+    open() {
+      console.log('open');
+      this.isOpen = true;
+    },
+    close() {
+      this.isOpen = false;
+    },
     todayCards(data:[]) {
       return data.filter(({ date }) => date === now('YYYY-M-D'));
     },

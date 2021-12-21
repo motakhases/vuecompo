@@ -10,9 +10,11 @@ const Template = (_, { argTypes }) => ({
   components: { NotificationCenter },
   props: Object.keys(argTypes),
   template: `
+  <div class="relative zpl-notification-storybook bg-background dark:bg-background-dark border-1 border-border h-[768px]" dir="rtl">
     <NotificationCenter
       :announcements="announcements"
     />
+  </div>
   `,
 });
 
