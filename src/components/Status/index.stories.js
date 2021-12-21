@@ -14,9 +14,9 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md flex flex-col gap-md rtl">
 	  <Status v-bind="$props" />
-		<h1 class="mt-sm font-bold"> همراه با نشانگر </h1>
+		<h1 class="mt-sm font-bold dark:text-surface"> همراه با نشانگر </h1>
 	  <Status text="بازگردانی شده" type="informative" indicator />
-		<h1 class="mt-sm font-bold"> انواع وضعیت </h1>
+		<h1 class="mt-sm font-bold dark:text-surface"> انواع وضعیت </h1>
 		<div class="flex gap-sm">
 		  <Status text="تسویه شده" type="positive" indicator />
 		  <Status text="در حال پرداخت" type="informative" indicator />

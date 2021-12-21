@@ -6,7 +6,7 @@ const Template = (_, { argTypes }) => ({
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md rtl">
 		<GatewayStatus v-bind="$props" />
-		<h1 class="mt-sm font-bold mb-sm"> انواع وضعیت </h1>
+		<h1 class="mt-sm font-bold mb-sm dark:text-surface"> انواع وضعیت </h1>
 		<div class="flex gap-sm">
 		  <GatewayStatus text="فعال" type="active" />
 		  <GatewayStatus text="در حال انجام" type="pending" />
