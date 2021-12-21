@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Icon from '../Icon/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 export default Vue.extend({
   name: 'Modal',
@@ -7,12 +7,21 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: 'عنوان',
+      default: '',
+    },
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
+    toggle: {
+      type: Function,
+      default: () => Function,
     },
   },
   methods: {
-    close():void {
-      this.$emit('close');
+    outsideClick() {
+      // close modal
+      this.toggle();
     },
   },
 });
