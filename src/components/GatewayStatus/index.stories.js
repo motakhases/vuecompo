@@ -4,7 +4,7 @@ const Template = (_, { argTypes }) => ({
   components: { GatewayStatus },
   props: Object.keys(argTypes),
   template: `
-	<div class="dark:bg-surface-dark p-sm rounded-md rtl">
+	<div class="dark:bg-surface-dark p-lg rounded-md rtl">
 		<GatewayStatus v-bind="$props" />
 		<h1 class="mt-sm font-bold mb-sm dark:text-surface"> انواع وضعیت </h1>
 		<div class="flex gap-sm">

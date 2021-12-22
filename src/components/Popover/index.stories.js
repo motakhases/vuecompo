@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Popover },
   props: Object.keys(argTypes),
   template: `
-  <div class="p-sm relative rounded-md rtl">
+  <div class="p-sm relative rounded-md rtl h-[200px]">
     <div class="w-[250px] absolute rtl">
       <Popover
         :items="items"

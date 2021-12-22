@@ -6,8 +6,10 @@
     <div class="modal">
       <div class="modal-header">
         <h1>{{ title }}</h1>
-        <Icon
-          name="delete"
+        <Button
+          icon="delete"
+          type="tertiary"
+          size="medium"
           class="cursor-pointer"
           @click.native="toggle"
         />
@@ -22,7 +24,7 @@
     <div
       ref="backdropRef"
       class="backdrop"
-      @click="outsideClick"
+      @click="toggle"
     />
   </div>
 </template>

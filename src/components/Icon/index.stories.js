@@ -1,44 +1,54 @@
-import Icon from './index.vue';
+import Icon from "./index.vue";
 
 export default {
   component: Icon,
-  title: 'Components/Icon',
+  title: "Components/Icon",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Icon },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      names: [
+        "ChevronUp",
+        "AngleDown",
+        "AngleRight",
+        "AngleLeft",
+        "CheckmarkCircle",
+        "FilledArrowDown",
+        "FilledArrowUp",
+        "TickLarge",
+        "TickSmall",
+        "Warning",
+        "MenuBurger",
+        "Profile",
+        "ProfileFill",
+        "QuestionCircle",
+        "Notification",
+        "ChartSquare",
+        "Plus",
+        "Terminal",
+        "Delete",
+        "ClockRefresh",
+        "ArrowRight",
+        "ArrowFirst",
+        "ArrowLast",
+        "Star",
+        "DotsMenu",
+        "UndoneCheck",
+      ],
+    };
+  },
   template: `
-    <Icon :name="name" :class="classes" />
+	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-wrap gap-xl rtl">
+		<div v-for="name in names" class="text-center flex flex-col items-center dark:text-surface">
+  	  <Icon :name="name" class="w-[24px] h-[24px] mb-sm" />
+			<span> {{ name }} </span>
+		</div>
+		</div>
   `,
 });
 
 export const Default = Template.bind({});
 
-Default.argTypes = {
-  name: {
-    options: [
-      "ChevronUp",
-      "AngleDown",
-      "CheckmarkCircle",
-      "FilledArrowDown",
-      "FilledArrowUp",
-      "TickLarge",
-      "Warning",
-      "MenuBurger",
-      "Profile",
-      "QuestionCircle",
-      "Notification",
-      "AngleLeft",
-      "ChartSquare",
-      "Plus",
-      "Terminal"
-    ],
-    control: { type: "select" },
-  },
-};
-
-Default.args = {
-  name: 'menuBurger',
-  classes: 'w-[24px] h-[24px]'
-};

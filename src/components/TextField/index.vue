@@ -29,7 +29,6 @@
           @focusin="onFocusIn"
           @keypress="onlyNumber"
         >
-
         <!-- icon comes after input -->
         <Icon
           v-if="afterIcon"

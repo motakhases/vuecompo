@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Icon from '@/components/Icon/index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default Vue.extend({
   name: 'Modal',
-  components: { Icon },
+  components: { Icon, Button },
   props: {
     title: {
       type: String,
@@ -16,12 +17,6 @@ export default Vue.extend({
     toggle: {
       type: Function,
       default: () => Function,
-    },
-  },
-  methods: {
-    outsideClick() {
-      // close modal
-      this.toggle();
     },
   },
 });

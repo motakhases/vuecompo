@@ -93,7 +93,7 @@ export default Vue.extend({
   },
 
   watch: {
-    formattedValue() {
+    value() {
       this.activeLabel = !!this.value.length;
     },
   },

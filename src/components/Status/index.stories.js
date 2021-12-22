@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
     lg: '',
   }),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md flex flex-col gap-md rtl">
+  <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
 	  <Status v-bind="$props" />
 		<h1 class="mt-sm font-bold dark:text-surface"> همراه با نشانگر </h1>
 	  <Status text="بازگردانی شده" type="informative" indicator />
@@ -29,18 +29,5 @@ const Template = (_, { argTypes }) => ({
 });
 
 const status = Template.bind({});
-
-status.argTypes = {
-  type: {
-    options: ['neutral', 'informative', 'warning', 'negative', 'positive'],
-    control: { type: 'select' },
-  },
-};
-
-status.args = {
-  text: 'فعال',
-  type: 'positive',
-  indicator: false,
-};
 
 export default status;

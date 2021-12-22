@@ -1,5 +1,5 @@
 import Modal from "./index.vue";
-import Button from "../Button/index.vue";
+import Button from "@/components/Button/index.vue";
 
 export default {
   component: Modal,
