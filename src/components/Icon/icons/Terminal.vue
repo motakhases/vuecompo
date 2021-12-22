@@ -10,7 +10,6 @@
        1.046h-.228m-15.567 0v6.054c0 .478.387.865.864.865h7.352a.865.865 0 0 0
        .865-.865v-6.054m-9.081 0h9.08m0 0h6.487m0 0v6.92"
     stroke="currentColor"
-    stroke-opacity=".4"
     stroke-width="1.5"
     stroke-linecap="round"
   /></svg>

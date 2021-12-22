@@ -7,7 +7,6 @@ export default {
 
 const Template = (_, { argTypes }) => ({
   components: { Icon },
-  props: Object.keys(argTypes),
   data() {
     return {
       names: [
@@ -41,12 +40,14 @@ const Template = (_, { argTypes }) => ({
     };
   },
   template: `
-	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-wrap gap-xl rtl">
-		<div v-for="name in names" class="text-center flex flex-col items-center dark:text-surface">
-  	  <Icon :name="name" class="w-[24px] h-[24px] mb-sm" />
-			<span> {{ name }} </span>
+	<div class="bg-gray-100 dark:bg-surface-dark p-lg rounded-md flex flex-wrap rtl gap-x-md gap-y-lg">
+		<div v-for="name in names" :key="name" class="p-sm dark:text-surface">
+  	  <div class="text-center flex flex-col items-center w-[25%] bg-surface">
+				<Icon :name="name" class="w-[24px] h-[24px] mb-sm" />
+				<span> {{ name }} </span>
+			</div>	
 		</div>
-		</div>
+	</div>
   `,
 });
 
