@@ -10,40 +10,40 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       names: [
-        "ChevronUp",
         "AngleDown",
         "AngleRight",
         "AngleLeft",
-        "CheckmarkCircle",
-        "FilledArrowDown",
-        "FilledArrowUp",
-        "TickLarge",
-        "TickSmall",
-        "Warning",
-        "MenuBurger",
-        "Profile",
-        "ProfileFill",
-        "QuestionCircle",
-        "Notification",
-        "ChartSquare",
-        "Plus",
-        "Terminal",
-        "Delete",
-        "ClockRefresh",
         "ArrowRight",
         "ArrowFirst",
         "ArrowLast",
-        "Star",
+        "CheckmarkCircle",
+        "ChevronUp",
+        "ChartSquare",
+        "ClockRefresh",
+        "Delete",
         "DotsMenu",
+        "FilledArrowDown",
+        "FilledArrowUp",
+        "MenuBurger",
+        "Notification",
+        "Profile",
+        "ProfileFill",
+        "QuestionCircle",
+        "Plus",
+        "Star",
+        "Terminal",
+        "TickLarge",
+        "TickSmall",
         "UndoneCheck",
+        "Warning",
       ],
     };
   },
   template: `
 	<div class="bg-gray-100 dark:bg-surface-dark p-lg rounded-md flex flex-wrap rtl gap-x-md gap-y-lg">
-		<div v-for="name in names" :key="name" class="p-sm dark:text-surface">
-  	  <div class="text-center flex flex-col items-center w-[25%] bg-surface">
-				<Icon :name="name" class="w-[24px] h-[24px] mb-sm" />
+		<div v-for="name in names" :key="name" class="w-[18.6%]">
+  	  <div class="text-center flex flex-col items-center bg-surface h-[150px] rounded-md py-xl px-md dark:text-surface">
+				<Icon :name="name" class="w-[24px] h-[24px] mb-sm flex-1" />
 				<span> {{ name }} </span>
 			</div>	
 		</div>
@@ -52,4 +52,3 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-

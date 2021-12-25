@@ -13,7 +13,7 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-	  <Status v-bind="$props" />
+	  <Status text="تسویه شده" type="positive" />
 		<h1 class="mt-sm font-bold dark:text-surface"> همراه با نشانگر </h1>
 	  <Status text="بازگردانی شده" type="informative" indicator />
 		<h1 class="mt-sm font-bold dark:text-surface"> انواع وضعیت </h1>
