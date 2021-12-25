@@ -40,9 +40,9 @@ const Template = (_, { argTypes }) => ({
     };
   },
   template: `
-	<div class="bg-gray-100 dark:bg-surface-dark p-lg rounded-md flex flex-wrap rtl gap-x-md gap-y-lg">
+	<div class="bg-gray-100 dark:bg-gray-dark-100 p-lg rounded-md flex flex-wrap rtl gap-x-md gap-y-lg">
 		<div v-for="name in names" :key="name" class="w-[18.6%]">
-  	  <div class="text-center flex flex-col items-center bg-surface h-[150px] rounded-md py-xl px-md dark:text-surface">
+  	  <div class="text-center flex flex-col items-center bg-surface h-[150px] rounded-md py-xl px-md dark:text-surface dark:bg-surface-dark">
 				<Icon :name="name" class="w-[24px] h-[24px] mb-sm flex-1" />
 				<span> {{ name }} </span>
 			</div>	
