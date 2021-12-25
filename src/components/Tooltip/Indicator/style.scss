@@ -3,35 +3,35 @@
   @apply dark:bg-surface;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
 
-  &.bottomLeft {
+  &.topLeft {
     @apply -bottom-2xs left-sm;
     transform: rotate(-135deg);
   }
-  &.bottomCenter {
+  &.topCenter {
     @apply -bottom-2xs left-0 right-0 mx-auto;
     transform: rotate(-135deg);
   }
-  &.bottomRight {
+  &.topRight {
     @apply -bottom-2xs right-sm;
     transform: rotate(-135deg);
   }
-  &.topLeft {
+  &.bottomLeft {
     @apply -top-2xs left-sm;
     transform: rotate(45deg);
   }
-  &.topCenter {
+  &.bottomCenter {
     @apply -top-2xs left-0 right-0 mx-auto;
     transform: rotate(45deg);
   }
-  &.topRight {
+  &.bottomRight {
     @apply -top-2xs right-sm;
     transform: rotate(45deg);
   }
-  &.left {
+  &.right {
     @apply -left-2xs top-0 bottom-0 my-auto;
     transform: rotate(-45deg);
   }
-  &.right {
+  &.left {
     @apply -right-2xs top-0 bottom-0 my-auto;
     transform: rotate(135deg);
   }

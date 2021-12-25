@@ -15,7 +15,12 @@
             alt="test"
           >
         </div>
-        <span class="title"> {{ card.title }} </span>
+        <span class="title">
+          <Icon
+            v-if="card.icon"
+            :name="card.icon"
+          />
+          {{ card.title }} </span>
         <span
           v-if="card.message"
           class="desc"

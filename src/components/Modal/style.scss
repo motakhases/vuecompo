@@ -1,29 +1,61 @@
-.zpl-modal{
+.zpl-modal {
   direction: rtl;
   @apply fixed top-0 bottom-0 right-0 left-0;
-  @apply flex justify-center items-center z-[9999];
-  @apply bg-alpha-overlay;
-  @apply dark:bg-alpha-dark-overlay;
-  .modal{
-    @apply w-full max-h-[100vh] absolute bottom-0;
-    @apply sm:w-[600px] sm:max-h-[60vh] sm:mx-md sm:rounded-md sm:static;
+  @apply flex justify-center items-center;
+  // transition:  opacity 0.4s linear;
+  // opacity: 0;
+  .modal {
+    @apply w-full max-h-[88vh] absolute bottom-0 z-[9999] rounded-t-md;
+    @apply lg:w-[600px] lg:mx-md lg:rounded-md lg:static;
     @apply flex flex-col px-md;
     @apply text-text bg-surface shadow-elevation-100;
     @apply dark:text-text-dark dark:bg-surface-dark dark:shadow-dark-elevation-100;
-    .modal-header{
+    .modal-header {
       @apply py-md flex items-center justify-between;
-      h1{
+      h1 {
         @apply text-ls-h1;
       }
-      .close-modal{
+      .close-modal {
         @apply w-2xl h-2xl;
       }
     }
-    .modal-body{
-      @apply overflow-scroll my-md min-h-[100px];
+    .modal-body {
+      @apply overflow-y-scroll my-md min-h-[100px];
     }
-    .modal-footer{
+    .modal-footer {
       @apply py-md;
     }
   }
+  .backdrop {
+    @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
+    @apply bg-alpha-overlay;
+    @apply dark:bg-alpha-dark-overlay;
+    // transition: all 0.15s linear;
+  }
+
+  /* ---------------------------------- */
+  /* scroll style */
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-xs;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+    @apply dark:bg-surface-dark;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-heavy rounded-md;
+    @apply dark:bg-surface-dark-heavy;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }

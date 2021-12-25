@@ -1,20 +1,13 @@
 import NavBadge from "./index.vue";
 
-export default {
-  component: NavBadge,
-  title: "Components/NavBadge",
-};
-
 const Template = (_, { argTypes }) => ({
   components: { NavBadge },
   props: Object.keys(argTypes),
   template: `
-		<NavBadge :text="text" />
+		<NavBadge text="23" />
   `,
 });
 
-export const Default = Template.bind({});
+const navBadge = Template.bind({});
 
-Default.args = {
-  text: "12",
-};
+export default navBadge

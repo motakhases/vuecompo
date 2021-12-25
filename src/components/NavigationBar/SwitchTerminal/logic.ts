@@ -1,21 +1,19 @@
 import Vue from 'vue';
 import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
-import SwitchTerminalPopover from '../SwitchTerminalPopover/index.vue';
-import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
 import Overview from '../Overview/index.vue';
 import Create from '../Create/index.vue';
 
 export default Vue.extend({
   name: 'SwitchTerminal',
+
   components: {
     Thumbnail,
     Icon,
-    SwitchTerminalPopover,
-    SwitchTerminalItem,
     Overview,
     Create,
   },
+
   props: {
     active: {
       type: Boolean,
@@ -27,7 +25,7 @@ export default Vue.extend({
     },
     link: {
       type: String,
-      default: 'zarinp.al/getway',
+      default: '',
     },
     icon: {
       type: String,
@@ -53,6 +51,7 @@ export default Vue.extend({
     }
     ,
   },
+
   methods: {
     // toggle() {
     //   this.$emit('update', !this.show);

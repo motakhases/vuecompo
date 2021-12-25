@@ -1,0 +1,8 @@
+.white-stroke {
+  stroke: #fff;
+}
+.dark {
+  .white-stroke {
+    stroke: #111;
+  }
+}

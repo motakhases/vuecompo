@@ -1,7 +1,7 @@
 <template>
   <ValidationProvider
     v-slot="{ invalid , errors, passed}"
-    :rules="rules ? rules : null"
+    :rules="rules"
   >
     <div
       class="zpl-textfield-group"
@@ -29,7 +29,6 @@
           @focusin="onFocusIn"
           @keypress="onlyNumber"
         >
-
         <!-- icon comes after input -->
         <Icon
           v-if="afterIcon"
@@ -74,6 +73,7 @@
           {{ label }}
         </label>
       </div>
+
       <!--  hint text or limit container -->
       <div class="zpl-textfield-hint-box">
         <!-- show when we have helperHint -->

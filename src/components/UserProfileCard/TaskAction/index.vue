@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <a
     :to="link"
     class="zpl-user-card-task"
     :disabled="disabled"
@@ -12,7 +12,7 @@
       v-if="!disabled && !complete"
       name="angleLeft"
     />
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">

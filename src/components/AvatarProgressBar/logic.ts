@@ -14,8 +14,8 @@ export default Vue.extend({
       default: 'beginner',
     },
     percent: {
-      type: Number,
-      default: 50,
+      type: String,
+      default: '',
     },
     img: {
       type: String,

@@ -261,7 +261,7 @@ module.exports = {
       sanatMadan: '#9B814C',
       sarmayeh: '#1F1F47',
       sepah: '#EC520D',
-      shahr: '#B27D53',
+      shahr: '#D8262C',
       sina: '#FECC09',
       standardChartered: '#14763E',
       taavonEslami: '#173576',

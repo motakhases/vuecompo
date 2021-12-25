@@ -1,20 +1,47 @@
-<template dir="rtl">
-  <nav
-    class="zpl-nav-bar-container"
-    dir="rtl"
-  >
-    <slot name="popover" />
+<template>
+  <nav class="zpl-nav-bar-container">
     <div :class="['zpl-nav-bar-menu', { toggle }]">
+      <!-- Logo -->
       <div class="zpl-nav-bar-logo">
-        <slot name="logo" />
+        <Logo
+          name="zarinpal"
+          type="logo"
+          language="fa"
+          size="medium"
+        />
       </div>
-      <slot />
+
+      <!-- Terminals -->
+      <SwitchTerminalPopover
+        :terminals="terminals"
+      />
+
+      <!-- Nav item links -->
       <div class="zpl-nav-bar-content">
         <ul class="zpl-nav-bar-list">
-          <slot name="firstList" />
+          <NavItem
+            v-for="(link, index) in aboveLinks"
+            :key="index"
+            :active="link.active"
+            :link="link.link"
+            :title="link.title"
+            :icon="link.icon"
+            :badge="link.badge"
+          />
         </ul>
-        <ul class="zpl-nav-bar-list">
-          <slot name="secondList" />
+        <ul
+          v-if="belowLinks && belowLinks.length"
+          class="zpl-nav-bar-list"
+        >
+          <NavItem
+            v-for="(link, index) in belowLinks"
+            :key="index"
+            :active="link.active"
+            :link="link.link"
+            :title="link.title"
+            :icon="link.icon"
+            :badge="link.badge"
+          />
         </ul>
       </div>
     </div>

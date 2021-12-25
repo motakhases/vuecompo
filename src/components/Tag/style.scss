@@ -1,31 +1,34 @@
 .zpl-tag {
   /* Default */
   direction: rtl;
-  @apply inline-flex flex-row h-[28px] w-max text-b2 rounded-xs;
+  @apply inline-flex items-center p-[2px] w-max text-b2 rounded-xs;
   //light states
   @apply bg-background text-text;
   //dark states
   @apply dark:bg-background-dark dark:text-text-dark;
 
   /* content */
-  span{
-    @apply mx-xs my-[2px];
+  span {
+    @apply mx-[6px];
   }
-  .with-btn{
+  .with-btn {
     @apply ml-2xs;
   }
-  
+
   /* tag icon */
   .clear-btn {
-    @apply w-xl h-xl my-auto ml-[2px] rounded-xs;
+    @apply w-xl h-xl rounded-xs border border-transparent flex;
+
     //light states
     @apply bg-background;
     @apply hover:bg-background-hover;
     @apply active:bg-background-active;
+    @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+
     //dark states
     @apply dark:bg-background-dark;
     @apply dark:hover:bg-background-dark-hover;
     @apply dark:active:bg-background-dark-active;
-
+    @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
   }
 }

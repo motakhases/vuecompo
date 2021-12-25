@@ -2,6 +2,11 @@ import Vue from 'vue';
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 
+interface KeyboardEvent {
+  key: string;
+  preventDefault: () => void;
+}
+
 export default Vue.extend({
   name: 'TextField',
 
@@ -60,17 +65,13 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    id: {
-      type: String,
-      default: '',
-    },
     placeholder: {
       type: String,
       default: '',
     },
-    focusout: {
-      type: Function,
-      default: () => Function,
+    id: {
+      type: String,
+      default: '',
     },
   },
 
@@ -82,17 +83,17 @@ export default Vue.extend({
 
   computed: {
     model: {
-      get():string {
+      get(): string {
         return this.formattedValue();
       },
-      set(value:string[]):void {
+      set(value: string[]): void {
         this.$emit('input', value);
       },
     },
   },
 
   watch: {
-    formattedValue() {
+    value() {
       this.activeLabel = !!this.value.length;
     },
   },
@@ -115,9 +116,11 @@ export default Vue.extend({
         return this.value;
       }
     },
-    onInput(event: any) {
+    onInput(event: Event) {
       // update value of input and if they have , or - remove them
-      const newValue = event.target.value.replace(/,/g, '').replace(/-/g, '');
+      const newValue = (event.target as HTMLInputElement).value
+        .replace(/,/g, '')
+        .replace(/-/g, '');
       this.$emit('value', this.toEnNumber(newValue));
     },
     onFocusIn() {
@@ -125,9 +128,6 @@ export default Vue.extend({
       this.activeLabel = true;
     },
     onFocusOut() {
-      if (this.focusout) {
-        this.focusout();
-      }
       // if input is empty put label inside input on focusing out
       if (!this.value) {
         this.activeLabel = false;
@@ -143,7 +143,7 @@ export default Vue.extend({
         .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
         .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
     },
-    onlyNumber(event: any) {
+    onlyNumber(event: KeyboardEvent) {
       // just accepts number and dot
       if (this.type === 'number') {
         if (!/\d/.test(event.key) && event.key !== '.') {

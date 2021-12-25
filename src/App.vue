@@ -1,27 +1,30 @@
 <template>
-  <div>
-    <DatePicker
-      v-model="date"
+  <div dir="rtl">
+    <Button
+      text="Open Modal"
+      @click.native="$refs.modal.open()"
     />
-    {{ date }}
+    <NotificationCenter ref="modal" />
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue';
-import DatePicker from '@/components/DatePicker/index.vue';
+import Button from '@/components/Button/index.vue';
+import NotificationCenter from '@/components/NotificationCenter/index.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    DatePicker,
-  },
-
-  data() {
-    return {
-      date: '',
-    };
+    Button,
+    NotificationCenter,
   },
 });
 </script>
+
+<style>
+body {
+  @apply bg-background
+}
+</style>

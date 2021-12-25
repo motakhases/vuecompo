@@ -1,90 +1,116 @@
-.zpl-notification-modal{
-  @apply block fixed z-50 left-0 top-0 w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)];
-  .zpl-notification-center{
-    direction: rtl;
-    @apply max-w-[360px] h-[100vh] rounded-xl overflow-scroll;
-    @apply sm:max-w-[340px] sm:rounded-none;
-    @apply  bg-surface;
-    @apply  dark:bg-surface-dark;
-    .notif-header{
-      @apply h-[56px];
-      .archive-title{
-        @apply text-center text-ls-h3 text-text py-md;
-        @apply dark:text-text-dark;
-      }
+.zpl-notification-modal {
+  .zpl-notification-center {
+    @apply w-full h-[100vh] overflow-y-scroll fixed z-[9999] top-0;
+    @apply sm:max-w-[340px] sm:w-[360px];
+    @apply bg-surface;
+    @apply dark:bg-surface-dark;
+
+    &.show {
+      @apply transition-all ease-in duration-200 left-0;
+      // @apply sm:h-screen hidden sm:block;
     }
-    .notif-card{
-      @apply max-w-[360px] px-md pt-md;
+    &.hide {
+      @apply transition-all ease-in duration-200 left-[-400px];
+    }
+    .notif-header {
+      @apply p-xs flex justify-between items-center;
+    }
+    .notif-card {
+      @apply bg-surface max-w-[360px] px-md pt-md;
       @apply sm:max-w-[340px];
-      @apply bg-surface;
       @apply dark:bg-surface-dark;
-      .notif-img{
-        @apply h-[173px] mb-md overflow-hidden;
+
+      /* hover */
+      @apply hover:bg-surface-hover;
+      @apply dark:hover:bg-surface-dark-hover;
+
+      .notif-img {
+        @apply h-[173px] mb-md overflow-hidden rounded-sm;
       }
-      .content{
+      .content {
         @apply flex flex-col shadow-divider-bottom;
         @apply dark:shadow-dark-divider-bottom;
-        .title{
+        .title {
           @apply text-b2 text-text;
           @apply dark:text-text-dark;
+          svg {
+            @apply w-xl h-xl;
+          }
         }
-        .desc{
+        .desc {
           @apply mt-2xs text-b3 text-text-soft;
           @apply dark:text-text-dark-soft;
         }
-        .extra-data{
+        .extra-data {
           @apply mt-sm mb-md;
-          .date{
+          .date {
             @apply text-b3 text-text-soft;
             @apply dark:text-text-dark-soft;
           }
-          .link{
+          .link {
             @apply float-left;
           }
         }
       }
     }
-    .no-notif{
+    .no-notif {
       @apply max-w-[360px] h-[260px];
       @apply sm:max-w-[340px];
       @apply bg-surface;
       @apply dark:bg-surface-dark;
-      .bg-empty-box{
+      .bg-empty-box {
         @apply w-full h-[120px] bg-no-repeat bg-center relative top-[40px];
       }
-      .content{
+      .content {
         @apply mt-[72px] text-center;
-        .title{
+        .title {
           @apply mb-xs text-b2 text-text;
           @apply dark:text-text-dark;
         }
-        .desc{
+        .desc {
           @apply text-ls-cp text-text-soft;
           @apply dark:text-text-dark-soft;
         }
       }
     }
-    .notif-period{
+    .notif-period {
       @apply px-md pt-md block;
       @apply text-ls-cp text-text-soft bg-surface;
       @apply dark:text-text-dark-soft dark:bg-surface-dark;
     }
-    //icons
-    .close-icon{
-      @apply m-md cursor-pointer text-icon;
-      @apply dark:text-icon-dark;
+
+    .archive-header {
+      @apply py-md px-xs relative border-b border-b-border-divider;
+      @apply dark:border-b-border-dark-divider;
+
+      button {
+        @apply absolute top-xs;
+      }
     }
-    .archive-icon{
-      @apply m-md float-left cursor-pointer text-icon;
-      @apply dark:text-icon-dark;
-    }
-    .return-icon{
-      @apply absolute m-md cursor-pointer text-icon;
-      @apply dark:text-icon-dark;
+    .archive-title {
+      @apply text-center text-ls-h3 text-text font-bold;
+      @apply dark:text-text-dark;
     }
   }
-  .announce-archives{
-    @apply border-t border-t-border-divider;
-    @apply border-t dark:border-t-border-dark-divider;
+  .backdrop {
+    @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
+    @apply bg-alpha-overlay;
+    @apply dark:bg-alpha-dark-overlay;
+  }
+  /* ---------------------------------- */
+  /* scroll style */
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-xs;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+    @apply dark:bg-surface-dark;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-heavy rounded-md;
+    @apply dark:bg-surface-dark-heavy;
   }
 }

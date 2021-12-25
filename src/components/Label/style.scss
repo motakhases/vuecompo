@@ -1,6 +1,6 @@
 .zpl-lable {
   /* Default */
-  @apply rounded-sm text-center;
+  @apply rounded-sm text-center w-max inline-flex items-center;
 
   &.positive {
     /* Default */
