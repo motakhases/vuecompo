@@ -9,6 +9,11 @@
       :src="img"
       :alt="alt"
     >
+    <BankLogos
+      v-if="logo"
+      :logo="logo"
+      class="zpl-thumbnail-logo"
+    />
   </div>
 </template>
 

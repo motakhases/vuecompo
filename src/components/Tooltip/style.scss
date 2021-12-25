@@ -34,25 +34,25 @@
     @apply py-[6px] text-b3;
   }
 
-  &.bottomLeft,
-  &.topLeft {
+  &.topLeft,
+  &.bottomLeft {
     @apply left-0;
   }
 
-  &.bottomCenter,
-  &.topCenter {
+  &.topCenter,
+  &.bottomCenter {
     @apply left-2/4;
     transform: translateX(-50%);
   }
 
-  &.bottomRight,
-  &.topRight {
+  &.topRight,
+  &.bottomRight {
     @apply right-0;
   }
 
-  &.bottomLeft,
-  &.bottomCenter,
-  &.bottomRight {
+  &.topLeft,
+  &.topCenter,
+  &.topRight {
     &.smallSpace {
       bottom: calc(100% + 8px);
     }
@@ -61,9 +61,9 @@
     }
   }
 
-  &.topLeft,
-  &.topCenter,
-  &.topRight {
+  &.bottomLeft,
+  &.bottomCenter,
+  &.bottomRight {
     &.smallSpace {
       top: calc(100% + 8px);
     }
@@ -72,7 +72,7 @@
     }
   }
 
-  &.left {
+  &.right {
     &.smallSpace {
       left: calc(100% + 8px);
       transform: translateY(-50%);
@@ -85,7 +85,7 @@
     }
   }
 
-  &.right {
+  &.left {
     &.smallSpace {
       right: calc(100% + 8px);
       transform: translateY(-50%);
