@@ -38,11 +38,11 @@
     @apply dark:bg-primarySurface-dark-select;
     &:before {
       content: "";
-      @apply bg-primaryZarinpal w-2xs h-2xl absolute right-0 rounded-tl-sm rounded-bl-sm;
+      @apply bg-primaryZarinpal w-2xs h-2xl absolute right-[-16px] rounded-tl-sm rounded-bl-sm;
     }
     svg {
       @apply text-primaryZarinpal;
-      @apply text-primaryZarinpal-dark;
+      @apply dark:text-primaryZarinpal-dark;
     }
   }
 }

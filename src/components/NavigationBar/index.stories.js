@@ -11,70 +11,82 @@ const Template = (_, { argTypes }) => ({
     NavigationBar,
   },
   props: Object.keys(argTypes),
+  data: () => ({
+    terminals: [
+      {
+        domain: 'zarin.express/zardu',
+        name: 'زاردو',
+        status: 'ACTIVE',
+      }, {
+        domain: 'zarinp.al/xandar',
+        name: 'زاندار',
+        status: 'deactive',
+      },
+    ],
+    alinks: [
+      {
+        title: 'پیشخوان',
+        link: '/',
+        icon: 'GridLayout',
+        active: true,
+      },
+      {
+        title: 'تراکنش‌ها',
+        link: '/',
+        icon: 'DrpItemCheck',
+      },
+      {
+        title: 'تسویه حساب',
+        link: '/',
+        icon: 'CreditCheckout',
+      },
+      {
+        title: 'محصولات',
+        link: '/',
+        icon: 'Box',
+      },
+    ],
+    blinks: [
+      {
+        title: 'حساب‌های بانکی',
+        link: '/',
+        icon: 'PaymentCard',
+      },
+      {
+        title: 'تیکت‌ها',
+        link: '/',
+        icon: 'ChatMessage',
+      },
+    ],
+  }),
   template: `
-    <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border border-[#eee] h-[768px]" dir="rtl">
-      <NavigationBar
-        :toggle="toggle"
-        :terminals="terminals"
-        :above-links="alinks"
-        :below-links="blinks"
-      />
+    <div class="grid grid-cols-3 gap-xl" dir="rtl">
+      <div class="col-span-2">
+        <h1 class="mb-md font-bold dark:text-surface"> حالت معمولی </h1>
+        <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border border-[#eee] h-[768px]" dir="rtl">
+          <NavigationBar
+            :terminals="terminals"
+            :above-links="alinks"
+            :below-links="blinks"
+          />
+        </div>
+      </div>
+
+      <div class="col-span-1">
+        <h1 class="mb-md font-bold dark:text-surface"> حالت بسته </h1>
+        <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border border-[#eee] h-[768px]" dir="rtl">
+          <NavigationBar
+            toggle
+            :terminals="terminals"
+            :above-links="alinks"
+            :below-links="blinks"
+          />
+        </div>
+      </div>
     </div>
   `,
 });
 
 const navigationBar = Template.bind({});
-
-navigationBar.argTypes = {};
-
-navigationBar.args = {
-  toggle: false,
-  terminals: [
-    {
-      domain: 'zarin.express/mrtestian',
-      name: '\u0645\u0633\u062a\u0631 \u062a\u0633\u062a\u06cc\u0627\u0646',
-      status: 'ACTIVE',
-    }, {
-      domain: 'zarinp.al/armanshojaei',
-      name: '\u0622\u0631\u0645\u0627\u0646 \u0634\u062c\u0627\u0639\u06cc',
-      status: 'ACTIVE',
-    },
-  ],
-  alinks: [
-    {
-      title: 'نمای کلی',
-      link: '/',
-      icon: 'QuestionCircle',
-      active: true,
-    },
-    {
-      title: 'پیشخوان',
-      link: '/',
-      icon: 'QuestionCircle',
-    },
-    {
-      title: 'تراکنش‌ها',
-      link: '/',
-      icon: 'QuestionCircle',
-    },
-    {
-      title: 'تسویه حساب',
-      link: '/',
-      icon: 'QuestionCircle',
-    },
-    {
-      title: 'محصولات',
-      link: '/',
-      icon: 'QuestionCircle',
-    },
-  ],
-  blinks: [
-    {
-      title: 'حساب‌های بانکی',
-      link: '/',
-      icon: 'QuestionCircle',
-    },
-  ],
-};
 
 export default navigationBar

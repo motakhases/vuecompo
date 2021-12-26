@@ -47,6 +47,9 @@ export default Vue.extend({
       case 'ACTIVE':
         statusText = 'فعال';
         break;
+      case 'deactive':
+        statusText = 'رد شده';
+        break;
       default:
         break;
       }

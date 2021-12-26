@@ -2,7 +2,7 @@
   <li class="zpl-nav-item">
     <Tooltip
       :text="title"
-      position="right"
+      position="left"
       space="largeSpace"
       size="large"
       indicator
