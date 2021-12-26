@@ -29,6 +29,12 @@ const Template = (_, { argTypes }) => ({
         img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
       />
     </div>
+
+    <h1 class="font-bold dark:text-surface"> آواتار بدون عکس </h1>
+    <AvatarProgressBar
+      type="beginner"
+      percent="60"
+    />
   </div>
   `,
 });

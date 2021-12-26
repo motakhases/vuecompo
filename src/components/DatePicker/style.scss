@@ -1,4 +1,5 @@
 .zpl-date-picker-container {
+  @apply w-[296px];
 }
 .zpl-date-picker {
   &.no-preview {
@@ -10,7 +11,7 @@
     @apply mt-0;
   }
   .vpd-container {
-    @apply font-YekanBakhFaNum mt-0 mb-xs w-full;
+    @apply font-IRANYekanFaNum mt-0 mb-xs w-full;
   }
   .vpd-content {
     @apply bg-surface border border-border rounded-sm p-xs w-full;
@@ -90,8 +91,10 @@
     }
   }
   .vpd-date {
-    @apply text-b1 text-text h-2xl mt-xs py-2xs px-sm;
-    @apply dark:text-text-dark;
+    span {
+      @apply text-b1 text-text h-2xl mt-xs py-2xs px-sm;
+      @apply dark:text-text-dark;
+    }
   }
   .vpd-month-label {
     svg {
@@ -161,11 +164,13 @@
   .vpd-range-first {
     .vpd-day-effect {
       @apply border border-primaryZarinpal rounded-r-[96px];
+      @apply dark:border-primaryZarinpal-dark;
     }
   }
   .vpd-range-last {
     .vpd-day-effect {
       @apply border border-primaryZarinpal rounded-l-[96px];
+      @apply dark:border-primaryZarinpal-dark;
     }
   }
   .vpd-day-effect {
@@ -173,6 +178,8 @@
   }
   .is-today {
     @apply text-primaryZarinpal relative #{!important};
+    @apply dark:text-primaryZarinpal-dark #{!important};
+
     .vpd-day-text {
       @apply relative;
 
@@ -180,6 +187,7 @@
         content: "";
         transform: translateX(-50%);
         @apply w-[2px] h-[2px] absolute bottom-0 left-[50%] bg-primaryZarinpal rounded-circle;
+        @apply dark:bg-primaryZarinpal-dark;
       }
     }
   }

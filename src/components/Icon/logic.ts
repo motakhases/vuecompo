@@ -19,6 +19,7 @@ import Plus from './icons/Plus.vue';
 import Terminal from './icons/Terminal.vue';
 import Delete from './icons/Delete.vue';
 import ClockRefresh from './icons/ClockRefresh.vue';
+import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
 import ArrowFirst from './icons/ArrowFirst.vue';
 import ArrowLast from './icons/ArrowLast.vue';
@@ -51,6 +52,7 @@ export default Vue.extend({
     Terminal,
     Delete,
     ClockRefresh,
+    ArrowLeft,
     ArrowRight,
     ArrowFirst,
     ArrowLast,

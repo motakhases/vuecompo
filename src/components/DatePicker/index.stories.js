@@ -10,12 +10,23 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      single: "",
+      singleDate: "",
+      rangeDate: [],
+      previewDate: "",
+      rangeMode: true,
+      previewMode: true,
     };
   },
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md w-[350px]" dir="rtl">
-		<DatePicker v-model="single" />
+  <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+    <h1 class="font-bold dark:text-surface"> تقویم </h1>
+		<DatePicker v-model="singleDate" />
+
+    <h1 class="mt-sm font-bold dark:text-surface"> تقویم با بازه زمانی </h1>
+		<DatePicker v-model="rangeDate" :range="rangeMode" />
+
+    <h1 class="mt-sm font-bold dark:text-surface"> تقویم با حالت پیش نمایش </h1>
+		<DatePicker v-model="previewDate" :preview="previewMode" />
   </div>
   `,
 });

@@ -4,6 +4,7 @@ import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 import moment from 'moment-jalaali';
 import Icon from '@/components/Icon/index.vue';
 import TextField from '@/components/TextField/index.vue';
+import Button from '@/components/Button/index.vue';
 
 declare interface DateMoment {
   format: (a: string) => string,
@@ -16,7 +17,9 @@ declare interface Attributes {
 export default Vue.extend({
   name: 'DatePicker',
 
-  components: { Icon, VuePersianDatetimePicker, TextField },
+  components: {
+    Icon, VuePersianDatetimePicker, TextField, Button,
+  },
 
   props: {
     range: {
@@ -69,7 +72,7 @@ export default Vue.extend({
 
     highlightToday(formatted: string, dateMoment: DateMoment) {
       const attributes = {} as Attributes;
-      if (dateMoment.format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')) {
+      if (dateMoment.format('YYYY/MM/DD') === moment().format('YYYY/MM/DD')) {
         attributes.class = 'is-today';
       }
       return attributes;
