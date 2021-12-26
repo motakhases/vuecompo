@@ -5,7 +5,7 @@
 
   /* circle */
   .circle {
-    @apply w-xs h-xs rounded-circle ml-[6px];
+    @apply w-[5px] h-[5px] rounded-circle ml-[6px];
   }
 
   &.neutral {

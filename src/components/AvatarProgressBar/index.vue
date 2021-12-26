@@ -27,7 +27,7 @@
         />
       </svg>
       <Avatar
-        :size="size"
+        size="large"
         :img="img"
       />
     </div>

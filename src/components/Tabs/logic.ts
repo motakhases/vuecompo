@@ -1,8 +1,9 @@
 import Vue from 'vue';
+import NotificationBadge from '@/components/NotificationBadge/index.vue';
 
 export default Vue.extend({
   name: 'Tabs',
-
+  components: { NotificationBadge },
   props: {
     fillContainer: {
       type: Boolean,

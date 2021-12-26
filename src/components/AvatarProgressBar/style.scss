@@ -1,5 +1,5 @@
 .zpl-avatar-progress-box {
-  @apply inline-flex rounded-circle relative overflow-hidden;
+  @apply inline-flex rounded-circle relative overflow-hidden w-max;
 }
 .zpl-avatar-progress {
   @apply inline-flex rounded-circle overflow-hidden m-xs;
@@ -9,15 +9,17 @@
 }
 .zpl-avatar-progress-circle {
   fill: none;
-  @apply stroke-current text-border-soft stroke-2;
+  stroke: 1.5px;
+  @apply stroke-current text-border-soft;
   @apply dark:text-border-dark-soft;
 }
 .zpl-avatar-progress-level {
-  @apply stroke-current stroke-2;
+  stroke: 1.5px;
   stroke-linecap: round;
   fill: none;
   transform: rotate(-90deg);
   transform-origin: center;
+  @apply stroke-current;
 
   &.beginner {
     @apply text-primaryZarinpal;

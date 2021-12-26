@@ -5,7 +5,7 @@
       locale="fa"
       inline
       :editable="true"
-      format="jYYYY-jMM-jDD"
+      format="jYYYY/jMM/jDD"
       display-format="jYYYY/jMM/jDD"
       custom-input="#editable-input"
       auto-submit
@@ -14,13 +14,15 @@
       :highlight="highlightToday"
       @change="dateMoment = $event"
     >
-      <Icon
+      <Button
         slot="prev-month"
-        name="leftArrow"
+        type="tertiary"
+        icon="ArrowLeft"
       />
-      <Icon
+      <Button
         slot="next-month"
-        name="rightArrow"
+        type="tertiary"
+        icon="ArrowRight"
       />
       <!-- slot for "month-name" -->
       <template #month-name="{ vm, date }">
@@ -33,7 +35,10 @@
       </template>
       <!-- slot for "close-btn" -->
       <template #close-btn="">
-        <Icon name="close" />
+        <Button
+          type="tertiary"
+          icon="delete"
+        />
       </template>
     </VuePersianDatetimePicker>
     <div
@@ -45,7 +50,7 @@
         <TextField
           v-model="model[0]"
           type="text"
-          after-icon="calender"
+          after-icon="Calendar"
           placeholder="روز/ماه/سال"
           :disabled="disableStart"
         />
@@ -54,7 +59,7 @@
         <label for="">پایان</label>
         <TextField
           v-model="model[1]"
-          after-icon="calender"
+          after-icon="Calendar"
           placeholder="روز/ماه/سال"
           :disabled="disableEnd"
         />
@@ -62,9 +67,8 @@
     </div>
     <TextField
       v-else
-      id="editable-input"
       v-model="model"
-      after-icon="calender"
+      after-icon="Calendar"
       placeholder="روز/ماه/سال"
       :disabled="disableSingle"
     />

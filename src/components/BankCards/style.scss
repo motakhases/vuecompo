@@ -47,10 +47,10 @@ $bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
   @apply dark:bg-surface-dark-soft dark:text-text-dark;
 }
 .zpl-bank-cards-amount-box {
-  @apply flex items-center justify-center p-xs z-10 mb-sm;
+  @apply flex items-center justify-center px-xs z-10 mb-sm;
 }
 .zpl-bank-cards-amount {
-  @apply text-ls-h1 font-bold ml-2xs;
+  @apply text-ls-h1 font-bold ml-2xs font-IRANYekanFaNum;
 }
 .zpl-bank-cards-currency {
   @apply text-b2;
@@ -60,5 +60,5 @@ $bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
 }
 .zpl-bank-cards-rrn {
   @apply py-2xs px-xs flex justify-between text-text-soft text-b3;
-  @apply text-text-dark-soft;
+  @apply dark:text-text-dark-soft;
 }

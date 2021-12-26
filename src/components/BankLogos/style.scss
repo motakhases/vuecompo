@@ -148,7 +148,7 @@ css for logo
   }
   .logo-#{$name} {
     &:before {
-      @apply h-3xl w-3xl bg-cover	bg-no-repeat flex;
+      @apply min-h-[24px] min-w-[24px] h-full w-full bg-cover	bg-no-repeat flex;
       content: "";
       background-image: url("./logos/#{$uri}");
     }

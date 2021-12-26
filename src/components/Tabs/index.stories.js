@@ -1,14 +1,35 @@
-import Tabs from './index.vue';
-import Tab from './Tab/index.vue';
+import Tabs from "./index.vue";
+import Tab from "./Tab/index.vue";
 
 export default {
   component: Tabs,
-  title: 'Components/Tabs',
+  title: "Components/Tabs",
 };
 
 const Template = (_, { argTypes }) => ({
   components: { Tabs, Tab },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      tabs: [
+        {
+          title: "حساب‌های بانکی",
+          content: "تب اول",
+          warn: true,
+        },
+        {
+          title: "درگاه‌های فعال",
+          content: "تب دوم",
+          warn: true
+        },
+        {
+          title: "نشست‌های اخیر",
+          content: "تب سوم",
+          warn: true
+        },
+      ],
+    };
+  },
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
     <Tabs>
@@ -49,6 +70,7 @@ const Template = (_, { argTypes }) => ({
         </div>
       </tab>
     </Tabs>
+
   </div>
   `,
 });

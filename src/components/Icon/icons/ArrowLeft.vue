@@ -7,32 +7,14 @@
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M7.49826 2.99622V5.99747"
+      d="M4.00977 11.98H18.9998"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
-      d="M16.5022 2.99622V5.99747"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M2.99658 9.49893H21.0041"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <rect
-      x="2.99658"
-      y="4.49689"
-      width="18.0075"
-      height="16.5069"
-      rx="3"
+      d="M10.013 5.988L4.00195 12L10.013 18.012"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
@@ -40,10 +22,11 @@
     />
   </svg>
 </template>
+
 <script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Calendar',
+  name: 'ArrowLeft',
 });
 </script>

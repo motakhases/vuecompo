@@ -9,30 +9,29 @@
   @apply dark:border-border-dark-divider;
 
   // when fill-container is false
-  .tab{
-    @apply ml-2xl pb-[16px] relative top-[2px] text-center cursor-pointer; 
-    &.active{
-      @apply border-b-2; 
+  .tab {
+    @apply ml-2xl pb-[16px] relative top-[2px] text-center cursor-pointer flex items-center gap-x-2xs;
+    &.active {
+      @apply border-b-2;
       @apply text-text;
       @apply border-primaryZarinpal;
       // dark states
       @apply dark:text-text-dark;
       @apply dark:border-primaryZarinpal-dark;
     }
-    &:last-child{
+    &:last-child {
       @apply ml-0;
     }
-    .warn-circle{
+    .warn-circle {
       @apply inline-block w-xs h-xs rounded-circle;
       @apply bg-icon-danger;
       // dark states
       @apply dark:bg-icon-dark-danger;
     }
-    
   }
   // when fill-container is true
-  &.full-tabs{
-    .tab{
+  &.full-tabs {
+    .tab {
       @apply flex-1 ml-0;
     }
   }

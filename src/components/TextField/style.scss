@@ -5,7 +5,7 @@
 .zpl-textfield {
   /* Default */
   @apply bg-surface flex items-center border border-border
-	 rounded-sm w-full text-text-soft h-3xl gap-x-xs px-sm;
+	 rounded-sm w-full text-text-soft h-3xl gap-x-xs px-sm font-IRANYekanFaNum;
   @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
 
   /* hover */

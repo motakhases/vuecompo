@@ -30,7 +30,7 @@ const Template = () => ({
     };
   },
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
+  <div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md flex flex-col gap-md rtl">
 		<Filters>
       <FilterActions/>
 				<FilterAccordion text="وضعیت" v-model="status">

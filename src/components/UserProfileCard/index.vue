@@ -1,30 +1,27 @@
 <template>
-  <div
-    class="zpl-user-profile-card"
-    dir="rtl"
-  >
+  <div class="zpl-user-profile-card">
     <div class="zpl-user-profile-card-header">
       <AvatarProgressBar
-        :type="avatarType"
-        :size="avatarSize"
+        :type="level"
         :percent="avatarPercent"
         :img="avatarImg"
       />
       <ZarinID
         :id="zarinId"
-        :type="zarinIdType"
+        :type="level"
       />
     </div>
     <div class="zpl-user-profile-card-name">
       {{ fullname }}
     </div>
-    <div class="zpl-user-profile-card-level">
-      <UserLevel
-        :text="levelText"
-        :list="labelList"
-      />
-    </div>
-    <TasksStack :items="taskItems" />
+    <UserLevel
+      :text="levelText"
+      :list="labelList"
+    />
+    <TasksStack
+      v-if="taskItems.length"
+      :items="taskItems"
+    />
     <slot />
   </div>
 </template>

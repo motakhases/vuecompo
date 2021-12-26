@@ -5,10 +5,6 @@ export default Vue.extend({
   name: 'AvatarProgressBar',
   components: { Avatar },
   props: {
-    size: {
-      type: String,
-      default: 'small',
-    },
     type: {
       type: String,
       default: 'beginner',

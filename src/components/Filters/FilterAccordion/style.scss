@@ -1,5 +1,10 @@
-.zpl-filter-status {
+.zpl-filter-acc {
+  &:not(:last-child) {
+    @apply shadow-border-divider-bottom;
+    @apply dark:shadow-dark-divider-bottom;
+  }
 }
+
 .zpl-filter-status {
   @apply bg-surface-soft p-md shadow-border-divider-bottom;
   @apply dark:bg-surface-dark-soft dark:shadow-dark-divider-bottom;
