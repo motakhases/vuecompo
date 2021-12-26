@@ -21,6 +21,11 @@
     @apply rounded-sm text-text px-2xs bg-background #{!important};
     @apply dark:bg-background-dark dark:text-text-dark #{!important};
   }
+  .vpd-body {
+    br {
+      @apply hidden;
+    }
+  }
   .vpd-week {
     @apply p-0 text-text-soft text-b3;
     @apply dark:text-text-dark-soft;
@@ -96,9 +101,15 @@
       @apply dark:text-text-dark;
     }
   }
+  .vpd-next,
+  .vpd-prev {
+    @apply w-[40px] h-[40px] flex items-center;
+  }
   .vpd-month-label {
+    @apply text-b2 py-xs;
+
     svg {
-      @apply h-xl w-xl;
+      @apply h-xl w-xl mr-xs;
     }
   }
   .vpd-year-label {
@@ -113,7 +124,7 @@
     }
   }
   .vpd-controls {
-    @apply text-text;
+    @apply text-text h-[40px] my-xs;
     @apply dark:text-text-dark;
   }
   .vpd-addon-list-item {

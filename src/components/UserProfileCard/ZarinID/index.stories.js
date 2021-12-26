@@ -18,7 +18,7 @@ export const Default = Template.bind({});
 
 Default.argTypes = {
   type: {
-    options: ["blue", "silver", "gold"],
+    options: ["beginner", "silver", "gold"],
     control: { type: "radio" },
   },
 };

@@ -1,7 +1,6 @@
 <template>
   <div
     class="zpl-user-card-level"
-    dir="rtl"
   >
     <span v-if="text">{{ text }}</span>
     <Label

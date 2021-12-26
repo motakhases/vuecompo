@@ -58,7 +58,7 @@ const Template = (_, { argTypes }) => ({
     };
   },
   template: `
-	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+	<div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md flex flex-col gap-md rtl">
 		<h1 class="mt-sm font-bold dark:text-surface">
 			کارت بانکی
 		</h1>

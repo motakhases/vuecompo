@@ -18,7 +18,7 @@ const Template = (_, { argTypes }) => ({
     };
   },
   template: `
-  <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+  <div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md flex flex-col gap-md rtl">
     <h1 class="font-bold dark:text-surface"> تقویم </h1>
 		<DatePicker v-model="singleDate" />
 

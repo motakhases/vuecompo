@@ -10,17 +10,13 @@ export default Vue.extend({
     AvatarProgressBar, ZarinID, UserLevel, TasksStack,
   },
   props: {
-    avatarSize: {
-      type: String,
-      default: 'medium',
-    },
-    avatarType: {
+    level: {
       type: String,
       default: 'beginner',
     },
     avatarPercent: {
-      type: Number,
-      default: 50,
+      type: String,
+      default: '',
     },
     avatarImg: {
       type: String,
@@ -29,10 +25,6 @@ export default Vue.extend({
     zarinId: {
       type: String,
       default: '',
-    },
-    zarinIdType: {
-      type: String,
-      default: 'blue',
     },
     fullname: {
       type: String,

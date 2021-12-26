@@ -58,10 +58,10 @@ const Template = (args, { argTypes }) => ({
     };
   },
   template: `
-  <div class="bg-gray-100 dark:bg-gray-dark-100 p-lg rounded-md flex flex-wrap rtl gap-x-md gap-y-lg">
+  <div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md flex flex-wrap rtl gap-x-md gap-y-lg">
     <div v-for="logo in logos" :key="logo" class="w-[18.6%]">
       <div class="text-center flex flex-col items-center bg-surface h-[150px] rounded-md py-xl px-md dark:text-surface dark:bg-surface-dark">
-        <BankLogos :logo="logo" class="mb-sm flex-1" />
+        <BankLogos :logo="logo" class="mb-sm flex-1 w-[66px]" />
         <span> {{ logo }} </span>
       </div>	
     </div>

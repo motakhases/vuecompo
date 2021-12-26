@@ -14,13 +14,15 @@
       :highlight="highlightToday"
       @change="dateMoment = $event"
     >
-      <Icon
+      <Button
         slot="prev-month"
-        name="ArrowLeft"
+        type="tertiary"
+        icon="ArrowLeft"
       />
-      <Icon
+      <Button
         slot="next-month"
-        name="ArrowRight"
+        type="tertiary"
+        icon="ArrowRight"
       />
       <!-- slot for "month-name" -->
       <template #month-name="{ vm, date }">
