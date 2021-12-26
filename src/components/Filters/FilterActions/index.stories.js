@@ -1,9 +1,9 @@
 import FilterActions from "./index.vue";
 
-export default {
-  component: FilterActions,
-  title: "Components/Filters/FilterActions",
-};
+// export default {
+//   component: FilterActions,
+//   title: "Components/Filters/FilterActions",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { FilterActions },

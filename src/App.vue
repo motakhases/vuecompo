@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <DatePicker
+  <div class="w-[400px] mx-auto mt-lg">
+    <FilterAmount
       v-model="date"
     />
-    {{ date }}
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue';
-import DatePicker from '@/components/DatePicker/index.vue';
+import FilterAmount from '@/components/Filters/FilterAmount/index.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    DatePicker,
+    FilterAmount,
   },
 
   data() {

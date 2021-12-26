@@ -1,9 +1,9 @@
 import FilterDate from "./index.vue";
 
-export default {
-  component: FilterDate,
-  title: "Components/Filters/FilterDate",
-};
+// export default {
+//   component: FilterDate,
+//   title: "Components/Filters/FilterDate",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { FilterDate },

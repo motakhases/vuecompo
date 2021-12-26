@@ -21,25 +21,28 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      data: [],
-      radioValue: "",
-      dateValue: "",
-      dateCheck: [],
+      statusValue: '',
+      statusValue: '',
+      priceValue: '',
+
+      status: [],
+      date: [],
+      price: [],
     };
   },
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md rtl">
 		<Filters>
       <FilterActions/>
-				<FilterAccordion text="وضعیت" v-bind='$props' v-model="data">
-					<Radio :disabled="disabled" v-model="radioValue" :name="name" :val="val" :text="text" />
-					<Radio :disabled="disabled" v-model="radioValue" :name="name" :val="val" :text="text" />
+				<FilterAccordion text="وضعیت" v-model="status">
+					<Radio v-model="statusValue" name="r" val="active" text="موفق" />
+					<Radio v-model="statusValue" name="r" val="inactive" text="ناموفق" />
 				</FilterAccordion>
-				<FilterAccordion text="تاریخ" v-bind='$props' v-model="dateCheck">
+				<FilterAccordion text="تاریخ" v-model="date">
 					<FilterDate v-model="dateValue" />
 				</FilterAccordion>
-				<FilterAccordion text="مبلغ" v-bind='$props' v-model="dateCheck">
-					<FilterAmount v-model="dateValue" />
+				<FilterAccordion text="مبلغ" v-model="price">
+					<FilterAmount v-model="priceValue" />
 				</FilterAccordion>
     </Filters>
 
@@ -48,11 +51,4 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-
-
-
-Default.args = {
-  name: "some name",
-  val: "value",
-  disabled: false,
-};
+Default.args = null;

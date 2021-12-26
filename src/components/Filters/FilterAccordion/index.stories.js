@@ -1,10 +1,10 @@
 import Radio from "@/components/Radio/index.vue";
 import FilterAccordion from "./index.vue";
 
-export default {
-  component: FilterAccordion,
-  title: "Components/Filters/FilterAccordion",
-};
+// export default {
+//   component: FilterAccordion,
+//   title: "Components/Filters/FilterAccordion",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { FilterAccordion, Radio },

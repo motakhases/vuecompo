@@ -32,6 +32,7 @@ export default Vue.extend({
       ],
       amount,
       amountType: '',
+      range: [],
     };
   },
   computed: {
@@ -40,8 +41,6 @@ export default Vue.extend({
         return this.value;
       },
       set(value:string[]):void {
-        console.log(value);
-
         this.$emit('input', value);
       },
     },

@@ -1,9 +1,9 @@
 import FilterToggle from "./index.vue";
 
-export default {
-  component: FilterToggle,
-  title: "Components/Filters/FilterToggle",
-};
+// export default {
+//   component: FilterToggle,
+//   title: "Components/Filters/FilterToggle",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { FilterToggle },

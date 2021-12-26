@@ -2,10 +2,10 @@ import Radio from "@/components/Radio/index.vue";
 
 import FilterAmount from "./index.vue";
 
-export default {
-  component: FilterAmount,
-  title: "Components/Filters/FilterAmount",
-};
+// export default {
+//   component: FilterAmount,
+//   title: "Components/Filters/FilterAmount",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { FilterAmount, Radio },
