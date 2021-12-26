@@ -98,6 +98,7 @@
     "moment-locales-webpack-plugin": "^1.2.0",
     "storybook-vue-router": "^1.0.7",
     "vee-validate": "^3.4.13",
+    "vue-persian-datetime-picker": "^2.10.2",
     "vue-router": "^3.5.3"
   }
 }

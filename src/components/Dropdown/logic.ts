@@ -47,6 +47,10 @@ export default Vue.extend({
       type: String,
       default: '',
     },
+    placeholder: {
+      type: String,
+      default: '',
+    },
   },
   data() :{
     activeLabel: boolean;
@@ -65,6 +69,16 @@ export default Vue.extend({
       dropdownRef: '',
     };
   },
+  computed: {
+    model: {
+      get():string {
+        return this.value;
+      },
+      set(value:string[]):void {
+        this.$emit('input', value);
+      },
+    },
+  },
   watch: {
     formattedValue() {
       this.activeLabel = !!this.value.length;
@@ -79,10 +93,6 @@ export default Vue.extend({
     document.documentElement.removeEventListener('click', this.outsideClick, false);
   },
   methods: {
-    onInput(event: any) {
-      // update value of input
-      this.$emit('input', event.target.value);
-    },
     onFocusIn(event:any) {
       // for adding active label style
       this.activeLabel = true;

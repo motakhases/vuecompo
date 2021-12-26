@@ -1,9 +1,8 @@
 module.exports = {
   fontFamily: {
-    sans: ['IRANYekanRd'],
-    IRANYekan: ['IRANYekanRd'],
-    IRANYekanRdFaNum: ['IRANYekanRdFaNum'],
+    sans: ['IRANYekanRdFaNum'],
+    IRANYekan: ['IRANYekanRdFaEn'],
     YekanBakhFaNum: ['YekanBakhFaNum'],
-    YekanBakh: ['YekanBakh'],
+    YekanBakh: ['YekanBakhFaEn'],
   },
 };
