@@ -13,6 +13,7 @@
       :name="`checkbox-${name}`"
       :value="val"
       :disabled="disabled"
+      @change="change"
     >
 
     <span class="checkmark" />
