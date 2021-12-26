@@ -26,12 +26,24 @@ import Star from './icons/Star.vue';
 import DotsMenu from './icons/DotsMenu.vue';
 import UndoneCheck from './icons/UndoneCheck.vue';
 import Product from './icons/Product.vue';
+import Box from './icons/Box.vue';
+import ChatMessage from './icons/ChatMessage.vue';
+import CreditCheckout from './icons/CreditCheckout.vue';
+import DrpItemCheck from './icons/DrpItemCheck.vue';
+import GridLayout from './icons/GridLayout.vue';
+import PaymentCard from './icons/PaymentCard.vue';
 import Calendar from './icons/Calendar.vue';
 
 export default Vue.extend({
   name: 'Icon',
   components: {
+    Box,
+    ChatMessage,
+    CreditCheckout,
     ChevronUp,
+    DrpItemCheck,
+    GridLayout,
+    PaymentCard,
     AngleDown,
     AngleRight,
     AngleLeft,

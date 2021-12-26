@@ -36,6 +36,12 @@ const Template = (_, { argTypes }) => ({
         "TickSmall",
         "UndoneCheck",
         "Warning",
+        "Box",
+        "ChatMessage",
+        "CreditCheckout",
+        "DrpItemCheck",
+        "GridLayout",
+        "PaymentCard",
       ],
     };
   },
