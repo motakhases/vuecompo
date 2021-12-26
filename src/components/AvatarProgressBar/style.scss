@@ -1,5 +1,5 @@
 .zpl-avatar-progress-box {
-  @apply inline-flex rounded-circle relative overflow-hidden;
+  @apply inline-flex rounded-circle relative overflow-hidden w-max;
 }
 .zpl-avatar-progress {
   @apply inline-flex rounded-circle overflow-hidden m-xs;

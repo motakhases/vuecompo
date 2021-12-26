@@ -1,5 +1,5 @@
 import Thumbnail from "./index.vue";
-
+import image from "../../assets/images/product_img.png";
 export default {
   component: Thumbnail,
   title: "Components/Thumbnail",
@@ -8,6 +8,11 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { Thumbnail },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      image,
+    };
+  },
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
 		<Thumbnail icon="terminal" />  
@@ -26,12 +31,13 @@ const Template = (_, { argTypes }) => ({
       <Thumbnail logo="eghtesadNovin" />  
       <Thumbnail logo="mellat" />  
     </div>
+    <h1 class="mt-sm font-bold dark:text-surface"> همراه با عکس </h1>
+    <Thumbnail :img="image" />  
 	</div>
   `,
 });
 
 export const Default = Template.bind({});
-
 
 Default.args = {
   icon: "terminal",

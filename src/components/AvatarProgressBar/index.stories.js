@@ -4,37 +4,27 @@ const Template = (_, { argTypes }) => ({
   components: { AvatarProgressBar },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md flex">
-		<div>
+  <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+    <h1 class="font-bold dark:text-surface"> آواتار </h1>
+    <AvatarProgressBar
+      type="beginner"
+      percent="60"
+      img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
+    />
+    <h1 class="mt-sm font-bold dark:text-surface"> انواع آواتار </h1>
+		<div class="flex items-center gap-md">
       <AvatarProgressBar
         type="beginner"
-        size="small"
-        percent="60"
+        percent="20"
         img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
       />
-      <AvatarProgressBar
-        type="beginner"
-        size="medium"
-        percent="60"
-        img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
-      />
-      <AvatarProgressBar
-        type="beginner"
-        size="large"
-        percent="60"
-        img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
-      />
-    </div>
-    <div>
       <AvatarProgressBar
         type="silver"
-        size="large"
-        percent="50"
+        percent="40"
         img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
       />
       <AvatarProgressBar
         type="gold"
-        size="large"
         percent="80"
         img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
       />
@@ -46,10 +36,6 @@ const Template = (_, { argTypes }) => ({
 const progressBar = Template.bind({});
 
 progressBar.argTypes = {
-  size: {
-    options: ["small", "medium", "large"],
-    control: { type: "radio" },
-  },
   type: {
     options: ["beginner", "silver", "gold"],
     control: { type: "radio" },
@@ -58,9 +44,8 @@ progressBar.argTypes = {
 
 progressBar.args = {
   type: "beginner",
-  size: "large",
   percent: 10,
-	img: "https://www.digikala.com/static/files/fd4840b2.svg",
+  img: "https://www.digikala.com/static/files/fd4840b2.svg",
 };
 
-export default progressBar
+export default progressBar;
