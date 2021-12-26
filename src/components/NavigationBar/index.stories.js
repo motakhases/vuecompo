@@ -1,13 +1,4 @@
 import NavigationBar from "./index.vue";
-import Icon from "../Icon/index.vue";
-import NavItem from "./NavItem/index.vue";
-import SwitchTerminalPopover from "./SwitchTerminalPopover/index.vue";
-import SwitchTerminalItem from "./SwitchTerminalItem/index.vue";
-import Overview from "./Overview/index.vue";
-import Thumbnail from "../Thumbnail/index.vue";
-import Create from "./Create/index.vue";
-import SwitchTerminal from "./SwitchTerminal/index.vue";
-import Logo from "@/components/Logo/index.vue";
 import { storiesOf } from "@storybook/vue";
 import StoryRouter from "storybook-vue-router";
 
@@ -15,75 +6,75 @@ storiesOf("Components/NavigationBar", module)
   .addDecorator(StoryRouter())
   .add("default", () => NavigationBar);
 
-export default {
-  component: NavigationBar,
-  title: "Components/NavigationBar",
-};
-
 const Template = (_, { argTypes }) => ({
   components: {
     NavigationBar,
-    Icon,
-    NavItem,
-    SwitchTerminalPopover,
-    Overview,
-    SwitchTerminalItem,
-    SwitchTerminal,
-    Create,
-    Thumbnail,
-    Logo,
   },
   props: Object.keys(argTypes),
   template: `
-  <NavigationBar :toggle="toggle">
-    <SwitchTerminalPopover>
-      <template v-slot:terminal>
-        <SwitchTerminal
-          title="عنوان درگاه"
-          link="zarinp.al/getway"
-          icon="terminal"
-        >
-        </SwitchTerminal>
-      </template>
-      <template v-slot:menu>
-        <Overview link="overview" active> نمای کلی </Overview>
-        <SwitchTerminalItem
-          title="عنوان درگاه"
-          link="zarinp.al/getway"
-          icon="terminal"
-          active
-          state="active"
-          state-text="وضعیت"
-        />
-        <SwitchTerminalItem
-          title="عنوان درگاه"
-          link="zarinp.al/getway"
-          icon="terminal"
-          state="inactive"
-          state-text="وضعیت"
-        />
-        <Create link="/home"> ایجاد درگاه جدید </Create>
-      </template>
-    </SwitchTerminalPopover>
-		<template v-slot:logo>
-		<Logo name="zarinpal" type="logo" language="fa" size="medium" />
-		</template>
-    <template v-slot:firstList>
-      <NavItem active link="/" title="لیبل" icon="questionCircle" badge="12" />
-      <NavItem link="/" title="لیبل" icon="questionCircle" badge="12" />
-    </template>
-    <template v-slot:secondList>
-      <NavItem link="/" title="لیبل" icon="questionCircle" />
-      <NavItem link="/" title="لیبل" icon="questionCircle" />
-    </template>
-  </NavigationBar>
+    <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border-1 border-border h-[768px]" dir="rtl">
+      <NavigationBar
+        :toggle="toggle"
+        :terminals="terminals"
+        :above-links="alinks"
+        :below-links="blinks"
+      />
+    </div>
   `,
 });
 
-export const Default = Template.bind({});
+const navigationBar = Template.bind({});
 
-Default.argTypes = {};
+navigationBar.argTypes = {};
 
-Default.args = {
+navigationBar.args = {
   toggle: false,
+  terminals: [
+    {
+      domain: 'zarin.express/mrtestian',
+      name: '\u0645\u0633\u062a\u0631 \u062a\u0633\u062a\u06cc\u0627\u0646',
+      status: 'ACTIVE',
+    }, {
+      domain: 'zarinp.al/armanshojaei',
+      name: '\u0622\u0631\u0645\u0627\u0646 \u0634\u062c\u0627\u0639\u06cc',
+      status: 'ACTIVE',
+    },
+  ],
+  alinks: [
+    {
+      title: 'نمای کلی',
+      link: '/',
+      icon: 'QuestionCircle',
+      active: true,
+    },
+    {
+      title: 'پیشخوان',
+      link: '/',
+      icon: 'QuestionCircle',
+    },
+    {
+      title: 'تراکنش‌ها',
+      link: '/',
+      icon: 'QuestionCircle',
+    },
+    {
+      title: 'تسویه حساب',
+      link: '/',
+      icon: 'QuestionCircle',
+    },
+    {
+      title: 'محصولات',
+      link: '/',
+      icon: 'QuestionCircle',
+    },
+  ],
+  blinks: [
+    {
+      title: 'حساب‌های بانکی',
+      link: '/',
+      icon: 'QuestionCircle',
+    },
+  ],
 };
+
+export default navigationBar

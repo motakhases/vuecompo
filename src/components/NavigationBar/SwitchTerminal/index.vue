@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <a
     :to="link"
   >
     <div
@@ -24,7 +24,7 @@
       </div>
       <slot />
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">

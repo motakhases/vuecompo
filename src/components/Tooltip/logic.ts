@@ -7,7 +7,7 @@ export default Vue.extend({
   props: {
     text: {
       type: String,
-      default: 'tooltip',
+      default: '',
       required: true,
     },
     position: {
@@ -22,7 +22,7 @@ export default Vue.extend({
     },
     indicator: {
       type: Boolean,
-      default: true,
+      default: false,
       required: true,
     },
     size: {

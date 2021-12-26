@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
-import StoreStatus from '../../StoreStatus/index.vue';
+import GatewayStatus from '@/components/GatewayStatus/index.vue';
 
 export default Vue.extend({
   name: 'SwitchTerminalItem',
-  components: { Thumbnail, Icon, StoreStatus },
+
+  components: { Thumbnail, Icon, GatewayStatus },
+
   props: {
     active: {
       type: Boolean,
@@ -35,9 +37,21 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    stateText: {
-      type: String,
-      default: '',
+  },
+
+  methods: {
+    stateText(state: string): string {
+      let statusText = '';
+
+      switch (state) {
+      case 'ACTIVE':
+        statusText = 'فعال';
+        break;
+      default:
+        break;
+      }
+
+      return statusText;
     },
   },
 });

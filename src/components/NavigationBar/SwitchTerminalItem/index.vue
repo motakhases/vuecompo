@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <a
     :to="link"
     class="zpl-terminal-item"
   >
@@ -15,9 +15,9 @@
       <div class="zpl-terminal-item-link">
         {{ link }}
       </div>
-      <StoreStatus
-        :state="state"
-        :text="stateText"
+      <GatewayStatus
+        :type="state"
+        :text="stateText(state)"
       />
       <div
         v-if="active === true"
@@ -26,7 +26,7 @@
         <Icon name="tickSmall" />
       </div>
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">

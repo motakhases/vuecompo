@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <a
     :to="link"
     class="zpl-nav-overview"
   >
@@ -13,7 +13,7 @@
     >
       <Icon name="tickSmall" />
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">

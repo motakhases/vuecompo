@@ -1,12 +1,12 @@
 <template>
   <div class="rtl">
-    <router-link
+    <a
       :to="link"
       class="zpl-nav-create"
     >
       <Thumbnail icon="plus" />
       <slot />
-    </router-link>
+    </a>
   </div>
 </template>
 

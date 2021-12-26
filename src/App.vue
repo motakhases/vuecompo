@@ -1,26 +1,30 @@
 <template>
-  <div class="w-[400px] mx-auto mt-lg">
-    <FilterAmount
-      v-model="date"
+  <div dir="rtl">
+    <Button
+      text="Open Modal"
+      @click.native="$refs.modal.open()"
     />
+    <NotificationCenter ref="modal" />
   </div>
 </template>
 
 <script lang="js">
 import Vue from 'vue';
-import FilterAmount from '@/components/Filters/FilterAmount/index.vue';
+import Button from '@/components/Button/index.vue';
+import NotificationCenter from '@/components/NotificationCenter/index.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    FilterAmount,
-  },
-
-  data() {
-    return {
-      date: '',
-    };
+    Button,
+    NotificationCenter,
   },
 });
 </script>
+
+<style>
+body {
+  @apply bg-background
+}
+</style>

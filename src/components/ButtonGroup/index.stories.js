@@ -1,11 +1,6 @@
 import ButtonGroup from './index.vue';
 import Button from '@/components/Button/index.vue';
 
-export default {
-  component: ButtonGroup,
-  title: 'Components/Button',
-};
-
 const Template = (_, { argTypes }) => ({
   components: {
     ButtonGroup,
@@ -15,17 +10,13 @@ const Template = (_, { argTypes }) => ({
   template: `
     <div class="dark:bg-surface-dark p-sm rounded-md rtl">
       <ButtonGroup>
-        <Button type="primary" :text="firstBtn" />
-        <Button type="secondary" :text="secondBtn" />
+        <Button type="primary" text="دکمه" />
+        <Button type="secondary" text="دکمه" />
       </ButtonGroup>
     </div>
   `,
 });
 
-export const Group = Template.bind({});
+const group = Template.bind({});
 
-
-Group.args = {
-  firstBtn: "دکمه",
-  secondBtn: "دکمه",
-};
+export default group

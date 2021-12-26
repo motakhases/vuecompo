@@ -13,7 +13,7 @@ export default Vue.extend({
     },
     indicator: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
 });

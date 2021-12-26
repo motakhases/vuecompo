@@ -1,15 +1,10 @@
 import PageHeading from "./index.vue";
 
-export default {
-  component: PageHeading,
-  title: "Components/PageHeading",
-};
-
 const Template = (_, { argTypes }) => ({
   components: { PageHeading },
   props: Object.keys(argTypes),
   template: `
-  <div class="h-[2000px] rtl">
+  <div class="rtl bg-background dark:bg-background-dark p-sm">
     <PageHeading
       :returnBTN="returnBTN"
       :sticky="sticky"
@@ -23,12 +18,12 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-export const Default = Template.bind({});
+const pageHeading = Template.bind({});
 
-Default.argTypes = {
+pageHeading.argTypes = {
 };
 
-Default.args = {
+pageHeading.args = {
   title: "عنوان",
   desc: "توضیحات صفحه",
   sticky: true,
@@ -45,5 +40,6 @@ Default.args = {
     afterIcon: "",
     beforeIcon: "",
   },
-
 };
+
+export default pageHeading

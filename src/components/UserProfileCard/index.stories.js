@@ -18,7 +18,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
 	<div class="dark:bg-surface-dark-soft p-sm rounded-md rtl">
-		<UserProfileCard  v-bind="$props">
+		<UserProfileCard  v-bind="$props" />
 	</div>
   `,
 });

@@ -1,101 +1,114 @@
 <template>
-  <div class="zpl-notification-modal">
+  <div :class="['zpl-notification-modal']">
     <div
-      :class="['zpl-notification-center']"
+      :class="['zpl-notification-center', isOpen ? 'show': 'hide' ]"
     >
-      <div class="notif-header">
-        <div v-show="!showArchives">
-          <Icon
-            name="delete"
-            class="close-icon"
+      <div
+        v-if="!showArchives"
+        class="notif-box"
+      >
+        <!-- Header -->
+        <div class="notif-header">
+          <Button
+            icon="delete"
+            type="tertiary"
+            size="medium"
+            @click.native="toggle"
           />
-          <Icon
-            name="clockRefresh"
-            class="archive-icon"
+          <Button
+            icon="clockRefresh"
+            type="tertiary"
+            size="medium"
             @click.native="showArchives=true"
           />
         </div>
-        <div v-show="showArchives">
-          <Icon
-            name="arrowRight"
-            class="return-icon"
+
+        <!-- Tabs -->
+        <Tabs
+          :fill-container="true"
+        >
+          <Tab
+            title="اعلانات"
+          >
+            <div v-if="todayCards(notifs).length">
+              <span class="notif-period">
+                امروز
+              </span>
+              <card
+                :cards="todayCards(notifs)"
+              />
+            </div>
+            <div v-if="yesterdayCards(notifs).length">
+              <span class="notif-period">
+                دیروز
+              </span>
+              <card
+                :cards="yesterdayCards(notifs)"
+              />
+            </div>
+            <div v-if="thisWeekCards(notifs).length">
+              <span class="notif-period">
+                هفته جاری
+              </span>
+              <card
+                :cards="thisWeekCards(notifs)"
+              />
+            </div>
+            <noNotif v-else />
+          </Tab>
+          <Tab
+            title="اطلاعیه‌ها"
+          >
+            <div v-if="todayCards(announcements).length">
+              <span class="notif-period">
+                امروز
+              </span>
+              <card
+                :cards="todayCards(announcements)"
+              />
+            </div>
+            <div v-if="yesterdayCards(announcements).length">
+              <span class="notif-period">
+                دیروز
+              </span>
+              <card
+                :cards="yesterdayCards(announcements)"
+              />
+            </div>
+            <div v-if="thisWeekCards(announcements).length">
+              <span class="notif-period">
+                هفته جاری
+              </span>
+              <card
+                :cards="thisWeekCards(announcements)"
+              />
+            </div>
+            <noNotif
+              v-else
+              notif-type="اطلاعیه‌ای"
+            />
+          </Tab>
+        </Tabs>
+      </div>
+
+      <!-- Archive -->
+      <div
+        v-else
+        class="archive-box"
+      >
+        <!-- Archive header-->
+        <div class="archive-header">
+          <Button
+            icon="arrowRight"
+            type="tertiary"
+            size="medium"
             @click.native="showArchives=false"
           />
           <h3 class="archive-title">
             آرشیو اطلاعیه‌ها
           </h3>
         </div>
-      </div>
-      <Tabs
-        v-show="!showArchives"
-        :fill-container="true"
-      >
-        <Tab
-          title="اعلانات"
-        >
-          <div v-if="todayCards(notifs).length">
-            <span class="notif-period">
-              امروز
-            </span>
-            <card
-              :cards="todayCards(notifs)"
-            />
-          </div>
-          <div v-if="yesterdayCards(notifs).length">
-            <span class="notif-period">
-              دیروز
-            </span>
-            <card
-              :cards="yesterdayCards(notifs)"
-            />
-          </div>
-          <div v-if="thisWeekCards(notifs).length">
-            <span class="notif-period">
-              هفته جاری
-            </span>
-            <card
-              :cards="thisWeekCards(notifs)"
-            />
-          </div>
-          <noNotif v-else />
-        </Tab>
-        <Tab
-          title="اطلاعیه‌ها"
-        >
-          <div v-if="todayCards(announcements).length">
-            <span class="notif-period">
-              امروز
-            </span>
-            <card
-              :cards="todayCards(announcements)"
-            />
-          </div>
-          <div v-if="yesterdayCards(announcements).length">
-            <span class="notif-period">
-              دیروز
-            </span>
-            <card
-              :cards="yesterdayCards(announcements)"
-            />
-          </div>
-          <div v-if="thisWeekCards(announcements).length">
-            <span class="notif-period">
-              هفته جاری
-            </span>
-            <card
-              :cards="thisWeekCards(announcements)"
-            />
-          </div>
-          <noNotif
-            v-else
-            notif-type="اطلاعیه‌ای"
-          />
-        </Tab>
-      </Tabs>
-      <div
-        v-show="showArchives"
-        class="announce-archives"
-      >
+        <!-- Archive body-->
         <card
           v-if="archiveAnnouncements().length"
           :cards="archiveAnnouncements()"
@@ -106,6 +119,11 @@
         />
       </div>
     </div>
+    <div
+      v-if="isOpen"
+      class="backdrop"
+      @click="toggle"
+    />
   </div>
 </template>
 
@@ -115,5 +133,4 @@ import logic from './logic';
 import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
-
 </script>

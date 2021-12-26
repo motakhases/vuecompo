@@ -1,51 +1,90 @@
-import TextField from './index.vue';
-import '@/utils/validations';
-
-export default {
-  component: TextField,
-  title: "Components/TextField",
-};
+import TextField from "./index.vue";
+import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
     TextField,
   },
   props: Object.keys(argTypes),
+  data: () => ({
+    disabled: "سلام از طرف یک فیلد غیر فعال",
+    hint: "",
+    number: "",
+    icon1: "",
+    icon2: "",
+    unit: "",
+    helper: "",
+    success: "",
+    error: "",
+    limit: "",
+    limitNum: 5,
+  }),
   template: `
-	<div class="dark:bg-surface-dark p-sm rounded-md">
-		<TextField @value="value = $event" v-bind="$props" />  
-	</div>
-	`,
+  <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">
+  	<TextField
+  	  v-model="hint"
+  	  class="col-span-1"
+  	  label="فیلد عادی"
+  	/>
+  	<TextField
+  	  v-model="number"
+  	  class="col-span-1"
+  	  label="فیلد عددی"
+  	  stepper
+  	  type="number"
+  	/>
+  	<TextField
+  	  v-model="icon1"
+  	  class="col-span-1"
+  	  before-icon="Star"
+  	  placeholder="فیلد آیکن دار"
+  	/>
+  	<TextField
+  	  v-model="icon2"
+  	  class="col-span-1"
+  	  label="فیلد آیکن دار"
+  	  after-icon="Star"
+  	/>
+  	<TextField
+  	  v-model="unit"
+  	  class="col-span-1"
+  	  label="فیلد واحد دار"
+  	  unit="ریال"
+  	/>
+		<TextField
+			v-model="limit"
+			class="col-span-1"
+			label="فیلد با تعداد کاراکتر محدود"
+			:limit="limitNum"
+		/> 
+		<TextField
+  	  v-model="disabled"
+  	  class="col-span-1"
+  	  label="فیلد غیر فعال"
+  	  disabled
+  	/>
+  	<h1 class="col-span-2 dark:text-secondary mt-md">
+  	  اعتبارسنجی
+  	</h1>
+  	<TextField
+  	  v-model="helper"
+  	  class="col-span-2"
+  	  helper-hint="می‌توانید در این فیلد هر چیزی بنویسید"
+  	/>
+  	<TextField
+  	  v-model="success"
+  	  class="col-span-1 mb-lg"
+  	  success-hint="متن با موفقیت خوانده شد"
+  	/>
+  	<TextField
+  	  v-model="error"
+  	  class="col-span-1"
+  	  rules="required"
+  	/>
+  </div>
+  `,
 });
 
-export const Default = Template.bind({});
+const textfield = Template.bind({});
 
-Default.argTypes = {
-  type: {
-    options: ["text", "number"],
-    control: { type: "radio" },
-  },
-  separator: {
-    options: ["comma", "dash", "none"],
-    control: { type: "radio" },
-    description: "implementing separator requires type to be number",
-  },
-};
-
-Default.args = {
-  disabled: false,
-  label: 'label',
-  value: '',
-  helperHint: 'helper',
-	successHint: 'success',
-  unit: '',
-  limit: 0,
-  type: "text",
-  separator: "none",
-  beforeIcon: "",
-  afterIcon: "",
-  stepper: false,
-  rules: "odd|required|min",
-  id: "",
-	placeholder:""
-};
+export default textfield;
