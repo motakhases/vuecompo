@@ -50,6 +50,12 @@ export default Vue.extend({
     date() {
       const startOfWeek = moment().startOf('week').format('jYYYY/jM/jD');
       const endOfWeek = moment().endOf('week').format('jYYYY/jM/jD');
+
+      console.log({
+        startOfWeek,
+        endOfWeek,
+      });
+
       switch (this.date) {
       case date.TODAY:
         this.$emit('input', moment().format('jYYYY/jM/jD'));

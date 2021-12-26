@@ -1,10 +1,10 @@
 import FilterSample from "./index.vue";
 import moment from 'moment-jalaali';
 
-export default {
-  component: FilterSample,
-  title: "Components/FilterSample",
-};
+// export default {
+//   component: FilterSample,
+//   title: "Components/FilterSample",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { FilterSample },

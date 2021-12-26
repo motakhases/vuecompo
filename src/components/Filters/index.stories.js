@@ -9,7 +9,7 @@ export default {
   title: "Components/Filters",
 };
 
-const Template = (_, { argTypes }) => ({
+const Template = () => ({
   components: {
     Filters,
     FilterActions,
@@ -18,7 +18,6 @@ const Template = (_, { argTypes }) => ({
     FilterDate,
     FilterAmount,
   },
-  props: Object.keys(argTypes),
   data() {
     return {
       statusValue: '',
@@ -51,4 +50,3 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = null;

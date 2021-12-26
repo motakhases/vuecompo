@@ -26,6 +26,7 @@ import Star from './icons/Star.vue';
 import DotsMenu from './icons/DotsMenu.vue';
 import UndoneCheck from './icons/UndoneCheck.vue';
 import Product from './icons/Product.vue';
+import Calendar from './icons/Calendar.vue';
 
 export default Vue.extend({
   name: 'Icon',
@@ -57,6 +58,7 @@ export default Vue.extend({
     DotsMenu,
     UndoneCheck,
     Product,
+    Calendar,
   },
 
   props: {

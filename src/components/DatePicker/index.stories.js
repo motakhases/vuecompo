@@ -14,18 +14,10 @@ const Template = (_, { argTypes }) => ({
     };
   },
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md rtl w-[298px]">
-		<DatePicker  v-model="single" v-bind="$props" />
+  <div class="dark:bg-surface-dark p-sm rounded-md w-[350px]" dir="rtl">
+		<DatePicker v-model="single" />
   </div>
   `,
 });
 
 export const Default = Template.bind({});
-
-Default.args = {
-  range: false,
-  label: "label",
-  disableSingle: false,
-  disableStart: false,
-  disableEnd: false,
-};
