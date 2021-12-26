@@ -2,13 +2,13 @@ import TasksStack from "./index.vue";
 import { storiesOf } from "@storybook/vue";
 import StoryRouter from "storybook-vue-router";
 
-storiesOf("Components/UserProfileCard/TasksStack", module)
-  .addDecorator(StoryRouter())
-  .add("default", () => TasksStack);
-export default {
-  component: TasksStack,
-  title: "Components/UserProfileCard/TasksStack",
-};
+// storiesOf("Components/UserProfileCard/TasksStack", module)
+//   .addDecorator(StoryRouter())
+//   .add("default", () => TasksStack);
+// export default {
+//   component: TasksStack,
+//   title: "Components/UserProfileCard/TasksStack",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: {

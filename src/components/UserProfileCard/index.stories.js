@@ -44,7 +44,7 @@ Default.args = {
   avatarType: "beginner",
   avatarSize: "medium",
   avatarPercent: 10,
-  avatarImg: "https://www.digikala.com/static/files/fd4840b2.svg",
+  avatarImg: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=160",
   zarinId: "ZP.123456",
   zarinIdType: "blue",
   fullname: "نام و نام خانوادگی",

@@ -1,8 +1,8 @@
 import ZarinId from "./index.vue";
-export default {
-  component: ZarinId,
-  title: "Components/UserProfileCard/ZarinId",
-};
+// export default {
+//   component: ZarinId,
+//   title: "Components/UserProfileCard/ZarinId",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { ZarinId },

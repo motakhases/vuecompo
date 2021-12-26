@@ -1,8 +1,8 @@
 import UserLevel from "./index.vue";
-export default {
-  component: UserLevel,
-  title: "Components/UserProfileCard/UserLevel",
-};
+// export default {
+//   component: UserLevel,
+//   title: "Components/UserProfileCard/UserLevel",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: { UserLevel },

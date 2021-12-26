@@ -1,9 +1,9 @@
 import CheckMark from "./index.vue";
 
-export default {
-  component: CheckMark,
-  title: "Components/UserProfileCard/CheckMark",
-};
+// export default {
+//   component: CheckMark,
+//   title: "Components/UserProfileCard/CheckMark",
+// };
 
 const Template = (_, { argTypes }) => ({
   components: {
