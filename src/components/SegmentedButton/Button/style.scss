@@ -3,7 +3,7 @@
   @apply bg-transparent px-sm py-2xs rounded-sm text-text;
   @apply dark:text-text-dark;
   &:not(:last-child) {
-    @apply mr-2xs;
+    @apply ml-2xs;
   }
   /* Hover */
   @apply hover:bg-transparent;
