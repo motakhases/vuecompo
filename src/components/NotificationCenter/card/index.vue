@@ -33,9 +33,8 @@
             v-if="card.link"
             class="link"
             :href="card.link"
-          >
-            لینک
-          </Link>
+            text="لینک"
+          />
         </div>
       </div>
     </div>
