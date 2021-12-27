@@ -21,7 +21,7 @@ const Template = () => ({
   data() {
     return {
       statusValue: '',
-      statusValue: '',
+      dateValue: '',
       priceValue: '',
 
       status: [],

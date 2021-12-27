@@ -3,9 +3,10 @@ import Logo from "@/components/Logo/index.vue";
 import Icon from "@/components/Icon/index.vue";
 import UserProfile from "./UserProfile/index.vue";
 import Notification from "./Notification/index.vue";
+import Button from "@/components/Button/index.vue";
 
 const Template = (_, { argTypes }) => ({
-  components: { TopBar, Logo, Icon, UserProfile, Notification },
+  components: { TopBar, Logo, Icon, UserProfile, Notification, Button },
   props: Object.keys(argTypes),
   template: `
   <TopBar>
@@ -16,7 +17,7 @@ const Template = (_, { argTypes }) => ({
       </div>
     </template>
     <template v-slot:left-side>
-      <Icon name="questionCircle" class="zpl-topbar-menu" />
+      <Button icon="questionCircle" type="tertiary" />
 			<Notification :badge="badge" />
       <UserProfile username="نام کاربر" />
     </template>
@@ -30,4 +31,4 @@ topBar.args = {
   badge: "۹۹",
 };
 
-export default topBar
+export default topBar;

@@ -1,5 +1,5 @@
 .zpl-date-picker-container {
-  @apply w-[296px];
+  @apply w-full;
 }
 .zpl-date-picker {
   &.no-preview {
@@ -34,12 +34,16 @@
     @apply w-[14.28%];
   }
   .vpd-days {
-    @apply p-0;
+    @apply p-0 overflow-auto;
   }
   .vpd-day {
-    @apply text-text text-b3 flex justify-center items-center w-[14.28%];
+    @apply text-text text-b3 flex justify-center items-center w-[14.28%] rounded-sm;
     @apply dark:text-text-dark;
     &:not([disabled]) {
+      &.vpd-range-hover {
+        @apply text-text;
+        @apply dark:text-text-dark;
+      }
       &.vpd-selected {
         @apply text-text-onPrimary #{!important};
         @apply dark:text-text-dark-onPrimary #{!important};
@@ -47,36 +51,28 @@
       &:hover {
         @apply text-text;
         @apply dark:text-text-dark;
-
-        .vpd-day-effect {
-          @apply bg-surface-hover #{!important};
-          @apply dark:bg-surface-dark-hover #{!important};
-        }
+        @apply bg-surface-hover #{!important};
+        @apply dark:bg-surface-dark-hover #{!important};
       }
       &:active {
-        .vpd-day-effect {
-          @apply shadow-border-focus-heavy;
-          @apply dark:shadow-dark-border-focus-heavy;
-        }
+        @apply shadow-border-focus-heavy;
+        @apply dark:shadow-dark-border-focus-heavy;
       }
       &.vpd-selected {
-        .vpd-day-effect {
-          @apply bg-primaryZarinpal #{!important};
-          @apply dark:bg-primaryZarinpal-dark #{!important};
-        }
+        @apply bg-primaryZarinpal #{!important};
+        @apply dark:bg-primaryZarinpal-dark #{!important};
+
         &:hover {
           @apply text-text-onPrimary;
-          .vpd-day-effect {
-            @apply bg-primaryZarinpal-hover #{!important};
-            @apply dark:bg-primaryZarinpal-dark-hover #{!important};
-          }
+          @apply bg-primaryZarinpal-hover #{!important};
+          @apply dark:bg-primaryZarinpal-dark-hover #{!important};
         }
       }
     }
     &.vpd-range-between {
       /* Default */
 
-      @apply bg-primarySurface border-t border-b border-primaryZarinpal text-primaryZarinpal;
+      @apply bg-primarySurface border-t border-b border-primaryZarinpal text-primaryZarinpal rounded-none;
 
       /* dark */
       @apply dark:bg-primarySurface-dark dark:border-primaryZarinpal-dark 
@@ -89,11 +85,11 @@
       /* active */
       @apply active:shadow-border-focus-heavy active:z-10;
       @apply dark:active:shadow-dark-border-focus-heavy;
-
-      .vpd-day-effect {
-        @apply hidden #{!important};
-      }
     }
+    .vpd-day-effect {
+      @apply hidden #{!important};
+    }
+
   }
   .vpd-date {
     span {
@@ -173,16 +169,12 @@
     @apply dark:bg-surface-dark dark:text-icon-dark;
   }
   .vpd-range-first {
-    .vpd-day-effect {
-      @apply border border-primaryZarinpal rounded-r-[96px];
-      @apply dark:border-primaryZarinpal-dark;
-    }
+    @apply border border-primaryZarinpal rounded-r-[96px];
+    @apply dark:border-primaryZarinpal-dark;
   }
   .vpd-range-last {
-    .vpd-day-effect {
-      @apply border border-primaryZarinpal rounded-l-[96px];
-      @apply dark:border-primaryZarinpal-dark;
-    }
+    @apply border border-primaryZarinpal rounded-l-[96px];
+    @apply dark:border-primaryZarinpal-dark;
   }
   .vpd-day-effect {
     @apply rounded-sm top-0 left-0 w-[40px] h-[40px];

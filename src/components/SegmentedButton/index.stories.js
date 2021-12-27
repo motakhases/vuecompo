@@ -5,9 +5,36 @@ const Template = (_, { argTypes }) => ({
     SegmentedButton,
   },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      list: [
+        {
+          id: 1,
+          text: "بانک ملی",
+          click: () => console.log("clicked"),
+          active: true,
+        },
+        {
+          id: 2,
+          text: "بانک سامان",
+          click: () => console.log("clicked"),
+          active: false,
+        },
+        {
+          id: 3,
+          text: "بانک پاسارگاد",
+          click: () => console.log("clicked"),
+          active: false,
+        },
+      ],
+    };
+  },
   template: `
-	<div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
-		<SegmentedButton v-bind="$props" />
+	<div class="dark:bg-surface-dark p-lg rounded-md rtl">
+		<SegmentedButton :items="list" />
+    <h1 class="mt-md mb-sm font-bold dark:text-surface"> حالت تمام عرض </h1>
+		<SegmentedButton :items="list" fill />
+
 	</div>
   `,
 });
@@ -38,4 +65,4 @@ segmentedButton.args = {
   ],
 };
 
-export default segmentedButton
+export default segmentedButton;

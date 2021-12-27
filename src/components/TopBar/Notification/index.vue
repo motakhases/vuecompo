@@ -1,8 +1,8 @@
 <template>
   <div class="zpl-topbar-navigation">
-    <Icon
-      name="notification"
-      class="zpl-topbar-navigation-icon"
+    <Button
+      icon="notification"
+      type="tertiary"
     />
     <NotificationBadge
       class="zpl-topbar-navigation-badge"
