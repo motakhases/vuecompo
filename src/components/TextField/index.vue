@@ -3,10 +3,7 @@
     v-slot="{ invalid , errors, passed}"
     :rules="rules"
   >
-    <div
-      class="zpl-textfield-group"
-      dir="rtl"
-    >
+    <div class="zpl-textfield-group">
       <div
         :class="['zpl-textfield', { 'invalid': errors.length }]"
         :disabled="disabled"
