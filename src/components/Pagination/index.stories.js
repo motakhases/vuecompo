@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Pagination },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md rtl">
+  <div class="dark:bg-surface-dark p-sm rounded-md h-[285px]" dir="rtl">
     <Pagination
       :lastPage="lastPage"
       :initLimit="initLimit"
@@ -25,7 +25,7 @@ Default.argTypes = {
 };
 
 Default.args = {
-  lastPage:20,
-  initLimit:8,
-  initPage:1
+  lastPage: 4,
+  initLimit: 8,
+  initPage: 1
 };

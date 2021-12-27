@@ -1,6 +1,6 @@
 .zpl-user-card-item {
   /* Default */
-  @apply flex items-center w-full gap-x-md mb-xs;
+  @apply flex items-center w-full gap-x-md mb-xs hover:cursor-pointer;
   &:first-child {
     .before {
       @apply before:hidden;
