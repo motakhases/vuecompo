@@ -13,14 +13,14 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       notif: false,
-			announcements: [
+			data: [
 				{
 					title: "عنوان",
 					message: "توضیحات",
 					date: moment().format("YYYY-M-D"),
 					link: "https://next.zarinpal.com/panel/dashboard",
 					image: "",
-					icon:"angleDown"
+					icon:"QuestionCircle"
 				},
 				{
 					title: "عنوان",
@@ -108,7 +108,7 @@ const Template = (_, { argTypes }) => ({
     },
   },
   template: `
-  <div class="relative border-1 border-border" dir="rtl">
+  <div class="relative border-1 border-border dark:bg-background-dark rounded-sm p-sm" dir="rtl">
 		<Button
 			type="primary"
 			size="medium"
@@ -116,7 +116,7 @@ const Template = (_, { argTypes }) => ({
 			@click.native="toggleNotification"
 		/>
     <NotificationCenter
-      :announcements="announcements"
+      :announcements="data"
 			:isOpen="notif"
 			:toggle="toggleNotification"
     />
