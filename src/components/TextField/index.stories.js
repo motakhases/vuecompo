@@ -48,6 +48,8 @@ const Template = (_, { argTypes }) => ({
   	<TextField
   	  v-model="unit"
   	  class="col-span-1"
+			type="number"
+			separator="comma"
   	  label="فیلد واحد دار"
   	  unit="ریال"
   	/>
