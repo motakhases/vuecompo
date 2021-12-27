@@ -10,7 +10,7 @@
 
   // when fill-container is false
   .tab {
-    @apply ml-2xl pb-[16px] relative top-[2px] text-center cursor-pointer flex items-center gap-x-2xs;
+    @apply ml-2xl pb-[16px] relative top-[2px] text-center cursor-pointer flex justify-center items-center gap-x-2xs;
     &.active {
       @apply border-b-2;
       @apply text-text;
