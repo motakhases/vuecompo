@@ -15,7 +15,7 @@ const Template = (_, { argTypes }) => ({
       :initLimit="initLimit"
       :initPage="initPage"
     />
-  </div>  
+  </div>
   `,
 });
 
@@ -25,7 +25,7 @@ Default.argTypes = {
 };
 
 Default.args = {
-  lastPage: 4,
+  lastPage: 20,
   initLimit: 8,
   initPage: 1
 };
