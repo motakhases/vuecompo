@@ -34,7 +34,8 @@
     @apply w-[14.28%];
   }
   .vpd-days {
-    @apply p-0 overflow-auto;
+    @apply p-0;
+    overflow: unset;
   }
   .vpd-day {
     @apply text-text text-b3 flex justify-center items-center w-[14.28%] rounded-sm;
@@ -89,7 +90,6 @@
     .vpd-day-effect {
       @apply hidden #{!important};
     }
-
   }
   .vpd-date {
     span {
@@ -159,6 +159,9 @@
       @apply bg-surface-heavy;
       @apply dark:bg-surface-dark-heavy;
     }
+  }
+  .vpd-month {
+    overflow: unset;
   }
   .vpd-month-list {
     @apply pr-2xs;

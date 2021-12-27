@@ -47,6 +47,7 @@ const Template = (_, { argTypes }) => ({
   	/>
   	<TextField
   	  v-model="unit"
+			type="number"
   	  class="col-span-1"
 			type="number"
 			separator="comma"

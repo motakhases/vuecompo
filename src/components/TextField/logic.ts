@@ -104,11 +104,9 @@ export default Vue.extend({
       if (this.type === 'number') {
         switch (this.separator) {
         case 'comma':
-          return this.value.toLocaleString();
+          return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         case 'dash':
           return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
-        case 'none':
-          return this.value;
         default:
           return this.value;
         }
