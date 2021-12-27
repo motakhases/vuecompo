@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="offset">
-        <span>{{ period }}</span>
+        <span class="offset-title">{{ period }}</span>
       </div>
     </div>
     <div class="left-side">
@@ -74,9 +74,11 @@
             @click.native="changePage(page+1)"
           />
         </div>
-        <div>
+        <div
+          v-if=" page!=lastPage "
+          class="arrow"
+        >
           <Button
-            v-if=" page!=lastPage "
             type="secondary"
             size="small"
             icon="arrowLast"
