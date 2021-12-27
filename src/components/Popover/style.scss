@@ -1,5 +1,5 @@
 .zpl-popover {
-  @apply max-h-[224px] overflow-scroll rounded-sm p-2xs text-b2;
+  @apply max-h-[224px] overflow-y-scroll rounded-sm p-2xs text-b2;
   @apply text-text;
   @apply bg-surface border border-border-soft shadow-elevation-50;
   @apply dark:text-text-dark;
