@@ -26,7 +26,7 @@ const Template = (_, { argTypes }) => ({
       <h1 class="mt-sm font-bold dark:text-surface"> تقویم با بازه زمانی </h1>
 		  <DatePicker v-model="rangeDate" :range="rangeMode" />
 
-      <h1 class="mt-sm font-bold dark:text-surface"> تقویم با حالت پیش نمایش </h1>
+      <h1 class="mt-sm font-bold dark:text-surface"> تقویم با حالت پیش نمایش تاریخ </h1>
 		  <DatePicker v-model="previewDate" :preview="previewMode" />
     </div>
   </div>
