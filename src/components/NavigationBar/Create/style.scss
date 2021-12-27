@@ -1,6 +1,6 @@
 .zpl-nav-create {
   /* Default */
-  @apply flex items-center py-md px-sm text-text text-b2 gap-sm;
+  @apply flex items-center py-md px-sm text-text text-b2 gap-sm cursor-pointer;
   @apply border-t border-border-divider;
   @apply dark:text-text-dark dark:border-border-dark-divider;
 

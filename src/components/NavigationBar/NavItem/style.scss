@@ -13,7 +13,7 @@
   }
 }
 .zpl-nav-item-link {
-  @apply flex items-center rounded-sm p-xs gap-md cursor-pointer text-text text-b2 w-full;
+  @apply flex items-center rounded-sm p-xs gap-md cursor-pointer text-text text-b2 w-full hover:cursor-pointer;
   @apply dark:text-text-dark;
 
   /* Hover */
@@ -34,7 +34,7 @@
   }
 
   &.active {
-    @apply bg-primarySurface;
+    @apply bg-primarySurface hover:cursor-default;
     @apply dark:bg-primarySurface-dark-select;
     &:before {
       content: "";

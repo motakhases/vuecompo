@@ -1,6 +1,6 @@
 .zpl-terminal-item {
   /* Default */
-  @apply flex items-center py-md px-sm text-text text-b2 gap-sm;
+  @apply flex items-center py-md px-sm text-text text-b2 gap-sm hover:cursor-pointer;
   @apply border-t border-border-divider;
   @apply dark:border-border-dark-divider;
 
