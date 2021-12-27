@@ -5,7 +5,7 @@
   .right-side{
     @apply flex items-center;
     .limit{
-      @apply border-l border-border-divider pl-md;
+      @apply border-l border-border-divider pl-md font-IRANYekanFaNum;
       @apply dark:border-border-dark-divider;
       .limit-title{
         @apply ml-xs;
@@ -13,15 +13,18 @@
     }
     .offset{
       @apply mr-md;
+      .offset-title{
+        @apply font-IRANYekanFaNum;
+      }
     }
   }
   .left-side{
     @apply flex items-center;
     .page{
-      @apply border-l border-border-divider pl-md;
+      @apply border-l border-border-divider pl-md font-IRANYekanFaNum;
       @apply dark:border-border-dark-divider;
       .page-title{
-        @apply mr-sm;
+        @apply mr-sm font-IRANYekanFaNum;
       }
     }
     .arrows{
@@ -32,6 +35,6 @@
     }
   }
   .items-box{
-    @apply absolute top-[36px] w-full;
+    @apply absolute top-[36px] w-full font-IRANYekanFaNum;
   }
 }
