@@ -1,26 +1,17 @@
 <template>
   <div dir="rtl">
-    <Button
-      text="Open Modal"
-      @click.native="$refs.modal.open()"
-    />
-    <NotificationCenter ref="modal" />
+    {{ msg }}
   </div>
 </template>
 
-<script lang="js">
-import Vue from 'vue';
-import Button from '@/components/Button/index.vue';
-import NotificationCenter from '@/components/NotificationCenter/index.vue';
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'App',
+@Component
+export default class YourComponent extends Vue {
+ msg = 'welcome to my app'
+}
 
-  components: {
-    Button,
-    NotificationCenter,
-  },
-});
 </script>
 
 <style>
