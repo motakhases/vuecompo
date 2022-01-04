@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import '@/filters/index';
+import '@/utils/filters/index';
 import moment from 'moment-jalaali';
 
 export default Vue.extend({

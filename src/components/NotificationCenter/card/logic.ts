@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import JdateName from '@/filters/JdateName';
+import JdateName from '@/utils/filters/JdateName';
 import Link from '@/components/Link/index.vue';
 import Icon from '@/components/Icon/index.vue';
 

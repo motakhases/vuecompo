@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import './assets/tailwind.css';
 import './utils/directives';
+import './utils/filters/index';
 
 Vue.use(VueRouter);
 

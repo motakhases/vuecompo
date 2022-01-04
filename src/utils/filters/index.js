@@ -5,6 +5,7 @@ import jalaali from './jalaali';
 import numberFormat from './numberFormat';
 import JdateName from './JdateName';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 Vue.filter(
   'strLimit', strLimit,
 );
@@ -20,4 +21,3 @@ Vue.filter(
 Vue.filter(
   'JdateName', JdateName,
 );
-

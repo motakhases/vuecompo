@@ -2,10 +2,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 
 export default {
-  input: 'src/tailwind-preset.js',
+  input: 'src/utils/filters/index.js',
   output: {
-    file: 'dist/tailwind-preset.js',
-    format: 'cjs',
+    file: 'dist/filters.js',
     exports: 'auto',
   },
   plugins: [commonjs(), resolve()],

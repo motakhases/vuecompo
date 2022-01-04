@@ -1,12 +1,11 @@
+/* eslint-disable func-names */
+/* eslint-disable no-param-reassign */
 import Vue from 'vue';
 
 Vue.directive('click-outside', {
   bind(el, binding, vnode) {
-    // eslint-disable-next-line no-param-reassign
     el.clickOutsideEvent = function (event) {
-      // here I check that click was outside the el and his children
       if (!(el === event.target || el.contains(event.target))) {
-        // and if it did, call method provided in attribute value
         vnode.context[binding.expression](event);
       }
     };

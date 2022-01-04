@@ -1,21 +1,13 @@
 <template>
-  <div dir="rtl">
-    {{ msg }}
+  <div class="p-3xl">
+    {{ '2022-05-12' | numberFormat }}
   </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+<script lang="js">
+import Vue from 'vue';
 
-@Component
-export default class YourComponent extends Vue {
- msg = 'welcome to my app'
-}
-
+export default Vue.extend({
+  name: 'App',
+});
 </script>
-
-<style>
-body {
-  @apply bg-background
-}
-</style>
