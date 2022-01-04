@@ -2,10 +2,12 @@ import moment from 'moment-jalaali';
 
 moment.loadPersian();
 
-export default (value:string) => {
+const jDateName = (value) => {
   if (value !== null) {
     return moment(value).format('dddd jDD jMMMM');
   }
 
   return '---';
 };
+
+export default jDateName;

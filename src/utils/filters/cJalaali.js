@@ -1,6 +1,6 @@
 import moment from 'moment-jalaali';
 
-export default function cJalaali(value:string, format = 'HH:mm:ss jYYYY/jM/jD ') {
+const cJalaali = (value) => {
   if (typeof value === 'undefined') {
     return value;
   }
@@ -40,5 +40,6 @@ export default function cJalaali(value:string, format = 'HH:mm:ss jYYYY/jM/jD ')
   }
 
   return '---';
-}
+};
 
+export default cJalaali;

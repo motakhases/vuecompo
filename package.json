@@ -1,15 +1,15 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.0.39",
+  "version": "2.0.40",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "yarn build:vue && yarn build:tailwind",
+    "build": "yarn build:vue && yarn build:filters",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build:tailwind": "rimraf dist/tailwind-preset.js && rollup --config rollup.config.js",
+    "build:filters": "rimraf dist/filters.js && rollup --config rollup.config.js",
     "build:vue": "vue-cli-service build src/index.ts --target lib --name zwc --modern && rm ./dist/demo.html",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",

@@ -1,4 +1,4 @@
-export default function stringLimit(value: string, stop: number, fromEnd: boolean) {
+const stringLimit = (value, stop, fromEnd) => {
   if (typeof value === 'undefined') {
     return value;
   }
@@ -6,4 +6,6 @@ export default function stringLimit(value: string, stop: number, fromEnd: boolea
     return value.slice(-stop) + (stop < value.length ? '....' : '');
   }
   return value.slice(0, stop) + (stop < value.length ? '....' : '');
-}
+};
+
+export default stringLimit;
