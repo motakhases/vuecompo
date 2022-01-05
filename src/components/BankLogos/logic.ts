@@ -1,13 +1,9 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'BankCards',
+@Component({
   components: { Icon },
-  props: {
-    logo: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class BankLogos extends Vue {
+  @Prop({ type: String, required: true }) readonly logo!: string
+}
