@@ -1,21 +1,13 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Avatar from '@/components/Avatar/index.vue';
 
-export default Vue.extend({
-  name: 'AvatarProgressBar',
+@Component({
   components: { Avatar },
-  props: {
-    type: {
-      type: String,
-      default: 'beginner',
-    },
-    percent: {
-      type: String,
-      default: '',
-    },
-    img: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class AvatarProgressBar extends Vue {
+  @Prop({ type: String, default: 'beginner' }) readonly type!: string;
+
+  @Prop({ type: String, required: true }) readonly percent!: string;
+
+  @Prop({ type: String }) readonly img!: string;
+}
