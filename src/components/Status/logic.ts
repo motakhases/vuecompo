@@ -1,19 +1,10 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Status',
-  props: {
-    text: {
-      type: String,
-      default: '',
-    },
-    type: {
-      type: String,
-      default: 'neutral',
-    },
-    indicator: {
-      type: Boolean,
-      default: false,
-    },
-  },
-});
+@Component
+export default class Status extends Vue {
+  @Prop({ type: String }) readonly text!: string
+
+  @Prop({ type: String, default: 'neutral' }) readonly type!: string
+
+  @Prop({ type: Boolean, default: false }) readonly indicator!: boolean
+}

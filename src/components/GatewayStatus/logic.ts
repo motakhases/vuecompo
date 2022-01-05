@@ -1,15 +1,8 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'GatewayStatus',
-  props: {
-    text: {
-      type: String,
-      default: '',
-    },
-    type: {
-      type: String,
-      default: 'active',
-    },
-  },
-});
+@Component
+export default class GatewayStatus extends Vue {
+  @Prop({ type: String }) readonly text!: string
+
+  @Prop({ type: String, default: 'active' }) readonly type!: string
+}
