@@ -9,7 +9,6 @@
     >
       <Icon
         name="delete"
-        @click.native="close"
       />
     </button>
   </div>
