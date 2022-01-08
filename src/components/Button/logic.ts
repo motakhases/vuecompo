@@ -1,45 +1,25 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'Button',
+@Component({
   components: { Icon },
-  props: {
-    size: {
-      type: String,
-      default: 'medium',
-    },
-    type: {
-      type: String,
-      default: 'primary',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    fill: {
-      type: Boolean,
-      default: false,
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    beforeIcon: {
-      type: String,
-      default: '',
-    },
-    afterIcon: {
-      type: String,
-      default: '',
-    },
-    icon: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class Button extends Vue {
+  @Prop({ type: String }) readonly text!: string
+
+  @Prop({ type: String }) readonly icon!: string
+
+  @Prop({ type: String }) readonly beforeIcon!: string
+
+  @Prop({ type: String }) readonly afterIcon!: string
+
+  @Prop({ type: String, default: 'medium' }) readonly size!: string
+
+  @Prop({ type: String, default: 'primary' }) readonly type!: string
+
+  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly fill!: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly loading!: boolean
+}
