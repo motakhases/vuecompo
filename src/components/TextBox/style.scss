@@ -36,18 +36,20 @@
 }
 .zpl-textbox-label {
   /* Default */
-  @apply absolute top-sm right-sm text-ls-cp z-10 py-[2px] px-2xs transition-all	
-	ease-in-out	delay-100;
+  @apply absolute top-sm right-sm text-ls-cp z-10 py-[2px] px-2xs transition-all ease-in-out	delay-100;
   @apply dark:bg-surface-dark text-text-dark-soft;
-  &.activeLabel {
+
+  &.isInputFocused {
     @apply bg-surface -top-xs;
     @apply dark:bg-surface-dark;
   }
 }
+
 .zpl-textbox-hint-box {
   /* Default */
   @apply flex w-full justify-between;
 }
+
 .zpl-textbox-hint {
   /* Default */
   @apply flex items-center gap-x-2xs py-2xs px-sm text-b3 text-text-soft;
@@ -61,17 +63,20 @@
     @apply flex-1;
     @apply dark:text-text-dark-soft;
   }
+
   &.error {
     /* Default */
     @apply absolute text-text-danger;
     @apply dark:text-text-dark-danger;
   }
+
   &.success {
     /* Default */
     @apply absolute text-text-success;
     @apply dark:text-text-dark-success;
   }
 }
+
 .zpl-textbox-hint-limit {
   @apply py-2xs px-xs mr-auto	text-b3 text-text-soft;
   @apply dark:text-text-dark-soft;
