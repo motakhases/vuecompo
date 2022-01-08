@@ -5,3 +5,8 @@ export interface SegmentedBtn {
   click(): void;
 }
 
+export interface Tab {
+  value: Vue;
+  index: number;
+  array: Vue[];
+}

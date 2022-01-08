@@ -1,15 +1,8 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Button',
-  props: {
-    text: {
-      type: String,
-      default: '',
-    },
-    active: {
-      type: Boolean,
-      default: false,
-    },
-  },
-});
+@Component
+export default class SegmentBtn extends Vue {
+  @Prop({ type: String, required: true }) readonly text!: string
+
+  @Prop({ type: Boolean, default: false }) readonly active!: boolean;
+}

@@ -1,9 +1,9 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import Button from './Button/index.vue';
+import SegmentBtn from './Button/index.vue';
 import { SegmentedBtn } from '@/types';
 
 @Component({
-  components: { Button },
+  components: { SegmentBtn },
 })
 
 export default class SegmentedButton extends Vue {
@@ -25,7 +25,7 @@ export default class SegmentedButton extends Vue {
        const buttons = this.$el.querySelectorAll('button');
 
        // check if a tab doesn't have active prop
-       const noActiveProp = this.tabs.every((tab:any) => !tab.active);
+       const noActiveProp = this.tabs.every((tab:Vue) => !tab.active);
 
        // if no active prop
        if (noActiveProp) {
@@ -47,8 +47,4 @@ export default class SegmentedButton extends Vue {
        });
      });
    }
-
-  //  clickFirstBtn() :void{
-  //    console.log('s');
-  //  }
 }
