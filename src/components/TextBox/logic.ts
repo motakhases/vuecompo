@@ -20,13 +20,13 @@ export default class TextBox extends Vue {
 
   @Prop({ type: String, default: '' }) readonly label!: string
 
-  @Prop({ type: Number, default: 0 }) readonly maxlength!: number
+  @Prop({ type: Number }) readonly maxlength?: number
 
-  @Prop({ type: String, default: '' }) readonly rules!: string
+  @Prop({ type: String, default: '' }) readonly rules?: string
 
-  @Prop({ type: String, default: '' }) readonly hint!: string
+  @Prop({ type: String, default: '' }) readonly hint?: string
 
-  @Prop({ type: String, default: '' }) readonly successMessage!: string
+  @Prop({ type: String, default: '' }) readonly successMessage?: string
 
   @Prop({ type: String, default: '' }) readonly value!: string
 

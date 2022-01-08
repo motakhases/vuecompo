@@ -2,6 +2,7 @@
   <div class="p-3xl">
     <TextBox
       v-model="input"
+      hint="این فیلد باید کار کند"
       label="فیلد"
     />
 
