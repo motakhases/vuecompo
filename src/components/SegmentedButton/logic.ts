@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import Button from './Button/index.vue';
-import { SegmentedBtn, Tab } from '@/types';
+import { SegmentedBtn } from '@/types';
 
 @Component({
   components: { Button },
@@ -12,11 +12,10 @@ export default class SegmentedButton extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly fill!: boolean;
 
-   tabs: Tab[] = [];
+   tabs:Array<Vue>= [];
 
    created() :void{
      this.tabs = this.$children;
-     console.log(this.tabs, typeof this.tabs);
    }
 
    mounted() :void{
