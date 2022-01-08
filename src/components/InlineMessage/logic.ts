@@ -15,7 +15,7 @@ export default class InlineMessage extends Vue {
 
   show = true
 
-  showAlertHandler(): void{
+  showAlertHandler():void {
     this.show = false;
   }
 }
