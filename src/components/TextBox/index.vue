@@ -1,49 +1,52 @@
 <template>
   <ValidationProvider
-    v-slot="{ invalid , errors, passed }"
+    v-slot="{ invalid, errors, passed }"
     :rules="rules"
   >
     <div :class="['zpl-textbox-group']">
       <textarea
+        v-model="model"
         :class="['zpl-textbox', { 'error': errors.length }]"
-        :value="value"
-        :rows="rowsNumber"
+        :rows="rows"
         :disabled="disabled"
-        :maxlength="limit > 0 ? limit : undefined"
-        @input="onInput"
+        :maxlength="maxlength"
         @focusout="onFocusOut"
         @focusin="onFocusIn"
       />
+
       <!-- show when we have label -->
       <label
         v-if="label"
-        :class="['zpl-textbox-label', { activeLabel }]"
+        :class="['zpl-textbox-label', { isInputFocused }]"
       >
         {{ label }}
       </label>
-      <!-- show when we have hint text or limit -->
+
+      <!-- show when we have hint text or maxlength -->
       <div class="zpl-textbox-hint-box">
-        <!-- show when we have helperHint -->
+        <!-- show when we have hint -->
         <div
-          v-if="helperHint && !(successHint && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors.length"
           class="zpl-textbox-hint helper"
         >
           <span>
-            {{ helperHint }}
+            {{ hint }}
           </span>
         </div>
-        <!-- show when we have successHint -->
+
+        <!-- show when we have successMessage -->
         <div
-          v-if="successHint && passed"
+          v-if="successMessage && passed"
           class="zpl-textbox-hint success"
         >
           <Icon
             name="checkmarkCircle"
           />
           <span>
-            {{ successHint }}
+            {{ successMessage }}
           </span>
         </div>
+
         <!-- show when we have errors -->
         <div
           v-if="errors.length"
@@ -52,12 +55,13 @@
           <Icon name="warning" />
           <span>{{ errors[0] }}</span>
         </div>
-        <!-- show when we have limit -->
+
+        <!-- show when we have maxlength -->
         <span
-          v-if="limit"
-          class="zpl-textbox-hint-limit"
+          v-if="maxlength"
+          class="zpl-textbox-hint-maxlength"
         >
-          {{ limit }}/{{ value.length }}
+          {{ maxlength }}/{{ value.length }}
         </span>
       </div>
     </div>
