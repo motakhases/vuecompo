@@ -14,7 +14,7 @@ import Icon from '@/components/Icon/index.vue';
 export default class TextBox extends Vue {
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean
 
-  @Prop({ type: String, default: '' }) readonly label!: string
+  @Prop({ type: String }) readonly label?: string
 
   @Prop({ type: Number }) readonly maxlength?: number
 

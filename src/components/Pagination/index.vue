@@ -8,7 +8,7 @@
             :text="String(limit)"
             type="secondary"
             size="small"
-            after-icon="angleDown"
+            suffix-icon="angleDown"
             @click.native="limitBox = !limitBox"
           />
           <div class="items-box">
@@ -31,7 +31,7 @@
             :text="String(page)"
             type="tertiary"
             size="small"
-            after-icon="angleDown"
+            suffix-icon="angleDown"
             @click.native="pageBox = !pageBox"
           />
           <div class="items-box">
