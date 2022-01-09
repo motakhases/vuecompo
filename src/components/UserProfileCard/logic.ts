@@ -1,46 +1,30 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import AvatarProgressBar from '@/components/AvatarProgressBar/index.vue';
+import { UserLabelList, UserTaskItems } from '@/types';
 import ZarinID from './ZarinID/index.vue';
 import UserLevel from './UserLevel/index.vue';
 import TasksStack from './TasksStack/index.vue';
 
-export default Vue.extend({
-  name: 'UserProfileCard',
+@Component({
   components: {
     AvatarProgressBar, ZarinID, UserLevel, TasksStack,
   },
-  props: {
-    level: {
-      type: String,
-      default: 'beginner',
-    },
-    avatarPercent: {
-      type: String,
-      default: '',
-    },
-    avatarImg: {
-      type: String,
-      default: '',
-    },
-    zarinId: {
-      type: String,
-      default: '',
-    },
-    fullname: {
-      type: String,
-      default: '',
-    },
-    labelList: {
-      type: Array,
-      default: () => [],
-    },
-    levelText: {
-      type: String,
-      default: '',
-    },
-    taskItems: {
-      type: Array,
-      default: () => [],
-    },
-  },
-});
+})
+export default class UserProfileCard extends Vue {
+  @Prop({ type: String, required: true }) readonly fullname!: string
+
+  @Prop({ type: String, required: true }) readonly avatarPercent!: string
+
+  @Prop({ type: String, required: true }) readonly zarinId!: string
+
+  @Prop({ type: String, required: true }) readonly levelText!: string
+
+  @Prop({ type: String, default: 'beginner' }) readonly level!: string
+
+  @Prop({ type: String }) readonly avatarImg?: string
+
+  @Prop({ type: Array }) readonly labelList?: UserLabelList[]
+
+  @Prop({ type: Array }) readonly taskItems?: UserTaskItems[]
+}
+
