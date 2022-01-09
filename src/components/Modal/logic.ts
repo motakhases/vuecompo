@@ -1,22 +1,15 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Button from '@/components/Button/index.vue';
 
-export default Vue.extend({
-  name: 'Modal',
+@Component({
   components: { Icon, Button },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    isOpen: {
-      type: Boolean,
-      default: false,
-    },
-    toggle: {
-      type: Function,
-      default: () => Function,
-    },
-  },
-});
+})
+export default class Modal extends Vue {
+  @Prop({ type: String, required: true }) readonly title!: string
+
+  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
+
+  @Prop({ type: Function }) toggle!: () => boolean
+}
+
