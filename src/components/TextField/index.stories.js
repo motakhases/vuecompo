@@ -36,14 +36,14 @@ const Template = (_, { argTypes }) => ({
   	<TextField
   	  v-model="icon1"
   	  class="col-span-1"
-  	  before-icon="Star"
+  	  prefix-icon="Star"
   	  placeholder="فیلد آیکن دار"
   	/>
   	<TextField
   	  v-model="icon2"
   	  class="col-span-1"
   	  label="فیلد آیکن دار"
-  	  after-icon="Star"
+  	  suffix-icon="Star"
   	/>
   	<TextField
   	  v-model="unit"

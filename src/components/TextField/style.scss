@@ -43,12 +43,8 @@
   @apply bg-transparent border-none outline-none w-full z-10 py-sm;
 
   &::placeholder {
-    @apply text-b2 text-text-soft opacity-0 transition-all ease-in-out delay-100;
+    @apply text-b2 text-text-soft;
     @apply dark:text-text-dark-soft;
-  }
-
-  &:focus::placeholder {
-    @apply opacity-100;
   }
 }
 

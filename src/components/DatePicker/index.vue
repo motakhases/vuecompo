@@ -50,7 +50,7 @@
         <TextField
           v-model="model[0]"
           type="text"
-          after-icon="Calendar"
+          suffix-icon="Calendar"
           placeholder="روز/ماه/سال"
           :disabled="disableStart"
         />
@@ -59,7 +59,7 @@
         <label for="">پایان</label>
         <TextField
           v-model="model[1]"
-          after-icon="Calendar"
+          suffix-icon="Calendar"
           placeholder="روز/ماه/سال"
           :disabled="disableEnd"
         />
@@ -68,7 +68,7 @@
     <TextField
       v-else
       v-model="model"
-      after-icon="Calendar"
+      suffix-icon="Calendar"
       placeholder="روز/ماه/سال"
       :disabled="disableSingle"
     />
