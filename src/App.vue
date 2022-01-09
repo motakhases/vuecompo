@@ -1,9 +1,10 @@
 <template>
   <div class="p-3xl">
-    <TextBox
+    <TextField
       v-model="input"
-      hint="این فیلد باید کار کند"
-      label="فیلد"
+      label="این عنوان فیلد است"
+      type="number"
+      placeholder="و این هم یک پلیسهولدر"
     />
 
     {{ input }}
@@ -12,18 +13,18 @@
 
 <script lang="js">
 import Vue from 'vue';
-import TextBox from '@/components/TextBox/index.vue';
+import TextField from '@/components/TextField/index.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    TextBox,
+    TextField,
   },
 
   data() {
     return {
-      input: 'سلام',
+      input: '',
     };
   },
 });

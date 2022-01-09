@@ -1,6 +1,6 @@
 <template>
   <ValidationProvider
-    v-slot="{ invalid , errors, passed}"
+    v-slot="{ invalid, errors, passed }"
     :rules="rules"
   >
     <div class="zpl-textfield-group">
@@ -8,28 +8,28 @@
         :class="['zpl-textfield', { 'invalid': errors.length }]"
         :disabled="disabled"
       >
-        <!-- icon comes before input -->
+        <!-- Prefix Icon -->
         <Icon
-          v-if="beforeIcon"
-          :name="beforeIcon"
+          v-if="prefixIcon"
+          :name="prefixIcon"
           class="zpl-textfield-icon"
         />
 
         <input
-          :id="id"
           v-model="model"
           class="zpl-textfield-input"
           :disabled="disabled"
-          :maxlength="limit > 0 ? limit : undefined"
+          :maxlength="maxlength"
           :placeholder="placeholder"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keypress="onlyNumber"
         >
-        <!-- icon comes after input -->
+
+        <!-- Suffic Icon -->
         <Icon
-          v-if="afterIcon"
-          :name="afterIcon"
+          v-if="suffixIcon"
+          :name="suffixIcon"
           class="zpl-textfield-icon"
         />
 
@@ -65,37 +65,37 @@
         <!-- label -->
         <label
           v-if="label"
-          :class="['zpl-textfield-label', { 'active' : activeLabel }]"
+          :class="['zpl-textfield-label', { isInputFocused }]"
         >
           {{ label }}
         </label>
       </div>
 
-      <!--  hint text or limit container -->
       <div class="zpl-textfield-hint-box">
-        <!-- show when we have helperHint -->
+        <!-- Hint -->
         <div
-          v-if="helperHint && !(successHint && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors.length"
           class="zpl-textfield-hint helper"
         >
           <span>
-            {{ helperHint }}
+            {{ hint }}
           </span>
         </div>
 
-        <!-- show when we have successHint -->
+        <!-- Success Message -->
         <div
-          v-if="successHint && passed"
+          v-if="successMessage && passed"
           class="zpl-textfield-hint success"
         >
           <Icon
             name="CheckmarkCircle"
           />
           <span>
-            {{ successHint }}
+            {{ successMessage }}
           </span>
         </div>
-        <!-- show when we have errors -->
+
+        <!-- Errors -->
         <div
           v-if="errors.length"
           class="zpl-textfield-hint error"
@@ -103,12 +103,13 @@
           <Icon name="warning" />
           <span>{{ errors[0] }}</span>
         </div>
-        <!-- limit -->
+
+        <!-- Max Length -->
         <span
-          v-if="limit"
-          class="zpl-textfield-hint-limit"
+          v-if="maxlength"
+          class="zpl-textfield-hint-maxlength"
         >
-          {{ limit }}/{{ value.length }}
+          {{ maxlength }}/{{ value.length }}
         </span>
       </div>
     </div>
