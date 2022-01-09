@@ -1,11 +1,6 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'NavBadge',
-  props: {
-    text: {
-      type: String,
-      default: '',
-    },
-  },
-});
+@Component
+export default class NavBadge extends Vue {
+  @Prop({ type: String, required: true }) readonly text!: string
+}

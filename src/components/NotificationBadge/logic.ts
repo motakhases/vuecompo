@@ -1,11 +1,7 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'NotificationBadge',
-  props: {
-    text: {
-      type: String,
-      default: '',
-    },
-  },
-});
+@Component
+export default class NotificationBadge extends Vue {
+  @Prop({ type: String }) readonly text?: string
+}
+
