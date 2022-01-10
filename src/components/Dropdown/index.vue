@@ -36,21 +36,21 @@
       <div class="zpl-dropdown-hint-box">
         <!-- show when we have helperHint -->
         <div
-          v-if="helperHint && !(successHint && passed) && !errors.length"
+          v-if="helperHint && !(successMessage && passed) && !errors.length"
           class="zpl-dropdown-hint helper"
         >
           <span>
             {{ helperHint }}
           </span>
         </div>
-        <!-- show when we have successHint -->
+        <!-- show when we have successMessage -->
         <div
-          v-if="successHint && passed"
+          v-if="successMessage && passed"
           class="zpl-dropdown-hint success"
         >
           <Icon name="checkmarkCircle" />
           <span>
-            {{ successHint }}
+            {{ successMessage }}
           </span>
         </div>
         <!-- show when we have errors -->

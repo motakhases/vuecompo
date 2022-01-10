@@ -24,7 +24,7 @@ dropdown.args = {
   disabled: false,
   label: 'یک دراپ‌داون عادی',
   helperHint: 'یک توضیح کوتاه',
-  successHint: 'عملیات موفقیت آمیز بود',
+  successMessage: 'عملیات موفقیت آمیز بود',
   options: [
     { id: 1, name: 'اولین گزینه' },
     { id: 2, name: 'دومین گزینه' },

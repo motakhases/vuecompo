@@ -27,7 +27,7 @@ export default Vue.extend({
       type: String,
       default: '',
     },
-    successHint: {
+    successMessage: {
       type: String,
       default: '',
     },
