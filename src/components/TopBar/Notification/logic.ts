@@ -1,15 +1,11 @@
-import Vue from 'vue';
-import Icon from '../../Icon/index.vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import Icon from '@/components/Icon/index.vue';
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
 import Button from '@/components/Button/index.vue';
 
-export default Vue.extend({
-  name: 'Notification',
+@Component({
   components: { Icon, NotificationBadge, Button },
-  props: {
-    badge: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class Notification extends Vue {
+  @Prop({ type: String }) readonly badge?: string
+}

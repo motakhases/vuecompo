@@ -9,19 +9,21 @@ const Template = (_, { argTypes }) => ({
   components: { TopBar, Logo, Icon, UserProfile, Notification, Button },
   props: Object.keys(argTypes),
   template: `
-  <TopBar>
-    <template v-slot:right-side>
-      <Icon name="menuBurger" class="zpl-topbar-menu" />
-      <div class="zpl-topbar-logo">
-        <Logo size="medium" name="zarinpal" type="logo" language="fa" />
-      </div>
-    </template>
-    <template v-slot:left-side>
-      <Button icon="questionCircle" type="tertiary" />
-			<Notification :badge="badge" />
-      <UserProfile username="نام کاربر" />
-    </template>
-  </TopBar>
+  <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+    <TopBar>
+      <template v-slot:right-side>
+        <Icon name="menuBurger" class="zpl-topbar-menu" />
+        <div class="zpl-topbar-logo">
+          <Logo size="medium" name="zarinpal" type="logo" language="fa" />
+        </div>
+      </template>
+      <template v-slot:left-side>
+        <Button icon="questionCircle" type="tertiary" />
+	  		<Notification :badge="badge" />
+        <UserProfile username="نام کاربر" />
+      </template>
+    </TopBar>
+  </div>
   `,
 });
 
