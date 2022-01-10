@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="zpl-topbar-container"
-    dir="rtl"
-  >
+  <div class="zpl-topbar-container">
     <div class="zpl-topbar-right-side">
       <slot name="right-side" />
     </div>
