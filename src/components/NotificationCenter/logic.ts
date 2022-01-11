@@ -26,11 +26,11 @@ export default class NotificationCenter extends Vue {
   showArchives = false
 
   todayCards(data:[]):never[] {
-    return data ? data.filter(({ date }) => date === now('YYYY-M-D')) : [];
+    return data?.filter(({ date }) => date === now('YYYY-M-D'));
   }
 
   yesterdayCards(data:[]):never[] {
-    return data ? data.filter(({ date }) => date === yesterday('YYYY-M-D')) : [];
+    return data?.filter(({ date }) => date === yesterday('YYYY-M-D'));
   }
 
   thisWeekCards(data:[]):never[] {
