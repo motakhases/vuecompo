@@ -22,6 +22,7 @@ module.exports = {
     'max-len': ['error', { code: 180 }],
     'vue/no-v-html': 0,
     'linebreak-style': 0,
+    'class-methods-use-this': 'off',
   },
   overrides: [
     {
