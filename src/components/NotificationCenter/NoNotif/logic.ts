@@ -1,11 +1,7 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'NoNotif',
-  props: {
-    notifType: {
-      type: String,
-      default: 'اعلانی',
-    },
-  },
-});
+@Component
+export default class NoNotif extends Vue {
+  @Prop({ type: String, default: 'اعلانی' }) readonly notifType!: string
+}
+
