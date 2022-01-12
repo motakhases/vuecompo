@@ -106,17 +106,17 @@
               'zpl-dropdown-item',
               {
                 disabled: option.disabled,
-                selected: value === option.name,
+                selected: value === option.text,
                 active: activeOptionIndex === i,
               },
             ]"
-            @click="selectOption(option.name)"
+            @click="selectOption(option.text)"
             @mouseenter="activateOption"
             @mouseleave="deactivateOption"
           >
-            {{ option.name }}
+            {{ option.text }}
             <Icon
-              v-if="value === option.name"
+              v-if="value === option.text"
               name="tickLarge"
               class="zpl-dropdown-selected-icon"
             />

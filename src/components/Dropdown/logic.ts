@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import {
-  Vue, Component, Prop, VModel,
+  Vue, Component, Prop, VModel, Ref,
 } from 'vue-property-decorator';
 
 import { ValidationProvider } from 'vee-validate';
@@ -31,6 +31,9 @@ interface IEvent {
 export default class Dropdown extends Vue {
   @VModel({ type: String }) model!: string
 
+  /**
+   * Props
+   */
   @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
 
   @Prop({ type: String }) readonly label?: string
@@ -49,6 +52,16 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String, default: '' }) readonly value!: string
 
+  /**
+   * Refs
+   */
+  @Ref() readonly optionRef!: Element
+
+  @Ref() readonly dropdownRef!: Element
+
+  /**
+   * Data options
+   */
   isInputFocused = !!this.value.length
 
   showList = false
@@ -57,22 +70,20 @@ export default class Dropdown extends Vue {
 
   filteredOptions: IDropdownOptions[] = this.options
 
-  optionRef = ''
-
-  dropdownRef = {}
-
+  /**
+   * Mounted
+   */
   mounted() {
     document.documentElement.addEventListener(
       'click',
       this.outsideClick,
       false,
     );
-
-    this.optionRef = this.$refs.optionRef;
-
-    this.dropdownRef = this.$refs.dropdownRef;
   }
 
+  /**
+   * Methods
+   */
   onFocusIn(event:KeyboardEvent):void {
     // for adding active label style
     this.isInputFocused = true;
@@ -109,7 +120,8 @@ export default class Dropdown extends Vue {
     });
   }
 
-  outsideClick(e: { target: HTMLElement }):void {
+  // TODO: change any
+  outsideClick(e:any):void {
     if (!this.$el.contains(e.target)) {
       this.hideOptions();
     }
@@ -118,9 +130,10 @@ export default class Dropdown extends Vue {
   onKeyUp(e:KeyboardEvent):void {
     // if any key code in the list is pressed do nothing
     if (keyList.includes(e.key)) {
-      // return;
+      return;
     }
-    // // otherwise filter the list based on value that user is typing
+
+    // otherwise filter the list based on value that user is typing
     this.filteredOptions = this.options.filter(
       (option:IDropdownOptions) => option.text.toLowerCase().includes(this.value.toLowerCase()),
     );
@@ -207,7 +220,7 @@ export default class Dropdown extends Vue {
 
   activateOption(e:IEvent):void {
     // if any option has active class remove it
-    [].forEach.call(this.$refs.optionRef, (el:HTMLElement) => {
+    [].forEach.call(this.optionRef, (el:HTMLElement) => {
       el.classList.remove('active');
     });
     // add active class when a mouse enters
