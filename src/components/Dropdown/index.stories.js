@@ -23,11 +23,11 @@ const dropdown = Template.bind({});
 dropdown.args = {
   disabled: false,
   label: 'یک دراپ‌داون عادی',
-  helperHint: 'یک توضیح کوتاه',
+  hint: 'یک توضیح کوتاه',
   successMessage: 'عملیات موفقیت آمیز بود',
   options: [
     { id: 1, name: 'اولین گزینه' },
-    { id: 2, name: 'دومین گزینه' },
+    { id: 2, name: 'دومین گزینه', disabled: true },
     { id: 3, name: 'سومین گزینه' },
     { id: 4, name: 'چهارمین گزینه' },
     { id: 5, name: 'پنجمین گزینه' },

@@ -41,11 +41,11 @@
   @apply absolute top-sm right-sm z-0 px-2xs transition-all	ease-in-out	delay-100 text-text-soft;
   @apply dark:text-text-dark-soft;
 
-  &:not(.activeLabel) {
+  &:not(.isInputFocused) {
     @apply text-b2;
   }
 
-  &.activeLabel {
+  &.isInputFocused {
     @apply -top-xs bg-surface text-ls-cp py-[2px];
     @apply dark:bg-surface-dark;
   }

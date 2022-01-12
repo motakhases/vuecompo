@@ -21,28 +21,32 @@
           @keyup="onKeyUp"
           @keydown="onKeyDown"
         >
+
         <!-- label -->
         <label
           v-if="label"
-          :class="['zpl-dropdown-label', { activeLabel }]"
+          :class="['zpl-dropdown-label', { isInputFocused }]"
         >
           {{ label }}
         </label>
+
         <span class="zpl-dropdown-icon">
           <Icon name="angleDown" />
         </span>
       </div>
+
       <!-- hint text -->
       <div class="zpl-dropdown-hint-box">
-        <!-- show when we have helperHint -->
+        <!-- show when we have hint -->
         <div
-          v-if="helperHint && !(successMessage && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors.length"
           class="zpl-dropdown-hint helper"
         >
           <span>
-            {{ helperHint }}
+            {{ hint }}
           </span>
         </div>
+
         <!-- show when we have successMessage -->
         <div
           v-if="successMessage && passed"
@@ -53,6 +57,7 @@
             {{ successMessage }}
           </span>
         </div>
+
         <!-- show when we have errors -->
         <div
           v-if="errors.length"
@@ -62,6 +67,7 @@
           <span>{{ errors[0] }}</span>
         </div>
       </div>
+
       <!-- dropdown list -->
       <div :class="['zpl-dropdown-list', { showList }]">
         <!-- loading skeleton shows when loading is true -->
@@ -85,6 +91,7 @@
             />
           </div>
         </div>
+
         <!-- shows option list when loading is false -->
         <ul
           v-else
@@ -98,7 +105,7 @@
             :class="[
               'zpl-dropdown-item',
               {
-                disabled: disabledOptionId == option.id,
+                disabled: option.disabled,
                 selected: value === option.name,
                 active: activeOptionIndex === i,
               },
