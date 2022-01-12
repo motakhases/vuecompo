@@ -1,17 +1,11 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'Avatar',
+@Component({
   components: { Icon },
-  props: {
-    size: {
-      type: String,
-      default: 'medium',
-    },
-    img: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class Avatar extends Vue {
+  @Prop({ type: String, default: 'medium' }) readonly size!: string;
+
+  @Prop({ type: String }) readonly img!: string;
+}

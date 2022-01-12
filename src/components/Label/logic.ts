@@ -1,19 +1,11 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Label',
-  props: {
-    size: {
-      type: String,
-      default: 'small',
-    },
-    type: {
-      type: String,
-      default: 'positive',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-  },
-});
+@Component
+export default class Label extends Vue {
+  @Prop({ type: String, required: true }) readonly text!: string
+
+  @Prop({ type: String, default: 'small' }) readonly size!: string
+
+  @Prop({ type: String, default: 'positive' }) readonly type!: string
+}
+

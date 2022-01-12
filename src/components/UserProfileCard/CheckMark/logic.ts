@@ -1,17 +1,11 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'CheckMark',
+@Component({
   components: { Icon },
-  props: {
-    complete: {
-      type: Boolean,
-      default: false,
-    },
-    before: {
-      type: Boolean,
-      default: false,
-    },
-  },
-});
+})
+export default class CheckMark extends Vue {
+  @Prop({ type: Boolean, default: false }) readonly complete!: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly before!: boolean
+}

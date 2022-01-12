@@ -1,13 +1,9 @@
-import Vue from 'vue';
-import Icon from '../../Icon/index.vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'UserProfile',
+@Component({
   components: { Icon },
-  props: {
-    username: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class UserProfile extends Vue {
+  @Prop({ type: String, required: true }) readonly username!: string
+}

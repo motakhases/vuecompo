@@ -1,22 +1,11 @@
-import Vue from 'vue';
-import Icon from '../Icon/index.vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'Tag',
+@Component({
   components: { Icon },
-  props: {
-    label: {
-      type: String,
-      default: '',
-    },
-    btn: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  methods: {
-    close():void {
-      this.$emit('close');
-    },
-  },
-});
+})
+export default class Tag extends Vue {
+  @Prop({ type: String, required: true }) readonly label!: string
+
+  @Prop({ type: Boolean, default: false }) readonly btn!: boolean
+}

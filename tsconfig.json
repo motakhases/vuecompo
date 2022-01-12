@@ -14,6 +14,7 @@
     "baseUrl": ".",
     "declaration": true,
     "noImplicitAny": true,
+    "experimentalDecorators":true,
     "types": [
       "webpack-env",
       "jest"

@@ -1,17 +1,12 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
-export default Vue.extend({
-  name: 'ZarinID',
+@Component({
   components: { Icon },
-  props: {
-    id: {
-      type: String,
-      default: '',
-    },
-    type: {
-      type: String,
-      default: '',
-    },
-  },
-});
+})
+export default class ZarinID extends Vue {
+  @Prop({ type: String, required: true }) readonly id!: string
+
+  @Prop({ type: String, default: 'beginner' }) readonly type!: string
+}
+

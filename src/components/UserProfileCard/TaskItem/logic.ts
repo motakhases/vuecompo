@@ -1,30 +1,20 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import CheckMark from '../CheckMark/index.vue';
 import TaskAction from '../TaskAction/index.vue';
 
-export default Vue.extend({
-  name: 'TaskItem',
-  components: { CheckMark, TaskAction },
-  props: {
-    link: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    complete: {
-      type: Boolean,
-      default: false,
-    },
-    before: {
-      type: Boolean,
-      default: false,
-    },
-    text: {
-      type: String,
-      default: '',
-    },
+@Component({
+  components: {
+    CheckMark, TaskAction,
   },
-});
+})
+export default class TaskItem extends Vue {
+  @Prop({ type: String, required: true }) readonly link!: string
+
+  @Prop({ type: String, required: true }) readonly text!: string
+
+  @Prop({ type: Boolean, default: false }) readonly complete!: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly before!: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
+}
