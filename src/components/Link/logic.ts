@@ -1,38 +1,20 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Link',
+@Component
+export default class Link extends Vue {
+  @Prop({ type: String }) readonly href?: string
 
-  props: {
-    href: {
-      type: String,
-      default: '',
-    },
-    target: {
-      type: String,
-      default: '',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
-    exact: {
-      type: Boolean,
-      default: false,
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      // today: moment().format('jYYYY/jMM/jDD'),
-    };
-  },
-  computed: {
-    linkComponentDetector() {
-      return this.href ? 'a' : 'a';
-    },
-  },
-});
+  @Prop({ type: String }) readonly target?: string
+
+  @Prop({ type: String }) readonly to?: string
+
+  @Prop({ type: String, required: true }) readonly text!: string
+
+  @Prop({ type: Boolean, default: false }) readonly exact?: boolean
+
+  get linkComponentDetector(): string {
+    return this.href ? 'a' : 'a';
+  }
+}
