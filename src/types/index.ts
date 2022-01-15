@@ -33,3 +33,15 @@ export interface Paginate {
   limit:number
   page:number
 }
+
+// datepicker
+export interface DateMoment {
+  format: (a: string) => string,
+  param: string
+}
+
+export interface Attributes {
+  class: string
+}
+
+export type DatePickerValue = string | string[]
