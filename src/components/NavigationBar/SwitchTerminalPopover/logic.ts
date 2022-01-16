@@ -1,27 +1,18 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import Create from '../Create/index.vue';
 import Overview from '../Overview/index.vue';
 import SwitchTerminal from '../SwitchTerminal/index.vue';
 import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
 
-export default Vue.extend({
-  name: 'SwitchTerminalPopover',
-
+@Component({
   components: {
-    Create,
-    Overview,
-    SwitchTerminal,
-    SwitchTerminalItem,
+    Create, Overview, SwitchTerminal, SwitchTerminalItem,
   },
+})
+export default class SwitchTerminalPopover extends Vue {
+  @Prop({ type: Boolean, default: false }) show!: boolean
 
-  props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-    terminals: {
-      type: Array,
-      default: () => [],
-    },
-  },
-});
+  @Prop({ type: Array }) terminals!: []
+}

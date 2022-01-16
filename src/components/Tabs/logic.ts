@@ -1,43 +1,39 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
+import Tab from './Tab/logic';
 
-export default Vue.extend({
-  name: 'Tabs',
-  components: { NotificationBadge },
-  props: {
-    fillContainer: {
-      type: Boolean,
-      default: false,
-    },
+@Component({
+  components: {
+    NotificationBadge,
   },
+})
+export default class Tabs extends Vue {
+  @Prop({ type: Boolean, default: false }) fillContainer?: boolean
 
-  data() {
-    return {
-      selectedIndex: 0,
-      tabs: <any>[],
-    };
-  },
+  selectedIndex = 0
 
-  created() {
-    this.tabs = this.$children;
-    console.log(this.tabs);
-  },
+  tabs: Tab[] = []
 
-  mounted() {
+  selectTab(tabIndex:number):void {
+    this.selectedIndex = tabIndex;
+    // loop over all the tabs
+    this.tabs.forEach((tab, index:number) => {
+      const activeTab = tab;
+      activeTab.isActive = (index === tabIndex);
+      if (activeTab.isActive) {
+        activeTab.warning = false;
+      }
+    });
+  }
+
+  created():void {
+    this.tabs = this.$children as Tab[];
+  }
+
+  mounted():void {
     this.selectTab(0);
-  },
+  }
+}
 
-  methods: {
-    selectTab(tabIndex:number) {
-      this.selectedIndex = tabIndex;
-      // loop over all the tabs
-      this.tabs.forEach((tab:any, index:number) => {
-        const activeTab = tab;
-        activeTab.isActive = (index === tabIndex);
-        if (activeTab.isActive) {
-          activeTab.warn = false;
-        }
-      });
-    },
-  },
-});

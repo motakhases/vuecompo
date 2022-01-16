@@ -1,22 +1,14 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Tab',
+@Component
+export default class Tab extends Vue {
+  @Prop({ type: String }) readonly title!: string
 
-  props: {
-    title: {
-      type: String,
-      default: 'Tab',
-    },
-    warn: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  @Prop({ type: Boolean, default: false }) warn!: boolean
 
-  data() {
-    return {
-      isActive: true,
-    };
-  },
-});
+  isActive = true
+
+  warning:boolean = this.warn
+}

@@ -1,18 +1,16 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
 
-export default Vue.extend({
-  name: 'Overview',
-  components: { Thumbnail, Icon },
-  props: {
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    link: {
-      type: String,
-      default: '',
-    },
+@Component({
+  components: {
+    Icon, Thumbnail,
   },
-});
+})
+export default class Overview extends Vue {
+  @Prop({ type: Boolean, default: false }) active!: boolean
+
+  @Prop({ type: String }) link!: string
+}

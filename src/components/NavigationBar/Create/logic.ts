@@ -1,17 +1,15 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import Thumbnail from '../../Thumbnail/index.vue';
 
-export default Vue.extend({
-  name: 'Create',
-  components: { Thumbnail },
-  props: {
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    link: {
-      type: String,
-      default: '',
-    },
+@Component({
+  components: {
+    Thumbnail,
   },
-});
+})
+export default class Create extends Vue {
+  @Prop({ type: Boolean, default: false }) active!: boolean
+
+  @Prop({ type: String }) link!: string
+}
