@@ -1,81 +1,51 @@
-/* eslint-disable prefer-destructuring */
-import Vue, { PropType } from 'vue';
-import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
+import {
+  Vue, Prop, Component, VModel,
+} from 'vue-property-decorator';
 import moment from 'moment-jalaali';
+import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 import Icon from '@/components/Icon/index.vue';
 import TextField from '@/components/TextField/index.vue';
 import Button from '@/components/Button/index.vue';
+import { DateMoment, Attributes, DatePickerValue } from '@/types';
 
-declare interface DateMoment {
-  format: (a: string) => string,
-  param: string
-}
-
-declare interface Attributes {
-  class: string
-}
-export default Vue.extend({
-  name: 'DatePicker',
-
+@Component({
   components: {
-    Icon, VuePersianDatetimePicker, TextField, Button,
+    TextField,
+    Button,
+    Icon,
+    VuePersianDatetimePicker,
   },
+})
+export default class Pagination extends Vue {
+  @VModel({ type: [String, Array] }) model!: DatePickerValue
 
-  props: {
-    range: {
-      type: Boolean,
-      default: false,
-    },
-    disableSingle: {
-      type: Boolean,
-      default: false,
-    },
-    disableStart: {
-      type: Boolean,
-      default: false,
-    },
-    disableEnd: {
-      type: Boolean,
-      default: false,
-    },
-    preview: {
-      type: Boolean,
-      default: false,
-    },
-    value: {
-      type: [String, Array] as PropType<string[] | string>,
-      default: '',
-    },
-  },
+  @Prop({ type: Boolean, default: false }) range ?: boolean
 
-  computed: {
-    model: {
-      get():string|string[] {
-        return this.getModel();
-      },
-      set(value:string[]):void {
-        this.$emit('input', value);
-      },
-    },
-  },
+  @Prop({ type: Boolean, default: false }) disableSingle ?: boolean
 
-  methods: {
-    getModel() {
-      let result:string|string[] = this.value;
+  @Prop({ type: Boolean, default: false }) disableStart ?: boolean
 
-      if (moment(this.value[0]).isAfter(this.value[1])) {
-        result = [this.value[1], this.value[0]];
-      }
+  @Prop({ type: Boolean, default: false }) disableEnd ?: boolean
 
-      return result;
-    },
+  @Prop({ type: Boolean, default: false }) preview ?: boolean
 
-    highlightToday(formatted: string, dateMoment: DateMoment) {
-      const attributes = {} as Attributes;
-      if (dateMoment.format('YYYY/MM/DD') === moment().format('YYYY/MM/DD')) {
-        attributes.class = 'is-today';
-      }
-      return attributes;
-    },
-  },
-});
+  @Prop({ type: [String, Array] }) value !: DatePickerValue
+
+  getModel(): DatePickerValue {
+    let result:DatePickerValue = this.value;
+
+    if (moment(this.value[0]).isAfter(this.value[1])) {
+      result = [this.value[1], this.value[0]];
+    }
+
+    return result;
+  }
+
+  highlightToday(formatted: string, dateMoment: DateMoment): Attributes {
+    const attributes = {} as Attributes;
+    if (dateMoment.format('YYYY/MM/DD') === moment().format('YYYY/MM/DD')) {
+      attributes.class = 'is-today';
+    }
+    return attributes;
+  }
+}
