@@ -1,6 +1,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import SegmentBtn from './Button/index.vue';
 import { SegmentedBtn } from '@/types';
+import Button from './Button/logic';
 
 @Component({
   components: { SegmentBtn },
@@ -12,10 +13,10 @@ export default class SegmentedButton extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly fill!: boolean;
 
-   tabs:Array<Vue>= [];
+   tabs:Button[] = [];
 
    created() :void{
-     this.tabs = this.$children;
+     this.tabs = this.$children as Button[];
    }
 
    mounted() :void{
@@ -25,7 +26,7 @@ export default class SegmentedButton extends Vue {
        const buttons = this.$el.querySelectorAll('button');
 
        // check if a tab doesn't have active prop
-       const noActiveProp = this.tabs.every((tab:Vue) => !tab.active);
+       const noActiveProp = this.tabs.every((tab) => !tab.active);
 
        // if no active prop
        if (noActiveProp) {
