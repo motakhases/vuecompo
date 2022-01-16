@@ -11,7 +11,7 @@
           <span>
             {{ tab.title }}
           </span>
-          <NotificationBadge v-if="tab.warn" />
+          <NotificationBadge v-if="tab.warning" />
         </li>
       </template>
     </ul>
