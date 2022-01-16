@@ -94,6 +94,7 @@ export default class TextBox extends Vue {
   }
 
   increment():void {
+    this.isInputFocused = true;
     if (this.type === 'number') {
       if (this.value.length === 0) {
         this.$emit('input', this.toEnNumber('1'));

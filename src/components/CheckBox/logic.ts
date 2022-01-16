@@ -1,43 +1,18 @@
-import Vue, { PropType } from 'vue';
+import {
+  Vue, Component, Prop, VModel,
+} from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'CheckBox',
+@Component({})
+export default class CheckBox extends Vue {
+  @VModel({ type: String }) model!: string
 
-  props: {
-    val: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: Array as PropType<string[]>,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    change: {
-      type: Function,
-      default: () => 1,
-    },
-  },
+  @Prop({ type: String, required: true }) readonly val!: string
 
-  computed: {
-    model: {
-      get():string[] {
-        return this.value;
-      },
-      set(value:string[]):void {
-        this.$emit('input', value);
-      },
-    },
-  },
-});
+  @Prop({ type: String, required: true }) readonly name!: string
+
+  @Prop({ type: String }) readonly text?: string
+
+  @Prop({ type: Boolean }) readonly disabled?: boolean
+
+  @Prop({ type: Function, default: () => 1 }) readonly change?: () => number
+}

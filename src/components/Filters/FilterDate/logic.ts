@@ -6,7 +6,8 @@ import DatePicker from '@/components/DatePicker/index.vue';
 
 declare interface Option {
   id: number;
-  name: string;
+  text: string;
+  value: string;
 }
 
 const date = {
@@ -29,9 +30,9 @@ export default Vue.extend({
     } {
     return {
       options: [
-        { id: 1, name: date.TODAY },
-        { id: 2, name: date.CURRENT_WEEK },
-        { id: 3, name: date.OPTIONAL_PERIOD },
+        { id: 1, text: date.TODAY, value: date.TODAY },
+        { id: 2, text: date.CURRENT_WEEK, value: date.CURRENT_WEEK },
+        { id: 3, text: date.OPTIONAL_PERIOD, value: date.OPTIONAL_PERIOD },
       ],
       date: '',
     };
