@@ -1,5 +1,5 @@
-import Vue from 'vue';
+import { Component, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'ButtonGroup',
-});
+@Component
+export default class ButtonGroup extends Vue {
+}

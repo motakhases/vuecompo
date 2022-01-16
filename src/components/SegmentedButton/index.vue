@@ -1,6 +1,6 @@
 <template>
   <div :class="['zpl-segment-group' , { fill } ]">
-    <Button
+    <SegmentBtn
       v-for="item in items"
       :key="item.id"
       :text="item.text"
