@@ -1,34 +1,17 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Indicator from './Indicator/index.vue';
 
-export default Vue.extend({
-  name: 'Tooltip',
+@Component({
   components: { Indicator },
-  props: {
-    text: {
-      type: String,
-      default: '',
-      required: true,
-    },
-    position: {
-      type: String,
-      default: 'bottomLeft',
-      required: true,
-    },
-    space: {
-      type: String,
-      default: 'smallSpace',
-      required: true,
-    },
-    indicator: {
-      type: Boolean,
-      default: false,
-      required: true,
-    },
-    size: {
-      type: String,
-      default: 'large',
-      required: true,
-    },
-  },
-});
+})
+export default class Tooltip extends Vue {
+  @Prop({ type: String, required: true }) readonly text!: string
+
+  @Prop({ type: String, default: 'bottomLeft' }) readonly position!: string
+
+  @Prop({ type: String, default: 'smallSpace' }) readonly space!: string
+
+  @Prop({ type: Boolean, default: true }) readonly indicator!: boolean
+
+  @Prop({ type: String, default: 'large' }) readonly size!: string
+}

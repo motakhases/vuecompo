@@ -1,171 +1,114 @@
-import Vue from 'vue';
+import {
+  Vue, Component, Prop,
+} from 'vue-property-decorator';
+
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 
-interface KeyboardEvent {
-  key: string;
-  preventDefault: () => void;
-}
-
-export default Vue.extend({
-  name: 'TextField',
-
-  components: { ValidationProvider, Icon },
-
-  props: {
-    value: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    label: {
-      type: String,
-      default: '',
-    },
-    helperHint: {
-      type: String,
-      default: '',
-    },
-    successHint: {
-      type: String,
-      default: '',
-    },
-    unit: {
-      type: String,
-      default: '',
-    },
-    limit: {
-      type: Number,
-      default: 0,
-    },
-    type: {
-      type: String,
-      default: 'text',
-    },
-    separator: {
-      type: String,
-      default: '',
-    },
-    beforeIcon: {
-      type: String,
-      default: '',
-    },
-    afterIcon: {
-      type: String,
-      default: '',
-    },
-    stepper: {
-      type: Boolean,
-      default: false,
-    },
-    rules: {
-      type: String,
-      default: '',
-    },
-    placeholder: {
-      type: String,
-      default: '',
-    },
-    id: {
-      type: String,
-      default: '',
-    },
+@Component({
+  components: {
+    ValidationProvider,
+    Icon,
   },
+})
+export default class TextBox extends Vue {
+  @Prop({ type: Boolean, default: false }) readonly disabled?: boolean
 
-  data() {
-    return {
-      activeLabel: !!this.value.length,
-    };
-  },
+  @Prop({ type: String }) readonly label?: string
 
-  computed: {
-    model: {
-      get(): string {
-        return this.formattedValue();
-      },
-      set(value: string[]): void {
-        this.$emit('input', value);
-      },
-    },
-  },
+  @Prop({ type: Number }) readonly maxlength?: number
 
-  watch: {
-    value() {
-      this.activeLabel = !!this.value.length;
-    },
-  },
+  @Prop({ type: String }) readonly rules?: string
 
-  methods: {
-    formattedValue(): string {
-      // format the value based on separator for type === number
-      if (this.type === 'number') {
-        switch (this.separator) {
-        case 'comma':
-          return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        case 'dash':
-          return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
-        default:
-          return this.value;
-        }
-      } else {
+  @Prop({ type: String }) readonly hint?: string
+
+  @Prop({ type: String }) readonly successMessage?: string
+
+  @Prop({ type: String }) readonly unit?: string
+
+  @Prop({ type: String, default: 'text' }) readonly type!: string
+
+  @Prop({ type: String }) readonly separator?: string
+
+  @Prop({ type: Boolean }) readonly stepper!: boolean
+
+  @Prop({ type: String }) readonly prefixIcon?: string
+
+  @Prop({ type: String }) readonly suffixIcon?: string
+
+  @Prop({ type: String }) readonly placeholder?: string
+
+  @Prop({ type: String, default: '' }) readonly value!: string
+
+  isInputFocused = !!this.value.length
+
+  get model():string|number {
+    return this.formattedValue();
+  }
+
+  set model(value:string|number) {
+    this.$emit('input', value);
+  }
+
+  onFocusIn():void {
+    this.isInputFocused = true;
+  }
+
+  onFocusOut():void {
+    if (!this.value) {
+      this.isInputFocused = false;
+    }
+  }
+
+  formattedValue():string {
+    if (this.type === 'number') {
+      switch (this.separator) {
+      case 'comma':
+        return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      case 'dash':
+        return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
+      default:
         return this.value;
       }
-    },
-    onInput(event: Event) {
-      // update value of input and if they have , or - remove them
-      const newValue = (event.target as HTMLInputElement).value
-        .replace(/,/g, '')
-        .replace(/-/g, '');
-      this.$emit('value', this.toEnNumber(newValue));
-    },
-    onFocusIn() {
-      // for adding active label style
-      this.activeLabel = true;
-    },
-    onFocusOut() {
-      // if input is empty put label inside input on focusing out
-      if (!this.value) {
-        this.activeLabel = false;
+    } else {
+      return this.value;
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  toEnNumber(payload:number|string):string {
+    const modifiedToEnNumber = payload.toString()
+      .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
+      .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
+
+    return payload === '' ? payload : modifiedToEnNumber;
+  }
+
+  onlyNumber(event:KeyboardEvent):boolean|void {
+    if (this.type === 'number') {
+      if (!/\d/.test(event.key) && event.key !== '.') {
+        return event.preventDefault();
       }
-    },
-    toEnNumber(str: string) {
-      // change all the Persian or Arabic numbers to English
-      if (str === '') {
-        return str;
-      }
-      return str
-        .toString()
-        .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
-        .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
-    },
-    onlyNumber(event: KeyboardEvent) {
-      // just accepts number and dot
-      if (this.type === 'number') {
-        if (!/\d/.test(event.key) && event.key !== '.') {
-          return event.preventDefault();
-        }
-      }
-      return true;
-    },
-    increment() {
-      if (this.type === 'number') {
-        if (this.value.length === 0) {
-          this.$emit('input', this.toEnNumber('1'));
-        } else {
-          const newValue = (Number(this.value) + 1).toString();
-          this.$emit('input', this.toEnNumber(newValue));
-        }
-      }
-    },
-    decrement() {
-      const numberValue = Number(this.value);
-      if (this.type === 'number' && numberValue > 0) {
-        const newValue = (numberValue - 1).toString();
+    }
+    return true;
+  }
+
+  increment():void {
+    if (this.type === 'number') {
+      if (this.value.length === 0) {
+        this.$emit('input', this.toEnNumber('1'));
+      } else {
+        const newValue = (Number(this.value) + 1).toString();
         this.$emit('input', this.toEnNumber(newValue));
       }
-    },
-  },
-});
+    }
+  }
+
+  decrement():void {
+    const numberValue = Number(this.value);
+    if (this.type === 'number' && numberValue > 0) {
+      const newValue = (numberValue - 1).toString();
+      this.$emit('input', this.toEnNumber(newValue));
+    }
+  }
+}

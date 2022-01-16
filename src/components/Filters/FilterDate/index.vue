@@ -9,7 +9,7 @@
     <Textfield
       v-if="date === 'امروز'"
       v-model="model"
-      after-icon="Calendar"
+      suffix-icon="Calendar"
       disabled
       class="today"
     />
@@ -21,7 +21,7 @@
         <label>شروع</label>
         <Textfield
           v-model="model[0]"
-          after-icon="Calendar"
+          suffix-icon="Calendar"
           disabled
         />
       </div>
@@ -29,7 +29,7 @@
         <label>پایان</label>
         <Textfield
           v-model="model[1]"
-          after-icon="Calendar"
+          suffix-icon="Calendar"
           disabled
         />
       </div>

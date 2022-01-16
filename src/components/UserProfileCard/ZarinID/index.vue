@@ -5,10 +5,7 @@
     <span class="zpl-user-card-task-title">
       {{ id }}
     </span>
-    <div
-      v-if="type"
-      :class="['circle',type]"
-    />
+    <div :class="['circle',type]" />
   </div>
 </template>
 

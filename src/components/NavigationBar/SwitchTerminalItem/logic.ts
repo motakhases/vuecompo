@@ -1,60 +1,45 @@
-import Vue from 'vue';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import Thumbnail from '../../Thumbnail/index.vue';
 import Icon from '../../Icon/index.vue';
 import GatewayStatus from '@/components/GatewayStatus/index.vue';
 
-export default Vue.extend({
-  name: 'SwitchTerminalItem',
-
-  components: { Thumbnail, Icon, GatewayStatus },
-
-  props: {
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    title: {
-      type: String,
-      default: 'عنوان درگاه',
-    },
-    link: {
-      type: String,
-      default: 'zarinp.al/getway',
-    },
-    icon: {
-      type: String,
-      default: '',
-    },
-    img: {
-      type: String,
-      default: '',
-    },
-    alt: {
-      type: String,
-      default: '',
-    },
-    state: {
-      type: String,
-      default: '',
-    },
+@Component({
+  components: {
+    Thumbnail, Icon, GatewayStatus,
   },
+})
+export default class SwitchTerminalItem extends Vue {
+  @Prop({ type: Boolean, default: false }) active!: boolean
 
-  methods: {
-    stateText(state: string): string {
-      let statusText = '';
+  @Prop({ type: String, default: 'عنوان درگاه' }) title!: string
 
-      switch (state) {
-      case 'ACTIVE':
-        statusText = 'فعال';
-        break;
-      case 'deactive':
-        statusText = 'رد شده';
-        break;
-      default:
-        break;
-      }
+  @Prop({ type: String, default: 'zarinp.al/getway' }) link!: string
 
-      return statusText;
-    },
-  },
-});
+  @Prop({ type: String }) icon!: string
+
+  @Prop({ type: String }) img!: string
+
+  @Prop({ type: String }) alt!: string
+
+  @Prop({ type: String }) state!: string
+
+  stateText(state: string): string {
+    let statusText = '';
+
+    switch (state) {
+    case 'ACTIVE':
+      statusText = 'فعال';
+      break;
+    case 'deactive':
+      statusText = 'رد شده';
+      break;
+    default:
+      break;
+    }
+
+    return statusText;
+  }
+}
+

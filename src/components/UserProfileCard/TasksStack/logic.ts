@@ -1,13 +1,10 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { UserTaskItems } from '@/types';
 import TaskItem from '../TaskItem/index.vue';
 
-export default Vue.extend({
-  name: 'TasksStack',
+@Component({
   components: { TaskItem },
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-});
+})
+export default class TasksStack extends Vue {
+  @Prop({ type: Array }) readonly items!: UserTaskItems[]
+}

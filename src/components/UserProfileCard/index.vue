@@ -19,7 +19,7 @@
       :list="labelList"
     />
     <TasksStack
-      v-if="taskItems.length"
+      v-if="taskItems"
       :items="taskItems"
     />
     <slot />

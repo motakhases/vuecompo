@@ -1,8 +1,9 @@
-import Vue from 'vue';
-import Icon from '../Icon/index.vue';
-import Logo from '../Logo/index.vue';
+import { Component, Vue } from 'vue-property-decorator';
+import Icon from '@/components/Icon/index.vue';
+import Logo from '@/components/Logo/index.vue';
 
-export default Vue.extend({
-  name: 'TopBar',
+@Component({
   components: { Icon, Logo },
-});
+})
+export default class TopBar extends Vue {
+}
