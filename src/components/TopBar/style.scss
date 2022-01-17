@@ -19,5 +19,11 @@
 .zpl-topbar-logo {
   flex: 0 0 108px;
   max-width: 108px;
+  @apply hidden lg:block mr-xs;
+}
+.zpl-topbar-terminal-btn{
+  @apply block lg:hidden;
+}
+.zpl-topbar-question-btn{
   @apply hidden lg:block;
 }
