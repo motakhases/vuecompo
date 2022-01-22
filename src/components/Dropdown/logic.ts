@@ -1,16 +1,15 @@
 /* eslint-disable class-methods-use-this */
 import {
-  Vue, Component, Prop, VModel, Ref,
+  Vue, Component, Prop, Ref,
 } from 'vue-property-decorator';
-
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 
-const ARROW_DOWN_KEYCODE = 40;
-const ARROW_UP_KEYCODE = 38;
-const ENTER_KEYCODE = 13;
+// const ARROW_DOWN_KEYCODE = 40;
+// const ARROW_UP_KEYCODE = 38;
+// const ENTER_KEYCODE = 13;
 // const keyList = [9, 13, 16, 17, 18, 20, 32, 37, 38, 39, 40, 46];
-const keyList = ['ArrowUp'];
+const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
 
 interface IDropdownOptions {
   text: string;
@@ -29,7 +28,7 @@ interface IEvent {
   },
 })
 export default class Dropdown extends Vue {
-  @VModel({ type: String }) model!: string
+  // @VModel({ type: String }) model!: string
 
   /**
    * Props
@@ -45,6 +44,8 @@ export default class Dropdown extends Vue {
   @Prop({ type: Array }) readonly options!: IDropdownOptions[]
 
   @Prop({ type: Boolean }) readonly loading?: boolean
+
+  @Prop({ type: Boolean }) readonly search?: boolean
 
   @Prop({ type: String }) readonly rules?: string
 
@@ -64,16 +65,28 @@ export default class Dropdown extends Vue {
    */
   isInputFocused = !!this.value.length
 
+  isBoxFocused = false
+
   showList = false
 
   activeOptionIndex = -1
 
   filteredOptions: IDropdownOptions[] = this.options
 
+  inputVal = ''
+
+  get inputModel():string {
+    return this.inputVal;
+  }
+
+  set inputModel(value:string) {
+    this.inputVal = this.options ? this.options.filter((i) => i.value === this.value)[0].text : '';
+  }
+
   /**
    * Mounted
    */
-  mounted() {
+  mounted():void {
     document.documentElement.addEventListener(
       'click',
       this.outsideClick,
@@ -81,14 +94,26 @@ export default class Dropdown extends Vue {
     );
   }
 
+  created():void{
+    this.inputVal = this.options && this.value.length ? this.options.filter((i) => i.value === this.value)[0].text : '';
+  }
+
   /**
    * Methods
    */
+
+  inputHandler(event:Event): void{
+    this.inputVal = (event.target as HTMLInputElement).value;
+  }
+
   onFocusIn(event:KeyboardEvent):void {
     // for adding active label style
     this.isInputFocused = true;
+    this.isBoxFocused = true;
+
     // open dropdown
     this.showOptions();
+    this.filteredOptions = this.options;
     const isEnterKey = event.key === 'Enter';
     if (isEnterKey) {
       this.showOptions();
@@ -96,18 +121,19 @@ export default class Dropdown extends Vue {
   }
 
   onFocusOut():void {
-    if (!this.value) {
+    if (!this.value || !this.inputVal) {
       this.isInputFocused = false;
     }
-
     // to remove active class
     this.activeOptionIndex = -1;
   }
 
-  selectOption(value:string):void {
-    this.$emit('input', value);
+  selectOption(value:string, text:string):void {
+    this.inputVal = text;
+    this.$emit('updateData', value);
     this.hideOptions();
     this.isInputFocused = true;
+    this.isBoxFocused = false;
   }
 
   showOptions():void {
@@ -121,21 +147,25 @@ export default class Dropdown extends Vue {
   }
 
   // TODO: change any
-  outsideClick(e:any):void {
-    if (!this.$el.contains(e.target)) {
+  outsideClick(event:Event):void {
+    if (!this.$el.contains(event.target as HTMLInputElement)) {
       this.hideOptions();
+      this.isBoxFocused = false;
+      if (!this.value || !this.inputVal) {
+        this.isInputFocused = false;
+      }
     }
   }
 
-  onKeyUp(e:KeyboardEvent):void {
+  onKeyUp(event:KeyboardEvent):void {
     // if any key code in the list is pressed do nothing
-    if (keyList.includes(e.key)) {
+    if (keyList.includes(event.key)) {
       return;
     }
 
     // otherwise filter the list based on value that user is typing
     this.filteredOptions = this.options.filter(
-      (option:IDropdownOptions) => option.text.toLowerCase().includes(this.value.toLowerCase()),
+      (option:IDropdownOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()),
     );
   }
 
@@ -199,8 +229,8 @@ export default class Dropdown extends Vue {
             ? this.filteredOptions[this.activeOptionIndex].text : '';
 
           // update the value of input
-          this.$emit('input', newValue);
-
+          // this.$emit('updateData', newValue);
+          this.inputVal = newValue;
           // close the dropdown
           this.hideOptions();
 
@@ -212,7 +242,6 @@ export default class Dropdown extends Vue {
     } else if (isEnterKey) {
       // open the dropdown
       this.showOptions();
-
       // show the compelete list
       this.filteredOptions = this.options;
     }
