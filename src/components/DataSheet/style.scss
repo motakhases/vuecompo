@@ -1,0 +1,33 @@
+.zpl-ds {
+  // default
+  @apply rounded-sm border border-border-divider;
+
+  // dark
+  @apply dark:border-border-dark-divider;
+
+  &-row {
+    // default
+    @apply grid border-b border-border-divider;
+
+    // dark
+    @apply dark:border-border-dark-divider;
+
+    // last child
+    @apply last:border-b-0
+  }
+
+  &-item {
+    // default
+    @apply p-md border-l border-border-divider;
+
+    // dark
+    @apply dark:border-border-dark-divider;
+
+    // last child
+    @apply last:border-l-0;
+
+    &.row {
+      @apply col-span-full flex items-center gap-xs border-0;
+    }
+  }
+}
