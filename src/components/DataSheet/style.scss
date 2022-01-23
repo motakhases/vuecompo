@@ -18,16 +18,24 @@
 
   &-item {
     // default
-    @apply p-md border-l border-border-divider;
+    @apply flex flex-col p-md border-l border-border-divider gap-xs;
 
     // dark
-    @apply dark:border-border-dark-divider;
+    @apply dark:border-border-dark-divider dark:text-text-dark;
 
     // last child
     @apply last:border-l-0;
 
+    &-title {
+      // default
+      @apply text-b3 text-text-soft font-IRANYekanFaNum font-normal;
+
+      // dark
+      @apply dark:text-text-dark-soft;
+    }
+
     &.row {
-      @apply col-span-full flex items-center gap-xs border-0;
+      @apply col-span-full flex-row items-center border-0;
     }
   }
 }
