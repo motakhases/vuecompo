@@ -15,6 +15,18 @@ module.exports = {
     './public/**/*.html',
     './src/**/*.vue',
     './src/**/*.js',
+    './safelist.txt',
+  ],
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('tailwind-safelist-generator')({
+      patterns: [
+        '{screens}:col-{gridColumn}',
+        '{screens}:grid-cols-{gridTemplateColumns}',
+        'col-{gridColumn}',
+        'grid-cols-{gridTemplateColumns}',
+      ],
+    }),
   ],
   theme: {
     screens,

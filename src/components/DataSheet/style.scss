@@ -7,24 +7,26 @@
 
   &-row {
     // default
-    @apply grid border-b border-border-divider;
+    @apply border-b border-border-divider overflow-hidden;
 
     // dark
     @apply dark:border-border-dark-divider;
 
     // last child
-    @apply last:border-b-0
+    @apply last:border-b-0;
+
+    &-hidder {
+      // default
+      @apply grid grid-cols-2;
+    }
   }
 
   &-item {
     // default
-    @apply flex flex-col p-md border-l border-border-divider gap-xs;
+    @apply font-IRANYekanFaNum text-b2 flex flex-col p-md border-l ml-[-1px] mb-[-1px] border-b border-border-divider gap-xs;
 
     // dark
     @apply dark:border-border-dark-divider dark:text-text-dark;
-
-    // last child
-    @apply last:border-l-0;
 
     &-title {
       // default
@@ -35,7 +37,11 @@
     }
 
     &.row {
-      @apply col-span-full flex-row items-center border-0;
+      @apply col-span-full flex-row items-center;
+
+      > span {
+        @apply w-full
+      }
     }
   }
 }
