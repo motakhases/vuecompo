@@ -1,8 +1,17 @@
-<template>
-  <div
-    class="p-3xl"
-    dir="rtl"
-  >
+import DataSheet from "./index.vue";
+import DataSheetRow from './Row/index.vue';
+import DataSheetItem from './Item/index.vue';
+
+export default {
+  component: DataSheet,
+  title: "Components/DataSheet",
+};
+
+const Template = (_, { argTypes }) => ({
+  components: { DataSheet, DataSheetRow, DataSheetItem },
+  props: Object.keys(argTypes),
+  template: `
+  <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
     <DataSheet>
       <DataSheetRow :cols="{ xs:1, md:2, lg:3 }">
         <DataSheetItem
@@ -45,21 +54,7 @@
       </DataSheetRow>
     </DataSheet>
   </div>
-</template>
+  `,
+});
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-import DataSheet from './components/DataSheet/index.vue';
-import DataSheetRow from './components/DataSheet/Row/index.vue';
-import DataSheetItem from './components/DataSheet/Item/index.vue';
-
-@Component({
-  components: {
-    DataSheet,
-    DataSheetRow,
-    DataSheetItem,
-  },
-})
-export default class App extends Vue {}
-</script>
+export const Default = Template.bind({});

@@ -22,4 +22,4 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
-export const card = Template.bind({});
+export const Default = Template.bind({});

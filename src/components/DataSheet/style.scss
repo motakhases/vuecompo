@@ -1,0 +1,47 @@
+.zpl-ds {
+  // default
+  @apply rounded-sm border border-border-divider;
+
+  // dark
+  @apply dark:border-border-dark-divider;
+
+  &-row {
+    // default
+    @apply border-b border-border-divider overflow-hidden;
+
+    // dark
+    @apply dark:border-border-dark-divider;
+
+    // last child
+    @apply last:border-b-0;
+
+    &-hidder {
+      // default
+      @apply grid grid-cols-2;
+    }
+  }
+
+  &-item {
+    // default
+    @apply font-IRANYekanFaNum text-b2 flex flex-col p-md border-l ml-[-1px] mb-[-1px] border-b border-border-divider gap-xs;
+
+    // dark
+    @apply dark:border-border-dark-divider dark:text-text-dark;
+
+    &-title {
+      // default
+      @apply text-b3 text-text-soft font-IRANYekanFaNum font-normal;
+
+      // dark
+      @apply dark:text-text-dark-soft;
+    }
+
+    &.row {
+      @apply col-span-full flex-row items-center;
+
+      > span {
+        @apply w-full
+      }
+    }
+  }
+}
