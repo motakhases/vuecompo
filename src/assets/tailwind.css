@@ -12,8 +12,4 @@
   .ltr {
     direction: ltr;
   }
-
-  @variants dark {
-   
-  }
 }
