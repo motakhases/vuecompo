@@ -33,3 +33,5 @@ export { default as Tabs } from './Tabs/index.vue';
 export { default as Tag } from './Tag/index.vue';
 export { default as Toggle } from './Toggle/index.vue';
 export { default as Tooltip } from './Tooltip/index.vue';
+export { default as Card } from './Card/index.vue';
+export { default as DataSheet } from './DataSheet/index.vue';

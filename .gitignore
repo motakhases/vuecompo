@@ -27,3 +27,5 @@ pnpm-debug.log*
 
 # App.vue
 /src/App.vue
+
+safelist.txt

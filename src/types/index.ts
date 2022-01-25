@@ -59,3 +59,12 @@ export interface Attributes {
 }
 
 export type DatePickerValue = string | string[]
+
+/**
+ * @/components/DataSheet/Item
+ */
+export interface DataSheetItemSpans {
+  xs: number;
+  md: number;
+  lg: number;
+}
