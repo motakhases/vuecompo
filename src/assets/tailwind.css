@@ -1,15 +1,10 @@
 @import url("https://cdn.zarinpal.com/assets/fonts/all.css");
+
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
-@layer utilities {
-  .rtl {
-    direction: rtl;
-  }
 
-  .ltr {
-    direction: ltr;
-  }
+@layer utilities {
+  .rtl { direction: rtl; }
+  .ltr { direction: ltr; }
 }

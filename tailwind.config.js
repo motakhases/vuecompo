@@ -1,12 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { colors } = require('./src/designTokens/colors');
-const { fontFamily } = require('./src/designTokens/fontFamily');
-const { screens } = require('./src/designTokens/screens');
-const { spacing } = require('./src/designTokens/spacing');
-const { fontSize } = require('./src/designTokens/fontSize');
-const { boxShadow } = require('./src/designTokens/boxShadow');
-const { borderRadius } = require('./src/designTokens/borderRadius');
-const { rotate } = require('./src/designTokens/rotate');
+const {
+  colors,
+  fontFamily,
+  screens,
+  spacing,
+  fontSize,
+  boxShadow,
+  borderRadius,
+  rotate,
+} = require('./src/designTokens');
 
 module.exports = {
   mode: 'jit',
@@ -29,17 +30,17 @@ module.exports = {
     }),
   ],
   theme: {
-    screens,
     colors,
     fontFamily,
+    screens,
     spacing,
     fontSize,
     boxShadow,
     borderRadius,
+    rotate,
     backgroundImage: {
       'empty-box': "url('./Illustration/EmptyBox.svg')",
     },
-    rotate,
   },
   variants: {},
 };

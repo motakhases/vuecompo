@@ -1,6 +1,7 @@
 .zpl-textfield-group {
   /* Default */
-  @apply relative flex flex-col rtl;
+  @apply relative flex flex-col;
+  direction: rtl;
 }
 .zpl-textfield {
   /* Default */
