@@ -32,7 +32,6 @@
       </div>
     </div>
     <div
-      ref="backdropRef"
       class="backdrop"
       @click="toggle"
     />

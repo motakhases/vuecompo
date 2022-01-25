@@ -1,20 +1,38 @@
 <template>
-  <button
-    type="button"
-    class="zpl-user-profile"
-  >
-    <Icon
-      name="profile"
-      class="zpl-button-icon"
+  <div class="zpl-user-profile ">
+    <Button
+      icon="profile"
+      type="tertiary"
     />
-    <span class="zpl-user-profile-username zpl-user-profile-desktop">
-      {{ username }}
-    </span>
-    <Icon
-      name="angleDown"
-      class="zpl-button-icon zpl-user-profile-desktop"
-    />
-  </button>
+    <div
+      v-if="showProfileBox"
+      class="zpl-user-profile-box"
+    >
+      <ul class="zpl-profile-list">
+        <li class="zpl-profile-item">
+          <Icon
+            class="list-icons"
+            name="UserProfileSquare"
+          />
+          <span class="list-text">تنظیمات حساب</span>
+        </li>
+        <li class="zpl-profile-item">
+          <Icon
+            class="list-icons"
+            name="NightModeCircle"
+          />
+          <span class="list-text">حالت تیره</span>
+        </li>
+        <li class="zpl-profile-item">
+          <Icon
+            class="list-icons"
+            name="ExitLogOut"
+          />
+          <span class="list-text">خروج</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

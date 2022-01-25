@@ -4,6 +4,7 @@
       <Button
         icon="menuBurger"
         type="tertiary"
+        @click.native="$emit('toggleMenu')"
       />
       <!-- <Icon
           name="menuBurger"
@@ -27,7 +28,9 @@
       </div>
     </div>
     <div class="zpl-topbar-left-side">
-      <div class="zpl-topbar-question-btn">
+      <div
+        class="zpl-topbar-question-btn"
+      >
         <Button
           icon="questionCircle"
           type="tertiary"
@@ -37,9 +40,9 @@
         badge="99"
         @click.native="$emit('showNotifs')"
       />
-      <Button
-        icon="profile"
-        type="tertiary"
+      <UserProfile
+        :show-profile-box="showProfileBox"
+        @click.native="showProfileBox=!showProfileBox"
       />
     </div>
     <TerminalList
