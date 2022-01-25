@@ -1,45 +1,9 @@
 <template>
   <div dir="rtl">
-    <TopBar>
-      <template v-slot:right-side>
-        <Button
-          icon="menuBurger"
-          type="tertiary"
-        />
-        <!-- <Icon
-          name="menuBurger"
-          class="zpl-topbar-menu"
-        /> -->
-        <div class="zpl-topbar-logo">
-          <Logo
-            size="medium"
-            name="zarinpal"
-            type="logo"
-            language="fa"
-          />
-        </div>
-        <div class="zpl-topbar-terminal-btn">
-          <Button
-            after-icon="AngleDown"
-            type="tertiary"
-            text="عنوان درگاه"
-          />
-        </div>
-      </template>
-      <template v-slot:left-side>
-        <div class="zpl-topbar-question-btn">
-          <Button
-            icon="questionCircle"
-            type="tertiary"
-          />
-        </div>
-        <Notification
-          badge="99"
-          @click.native="displayNotifications"
-        />
-        <UserProfile username="نام کاربر" />
-      </template>
-    </TopBar>
+    <TopBar
+      :terminals="terminals"
+      @showNotifs="displayNotifications"
+    />
     <NavigationBar
       :toggle="false"
       :terminals="terminals"
@@ -60,10 +24,6 @@ import moment from 'moment-jalaali';
 import NotificationCenter from '@/components/NotificationCenter/index.vue';
 import NavigationBar from '@/components/NavigationBar/index.vue';
 import TopBar from '@/components/TopBar/index.vue';
-import Logo from '@/components/Logo/index.vue';
-import UserProfile from '@/components/TopBar/UserProfile/index.vue';
-import Notification from '@/components/TopBar/Notification/index.vue';
-import Button from '@/components/Button/index.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -71,10 +31,6 @@ export default Vue.extend({
     NotificationCenter,
     TopBar,
     NavigationBar,
-    Logo,
-    UserProfile,
-    Notification,
-    Button,
   },
   data() {
     return {
@@ -84,7 +40,33 @@ export default Vue.extend({
           domain: 'zarin.express/zardu',
           name: 'زاردو',
           status: 'ACTIVE',
-        }, {
+        },
+        {
+          domain: 'zarin.express/zardu',
+          name: 'زاردو',
+          status: 'ACTIVE',
+        },
+        {
+          domain: 'zarin.express/zardu',
+          name: 'زاردو',
+          status: 'ACTIVE',
+        },
+        {
+          domain: 'zarin.express/zardu',
+          name: 'زاردو',
+          status: 'ACTIVE',
+        },
+        {
+          domain: 'zarin.express/zardu',
+          name: 'زاردو',
+          status: 'ACTIVE',
+        },
+        {
+          domain: 'zarin.express/zardu',
+          name: 'زاردو',
+          status: 'ACTIVE',
+        },
+        {
           domain: 'zarinp.al/xandar',
           name: 'زاندار',
           status: 'deactive',
