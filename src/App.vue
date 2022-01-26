@@ -13,27 +13,21 @@
       :above-links="alinks"
       :below-links="blinks"
     /> -->
-    <div>
-      <PageHeading
-        :return-b-t-n="true"
-        :sticky="true"
-        title="عنوان"
-        desc="توضیحات"
-        :has-button="true"
-        :statuses="[{text:'غیر فعال', type:'negative'},{text:'فعال', type:'positive'}]"
-      >
-        <template v-slot:buttons>
-          <Button
-            text="تست"
-            class="mr-md"
-          />
-          <Button
-            text="تست دو"
-            class="mr-md"
-          />
-        </template>
-      </PageHeading>
-    </div>
+    <PageHeading
+      :return-b-t-n="true"
+      :sticky="true"
+      title="عنوان"
+      desc="توضیحات"
+      :has-button="true"
+      :statuses="[{text:'غیر فعال', type:'negative'},{text:'فعال', type:'positive'}]"
+    >
+      <template v-slot:buttons>
+        <Button
+          text="تست"
+          class="mr-md"
+        />
+      </template>
+    </PageHeading>
     <NotificationCenter
       :announcements="data"
       :is-open="showNotifs"
