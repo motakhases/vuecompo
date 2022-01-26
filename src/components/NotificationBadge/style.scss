@@ -1,13 +1,13 @@
 .zpl-notification-badge {
   /* Default */
-  @apply bg-icon-danger border border-text-onPrimary rounded-circle p-[2px] font-IRANYekanFaNum;
+  @apply bg-primaryZarinpal border border-text-onPrimary rounded-circle p-[2px] font-IRANYekanFaNum;
   @apply text-text-onDanger text-ls-cp block;
-  @apply dark:bg-icon-dark-danger dark:text-text-dark-onDanger dark:border-surface-dark;
+  @apply dark:bg-primaryZarinpal-dark dark:text-text-dark-onDanger dark:border-surface-dark;
 
   &.empty {
     @apply w-xs h-xs;
   }
   &.full {
-    @apply w-md h-md text-center;
+    @apply w-lg h-lg flex items-center justify-center;
   }
 }

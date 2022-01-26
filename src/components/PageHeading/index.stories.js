@@ -26,7 +26,7 @@ pageHeading.argTypes = {
 pageHeading.args = {
   title: "عنوان",
   desc: "توضیحات صفحه",
-  sticky: true,
+  sticky: false,
   returnBTN: true,
   hasButton: true,
 	onClick: () => alert('clicked'),
