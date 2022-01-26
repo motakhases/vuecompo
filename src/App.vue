@@ -1,15 +1,39 @@
 <template>
-  <div dir="rtl">
+  <div
+    dir="rtl"
+    class="bg-[#F5F5F5] h-[2000px]"
+  >
     <TopBar
       :terminals="terminals"
       @showNotifs="displayNotifications"
     />
-    <NavigationBar
+    <!-- <NavigationBar
       :toggle="false"
       :terminals="terminals"
       :above-links="alinks"
       :below-links="blinks"
-    />
+    /> -->
+    <div>
+      <PageHeading
+        :return-b-t-n="true"
+        :sticky="true"
+        title="عنوان"
+        desc="توضیحات"
+        :has-button="true"
+        :statuses="[{text:'غیر فعال', type:'negative'},{text:'فعال', type:'positive'}]"
+      >
+        <template v-slot:buttons>
+          <Button
+            text="تست"
+            class="mr-md"
+          />
+          <Button
+            text="تست دو"
+            class="mr-md"
+          />
+        </template>
+      </PageHeading>
+    </div>
     <NotificationCenter
       :announcements="data"
       :is-open="showNotifs"
@@ -22,19 +46,32 @@
 import Vue from 'vue';
 import moment from 'moment-jalaali';
 import NotificationCenter from '@/components/NotificationCenter/index.vue';
-import NavigationBar from '@/components/NavigationBar/index.vue';
+import PageHeading from '@/components/PageHeading/index.vue';
+// import NavigationBar from '@/components/NavigationBar/index.vue';
 import TopBar from '@/components/TopBar/index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
     NotificationCenter,
     TopBar,
-    NavigationBar,
+    PageHeading,
+    Button,
+    // NavigationBar,
   },
   data() {
     return {
       // sidebar
+      btn: {
+        text: 'تست',
+        type: 'primary',
+        size: 'medium',
+        disabled: false,
+        loading: false,
+        afterIcon: '',
+        beforeIcon: '',
+      },
       terminals: [
         {
           domain: 'zarin.express/zardu',
