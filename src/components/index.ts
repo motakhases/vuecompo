@@ -1,40 +1,87 @@
 export { default as Avatar } from './Avatar/index.vue';
+
 export { default as AvatarProgressBar } from './AvatarProgressBar/index.vue';
+
 export { default as BankCards } from './BankCards/index.vue';
+
 export { default as BankLogos } from './BankLogos/index.vue';
+
 export { default as Button } from './Button/index.vue';
+
 export { default as ButtonGroup } from './ButtonGroup/index.vue';
+
 export { default as Card } from './Card/index.vue';
+
 export { default as CheckBox } from './CheckBox/index.vue';
+
 export { default as DataSheet } from './DataSheet/index.vue';
+export { default as DataSheetRow } from './DataSheet/Row/index.vue';
+export { default as DataSheetItem } from './DataSheet/Item/index.vue';
+
 export { default as DatePicker } from './DatePicker/index.vue';
+
 export { default as Dropdown } from './Dropdown/index.vue';
+
 export { default as Filters } from './Filters/index.vue';
+export { default as FiltersAccordion } from './Filters/FilterAccordion/index.vue';
+export { default as FilterActions } from './Filters/FilterActions/index.vue';
+export { default as FilterAmount } from './Filters/FilterAmount/index.vue';
+export { default as FilterDate } from './Filters/FilterDate/index.vue';
+export { default as FilterToggle } from './Filters/FilterToggle/index.vue';
+
 export { default as GatewayStatus } from './GatewayStatus/index.vue';
+
 export { default as Icon } from './Icon/index.vue';
+
 export { default as InlineMessage } from './InlineMessage/index.vue';
+
 export { default as Label } from './Label/index.vue';
+
 export { default as Link } from './Link/index.vue';
+
 export { default as Logo } from './Logo/index.vue';
+
 export { default as Modal } from './Modal/index.vue';
+
 export { default as NavBadge } from './NavBadge/index.vue';
+
 export { default as NavigationBar } from './NavigationBar/index.vue';
+
 export { default as NotificationBadge } from './NotificationBadge/index.vue';
+
 export { default as NotificationCenter } from './NotificationCenter/index.vue';
+
 export { default as PageHeading } from './PageHeading/index.vue';
+
 export { default as Pagination } from './Pagination/index.vue';
+
 export { default as Popover } from './Popover/index.vue';
+
 export { default as Radio } from './Radio/index.vue';
+
 export { default as SegmentedButton } from './SegmentedButton/index.vue';
+
 export { default as Status } from './Status/index.vue';
+
 export { default as Table } from './Table/index.vue';
+
 export { default as Tabs } from './Tabs/index.vue';
+export { default as Tab } from './Tabs/Tab/index.vue';
+
 export { default as Tag } from './Tag/index.vue';
+
 export { default as TextBox } from './TextBox/index.vue';
+
 export { default as TextField } from './TextField/index.vue';
+
 export { default as Thumbnail } from './Thumbnail/index.vue';
+
 export { default as Timeline } from './Timeline/index.vue';
+
 export { default as Toggle } from './Toggle/index.vue';
+
 export { default as Tooltip } from './Tooltip/index.vue';
+
 export { default as TopBar } from './TopBar/index.vue';
+
 export { default as UserProfileCard } from './UserProfileCard/index.vue';
