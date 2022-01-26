@@ -1,22 +1,16 @@
 <template>
-  <div>
+  <div class="zpl-tabel">
     <table>
       <!-- Head -->
       <thead>
         <tr>
-          <th>
-            <CheckBox
-              v-model="allSelected"
-              name="isAllChecked"
-            />
-          </th>
-          <th
+          <Th
             v-for="(col, index) in columns"
             :key="index"
+            :title="col.title"
+            :label="col.label"
             class="text-xs"
-          >
-            {{ col.title }}
-          </th>
+          />
         </tr>
       </thead>
 
@@ -26,13 +20,6 @@
           v-for="(td, i) in data"
           :key="i"
         >
-          <td>
-            <CheckBox
-              v-model="td.selected"
-              name="selectRows"
-              :val="i"
-            />
-          </td>
           <td
             v-for="(col, index) in columns"
             :key="index"

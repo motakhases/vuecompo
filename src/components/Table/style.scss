@@ -1,9 +1,12 @@
-.zpl-table-container {
-  @apply relative;
-}
-.zpl-table-overflow {
-  @apply overflow-x-auto;
-}
-.zpl-table {
-  @apply w-full;
+.zpl-tabel {
+  table {
+    // Table Header
+    > thead > tr {
+      @apply flex;
+
+      > th {
+        @apply font-IRANYekanFaNum font-normal text-b2 text-text flex items-center gap-xs
+      }
+    }
+  }
 }

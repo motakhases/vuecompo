@@ -1,11 +1,8 @@
 <template>
   <div
-    class="p-3xl"
+    class="p-2xl"
     dir="rtl"
   >
-    <div class="text-lg">
-      Hello
-    </div>
     <Table
       :data="tableData"
       :columns="columns"
@@ -87,6 +84,7 @@ export default class App extends Vue {
     {
       title: 'مبلغ',
       key: 'price',
+      label: 'ریال',
     },
     {
       title: 'شناسه پرداخت',
