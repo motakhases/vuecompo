@@ -41,6 +41,9 @@ module.exports = {
     backgroundImage: {
       'empty-box': "url('./Illustration/EmptyBox.svg')",
     },
+    container: {
+      center: true,
+    },
   },
   variants: {},
 };

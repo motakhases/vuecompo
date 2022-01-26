@@ -26,7 +26,7 @@ export default class PageHeading extends Vue {
     const distanceOfTop = element.getBoundingClientRect().top;
     if (distanceOfTop <= 0) {
       this.stickHeading = true;
-    } else if (window.scrollY === 0) {
+    } else {
       this.stickHeading = false;
     }
   }

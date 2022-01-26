@@ -1,7 +1,10 @@
 .zpl-page-heading{
   direction: rtl;
-  @apply flex flex-wrap;
-  @apply lg:flex-nowrap;
+  .page-heading-container{
+    @apply flex flex-wrap;
+    @apply lg:flex-nowrap;
+    @apply py-md ;
+  }
   .return-btn{
     @apply h-[40px] rounded-sm ml-xs;
     @apply lg:ml-md;
@@ -31,7 +34,6 @@
     @apply bg-surface shadow-elevation-100;
     @apply dark:bg-surface-dark dark:shadow-dark-elevation-100;
     @apply sticky z-10 top-0 py-xs px-xs;
-    @apply lg:py-md lg:px-md;
     .heading-content{
       @apply order-none w-auto mt-0;
     }
