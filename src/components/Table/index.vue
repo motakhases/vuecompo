@@ -1,22 +1,85 @@
 <template>
-  <div class="rtl over">
-    <div class="zpl-table-container">
-      <div class="zpl-table-overflow">
-        <table :class="['zpl-table', { 'table-fixed': fixed }]">
-          <thead>
-            <slot name="header" />
-          </thead>
-          <slot name="body" />
-        </table>
-      </div>
-    </div>
+  <div>
+    <table>
+      <!-- Head -->
+      <thead>
+        <tr>
+          <th>
+            <CheckBox
+              v-model="allSelected"
+              name="isAllChecked"
+            />
+          </th>
+          <th
+            v-for="(col, index) in columns"
+            :key="index"
+            class="text-xs"
+          >
+            {{ col.title }}
+          </th>
+        </tr>
+      </thead>
+
+      <!-- Body -->
+      <tbody>
+        <tr
+          v-for="(td, i) in data"
+          :key="i"
+        >
+          <td>
+            <CheckBox
+              v-model="td.selected"
+              name="selectRows"
+              :val="i"
+            />
+          </td>
+          <td
+            v-for="(col, index) in columns"
+            :key="index"
+          >
+            <template v-if="td[col.key]">
+              <!-- Custom -->
+              <span v-if="td[col.key].type === 'custom'">
+                <strong>{{ td[col.key].data.title }}</strong>
+                <small> {{ td[col.key].data.sub }} </small>
+              </span>
+
+              <!-- Number -->
+              <span v-else-if="td[col.key].type === 'price'">
+                {{ td[col.key].data.toLocaleString() }}
+              </span>
+
+              <!-- Date -->
+              <span v-else-if="td[col.key].type === 'date'">
+                {{ td[col.key].data | JdateName }}
+              </span>
+
+              <!-- Label -->
+              <span v-else-if="td[col.key].type === 'status'">
+                <Status
+                  v-for="(label, labelIndex) in td[col.key].data"
+                  :key="labelIndex"
+                  :text="label.title "
+                  :type="label.type"
+                />
+              </span>
+
+              <span v-else-if="td[col.key].type === 'text'">
+                {{ td[col.key].data }}
+              </span>
+            </template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import logic from './logic';
+import { Component, Mixins } from 'vue-property-decorator';
+import Logic from './logic';
 import './style.scss';
 
-export default Vue.extend({ mixins: [logic] });
+@Component
+export default class Table extends Mixins(Logic) {}
 </script>

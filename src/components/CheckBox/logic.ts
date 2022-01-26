@@ -4,9 +4,9 @@ import {
 
 @Component({})
 export default class CheckBox extends Vue {
-  @VModel({ type: String }) model!: string
+  @VModel({ type: [Array, Boolean] }) model!: string[] | boolean
 
-  @Prop({ type: String, required: true }) readonly val!: string
+  @Prop({ type: [String, Number] }) readonly val?: string | number | null
 
   @Prop({ type: String, required: true }) readonly name!: string
 

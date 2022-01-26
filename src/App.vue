@@ -3,63 +3,107 @@
     class="p-3xl"
     dir="rtl"
   >
-    <DataSheet>
-      <DataSheetRow :cols="{ xs:1, md:2, lg:3 }">
-        <DataSheetItem
-          title="مجموع تراکنش‌ها"
-          :col-span="{ xs:1, md:1, lg:1 }"
-        >
-          260,000
-          ریال
-        </DataSheetItem>
-        <DataSheetItem
-          title="مجموع کارمزد تراکنش‌ها"
-          :col-span="{ xs:1, md:1, lg:1 }"
-        >
-          8,000
-          ریال
-        </DataSheetItem>
-        <DataSheetItem
-          title="مبلغ خالص تسویه"
-          :col-span="{ xs:1, md:2, lg:1 }"
-        >
-          242,000
-          ریال
-        </DataSheetItem>
-      </DataSheetRow>
-      <DataSheetRow :cols="2">
-        <DataSheetItem
-          title="مجموع تراکنش‌ها"
-          :col-span="{ xs:2, md:1, lg:1 }"
-        >
-          260,000
-          ریال
-        </DataSheetItem>
-        <DataSheetItem
-          title="مجموع کارمزد تراکنش‌ها"
-          :col-span="{ xs:2, md:1, lg:1 }"
-        >
-          8,000
-          ریال
-        </DataSheetItem>
-      </DataSheetRow>
-    </DataSheet>
+    <div class="text-lg">
+      Hello
+    </div>
+    <Table
+      :data="tableData"
+      :columns="columns"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import DataSheet from './components/DataSheet/index.vue';
-import DataSheetRow from './components/DataSheet/Row/index.vue';
-import DataSheetItem from './components/DataSheet/Item/index.vue';
+import Table from './components/Table/index.vue';
 
 @Component({
   components: {
-    DataSheet,
-    DataSheetRow,
-    DataSheetItem,
+    Table,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  tableData = [
+    {
+      price: {
+        type: 'price',
+        data: 8100000,
+      },
+      pay_id: {
+        type: 'text',
+        data: 2234145522155,
+      },
+      description: {
+        type: 'text',
+        data: 'درخواست پرداخت دامنه شماره 2425',
+      },
+      created_at: {
+        type: 'date',
+        data: '2020-11-30T11:55:07.000000Z',
+      },
+      status: {
+        type: 'status',
+        data: [
+          {
+            title: 'پرداخت موفق',
+            type: 'positive',
+            size: '',
+          },
+        ],
+      },
+    },
+    {
+      price: {
+        type: 'price',
+        data: 8100000,
+      },
+      pay_id: {
+        type: 'text',
+        data: 2234145522155,
+      },
+      description: {
+        type: 'text',
+        data: 'درخواست پرداخت دامنه شماره 2425',
+      },
+      created_at: {
+        type: 'date',
+        data: '2020-11-30T11:55:07.000000Z',
+      },
+      status: {
+        type: 'status',
+        data: [
+          {
+            title: 'پرداخت موفق',
+            type: 'positive',
+            size: '',
+          },
+        ],
+      },
+    },
+  ]
+
+  columns = [
+    {
+      title: 'مبلغ',
+      key: 'price',
+    },
+    {
+      title: 'شناسه پرداخت',
+      key: 'pay_id',
+    },
+    {
+      title: 'توضیحات',
+      key: 'description',
+    },
+    {
+      title: 'تاریخ و ساعت',
+      key: 'created_at',
+    },
+    {
+      title: 'وضعیت',
+      key: 'status',
+    },
+  ]
+}
 </script>
