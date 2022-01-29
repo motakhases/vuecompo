@@ -45,7 +45,6 @@ export default class App extends Vue {
           {
             title: 'پرداخت موفق',
             type: 'positive',
-            size: '',
           },
         ],
       },

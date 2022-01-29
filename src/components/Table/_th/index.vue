@@ -17,7 +17,7 @@ import { Component, Mixins } from 'vue-property-decorator';
 import Logic from './logic';
 
 @Component
-export default class Table extends Mixins(Logic) {}
+export default class Th extends Mixins(Logic) {}
 </script>
 
 // TODO: Sorting icons

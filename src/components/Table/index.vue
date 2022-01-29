@@ -1,5 +1,14 @@
 <template>
-  <div class="zpl-tabel">
+  <div class="zpl-table">
+    <!-- Small view - Card -->
+    <Card
+      v-for="(td, index) in data"
+      :key="index"
+      :td="td"
+      :columns="columns"
+    />
+
+    <!-- Large view - Table -->
     <table>
       <!-- Head -->
       <thead>
@@ -9,7 +18,6 @@
             :key="index"
             :title="col.title"
             :label="col.label"
-            class="text-xs"
           />
         </tr>
       </thead>

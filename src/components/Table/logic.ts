@@ -6,6 +6,7 @@ import {
 // Sub components
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
+import Card from './_card/index.vue';
 
 // Components
 import Status from '@/components/Status/index.vue';
@@ -15,6 +16,7 @@ import Status from '@/components/Status/index.vue';
     Status,
     Th,
     Td,
+    Card,
   },
 })
 export default class Logic extends Vue {
