@@ -1,19 +1,30 @@
 import PageHeading from "./index.vue";
+import Button from '@/components/Button/index.vue';
 
 const Template = (_, { argTypes }) => ({
-  components: { PageHeading },
+  components: { PageHeading, Button },
   props: Object.keys(argTypes),
   template: `
   <div class="rtl bg-background dark:bg-background-dark p-sm">
-    <PageHeading
-      :returnBTN="returnBTN"
-      :sticky="sticky"
-      :title="title"
-      :desc="desc"
-      :hasButton="hasButton"
-      :btn="btn"
-      @btnClick="onClick()"
-    />
+      <PageHeading
+        :return-b-t-n="returnBTN"
+        :sticky="sticky"
+        title="عنوان"
+        desc="توضیحات"
+        :has-button="true"
+        :statuses="statuses"
+      >
+        <template v-slot:buttons>
+          <Button
+            text="تست"
+            class="mr-md"
+          />
+          <Button
+            text="تست دو"
+            class="mr-md"
+          />
+        </template>
+      </PageHeading>
   </div>  
   `,
 });
@@ -26,20 +37,17 @@ pageHeading.argTypes = {
 pageHeading.args = {
   title: "عنوان",
   desc: "توضیحات صفحه",
-  sticky: true,
+  sticky: false,
   returnBTN: true,
-  hasButton: true,
-	onClick: () => alert('clicked'),
-  label: "test",
-  btn:{
-    text: "تست",
-    type: "primary",
-    size: "medium",
-    disabled: false,
-    loading: false,
-    afterIcon: "",
-    beforeIcon: "",
-  },
+  statuses: [
+    {
+      text:'غیر فعال', type:'negative'
+    },
+    {
+      text:'فعال', type:'positive'
+    }
+  ]
+
 };
 
 export default pageHeading

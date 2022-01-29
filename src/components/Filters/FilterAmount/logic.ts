@@ -1,69 +1,58 @@
-import Vue from 'vue';
+import {
+  Component, Prop, VModel, Watch, Vue,
+} from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 
-const amount = {
-  EQUAL_TO: 'برابراست با',
-  GREATER_THAN: 'بزرگ‌تراز',
-  PRICE_RANGE: 'بازه مبلغ',
-  LESS_THAN: 'کوچک‌تراز',
-};
+@Component({
+  components: {
+    Dropdown,
+    Textfield,
+  },
+})
+export default class Logic extends Vue {
+  @VModel({ type: Array }) model!: string[]
 
-export default Vue.extend({
-  name: 'FilterAmount',
-  components: { Dropdown, Textfield },
-  props: {
-    value: {
-      type: String,
-      default: '',
-    },
-    amountFilter: {
-      type: String,
-      default: 'equal',
-    },
-  },
-  data() {
-    return {
-      options: [
-        { id: 1, name: amount.EQUAL_TO },
-        { id: 2, name: amount.LESS_THAN },
-        { id: 3, name: amount.PRICE_RANGE },
-        { id: 4, name: amount.GREATER_THAN },
-      ],
-      amount,
-      amountType: '',
-      range: [],
-    };
-  },
-  computed: {
-    model: {
-      get():string | string[] {
-        return this.value;
-      },
-      set(value:string[]):void {
-        this.$emit('input', value);
-      },
-    },
-  },
-  watch: {
-    amountFilter() {
-      switch (this.amountFilter) {
-      case 'equal':
-        this.amountType = amount.EQUAL_TO;
-        break;
-      case 'max':
-        this.amountType = amount.LESS_THAN;
-        break;
-      case 'min':
-        this.amountType = amount.GREATER_THAN;
-        break;
-      case 'range':
-        this.amountType = amount.PRICE_RANGE;
-        break;
-      default:
-        return '';
-      }
+  @Prop({ type: String, default: 'equal' }) readonly amountFilter!: string
+
+  @Watch('amountFilter')
+  watchAmountFilter(): string {
+    switch (this.amountFilter) {
+    case 'equal':
+      this.amountType = this.types.EQUAL_TO;
+      break;
+    case 'max':
+      this.amountType = this.types.LESS_THAN;
+      break;
+    case 'min':
+      this.amountType = this.types.GREATER_THAN;
+      break;
+    case 'range':
+      this.amountType = this.types.PRICE_RANGE;
+      break;
+    default:
       return '';
-    },
-  },
-});
+    }
+    return '';
+  }
+
+  types = {
+    EQUAL_TO: 'برابراست با',
+    GREATER_THAN: 'بزرگ‌تراز',
+    PRICE_RANGE: 'بازه مبلغ',
+    LESS_THAN: 'کوچک‌تراز',
+  };
+
+  options = [
+    { id: 1, text: this.types.EQUAL_TO },
+    { id: 2, text: this.types.LESS_THAN },
+    { id: 3, text: this.types.PRICE_RANGE },
+    { id: 4, text: this.types.GREATER_THAN },
+  ]
+
+  amount = null
+
+  amountType = ''
+
+  range = []
+}

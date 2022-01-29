@@ -1,70 +1,45 @@
-import Vue, { PropType } from 'vue';
+import {
+  Component, Prop, VModel, Vue,
+} from 'vue-property-decorator';
 import FilterToggle from '../FilterToggle/index.vue';
 
-export default Vue.extend({
-  name: 'FilterAccordion',
-  components: { FilterToggle },
-  props: {
-    size: {
-      type: String,
-      default: 'large',
-    },
-    val: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: Array as PropType<string[]>,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    change: {
-      type: Function,
-      default: () => 1,
-    },
+@Component({
+  components: {
+    FilterToggle,
   },
-  data() {
-    return {
-      isActive: false,
-    };
-  },
+})
+export default class Logic extends Vue {
+  @VModel({ type: Array }) model!: string[]
 
-  computed: {
-    model: {
-      get(): string[] {
-        return this.value;
-      },
-      set(value: string[]): void {
-        this.$emit('input', value);
-      },
-    },
-  },
-  methods: {
-    check() {
-      this.isActive = !this.isActive;
-    },
-    toggleHandler() {
-      this.isActive = !this.isActive;
-    },
-    startTransition(el: HTMLElement) {
-      const element = el;
-      element.style.height = `${el.scrollHeight}px`;
-    },
+  @Prop({ type: String, default: 'large' }) readonly size!: string
 
-    endTransition(el: HTMLElement) {
-      const element = el;
-      element.style.height = '';
-    },
-  },
-});
+  @Prop({ type: String, required: true }) readonly val!: string
+
+  @Prop({ type: String, required: true }) readonly name!: string
+
+  @Prop({ type: String }) readonly text?: string
+
+  @Prop({ type: Boolean }) readonly disabled?: boolean
+
+  @Prop({ type: Function }) readonly change?: void
+
+  isActive = false
+
+  check(): void {
+    this.isActive = !this.isActive;
+  }
+
+  toggleHandler(): void {
+    this.isActive = !this.isActive;
+  }
+
+  startTransition(el: HTMLElement): void {
+    const element = el;
+    element.style.height = `${el.scrollHeight}px`;
+  }
+
+  endTransition(el: HTMLElement): void {
+    const element = el;
+    element.style.height = '';
+  }
+}

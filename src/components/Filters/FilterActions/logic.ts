@@ -1,7 +1,10 @@
-import Vue from 'vue';
+import { Component, Vue } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
 
-export default Vue.extend({
-  name: 'FilterActions',
-  components: { Button },
-});
+@Component({
+  components: {
+    Button,
+  },
+})
+export default class Logic extends Vue {
+}

@@ -1,7 +1,9 @@
-import Vue from 'vue';
+import { Component, Vue } from 'vue-property-decorator';
 import Icon from '../Icon/index.vue';
 
-export default Vue.extend({
-  name: 'Filters',
-  components: { Icon },
-});
+@Component({
+  components: {
+    Icon,
+  },
+})
+export default class Logic extends Vue {}
