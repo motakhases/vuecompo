@@ -61,6 +61,19 @@ export interface Attributes {
 export type DatePickerValue = string | string[]
 
 /**
+ * @/components/Dropdown/Item
+ */
+export interface IDropdownOptions {
+  text: string;
+  value: string | number;
+  disabled?: boolean;
+}
+
+export interface IEvent {
+  target: HTMLInputElement;
+}
+
+/**
  * @/components/DataSheet/Item
  */
 export interface DataSheetItemSpans {
