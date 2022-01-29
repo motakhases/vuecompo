@@ -3,6 +3,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 // Components
 import Status from '@/components/Status/index.vue';
 import Label from '@/components/Label/index.vue';
+import TypeRenderer from '../_typeRenderer/index.vue';
 
 interface ITableColumns {
   title: string;
@@ -23,6 +24,7 @@ interface ITableRow {
   components: {
     Status,
     Label,
+    TypeRenderer,
   },
 })
 export default class Logic extends Vue {
