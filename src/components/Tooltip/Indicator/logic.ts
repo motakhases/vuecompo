@@ -1,12 +1,6 @@
-import Vue from 'vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Indicator',
-  props: {
-    position: {
-      type: String,
-      default: 'bottomLeft',
-      required: true,
-    },
-  },
-});
+@Component
+export default class Logic extends Vue {
+  @Prop({ type: String, default: 'bottomLeft', required: true }) readonly position!: string
+}
