@@ -17,45 +17,14 @@
       <!-- Body -->
       <tbody>
         <tr
-          v-for="(td, i) in data"
-          :key="i"
+          v-for="(td, tdIndex) in data"
+          :key="tdIndex"
         >
-          <td
-            v-for="(col, index) in columns"
-            :key="index"
-          >
-            <template v-if="td[col.key]">
-              <!-- Custom -->
-              <span v-if="td[col.key].type === 'custom'">
-                <strong>{{ td[col.key].data.title }}</strong>
-                <small> {{ td[col.key].data.sub }} </small>
-              </span>
-
-              <!-- Number -->
-              <span v-else-if="td[col.key].type === 'price'">
-                {{ td[col.key].data.toLocaleString() }}
-              </span>
-
-              <!-- Date -->
-              <span v-else-if="td[col.key].type === 'date'">
-                {{ td[col.key].data | JdateName }}
-              </span>
-
-              <!-- Label -->
-              <span v-else-if="td[col.key].type === 'status'">
-                <Status
-                  v-for="(label, labelIndex) in td[col.key].data"
-                  :key="labelIndex"
-                  :text="label.title "
-                  :type="label.type"
-                />
-              </span>
-
-              <span v-else-if="td[col.key].type === 'text'">
-                {{ td[col.key].data }}
-              </span>
-            </template>
-          </td>
+          <Td
+            v-for="(col, colIndex) in columns"
+            :key="colIndex"
+            :data="td[col.key]"
+          />
         </tr>
       </tbody>
     </table>

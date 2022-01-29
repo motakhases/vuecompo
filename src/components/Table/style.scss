@@ -1,11 +1,42 @@
 .zpl-tabel {
   table {
+    // default
+    @apply bg-surface shadow-elevation-50 rounded-md overflow-hidden w-full;
+
+    // dark
+    @apply dark:bg-surface-dark dark:shadow-dark-elevation-50;
+
     // Table Header
     > thead > tr {
-      @apply flex;
-
       > th {
-        @apply font-IRANYekanFaNum font-normal text-b2 text-text flex items-center gap-xs
+        > div {
+          // default
+          @apply font-IRANYekanFaNum font-normal p-md text-b2 text-text flex items-center gap-xs;
+          
+          // dark
+          @apply dark:text-text-dark;
+        }
+      }
+    }
+
+    // Table Body
+    > tbody > tr {
+      // default
+      @apply border-t border-border-divider;
+      @apply hover:bg-surface-hover active:bg-surface-active focus:bg-surface-focus;
+      
+      // dark
+      @apply dark:border-border-dark-divider;
+      @apply dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active dark:focus:bg-surface-dark-focus;
+      
+      > td {
+        > div {
+          // default
+          @apply font-IRANYekanFaNum font-normal p-md text-b2 text-text flex items-center gap-xs;
+          
+          // dark
+          @apply dark:text-text-dark;
+        }
       }
     }
   }

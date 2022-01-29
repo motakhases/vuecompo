@@ -5,18 +5,16 @@ import {
 
 // Sub components
 import Th from './_th/index.vue';
+import Td from './_td/index.vue';
 
 // Components
 import Status from '@/components/Status/index.vue';
 
-interface IRowChecks {
-  all: boolean;
-  rows: string[] | number[];
-}
 @Component({
   components: {
     Status,
     Th,
+    Td,
   },
 })
 export default class Logic extends Vue {

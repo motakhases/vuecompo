@@ -91,7 +91,7 @@ const Template = (_, { argTypes }) => ({
     ]
   }),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
+  <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
     <Table
       :data="tableData"
       :columns="columns"

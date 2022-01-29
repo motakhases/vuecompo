@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-2xl"
+    class="p-2xl bg-background"
     dir="rtl"
   >
     <Table

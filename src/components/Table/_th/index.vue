@@ -1,12 +1,14 @@
 <template>
   <th>
-    {{ title }}
-    <Label
-      v-if="label"
-      size="small"
-      type="neutral"
-      :text="label"
-    />
+    <div>
+      {{ title }}
+      <Label
+        v-if="label"
+        size="small"
+        type="neutral"
+        :text="label"
+      />
+    </div>
   </th>
 </template>
 
