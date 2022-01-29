@@ -7,7 +7,7 @@ const {
   boxShadow,
   borderRadius,
   rotate,
-} = require('./src/designTokens');
+} = require('./src/designTokens/index');
 
 module.exports = {
   mode: 'jit',
