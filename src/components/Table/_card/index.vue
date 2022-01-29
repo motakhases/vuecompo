@@ -2,16 +2,10 @@
   <div class="zpl-table-card">
     <!-- Header -->
     <div class="zpl-table-card-header">
-      <div>
-        <span v-if="headerRight.type === 'price'">
-          {{ headerRight.data.toLocaleString() }}
-          <Label
-            size="small"
-            type="neutral"
-            text="ریال"
-          />
-        </span>
-      </div>
+      <!-- Right side (first index of array data) -->
+      <TypeRenderer :data="headerRight" />
+
+      <!-- Left side (Status and Actions) -->
       <div>
         <div
           v-for="(item, index) in headerLeft"
@@ -40,20 +34,8 @@
         {{ col.title }}
       </span>
 
-      <!-- Number -->
-      <span v-if="td[col.key].type === 'price'">
-        {{ td[col.key].data.toLocaleString() }}
-      </span>
-
-      <!-- Date -->
-      <span v-else-if="td[col.key].type === 'date'">
-        {{ td[col.key].data | JdateName }}
-      </span>
-
-      <!-- Regular text -->
-      <span v-else-if="td[col.key].type === 'text'">
-        {{ td[col.key].data }}
-      </span>
+      <!-- Value -->
+      <TypeRenderer :data="td[col.key]" />
     </div>
   </div>
 </template>

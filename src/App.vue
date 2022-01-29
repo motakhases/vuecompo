@@ -77,6 +77,38 @@ export default class App extends Vue {
         ],
       },
     },
+    {
+      price: {
+        type: 'custom',
+        data: {
+          title: 'سلام بر تست',
+          sub: 'این تست است',
+          image: '',
+        },
+      },
+      pay_id: {
+        type: 'text',
+        data: 2234145522155,
+      },
+      description: {
+        type: 'text',
+        data: 'درخواست پرداخت دامنه شماره 2425',
+      },
+      created_at: {
+        type: 'date',
+        data: '2020-11-30T11:55:07.000000Z',
+      },
+      status: {
+        type: 'status',
+        data: [
+          {
+            title: 'پرداخت موفق',
+            type: 'positive',
+            size: '',
+          },
+        ],
+      },
+    },
   ]
 
   columns = [

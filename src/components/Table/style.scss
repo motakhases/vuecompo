@@ -38,6 +38,36 @@
     }
   }
 
+  &-type-renderer {
+    .custom {
+      @apply flex items-center gap-sm;
+
+      .text {
+        @apply flex flex-col;
+        
+        .title {
+          // default
+          @apply text-text text-b2;
+  
+          // dark
+          @apply dark:text-text-dark;
+        }
+  
+        .sub {
+          // default
+          @apply text-text-soft text-b3;
+  
+          // dark
+          @apply dark:text-text-dark-soft;
+        }
+      }
+    }
+
+    .unit {
+      @apply md:hidden
+    }
+  }
+
   table {
     // Show size
     @apply hidden md:table;
