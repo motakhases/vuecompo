@@ -1,44 +1,23 @@
-import Vue, { PropType } from 'vue';
+import {
+  Component, Prop, VModel, Vue,
+} from 'vue-property-decorator';
 import CheckBox from '@/components/CheckBox/index.vue';
 
-export default Vue.extend({
-  name: 'FilterToggle',
-  components: { CheckBox },
-  props: {
-    val: {
-      type: String,
-      default: '',
-    },
-    value: {
-      type: Array as PropType<string[]>,
-      default: '',
-    },
-    name: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    change: {
-      type: Function,
-      default: () => 1,
-    },
+@Component({
+  components: {
+    CheckBox,
   },
+})
+export default class Logic extends Vue {
+  @VModel({ type: Array }) model!: string[]
 
-  computed: {
-    model: {
-      get():string|string[] {
-        return this.value;
-      },
-      set(value:string[]):void {
-        this.$emit('input', value);
-      },
-    },
-  },
-});
+  @Prop({ type: String, required: true }) readonly val!: string
+
+  @Prop({ type: String }) readonly name?: string
+
+  @Prop({ type: String }) readonly text?: string
+
+  @Prop({ type: Boolean }) readonly disabled?: boolean
+
+  @Prop({ type: Function }) readonly change?: void
+}

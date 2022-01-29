@@ -12,9 +12,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import logic from './logic';
+import { Component, Mixins } from 'vue-property-decorator';
+import Logic from './logic';
 import './style.scss';
 
-export default Vue.extend({ mixins: [logic] });
+@Component
+export default class Indicator extends Mixins(Logic) {}
 </script>

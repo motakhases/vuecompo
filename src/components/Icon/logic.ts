@@ -1,42 +1,83 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import Box from './icons/Box.vue';
+import ChatMessage from './icons/ChatMessage.vue';
+import CreditCheckout from './icons/CreditCheckout.vue';
+import ChevronUp from './icons/ChevronUp.vue';
+import DrpItemCheck from './icons/DrpItemCheck.vue';
+import GridLayout from './icons/GridLayout.vue';
+import PaymentCard from './icons/PaymentCard.vue';
+import AngleDown from './icons/AngleDown.vue';
+import AngleRight from './icons/AngleRight.vue';
+import AngleLeft from './icons/AngleLeft.vue';
+import CheckmarkCircle from './icons/CheckmarkCircle.vue';
+import FilledArrowDown from './icons/FilledArrowDown.vue';
+import FilledArrowUp from './icons/FilledArrowUp.vue';
+import TickLarge from './icons/TickLarge.vue';
+import TickSmall from './icons/TickSmall.vue';
+import Warning from './icons/Warning.vue';
+import MenuBurger from './icons/MenuBurger.vue';
+import Profile from './icons/Profile.vue';
+import UserProfileSquare from './icons/UserProfileSquare.vue';
+import ProfileFill from './icons/ProfileFill.vue';
+import QuestionCircle from './icons/QuestionCircle.vue';
+import Notification from './icons/Notification.vue';
+import ChartSquare from './icons/ChartSquare.vue';
+import Plus from './icons/Plus.vue';
+import Terminal from './icons/Terminal.vue';
+import Delete from './icons/Delete.vue';
+import ClockRefresh from './icons/ClockRefresh.vue';
+import ArrowLeft from './icons/ArrowLeft.vue';
+import ArrowRight from './icons/ArrowRight.vue';
+import ArrowFirst from './icons/ArrowFirst.vue';
+import ArrowLast from './icons/ArrowLast.vue';
+import Star from './icons/Star.vue';
+import NightModeCircle from './icons/NightModeCircle.vue';
+import DotsMenu from './icons/DotsMenu.vue';
+import UndoneCheck from './icons/UndoneCheck.vue';
+import Product from './icons/Product.vue';
+import ExitLogOut from './icons/ExitLogOut.vue';
+import Calendar from './icons/Calendar.vue';
 
 @Component({
   components: {
-    Box: () => import('./icons/Box.vue'),
-    ChatMessage: () => import('./icons/ChatMessage.vue'),
-    CreditCheckout: () => import('./icons/CreditCheckout.vue'),
-    ChevronUp: () => import('./icons/ChevronUp.vue'),
-    DrpItemCheck: () => import('./icons/DrpItemCheck.vue'),
-    GridLayout: () => import('./icons/GridLayout.vue'),
-    PaymentCard: () => import('./icons/PaymentCard.vue'),
-    AngleDown: () => import('./icons/AngleDown.vue'),
-    AngleRight: () => import('./icons/AngleRight.vue'),
-    AngleLeft: () => import('./icons/AngleLeft.vue'),
-    CheckmarkCircle: () => import('./icons/CheckmarkCircle.vue'),
-    FilledArrowDown: () => import('./icons/FilledArrowDown.vue'),
-    FilledArrowUp: () => import('./icons/FilledArrowUp.vue'),
-    TickLarge: () => import('./icons/TickLarge.vue'),
-    TickSmall: () => import('./icons/TickSmall.vue'),
-    Warning: () => import('./icons/Warning.vue'),
-    MenuBurger: () => import('./icons/MenuBurger.vue'),
-    Profile: () => import('./icons/Profile.vue'),
-    ProfileFill: () => import('./icons/ProfileFill.vue'),
-    QuestionCircle: () => import('./icons/QuestionCircle.vue'),
-    Notification: () => import('./icons/Notification.vue'),
-    ChartSquare: () => import('./icons/ChartSquare.vue'),
-    Plus: () => import('./icons/Plus.vue'),
-    Terminal: () => import('./icons/Terminal.vue'),
-    Delete: () => import('./icons/Delete.vue'),
-    ClockRefresh: () => import('./icons/ClockRefresh.vue'),
-    ArrowLeft: () => import('./icons/ArrowLeft.vue'),
-    ArrowRight: () => import('./icons/ArrowRight.vue'),
-    ArrowFirst: () => import('./icons/ArrowFirst.vue'),
-    ArrowLast: () => import('./icons/ArrowLast.vue'),
-    Star: () => import('./icons/Star.vue'),
-    DotsMenu: () => import('./icons/DotsMenu.vue'),
-    UndoneCheck: () => import('./icons/UndoneCheck.vue'),
-    Product: () => import('./icons/Product.vue'),
-    Calendar: () => import('./icons/Calendar.vue'),
+    Box,
+    ChatMessage,
+    CreditCheckout,
+    ChevronUp,
+    DrpItemCheck,
+    GridLayout,
+    PaymentCard,
+    AngleDown,
+    AngleRight,
+    AngleLeft,
+    CheckmarkCircle,
+    FilledArrowDown,
+    FilledArrowUp,
+    TickLarge,
+    TickSmall,
+    Warning,
+    MenuBurger,
+    Profile,
+    UserProfileSquare,
+    ProfileFill,
+    QuestionCircle,
+    Notification,
+    ChartSquare,
+    Plus,
+    Terminal,
+    Delete,
+    ClockRefresh,
+    ArrowLeft,
+    ArrowRight,
+    ArrowFirst,
+    ArrowLast,
+    Star,
+    NightModeCircle,
+    DotsMenu,
+    UndoneCheck,
+    Product,
+    ExitLogOut,
+    Calendar,
   },
 })
 export default class Icon extends Vue {
