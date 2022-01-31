@@ -107,7 +107,11 @@
       @apply dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active dark:focus:bg-surface-dark-focus;
     
       &.selected {
-        @apply bg-primarySurface
+        // default
+        @apply bg-primarySurface;
+
+        // dark
+        @apply dark:bg-primarySurface-dark;
       }
     }
   }
