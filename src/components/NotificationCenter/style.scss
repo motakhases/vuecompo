@@ -27,28 +27,31 @@
       .notif-img {
         @apply h-[173px] mb-md overflow-hidden rounded-sm;
       }
-      .content {
-        @apply flex flex-col shadow-divider-bottom;
+      .card-data {
+        @apply flex shadow-divider-bottom;
         @apply dark:shadow-dark-divider-bottom;
-        .title {
-          @apply text-b2 text-text;
-          @apply dark:text-text-dark;
-          svg {
-            @apply w-xl h-xl;
+        .card-icon {
+          @apply w-xl h-xl ml-xs;
+        }
+        .content{
+          @apply flex flex-col flex-grow;
+          .title {
+            @apply text-b2 text-text;
+            @apply dark:text-text-dark;
           }
-        }
-        .desc {
-          @apply mt-2xs text-b3 text-text-soft;
-          @apply dark:text-text-dark-soft;
-        }
-        .extra-data {
-          @apply mt-sm mb-md;
-          .date {
-            @apply text-b3 text-text-soft;
+          .desc {
+            @apply mt-2xs text-b3 text-text-soft;
             @apply dark:text-text-dark-soft;
           }
-          .link {
-            @apply float-left;
+          .extra-data {
+            @apply mt-sm mb-md;
+            .date {
+              @apply text-b3 text-text-soft;
+              @apply dark:text-text-dark-soft;
+            }
+            .link {
+              @apply float-left;
+            }
           }
         }
       }
@@ -74,7 +77,7 @@
       }
     }
     .notif-period {
-      @apply px-md pt-md block;
+      @apply px-md py-md block;
       @apply text-ls-cp text-text-soft bg-surface;
       @apply dark:text-text-dark-soft dark:bg-surface-dark;
     }

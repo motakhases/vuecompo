@@ -95,6 +95,16 @@ const Template = (_, { argTypes }) => ({
     <Table
       :data="tableData"
       :columns="columns"
+      class="mb-xl"
+    />
+
+    <h1 class="my-sm font-bold dark:text-surface">
+      قابل انتخاب
+    </h1>
+    <Table
+      :data="tableData"
+      :columns="columns"
+      selectable
     />
   </div>
   `,

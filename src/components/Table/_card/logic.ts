@@ -5,16 +5,15 @@ import Status from '@/components/Status/index.vue';
 import Label from '@/components/Label/index.vue';
 import TypeRenderer from '../_typeRenderer/index.vue';
 
+// Interfaces
 interface ITableColumns {
   title: string;
   key: string
 }
-
 interface ITableRowData {
   title: string;
   type: string
 }
-
 interface ITableRow {
   type: string;
   data: string | number | ITableRowData[]

@@ -5,6 +5,7 @@ import Label from '@/components/Label/index.vue';
 import Status from '@/components/Status/index.vue';
 import Thumbnail from '@/components/Thumbnail/index.vue';
 
+// Interface
 interface ITypeRendererData {
   type: string;
   data: number | string | {
