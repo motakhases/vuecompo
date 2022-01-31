@@ -1,18 +1,29 @@
 <template>
   <svg
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M8 8L16 16"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M17.652 4.751L16.249 3.348C15.858 2.957 15.225 2.957 14.835 3.348L4 14.182V17H6.818L17.652 6.166C18.043 5.775 18.043 5.142 17.652 4.751Z"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
-      d="M16 8L8 16"
+      d="M3 21H21"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M15.87 7.95L13.05 5.13"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
@@ -25,6 +36,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Delete',
+  name: 'PenAddNote',
 });
 </script>

@@ -2,6 +2,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '../Icon/index.vue';
 import Status from '../Status/index.vue';
 import Button from '../Button/index.vue';
+import { PageHeadingStatus } from '@/types';
 
 @Component({
   components: {
@@ -17,7 +18,7 @@ export default class PageHeading extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly sticky!: boolean
 
-  @Prop({ type: Array, default: [] }) readonly statuses!: boolean
+  @Prop({ type: Array }) readonly statuses?: PageHeadingStatus[]
 
   stickHeading = false
 

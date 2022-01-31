@@ -17,11 +17,9 @@ const Template = (_, { argTypes }) => ({
         <template v-slot:buttons>
           <Button
             text="تست"
-            class="mr-md"
           />
           <Button
             text="تست دو"
-            class="mr-md"
           />
         </template>
       </PageHeading>

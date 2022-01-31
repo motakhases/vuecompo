@@ -32,11 +32,30 @@ import ArrowFirst from './icons/ArrowFirst.vue';
 import ArrowLast from './icons/ArrowLast.vue';
 import Star from './icons/Star.vue';
 import NightModeCircle from './icons/NightModeCircle.vue';
+import NightModeSquare from './icons/NightModeSquare.vue';
 import DotsMenu from './icons/DotsMenu.vue';
 import UndoneCheck from './icons/UndoneCheck.vue';
 import Product from './icons/Product.vue';
 import ExitLogOut from './icons/ExitLogOut.vue';
 import Calendar from './icons/Calendar.vue';
+import BankSignalSquare from './icons/BankSignalSquare.vue';
+import CheckMarkCircleOutlined from './icons/CheckMarkCircleOutlined.vue';
+import Copy from './icons/Copy.vue';
+import CreditCardCheckmark from './icons/CreditCardCheckmark.vue';
+import Discount from './icons/Discount.vue';
+import DollarFill from './icons/DollarFill.vue';
+import ExportArrowTopLeft from './icons/ExportArrowTopLeft.vue';
+import Filters from './icons/Filter.vue';
+import EyeShow from './icons/EyeShow.vue';
+import IndeterminateFill from './icons/IndeterminateFill.vue';
+import InvoicePlus from './icons/InvoicePlus.vue';
+import MessageEditFill from './icons/MessageEditFill.vue';
+import PenAddNote from './icons/PenAddNote.vue';
+import PenEdit from './icons/PenEdit.vue';
+import QrCode from './icons/QrCode.vue';
+import Search from './icons/Search.vue';
+import SettingsRound from './icons/SettingsRound.vue';
+import Share from './icons/Share.vue';
 
 @Component({
   components: {
@@ -73,11 +92,30 @@ import Calendar from './icons/Calendar.vue';
     ArrowLast,
     Star,
     NightModeCircle,
+    NightModeSquare,
     DotsMenu,
     UndoneCheck,
     Product,
     ExitLogOut,
     Calendar,
+    BankSignalSquare,
+    CheckMarkCircleOutlined,
+    Copy,
+    CreditCardCheckmark,
+    Discount,
+    DollarFill,
+    ExportArrowTopLeft,
+    Filters,
+    EyeShow,
+    IndeterminateFill,
+    InvoicePlus,
+    MessageEditFill,
+    PenAddNote,
+    PenEdit,
+    QrCode,
+    Search,
+    SettingsRound,
+    Share,
   },
 })
 export default class Icon extends Vue {

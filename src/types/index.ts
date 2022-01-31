@@ -81,3 +81,8 @@ export interface DataSheetItemSpans {
   md: number;
   lg: number;
 }
+
+export interface PageHeadingStatus {
+  text: string;
+  type: string;
+}

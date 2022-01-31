@@ -15,16 +15,20 @@
         />
       </div>
       <div class="heading-content">
-        <span class="title">
-          {{ title }}
-        </span>
-        <div
-          v-for="(status, index) in statuses"
-          :key="index"
-          class="statuses"
-        >
-          <Status v-bind="status" />
+        <div class="flex items-center gap-x-xs">
+          <span class="title">
+            {{ title }}
+          </span>
+          <div class="status-container">
+            <div
+              v-for="(status, index) in statuses"
+              :key="index"
+            >
+              <Status v-bind="status" />
+            </div>
+          </div>
         </div>
+
         <p
           v-show="desc.length>0 && !stickHeading"
           class="desc"

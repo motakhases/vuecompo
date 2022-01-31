@@ -1,40 +1,40 @@
-.zpl-page-heading{
+.zpl-page-heading {
   direction: rtl;
-  .page-heading-container{
+  .page-heading-container {
     @apply flex flex-wrap;
     @apply lg:flex-nowrap;
-    @apply py-md ;
+    @apply py-md;
   }
-  .return-btn{
+  .return-btn {
     @apply h-[40px] rounded-sm ml-xs;
     @apply lg:ml-md;
   }
-  .heading-content{
+  .heading-content {
     @apply flex-grow ml-xs w-full order-3 mt-lg;
     @apply lg:ml-md lg:order-none lg:mt-0;
-    .title{
-      @apply text-ls-h1 leading-[40px] ml-xs;
+    .title {
+      @apply text-ls-h1 leading-[40px];
       @apply text-text;
       @apply dark:text-text-dark;
     }
-    .desc{
+    .desc {
       @apply text-b2;
       @apply text-text-soft;
       @apply dark:text-text-dark-soft;
     }
-    .statuses{
-      @apply inline-block ml-[2px];
+    .status-container {
+      @apply inline-flex gap-x-2xs;
     }
   }
-  .heading-btn{
-    @apply mr-auto flex-none;
+  .heading-btn {
+    @apply mr-auto flex gap-x-xs items-start;
   }
-  // when start scrolling 
-  &.fixed-page-heading{
+  // when start scrolling
+  &.fixed-page-heading {
     @apply bg-surface shadow-elevation-100;
     @apply dark:bg-surface-dark dark:shadow-dark-elevation-100;
     @apply sticky z-10 top-0 py-xs px-xs;
-    .heading-content{
+    .heading-content {
       @apply order-none w-auto mt-0;
     }
   }
