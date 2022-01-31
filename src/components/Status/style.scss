@@ -1,11 +1,19 @@
 .zpl-status {
   /* Default */
-  @apply rounded-xl flex items-center py-[2px] px-xs text-b3 w-max;
+  @apply rounded-xl flex items-center text-b3 w-max;
   @apply dark:text-text-dark;
+
+  &:not(.icon) {
+    @apply py-[2px] px-xs;
+  }
 
   /* circle */
   .circle {
     @apply w-[5px] h-[5px] rounded-circle ml-[6px];
+  }
+
+  svg {
+    @apply w-xl h-xl;
   }
 
   &.neutral {

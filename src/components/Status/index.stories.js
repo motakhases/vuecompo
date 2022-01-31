@@ -1,5 +1,5 @@
-import Status from './index.vue';
-import '@/utils/validations';
+import Status from "./index.vue";
+import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -7,9 +7,9 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    sm: 'سلام از طرف یک فیلد غیر فعال',
-    md: '',
-    lg: '',
+    sm: "سلام از طرف یک فیلد غیر فعال",
+    md: "",
+    lg: "",
   }),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
@@ -23,6 +23,8 @@ const Template = (_, { argTypes }) => ({
 	    <Status text="رد شده" type="negative" indicator />
 	    <Status text="ارسال شده به شاپرک" type="warning" indicator />
 	    <Status text="غیرفعال" type="neutral" indicator />
+      <Status  type="informative" icon="CheckmarkCircle" />
+
 		</div>
   </div>
   `,
