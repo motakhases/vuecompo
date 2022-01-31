@@ -13,6 +13,17 @@
       <!-- Head -->
       <thead>
         <tr>
+          <!-- CheckBox -->
+          <th
+            v-if="selectable"
+            class="checkbox-holder"
+          >
+            <CheckBox
+              v-model="isAllRowSelected"
+              name="all"
+            />
+          </th>
+          <!-- Column title -->
           <Th
             v-for="(col, index) in columns"
             :key="index"
@@ -27,7 +38,21 @@
         <tr
           v-for="(td, tdIndex) in data"
           :key="tdIndex"
+          :class="isRowSelected(tdIndex)"
         >
+          <!-- CheckBox -->
+          <td
+            v-if="selectable"
+            class="checkbox-holder"
+          >
+            <CheckBox
+              v-model="selectedRowsIndex"
+              :val="tdIndex"
+              name="single"
+              @click.native="selectRow"
+            />
+          </td>
+          <!-- Row's data -->
           <Td
             v-for="(col, colIndex) in columns"
             :key="colIndex"

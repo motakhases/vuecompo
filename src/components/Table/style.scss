@@ -78,9 +78,9 @@
     // dark
     @apply dark:bg-surface-dark dark:shadow-dark-elevation-50;
 
-    // Table Header
-    > thead > tr {
-      > th {
+    tr {
+      th,
+      td {
         > div {
           // default
           @apply font-IRANYekanFaNum font-normal p-md text-b2 text-text flex items-center gap-xs;
@@ -88,8 +88,13 @@
           // dark
           @apply dark:text-text-dark;
         }
+
+        &.checkbox-holder {
+          @apply w-[56px] p-md;
+        }
       }
     }
+
 
     // Table Body
     > tbody > tr {
@@ -100,15 +105,9 @@
       // dark
       @apply dark:border-border-dark-divider;
       @apply dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active dark:focus:bg-surface-dark-focus;
-      
-      > td {
-        > div {
-          // default
-          @apply font-IRANYekanFaNum font-normal p-md text-b2 text-text flex items-center gap-xs;
-          
-          // dark
-          @apply dark:text-text-dark;
-        }
+    
+      &.selected {
+        @apply bg-primarySurface
       }
     }
   }
