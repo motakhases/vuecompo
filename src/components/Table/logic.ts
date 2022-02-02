@@ -34,6 +34,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: Boolean }) readonly selectable?: boolean
 
+  isLoadCards = false
+
   isAllRowSelected = false
 
   selectedRowsIndex: number[] = []
@@ -66,5 +68,28 @@ export default class Logic extends Vue {
 
   selectRow(): void {
     this.isAllRowSelected = false;
+  }
+
+  /**
+   * It toggles rendered components
+   * from virtual DOM at 768px
+   */
+  handleResponsiveComponents(): void {
+    const viewPortWidth = window.screen.width;
+
+    if (viewPortWidth >= 768) {
+      this.isLoadCards = false;
+    } else {
+      this.isLoadCards = true;
+    }
+  }
+
+  created(): void {
+    window.addEventListener('DOMContentLoaded', this.handleResponsiveComponents);
+    window.addEventListener('resize', this.handleResponsiveComponents);
+  }
+
+  destroyed(): void {
+    window.removeEventListener('resize', this.handleResponsiveComponents);
   }
 }

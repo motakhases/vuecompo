@@ -1,4 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
+
+// Components
 import Icon from '@/components/Icon/index.vue';
 import Logo from '@/components/Logo/index.vue';
 import Button from '@/components/Button/index.vue';
