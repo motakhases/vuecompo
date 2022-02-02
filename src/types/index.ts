@@ -77,9 +77,9 @@ export interface IEvent {
  * @/components/DataSheet/Item
  */
 export interface DataSheetItemSpans {
-  xs: number;
-  md: number;
-  lg: number;
+  xs?: number;
+  md?: number;
+  lg?: number;
 }
 
 export interface PageHeadingStatus {
