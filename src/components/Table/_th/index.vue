@@ -1,12 +1,21 @@
 <template>
   <th>
-    <div>
+    <div
+      :class="{ 'can-sort': canSort }"
+      @click="sort"
+    >
       {{ title }}
       <Label
         v-if="label"
         size="small"
         type="neutral"
         :text="label"
+      />
+
+      <Icon
+        v-if="canSort"
+        class="sort-icon"
+        :name="sortIcons[sortOrder]"
       />
     </div>
   </th>
@@ -21,5 +30,4 @@ export default class Th extends Mixins(Logic) {}
 </script>
 
 // TODO: Sorting icons
-// TODO: Checkbox
 // TODO: Loading

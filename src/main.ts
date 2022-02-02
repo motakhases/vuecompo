@@ -1,13 +1,19 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import App from './App.vue';
+
+// Router
+import router from './routes';
+
+// Style
 import './assets/tailwind.css';
+
+// Utils
 import './utils/directives';
 import './utils/filters/index';
 
-Vue.use(VueRouter);
+import App from './App.vue';
 
 Vue.config.productionTip = false;
 new Vue({
   render: (h) => h(App),
+  router,
 }).$mount('#app');

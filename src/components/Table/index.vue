@@ -32,6 +32,8 @@
               :key="index"
               :title="col.title"
               :label="col.label"
+              :object-key="col.key"
+              :can-sort="col.sort"
             />
           </tr>
         </thead>
