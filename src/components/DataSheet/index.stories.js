@@ -12,6 +12,15 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
+    <DataSheet class="mb-xl">
+      <DataSheetRow>
+        <DataSheetItem title="مجموع تراکنش‌ها">
+          260,000
+          ریال
+        </DataSheetItem>
+      </DataSheetRow>
+    </DataSheet>
+
     <DataSheet>
       <DataSheetRow :cols="{ xs:1, md:2, lg:3 }">
         <DataSheetItem
@@ -36,7 +45,7 @@ const Template = (_, { argTypes }) => ({
           ریال
         </DataSheetItem>
       </DataSheetRow>
-      <DataSheetRow :cols="2">
+      <DataSheetRow :cols="{ xs:1, md:2 }">
         <DataSheetItem
           title="مجموع تراکنش‌ها"
           :col-span="{ xs:2, md:1, lg:1 }"

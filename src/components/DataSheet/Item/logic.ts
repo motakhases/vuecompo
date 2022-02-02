@@ -7,10 +7,14 @@ export default class DataSheetItem extends Vue {
 
   @Prop({ type: Boolean }) readonly row?: boolean;
 
-  @Prop({ type: Object, required: true }) readonly colSpan!: DataSheetItemSpans;
+  @Prop({ type: Object }) readonly colSpan?: DataSheetItemSpans;
 
   get spans(): string {
-    const { xs, md, lg } = this.colSpan;
-    return `col-span-${xs} md:col-span-${md} lg:col-span-${lg}`;
+    let classes = '';
+    if (this.colSpan) {
+      const { xs, md, lg } = this.colSpan;
+      classes = `col-span-${xs} md:col-span-${md} lg:col-span-${lg}`;
+    }
+    return classes;
   }
 }
