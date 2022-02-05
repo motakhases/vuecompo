@@ -22,10 +22,12 @@
         <SwitchTerminalItem
           v-for="(terminal, index) in terminals"
           :key="index"
+          :active="terminal.id === activeTerminal.id"
           :title="terminal.name"
           :link="terminal.domain"
-          icon="terminal"
+          :img="terminal.logo"
           :state="terminal.status"
+          icon="terminal"
         />
       </div>
 
