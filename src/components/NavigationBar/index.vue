@@ -14,6 +14,7 @@
       <!-- Terminals -->
       <SwitchTerminalPopover
         :terminals="terminals"
+        :active-terminal="activeTerminal"
       />
 
       <!-- Nav item links -->

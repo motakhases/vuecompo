@@ -7,8 +7,8 @@
       size="large"
       indicator
     >
-      <a
-        :href="link"
+      <router-link
+        :to="link"
         :class="['zpl-nav-item-link', { active }]"
       >
         <Icon :name="icon" />
@@ -19,7 +19,7 @@
           v-if="badge"
           :text="badge"
         />
-      </a>
+      </router-link>
     </Tooltip>
   </li>
 </template>
