@@ -32,7 +32,16 @@ export default class SwitchTerminalItem extends Vue {
     case 'ACTIVE':
       statusText = 'فعال';
       break;
-    case 'deactive':
+    case 'INACTIVE':
+      statusText = 'غیرفعال';
+      break;
+    case 'PENDING_SHAPARAK':
+      statusText = 'ارسال شده به شاپرک';
+      break;
+    case 'PENDING':
+      statusText = 'در انتظار';
+      break;
+    case 'REJECT':
       statusText = 'رد شده';
       break;
     default:
@@ -42,4 +51,3 @@ export default class SwitchTerminalItem extends Vue {
     return statusText;
   }
 }
-

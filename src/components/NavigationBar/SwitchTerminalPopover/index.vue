@@ -2,9 +2,9 @@
   <div class="zpl-nav-popover-container">
     <!-- Active terminal -->
     <SwitchTerminal
-      title="عنوان درگاه"
-      link="zarinp.al/getway"
-      icon="terminal"
+      :title="switcher.title"
+      :link="switcher.link"
+      :icon="switcher.icon"
     />
 
     <!-- Terminal list -->
@@ -12,20 +12,24 @@
       <!-- Title -->
       <Overview
         link="overview"
-        active
+        :active="!hasActive"
       >
         نمای کلی
       </Overview>
 
       <!-- Terminals -->
-      <SwitchTerminalItem
-        v-for="(terminal, index) in terminals"
-        :key="index"
-        :title="terminal.name"
-        :link="terminal.domain"
-        icon="terminal"
-        :state="terminal.status"
-      />
+      <div class="zpl-nav-terminal-items">
+        <SwitchTerminalItem
+          v-for="(terminal, index) in terminals"
+          :key="index"
+          :active="terminal.id === activeTerminal.id"
+          :title="terminal.name"
+          :link="terminal.domain"
+          :img="terminal.logo"
+          :state="terminal.status"
+          icon="terminal"
+        />
+      </div>
 
       <!-- Add new terminal -->
       <Create link="/home">
