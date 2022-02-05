@@ -32,15 +32,15 @@
 }
 
 .zpl-timeline-cart {
-  @apply rounded-sm p-md border border-border-divider w-[296px];
+  @apply rounded-sm p-md border border-border-divider w-full;
   @apply dark:border-border-dark-divider;
 }
 .zpl-timeline-title {
-  @apply flex items-center gap-md text-b2 text-text mb-xs;
+  @apply flex items-center gap-xs text-b2 text-text mb-xs;
   @apply dark:text-text-dark;
 }
 .zpl-timeline-sub {
-  @apply text-b3 text-text-soft mt-xs;
+  @apply text-b3 text-text-soft mt-xs font-IRANYekanFaNum;
   @apply dark:text-text-dark-soft;
 }
 
@@ -51,5 +51,14 @@
   svg {
     @apply w-[24px] h-[24px] text-icon-disabled;
     @apply dark:text-icon-dark-disabled;
+  }
+
+  .blue {
+    @apply text-icon-information;
+    @apply dark:text-icon-dark-information;
+  }
+  .green {
+    @apply text-icon-success;
+    @apply dark:text-icon-dark-success;
   }
 }
