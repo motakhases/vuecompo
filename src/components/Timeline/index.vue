@@ -1,7 +1,10 @@
 <template>
   <div class="zpl-timeline">
     <div class="zpl-timeline-icon">
-      <Icon :name="icon" />
+      <Icon
+        :name="icon"
+        :class="icon === 'CheckmarkCircle' ? 'blue' : icon === 'DollarFill' ? 'green' : ''"
+      />
     </div>
     <div class="zpl-timeline-cart">
       <div class="zpl-timeline-title">
@@ -17,7 +20,7 @@
         {{ subText }}
       </div>
       <div class="zpl-timeline-sub">
-        {{ date }}
+        {{ date | jalaali }}
       </div>
     </div>
   </div>
