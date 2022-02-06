@@ -46,7 +46,7 @@ export default class SwitchTerminalItem extends Vue {
     case 'PENDING':
       statusText = 'در انتظار';
       break;
-    case 'REJECT':
+    case 'REJECTED':
       statusText = 'رد شده';
       break;
     default:

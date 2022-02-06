@@ -16,7 +16,8 @@
     @apply w-xl h-xl;
   }
 
-  &.neutral {
+  &.neutral,
+  &.inactive {
     @apply bg-surface-soft text-text-soft;
     @apply dark:bg-surface-dark-soft dark:text-text-dark-soft;
 
@@ -36,7 +37,9 @@
     }
   }
 
-  &.warning {
+  &.warning,
+  &.pending,
+  &.pending_shaparak {
     @apply bg-warningSurface text-text-warning;
     @apply dark:bg-warningSurface-dark dark:text-text-dark-warning;
 
@@ -46,7 +49,8 @@
     }
   }
 
-  &.negative {
+  &.negative,
+  &.rejected {
     @apply bg-dangerSurface text-text-danger;
     @apply dark:bg-dangerSurface-dark dark:text-text-dark-danger;
 
@@ -56,7 +60,8 @@
     }
   }
 
-  &.positive {
+  &.positive,
+  &.active {
     @apply bg-successSurface text-text-success;
     @apply dark:bg-successSurface-dark dark:text-text-dark-success;
 
