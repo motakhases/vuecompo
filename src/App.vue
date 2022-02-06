@@ -6,10 +6,11 @@
     <TopBar
       :terminals="terminals"
       @showNotifs="displayNotifications"
+      @toggleMenu="toggleMenu = !toggleMenu"
     />
     <div class="flex">
       <NavigationBar
-        :toggle="false"
+        :toggle="toggleMenu"
         :terminals="terminals"
         :above-links="alinks"
         :below-links="blinks"
@@ -44,30 +45,65 @@ export default Vue.extend({
   },
   data() {
     return {
+      toggleMenu: false,
       terminals: [
         {
-          id: '283934', domain: 'afra.com', name: 'افرامارکت', status: 'ACTIVE',
+          id: '283934', domain: 'afra.com', route: { name: 'f' }, name: 'افرامارکت', status: 'ACTIVE',
         },
         {
-          id: '56882', domain: 'azadmn.com', name: 'حذف لوگو', status: 'REJECT',
+          id: '56882', domain: 'azadmn.com', route: { name: 'f' }, name: 'حذف لوگو', status: 'REJECTED',
         },
-        { id: '55077', domain: 'zarinp.al/azadehmn', name: 'سیده آزاده میرنظامی' },
-        { id: '52054', domain: 'testfirefox.ir', name: 'تست اصلی' },
-        { id: '52052', domain: 'testf.ir', name: 'تست اصلی مرورگر' },
-        { id: '52049', domain: 'ptestzarin.com', name: 'تست مرورگر' },
-        { id: '52040', domain: 'pzarinpal.com', name: 'ایحاد درکاه' },
-        { id: '49385', domain: 'irna.ir', name: 'خبرگزاری جمهوری اسلامی' },
-        { id: '49384', domain: 'itna.ir', name: 'ايتنا - سایت خبری تحلیلی فناوری اطلاعات و ارتباطات' },
-        { id: '49383', domain: 'azad.com', name: 'تست طولانی بودن کاراکتر درگاه پرداخت در پنل کاربری زرین پال' },
-        { id: '16424', domain: 'testblacljulist.com', name: 'azadehmirnezami' },
-        { id: '16423', domain: 'azada.com', name: 'aZcom' },
-        { id: '10808', domain: 'azad.com', name: 'تست نهایی اپلود' },
-        { id: '10800', domain: 'azaz.com', name: 'تست عکس' },
-        { id: '10564', domain: 'azad.com', name: 'منتذالربیقبالتات' },
-        { id: '10558', domain: 'azad.com', name: 'نهتالبیالتانتمن' },
-        { id: '10259', domain: 'azadehmnmn.ir', name: 'تست تست' },
-        { id: '10062', domain: 'test.ir', name: 'تست شماره 5' },
-        { id: '10', domain: 'sa1601.ir', name: 'اس ای 1601' }],
+        {
+          id: '55077', domain: 'zarinp.al/azadehmn', route: { name: 'f' }, name: 'سیده آزاده میرنظامی', status: 'PENDING',
+        },
+        {
+          id: '52054', domain: 'testfirefox.ir', route: { name: 'f' }, name: 'تست اصلی',
+        },
+        {
+          id: '52052', domain: 'testf.ir', route: { name: 'f' }, name: 'تست اصلی مرورگر',
+        },
+        {
+          id: '52049', domain: 'ptestzarin.com', route: { name: 'f' }, name: 'تست مرورگر',
+        },
+        {
+          id: '52040', domain: 'pzarinpal.com', route: { name: 'f' }, name: 'ایحاد درکاه',
+        },
+        {
+          id: '49385', domain: 'irna.ir', route: { name: 'f' }, name: 'خبرگزاری جمهوری اسلامی',
+        },
+        {
+          id: '49384', domain: 'itna.ir', route: { name: 'f' }, name: 'ايتنا - سایت خبری تحلیلی فناوری اطلاعات و ارتباطات',
+        },
+        {
+          id: '49383', domain: 'azad.com', route: { name: 'f' }, name: 'تست طولانی بودن کاراکتر درگاه پرداخت در پنل کاربری زرین پال',
+        },
+        {
+          id: '16424', domain: 'testblacljulist.com', route: { name: 'f' }, name: 'azadehmirnezami',
+        },
+        {
+          id: '16423', domain: 'azada.com', route: { name: 'f' }, name: 'aZcom',
+        },
+        {
+          id: '10808', domain: 'azad.com', route: { name: 'f' }, name: 'تست نهایی اپلود',
+        },
+        {
+          id: '10800', domain: 'azaz.com', route: { name: 'f' }, name: 'تست عکس',
+        },
+        {
+          id: '10564', domain: 'azad.com', route: { name: 'f' }, name: 'منتذالربیقبالتات',
+        },
+        {
+          id: '10558', domain: 'azad.com', route: { name: 'f' }, name: 'نهتالبیالتانتمن',
+        },
+        {
+          id: '10259', domain: 'azadehmnmn.ir', route: { name: 'f' }, name: 'تست تست',
+        },
+        {
+          id: '10062', domain: 'test.ir', route: { name: 'f' }, name: 'تست شماره 5',
+        },
+        {
+          id: '10', domain: 'sa1601.ir', route: { name: 'f' }, name: 'اس ای 1601',
+        }],
       alinks: [
         {
           title: 'پیشخوان',

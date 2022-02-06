@@ -13,8 +13,6 @@ import Tooltip from '../../Tooltip/index.vue';
   },
 })
 export default class NavItem extends Vue {
-  @Prop({ type: Boolean, default: false }) active!: boolean
-
   @Prop({ type: [String, Object] }) link!: string | { name?: string, path?: string }
 
   @Prop({ type: String }) icon!: string

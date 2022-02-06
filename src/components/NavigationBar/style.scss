@@ -9,8 +9,8 @@
 
   /* toggle */
   &.toggle {
-    @apply lg:w-[72px] transition-all ease-in duration-200 right-[-500px] lg:right-0;
-    @apply sm:h-screen hidden sm:block;
+    @apply lg:min-w-[72px] transition-all ease-in duration-200 right-[-500px] lg:right-0;
+    @apply hidden sm:block;
     transition-timing-function: ease-in;
     .zpl-nav-bar-header-title,
     .zpl-nav-bar-arrow,
@@ -39,13 +39,10 @@
 }
 .zpl-nav-bar-list {
   /* Default */
-  @apply list-none;
+  @apply list-none flex flex-col gap-xs;
 
-  &:first-child {
-    @apply pb-2xl;
-  }
-  &:last-child {
-    @apply pt-2xl border-t border-border-divider;
+  &.has-border {
+    @apply pb-2xl mb-2xl border-b border-border-divider;
     @apply dark:border-border-dark-divider;
   }
 }

@@ -9,7 +9,7 @@
     >
       <router-link
         :to="link"
-        :class="['zpl-nav-item-link', { active }]"
+        class="zpl-nav-item-link"
       >
         <Icon :name="icon" />
         <span class="zpl-nav-item-title">

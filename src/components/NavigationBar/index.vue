@@ -19,7 +19,10 @@
 
       <!-- Nav item links -->
       <div class="zpl-nav-bar-content">
-        <ul class="zpl-nav-bar-list">
+        <ul
+          v-if="aboveLinks.length"
+          class="zpl-nav-bar-list has-border"
+        >
           <NavItem
             v-for="(link, index) in aboveLinks"
             :key="index"
