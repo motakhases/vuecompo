@@ -1,11 +1,11 @@
 <template>
   <div class="zpl-quick-filter">
     <QuickFilterButton
-      v-for="item in items"
-      :key="item.id"
+      v-for="(item, index) in items"
+      :key="index"
       :text="item.text"
       :active="item.active"
-      @click.native="item.click"
+      @click.native="item.click(index)"
     />
   </div>
 </template>

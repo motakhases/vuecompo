@@ -8,25 +8,33 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { QuickFilter },
   props: Object.keys(argTypes),
+  methods: {
+    filter(i) {
+      this.list.filter((item, index) => {
+        if (index === i) {
+          this.list[index].active = true;
+        } else {
+          this.list[index].active = false;
+        }
+      });
+    },
+  },
   data() {
     return {
       list: [
         {
-          id: 1,
           text: "همه",
-          click: () => console.log("clicked"),
+          click: (i) => this.filter(i),
           active: true,
         },
         {
-          id: 2,
           text: "موفق",
-          click: () => console.log("clicked"),
+          click: (i) => this.filter(i),
           active: false,
         },
         {
-          id: 3,
           text: "ناموفق",
-          click: () => console.log("clicked"),
+          click: (i) => this.filter(i),
           active: false,
         },
       ],
