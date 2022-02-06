@@ -1,8 +1,11 @@
 import {
   Vue, Prop, Component,
 } from 'vue-property-decorator';
-import Thumbnail from '../../Thumbnail/index.vue';
+
+// Components
+import { Route } from 'vue-router';
 import Icon from '../../Icon/index.vue';
+import Thumbnail from '../../Thumbnail/index.vue';
 import GatewayStatus from '@/components/GatewayStatus/index.vue';
 
 @Component({
@@ -13,9 +16,11 @@ import GatewayStatus from '@/components/GatewayStatus/index.vue';
 export default class SwitchTerminalItem extends Vue {
   @Prop({ type: Boolean, default: false }) active!: boolean
 
-  @Prop({ type: String, default: 'عنوان درگاه' }) title!: string
+  @Prop({ type: String }) title?: string
 
-  @Prop({ type: String, default: 'zarinp.al/getway' }) link!: string
+  @Prop({ type: String }) link?: string
+
+  @Prop({ type: [String, Object] }) route?: Route
 
   @Prop({ type: String }) icon!: string
 

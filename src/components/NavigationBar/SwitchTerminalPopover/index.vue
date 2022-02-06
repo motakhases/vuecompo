@@ -25,6 +25,7 @@
           :active="terminal.id === activeTerminal.id"
           :title="terminal.name"
           :link="terminal.domain"
+          :route="terminal.route"
           :img="terminal.logo"
           :state="terminal.status"
           icon="terminal"

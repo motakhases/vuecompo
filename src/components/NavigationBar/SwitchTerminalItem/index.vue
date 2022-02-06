@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="link"
+    :to="route"
     class="zpl-terminal-item"
   >
     <Thumbnail
