@@ -1,4 +1,3 @@
-
 export interface SegmentedBtn {
   text: string;
   id: number;
@@ -42,13 +41,13 @@ export interface Announcement {
  * ---------------------------------------------------
  */
 export interface ListsObject {
-  title:string
-  value:number
+  title: string;
+  value: number;
 }
 
 export interface Paginate {
-  limit:number
-  page:number
+  limit: number;
+  page: number;
 }
 
 /**
@@ -56,13 +55,13 @@ export interface Paginate {
  * ---------------------------------------------------
  */
 export interface DateMoment {
-  format: (a: string) => string,
-  param: string
+  format: (a: string) => string;
+  param: string;
 }
 export interface Attributes {
-  class: string
+  class: string;
 }
-export type DatePickerValue = string | string[]
+export type DatePickerValue = string | string[];
 
 /**
  * @/components/Dropdown/Item
@@ -98,14 +97,25 @@ export interface PageHeadingStatus {
 export interface INavigationBarTerminal {
   domain: string;
   id?: string;
-  name: string
+  name: string;
 }
 export interface INavigationBarActiveTerminal {
   title: string;
   link: string | null;
   icon: string;
 }
-export interface INavigationBarLinks extends INavigationBarActiveTerminal{
+export interface INavigationBarLinks extends INavigationBarActiveTerminal {
   active?: boolean;
 }
 
+/**
+ * @/components/NavigationBar
+ * --------------------------------------------------
+ */
+
+export interface QuickFilterBtn {
+  text: string;
+  id: number;
+  active: boolean;
+  click(): void;
+}
