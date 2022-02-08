@@ -118,7 +118,7 @@ export default class Dropdown extends Vue {
 
   selectOption(value:string, text:string):void {
     this.inputVal = text;
-    this.$emit('updateData', value);
+    this.$emit('input', value);
     this.hideOptions();
     this.isInputFocused = true;
     this.isBoxFocused = false;

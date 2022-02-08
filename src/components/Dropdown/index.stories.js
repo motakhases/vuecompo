@@ -10,16 +10,15 @@ const Template = (_, { argTypes }) => ({
     data: "third",
   }),
   methods: {
-    updateData(value) {
-      this.data = value;
-    },
+
   },
   template: `
     <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px] rtl">
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3" @updateData="updateData" />
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3" @updateData="updateData" search />
+      <Dropdown v-model="data" v-bind="$props" class="col-span-3"/>
+      <Dropdown v-model="data" v-bind="$props" class="col-span-3" search />
       <Dropdown v-model="data" loading v-bind="$props" class="col-span-3" label="حالت لودینگ"/>
       <Dropdown v-model="data" disabled v-bind="$props" class="col-span-3" label="حالت غیر فعال" />
+      {{data}}
     </div>
   `,
 });
