@@ -1,6 +1,5 @@
 <template>
   <div class="zpl-ds">
-    {{ hello }}
     <slot />
   </div>
 </template>

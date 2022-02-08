@@ -83,6 +83,7 @@ const Template = (_, { argTypes }) => ({
       {
         title: 'تاریخ و ساعت',
         key: 'created_at',
+        sort: true,
       },
       {
         title: 'وضعیت',

@@ -23,14 +23,15 @@
     }
   }
 
-  &.pending {
+  &.pending,
+  &.pending_shaparak {
     &:before {
       @apply bg-icon-warning;
       @apply dark:bg-icon-dark-warning;
     }
   }
 
-  &.deactive {
+  &.rejected {
     &:before {
       @apply bg-icon-danger;
       @apply dark:bg-icon-dark-danger;

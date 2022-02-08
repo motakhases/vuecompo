@@ -1,0 +1,36 @@
+.zpl-quick-filter-button {
+  /* Default */
+  @apply text-b2 text-text-soft py-md relative;
+  @apply dark:text-text-dark-soft;
+
+  /* Hover */
+  &:not(.active) {
+    &:hover {
+      @apply text-text;
+      @apply dark:text-text-dark;
+      &::after {
+        @apply w-full;
+      }
+    }
+  }
+
+  /* border */
+  &::after {
+    content: "";
+    @apply bg-surface-heavy rounded-xs h-[2px] w-0 absolute bottom-0 right-0;
+    @apply dark:bg-surface-dark-heavy;
+    transition: all 0.25s ease-in;
+  }
+
+  /* active button */
+  &.active {
+    /* Default */
+    @apply text-text;
+    @apply dark:text-text-dark;
+
+    &::after {
+      @apply bg-primaryZarinpal w-full;
+      @apply dark:bg-primaryZarinpal-dark;
+    }
+  }
+}

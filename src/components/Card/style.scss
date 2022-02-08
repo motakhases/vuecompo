@@ -13,6 +13,10 @@
     }
   }
 
+  &-actions {
+    @apply flex gap-xs;
+  }
+
   &-content {
     @apply pt-xl;
   }

@@ -11,14 +11,16 @@
         :alt="alt"
       />
       <div class="zpl-nav-terminal-header">
-        <div class="zpl-nav-terminal-title">
-          {{ title }}
-        </div>
-        <div class="zpl-nav-terminal-link">
-          {{ link }}
+        <div>
+          <div class="zpl-nav-terminal-title">
+            {{ title }}
+          </div>
+          <div class="zpl-nav-terminal-link">
+            {{ link }}
+          </div>
         </div>
         <Icon
-          name="angleLeft"
+          name="AngleLeft"
           class="zpl-nav-terminal-arrow"
         />
       </div>

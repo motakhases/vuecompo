@@ -1,6 +1,6 @@
 <template>
-  <a
-    :to="link"
+  <router-link
+    to="/"
     class="zpl-nav-overview"
   >
     <Thumbnail icon="chartSquare" />
@@ -13,7 +13,7 @@
     >
       <Icon name="tickSmall" />
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script lang="ts">

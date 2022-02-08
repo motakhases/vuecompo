@@ -14,10 +14,7 @@
 
 <script lang="js">
 import Vue from 'vue';
-import moment from 'moment-jalaali';
-import NotificationCenter from '@/components/NotificationCenter/index.vue';
-import PageHeading from '@/components/PageHeading/index.vue';
-// import NavigationBar from '@/components/NavigationBar/index.vue';
+import NavigationBar from '@/components/NavigationBar/index.vue';
 import TopBar from '@/components/TopBar/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 
@@ -51,9 +48,8 @@ export default Vue.extend({
   },
   methods: {
     displayNotifications() {
-      this.showNotifs = !this.showNotifs;
+      console.log('a');
     },
   },
-
 });
 </script>

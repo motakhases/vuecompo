@@ -5,7 +5,9 @@
       <h4 class="zpl-card-head-title">
         {{ title }}
       </h4>
-      <slot name="actions" />
+      <div class="zpl-card-actions">
+        <slot name="actions" />
+      </div>
     </div>
 
     <!-- Content -->

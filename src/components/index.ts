@@ -2,6 +2,8 @@ export { default as Avatar } from './Avatar/index.vue';
 
 export { default as AvatarProgressBar } from './AvatarProgressBar/index.vue';
 
+export { default as QuickFilter } from './QuickFilter/index.vue';
+
 export { default as BankCards } from './BankCards/index.vue';
 
 export { default as BankLogos } from './BankLogos/index.vue';

@@ -1,10 +1,4 @@
 import NavigationBar from "./index.vue";
-import { storiesOf } from "@storybook/vue";
-import StoryRouter from "storybook-vue-router";
-
-storiesOf("Components/NavigationBar", module)
-  .addDecorator(StoryRouter())
-  .add("default", () => NavigationBar);
 
 const Template = (_, { argTypes }) => ({
   components: {
