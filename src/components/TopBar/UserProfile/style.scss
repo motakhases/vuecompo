@@ -1,29 +1,27 @@
 .zpl-user-profile {
-  /* Default */
-  @apply inline-flex items-center bg-surface rounded-sm p-xs text-icon text-b2
-	 cursor-pointer border-2 border-transparent;
-  @apply dark:bg-surface-dark dark:text-icon-dark;
-  /* Hover */
-  @apply hover:bg-surface-hover;
-  @apply dark:hover:bg-surface-dark-hover;
-
-  /* Active */
-  @apply active:bg-surface-active;
-  @apply dark:active:bg-surface-dark-active;
-
-  /* focused */
-  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
-  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
-  .zpl-button-icon {
-    @apply w-xl h-xl;
+  @apply relative z-40;
+  .zpl-user-profile-box{
+    @apply absolute w-[253px] left-0 rounded-sm;
+    @apply text-text;
+    @apply bg-surface border border-border-soft shadow-elevation-50;
+    @apply dark:text-text-dark;
+    @apply dark:bg-surface-dark dark:border-border-dark-soft dark:shadow-dark-elevation-50;
   }
-}
-.zpl-user-profile-username {
-  /* Default */
-  @apply mr-xs ml-2xs text-text;
-  @apply dark:text-text-dark;
-}
-.zpl-user-profile-desktop {
-  /* Default */
-  @apply hidden lg:block;
+  .zpl-profile-list{
+    @apply py-2xs;
+    .zpl-profile-item{
+      @apply mx-xs my-2xs p-xs rounded-sm;
+      @apply cursor-pointer;
+      @apply hover:bg-surface-hover active:bg-surface-active;
+      @apply dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active;
+      .list-text{
+        @apply text-text dark:text-text-dark;
+        @apply text-b2
+      }
+      .list-icons{
+        @apply w-xl h-xl ml-xs;
+        @apply text-icon dark:text-icon-dark;
+      }
+    }
+  }
 }

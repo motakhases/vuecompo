@@ -1,9 +1,0 @@
-.zpl-table-row {
-  /* Hover */
-  @apply hover:bg-surface-hover;
-  @apply dark:hover:bg-surface-dark-hover;
-
-  /* Active */
-  @apply active:bg-surface-active;
-  @apply dark:active:bg-surface-dark-active;
-}

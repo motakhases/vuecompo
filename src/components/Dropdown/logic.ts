@@ -5,21 +5,9 @@ import {
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 
-// const ARROW_DOWN_KEYCODE = 40;
-// const ARROW_UP_KEYCODE = 38;
-// const ENTER_KEYCODE = 13;
-// const keyList = [9, 13, 16, 17, 18, 20, 32, 37, 38, 39, 40, 46];
+import { IDropdownOptions, IEvent } from '@/types';
+
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
-
-interface IDropdownOptions {
-  text: string;
-  value: string | number;
-  disabled?: boolean;
-}
-
-interface IEvent {
-  target: HTMLInputElement;
-}
 
 @Component({
   components: {

@@ -1,147 +1,112 @@
-import Component from "./index.vue";
-import TableHeader from "./TableHeader/index.vue";
-import TableHeaderItem from "./TableHeaderItem/index.vue";
-import CheckBox from "@/components/CheckBox/index.vue";
-import TableRow from "./TableRow/index.vue";
-import TableRowItem from "./TableRowItem/index.vue";
-import TableRowAction from "./TableRowAction/index.vue";
-import Label from "@/components/Label/index.vue";
-import Thumbnail from "@/components/Thumbnail/index.vue";
+import Table from "./index.vue";
+
 export default {
-  component: Component,
+  component: Table,
   title: "Components/Table",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: {
-    Component,
-    TableHeader,
-    TableHeaderItem,
-    CheckBox,
-    TableRow,
-    TableRowItem,
-    Label,
-    Thumbnail,
-    TableRowAction,
-  },
-  props: null,
+  components: { Table },
+  data: () => ({
+    tableData: [
+      {
+        price: {
+          type: 'price',
+          data: 8100000,
+        },
+        pay_id: {
+          type: 'text',
+          data: 2234145522155,
+        },
+        description: {
+          type: 'text',
+          data: 'درخواست پرداخت دامنه شماره 2425',
+        },
+        created_at: {
+          type: 'date',
+          data: '2020-11-30T11:55:07.000000Z',
+        },
+        status: {
+          type: 'status',
+          data: [
+            {
+              title: 'پرداخت موفق',
+              type: 'positive',
+              size: '',
+            },
+          ],
+        },
+      },
+      {
+        price: {
+          type: 'price',
+          data: 8100000,
+        },
+        pay_id: {
+          type: 'text',
+          data: 2234145522155,
+        },
+        description: {
+          type: 'text',
+          data: 'درخواست پرداخت دامنه شماره 2425',
+        },
+        created_at: {
+          type: 'date',
+          data: '2020-11-30T11:55:07.000000Z',
+        },
+        status: {
+          type: 'status',
+          data: [
+            {
+              title: 'پرداخت موفق',
+              type: 'positive',
+              size: '',
+            },
+          ],
+        },
+      },
+    ],
+  
+    columns: [
+      {
+        title: 'مبلغ',
+        key: 'price',
+      },
+      {
+        title: 'شناسه پرداخت',
+        key: 'pay_id',
+      },
+      {
+        title: 'توضیحات',
+        key: 'description',
+      },
+      {
+        title: 'تاریخ و ساعت',
+        key: 'created_at',
+        sort: true,
+      },
+      {
+        title: 'وضعیت',
+        key: 'status',
+      },
+    ]
+  }),
   template: `
-  <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
-    <Component>
-      <template v-slot:header>
-        <TableHeader>
-          <TableHeaderItem> عنوان یک </TableHeaderItem>
-          <TableHeaderItem arrow-up> عنوان دو </TableHeaderItem>
-          <TableHeaderItem> عنوان سه </TableHeaderItem>
-          <TableHeaderItem arrow-up> عنوان چهار </TableHeaderItem>
-          <TableHeaderItem> عنوان پنج </TableHeaderItem>
-        </TableHeader>
-      </template>
-      <template v-slot:body>
+  <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
+    <Table
+      :data="tableData"
+      :columns="columns"
+      class="mb-xl"
+    />
 
-        <TableRow>
-          <TableRowItem title="نام و نام خانوادگی" subText="زیرنویس"> 
-						<Thumbnail img="https://pbs.twimg.com/profile_images/700431018386272256/Qty9UFhy_400x400.png" />
-					</TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-					<TableRowItem> 
-					<Label size="small" type="positive" text="سه"/>
-					</TableRowItem>
-          <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction/>
-        </TableRow>
-				<TableRow>
-          <TableRowItem> یک </TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-					<TableRowItem> 
-					<Label size="small" type="positive" text="سه"/> 
-					</TableRowItem>
-          <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction/>
-        </TableRow>
-				<TableRow>
-          <TableRowItem> یک </TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-					<TableRowItem> 
-					<Label size="small" type="positive" text="سه"/>
-				</TableRowItem>
-        <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction/>
-        </TableRow>
-				<TableRow>
-          <TableRowItem> یک </TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-          <TableRowItem> 
-						<Label size="small" type="positive" text="سه"/>
-					</TableRowItem>
-          <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction></TableRowAction>
-        </TableRow>
-      </template>
-    </Component>
-
-
-    <h1 class="mt-3xl mb-md font-bold dark:text-surface"> ستون‌های هم‌اندازه </h1>
-    <Component fixed>
-      <template v-slot:header>
-        <TableHeader fixed>
-          <TableHeaderItem> عنوان یک </TableHeaderItem>
-          <TableHeaderItem arrow-up> عنوان دو </TableHeaderItem>
-          <TableHeaderItem> عنوان سه </TableHeaderItem>
-          <TableHeaderItem arrow-up> عنوان چهار </TableHeaderItem>
-          <TableHeaderItem> عنوان پنج </TableHeaderItem>
-        </TableHeader>
-      </template>
-      <template v-slot:body>
-
-        <TableRow>
-          <TableRowItem title="نام و نام خانوادگی" subText="زیرنویس"> 
-						<Thumbnail img="https://pbs.twimg.com/profile_images/700431018386272256/Qty9UFhy_400x400.png" />
-					</TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-					<TableRowItem> 
-					<Label size="small" type="positive" text="سه"/>
-					</TableRowItem>
-          <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction/>
-        </TableRow>
-				<TableRow>
-          <TableRowItem> یک </TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-					<TableRowItem> 
-					<Label size="small" type="positive" text="سه"/> 
-					</TableRowItem>
-          <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction/>
-        </TableRow>
-				<TableRow>
-          <TableRowItem> یک </TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-					<TableRowItem> 
-					<Label size="small" type="positive" text="سه"/>
-				</TableRowItem>
-        <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction/>
-        </TableRow>
-				<TableRow>
-          <TableRowItem> یک </TableRowItem>
-          <TableRowItem> دو </TableRowItem>
-          <TableRowItem> 
-						<Label size="small" type="positive" text="سه"/>
-					</TableRowItem>
-          <TableRowItem> چهار </TableRowItem>
-          <TableRowItem> پنج </TableRowItem>
-					<TableRowAction></TableRowAction>
-        </TableRow>
-      </template>
-    </Component>
+    <h1 class="my-sm font-bold dark:text-surface">
+      قابل انتخاب
+    </h1>
+    <Table
+      :data="tableData"
+      :columns="columns"
+      selectable
+    />
   </div>
   `,
 });

@@ -1,6 +1,6 @@
 .zpl-topbar-container {
   /* Default */
-  @apply bg-surface px-md py-xs flex items-center justify-between;
+  @apply bg-surface px-md py-xs flex items-center justify-between top-0 sticky;
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
   @apply dark:bg-surface-dark dark:text-text-dark;
 }
@@ -19,5 +19,11 @@
 .zpl-topbar-logo {
   flex: 0 0 108px;
   max-width: 108px;
+  @apply hidden lg:block mr-xs;
+}
+.zpl-topbar-terminal-btn{
+  @apply block lg:hidden;
+}
+.zpl-topbar-question-btn{
   @apply hidden lg:block;
 }

@@ -1,41 +1,40 @@
-.zpl-page-heading{
+.zpl-page-heading {
   direction: rtl;
-  @apply flex flex-wrap;
-  @apply sm:flex-nowrap;
-  .return-btn{
-    @apply flex items-center cursor-pointer;
-    @apply flex-none w-[40px] h-[40px] rounded-sm ml-xs;
-    @apply sm:ml-md;
-    @apply bg-surface;
-    @apply dark:bg-surface-dark;
-    .return-icon{
-      @apply w-xl h-xl m-auto text-icon dark:text-icon-dark;
-    }
+  .page-heading-container {
+    @apply flex flex-wrap;
+    @apply lg:flex-nowrap;
+    @apply py-md;
   }
-  .heading-content{
+  .return-btn {
+    @apply h-[40px] rounded-sm ml-xs;
+    @apply lg:ml-md;
+  }
+  .heading-content {
     @apply flex-grow ml-xs w-full order-3 mt-lg;
-    @apply sm:ml-md sm:order-none sm:mt-0;
-    .title{
+    @apply lg:ml-md lg:order-none lg:mt-0;
+    .title {
       @apply text-ls-h1 leading-[40px];
       @apply text-text;
       @apply dark:text-text-dark;
     }
-    .desc{
+    .desc {
       @apply text-b2;
       @apply text-text-soft;
       @apply dark:text-text-dark-soft;
     }
+    .status-container {
+      @apply inline-flex gap-x-2xs;
+    }
   }
-  .heading-btn{
-    @apply mr-auto;
+  .heading-btn {
+    @apply mr-auto flex gap-x-xs items-start;
   }
-  // when start scrolling 
-  &.fixed-page-heading{
+  // when start scrolling
+  &.fixed-page-heading {
     @apply bg-surface shadow-elevation-100;
     @apply dark:bg-surface-dark dark:shadow-dark-elevation-100;
     @apply sticky z-10 top-0 py-xs px-xs;
-    @apply sm:py-md sm:px-md;
-    .heading-content{
+    .heading-content {
       @apply order-none w-auto mt-0;
     }
   }

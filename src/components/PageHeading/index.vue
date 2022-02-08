@@ -3,37 +3,44 @@
     ref="pageHeading"
     :class="['zpl-page-heading', {'fixed-page-heading':stickHeading}]"
   >
-    <div
-      v-if="returnBTN"
-      class="return-btn"
-      @click="router.go(-1)"
-    >
-      <Icon
-        name="arrowRight"
-        class="return-icon"
-      />
-    </div>
-    <div class="heading-content">
-      <span class="title">
-        {{ title }}
-      </span>
-      <p
-        v-show="desc.length>0 && !stickHeading"
-        class="desc"
+    <div class="page-heading-container container">
+      <div
+        v-if="returnBTN"
+        class="return-btn"
+        @click="router.go(-1)"
       >
-        {{ desc }}
-      </p>
-    </div>
-    <div
-      v-if="hasButton"
-      class="heading-btn"
-    >
-      <btn
-        :on-click="btnOperate"
-        v-bind="btn"
+        <Button
+          icon="ArrowRight"
+          type="tertiary"
+        />
+      </div>
+      <div class="heading-content">
+        <div class="flex items-center gap-x-xs">
+          <span class="title">
+            {{ title }}
+          </span>
+          <div class="status-container">
+            <div
+              v-for="(status, index) in statuses"
+              :key="index"
+            >
+              <Status v-bind="status" />
+            </div>
+          </div>
+        </div>
+
+        <p
+          v-show="desc.length>0 && !stickHeading"
+          class="desc"
+        >
+          {{ desc }}
+        </p>
+      </div>
+      <div
+        class="heading-btn"
       >
-        {{ btn.label }}
-      </btn>
+        <slot name="buttons" />
+      </div>
     </div>
   </div>
 </template>

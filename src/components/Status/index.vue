@@ -1,10 +1,14 @@
 <template>
   <div
-    :class="['zpl-status', type ]"
+    :class="['zpl-status', type , {icon} ]"
   >
     <span
       v-if="indicator"
       class="circle"
+    />
+    <Icon
+      v-if="icon"
+      :name="icon"
     />
     {{ text }}
   </div>

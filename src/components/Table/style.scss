@@ -1,9 +1,134 @@
-.zpl-table-container {
-  @apply relative;
-}
-.zpl-table-overflow {
-  @apply overflow-x-auto;
-}
 .zpl-table {
-  @apply w-full;
+  &-card {
+    // Show size
+    @apply md:hidden;
+
+    // default
+    @apply font-IRANYekanFaNum text-text bg-surface shadow-elevation-50 rounded-md overflow-hidden w-full mb-md p-md;
+    @apply last:mb-0;
+
+    // dark
+    @apply dark:bg-surface-dark dark:shadow-dark-elevation-50 dark:text-text-dark;
+
+    &-header {
+      @apply flex items-center justify-between mb-sm;
+
+      > div {
+        @apply first:text-b1
+      }
+    }
+
+    &-row {
+      // default
+      @apply flex items-center justify-between py-sm border-b border-border-divider;
+
+      // dark
+      @apply dark:border-border-dark-divider;
+
+      // last child
+      @apply last:border-b-0 last:pb-0;
+
+      > span {
+        // default
+        @apply first:text-text-soft first:text-b3 last:text-text last:text-b2;
+
+        // dark
+        @apply dark:first:text-text-dark-soft dark:last:text-text-dark;
+      }
+    }
+  }
+
+  &-type-renderer {
+    .custom {
+      @apply flex items-center gap-sm;
+
+      .text {
+        @apply flex flex-col;
+        
+        .title {
+          // default
+          @apply text-text text-b2;
+  
+          // dark
+          @apply dark:text-text-dark;
+        }
+  
+        .sub {
+          // default
+          @apply text-text-soft text-b3;
+  
+          // dark
+          @apply dark:text-text-dark-soft;
+        }
+      }
+    }
+
+    .unit {
+      @apply md:hidden
+    }
+  }
+
+  table {
+    // Show size
+    @apply hidden md:table;
+
+    // default
+    @apply bg-surface shadow-elevation-50 rounded-md overflow-hidden w-full;
+
+    // dark
+    @apply dark:bg-surface-dark dark:shadow-dark-elevation-50;
+
+    tr {
+      th,
+      td {
+        > div {
+          // default
+          @apply font-IRANYekanFaNum select-none font-normal p-md text-b2 text-text flex items-center gap-xs;
+          
+          // dark
+          @apply dark:text-text-dark;
+
+          &.can-sort {
+            // default
+            @apply hover:bg-surface-hover cursor-pointer;
+            
+            // dark
+            @apply dark:hover:bg-surface-dark-hover;
+
+            .sort-icon {
+              // default
+              @apply w-xs text-icon;
+              
+              // dark
+              @apply dark:text-icon-dark;
+            }
+          }
+        }
+
+        &.checkbox-holder {
+          @apply w-[56px] p-md;
+        }
+      }
+    }
+
+
+    // Table Body
+    > tbody > tr {
+      // default
+      @apply border-t border-border-divider;
+      @apply hover:bg-surface-hover active:bg-surface-active focus:bg-surface-focus;
+      
+      // dark
+      @apply dark:border-border-dark-divider;
+      @apply dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active dark:focus:bg-surface-dark-focus;
+    
+      &.selected {
+        // default
+        @apply bg-primarySurface;
+
+        // dark
+        @apply dark:bg-primarySurface-dark;
+      }
+    }
+  }
 }

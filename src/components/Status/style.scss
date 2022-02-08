@@ -1,14 +1,23 @@
 .zpl-status {
   /* Default */
-  @apply rounded-xl flex items-center py-[2px] px-xs text-b3 w-max;
+  @apply rounded-xl flex items-center text-b3 w-max;
   @apply dark:text-text-dark;
+
+  &:not(.icon) {
+    @apply py-[2px] px-xs;
+  }
 
   /* circle */
   .circle {
     @apply w-[5px] h-[5px] rounded-circle ml-[6px];
   }
 
-  &.neutral {
+  svg {
+    @apply w-xl h-xl;
+  }
+
+  &.neutral,
+  &.inactive {
     @apply bg-surface-soft text-text-soft;
     @apply dark:bg-surface-dark-soft dark:text-text-dark-soft;
 
@@ -28,7 +37,9 @@
     }
   }
 
-  &.warning {
+  &.warning,
+  &.pending,
+  &.pending_shaparak {
     @apply bg-warningSurface text-text-warning;
     @apply dark:bg-warningSurface-dark dark:text-text-dark-warning;
 
@@ -38,7 +49,8 @@
     }
   }
 
-  &.negative {
+  &.negative,
+  &.rejected {
     @apply bg-dangerSurface text-text-danger;
     @apply dark:bg-dangerSurface-dark dark:text-text-dark-danger;
 
@@ -48,7 +60,8 @@
     }
   }
 
-  &.positive {
+  &.positive,
+  &.active {
     @apply bg-successSurface text-text-success;
     @apply dark:bg-successSurface-dark dark:text-text-dark-success;
 

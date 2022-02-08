@@ -1,6 +1,6 @@
 .zpl-modal {
   direction: rtl;
-  @apply fixed top-0 bottom-0 right-0 left-0;
+  @apply fixed top-0 bottom-0 right-0 left-0 z-40;
   @apply flex justify-center items-center;
   // transition:  opacity 0.4s linear;
   // opacity: 0;

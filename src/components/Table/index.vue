@@ -1,22 +1,80 @@
 <template>
-  <div class="rtl over">
-    <div class="zpl-table-container">
-      <div class="zpl-table-overflow">
-        <table :class="['zpl-table', { 'table-fixed': fixed }]">
-          <thead>
-            <slot name="header" />
-          </thead>
-          <slot name="body" />
-        </table>
-      </div>
-    </div>
+  <div class="zpl-table">
+    <!-- Small view - Card -->
+    <template v-if="isLoadCards">
+      <Card
+        v-for="(td, index) in data"
+        :key="index"
+        :td="td"
+        :columns="columns"
+      />
+    </template>
+
+    <!-- Large view - Table -->
+    <template v-else>
+      <table>
+        <!-- Head -->
+        <thead>
+          <tr>
+            <!-- CheckBox -->
+            <th
+              v-if="selectable"
+              class="checkbox-holder"
+            >
+              <CheckBox
+                v-model="isAllRowSelected"
+                name="all"
+              />
+            </th>
+            <!-- Column title -->
+            <Th
+              v-for="(col, index) in columns"
+              :key="index"
+              :title="col.title"
+              :label="col.label"
+              :object-key="col.key"
+              :can-sort="col.sort"
+            />
+          </tr>
+        </thead>
+
+        <!-- Body -->
+        <tbody>
+          <tr
+            v-for="(td, tdIndex) in data"
+            :key="tdIndex"
+            :class="isRowSelected(tdIndex)"
+          >
+            <!-- CheckBox -->
+            <td
+              v-if="selectable"
+              class="checkbox-holder"
+            >
+              <CheckBox
+                v-model="selectedRowsIndex"
+                :val="tdIndex"
+                name="single"
+                @click.native="selectRow"
+              />
+            </td>
+            <!-- Row's data -->
+            <Td
+              v-for="(col, colIndex) in columns"
+              :key="colIndex"
+              :data="td[col.key]"
+            />
+          </tr>
+        </tbody>
+      </table>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import logic from './logic';
+import { Component, Mixins } from 'vue-property-decorator';
+import Logic from './logic';
 import './style.scss';
 
-export default Vue.extend({ mixins: [logic] });
+@Component
+export default class Table extends Mixins(Logic) {}
 </script>

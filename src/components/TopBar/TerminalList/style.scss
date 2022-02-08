@@ -1,0 +1,50 @@
+.zpl-topbar-terminal-list {
+  direction: rtl;
+  @apply fixed top-0 bottom-0 right-0 left-0 z-40;
+  @apply flex justify-center items-center;
+  @apply lg:hidden;
+  // transition:  opacity 0.4s linear;
+  // opacity: 0;
+  .modal {
+    @apply w-full max-h-[88vh] absolute bottom-0 z-[9999] rounded-t-md;
+    @apply lg:w-[600px] lg:mx-md lg:rounded-md lg:static;
+    @apply flex flex-col max-h-[85vh];
+    @apply text-text bg-surface shadow-elevation-100;
+    @apply dark:text-text-dark dark:bg-surface-dark dark:shadow-dark-elevation-100;
+    .terminal-items{
+      @apply overflow-y-scroll max-h-[calc(85vh-145px)]
+    }
+  }
+  .backdrop {
+    @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
+    @apply bg-alpha-overlay;
+    @apply dark:bg-alpha-dark-overlay;
+    // transition: all 0.15s linear;
+  }
+
+  /* ---------------------------------- */
+  /* scroll style */
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-xs;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+    @apply dark:bg-surface-dark;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-heavy rounded-md;
+    @apply dark:bg-surface-dark-heavy;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
