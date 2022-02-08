@@ -5,6 +5,7 @@ import moment from 'moment-jalaali';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import DatePicker from '@/components/DatePicker/index.vue';
+import { DatePickerValue } from '@/types';
 
 const date = {
   TODAY: 'امروز',
@@ -20,9 +21,9 @@ const date = {
   },
 })
 export default class Logic extends Vue {
-  @VModel({ type: Array }) model!: string[]
+  @VModel({ type: [String, Array] }) model!: DatePickerValue
 
-  @Watch('data')
+  @Watch('date')
   watchDate(): string {
     const startOfWeek = moment().startOf('week').format('jYYYY/jM/jD');
     const endOfWeek = moment().endOf('week').format('jYYYY/jM/jD');
@@ -50,4 +51,6 @@ export default class Logic extends Vue {
   ]
 
   date = ''
+
+  tod=moment().format('jYYYY/jM/jD')
 }

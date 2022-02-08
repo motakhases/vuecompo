@@ -1,11 +1,11 @@
 import {
   Component, Prop, VModel, Vue,
 } from 'vue-property-decorator';
-import FilterToggle from '../FilterToggle/index.vue';
+import CheckBox from '@/components/CheckBox/index.vue';
 
 @Component({
   components: {
-    FilterToggle,
+    CheckBox,
   },
 })
 export default class Logic extends Vue {

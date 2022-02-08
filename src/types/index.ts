@@ -60,6 +60,8 @@ export interface Attributes {
 
 export type DatePickerValue = string | string[]
 
+export type AmountFilterValue = string | string[]
+
 /**
  * @/components/Dropdown/Item
  */

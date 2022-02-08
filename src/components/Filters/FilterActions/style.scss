@@ -1,9 +1,0 @@
-.zpl-filter-actions {
-  @apply shadow-divider-bottom p-md flex justify-between items-center;
-  @apply dark:shadow-dark-divider-bottom;
-
-  .filter-text {
-    @apply text-ls-h3 font-bold text-text;
-    @apply dark:text-text-dark;
-  }
-}

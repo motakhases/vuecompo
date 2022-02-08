@@ -1,6 +1,4 @@
-import {
-  Vue, Component, Prop,
-} from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
@@ -12,56 +10,57 @@ import Icon from '@/components/Icon/index.vue';
   },
 })
 export default class TextBox extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly disabled?: boolean
+  @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
 
-  @Prop({ type: String }) readonly label?: string
+  @Prop({ type: String }) readonly label?: string;
 
-  @Prop({ type: Number }) readonly maxlength?: number
+  @Prop({ type: Number }) readonly maxlength?: number;
 
-  @Prop({ type: String }) readonly rules?: string
+  @Prop({ type: String }) readonly rules?: string;
 
-  @Prop({ type: String }) readonly hint?: string
+  @Prop({ type: String }) readonly hint?: string;
 
-  @Prop({ type: String }) readonly successMessage?: string
+  @Prop({ type: String }) readonly successMessage?: string;
 
-  @Prop({ type: String }) readonly unit?: string
+  @Prop({ type: String }) readonly unit?: string;
 
-  @Prop({ type: String, default: 'text' }) readonly type!: string
+  @Prop({ type: String, default: 'text' }) readonly type!: string;
 
-  @Prop({ type: String }) readonly separator?: string
+  @Prop({ type: String }) readonly separator?: string;
 
-  @Prop({ type: Boolean }) readonly stepper!: boolean
+  @Prop({ type: Boolean }) readonly stepper!: boolean;
 
-  @Prop({ type: String }) readonly prefixIcon?: string
+  @Prop({ type: String }) readonly prefixIcon?: string;
 
-  @Prop({ type: String }) readonly suffixIcon?: string
+  @Prop({ type: String }) readonly suffixIcon?: string;
 
-  @Prop({ type: String }) readonly placeholder?: string
+  @Prop({ type: String }) readonly placeholder?: string;
 
-  @Prop({ type: String, default: '' }) readonly value!: string
+  @Prop({ type: String, default: '' }) readonly value!: string;
 
-  isInputFocused = !!this.value.length
+  isInputFocused = !!this.value.length;
 
-  get model():string|number {
+  get model(): string | number {
     return this.formattedValue();
   }
 
-  set model(value:string|number) {
-    this.$emit('input', value);
+  set model(value: string | number) {
+    this.$emit('input', value.toString().replace(/\D/g, ''));
   }
 
-  onFocusIn():void {
+  onFocusIn(): void {
     this.isInputFocused = true;
   }
 
-  onFocusOut():void {
+  onFocusOut(): void {
     if (!this.value) {
       this.isInputFocused = false;
     }
   }
 
-  formattedValue():string {
+  formattedValue(): string {
     if (this.type === 'number') {
+      const val = `${this.value}`;
       switch (this.separator) {
       case 'comma':
         return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -76,15 +75,16 @@ export default class TextBox extends Vue {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  toEnNumber(payload:number|string):string {
-    const modifiedToEnNumber = payload.toString()
+  toEnNumber(payload: number | string): string {
+    const modifiedToEnNumber = payload
+      .toString()
       .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
       .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
 
     return payload === '' ? payload : modifiedToEnNumber;
   }
 
-  onlyNumber(event:KeyboardEvent):boolean|void {
+  onlyNumber(event: KeyboardEvent): boolean | void {
     if (this.type === 'number') {
       if (!/\d/.test(event.key) && event.key !== '.') {
         return event.preventDefault();
@@ -93,7 +93,7 @@ export default class TextBox extends Vue {
     return true;
   }
 
-  increment():void {
+  increment(): void {
     this.isInputFocused = true;
     if (this.type === 'number') {
       if (this.value.length === 0) {
@@ -105,7 +105,7 @@ export default class TextBox extends Vue {
     }
   }
 
-  decrement():void {
+  decrement(): void {
     const numberValue = Number(this.value);
     if (this.type === 'number' && numberValue > 0) {
       const newValue = (numberValue - 1).toString();

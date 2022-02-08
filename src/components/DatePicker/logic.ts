@@ -16,7 +16,7 @@ import { DateMoment, Attributes, DatePickerValue } from '@/types';
     VuePersianDatetimePicker,
   },
 })
-export default class Pagination extends Vue {
+export default class DatePicker extends Vue {
   @VModel({ type: [String, Array] }) model!: DatePickerValue
 
   @Prop({ type: Boolean, default: false }) range ?: boolean
@@ -30,16 +30,6 @@ export default class Pagination extends Vue {
   @Prop({ type: Boolean, default: false }) preview ?: boolean
 
   @Prop({ type: [String, Array] }) value !: DatePickerValue
-
-  getModel(): DatePickerValue {
-    let result:DatePickerValue = this.value;
-
-    if (moment(this.value[0]).isAfter(this.value[1])) {
-      result = [this.value[1], this.value[0]];
-    }
-
-    return result;
-  }
 
   highlightToday(formatted: string, dateMoment: DateMoment): Attributes {
     const attributes = {} as Attributes;

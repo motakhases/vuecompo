@@ -3,6 +3,7 @@ import {
 } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
+import { AmountFilterValue } from '@/types';
 
 @Component({
   components: {
@@ -11,7 +12,7 @@ import Textfield from '@/components/TextField/index.vue';
   },
 })
 export default class Logic extends Vue {
-  @VModel({ type: Array }) model!: string[]
+  @VModel({ type: [Array, String] }) model!: AmountFilterValue
 
   @Prop({ type: String, default: 'equal' }) readonly amountFilter!: string
 
@@ -44,10 +45,10 @@ export default class Logic extends Vue {
   };
 
   options = [
-    { id: 1, text: this.types.EQUAL_TO },
-    { id: 2, text: this.types.LESS_THAN },
-    { id: 3, text: this.types.PRICE_RANGE },
-    { id: 4, text: this.types.GREATER_THAN },
+    { id: 1, text: this.types.EQUAL_TO, value: 'EQUAL_TO' },
+    { id: 2, text: this.types.LESS_THAN, value: 'LESS_THAN' },
+    { id: 3, text: this.types.PRICE_RANGE, value: 'PRICE_RANGE' },
+    { id: 4, text: this.types.GREATER_THAN, value: 'GREATER_THAN' },
   ]
 
   amount = null

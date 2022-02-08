@@ -3,7 +3,7 @@
     <Dropdown
       v-model="amountType"
       :options="options"
-      placeholder="بازه تاریخ"
+      placeholder="بازه مبلغ"
       class="dropdown"
     />
     <Textfield
@@ -13,6 +13,7 @@
       separator="comma"
       unit="ریال"
     />
+    {{ amountType }}
     <div
       v-if="amountType === 'بازه مبلغ'"
       class="range-box"

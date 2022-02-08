@@ -3,36 +3,12 @@
     dir="rtl"
     class="bg-[#F5F5F5] h-[2000px]"
   >
-    <TopBar
-      :terminals="terminals"
-      @showNotifs="displayNotifications"
+    <Dropdown
+      v-model="data"
+      :options="options"
+      class="col-span-3"
     />
-    <!-- <NavigationBar
-      :toggle="false"
-      :terminals="terminals"
-      :above-links="alinks"
-      :below-links="blinks"
-    /> -->
-    <PageHeading
-      :return-b-t-n="true"
-      :sticky="true"
-      title="عنوان"
-      desc="توضیحات"
-      :has-button="true"
-      :statuses="[{text:'غیر فعال', type:'negative'},{text:'فعال', type:'positive'}]"
-    >
-      <template v-slot:buttons>
-        <Button
-          text="تست"
-          class="mr-md"
-        />
-      </template>
-    </PageHeading>
-    <NotificationCenter
-      :announcements="data"
-      :is-open="showNotifs"
-      :toggle="displayNotifications"
-    />
+    {{ data }}
   </div>
 </template>
 
@@ -43,191 +19,34 @@ import NotificationCenter from '@/components/NotificationCenter/index.vue';
 import PageHeading from '@/components/PageHeading/index.vue';
 // import NavigationBar from '@/components/NavigationBar/index.vue';
 import TopBar from '@/components/TopBar/index.vue';
-import Button from '@/components/Button/index.vue';
+import Dropdown from '@/components/Dropdown/index.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    NotificationCenter,
-    TopBar,
-    PageHeading,
-    Button,
+    Dropdown,
     // NavigationBar,
   },
   data() {
     return {
       // sidebar
-      btn: {
-        text: 'تست',
-        type: 'primary',
-        size: 'medium',
-        disabled: false,
-        loading: false,
-        afterIcon: '',
-        beforeIcon: '',
-      },
-      terminals: [
+      disabled: false,
+      label: 'یک دراپ‌داون عادی',
+      hint: 'یک توضیح کوتاه',
+      successMessage: 'عملیات موفقیت آمیز بود',
+      options: [
+        { id: 1, text: 'اولین گزینه', value: 'a' },
         {
-          domain: 'zarin.express/zardu',
-          name: 'زاردو',
-          status: 'ACTIVE',
+          id: 2, text: 'دومین گزینه', value: 'b', disabled: true,
         },
-        {
-          domain: 'zarin.express/zardu',
-          name: 'زاردو',
-          status: 'ACTIVE',
-        },
-        {
-          domain: 'zarin.express/zardu',
-          name: 'زاردو',
-          status: 'ACTIVE',
-        },
-        {
-          domain: 'zarin.express/zardu',
-          name: 'زاردو',
-          status: 'ACTIVE',
-        },
-        {
-          domain: 'zarin.express/zardu',
-          name: 'زاردو',
-          status: 'ACTIVE',
-        },
-        {
-          domain: 'zarin.express/zardu',
-          name: 'زاردو',
-          status: 'ACTIVE',
-        },
-        {
-          domain: 'zarinp.al/xandar',
-          name: 'زاندار',
-          status: 'deactive',
-        },
+        { id: 3, text: 'سومین گزینه', value: 'c' },
+        { id: 4, text: 'چهارمین گزینه', value: 'd' },
+        { id: 5, text: 'پنجمین گزینه', value: 'e' },
       ],
-      alinks: [
-        {
-          title: 'پیشخوان',
-          link: '/',
-          icon: 'GridLayout',
-          active: true,
-        },
-        {
-          title: 'تراکنش‌ها',
-          link: '/',
-          icon: 'DrpItemCheck',
-        },
-        {
-          title: 'تسویه حساب',
-          link: '/',
-          icon: 'CreditCheckout',
-        },
-        {
-          title: 'محصولات',
-          link: '/',
-          icon: 'Box',
-        },
-      ],
-      blinks: [
-        {
-          title: 'حساب‌های بانکی',
-          link: '/',
-          icon: 'PaymentCard',
-        },
-        {
-          title: 'تیکت‌ها',
-          link: '/',
-          icon: 'ChatMessage',
-        },
-      ],
-      // notification center
-      showNotifs: false,
-      data: [
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-          icon: 'QuestionCircle',
-        },
-        {
-          title: 'عنوان',
-          message: '',
-          date: moment().format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: 'https://www.w3schools.com/css/lights600x400.jpg',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(1, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(2, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(3, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(4, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(5, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(6, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(7, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(8, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(9, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-        {
-          title: 'عنوان',
-          message: 'توضیحات',
-          date: moment().subtract(10, 'days').format('YYYY-M-D'),
-          link: 'https://next.zarinpal.com/panel/dashboard',
-          image: '',
-        },
-      ],
-
+      disabledOptionId: null,
+      loading: false,
+      rules: 'required',
+      data: '',
     };
   },
   methods: {

@@ -14,6 +14,7 @@ const Template = (_, { argTypes }) => ({
       <Dropdown v-model="data" v-bind="$props" class="col-span-3" />
       <Dropdown loading class="col-span-3" label="حالت لودینگ"/>
       <Dropdown disabled class="col-span-3" label="حالت غیر فعال" />
+      {{data}}
     </div>
   `,
 });
