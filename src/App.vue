@@ -1,7 +1,7 @@
 <template>
   <div
     dir="rtl"
-    class="bg-[#F5F5F5] h-[2000px]"
+    class="bg-[#F5F5F5]"
   >
     <TopBar
       :terminals="terminals"
@@ -21,11 +21,28 @@
         }"
       />
       <div class="w-full">
-        <div
-          v-for="i in 900"
-          :key="i"
+        <PageHeading
+          sticky
+          title="عنوان"
+          desc="توضیحات"
+          :has-button="true"
         >
-          .
+          <template v-slot:buttons>
+            <Button
+              text="تست"
+            />
+            <Button
+              text="تست دو"
+            />
+          </template>
+        </PageHeading>
+        <div class="container">
+          <div
+            v-for="i in 900"
+            :key="i"
+          >
+            .
+          </div>
         </div>
       </div>
     </div>
@@ -36,12 +53,16 @@
 import Vue from 'vue';
 import NavigationBar from '@/components/NavigationBar/index.vue';
 import TopBar from '@/components/TopBar/index.vue';
+import PageHeading from '@/components/PageHeading/index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
     TopBar,
     NavigationBar,
+    PageHeading,
+    Button,
   },
   data() {
     return {
