@@ -1,16 +1,16 @@
 <template>
   <div
     dir="rtl"
-    class="bg-[#F5F5F5]"
+    class="bg-background"
   >
     <TopBar
       :terminals="terminals"
-      @showNotifs="displayNotifications"
-      @toggleMenu="toggleMenu = !toggleMenu"
+      @showNotifs="$refs.notificationCenter.toggle()"
+      @toggleMenu="$refs.navigationBar.toggle()"
     />
     <div class="flex">
       <NavigationBar
-        :toggle="toggleMenu"
+        ref="navigationBar"
         :terminals="terminals"
         :above-links="alinks"
         :below-links="blinks"
@@ -19,6 +19,11 @@
           id: '10',
           name: '1601',
         }"
+      />
+
+      <NotificationCenter
+        ref="notificationCenter"
+        :announcements="data"
       />
       <div class="w-full">
         <PageHeading
@@ -51,10 +56,14 @@
 
 <script lang="js">
 import Vue from 'vue';
-import NavigationBar from '@/components/NavigationBar/index.vue';
+import moment from 'moment-jalaali';
+
+// Components
+import Button from '@/components/Button/index.vue';
 import TopBar from '@/components/TopBar/index.vue';
 import PageHeading from '@/components/PageHeading/index.vue';
-import Button from '@/components/Button/index.vue';
+import NavigationBar from '@/components/NavigationBar/index.vue';
+import NotificationCenter from '@/components/NotificationCenter/index.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -62,11 +71,99 @@ export default Vue.extend({
     TopBar,
     NavigationBar,
     PageHeading,
+    NotificationCenter,
     Button,
   },
   data() {
     return {
       toggleMenu: false,
+      data: [
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+          icon: 'QuestionCircle',
+        },
+        {
+          title: 'عنوان',
+          message: '',
+          date: moment().format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: 'https://www.w3schools.com/css/lights600x400.jpg',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(1, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(2, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(3, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(4, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(5, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(6, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(7, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(8, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(9, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+        {
+          title: 'عنوان',
+          message: 'توضیحات',
+          date: moment().subtract(10, 'days').format('YYYY-M-D'),
+          link: 'https://next.zarinpal.com/panel/dashboard',
+          image: '',
+        },
+      ],
       terminals: [
         {
           id: '283934', domain: 'afra.com', route: { name: 'f' }, name: 'افرامارکت', status: 'ACTIVE',
