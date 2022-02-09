@@ -1,6 +1,8 @@
 <template>
   <div class="zpl-table-type-renderer">
-    <!-- Custom -->
+    <!--------------
+        Custom
+    -------------->
     <div
       v-if="data.type === 'custom'"
       class="custom"
@@ -20,7 +22,9 @@
       </div>
     </div>
 
-    <!-- Number -->
+    <!--------------
+        Number
+    -------------->
     <div v-else-if="data.type === 'price'">
       {{ data.data.toLocaleString() }}
       <Label
@@ -31,17 +35,25 @@
       />
     </div>
 
-    <!-- Date -->
+    <!--------------
+          Date
+    -------------->
     <div v-else-if="data.type === 'date'">
-      {{ data.data | JdateName }}
+      {{ data.data | tableDateFormat }}
     </div>
 
-    <!-- Label -->
-    <div v-else-if="data.type === 'status'">
+    <!--------------
+        Status
+    -------------->
+    <div
+      v-else-if="data.type === 'status'"
+      class="status"
+    >
       <Status
         v-for="(label, labelIndex) in data.data"
         :key="labelIndex"
         :text="label.title"
+        :icon="label.icon"
         :type="label.type"
       />
     </div>
