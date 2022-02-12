@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .container { 
+    @apply mx-auto px-md lg:px-2xl
+  }
+}
+
 @layer utilities {
   .rtl { direction: rtl; }
   .ltr { direction: ltr; }

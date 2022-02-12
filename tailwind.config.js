@@ -29,6 +29,9 @@ module.exports = {
       ],
     }),
   ],
+  corePlugins: {
+    container: false,
+  },
   theme: {
     colors,
     fontFamily,
@@ -40,9 +43,6 @@ module.exports = {
     rotate,
     backgroundImage: {
       'empty-box': "url('./Illustration/EmptyBox.svg')",
-    },
-    container: {
-      center: true,
     },
   },
   variants: {},

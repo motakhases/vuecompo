@@ -19,11 +19,13 @@ export default class NotificationCenter extends Vue {
 
   @Prop({ type: Array, default: () => [] }) readonly notifs?: Announcement[]
 
-  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
-
-  @Prop({ type: Function, required: true }) readonly toggle!: () => boolean
-
   showArchives = false
+
+  isShow = false
+
+  toggle(): void {
+    this.isShow = !this.isShow;
+  }
 
   todayCards(data:[]):never[] {
     return data?.filter(({ date }) => date === now('YYYY-M-D'));
