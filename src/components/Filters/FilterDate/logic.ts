@@ -20,7 +20,7 @@ const date = {
     DatePicker,
   },
 })
-export default class Logic extends Vue {
+export default class FilterDate extends Vue {
   @VModel({ type: [String, Array] }) model!: DatePickerValue
 
   @Watch('date')
@@ -44,13 +44,20 @@ export default class Logic extends Vue {
     return '';
   }
 
+  @Watch('range')
+  watchRange():void{
+    if (this.range.length) {
+      this.$emit('input', this.range);
+    }
+  }
+
   options = [
     { id: 1, text: date.TODAY, value: date.TODAY },
     { id: 2, text: date.CURRENT_WEEK, value: date.CURRENT_WEEK },
     { id: 3, text: date.OPTIONAL_PERIOD, value: date.OPTIONAL_PERIOD },
   ]
 
-  date = ''
+  range = []
 
-  tod=moment().format('jYYYY/jM/jD')
+  date = ''
 }

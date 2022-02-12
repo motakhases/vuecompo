@@ -45,7 +45,11 @@ export default class TextBox extends Vue {
   }
 
   set model(value: string | number) {
-    this.$emit('input', value.toString().replace(/\D/g, ''));
+    if (this.type === 'number') {
+      this.$emit('input', value.toString().replace(/,/g, ''));
+    } else {
+      this.$emit('input', value);
+    }
   }
 
   onFocusIn(): void {
@@ -60,7 +64,6 @@ export default class TextBox extends Vue {
 
   formattedValue(): string {
     if (this.type === 'number') {
-      const val = `${this.value}`;
       switch (this.separator) {
       case 'comma':
         return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');

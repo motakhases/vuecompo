@@ -8,7 +8,7 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { Label },
   template: `
-	<div class="dark:bg-surface-dark rounded-md p-lg rounded-md flex flex-col gap-md rtl">
+	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
 		<Label size="medium" type="neutral" text="لیبل" />
 		<h1 class="font-bold dark:text-surface"> سایزهای مختلف </h1>
 		<div>
@@ -17,7 +17,7 @@ const Template = (_, { argTypes }) => ({
 		</div>
 		<h1 class="font-bold dark:text-surface"> انواع مختلف </h1>
 		<div class="flex gap-sm">
-			<Label size="medium" type="positive" text="positive" />
+			<Label size="medium" type="positive" :text="11" />
 			<Label size="medium" type="negative" text="negative" />
 			<Label size="medium" type="neutral" text="neutral" />
 			<Label size="medium" type="outlined" text="outlined" />

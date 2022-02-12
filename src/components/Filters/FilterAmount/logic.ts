@@ -1,5 +1,5 @@
 import {
-  Component, Prop, VModel, Watch, Vue,
+  Component, Prop, VModel, Vue, Watch,
 } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
@@ -12,24 +12,27 @@ import { AmountFilterValue } from '@/types';
   },
 })
 export default class Logic extends Vue {
-  @VModel({ type: [Array, String] }) model!: AmountFilterValue
+  @VModel({ type: [Array, String], required: true }) model!: AmountFilterValue
 
-  @Prop({ type: String, default: 'equal' }) readonly amountFilter!: string
+  @Prop({ type: String, required: true }) readonly amountFilter!: string
 
-  @Watch('amountFilter')
-  watchAmountFilter(): string {
-    switch (this.amountFilter) {
-    case 'equal':
-      this.amountType = this.types.EQUAL_TO;
+  @Watch('amountType')
+  watchAmountType(): string {
+    this.$emit('input', '');
+    this.range = [];
+
+    switch (this.amountType) {
+    case this.types.EQUAL_TO:
+      this.$emit('updateAmount', this.types.EQUAL_TO);
       break;
-    case 'max':
-      this.amountType = this.types.LESS_THAN;
+    case this.types.LESS_THAN:
+      this.$emit('updateAmount', this.types.LESS_THAN);
       break;
-    case 'min':
-      this.amountType = this.types.GREATER_THAN;
+    case this.types.PRICE_RANGE:
+      this.$emit('updateAmount', this.types.PRICE_RANGE);
       break;
-    case 'range':
-      this.amountType = this.types.PRICE_RANGE;
+    case this.types.GREATER_THAN:
+      this.$emit('updateAmount', this.types.GREATER_THAN);
       break;
     default:
       return '';
@@ -37,23 +40,28 @@ export default class Logic extends Vue {
     return '';
   }
 
+  @Watch('range')
+  watchRange():void{
+    if (this.range.length) {
+      this.$emit('input', this.range);
+    }
+  }
+
   types = {
-    EQUAL_TO: 'برابراست با',
-    GREATER_THAN: 'بزرگ‌تراز',
-    PRICE_RANGE: 'بازه مبلغ',
-    LESS_THAN: 'کوچک‌تراز',
+    EQUAL_TO: 'EQUAL_TO',
+    GREATER_THAN: 'LESS_THAN',
+    PRICE_RANGE: 'PRICE_RANGE',
+    LESS_THAN: 'GREATER_THAN',
   };
 
   options = [
-    { id: 1, text: this.types.EQUAL_TO, value: 'EQUAL_TO' },
-    { id: 2, text: this.types.LESS_THAN, value: 'LESS_THAN' },
-    { id: 3, text: this.types.PRICE_RANGE, value: 'PRICE_RANGE' },
-    { id: 4, text: this.types.GREATER_THAN, value: 'GREATER_THAN' },
+    { id: 1, text: 'برابراست با', value: this.types.EQUAL_TO },
+    { id: 2, text: 'بزرگ‌تراز', value: this.types.LESS_THAN },
+    { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
+    { id: 4, text: 'کوچک‌تراز', value: this.types.GREATER_THAN },
   ]
 
-  amount = null
-
-  amountType = ''
-
   range = []
+
+  amountType = this.amountFilter
 }
