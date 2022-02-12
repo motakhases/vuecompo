@@ -3,18 +3,11 @@
     <Dropdown
       v-model="amountType"
       :options="options"
-      placeholder="بازه تاریخ"
+      placeholder="بازه مبلغ"
       class="dropdown"
     />
-    <Textfield
-      v-if="amountType !== 'بازه مبلغ'"
-      v-model="model"
-      type="number"
-      separator="comma"
-      unit="ریال"
-    />
     <div
-      v-if="amountType === 'بازه مبلغ'"
+      v-if="amountFilter === types.PRICE_RANGE"
       class="range-box"
     >
       <div class="range-input">
@@ -36,6 +29,13 @@
         />
       </div>
     </div>
+    <Textfield
+      v-else
+      v-model="model"
+      type="number"
+      separator="comma"
+      unit="ریال"
+    />
   </div>
 </template>
 

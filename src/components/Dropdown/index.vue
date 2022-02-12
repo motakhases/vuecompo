@@ -23,7 +23,9 @@
         <span
           v-else
           class="zpl-dropdown-value"
-        >{{ inputVal }}</span>
+        >
+          {{ inputVal.length ? inputVal : placeholder }}
+        </span>
         <!-- label -->
         <label
           v-if="label"

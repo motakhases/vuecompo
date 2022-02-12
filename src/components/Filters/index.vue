@@ -1,7 +1,19 @@
 <template>
-  <div class="zpl-filters">
-    <slot />
-  </div>
+  <Modal
+    title="فیلتر"
+    :is-open="isOpen"
+    :toggle="toggle"
+    width="328px"
+  >
+    <template slot="body">
+      <div class="zpl-filters">
+        <slot />
+      </div>
+    </template>
+    <template slot="leftFooter">
+      <slot name="footer" />
+    </template>
+  </Modal>
 </template>
 
 <script lang="ts">

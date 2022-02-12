@@ -36,7 +36,7 @@
     </div>
     <DatePicker
       v-if="date === 'بازه دلخواه'"
-      v-model="model"
+      v-model="range"
       range
     />
   </div>

@@ -7,14 +7,14 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    data: "third",
+    data: "",
   }),
   methods: {
 
   },
   template: `
     <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px] rtl">
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3"/>
+      <Dropdown v-model="data" v-bind="$props" class="col-span-3" placeholder="متن"/>
       <Dropdown v-model="data" v-bind="$props" class="col-span-3" search />
       <Dropdown v-model="data" loading v-bind="$props" class="col-span-3" label="حالت لودینگ"/>
       <Dropdown v-model="data" disabled v-bind="$props" class="col-span-3" label="حالت غیر فعال" />
@@ -27,7 +27,7 @@ const dropdown = Template.bind({});
 
 dropdown.args = {
   disabled: false,
-  label: "یک دراپ‌داون عادی",
+  label: "",
   hint: "",
   successMessage: "عملیات موفقیت آمیز بود",
   options: [

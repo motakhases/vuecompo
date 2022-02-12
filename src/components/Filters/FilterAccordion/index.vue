@@ -1,13 +1,15 @@
 <template>
   <div class="zpl-filter-acc">
-    <FilterToggle
-      v-model="model"
-      :text="text"
-      :disabled="disabled"
-      :name="name"
-      :val="val"
-      :change="check"
-    />
+    <div class="zpl-filter-toggle">
+      <CheckBox
+        v-model="model"
+        :text="text"
+        :disabled="disabled"
+        :name="name"
+        :val="val"
+        :change="check"
+      />
+    </div>
     <transition
       name="accordion-item"
       @enter="startTransition"

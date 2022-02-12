@@ -8,6 +8,8 @@ import Button from '@/components/Button/index.vue';
 export default class Modal extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string
 
+  @Prop({ type: String }) readonly width?: string
+
   @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
 
   @Prop({ type: Function }) toggle!: () => boolean
