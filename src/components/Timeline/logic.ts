@@ -14,7 +14,7 @@ export default class Timeline extends Vue {
 
   @Prop({ type: String, required: true }) readonly icon!: string
 
-  @Prop({ type: String }) readonly labelText?: string
+  @Prop({ type: [String, Number] }) readonly labelText?: string | number
 
   @Prop({ type: String }) readonly labelType?: string
 }

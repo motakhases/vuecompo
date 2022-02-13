@@ -49,6 +49,7 @@ const Template = () => ({
     text="کلیک کن"
     @click.native="toggleModal"
   />
+  {{priceFilterType}}
 
   <Filters :is-open="modal" :toggle="toggleModal">
     <FilterAccordion
