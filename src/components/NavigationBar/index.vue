@@ -15,6 +15,7 @@
       <SwitchTerminalPopover
         :terminals="terminals"
         :active-terminal="activeTerminal"
+        v-on="$listeners"
       />
 
       <!-- Nav item links -->

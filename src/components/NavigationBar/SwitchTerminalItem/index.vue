@@ -1,7 +1,7 @@
 <template>
-  <router-link
-    :to="route"
+  <button
     class="zpl-terminal-item"
+    @click="$emit('terminalClick', terminalConcatedData)"
   >
     <Thumbnail
       :icon="icon"
@@ -26,7 +26,7 @@
         <Icon name="tickSmall" />
       </div>
     </div>
-  </router-link>
+  </button>
 </template>
 
 <script lang="ts">
