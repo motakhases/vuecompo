@@ -25,7 +25,7 @@ export default class PageHeading extends Vue {
   checkScrolling(): void {
     const element = this.$refs.pageHeading as HTMLElement;
     const distanceOfTop = element.getBoundingClientRect().top;
-    if (distanceOfTop <= 0) {
+    if (distanceOfTop <= 56) {
       this.stickHeading = true;
     } else {
       this.stickHeading = false;

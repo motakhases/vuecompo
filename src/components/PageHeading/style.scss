@@ -33,7 +33,7 @@
   &.fixed-page-heading {
     @apply bg-surface shadow-elevation-100;
     @apply dark:bg-surface-dark dark:shadow-dark-elevation-100;
-    @apply sticky z-10 top-0 py-xs px-xs;
+    @apply sticky z-10 top-[56px] py-xs px-xs;
     .heading-content {
       @apply order-none w-auto mt-0;
     }
