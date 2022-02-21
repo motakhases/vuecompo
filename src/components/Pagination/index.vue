@@ -3,7 +3,7 @@
     <div class="right-side">
       <div class="limit">
         <span class="limit-title">تعداد سطر در هر صفحه:</span>
-        <div class="inline-block relative">
+        <div class="relative inline-block">
           <Button
             :text="String(limit)"
             type="secondary"
@@ -15,7 +15,7 @@
             <Popover
               v-show="limitBox"
               :items="limitsList"
-              @select="changeLimit"
+              @select="emitChangeLimit"
             />
           </div>
         </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="left-side">
       <div class="page">
-        <div class="inline-block relative">
+        <div class="relative inline-block">
           <Button
             :text="String(page)"
             type="tertiary"
@@ -38,7 +38,7 @@
             <Popover
               v-show="pageBox"
               :items="pagesList"
-              @select="changePage"
+              @select="emitChangePage"
             />
           </div>
         </div>
@@ -53,7 +53,7 @@
             type="secondary"
             size="small"
             icon="arrowFirst"
-            @click.native="changePage(1)"
+            @click.native="emitChangePage(1)"
           />
         </div>
         <div class="arrow">
@@ -62,7 +62,7 @@
             type="tertiary"
             size="small"
             icon="angleRight"
-            @click.native="changePage(page-1)"
+            @click.native="emitChangePage(page-1)"
           />
         </div>
         <div class="arrow">
@@ -71,7 +71,7 @@
             type="tertiary"
             size="small"
             icon="angleLeft"
-            @click.native="changePage(page+1)"
+            @click.native="emitChangePage(page+1)"
           />
         </div>
         <div
@@ -82,7 +82,7 @@
             type="secondary"
             size="small"
             icon="arrowLast"
-            @click.native="changePage(lastPage)"
+            @click.native="emitChangePage(lastPage)"
           />
         </div>
       </div>
