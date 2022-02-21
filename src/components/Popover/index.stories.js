@@ -1,9 +1,9 @@
 import Popover from './index.vue';
 
-// export default {
-//   component: Popover,
-//   title: 'Components/Popover',
-// };
+export default {
+  component: Popover,
+  title: 'Components/Popover',
+};
 
 const Template = (_, { argTypes }) => ({
   components: { Popover },

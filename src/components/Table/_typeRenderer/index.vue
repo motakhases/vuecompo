@@ -1,5 +1,8 @@
 <template>
-  <div class="zpl-table-type-renderer">
+  <div
+    class="zpl-table-type-renderer"
+    @click="data.click ? data.click() : null"
+  >
     <!--------------
         Custom
     -------------->

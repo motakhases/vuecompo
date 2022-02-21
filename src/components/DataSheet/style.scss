@@ -30,7 +30,7 @@
 
     &-title {
       // default
-      @apply text-b3 text-text-soft font-IRANYekanFaNum font-normal;
+      @apply text-b3 text-text-soft font-IRANYekanFaNum font-medium;
 
       // dark
       @apply dark:text-text-dark-soft;
@@ -40,7 +40,7 @@
       @apply col-span-full flex-row items-center;
 
       > span {
-        @apply w-full
+        @apply w-full;
       }
     }
   }

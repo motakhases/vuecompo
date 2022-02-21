@@ -14,7 +14,7 @@
       @apply flex items-center justify-between mb-sm;
 
       > div {
-        @apply first:text-b1
+        @apply first:text-b1;
       }
     }
 
@@ -36,27 +36,49 @@
         @apply dark:first:text-text-dark-soft dark:last:text-text-dark;
       }
     }
+    &-status{
+      @apply flex gap-2xs;
+    }
   }
+  &-box {
+    // Show size
+    @apply hidden md:table;
 
+    // default
+    @apply bg-surface rounded-md overflow-hidden w-full;
+
+    // dark
+    @apply dark:bg-surface-dark-active;
+
+    &:not(.bordered) {
+      @apply shadow-elevation-50;
+      @apply dark:shadow-dark-elevation-50;
+    }
+
+    &.bordered {
+      @apply border border-border-divider;
+      @apply dark:border-border-dark-divider;
+    }
+  }
   &-type-renderer {
     .custom {
       @apply flex items-center gap-sm;
 
       .text {
         @apply flex flex-col;
-        
+
         .title {
           // default
           @apply text-text text-b2;
-  
+
           // dark
           @apply dark:text-text-dark;
         }
-  
+
         .sub {
           // default
           @apply text-text-soft text-b3;
-  
+
           // dark
           @apply dark:text-text-dark-soft;
         }
@@ -68,41 +90,40 @@
     }
 
     .unit {
-      @apply md:hidden
+      @apply md:hidden;
     }
   }
-
+  &-action {
+    @apply absolute left-md top-1/2;
+    transform: translateY(-50%);
+  }
   table {
-    // Show size
-    @apply hidden md:table;
-
-    // default
-    @apply bg-surface shadow-elevation-50 rounded-md overflow-hidden w-full;
-
-    // dark
-    @apply dark:bg-surface-dark dark:shadow-dark-elevation-50;
-
+    @apply w-full;
     tr {
+      @apply relative;
+      th {
+        @apply whitespace-nowrap;
+      }
       th,
       td {
         > div {
           // default
           @apply font-IRANYekanFaNum select-none font-normal p-md text-b2 text-text flex items-center gap-xs;
-          
+
           // dark
           @apply dark:text-text-dark;
 
           &.can-sort {
             // default
             @apply hover:bg-surface-hover cursor-pointer;
-            
+
             // dark
             @apply dark:hover:bg-surface-dark-hover;
 
             .sort-icon {
               // default
               @apply w-xs text-icon;
-              
+
               // dark
               @apply dark:text-icon-dark;
             }
@@ -115,17 +136,16 @@
       }
     }
 
-
     // Table Body
     > tbody > tr {
       // default
       @apply border-t border-border-divider;
       @apply hover:bg-surface-hover active:bg-surface-active focus:bg-surface-focus;
-      
+
       // dark
       @apply dark:border-border-dark-divider;
       @apply dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active dark:focus:bg-surface-dark-focus;
-    
+
       &.selected {
         // default
         @apply bg-primarySurface;

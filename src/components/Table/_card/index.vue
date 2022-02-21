@@ -10,15 +10,17 @@
         <div
           v-for="(item, index) in headerLeft"
           :key="index"
+          class="zpl-table-card-status"
         >
-          <span v-if="item.type === 'status'">
+          <template v-if="item.type === 'status'">
             <Status
               v-for="(label, labelIndex) in item.data"
               :key="labelIndex"
               :text="label.title "
               :type="label.type"
+              :icon="label.icon"
             />
-          </span>
+          </template>
         </div>
       </div>
     </div>
