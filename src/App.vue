@@ -41,7 +41,7 @@ export default Vue.extend({
           data: 2234145522155,
         },
         description: {
-          type: 'text',
+          type: 'description',
           data: 'درخواست پرداخت دامنه شماره 2425',
         },
         created_at: {
@@ -72,7 +72,7 @@ export default Vue.extend({
           data: 2234145522155,
         },
         description: {
-          type: 'text',
+          type: 'description',
           data: 'درخواست پرداخت دامنه شماره 2425',
         },
         created_at: {
@@ -96,23 +96,33 @@ export default Vue.extend({
       {
         title: 'مبلغ',
         key: 'price',
+        width: '15%',
+
       },
       {
         title: 'شناسه پرداخت',
         key: 'pay_id',
+        width: '25%',
+
       },
       {
         title: 'توضیحات',
         key: 'description',
+        width: '25%',
+
       },
       {
         title: 'تاریخ و ساعت',
         key: 'created_at',
+        width: '20%',
+
         sort: true,
       },
       {
         title: 'وضعیت',
         key: 'status',
+        width: '15%',
+
       },
     ],
   }),

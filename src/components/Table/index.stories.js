@@ -22,7 +22,7 @@ const Template = (_, { argTypes }) => ({
           data: 2234145522155,
         },
         description: {
-          type: "text",
+          type: "description",
           data: "درخواست پرداخت دامنه شماره 2425",
         },
         created_at: {
@@ -53,7 +53,7 @@ const Template = (_, { argTypes }) => ({
           data: 2234145522155,
         },
         description: {
-          type: "text",
+          type: "description",
           data: "درخواست پرداخت دامنه شماره 2425",
         },
         created_at: {
@@ -77,28 +77,28 @@ const Template = (_, { argTypes }) => ({
       {
         title: "مبلغ",
         key: "price",
-        width: "240px",
+        width: "20%",
       },
       {
         title: "شناسه پرداخت",
         key: "pay_id",
-        width: "240px",
+        width: "15%",
       },
       {
         title: "توضیحات",
         key: "description",
-        width: "240px",
+        width: "35%",
       },
       {
         title: "تاریخ و ساعت",
         key: "created_at",
         sort: true,
-        width: "240px",
+        width: "15%",
       },
       {
         title: "وضعیت",
         key: "status",
-        width: "240px",
+        width: "15%",
       },
     ],
   }),

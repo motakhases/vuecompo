@@ -1,5 +1,5 @@
 <template>
-  <th :style="{ width : width }">
+  <th :style="{ width }">
     <div
       :class="{ 'can-sort': canSort }"
       @click="sort"
@@ -17,7 +17,6 @@
         class="sort-icon"
         :name="sortIcons[sortOrder]"
       />
-      {{ width }}
     </div>
   </th>
 </template>

@@ -20,7 +20,7 @@
 
     &-row {
       // default
-      @apply flex items-center justify-between py-sm border-b border-border-divider;
+      @apply flex items-center gap-md justify-between py-sm border-b border-border-divider;
 
       // dark
       @apply dark:border-border-dark-divider;
@@ -36,7 +36,7 @@
         @apply dark:first:text-text-dark-soft dark:last:text-text-dark;
       }
     }
-    &-status{
+    &-status {
       @apply flex gap-2xs;
     }
   }
@@ -92,13 +92,16 @@
     .unit {
       @apply md:hidden;
     }
+    .date {
+      @apply whitespace-nowrap;
+    }
   }
   &-action {
     @apply absolute left-md top-1/2;
     transform: translateY(-50%);
   }
   table {
-    @apply w-full;
+    @apply w-full table-fixed;
     tr {
       @apply relative;
       th {
@@ -154,5 +157,8 @@
         @apply dark:bg-primarySurface-dark;
       }
     }
+  }
+  .description {
+    @apply truncate;
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="zpl-table-type-renderer"
+    :class="['zpl-table-type-renderer', data.type === 'description' ? 'description' : '']"
     @click="data.click ? data.click() : null"
   >
     <!--------------
@@ -41,7 +41,10 @@
     <!--------------
           Date
     -------------->
-    <div v-else-if="data.type === 'date'">
+    <div
+      v-else-if="data.type === 'date'"
+      class="date"
+    >
       {{ data.data | tableDateFormat }}
     </div>
 
@@ -61,7 +64,15 @@
       />
     </div>
 
-    <div v-else-if="data.type === 'text'">
+    <div
+      v-else-if="data.type === 'text'"
+    >
+      {{ data.data }}
+    </div>
+    <div
+      v-else-if="data.type === 'description'"
+      class="description"
+    >
       {{ data.data }}
     </div>
   </div>
