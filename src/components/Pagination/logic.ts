@@ -3,7 +3,7 @@ import {
 } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
 import Popover from '@/components/Popover/index.vue';
-import { ListsObject, Paginate } from '@/types';
+import { ListsObject } from '@/types';
 
 @Component({
   components: {
@@ -12,6 +12,26 @@ import { ListsObject, Paginate } from '@/types';
   },
 })
 export default class Pagination extends Vue {
+  @Prop({ type: Number, default: 1 }) initPage!: number
+
+  @Prop({ type: Number, default: 4 }) initLimit!: number
+
+  @Prop({ type: Number, default: 10 }) lastPage!: number
+
+  @Emit('changeLimit')
+  emitChangeLimit(newLimit: number): number {
+    this.limit = newLimit;
+    this.limitBox = false;
+    return newLimit;
+  }
+
+  @Emit('changePage')
+  emitChangePage(newPage: number): number {
+    this.page = newPage;
+    this.pageBox = false;
+    return newPage;
+  }
+
   limit = 0
 
   page = 0
@@ -19,12 +39,6 @@ export default class Pagination extends Vue {
   limitBox = false
 
   pageBox = false
-
-  @Prop({ type: Number, default: 1 }) initPage!: number
-
-  @Prop({ type: Number, default: 4 }) initLimit!: number
-
-  @Prop({ type: Number, default: 10 }) lastPage!: number
 
   created(): void {
     this.limit = this.initLimit;
@@ -64,26 +78,6 @@ export default class Pagination extends Vue {
     const to = this.page * this.limit;
     const from = to - (this.limit - 1);
     return `${from} - ${to} از ${all} نتیجه`;
-  }
-
-  @Emit('paginate')
-  changeLimit(newLimit:number):Paginate {
-    this.limit = newLimit;
-    this.limitBox = false;
-    return {
-      page: 1,
-      limit: newLimit,
-    };
-  }
-
-  @Emit('paginate')
-  changePage(newPage:number):Paginate {
-    this.page = newPage;
-    this.pageBox = false;
-    return {
-      page: newPage,
-      limit: this.limit,
-    };
   }
 }
 
