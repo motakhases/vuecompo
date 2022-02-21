@@ -37,6 +37,35 @@ const Template = (_, { argTypes }) => ({
           click: (i) => this.filter(i),
           active: false,
         },
+        {
+          text: "همه",
+          click: (i) => this.filter(i),
+          active: false,
+        },
+        {
+          text: "موفق",
+          click: (i) => this.filter(i),
+          active: false,
+        },
+        {
+          text: "ناموفق",
+          click: (i) => this.filter(i),
+          active: false,
+        },        {
+          text: "همه",
+          click: (i) => this.filter(i),
+          active: false,
+        },
+        {
+          text: "موفق",
+          click: (i) => this.filter(i),
+          active: false,
+        },
+        {
+          text: "ناموفق",
+          click: (i) => this.filter(i),
+          active: false,
+        },
       ],
     };
   },
