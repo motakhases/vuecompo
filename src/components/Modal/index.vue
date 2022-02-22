@@ -4,8 +4,7 @@
     :class="['zpl-modal', { 'show' : isOpen }]"
   >
     <div
-      class="zpl-modal-box"
-      :style="width? `width:${width}` :''"
+      :class="['zpl-modal-box', `w-[${width}]`]"
     >
       <!-- header -->
       <div class="zpl-modal-header">
