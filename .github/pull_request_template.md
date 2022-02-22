@@ -5,7 +5,7 @@ Write some description about the “whats” and “whys” of your code...
 - e.g. add `myFunc()` in `src/main.ts`
 
 **Jira related tasks:**
-- [Taks title](https://test.test)
+- [title](https://jira.hamrah.in/browse/ZDV-)
 
 **Reviewers:**
-- @arishojaei
+- e.g. use `@` to mention someone
