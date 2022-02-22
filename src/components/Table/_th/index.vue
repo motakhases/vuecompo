@@ -1,5 +1,7 @@
 <template>
-  <th :style="{ width }">
+  <th
+    :class="[`w-[${width}]`]"
+  >
     <div
       :class="{ 'can-sort': canSort }"
       @click="sort"
