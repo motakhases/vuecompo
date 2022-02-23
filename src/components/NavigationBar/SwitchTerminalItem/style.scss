@@ -1,6 +1,6 @@
 .zpl-terminal-item {
   /* Default */
-  @apply flex items-center py-md px-sm text-text text-b2 gap-sm hover:cursor-pointer;
+  @apply flex w-full justify-start items-center py-md px-sm text-text text-b2 gap-sm hover:cursor-pointer;
   @apply border-t border-border-divider;
   @apply dark:border-border-dark-divider;
 
@@ -20,7 +20,7 @@
 }
 
 .zpl-terminal-item-header {
-  @apply flex-1 relative overflow-hidden;
+  @apply flex-1 relative overflow-hidden text-right;
 }
 .zpl-terminal-item-title {
   @apply text-btn text-text truncate;
