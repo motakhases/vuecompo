@@ -58,7 +58,10 @@
           <Button
             text="دانلود QR Code"
             type="neutral"
+            before-icon="Download"
+            size="large"
             fill
+            @click.native="download(qrcode)"
           />
         </div>
       </tab>

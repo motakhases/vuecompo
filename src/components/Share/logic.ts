@@ -22,4 +22,15 @@ export default class Share extends Vue {
   @Prop({ type: String }) html?: string;
 
   @Prop({ type: String }) qrcode?: string;
+
+  download(dataUrl: string): void {
+    const link = document.createElement('a');
+    link.target = '_blank';
+
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+  }
 }
