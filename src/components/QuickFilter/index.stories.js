@@ -10,6 +10,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
+      hasPaginate: false,
       list: [
         {
           text: "همه",
@@ -32,6 +33,7 @@ const Template = (_, { argTypes }) => ({
     <QuickFilter
       :items="list"
       query-key="filter"
+      :hasPaginate="hasPaginate"
     />
   </div>
   `,

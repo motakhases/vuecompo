@@ -13,9 +13,13 @@ export default class QuickFilter extends Vue {
   @Prop({ type: String, required: true, default: () => [] })
   queryKey!: string;
 
+  @Prop({ type: Boolean, default: false })
+  hasPaginate!: boolean
+
   changeFilter(item:QuickFilterBtn):void {
+    const paginate = this.hasPaginate ? { page: '1' } : {};
     this.$router.push({
-      query: { [this.queryKey]: item.value, page: '1' },
+      query: { [this.queryKey]: item.value, ...paginate },
     }).catch(() => 0);
   }
 
