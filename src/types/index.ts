@@ -117,7 +117,5 @@ export interface INavigationBarLinks extends INavigationBarActiveTerminal {
 
 export interface QuickFilterBtn {
   text: string;
-  id: number;
-  active: boolean;
-  click(): void;
+  value: string;
 }

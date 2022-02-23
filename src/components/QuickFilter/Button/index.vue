@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['zpl-quick-filter-button', { active }]"
+    :class="['zpl-quick-filter-button', { 'active' : $route.query[$parent.queryKey] == value }]"
   >
     {{ text }}
   </button>

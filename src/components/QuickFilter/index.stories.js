@@ -8,63 +8,20 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { QuickFilter },
   props: Object.keys(argTypes),
-  methods: {
-    filter(i) {
-      this.list.filter((item, index) => {
-        if (index === i) {
-          this.list[index].active = true;
-        } else {
-          this.list[index].active = false;
-        }
-      });
-    },
-  },
   data() {
     return {
       list: [
         {
           text: "همه",
-          click: (i) => this.filter(i),
-          active: true,
+          value: 'all',
         },
         {
           text: "موفق",
-          click: (i) => this.filter(i),
-          active: false,
+          value: 'success',
         },
         {
           text: "ناموفق",
-          click: (i) => this.filter(i),
-          active: false,
-        },
-        {
-          text: "همه",
-          click: (i) => this.filter(i),
-          active: false,
-        },
-        {
-          text: "موفق",
-          click: (i) => this.filter(i),
-          active: false,
-        },
-        {
-          text: "ناموفق",
-          click: (i) => this.filter(i),
-          active: false,
-        },        {
-          text: "همه",
-          click: (i) => this.filter(i),
-          active: false,
-        },
-        {
-          text: "موفق",
-          click: (i) => this.filter(i),
-          active: false,
-        },
-        {
-          text: "ناموفق",
-          click: (i) => this.filter(i),
-          active: false,
+          value: 'not success',
         },
       ],
     };
@@ -72,7 +29,10 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
     <h1 class="mt-sm font-bold dark:text-surface"> دکمه فیلتر </h1>
-    <QuickFilter :items="list"/>
+    <QuickFilter
+      :items="list"
+      query-key="filter"
+    />
   </div>
   `,
 });

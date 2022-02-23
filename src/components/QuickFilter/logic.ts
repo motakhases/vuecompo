@@ -8,7 +8,20 @@ import { QuickFilterBtn } from '@/types';
 
 export default class QuickFilter extends Vue {
   @Prop({ type: Array, required: true, default: () => [] })
-  readonly items!: QuickFilterBtn[];
+  items!: QuickFilterBtn[];
 
-  @Prop({ type: Boolean, default: false }) readonly fill!: boolean;
+  @Prop({ type: String, required: true, default: () => [] })
+  queryKey!: string;
+
+  changeFilter(item:QuickFilterBtn):void {
+    this.$router.push({
+      query: { [this.queryKey]: item.value, page: '1' },
+    }).catch(() => 0);
+  }
+
+  created() : void {
+    if (!this.$route.query[this.queryKey]) {
+      this.changeFilter(this.items[0]);
+    }
+  }
 }
