@@ -11,88 +11,96 @@ const Template = (_, { argTypes }) => ({
     tableData: [
       {
         price: {
-          type: 'price',
+          type: "price",
           data: 8100000,
+          click: () => {
+            console.log("clik");
+          },
         },
         pay_id: {
-          type: 'text',
+          type: "text",
           data: 2234145522155,
         },
         description: {
-          type: 'text',
-          data: 'درخواست پرداخت دامنه شماره 2425',
+          type: "description",
+          data: "درخواست پرداخت دامنه شماره 2425",
         },
         created_at: {
-          type: 'date',
-          data: '2020-11-30T11:55:07.000000Z',
+          type: "date",
+          data: "2020-11-30T11:55:07.000000Z",
         },
         status: {
-          type: 'status',
+          type: "status",
           data: [
             {
-              title: 'پرداخت موفق',
-              type: 'positive',
+              title: "پرداخت موفق",
+              type: "positive",
             },
             {
-              icon: 'CheckmarkCircle',
-              type: 'positive',
+              icon: "CheckmarkCircle",
+              type: "positive",
             },
           ],
         },
       },
       {
         price: {
-          type: 'price',
+          type: "price",
           data: 8100000,
         },
         pay_id: {
-          type: 'text',
+          type: "text",
           data: 2234145522155,
         },
         description: {
-          type: 'text',
-          data: 'درخواست پرداخت دامنه شماره 2425',
+          type: "description",
+          data: "درخواست پرداخت دامنه شماره 2425",
         },
         created_at: {
-          type: 'date',
-          data: '2020-11-30T11:55:07.000000Z',
+          type: "date",
+          data: "2020-11-30T11:55:07.000000Z",
         },
         status: {
-          type: 'status',
+          type: "status",
           data: [
             {
-              title: 'پرداخت موفق',
-              type: 'positive',
-              size: '',
+              title: "پرداخت موفق",
+              type: "positive",
+              size: "",
             },
           ],
         },
       },
     ],
-  
+
     columns: [
       {
-        title: 'مبلغ',
-        key: 'price',
+        title: "مبلغ",
+        key: "price",
+        width: "20%",
       },
       {
-        title: 'شناسه پرداخت',
-        key: 'pay_id',
+        title: "شناسه پرداخت",
+        key: "pay_id",
+        width: "15%",
       },
       {
-        title: 'توضیحات',
-        key: 'description',
+        title: "توضیحات",
+        key: "description",
+        width: "35%",
       },
       {
-        title: 'تاریخ و ساعت',
-        key: 'created_at',
+        title: "تاریخ و ساعت",
+        key: "created_at",
         sort: true,
+        width: "15%",
       },
       {
-        title: 'وضعیت',
-        key: 'status',
+        title: "وضعیت",
+        key: "status",
+        width: "15%",
       },
-    ]
+    ],
   }),
   template: `
   <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
@@ -100,6 +108,7 @@ const Template = (_, { argTypes }) => ({
       :data="tableData"
       :columns="columns"
       class="mb-xl"
+      :bordered="true"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">
