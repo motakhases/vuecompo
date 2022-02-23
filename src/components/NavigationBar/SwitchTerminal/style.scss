@@ -23,7 +23,9 @@
 .zpl-nav-terminal-header {
   @apply w-full flex justify-between items-center relative overflow-hidden;
 }
-
+.zpl-nav-terminal-box {
+  @apply flex-1 truncate;
+}
 .zpl-nav-terminal-title {
   @apply text-btn text-text truncate;
   @apply dark:text-text-dark;

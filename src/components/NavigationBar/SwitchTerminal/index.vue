@@ -11,7 +11,7 @@
         :alt="alt"
       />
       <div class="zpl-nav-terminal-header">
-        <div>
+        <div class="zpl-nav-terminal-box">
           <div class="zpl-nav-terminal-title">
             {{ title }}
           </div>
