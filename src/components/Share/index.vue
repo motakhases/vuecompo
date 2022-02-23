@@ -27,8 +27,9 @@
           <TextField
             v-model="url"
             label="لینک"
-            read-only
+            readonly
             copyable
+            ltr
           />
 
           <!-- Html code -->
@@ -36,8 +37,9 @@
             v-if="html"
             v-model="html"
             label="کد HTML"
-            read-only
+            readonly
             copyable
+            ltr
           />
         </div>
       </tab>
