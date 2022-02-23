@@ -1,12 +1,15 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
+// Components
 import { ValidationProvider } from 'vee-validate';
+import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
 
 @Component({
   components: {
     ValidationProvider,
     Icon,
+    Button,
   },
 })
 export default class TextBox extends Vue {
@@ -30,6 +33,12 @@ export default class TextBox extends Vue {
 
   @Prop({ type: Boolean }) readonly stepper!: boolean;
 
+  @Prop({ type: Boolean }) readonly copyable!: boolean;
+
+  @Prop({ type: Boolean }) readonly readonly!: boolean;
+
+  @Prop({ type: Boolean }) readonly ltr!: boolean;
+
   @Prop({ type: String }) readonly prefixIcon?: string;
 
   @Prop({ type: String }) readonly suffixIcon?: string;
@@ -39,6 +48,8 @@ export default class TextBox extends Vue {
   @Prop({ type: String, default: '' }) readonly value!: string;
 
   isInputFocused = !!this.value.length;
+
+  copyToClipboardText = 'کپی';
 
   get model(): string | number {
     return this.formattedValue();
@@ -114,5 +125,16 @@ export default class TextBox extends Vue {
       const newValue = (numberValue - 1).toString();
       this.$emit('input', this.toEnNumber(newValue));
     }
+  }
+
+  copyToClipboard(): void {
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(this.value);
+
+    this.copyToClipboardText = 'کپی شد';
+
+    setTimeout(() => {
+      this.copyToClipboardText = 'کپی';
+    }, 1000);
   }
 }
