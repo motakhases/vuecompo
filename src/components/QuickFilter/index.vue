@@ -4,8 +4,8 @@
       v-for="(item, index) in items"
       :key="index"
       :text="item.text"
-      :active="item.active"
-      @click.native="item.click(index)"
+      :value="item.value"
+      @click.native="changeFilter(item)"
     />
   </div>
 </template>
