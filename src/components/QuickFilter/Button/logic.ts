@@ -4,5 +4,5 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 export default class QuickFilterButton extends Vue {
   @Prop({ type: String, required: true }) readonly text!: string
 
-  @Prop({ type: String, default: false }) readonly value!: string;
+  @Prop({ type: String, required: true }) readonly value!: string;
 }
