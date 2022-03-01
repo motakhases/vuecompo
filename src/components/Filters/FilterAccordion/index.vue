@@ -10,20 +10,12 @@
         :change="check"
       />
     </div>
-    <transition
-      name="accordion-item"
-      @enter="startTransition"
-      @after-enter="endTransition"
-      @before-leave="startTransition"
-      @after-leave="endTransition"
+    <div
+      v-if="isActive"
+      class="zpl-filter-status"
     >
-      <div
-        v-if="isActive"
-        class="zpl-filter-status"
-      >
-        <slot />
-      </div>
-    </transition>
+      <slot />
+    </div>
   </div>
 </template>
 

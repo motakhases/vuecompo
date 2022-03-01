@@ -7,14 +7,14 @@
       class="dropdown"
     />
     <Textfield
-      v-if="date === 'امروز'"
+      v-if="date === 'TODAY'"
       v-model="model"
       suffix-icon="Calendar"
       disabled
       class="today"
     />
     <div
-      v-if="date === 'هفته جاری'"
+      v-if="date === 'CURRENT_WEEK'"
       class="range-box"
     >
       <div class="range-input">
@@ -35,7 +35,7 @@
       </div>
     </div>
     <DatePicker
-      v-if="date === 'بازه دلخواه'"
+      v-if="date === 'OPTIONAL_PERIOD'"
       v-model="range"
       range
     />

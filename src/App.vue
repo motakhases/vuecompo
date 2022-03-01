@@ -22,32 +22,80 @@
       />
 
       <NotificationCenter
-        ref="notificationCenter"
+        ref="notific
+a         tionCe
+n         ter"
         :announcements="data"
       />
       <div class="w-full">
+        {{ filters.status }}
+
         <PageHeading
           sticky
-          title="عنوان"
+          title="ع
+           نوان"
           desc="توضیحات"
           :has-button="true"
         >
           <template v-slot:buttons>
-            <Button
-              text="تست"
-            />
-            <Button
-              text="تست دو"
-            />
+            <Button text="تست" />
+            <Button text="تست دو" />
           </template>
         </PageHeading>
         <div class="container">
-          <div
-            v-for="i in 900"
-            :key="i"
+          status   {{ status }}
+          <button @click="toggleModal">
+            open
+          </button>
+          <Filters
+            :is-open="modal"
+            :toggle="toggleModal"
+            :filter="filter"
+            :clear-query="clearQuery"
           >
-            .
-          </div>
+            <FilterAccordion
+              v-model="status"
+              text="وضعیت"
+              name="secondCheckBox"
+              val="status"
+            >
+              <Radio
+                v-model="filters.status"
+                name="r"
+                val="active"
+                text="موفق"
+              />
+              <Radio
+                v-model="filters.status"
+                name="r"
+                val="inactive"
+                text="ناموفق"
+              />
+            </FilterAccordion>
+            <FilterAccordion
+              v-model="status"
+              text="تاریخ"
+              name="secondCheckBox"
+              val="date"
+            >
+              <FilterDate
+                v-model="filters.date"
+                :date="range"
+              />
+            </FilterAccordion>
+            <!-- <FilterAccordion
+              v-model="price"
+              text="مبلغ"
+              name="thirdCheckBox"
+              val="سومین گزینه"
+            >
+              <FilterAmount
+                v-model="priceValue"
+                :amount-filter="priceFilterType"
+                @updateAmount="updateAmountt"
+              />
+            </FilterAccordion> -->
+          </Filters>      {{ range }} rnge
         </div>
       </div>
     </div>
@@ -64,6 +112,10 @@ import TopBar from '@/components/TopBar/index.vue';
 import PageHeading from '@/components/PageHeading/index.vue';
 import NavigationBar from '@/components/NavigationBar/index.vue';
 import NotificationCenter from '@/components/NotificationCenter/index.vue';
+import Filters from '@/components/Filters/index.vue';
+import Radio from '@/components/Radio/index.vue';
+import FilterAccordion from '@/components/Filters/FilterAccordion/index.vue';
+import FilterDate from '@/components/Filters/FilterDate/index.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -73,10 +125,22 @@ export default Vue.extend({
     PageHeading,
     NotificationCenter,
     Button,
+    Filters,
+    Radio,
+    FilterAccordion,
+    FilterDate,
   },
   data() {
     return {
       toggleMenu: false,
+      filters: {
+        status: '',
+        date: '',
+      },
+      range: '',
+      status: [],
+      date: [],
+      modal: false,
       data: [
         {
           title: 'عنوان',
@@ -259,9 +323,53 @@ export default Vue.extend({
       ],
     };
   },
+  mounted() {
+    this.fillStatus();
+    // this.status = Object.keys(this.$route.query);
+    // console.log(Object.keys(this.$route.query));
+  },
+
   methods: {
     displayNotifications() {
       console.log('a');
+    },
+    filter() {
+      const { date } = this.filters;
+      // console.log(date.length);
+      // if (date) {
+      //   if (Array.isArray(date)) {
+      //     this.filters = { ...this.filters, created_from_date: date[0], created_to_date: date[1] };
+      //     console.log('arr', this.filters);
+      //     this.$router.push({ query: this.filters });
+      //   } else {
+      //     // this.$router.push({ query: { created_from_date: date, created_to_date: date } });
+      //   }
+      // } else {
+      //   // this.$router.push({ query: this.filters });
+      // }
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      this.toggleModal();
+      console.log(this.status);
+      const res = {};
+      // eslint-disable-next-line no-restricted-syntax
+      for (const item in this.filters) {
+        if (this.status.includes(item)) { res[item] = this.filters[item]; }
+      } console.log(res);
+      this.$router.replace({ path: this.$route.path, query: res });
+    },
+
+    toggleModal() {
+      this.modal = !this.modal;
+    },
+    fillStatus() {
+      console.log(this.$route.query, this.status);
+      this.filters = this.$route.query;
+      this.status = Object.keys(this.$route.query);
+    },
+    clearQuery() {
+      this.modal = false;
+      this.filters = {};
+      this.$router.replace({ query: {} });
     },
   },
 });

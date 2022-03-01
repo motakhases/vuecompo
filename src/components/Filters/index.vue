@@ -11,7 +11,18 @@
       </div>
     </template>
     <template slot="leftFooter">
-      <slot name="footer" />
+      <Button
+        type="secondary"
+        size="medium"
+        text="حذف"
+        @click.native="clearQuery"
+      />
+      <Button
+        type="primary"
+        size="medium"
+        text="اعمال"
+        @click.native="filter"
+      />
     </template>
   </Modal>
 </template>

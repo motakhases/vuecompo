@@ -25,8 +25,8 @@ export default class Logic extends Vue {
 
   isActive = false
 
-  check(): void {
-    this.isActive = !this.isActive;
+  check(e): void {
+    this.isActive = e.target.checked;
   }
 
   toggleHandler(): void {
@@ -41,5 +41,16 @@ export default class Logic extends Vue {
   endTransition(el: HTMLElement): void {
     const element = el;
     element.style.height = '';
+  }
+
+  mounted(): void {
+    const queryList = Object.keys(this.$route.query);
+
+    if (queryList.length) {
+      this.$emit('input', queryList);
+      this.isActive = !!queryList.filter((i) => i === this.val).length;
+    } else {
+      this.$emit('input', []);
+    }
   }
 }

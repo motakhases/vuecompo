@@ -28,6 +28,9 @@ const Template = () => ({
       date: [],
       price: [],
       modal: false,
+      filters:{
+        status:''
+      }
     };
   },
   methods: {
@@ -38,6 +41,9 @@ const Template = () => ({
     updateAmountt(i) {
       this.priceFilterType = i;
     },
+    filter(){
+this.$router.push({})
+    }
   },
   template: `
   <div
@@ -50,41 +56,38 @@ const Template = () => ({
     @click.native="toggleModal"
   />
   {{priceFilterType}}
-
-  <Filters :is-open="modal" :toggle="toggleModal">
+{{filters.status}}
+  <Filters :is-open="modal" @filter="filter" :toggle="toggleModal">
     <FilterAccordion
       v-model="status"
       text="وضعیت"
       name="firstCheckBox"
       val="اولین گزینه"
     >
-      <Radio v-model="statusValue" name="r" val="active" text="موفق" />
-      <Radio v-model="statusValue" name="r" val="inactive" text="ناموفق" />
+      <Radio v-model="filters.status" name="r" val="active" text="موفق" />
+      <Radio v-model="filters.status" name="r" val="inactive" text="ناموفق" />
     </FilterAccordion>
     <FilterAccordion
-      v-model="date"
-      text="تاریخ"
-      name="secondCheckBox"
-      val="دومین گزینه"
-    >
-      <FilterDate v-model="dateValue" />
-    </FilterAccordion>
-    <FilterAccordion
-      v-model="price"
-      text="مبلغ"
-      name="thirdCheckBox"
-      val="سومین گزینه"
-    >
-      <FilterAmount
-        v-model="priceValue"
-        :amount-filter="priceFilterType"
-        @updateAmount="updateAmountt"
-      />
-    </FilterAccordion>
-    <template slot="footer">
-      <Button type="secondary" size="medium" text="حذف" />
-      <Button type="primary" size="medium" text="اعمال" />
-    </template>
+    v-model="date"
+    text="تاریخ"
+    name="secondCheckBox"
+    val="دومین گزینه"
+  >
+    <FilterDate v-model="dateValue" />
+  </FilterAccordion>
+  <FilterAccordion
+    v-model="price"
+    text="مبلغ"
+    name="thirdCheckBox"
+    val="سومین گزینه"
+  >
+    <FilterAmount
+      v-model="priceValue"
+      :amount-filter="priceFilterType"
+      @updateAmount="updateAmountt"
+    />
+  </FilterAccordion> 
+   {{statusValue}}
   </Filters>
 </div>
   `,
