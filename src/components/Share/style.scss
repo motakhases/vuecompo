@@ -1,15 +1,15 @@
 .zpl-share {
   &-tab {
     // default
-    @apply flex flex-col gap-xl;
+    @apply flex flex-col gap-xl pt-md;
 
     ._qr-wrapper {
       // default
-      @apply flex justify-center items-center w-full h-[208px];
+      @apply flex justify-center items-center w-full h-[214px];
 
       > img {
         // default
-        @apply max-h-[128px];
+        @apply h-[200px] rounded-md;
       }
     }
   }

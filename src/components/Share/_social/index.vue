@@ -11,7 +11,6 @@
         class="_icon"
       />
     </a>
-
     <!-- Name -->
     <span class="zpl-social-name">
       {{ name }}
