@@ -25,6 +25,7 @@ export default class Share extends Vue {
 
   download(dataUrl: string): void {
     const link = document.createElement('a');
+
     link.target = '_blank';
 
     link.href = dataUrl;
