@@ -33,9 +33,7 @@ export default class Logic extends Vue {
 
   mounted(): void {
     const queryList = Object.keys(this.$route.query);
-    console.log(queryList);
-    console.log(this.val);
-
+    // if query list exists update active accordions
     if (queryList.length) {
       this.$emit('input', queryList);
       this.isActive = !!queryList.filter((i) => i === this.val).length;

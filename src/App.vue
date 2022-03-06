@@ -3,15 +3,15 @@ no-console */
 <template>
   <div
     dir="rtl"
-    class="bg-background"
+    class="bg-background p-xl"
   >
     <div class="flex">
       <div class="w-full">
         <div class="container">
-          status {{ status }}
-          <button @click="toggleModal">
-            open
-          </button>
+          <Button
+            text="فیلتر"
+            @click.native="toggleModal"
+          />
           <Filters
             :is-open="modal"
             :toggle="toggleModal"
@@ -19,7 +19,7 @@ no-console */
             :clear-query="clearQuery"
           >
             <FilterAccordion
-              v-model="status"
+              v-model="activeAccordion"
               text="وضعیت"
               name="secondCheckBox"
               val="status"
@@ -38,7 +38,7 @@ no-console */
               />
             </FilterAccordion>
             <FilterAccordion
-              v-model="status"
+              v-model="activeAccordion"
               text="تاریخ"
               name="secondCheckBox"
               val="date"
@@ -49,7 +49,7 @@ no-console */
               />
             </FilterAccordion>
             <FilterAccordion
-              v-model="status"
+              v-model="activeAccordion"
               text="مبلغ"
               name="thirdCheckBox"
               :val="filters.amountType"
@@ -61,7 +61,6 @@ no-console */
               />
             </FilterAccordion>
           </Filters>
-          {{ filters }} filters.amount
         </div>
       </div>
     </div>
@@ -76,6 +75,7 @@ import Radio from '@/components/Radio/index.vue';
 import FilterAccordion from '@/components/Filters/FilterAccordion/index.vue';
 import FilterDate from '@/components/Filters/FilterDate/index.vue';
 import FilterAmount from '@/components/Filters/FilterAmount/index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -85,69 +85,62 @@ export default Vue.extend({
     FilterAccordion,
     FilterDate,
     FilterAmount,
+    Button,
   },
   data() {
     return {
-      toggleMenu: false,
       filters: {
         status: '',
         date: '',
-        amount: '۱۱۱۴۵',
+        amount: '',
         amountType: 'amount',
       },
       range: '',
-      status: [],
-      date: [],
+      activeAccordion: [],
       modal: false,
     };
   },
   computed: {
+    // to put amountType property in separated function to check its changes
     amountType() {
       return this.filters.amountType;
     },
   },
   watch: {
     amountType() {
-      if (!this.status.includes(this.amountType)) {
-        this.status = [...this.status, this.amountType];
+      // if amountType is changed add it to active accordion
+      if (!this.activeAccordion.includes(this.amountType)) {
+        this.activeAccordion = [...this.activeAccordion, this.amountType];
       }
     },
 
   },
   mounted() {
+    // update filter list based on query
     this.fillStatus();
   },
   methods: {
     updateAmount(i) {
+      // update amountType
       this.filters.amountType = i;
     },
     filter() {
-      this.toggleModal();
-      const res = {};
+      const filterList = {};
       Object.keys(this.filters).forEach((item) => {
         if (item === 'amountType') {
-          if (this.status.includes(this.filters[item])) {
-            res[this.filters.amountType] = this.filters.amount;
+          // combine amountType and amount for query list, amountType : amount, e.g. min_amount : 10
+          if (this.activeAccordion.includes(this.filters[item])) {
+            filterList[this.filters.amountType] = this.filters.amount;
           }
-        } else if (this.status.includes(item) && item !== 'amount') {
-          res[item] = this.filters[item];
-          // if (item === 'amount') {
-          //   res[this.filters.amountType] = this.filters[item];
-          // } else {
-          //   res[item] = this.filters[item];
-          // }
+        } else if (this.activeAccordion.includes(item) && item !== 'amount') {
+          // otherwise add items of filters to query list
+          filterList[item] = this.filters[item];
         }
-        // console.log(this.status.includes(item) || this.status.includes(this.filters.amountType));
-        // if (this.status.includes(item) || this.status.includes(item.amountType)) {
-        //   console.log('yes');
-        //   if (item === 'amount') {
-        //     res[this.filters.amountType] = this.filters[item];
-        //   } else {
-        //     res[item] = this.filters[item];
-        //   }
-        // }
       });
-      this.$router.push({ path: this.$route.path, query: res });
+      // push filters list to query
+      this.$router.push({ path: this.$route.path, query: filterList });
+      // close modal
+      this.toggleModal();
     },
 
     toggleModal() {
@@ -157,17 +150,21 @@ export default Vue.extend({
       const { query } = this.$route;
       const amountList = ['min_amount', 'range_amount', 'max_amount'];
       const queryKeys = Object.keys(query);
-      this.status = queryKeys;
+      this.activeAccordion = queryKeys;
       queryKeys.forEach((el) => {
+        // if element is one of these items so update amount and amount type
+        // e.g. min_amount: 12 => amountType: min_amount, amount: 12
         if (amountList.includes(el)) {
           this.filters.amount = query[el];
           this.filters.amountType = el;
         } else {
+          // otherwise update filter list based on query
           this.filters = Object.assign(this.filters, query);
         }
       });
     },
     clearQuery() {
+      // clear filter list and query and close the modal
       this.modal = false;
       this.filters = {
         status: '',

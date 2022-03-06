@@ -78,16 +78,4 @@ export default class FilterDate extends Vue {
   arraysEqual(a1: DatePickerValue, a2: string[]):boolean {
     return JSON.stringify(a1) === JSON.stringify(a2);
   }
-
-  mounted() {
-    // if (typeof this.model === 'string') {
-    //   console.log('strin');
-    //   this.date = 'TODAY';
-    //   // this.$emit('input', 'TODAY');
-    // } else {
-    //   this.date = 'CURRENT_WEEK';
-    // }
-
-    // console.log(this.date);
-  }
 }
