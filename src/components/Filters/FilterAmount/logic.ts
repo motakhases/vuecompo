@@ -11,10 +11,10 @@ import { AmountFilterValue } from '@/types';
     Textfield,
   },
 })
-export default class Logic extends Vue {
+export default class FilterAmount extends Vue {
   @VModel({ type: [Array, String], required: true }) model!: AmountFilterValue
 
-  @Prop({ type: String, required: true }) readonly amountFilter!: string
+  @Prop({ type: String, required: true }) readonly type!: string
 
   @Watch('amountType')
   watchAmountType(): string {
@@ -48,20 +48,20 @@ export default class Logic extends Vue {
   }
 
   types = {
-    EQUAL_TO: 'EQUAL_TO',
-    GREATER_THAN: 'LESS_THAN',
-    PRICE_RANGE: 'PRICE_RANGE',
-    LESS_THAN: 'GREATER_THAN',
+    EQUAL_TO: 'amount',
+    GREATER_THAN: 'min_amount',
+    PRICE_RANGE: 'range_amount',
+    LESS_THAN: 'max_amount',
   };
 
   options = [
     { id: 1, text: 'برابراست با', value: this.types.EQUAL_TO },
-    { id: 2, text: 'بزرگ‌تراز', value: this.types.LESS_THAN },
+    { id: 2, text: 'کوچک‌تراز', value: this.types.LESS_THAN },
     { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
-    { id: 4, text: 'کوچک‌تراز', value: this.types.GREATER_THAN },
+    { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
   ]
 
   range = []
 
-  amountType = this.amountFilter
+  amountType = this.type
 }

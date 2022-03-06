@@ -6,36 +6,38 @@
       placeholder="بازه مبلغ"
       class="dropdown"
     />
-    <div
-      v-if="amountFilter === types.PRICE_RANGE"
-      class="range-box"
-    >
-      <div class="range-input">
-        <label>از</label>
-        <Textfield
-          v-model="range[0]"
-          type="number"
-          separator="comma"
-          unit="ریال"
-        />
+    <div v-if="amountType">
+      <div
+        v-if="type === types.PRICE_RANGE"
+        class="range-box"
+      >
+        <div class="range-input">
+          <label>از</label>
+          <Textfield
+            v-model="range[0]"
+            type="number"
+            separator="comma"
+            unit="ریال"
+          />
+        </div>
+        <div class="range-input">
+          <label>تا</label>
+          <Textfield
+            v-model="range[1]"
+            type="number"
+            separator="comma"
+            unit="ریال"
+          />
+        </div>
       </div>
-      <div class="range-input">
-        <label>تا</label>
-        <Textfield
-          v-model="range[1]"
-          type="number"
-          separator="comma"
-          unit="ریال"
-        />
-      </div>
+      <Textfield
+        v-else
+        v-model="model"
+        type="number"
+        separator="comma"
+        unit="ریال"
+      />
     </div>
-    <Textfield
-      v-else
-      v-model="model"
-      type="number"
-      separator="comma"
-      unit="ریال"
-    />
   </div>
 </template>
 

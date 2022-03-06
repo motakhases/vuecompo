@@ -1,6 +1,7 @@
 import {
   Component, Prop, VModel, Vue,
 } from 'vue-property-decorator';
+import { IEvent } from '@/types/index';
 import CheckBox from '@/components/CheckBox/index.vue';
 
 @Component({
@@ -25,26 +26,15 @@ export default class Logic extends Vue {
 
   isActive = false
 
-  check(e): void {
-    this.isActive = e.target.checked;
-  }
-
-  toggleHandler(): void {
-    this.isActive = !this.isActive;
-  }
-
-  startTransition(el: HTMLElement): void {
-    const element = el;
-    element.style.height = `${el.scrollHeight}px`;
-  }
-
-  endTransition(el: HTMLElement): void {
-    const element = el;
-    element.style.height = '';
+  check(e:IEvent): void {
+    const { checked } = e.target;
+    this.isActive = checked;
   }
 
   mounted(): void {
     const queryList = Object.keys(this.$route.query);
+    console.log(queryList);
+    console.log(this.val);
 
     if (queryList.length) {
       this.$emit('input', queryList);
