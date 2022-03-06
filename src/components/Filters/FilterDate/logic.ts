@@ -1,5 +1,5 @@
 import {
-  Component, Watch, VModel, Vue,
+  Component, Watch, VModel, Vue, Prop,
 } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import Dropdown from '@/components/Dropdown/index.vue';
@@ -23,6 +23,8 @@ const date = {
 export default class FilterDate extends Vue {
   @VModel({ type: [String, Array] }) model!: DatePickerValue
 
+  @Prop({ type: [String, Array], required: true }) readonly value!: string
+
   startOfWeek = moment().startOf('week').format('jYYYY-jM-jD');
 
   endOfWeek = moment().endOf('week').format('jYYYY-jM-jD');
@@ -37,7 +39,7 @@ export default class FilterDate extends Vue {
       this.$emit('input', [this.startOfWeek, this.endOfWeek]);
       break;
     case 'OPTIONAL_PERIOD':
-      this.$emit('input', '');
+      this.$emit('input', this.value ? this.value : []);
       break;
     default:
       return '';

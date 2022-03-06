@@ -61,6 +61,7 @@ no-console */
               />
             </FilterAccordion>
           </Filters>
+          {{ filters }}
         </div>
       </div>
     </div>
@@ -114,6 +115,9 @@ export default Vue.extend({
       }
     },
 
+  },
+  created() {
+    this.fillStatus();
   },
   mounted() {
     // update filter list based on query

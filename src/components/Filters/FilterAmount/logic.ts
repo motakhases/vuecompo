@@ -40,6 +40,11 @@ export default class FilterAmount extends Vue {
     return '';
   }
 
+  created() :void{
+    console.log(this.model);
+    this.range = this.model ? this.model : [];
+  }
+
   @Watch('range')
   watchRange():void{
     if (this.range.length) {
@@ -61,7 +66,7 @@ export default class FilterAmount extends Vue {
     { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
   ]
 
-  range = []
+  range =this.model ? this.model : []
 
   amountType = this.type
 }

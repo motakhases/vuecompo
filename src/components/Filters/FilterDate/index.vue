@@ -36,7 +36,7 @@
     </div>
     <DatePicker
       v-if="date === 'OPTIONAL_PERIOD'"
-      v-model="range"
+      v-model="model"
       range
     />
   </div>
