@@ -10,33 +10,51 @@ import CheckBox from '@/components/CheckBox/index.vue';
   },
 })
 export default class Logic extends Vue {
-  @VModel({ type: Array }) model!: string[]
+  @VModel({ type: Array }) model!: string[];
 
-  @Prop({ type: String, default: 'large' }) readonly size!: string
+  @Prop({ type: String, default: 'large' }) readonly size!: string;
 
-  @Prop({ type: String, required: true }) readonly val!: string
+  @Prop({ type: String, required: true }) readonly val!: string;
 
-  @Prop({ type: String, required: true }) readonly name!: string
+  @Prop({ type: [String, Array], required: true }) readonly value!: string;
 
-  @Prop({ type: String }) readonly text?: string
+  @Prop({ type: String, required: true }) readonly name!: string;
 
-  @Prop({ type: Boolean }) readonly disabled?: boolean
+  @Prop({ type: String }) readonly text?: string;
 
-  @Prop({ type: Function }) readonly change?: void
+  @Prop({ type: Boolean }) readonly disabled?: boolean;
 
-  isActive = false
+  @Prop({ type: Function }) readonly change?: void;
 
-  check(e:IEvent): void {
+  isActive = false;
+
+  status = '';
+
+  check(e: IEvent): void {
     const { checked } = e.target;
     this.isActive = checked;
   }
 
   mounted(): void {
-    const queryList = Object.keys(this.$route.query);
-    // if query list exists update active accordions
-    if (queryList.length) {
-      this.$emit('input', queryList);
-      this.isActive = !!queryList.filter((i) => i === this.val).length;
+    const queryKeys = Object.keys(this.$route.query);
+    const amountList = ['min_amount', 'range_amount', 'max_amount'];
+
+    if (queryKeys.length) {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const key in this.$route.query) {
+        if (amountList.includes(key) && this.val === 'amount') {
+          queryKeys.splice(this.value.indexOf(key), 1, 'amount');
+          this.$emit(
+            'input',
+            queryKeys,
+          );
+          this.isActive = true;
+        } else {
+          this.$emit('input', queryKeys);
+
+          this.isActive = !!queryKeys.filter((i) => i === this.val).length;
+        }
+      }
     } else {
       this.$emit('input', []);
     }

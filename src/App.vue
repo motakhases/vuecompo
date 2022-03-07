@@ -52,16 +52,22 @@ no-console */
               v-model="activeAccordion"
               text="مبلغ"
               name="thirdCheckBox"
-              :val="filters.amountType"
+              val="amount"
             >
               <FilterAmount
-                v-model="filters.amount"
-                :type="filters.amountType"
-                @updateAmount="updateAmount"
+                v-model="filters.range_amount"
+                @updateFilter="updateFilter"
+                @deleteFilter="deleteFilter"
               />
             </FilterAccordion>
           </Filters>
-          {{ filters }}
+          <code>
+            <pre>
+                        {{ filters }}
+
+            </pre>
+          </code>
+          activeAccordion{{ activeAccordion }}
         </div>
       </div>
     </div>
@@ -93,56 +99,48 @@ export default Vue.extend({
       filters: {
         status: '',
         date: '',
-        amount: '',
-        amountType: 'amount',
+        range_amount: [],
       },
       range: '',
       activeAccordion: [],
       modal: false,
+      date: '',
+      status: '',
     };
   },
-  computed: {
-    // to put amountType property in separated function to check its changes
-    amountType() {
-      return this.filters.amountType;
-    },
-  },
-  watch: {
-    amountType() {
-      // if amountType is changed add it to active accordion
-      if (!this.activeAccordion.includes(this.amountType)) {
-        this.activeAccordion = [...this.activeAccordion, this.amountType];
-      }
-    },
-
-  },
   created() {
-    this.fillStatus();
-  },
-  mounted() {
     // update filter list based on query
     this.fillStatus();
   },
   methods: {
-    updateAmount(i) {
-      // update amountType
-      this.filters.amountType = i;
+    // add property to filter in components
+    updateFilter(i) {
+      this.filters = { ...this.filters, ...i };
+    },
+    // delete property from filter in components
+    deleteFilter(i) {
+      delete this.filters[i];
     },
     filter() {
       const filterList = {};
       Object.keys(this.filters).forEach((item) => {
-        if (item === 'amountType') {
-          // combine amountType and amount for query list, amountType : amount, e.g. min_amount : 10
-          if (this.activeAccordion.includes(this.filters[item])) {
-            filterList[this.filters.amountType] = this.filters.amount;
+        // if property of filter has value
+        if (this.filters[item]?.length) {
+          // if property exist in active accordion
+          if (this.activeAccordion.length) {
+            this.activeAccordion.forEach((element) => {
+              if (item.includes(element)) {
+                filterList[item] = this.filters[item];
+              }
+            });
+          } else {
+            this.filters = { status: '', date: '' };
           }
-        } else if (this.activeAccordion.includes(item) && item !== 'amount') {
-          // otherwise add items of filters to query list
-          filterList[item] = this.filters[item];
         }
       });
       // push filters list to query
-      this.$router.push({ path: this.$route.path, query: filterList });
+      this.$router.push({ query: filterList });
+
       // close modal
       this.toggleModal();
     },
@@ -151,21 +149,8 @@ export default Vue.extend({
       this.modal = !this.modal;
     },
     fillStatus() {
-      const { query } = this.$route;
-      const amountList = ['min_amount', 'range_amount', 'max_amount'];
-      const queryKeys = Object.keys(query);
-      this.activeAccordion = queryKeys;
-      queryKeys.forEach((el) => {
-        // if element is one of these items so update amount and amount type
-        // e.g. min_amount: 12 => amountType: min_amount, amount: 12
-        if (amountList.includes(el)) {
-          this.filters.amount = query[el];
-          this.filters.amountType = el;
-        } else {
-          // otherwise update filter list based on query
-          this.filters = Object.assign(this.filters, query);
-        }
-      });
+      this.activeAccordion = Object.keys(this.$route.query);
+      this.filters = { ...this.filters, ...this.$route.query };
     },
     clearQuery() {
       // clear filter list and query and close the modal
@@ -173,8 +158,6 @@ export default Vue.extend({
       this.filters = {
         status: '',
         date: '',
-        amount: '',
-        amountType: '',
       };
       this.$router.replace({ query: {} });
     },

@@ -12,44 +12,60 @@ import { AmountFilterValue } from '@/types';
   },
 })
 export default class FilterAmount extends Vue {
-  @VModel({ type: [Array, String], required: true }) model!: AmountFilterValue
+  @VModel({ type: [String, Array] }) range!: string
 
-  @Prop({ type: String, required: true }) readonly type!: string
+  singleValue: AmountFilterValue = '';
+
+  dataLoaded = false;
+
+  typeValue = 'amount';
+
+  get model(): AmountFilterValue {
+    return this.singleValue;
+  }
+
+  set model(value: AmountFilterValue) {
+    this.singleValue = value;
+  }
+
+  get amountType(): string {
+    return this.typeValue;
+  }
+
+  set amountType(value: string) {
+    // when dropdown value is changed delete the previous property
+    this.$emit('deleteFilter', this.typeValue);
+    this.typeValue = value;
+    this.dataLoaded = true;
+  }
+
+  @Watch('singleValue')
+  watchSingleValue(): void{
+    this.$emit('updateFilter', { [this.amountType]: this.singleValue });
+  }
 
   @Watch('amountType')
-  watchAmountType(): string {
-    this.$emit('input', '');
-    this.range = [];
-
-    switch (this.amountType) {
-    case this.types.EQUAL_TO:
-      this.$emit('updateAmount', this.types.EQUAL_TO);
-      break;
-    case this.types.LESS_THAN:
-      this.$emit('updateAmount', this.types.LESS_THAN);
-      break;
-    case this.types.PRICE_RANGE:
-      this.$emit('updateAmount', this.types.PRICE_RANGE);
-      break;
-    case this.types.GREATER_THAN:
-      this.$emit('updateAmount', this.types.GREATER_THAN);
-      break;
-    default:
-      return '';
+  watchAmountType(): void {
+    // after dropdown data loaded if it is changed reset the value
+    if (this.dataLoaded) {
+      this.$emit('updateFilter', {});
+      if (this.amountType === 'range_amount') {
+        this.singleValue = [];
+      } else {
+        this.singleValue = '';
+      }
     }
-    return '';
   }
 
-  created() :void{
-    console.log(this.model);
-    this.range = this.model ? this.model : [];
-  }
-
-  @Watch('range')
-  watchRange():void{
-    if (this.range.length) {
-      this.$emit('input', this.range);
-    }
+  created(): void {
+    const amountList = ['min_amount', 'range_amount', 'max_amount', 'amount'];
+    // update value based on query
+    Object.keys(this.$route.query).forEach((key) => {
+      if (amountList.includes(key)) {
+        this.singleValue = this.$route.query[key];
+        this.typeValue = key;
+      }
+    });
   }
 
   types = {
@@ -64,9 +80,5 @@ export default class FilterAmount extends Vue {
     { id: 2, text: 'کوچک‌تراز', value: this.types.LESS_THAN },
     { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
     { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
-  ]
-
-  range =this.model ? this.model : []
-
-  amountType = this.type
+  ];
 }

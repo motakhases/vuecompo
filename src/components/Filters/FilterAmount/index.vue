@@ -8,7 +8,7 @@
     />
     <div v-if="amountType">
       <div
-        v-if="type === types.PRICE_RANGE"
+        v-if="amountType === types.PRICE_RANGE"
         class="range-box"
       >
         <div class="range-input">
@@ -37,6 +37,7 @@
         separator="comma"
         unit="ریال"
       />
+      {{range}}
     </div>
   </div>
 </template>
