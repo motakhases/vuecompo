@@ -11,5 +11,9 @@ export default class Modal extends Vue {
   @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
 
   @Prop({ type: Function }) toggle!: () => boolean
+
+  @Prop({ type: Boolean }) closable!: boolean
+
+  @Prop({ type: String }) readonly width?: string
 }
 
