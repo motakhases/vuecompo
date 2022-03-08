@@ -1,6 +1,4 @@
-import {
-  Component, Watch, VModel, Vue, Prop,
-} from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
@@ -21,26 +19,29 @@ const date = {
   },
 })
 export default class FilterDate extends Vue {
-  // @VModel({ type: [String, Array] }) model!: DatePickerValue
+  date = '';
 
-  // @Prop({ type: [String, Array], required: true }) readonly value!: string
-  date = ''
+  value: DatePickerValue = '';
 
-value:DatePickerValue=''
-
-get model(): DatePickerValue {
-  return this.value;
-}
-
-set model(value: DatePickerValue) {
-  this.value = value;
-}
-
-today=moment().format('jYYYY-jM-jD')
+  today = moment().format('jYYYY-jM-jD');
 
   startOfWeek = moment().startOf('week').format('jYYYY-jM-jD');
 
   endOfWeek = moment().endOf('week').format('jYYYY-jM-jD');
+
+  options = [
+    { id: 1, text: date.TODAY, value: 'TODAY' },
+    { id: 2, text: date.CURRENT_WEEK, value: 'CURRENT_WEEK' },
+    { id: 3, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
+  ];
+
+  get model(): DatePickerValue {
+    return this.value;
+  }
+
+  set model(value: DatePickerValue) {
+    this.value = value;
+  }
 
   @Watch('date')
   watchDate(): string {
@@ -51,9 +52,6 @@ today=moment().format('jYYYY-jM-jD')
     case 'CURRENT_WEEK':
       this.value = [this.startOfWeek, this.endOfWeek];
       break;
-    case 'OPTIONAL_PERIOD':
-      // this.$emit('input', this.value ? this.value : []);
-      break;
     default:
       return '';
     }
@@ -61,15 +59,10 @@ today=moment().format('jYYYY-jM-jD')
   }
 
   @Watch('value')
-  watchValue(): void{
+  watchValue(): void {
+    // add property to filter
     this.$emit('updateFilter', { date: this.value });
   }
-
-  options = [
-    { id: 1, text: date.TODAY, value: 'TODAY' },
-    { id: 2, text: date.CURRENT_WEEK, value: 'CURRENT_WEEK' },
-    { id: 3, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
-  ]
 
   mounted(): void {
     // update value based on query
@@ -80,9 +73,5 @@ today=moment().format('jYYYY-jM-jD')
         this.value = [this.value, this.value];
       }
     }
-  }
-
-  arraysEqual(a1: DatePickerValue, a2: string[]):boolean {
-    return JSON.stringify(a1) === JSON.stringify(a2);
   }
 }

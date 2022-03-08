@@ -18,6 +18,20 @@ export default class FilterAmount extends Vue {
 
   typeValue = 'amount';
 
+  types = {
+    EQUAL_TO: 'amount',
+    GREATER_THAN: 'min_amount',
+    PRICE_RANGE: 'range_amount',
+    LESS_THAN: 'max_amount',
+  };
+
+  options = [
+    { id: 1, text: 'برابراست با', value: this.types.EQUAL_TO },
+    { id: 2, text: 'کوچک‌تراز', value: this.types.LESS_THAN },
+    { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
+    { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
+  ];
+
   get model(): AmountFilterValue {
     return this.value;
   }
@@ -65,18 +79,4 @@ export default class FilterAmount extends Vue {
       }
     });
   }
-
-  types = {
-    EQUAL_TO: 'amount',
-    GREATER_THAN: 'min_amount',
-    PRICE_RANGE: 'range_amount',
-    LESS_THAN: 'max_amount',
-  };
-
-  options = [
-    { id: 1, text: 'برابراست با', value: this.types.EQUAL_TO },
-    { id: 2, text: 'کوچک‌تراز', value: this.types.LESS_THAN },
-    { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
-    { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
-  ];
 }
