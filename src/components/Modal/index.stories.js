@@ -41,7 +41,7 @@ const Template = (_, { argTypes }) => ({
 				اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده
 				قرار گیرد.
 			</div>
-			<div slot="footer">
+			<div slot="leftFooter">
 				<Button
 					type="primary"
 					size="medium"

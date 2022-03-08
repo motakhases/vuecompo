@@ -3,8 +3,11 @@
     v-if="isOpen"
     :class="['zpl-modal', { 'show' : isOpen }]"
   >
-    <div class="modal">
-      <div class="modal-header">
+    <div
+      :class="['zpl-modal-box', width ? `w-[${width}]` : null]"
+    >
+      <!-- header -->
+      <div class="zpl-modal-header">
         <h1>{{ title }}</h1>
         <Button
           icon="delete"
@@ -14,17 +17,34 @@
           @click.native="toggle"
         />
       </div>
-      <div class="modal-body">
+
+      <!-- body -->
+      <div class="zpl-modal-body">
         <slot name="body" />
       </div>
-      <div class="modal-footer">
-        <slot name="footer" />
+
+      <!-- footer -->
+      <div class="zpl-modal-footer">
+        <!-- right side -->
+        <div
+          v-if="this.$slots.rightFooter"
+          class="zpl-modal-footer-container"
+        >
+          <slot name="rightFooter" />
+        </div>
+        <!-- left side -->
+        <div
+          v-if="this.$slots.leftFooter"
+          class="zpl-modal-footer-container left"
+        >
+          <slot name="leftFooter" />
+        </div>
       </div>
     </div>
     <div
       ref="backdropRef"
       class="backdrop"
-      @click="toggle"
+      @click="closable ? toggle() : null"
     />
   </div>
 </template>
@@ -35,5 +55,4 @@ import logic from './logic';
 import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
-
 </script>

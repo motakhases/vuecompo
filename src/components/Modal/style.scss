@@ -4,53 +4,58 @@
   @apply flex justify-center items-center;
   // transition:  opacity 0.4s linear;
   // opacity: 0;
-  .modal {
-    @apply w-full max-h-[88vh] absolute bottom-0 z-[9999] rounded-t-md;
-    @apply lg:w-[600px] lg:mx-md lg:rounded-md lg:static;
-    @apply flex flex-col px-md;
-    @apply text-text bg-surface shadow-elevation-100;
-    @apply dark:text-text-dark dark:bg-surface-dark dark:shadow-dark-elevation-100;
-    .modal-header {
-      @apply py-md flex items-center justify-between;
-      h1 {
-        @apply text-ls-h1;
-      }
-      .close-modal {
-        @apply w-2xl h-2xl;
-      }
-    }
-    .modal-body {
-      @apply overflow-y-scroll my-md min-h-[100px];
-    }
-    .modal-footer {
-      @apply py-md;
-    }
+}
+.zpl-modal-box {
+  @apply w-full max-h-[88vh] absolute bottom-0 z-[9999] rounded-t-md;
+  @apply lg:w-[600px] lg:rounded-md lg:static;
+  @apply flex flex-col;
+  @apply text-text bg-surface shadow-elevation-100;
+  @apply dark:text-text-dark dark:bg-surface-dark dark:shadow-dark-elevation-100;
+}
+.zpl-modal-header {
+  @apply p-md flex items-center justify-between;
+  h1 {
+    @apply text-ls-h1 font-bold;
   }
-  .backdrop {
-    @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
-    @apply bg-alpha-overlay;
-    @apply dark:bg-alpha-dark-overlay;
-    // transition: all 0.15s linear;
-  }
-
-  /* ---------------------------------- */
-  /* scroll style */
-  /* width */
-  ::-webkit-scrollbar {
-    @apply w-xs;
-  }
-  /* Track */
-  ::-webkit-scrollbar-track {
-    @apply bg-surface;
-    @apply dark:bg-surface-dark;
-  }
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    @apply bg-surface-heavy rounded-md;
-    @apply dark:bg-surface-dark-heavy;
+  .close-modal {
+    @apply w-2xl h-2xl;
   }
 }
+.zpl-modal-body {
+  @apply overflow-y-auto min-h-[100px];
+}
+.zpl-modal-footer {
+  @apply p-md flex items-center justify-between;
+}
+.zpl-modal-footer-container {
+  @apply flex items-center gap-xs;
+  &.left {
+    @apply mr-auto;
+  }
+}
+.backdrop {
+  @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
+  @apply bg-alpha-overlay;
+  @apply dark:bg-alpha-dark-overlay;
+  // transition: all 0.15s linear;
+}
 
+/* ---------------------------------- */
+/* scroll style */
+/* width */
+::-webkit-scrollbar {
+  @apply w-xs;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+  @apply dark:bg-surface-dark;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-heavy rounded-md;
+  @apply dark:bg-surface-dark-heavy;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s;
