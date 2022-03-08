@@ -55,40 +55,54 @@ this.$router.push({})
     text="کلیک کن"
     @click.native="toggleModal"
   />
-  {{priceFilterType}}
-{{filters.status}}
-  <Filters :is-open="modal" @filter="filter" :toggle="toggleModal">
-    <FilterAccordion
-      v-model="status"
-      text="وضعیت"
-      name="firstCheckBox"
-      val="اولین گزینه"
-    >
-      <Radio v-model="filters.status" name="r" val="active" text="موفق" />
-      <Radio v-model="filters.status" name="r" val="inactive" text="ناموفق" />
-    </FilterAccordion>
-    <FilterAccordion
-    v-model="date"
-    text="تاریخ"
+  <Filters
+  :is-open="modal"
+  :toggle="toggleModal"
+  :filter="filter"
+  :clear-query="clearQuery"
+>
+  <FilterAccordion
+    v-model="activeAccordion"
+    text="وضعیت"
     name="secondCheckBox"
-    val="دومین گزینه"
+    val="status"
   >
-    <FilterDate v-model="dateValue" />
+    <Radio
+      v-model="filters.status"
+      name="r"
+      val="active"
+      text="موفق"
+    />
+    <Radio
+      v-model="filters.status"
+      name="r"
+      val="inactive"
+      text="ناموفق"
+    />
   </FilterAccordion>
   <FilterAccordion
-    v-model="price"
+    v-model="activeAccordion"
+    text="تاریخ"
+    name="secondCheckBox"
+    val="date"
+  >
+    <FilterDate
+      @updateFilter="updateFilter"
+      @deleteFilter="deleteFilter"
+    />
+  </FilterAccordion>
+  <FilterAccordion
+    v-model="activeAccordion"
     text="مبلغ"
     name="thirdCheckBox"
-    val="سومین گزینه"
+    val="amount"
   >
     <FilterAmount
-      v-model="priceValue"
-      :amount-filter="priceFilterType"
-      @updateAmount="updateAmountt"
+      @updateFilter="updateFilter"
+      @deleteFilter="deleteFilter"
     />
-  </FilterAccordion> 
-   {{statusValue}}
-  </Filters>
+  </FilterAccordion>
+</Filters>
 </div>
   `,
 });

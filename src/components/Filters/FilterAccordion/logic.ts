@@ -40,8 +40,7 @@ export default class Logic extends Vue {
     const amountList = ['min_amount', 'range_amount', 'max_amount'];
 
     if (queryKeys.length) {
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in this.$route.query) {
+      Object.keys(this.$route.query).forEach((key) => {
         if (amountList.includes(key) && this.val === 'amount') {
           queryKeys.splice(this.value.indexOf(key), 1, 'amount');
           this.$emit(
@@ -51,10 +50,9 @@ export default class Logic extends Vue {
           this.isActive = true;
         } else {
           this.$emit('input', queryKeys);
-
           this.isActive = !!queryKeys.filter((i) => i === this.val).length;
         }
-      }
+      });
     } else {
       this.$emit('input', []);
     }

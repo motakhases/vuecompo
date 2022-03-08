@@ -14,7 +14,7 @@
         <div class="range-input">
           <label>از</label>
           <Textfield
-            v-model="range[0]"
+            v-model="model[0]"
             type="number"
             separator="comma"
             unit="ریال"
@@ -23,7 +23,7 @@
         <div class="range-input">
           <label>تا</label>
           <Textfield
-            v-model="range[1]"
+            v-model="model[1]"
             type="number"
             separator="comma"
             unit="ریال"
@@ -37,7 +37,6 @@
         separator="comma"
         unit="ریال"
       />
-      {{range}}
     </div>
   </div>
 </template>

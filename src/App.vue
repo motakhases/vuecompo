@@ -44,8 +44,8 @@ no-console */
               val="date"
             >
               <FilterDate
-                v-model="filters.date"
-                :date="range"
+                @updateFilter="updateFilter"
+                @deleteFilter="deleteFilter"
               />
             </FilterAccordion>
             <FilterAccordion
@@ -55,19 +55,11 @@ no-console */
               val="amount"
             >
               <FilterAmount
-                v-model="filters.range_amount"
                 @updateFilter="updateFilter"
                 @deleteFilter="deleteFilter"
               />
             </FilterAccordion>
           </Filters>
-          <code>
-            <pre>
-                        {{ filters }}
-
-            </pre>
-          </code>
-          activeAccordion{{ activeAccordion }}
         </div>
       </div>
     </div>
@@ -98,14 +90,9 @@ export default Vue.extend({
     return {
       filters: {
         status: '',
-        date: '',
-        range_amount: [],
       },
-      range: '',
       activeAccordion: [],
       modal: false,
-      date: '',
-      status: '',
     };
   },
   created() {
@@ -129,11 +116,13 @@ export default Vue.extend({
           // if property exist in active accordion
           if (this.activeAccordion.length) {
             this.activeAccordion.forEach((element) => {
+              // to check if it includes the item for min_amount, max_Amount, range_amount
               if (item.includes(element)) {
                 filterList[item] = this.filters[item];
               }
             });
           } else {
+            // if there is no active accordion so empty filters
             this.filters = { status: '', date: '' };
           }
         }
@@ -157,7 +146,6 @@ export default Vue.extend({
       this.modal = false;
       this.filters = {
         status: '',
-        date: '',
       };
       this.$router.replace({ query: {} });
     },

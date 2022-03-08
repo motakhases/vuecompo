@@ -1,5 +1,5 @@
 import {
-  Component, Prop, VModel, Vue, Watch,
+  Component, Vue, Watch,
 } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
@@ -12,20 +12,18 @@ import { AmountFilterValue } from '@/types';
   },
 })
 export default class FilterAmount extends Vue {
-  @VModel({ type: [String, Array] }) range!: string
-
-  singleValue: AmountFilterValue = '';
+  value: AmountFilterValue = '';
 
   dataLoaded = false;
 
   typeValue = 'amount';
 
   get model(): AmountFilterValue {
-    return this.singleValue;
+    return this.value;
   }
 
   set model(value: AmountFilterValue) {
-    this.singleValue = value;
+    this.value = value;
   }
 
   get amountType(): string {
@@ -39,9 +37,9 @@ export default class FilterAmount extends Vue {
     this.dataLoaded = true;
   }
 
-  @Watch('singleValue')
-  watchSingleValue(): void{
-    this.$emit('updateFilter', { [this.amountType]: this.singleValue });
+  @Watch('value')
+  watchValue(): void{
+    this.$emit('updateFilter', { [this.amountType]: this.value });
   }
 
   @Watch('amountType')
@@ -50,9 +48,9 @@ export default class FilterAmount extends Vue {
     if (this.dataLoaded) {
       this.$emit('updateFilter', {});
       if (this.amountType === 'range_amount') {
-        this.singleValue = [];
+        this.value = [];
       } else {
-        this.singleValue = '';
+        this.value = '';
       }
     }
   }
@@ -62,7 +60,7 @@ export default class FilterAmount extends Vue {
     // update value based on query
     Object.keys(this.$route.query).forEach((key) => {
       if (amountList.includes(key)) {
-        this.singleValue = this.$route.query[key];
+        this.value = JSON.parse(JSON.stringify(this.$route.query[key]));
         this.typeValue = key;
       }
     });

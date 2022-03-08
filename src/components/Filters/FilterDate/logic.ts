@@ -21,9 +21,22 @@ const date = {
   },
 })
 export default class FilterDate extends Vue {
-  @VModel({ type: [String, Array] }) model!: DatePickerValue
+  // @VModel({ type: [String, Array] }) model!: DatePickerValue
 
-  @Prop({ type: [String, Array], required: true }) readonly value!: string
+  // @Prop({ type: [String, Array], required: true }) readonly value!: string
+  date = ''
+
+value:DatePickerValue=''
+
+get model(): DatePickerValue {
+  return this.value;
+}
+
+set model(value: DatePickerValue) {
+  this.value = value;
+}
+
+today=moment().format('jYYYY-jM-jD')
 
   startOfWeek = moment().startOf('week').format('jYYYY-jM-jD');
 
@@ -33,13 +46,13 @@ export default class FilterDate extends Vue {
   watchDate(): string {
     switch (this.date) {
     case 'TODAY':
-      this.$emit('input', moment().format('jYYYY-jM-jD'));
+      this.value = this.today;
       break;
     case 'CURRENT_WEEK':
-      this.$emit('input', [this.startOfWeek, this.endOfWeek]);
+      this.value = [this.startOfWeek, this.endOfWeek];
       break;
     case 'OPTIONAL_PERIOD':
-      this.$emit('input', this.value ? this.value : []);
+      // this.$emit('input', this.value ? this.value : []);
       break;
     default:
       return '';
@@ -47,11 +60,9 @@ export default class FilterDate extends Vue {
     return '';
   }
 
-  @Watch('range')
-  watchRange():void{
-    if (this.range.length) {
-      this.$emit('input', this.range);
-    }
+  @Watch('value')
+  watchValue(): void{
+    this.$emit('updateFilter', { date: this.value });
   }
 
   options = [
@@ -60,19 +71,13 @@ export default class FilterDate extends Vue {
     { id: 3, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
   ]
 
-  range = []
-
-  date = ''
-
-  created() :void{
-    const week = [this.startOfWeek, this.endOfWeek];
-    if (this.model) {
-      if (typeof this.model === 'string') {
-        this.date = 'TODAY';
-      } else if (this.arraysEqual(this.model, week)) {
-        this.date = 'CURRENT_WEEK';
-      } else {
-        this.date = 'OPTIONAL_PERIOD';
+  mounted(): void {
+    // update value based on query
+    if (Object.keys(this.$route.query).includes('date')) {
+      this.date = 'OPTIONAL_PERIOD';
+      this.value = JSON.parse(JSON.stringify(this.$route.query.date));
+      if (typeof this.value === 'string') {
+        this.value = [this.value, this.value];
       }
     }
   }
