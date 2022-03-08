@@ -1,0 +1,21 @@
+.zpl-share {
+  &-tab {
+    // default
+    @apply flex flex-col gap-xl pt-md;
+
+    ._qr-wrapper {
+      // default
+      @apply flex justify-center items-center w-full h-[214px];
+
+      > img {
+        // default
+        @apply h-[200px] rounded-md;
+      }
+    }
+  }
+
+  &-socials {
+    // default
+    @apply flex justify-center;
+  }
+}

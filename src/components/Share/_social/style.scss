@@ -1,0 +1,33 @@
+.zpl-social {
+  // default
+  @apply flex flex-col items-center justify-center gap-sm p-md;
+
+  &-icon {
+    // default
+    @apply w-[80px] h-[80px] border border-border-soft rounded-circle flex justify-center items-center;
+    @apply dark:border-border-dark-soft;
+
+    // hover
+    @apply hover:bg-surface-hover;
+    @apply dark:hover:bg-surface-dark-hover;
+
+    // active
+    @apply active:bg-surface-active;
+    @apply dark:active:bg-surface-dark-active;
+
+    // focus
+    @apply focus:bg-surface-focus;
+    @apply dark:focus:bg-surface-dark-focus;
+
+    ._icon {
+      // default
+      @apply w-xl h-xl text-text;
+      @apply dark:text-text-dark;
+    }
+  }
+
+  &-name {
+    @apply font-IRANYekanFaNum text-b3 text-text;
+    @apply dark:text-text-dark;
+  }
+}
