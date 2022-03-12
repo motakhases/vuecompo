@@ -4,7 +4,7 @@
     :class="['zpl-modal', { 'show' : isOpen }]"
   >
     <div
-      :class="['zpl-modal-box', `w-[${width}]`]"
+      :class="['zpl-modal-box', width ? `w-[${width}]` : null]"
     >
       <!-- header -->
       <div class="zpl-modal-header">
@@ -44,7 +44,7 @@
     <div
       ref="backdropRef"
       class="backdrop"
-      @click="toggle"
+      @click="closable ? toggle() : null"
     />
   </div>
 </template>
@@ -55,5 +55,4 @@ import logic from './logic';
 import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
-
 </script>
