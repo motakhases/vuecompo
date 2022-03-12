@@ -6,7 +6,7 @@
         :class="icon === 'CheckmarkCircle'
           ? 'blue' : icon === 'DollarFill'
             ? 'green' : icon === 'MessageEditFill'
-              ? 'warning' : ''"
+              ? 'warning' : null"
       />
     </div>
     <div class="zpl-timeline-cart">
