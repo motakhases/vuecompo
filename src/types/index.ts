@@ -66,6 +66,13 @@ export type DatePickerValue = string | string[];
 export type AmountFilterValue = string | (string | null)[]
 
 /**
+ * @/components/Filters/FilterAccordion
+ * ---------------------------------------------------
+ */
+
+export type AccordionValue = string | string[];
+
+/**
  * @/components/Dropdown/Item
  * ---------------------------------------------------
  */

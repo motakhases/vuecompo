@@ -1,7 +1,7 @@
 import {
   Component, Prop, VModel, Vue,
 } from 'vue-property-decorator';
-import { IEvent } from '@/types/index';
+import { IEvent, AccordionValue } from '@/types';
 import CheckBox from '@/components/CheckBox/index.vue';
 
 @Component({
@@ -16,7 +16,7 @@ export default class Logic extends Vue {
 
   @Prop({ type: String, required: true }) readonly val!: string;
 
-  @Prop({ type: [String, Array], required: true }) readonly value!: string;
+  @Prop({ type: [String, Array], required: true }) readonly value!: AccordionValue;
 
   @Prop({ type: String, required: true }) readonly name!: string;
 

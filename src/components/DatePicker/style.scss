@@ -210,6 +210,7 @@
   }
 }
 .zpl-date-picker-range-input {
+  flex: 1;
   &:first-child {
     @apply ml-sm;
   }
