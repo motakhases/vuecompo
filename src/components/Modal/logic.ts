@@ -16,4 +16,3 @@ export default class Modal extends Vue {
 
   @Prop({ type: String }) readonly width?: string
 }
-

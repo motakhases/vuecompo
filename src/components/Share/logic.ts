@@ -17,7 +17,7 @@ import TextField from '@/components/TextField/index.vue';
   },
 })
 export default class Share extends Vue {
-  @Prop({ type: String }) url?: string;
+  @Prop({ type: String, required: true }) url!: string;
 
   get qrcode(): string {
     return `https://tools.zarinpal.com/qr?r=q&s=256&q=${this.url}`;
