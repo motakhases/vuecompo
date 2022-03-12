@@ -3,7 +3,10 @@
     <div class="zpl-timeline-icon">
       <Icon
         :name="icon"
-        :class="icon === 'CheckmarkCircle' ? 'blue' : icon === 'DollarFill' ? 'green' : ''"
+        :class="icon === 'CheckmarkCircle'
+          ? 'blue' : icon === 'DollarFill'
+            ? 'green' : icon === 'MessageEditFill'
+              ? 'warning' : null"
       />
     </div>
     <div class="zpl-timeline-cart">

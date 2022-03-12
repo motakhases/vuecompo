@@ -13,7 +13,7 @@ const Template = (_, { argTypes }) => ({
       <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" icon="QuestionCircle" />
       <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" icon="DollarFill" />
       <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" labelText="labelText" icon="CheckmarkCircle"  />
-		  <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" labelText="labelText" icon="QuestionCircle"  />
+		  <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" labelText="labelText" icon="MessageEditFill"  />
     </div>
 	</div>
   `,

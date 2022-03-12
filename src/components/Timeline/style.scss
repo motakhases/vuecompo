@@ -61,4 +61,8 @@
     @apply text-icon-success;
     @apply dark:text-icon-dark-success;
   }
+  .warning {
+    @apply text-icon-warning;
+    @apply dark:text-icon-dark-warning;
+  }
 }
