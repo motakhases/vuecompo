@@ -3,6 +3,7 @@ import moment from 'moment-jalaali';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import DatePicker from '@/components/DatePicker/index.vue';
+import { DatePickerValue } from '@/types';
 
 const date = {
   TODAY: 'امروز',
@@ -42,7 +43,7 @@ export default class FilterDate extends Vue {
     this.value = value;
   }
 
-  @Watch('data')
+  @Watch('date')
   watchDate(): string {
     switch (this.date) {
     case 'TODAY':

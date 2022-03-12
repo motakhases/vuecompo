@@ -37,6 +37,7 @@
         separator="comma"
         unit="ریال"
       />
+      {{model}}
     </div>
   </div>
 </template>
