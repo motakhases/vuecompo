@@ -1,9 +1,9 @@
 import Filters from "./index.vue";
+import FilterActions from "./FilterActions/index.vue";
 import Radio from "@/components/Radio/index.vue";
 import FilterAccordion from "./FilterAccordion/index.vue";
 import FilterDate from "./FilterDate/index.vue";
 import FilterAmount from "./FilterAmount/index.vue";
-import Button from "@/components/Button/index.vue";
 export default {
   component: Filters,
   title: "Components/Filters",
@@ -12,18 +12,18 @@ export default {
 const Template = () => ({
   components: {
     Filters,
+    FilterActions,
     FilterAccordion,
     Radio,
     FilterDate,
     FilterAmount,
-    Button,
   },
   data() {
     return {
-      statusValue: "",
-      dateValue: "",
-      priceValue: "",
-      priceFilterType: "PRICE_RANGE",
+      statusValue: '',
+      dateValue: '',
+      priceValue: '',
+
       status: [],
       date: [],
       price: [],

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav :class="['zpl-nav-bar-container', { 'show': isShow }]">
+  <nav class="zpl-nav-bar-container">
+    <div :class="['zpl-nav-bar-menu', { toggle }]">
       <!-- Logo -->
       <div class="zpl-nav-bar-logo">
         <Logo
@@ -48,13 +48,8 @@
           />
         </ul>
       </div>
-    </nav>
-
-    <div
-      :class="['zpl-nav-overlay', { 'show': isShow }]"
-      @click="toggle"
-    />
-  </div>
+    </div>
+  </nav>
 </template>
 
 <script lang="ts">

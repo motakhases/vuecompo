@@ -1,46 +1,38 @@
 <template>
   <div
-    :class="['zpl-bank-cards', `${camelCaseConverter(logo)}-card`, defaultAccount ? 'background' : '']"
+    :class="['zpl-bank-cards', `${logo}-card`]"
   >
-    <div :class="['zpl-bank-cards-container', defaultAccount ? 'background' : '']">
-      <div class="zpl-bank-cards-top">
-        <Thumbnail :logo="logo" />
-        <div>
-          <div class="zpl-bank-cards-iban">
-            {{ iban }}
-          </div>
-          <span
-            v-if="defaultAccount"
-            class="zpl-bank-cards-username"
-          > حساب پیش‌فرض تسویه </span>
-          <span
-            v-else
-            class="zpl-bank-cards-username"
-          >
-            {{ username }}
-          </span>
-        </div>
+    <div class="zpl-bank-cards-top">
+      <BankLogos :logo="logo" />
+      <div class="zpl-bank-cards-name">
+        {{ bankName }}
       </div>
-      <div class="zpl-bank-cards-row">
-        <div class="zpl-bank-cards-title">
-          سهم واریز شده
-        </div>
-        <div class="zpl-bank-cards-text">
+      <div class="zpl-bank-cards-username">
+        <span v-if="defaultAccount"> حساب پیش‌فرض تسویه </span>
+        <span v-else>
+          {{ username }}
+        </span>
+      </div>
+    </div>
+    <div class="zpl-bank-cards-container">
+      <div class="zpl-bank-cards-amount-box">
+        <span class="zpl-bank-cards-amount">
           <FilterSample
             :number="amount"
             number-format
           />
-          <span class="zpl-bank-cards-currency">ریال</span>
-        </div>
+        </span>
+        <span class="zpl-bank-cards-currency">ریال</span>
       </div>
-      <div class="zpl-bank-cards-row">
-        <div class="zpl-bank-cards-title">
-          شناسه واریز
-        </div>
-        <div class="zpl-bank-cards-text">
-          {{ rrn }}
-        </div>
+      <div class="zpl-bank-cards-iban">
+        {{ iban }}
       </div>
+    </div>
+    <div class="zpl-bank-cards-rrn">
+      <span>شناسه واریز پایا</span>
+      <span>
+        {{ rrn }}
+      </span>
     </div>
   </div>
 </template>

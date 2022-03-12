@@ -3,7 +3,7 @@
     <Dropdown
       v-model="amountType"
       :options="options"
-      placeholder="بازه مبلغ"
+      placeholder="بازه تاریخ"
       class="dropdown"
     />
     <div v-if="amountType">

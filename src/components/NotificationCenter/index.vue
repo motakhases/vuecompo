@@ -1,7 +1,7 @@
 <template>
   <div :class="['zpl-notification-modal']">
     <div
-      :class="['zpl-notification-center', isShow ? 'show': 'hide' ]"
+      :class="['zpl-notification-center', isOpen ? 'show': 'hide' ]"
     >
       <div
         v-if="!showArchives"
@@ -120,7 +120,7 @@
       </div>
     </div>
     <div
-      v-if="isShow"
+      v-if="isOpen"
       class="backdrop"
       @click="toggle"
     />

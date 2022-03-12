@@ -6,7 +6,7 @@ import CheckBox from '@/components/CheckBox/index.vue';
 
 @Component({
   components: {
-    CheckBox,
+    FilterToggle,
   },
 })
 export default class Logic extends Vue {

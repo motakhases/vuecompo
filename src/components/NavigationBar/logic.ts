@@ -20,17 +20,13 @@ import SwitchTerminalPopover from './SwitchTerminalPopover/index.vue';
   },
 })
 export default class NavigationBar extends Vue {
-  @Prop({ type: Array }) readonly terminals!: INavigationBarTerminal[]
+  @Prop({ type: Boolean, default: false }) toggle!: boolean
 
-  @Prop({ type: Array, required: true }) readonly aboveLinks!: INavigationBarLinks[]
+  @Prop({ type: Array }) terminals!: INavigationBarTerminal[]
 
-  @Prop({ type: Array }) readonly belowLinks!: INavigationBarTerminal[]
+  @Prop({ type: Array, required: true }) aboveLinks!: INavigationBarLinks[]
 
-  @Prop({ type: Object }) readonly activeTerminal?: INavigationBarTerminal
+  @Prop({ type: Array }) belowLinks!: INavigationBarTerminal[]
 
-  isShow = false;
-
-  toggle(): void {
-    this.isShow = !this.isShow;
-  }
+  @Prop({ type: Object }) activeTerminal?: INavigationBarTerminal
 }

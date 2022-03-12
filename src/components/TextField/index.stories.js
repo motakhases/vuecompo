@@ -49,6 +49,7 @@ const Template = (_, { argTypes }) => ({
   	  v-model="unit"
 			type="number"
   	  class="col-span-1"
+			type="number"
 			separator="comma"
   	  label="فیلد واحد دار"
   	  unit="ریال"

@@ -32,10 +32,7 @@ const Template = (_, { argTypes }) => ({
             {
               title: 'پرداخت موفق',
               type: 'positive',
-            },
-            {
-              icon: 'CheckmarkCircle',
-              type: 'positive',
+              size: '',
             },
           ],
         },

@@ -1,9 +1,8 @@
 .zpl-filter-acc {
-  @apply shadow-border-divider-bottom;
-  @apply dark:shadow-dark-divider-bottom;
-}
-.zpl-filter-toggle {
-  @apply p-md;
+  &:not(:last-child) {
+    @apply shadow-border-divider-bottom;
+    @apply dark:shadow-dark-divider-bottom;
+  }
 }
 
 .zpl-filter-status {

@@ -1,35 +1,31 @@
 <template>
   <ValidationProvider
-    v-slot="{ errors, passed }"
+    v-slot="{ invalid, errors, passed }"
     :rules="rules"
   >
-    <div :class="['zpl-dropdown-group']">
+    <div
+      :class="['zpl-dropdown-group']"
+      dir="rtl"
+    >
       <div
-        :class="['zpl-dropdown',isBoxFocused ? 'focused' : '', { error: errors.length }]"
+        :class="['zpl-dropdown', { error: errors.length }]"
         :disabled="disabled"
-        @click="onFocusIn"
       >
         <input
-          v-if="search"
+          v-model="model"
           :class="['zpl-dropdown-input']"
           :disabled="disabled"
           :placeholder="placeholder"
-          :value="inputModel"
           @focusout="onFocusOut"
+          @focusin="onFocusIn"
           @keyup="onKeyUp"
           @keydown="onKeyDown"
-          @input="inputHandler"
         >
-        <span
-          v-else
-          class="zpl-dropdown-value"
-        >
-          {{ inputVal.length ? inputVal : placeholder }}
-        </span>
+
         <!-- label -->
         <label
           v-if="label"
-          :class="['zpl-dropdown-label', isInputFocused | isBoxFocused ? 'isInputFocused' : '' ]"
+          :class="['zpl-dropdown-label', { isInputFocused }]"
         >
           {{ label }}
         </label>
@@ -110,17 +106,17 @@
               'zpl-dropdown-item',
               {
                 disabled: option.disabled,
-                selected: value === option.value,
+                selected: value === option.text,
                 active: activeOptionIndex === i,
               },
             ]"
-            @click="selectOption(option.value, option.text)"
+            @click="selectOption(option.text)"
             @mouseenter="activateOption"
             @mouseleave="deactivateOption"
           >
             {{ option.text }}
             <Icon
-              v-if="value === option.value"
+              v-if="value === option.text"
               name="tickLarge"
               class="zpl-dropdown-selected-icon"
             />

@@ -3,7 +3,6 @@ import {
 } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
-import { AmountFilterValue } from '@/types';
 
 @Component({
   components: {

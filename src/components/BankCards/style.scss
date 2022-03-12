@@ -15,52 +15,50 @@ $bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
 
 .zpl-bank-cards {
   @apply bg-surface border border-border-soft shadow-elevation-50;
-  @apply rounded-md relative overflow-hidden w-full;
+  @apply rounded-md relative overflow-hidden p-xs w-[320px];
   @apply dark:bg-surface-dark dark:border-border-dark-soft dark:shadow-dark-elevation-50;
-  &.background {
-    &::after {
-      content: "";
-      @apply absolute w-full h-[40px] top-0 z-0 left-0 right-0;
-    }
-  }
-}
-.zpl-bank-cards-container {
-  @apply p-md bg-surface relative z-10 rounded-sm;
-  @apply dark:bg-surface-dark;
 
-  &.background {
-    @apply m-2xs pt-lg px-sm pb-sm;
+  &::after {
+    content: "";
+    @apply absolute w-full h-xl top-0 z-0 left-0 right-0;
   }
 }
 .zpl-bank-cards-top {
-  @apply mb-xl gap-x-sm flex items-center;
+  @apply relative bg-surface rounded-[6px] p-xs z-10 mb-xs gap-x-xs flex items-center;
+  @apply dark:bg-surface-dark;
 }
-.zpl-bank-cards-body {
-  @apply pt-lg px-md pb-md;
+.zpl-bank-cards-name {
+  @apply text-text text-b3;
+  @apply dark:text-text-dark;
 }
 .zpl-bank-cards-username {
   @apply flex items-center text-text-soft text-ls-cp;
   @apply dark:text-text-dark-soft;
-}
-.zpl-bank-cards-row {
-  @apply flex items-center justify-between;
-  &:not(:last-child) {
-    @apply mb-md;
+
+  // circle icon
+  &:before {
+    content: "";
+    @apply w-[2px] h-[2px] rounded-circle bg-text-soft ml-xs;
   }
 }
-.zpl-bank-cards-title {
-  @apply text-b3 text-text-soft;
-  @apply dark:text-text-dark-soft;
-}
-.zpl-bank-cards-text {
-  @apply flex items-center gap-2xs font-IRANYekanFaNum text-b2 text-text;
-  @apply text-text-dark;
-}
 
+.zpl-bank-cards-container {
+  @apply bg-surface-soft rounded-sm p-xs z-10 mb-xs text-text text-center;
+  @apply dark:bg-surface-dark-soft dark:text-text-dark;
+}
+.zpl-bank-cards-amount-box {
+  @apply flex items-center justify-center px-xs z-10 mb-sm;
+}
+.zpl-bank-cards-amount {
+  @apply text-ls-h1 font-bold ml-2xs font-IRANYekanFaNum;
+}
 .zpl-bank-cards-currency {
   @apply text-b2;
 }
 .zpl-bank-cards-iban {
-  @apply relative z-10 text-b2 mb-2xs text-text;
-  @apply text-text-dark;
+  @apply relative z-10 text-b2;
+}
+.zpl-bank-cards-rrn {
+  @apply py-2xs px-xs flex justify-between text-text-soft text-b3;
+  @apply dark:text-text-dark-soft;
 }

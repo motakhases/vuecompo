@@ -1,4 +1,4 @@
-# @zarinpal/web-components
+# @zarinpal/web-components.
 This package providing a new design system for [ZarinPal](https://www.zarinpal.com/) that contains a foundation and many components based on the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in the future. In order to increase development speed and consistency on the style guide, we decided to use TailwindCSS. So this package uses [TailwindCSS](https://tailwindcss.com/), [Typescript](https://www.typescriptlang.org/) and [Vuejs](https://vuejs.org/).
 
 > NOTE: This package is under construction and it's not ready to use!
