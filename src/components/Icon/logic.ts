@@ -1,4 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
+
+// Icons
 import Box from './icons/Box.vue';
 import ChatMessage from './icons/ChatMessage.vue';
 import CreditCheckout from './icons/CreditCheckout.vue';
@@ -56,6 +58,10 @@ import QrCode from './icons/QrCode.vue';
 import Search from './icons/Search.vue';
 import SettingsRound from './icons/SettingsRound.vue';
 import Share from './icons/Share.vue';
+import Instagram from './icons/Instagram.vue';
+import Telegram from './icons/Telegram.vue';
+import Whatsapp from './icons/Whatsapp.vue';
+import Download from './icons/Download.vue';
 
 @Component({
   components: {
@@ -116,6 +122,10 @@ import Share from './icons/Share.vue';
     Search,
     SettingsRound,
     Share,
+    Download,
+    Instagram,
+    Telegram,
+    Whatsapp,
   },
 })
 export default class Icon extends Vue {

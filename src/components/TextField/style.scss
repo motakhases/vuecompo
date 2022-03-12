@@ -3,6 +3,15 @@
   @apply relative flex flex-col;
   direction: rtl;
 }
+
+.zpl-copy-button {
+  @apply -ml-xs h-[38px];
+
+  > span {
+    @apply whitespace-nowrap;
+  }
+}
+
 .zpl-textfield {
   /* Default */
   @apply bg-surface flex items-center border border-border
@@ -46,6 +55,11 @@
   &::placeholder {
     @apply text-b2 text-text-soft;
     @apply dark:text-text-dark-soft;
+  }
+
+  &.ltr {
+    direction: ltr;
+    @apply text-left font-sans;
   }
 }
 

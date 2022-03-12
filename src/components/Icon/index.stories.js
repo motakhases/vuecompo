@@ -67,6 +67,10 @@ const Template = (_, { argTypes }) => ({
         "Search",
         "SettingsRound",
         "Share",
+        "Download",
+        "Instagram",
+        "Telegram",
+        "Whatsapp",
       ],
     };
   },
