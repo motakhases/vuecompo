@@ -6,35 +6,37 @@
       placeholder="بازه تاریخ"
       class="dropdown"
     />
-    <Textfield
-      v-if="amountType !== 'بازه مبلغ'"
-      v-model="model"
-      type="number"
-      separator="comma"
-      unit="ریال"
-    />
-    <div
-      v-if="amountType === 'بازه مبلغ'"
-      class="range-box"
-    >
-      <div class="range-input">
-        <label>از</label>
-        <Textfield
-          v-model="range[0]"
-          type="number"
-          separator="comma"
-          unit="ریال"
-        />
+    <div v-if="amountType">
+      <div
+        v-if="amountType === types.PRICE_RANGE"
+        class="range-box"
+      >
+        <div class="range-input">
+          <label>از</label>
+          <Textfield
+            v-model="model[0]"
+            type="number"
+            separator="comma"
+            unit="ریال"
+          />
+        </div>
+        <div class="range-input">
+          <label>تا</label>
+          <Textfield
+            v-model="model[1]"
+            type="number"
+            separator="comma"
+            unit="ریال"
+          />
+        </div>
       </div>
-      <div class="range-input">
-        <label>تا</label>
-        <Textfield
-          v-model="range[1]"
-          type="number"
-          separator="comma"
-          unit="ریال"
-        />
-      </div>
+      <Textfield
+        v-else
+        v-model="model"
+        type="number"
+        separator="comma"
+        unit="ریال"
+      />
     </div>
   </div>
 </template>

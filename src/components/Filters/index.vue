@@ -1,7 +1,30 @@
 <template>
-  <div class="zpl-filters">
-    <slot />
-  </div>
+  <Modal
+    title="فیلتر"
+    :is-open="isOpen"
+    :toggle="toggle"
+    width="328px"
+  >
+    <template slot="body">
+      <div class="zpl-filters">
+        <slot />
+      </div>
+    </template>
+    <template slot="leftFooter">
+      <Button
+        type="secondary"
+        size="medium"
+        text="حذف"
+        @click.native="clearQuery"
+      />
+      <Button
+        type="primary"
+        size="medium"
+        text="اعمال"
+        @click.native="filter"
+      />
+    </template>
+  </Modal>
 </template>
 
 <script lang="ts">

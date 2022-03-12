@@ -1,10 +1,9 @@
-import {
-  Component, Watch, VModel, Vue,
-} from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import DatePicker from '@/components/DatePicker/index.vue';
+import { DatePickerValue } from '@/types';
 
 const date = {
   TODAY: 'امروز',
@@ -19,23 +18,39 @@ const date = {
     DatePicker,
   },
 })
-export default class Logic extends Vue {
-  @VModel({ type: Array }) model!: string[]
+export default class FilterDate extends Vue {
+  date = '';
 
-  @Watch('data')
+  value: DatePickerValue = '';
+
+  today = moment().format('jYYYY-jM-jD');
+
+  startOfWeek = moment().startOf('week').format('jYYYY-jM-jD');
+
+  endOfWeek = moment().endOf('week').format('jYYYY-jM-jD');
+
+  options = [
+    { id: 1, text: date.TODAY, value: 'TODAY' },
+    { id: 2, text: date.CURRENT_WEEK, value: 'CURRENT_WEEK' },
+    { id: 3, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
+  ];
+
+  get model(): DatePickerValue {
+    return this.value;
+  }
+
+  set model(value: DatePickerValue) {
+    this.value = value;
+  }
+
+  @Watch('date')
   watchDate(): string {
-    const startOfWeek = moment().startOf('week').format('jYYYY/jM/jD');
-    const endOfWeek = moment().endOf('week').format('jYYYY/jM/jD');
-
     switch (this.date) {
-    case date.TODAY:
-      this.$emit('input', moment().format('jYYYY/jM/jD'));
+    case 'TODAY':
+      this.value = this.today;
       break;
-    case date.CURRENT_WEEK:
-      this.$emit('input', [startOfWeek, endOfWeek]);
-      break;
-    case date.OPTIONAL_PERIOD:
-      this.$emit('input', '');
+    case 'CURRENT_WEEK':
+      this.value = [this.startOfWeek, this.endOfWeek];
       break;
     default:
       return '';
@@ -43,11 +58,20 @@ export default class Logic extends Vue {
     return '';
   }
 
-  options = [
-    { id: 1, text: date.TODAY, value: date.TODAY },
-    { id: 2, text: date.CURRENT_WEEK, value: date.CURRENT_WEEK },
-    { id: 3, text: date.OPTIONAL_PERIOD, value: date.OPTIONAL_PERIOD },
-  ]
+  @Watch('value')
+  watchValue(): void {
+    // add property to filter
+    this.$emit('updateFilter', { date: this.value });
+  }
 
-  date = ''
+  mounted(): void {
+    // update value based on query
+    if (Object.keys(this.$route.query).includes('date')) {
+      this.date = 'OPTIONAL_PERIOD';
+      this.value = JSON.parse(JSON.stringify(this.$route.query.date));
+      if (typeof this.value === 'string') {
+        this.value = [this.value, this.value];
+      }
+    }
+  }
 }

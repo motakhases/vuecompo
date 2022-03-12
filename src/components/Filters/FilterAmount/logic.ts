@@ -1,8 +1,9 @@
 import {
-  Component, Prop, VModel, Watch, Vue,
+  Component, Vue, Watch,
 } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Textfield from '@/components/TextField/index.vue';
+import { AmountFilterValue } from '@/types';
 
 @Component({
   components: {
@@ -10,49 +11,72 @@ import Textfield from '@/components/TextField/index.vue';
     Textfield,
   },
 })
-export default class Logic extends Vue {
-  @VModel({ type: Array }) model!: string[]
+export default class FilterAmount extends Vue {
+  value: AmountFilterValue = '';
 
-  @Prop({ type: String, default: 'equal' }) readonly amountFilter!: string
+  dataLoaded = false;
 
-  @Watch('amountFilter')
-  watchAmountFilter(): string {
-    switch (this.amountFilter) {
-    case 'equal':
-      this.amountType = this.types.EQUAL_TO;
-      break;
-    case 'max':
-      this.amountType = this.types.LESS_THAN;
-      break;
-    case 'min':
-      this.amountType = this.types.GREATER_THAN;
-      break;
-    case 'range':
-      this.amountType = this.types.PRICE_RANGE;
-      break;
-    default:
-      return '';
-    }
-    return '';
-  }
+  typeValue = 'amount';
 
   types = {
-    EQUAL_TO: 'برابراست با',
-    GREATER_THAN: 'بزرگ‌تراز',
-    PRICE_RANGE: 'بازه مبلغ',
-    LESS_THAN: 'کوچک‌تراز',
+    EQUAL_TO: 'amount',
+    GREATER_THAN: 'min_amount',
+    PRICE_RANGE: 'range_amount',
+    LESS_THAN: 'max_amount',
   };
 
   options = [
-    { id: 1, text: this.types.EQUAL_TO },
-    { id: 2, text: this.types.LESS_THAN },
-    { id: 3, text: this.types.PRICE_RANGE },
-    { id: 4, text: this.types.GREATER_THAN },
-  ]
+    { id: 1, text: 'برابراست با', value: this.types.EQUAL_TO },
+    { id: 2, text: 'کوچک‌تراز', value: this.types.LESS_THAN },
+    { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
+    { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
+  ];
 
-  amount = null
+  get model(): AmountFilterValue {
+    return this.value;
+  }
 
-  amountType = ''
+  set model(value: AmountFilterValue) {
+    this.value = value;
+  }
 
-  range = []
+  get amountType(): string {
+    return this.typeValue;
+  }
+
+  set amountType(value: string) {
+    // when dropdown value is changed delete the previous property
+    this.$emit('deleteFilter', this.typeValue);
+    this.typeValue = value;
+    this.dataLoaded = true;
+  }
+
+  @Watch('value')
+  watchValue(): void{
+    this.$emit('updateFilter', { [this.amountType]: this.value });
+  }
+
+  @Watch('amountType')
+  watchAmountType(): void {
+    // after dropdown data loaded if it is changed reset the value
+    if (this.dataLoaded) {
+      this.$emit('updateFilter', {});
+      if (this.amountType === 'range_amount') {
+        this.value = [];
+      } else {
+        this.value = '';
+      }
+    }
+  }
+
+  created(): void {
+    const amountList = ['min_amount', 'range_amount', 'max_amount', 'amount'];
+    // update value based on query
+    Object.keys(this.$route.query).forEach((key) => {
+      if (amountList.includes(key)) {
+        this.value = JSON.parse(JSON.stringify(this.$route.query[key]));
+        this.typeValue = key;
+      }
+    });
+  }
 }
