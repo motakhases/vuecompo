@@ -17,10 +17,11 @@
 
         <input
           v-model="model"
-          class="zpl-textfield-input"
+          :class="['zpl-textfield-input', { ltr }]"
           :disabled="disabled"
           :maxlength="maxlength"
           :placeholder="placeholder"
+          :readonly="readonly"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keypress="onlyNumber"
@@ -61,6 +62,14 @@
         >
           {{ unit }}
         </span>
+
+        <Button
+          v-if="copyable"
+          class="zpl-copy-button"
+          :text="copyToClipboardText"
+          type="secondary"
+          @click.native="copyToClipboard"
+        />
 
         <!-- label -->
         <label

@@ -18,6 +18,7 @@ const Template = (_, { argTypes }) => ({
     error: "",
     limit: "",
     limitNum: 5,
+    url: 'https://zarinp.al/376218',
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">
@@ -49,7 +50,6 @@ const Template = (_, { argTypes }) => ({
   	  v-model="unit"
 			type="number"
   	  class="col-span-1"
-			type="number"
 			separator="comma"
   	  label="فیلد واحد دار"
   	  unit="ریال"
@@ -60,6 +60,14 @@ const Template = (_, { argTypes }) => ({
 			label="فیلد با تعداد کاراکتر محدود"
 			:limit="limitNum"
 		/> 
+		<TextField
+  	  v-model="url"
+  	  class="col-span-1"
+  	  label="فیلد غیرقابل تغییر قابل کپی"
+			readonly
+			ltr
+			copyable
+  	/>
 		<TextField
   	  v-model="disabled"
   	  class="col-span-1"
