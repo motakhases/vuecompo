@@ -34,7 +34,6 @@
 
           <!-- Html code -->
           <TextField
-            v-if="html"
             v-model="html"
             label="کد HTML"
             readonly
@@ -45,10 +44,7 @@
       </tab>
 
       <!-- QR Code sharing method -->
-      <tab
-        v-if="qrcode"
-        title="QR Code"
-      >
+      <tab title="QR Code">
         <div class="zpl-share-tab">
           <div class="_qr-wrapper">
             <img

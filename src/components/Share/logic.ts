@@ -17,11 +17,15 @@ import TextField from '@/components/TextField/index.vue';
   },
 })
 export default class Share extends Vue {
-  @Prop({ type: String }) url?: string;
+  @Prop({ type: String, required: true }) url!: string;
 
-  @Prop({ type: String }) html?: string;
+  get qrcode(): string {
+    return `https://tools.zarinpal.com/qr?r=q&s=256&q=${this.url}`;
+  }
 
-  @Prop({ type: String }) qrcode?: string;
+  get html(): string {
+    return `<a target="_blank" href="${this.url}">پرداخت آنلاین</a>`;
+  }
 
   download(dataUrl: string): void {
     const link = document.createElement('a');
