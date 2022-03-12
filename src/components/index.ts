@@ -29,7 +29,6 @@ export { default as FiltersAccordion } from './Filters/FilterAccordion/index.vue
 export { default as FilterActions } from './Filters/FilterActions/index.vue';
 export { default as FilterAmount } from './Filters/FilterAmount/index.vue';
 export { default as FilterDate } from './Filters/FilterDate/index.vue';
-export { default as FilterToggle } from './Filters/FilterToggle/index.vue';
 
 export { default as GatewayStatus } from './GatewayStatus/index.vue';
 

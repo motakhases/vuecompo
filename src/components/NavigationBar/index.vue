@@ -1,6 +1,6 @@
 <template>
-  <nav class="zpl-nav-bar-container">
-    <div :class="['zpl-nav-bar-menu', { toggle }]">
+  <div>
+    <nav :class="['zpl-nav-bar-container', { 'show': isShow }]">
       <!-- Logo -->
       <div class="zpl-nav-bar-logo">
         <Logo
@@ -15,6 +15,7 @@
       <SwitchTerminalPopover
         :terminals="terminals"
         :active-terminal="activeTerminal"
+        v-on="$listeners"
       />
 
       <!-- Nav item links -->
@@ -48,8 +49,13 @@
           />
         </ul>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+    <div
+      :class="['zpl-nav-overlay', { 'show': isShow }]"
+      @click="toggle"
+    />
+  </div>
 </template>
 
 <script lang="ts">

@@ -126,5 +126,6 @@ export interface QuickFilterBtn {
   text: string;
   id: number;
   active: boolean;
+  value: any;
   click(): void;
 }

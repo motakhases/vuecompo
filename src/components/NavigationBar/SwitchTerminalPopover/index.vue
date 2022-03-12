@@ -21,6 +21,7 @@
       <div class="zpl-nav-terminal-items">
         <SwitchTerminalItem
           v-for="(terminal, index) in terminals"
+          :id="terminal.id"
           :key="index"
           :active="terminal.id === activeTerminal.id"
           :title="terminal.name"
@@ -29,6 +30,7 @@
           :img="terminal.logo"
           :state="terminal.status"
           icon="terminal"
+          v-on="$listeners"
         />
       </div>
 
