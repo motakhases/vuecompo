@@ -1,6 +1,6 @@
 .zpl-quick-filter-button {
   /* Default */
-  @apply text-b2 text-text-soft py-md relative;
+  @apply text-b2 text-text-soft py-md relative whitespace-nowrap;
   @apply dark:text-text-dark-soft;
 
   /* Hover */
