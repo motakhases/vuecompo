@@ -5,7 +5,7 @@ import {
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 
-import { IDropdownOptions, IEvent } from '@/types';
+import { ISelectOptions, IEvent } from '@/types';
 
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
 
@@ -15,7 +15,7 @@ const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
     Icon,
   },
 })
-export default class Dropdown extends Vue {
+export default class Select extends Vue {
   // @VModel({ type: String }) model!: string
 
   /**
@@ -29,7 +29,7 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly successMessage?: string
 
-  @Prop({ type: Array }) readonly options!: IDropdownOptions[]
+  @Prop({ type: Array }) readonly options!: ISelectOptions[]
 
   @Prop({ type: Boolean }) readonly loading?: boolean
 
@@ -59,7 +59,7 @@ export default class Dropdown extends Vue {
 
   activeOptionIndex = -1
 
-  filteredOptions: IDropdownOptions[] = this.options
+  filteredOptions: ISelectOptions[] = this.options
 
   inputVal = ''
 
@@ -153,7 +153,7 @@ export default class Dropdown extends Vue {
 
     // otherwise filter the list based on value that user is typing
     this.filteredOptions = this.options.filter(
-      (option:IDropdownOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()),
+      (option:ISelectOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()),
     );
   }
 

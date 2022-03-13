@@ -3,15 +3,15 @@
     v-slot="{ errors, passed }"
     :rules="rules"
   >
-    <div :class="['zpl-dropdown-group']">
+    <div :class="['zpl-select-group']">
       <div
-        :class="['zpl-dropdown',isBoxFocused ? 'focused' : '', { error: errors.length }]"
+        :class="['zpl-select',isBoxFocused ? 'focused' : '', { error: errors.length }]"
         :disabled="disabled"
         @click="onFocusIn"
       >
         <input
           v-if="search"
-          :class="['zpl-dropdown-input']"
+          :class="['zpl-select-input']"
           :disabled="disabled"
           :placeholder="placeholder"
           :value="inputModel"
@@ -22,29 +22,29 @@
         >
         <span
           v-else
-          class="zpl-dropdown-value"
+          class="zpl-select-value"
         >
           {{ inputVal.length ? inputVal : placeholder }}
         </span>
         <!-- label -->
         <label
           v-if="label"
-          :class="['zpl-dropdown-label', isInputFocused | isBoxFocused ? 'isInputFocused' : '' ]"
+          :class="['zpl-select-label', isInputFocused | isBoxFocused ? 'isInputFocused' : '' ]"
         >
           {{ label }}
         </label>
 
-        <span class="zpl-dropdown-icon">
+        <span class="zpl-select-icon">
           <Icon name="angleDown" />
         </span>
       </div>
 
       <!-- hint text -->
-      <div class="zpl-dropdown-hint-box">
+      <div class="zpl-select-hint-box">
         <!-- show when we have hint -->
         <div
           v-if="hint && !(successMessage && passed) && !errors.length"
-          class="zpl-dropdown-hint helper"
+          class="zpl-select-hint helper"
         >
           <span>
             {{ hint }}
@@ -54,7 +54,7 @@
         <!-- show when we have successMessage -->
         <div
           v-if="successMessage && passed"
-          class="zpl-dropdown-hint success"
+          class="zpl-select-hint success"
         >
           <Icon name="checkmarkCircle" />
           <span>
@@ -65,7 +65,7 @@
         <!-- show when we have errors -->
         <div
           v-if="errors.length"
-          class="zpl-dropdown-hint error"
+          class="zpl-select-hint error"
         >
           <Icon name="warning" />
           <span>{{ errors[0] }}</span>
@@ -73,24 +73,24 @@
       </div>
 
       <!-- dropdown list -->
-      <div :class="['zpl-dropdown-list', { showList }]">
+      <div :class="['zpl-select-list', { showList }]">
         <!-- loading skeleton shows when loading is true -->
         <div v-if="loading">
-          <div class="zpl-dropdown-skeleton-box">
+          <div class="zpl-select-skeleton-box">
             <span
-              class="zpl-dropdown-skeleton"
+              class="zpl-select-skeleton"
               style="width: 27%"
             />
           </div>
-          <div class="zpl-dropdown-skeleton-box">
+          <div class="zpl-select-skeleton-box">
             <span
-              class="zpl-dropdown-skeleton"
+              class="zpl-select-skeleton"
               style="width: 48%"
             />
           </div>
-          <div class="zpl-dropdown-skeleton-box">
+          <div class="zpl-select-skeleton-box">
             <span
-              class="zpl-dropdown-skeleton"
+              class="zpl-select-skeleton"
               style="width: 36%"
             />
           </div>
@@ -107,7 +107,7 @@
             :key="option.id"
             ref="optionRef"
             :class="[
-              'zpl-dropdown-item',
+              'zpl-select-item',
               {
                 disabled: option.disabled,
                 selected: value === option.value,
@@ -122,7 +122,7 @@
             <Icon
               v-if="value === option.value"
               name="tickLarge"
-              class="zpl-dropdown-selected-icon"
+              class="zpl-select-selected-icon"
             />
           </li>
         </ul>

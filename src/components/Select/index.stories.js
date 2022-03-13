@@ -1,9 +1,9 @@
-import Dropdown from "./index.vue";
+import Select from "./index.vue";
 import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
-    Dropdown,
+    Select,
   },
   props: Object.keys(argTypes),
   data: () => ({
@@ -14,18 +14,18 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
     <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px] rtl">
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3" placeholder="متن"/>
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3" search />
-      <Dropdown v-model="data" loading v-bind="$props" class="col-span-3" label="حالت لودینگ"/>
-      <Dropdown v-model="data" disabled v-bind="$props" class="col-span-3" label="حالت غیر فعال" />
+      <Select v-model="data" v-bind="$props" class="col-span-3" placeholder="متن"/>
+      <Select v-model="data" v-bind="$props" class="col-span-3" search />
+      <Select v-model="data" loading v-bind="$props" class="col-span-3" label="حالت لودینگ"/>
+      <Select v-model="data" disabled v-bind="$props" class="col-span-3" label="حالت غیر فعال" />
       {{data}}
     </div>
   `,
 });
 
-const dropdown = Template.bind({});
+const select = Template.bind({});
 
-dropdown.args = {
+select.args = {
   disabled: false,
   label: "",
   hint: "",
@@ -42,4 +42,4 @@ dropdown.args = {
   rules: "required",
 };
 
-export default dropdown;
+export default select;

@@ -73,10 +73,10 @@ export type AmountFilterValue = string | (string | null)[]
 export type AccordionValue = string | string[];
 
 /**
- * @/components/Dropdown/Item
+ * @/components/Select/Item
  * ---------------------------------------------------
  */
-export interface IDropdownOptions {
+export interface ISelectOptions {
   text: string;
   value: string | number;
   disabled?: boolean;

@@ -1,6 +1,6 @@
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
-import Dropdown from '@/components/Dropdown/index.vue';
+import Select from '@/components/Select/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import DatePicker from '@/components/DatePicker/index.vue';
 import { DatePickerValue } from '@/types';
@@ -13,7 +13,7 @@ const date = {
 
 @Component({
   components: {
-    Dropdown,
+    Select,
     Textfield,
     DatePicker,
   },
