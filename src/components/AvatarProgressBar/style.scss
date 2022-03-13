@@ -10,7 +10,8 @@
 .zpl-avatar-progress-circle {
   fill: none;
   stroke: 1.5px;
-  @apply stroke-current text-border-soft;
+  stroke: currentColor;
+  @apply text-border-soft;
   @apply dark:text-border-dark-soft;
 }
 .zpl-avatar-progress-level {
@@ -19,7 +20,7 @@
   fill: none;
   transform: rotate(-90deg);
   transform-origin: center;
-  @apply stroke-current;
+  stroke: currentColor;
 
   &.beginner {
     @apply text-primaryZarinpal;

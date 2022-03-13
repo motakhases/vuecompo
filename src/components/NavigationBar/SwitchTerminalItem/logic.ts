@@ -4,9 +4,9 @@ import {
 import { Route } from 'vue-router';
 
 // Components
+import GatewayStatus from '@/components/GatewayStatus/index.vue';
 import Icon from '../../Icon/index.vue';
 import Thumbnail from '../../Thumbnail/index.vue';
-import GatewayStatus from '@/components/GatewayStatus/index.vue';
 
 // Interface
 interface IActiveTerminal {

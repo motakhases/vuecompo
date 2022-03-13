@@ -52,7 +52,7 @@ export default class FilterAmount extends Vue {
   }
 
   @Watch('value')
-  watchValue(): void{
+  watchValue(): void {
     this.$emit('updateFilter', { [this.amountType]: this.value });
   }
 

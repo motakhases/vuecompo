@@ -34,7 +34,7 @@
         <Icon name="angleDown" />
       </template>
       <!-- slot for "close-btn" -->
-      <template #close-btn="">
+      <template #close-btn>
         <Icon name="close" />
       </template>
     </VuePersianDatetimePicker>

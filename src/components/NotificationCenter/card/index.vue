@@ -16,8 +16,8 @@
       </div>
       <div class="card-data">
         <Icon
-          class="card-icon"
           v-if="card.icon"
+          class="card-icon"
           :name="card.icon"
         />
         <div class="content">

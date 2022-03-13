@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import SegmentBtn from './Button/index.vue';
 import { SegmentedBtn } from '@/types';
+import SegmentBtn from './Button/index.vue';
 import Button from './Button/logic';
 
 @Component({
@@ -15,11 +15,11 @@ export default class SegmentedButton extends Vue {
 
    tabs:Button[] = [];
 
-   created() :void{
+   created() :void {
      this.tabs = this.$children as Button[];
    }
 
-   mounted() :void{
+   mounted() :void {
      // wait a tick to ensure all child components have rendered
      this.$nextTick(() => {
        // all button children

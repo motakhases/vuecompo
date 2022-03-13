@@ -82,7 +82,7 @@ export default class Dropdown extends Vue {
     );
   }
 
-  created():void{
+  created():void {
     this.inputVal = this.options && this.value.length ? this.options.filter((i) => i.value === this.value)[0].text : '';
   }
 
@@ -90,7 +90,7 @@ export default class Dropdown extends Vue {
    * Methods
    */
 
-  inputHandler(event:Event): void{
+  inputHandler(event:Event): void {
     this.inputVal = (event.target as HTMLInputElement).value;
   }
 

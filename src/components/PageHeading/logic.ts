@@ -1,8 +1,8 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { PageHeadingStatus } from '@/types';
 import Icon from '../Icon/index.vue';
 import Status from '../Status/index.vue';
 import Button from '../Button/index.vue';
-import { PageHeadingStatus } from '@/types';
 
 @Component({
   components: {

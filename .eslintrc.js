@@ -4,10 +4,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/base',
     'plugin:vue/essential',
-    'plugin:vue/strongly-recommended',
-    'plugin:vue/recommended',
     '@vue/airbnb',
     '@vue/typescript/recommended',
   ],
@@ -23,6 +20,9 @@ module.exports = {
     'vue/no-v-html': 0,
     'linebreak-style': 0,
     'class-methods-use-this': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vue/no-unused-vars': 'off',
+    'vue/script-setup-uses-vars': 'off',
   },
   overrides: [
     {

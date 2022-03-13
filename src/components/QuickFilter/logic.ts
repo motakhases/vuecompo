@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import QuickFilterButton from './Button/index.vue';
 import { QuickFilterBtn } from '@/types';
+import QuickFilterButton from './Button/index.vue';
 
 @Component({
   components: { QuickFilterButton },

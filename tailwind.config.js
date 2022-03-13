@@ -10,24 +10,22 @@ const {
 } = require('./src/designTokens/index');
 
 module.exports = {
-  mode: 'jit',
   darkMode: 'class',
-  purge: [
+  content: [
     './public/**/*.html',
     './src/**/*.vue',
     './src/**/*.js',
     './safelist.txt',
   ],
-  plugins: [
-    // eslint-disable-next-line global-require
-    require('tailwind-safelist-generator')({
-      patterns: [
-        '{screens}:col-{gridColumn}',
-        '{screens}:grid-cols-{gridTemplateColumns}',
-        'col-{gridColumn}',
-        'grid-cols-{gridTemplateColumns}',
-      ],
-    }),
+  safelist: [
+    {
+      pattern: /grid-cols-(1|2|3|4)/,
+      variants: ['md', 'lg', 'xl'],
+    },
+    {
+      pattern: /col-span-(1|2|3|4)/,
+      variants: ['md', 'lg', 'xl'],
+    },
   ],
   theme: {
     colors,
