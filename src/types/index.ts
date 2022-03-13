@@ -63,7 +63,7 @@ export interface Attributes {
 }
 export type DatePickerValue = string | string[];
 
-export type AmountFilterValue = string | (string | null)[]
+export type AmountFilterValue = string | (string | null)[];
 
 /**
  * @/components/Filters/FilterAccordion
@@ -84,7 +84,16 @@ export interface ISelectOptions {
 export interface IEvent {
   target: HTMLInputElement;
 }
-
+/**
+ * @/components/Dropdown/Item
+ * ---------------------------------------------------
+ */
+export interface IDropdownOptions {
+  title: string;
+  icon: string;
+  color?: string;
+  action: () => void;
+}
 /**
  * @/components/DataSheet/Item
  * ---------------------------------------------------
