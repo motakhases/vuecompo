@@ -7,6 +7,9 @@ module.exports = {
     '@storybook/addon-links',
     'storybook-tailwind-dark-mode',
   ],
+  core: {
+    builder: 'webpack5',
+  },
   webpackFinal: (config) => ({
     ...config,
     module: {
