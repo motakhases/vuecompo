@@ -7,7 +7,7 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="rtl bg-background dark:bg-background-dark p-sm">
       <PageHeading
-        :return-b-t-n="returnBTN"
+        :return-btn="returnBTN"
         :sticky="sticky"
         title="عنوان"
         desc="توضیحات"

@@ -3,9 +3,9 @@
     ref="pageHeading"
     :class="['zpl-page-heading', {'fixed-page-heading':stickHeading}]"
   >
-    <div class="page-heading-container container">
+    <div class="container page-heading-container">
       <div
-        v-if="returnBTN"
+        v-if="returnBtn"
         class="return-btn"
         @click="router.go(-1)"
       >

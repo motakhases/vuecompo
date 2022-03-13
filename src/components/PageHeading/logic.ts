@@ -12,9 +12,9 @@ import { PageHeadingStatus } from '@/types';
 export default class PageHeading extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string
 
-  @Prop({ type: String }) readonly desc!: string
+  @Prop({ type: String }) readonly desc?: string
 
-  @Prop({ type: Boolean, default: false }) readonly returnBTN!: boolean
+  @Prop({ type: Boolean, default: false }) readonly returnBtn!: boolean
 
   @Prop({ type: Boolean, default: false }) readonly sticky!: boolean
 
@@ -25,7 +25,7 @@ export default class PageHeading extends Vue {
   checkScrolling(): void {
     const element = this.$refs.pageHeading as HTMLElement;
     const distanceOfTop = element.getBoundingClientRect().top;
-    if (distanceOfTop <= 0) {
+    if (distanceOfTop <= 56) {
       this.stickHeading = true;
     } else {
       this.stickHeading = false;
