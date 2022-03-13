@@ -39,7 +39,7 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly placeholder?: string
 
-  @Prop({ type: String, required: true }) readonly value!: string
+  @Prop({ type: String, default: '' }) readonly value!: string
 
   /**
    * Refs
