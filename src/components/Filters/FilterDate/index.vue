@@ -1,6 +1,6 @@
 <template>
   <div class="zpl-filter-date">
-    <Dropdown
+    <Select
       v-model="date"
       :options="options"
       placeholder="بازه تاریخ"

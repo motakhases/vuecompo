@@ -1,6 +1,6 @@
 <template>
   <div class="zpl-filter-amount">
-    <Dropdown
+    <Select
       v-model="amountType"
       :options="options"
       placeholder="بازه تاریخ"

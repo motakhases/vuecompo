@@ -1,0 +1,166 @@
+.zpl-select-group {
+  /* Default */
+  @apply relative;
+}
+.zpl-select {
+  /* Default */
+  @apply bg-surface flex items-center border border-border rounded-sm w-full text-text-soft h-3xl;
+  @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
+
+  /* hover */
+  &:not(:focus-within):not(.focused):not(.error):not([disabled]):hover {
+    @apply shadow-border-hover;
+  }
+
+  /* Disabled */
+  &[disabled] {
+    @apply bg-surface-disabled border-border-disabled;
+    @apply dark:bg-surface-dark-disabled dark:border-border-dark-disabled;
+  }
+
+  /* focus */
+  &:focus-within:not(.error) {
+    @apply border-interactive-focus outline-none shadow-border-focus-soft;
+    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
+  }
+  &.focused {
+    @apply border-interactive-focus outline-none shadow-border-focus-soft;
+    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
+  }
+
+  &.error {
+    &:not([disabled]) {
+      /* Default */
+      @apply border border-border-danger;
+      @apply dark:border-border-dark-danger;
+    }
+  }
+}
+.zpl-select-input {
+  /* Default */
+  @apply bg-transparent border-none outline-none flex-auto py-sm pr-sm pl-[44px] min-w-0 relative z-10;
+}
+.zpl-select-value {
+  @apply flex-auto py-sm pr-sm pl-[44px] min-w-0 relative z-10;
+}
+.zpl-select-label {
+  /* Default */
+  @apply absolute top-sm right-sm z-0 px-2xs transition-all	ease-in-out	delay-100 text-text-soft;
+  @apply dark:text-text-dark-soft;
+
+  &:not(.isInputFocused) {
+    @apply text-b2;
+  }
+
+  &.isInputFocused {
+    @apply -top-xs bg-surface text-ls-cp py-[2px];
+    @apply dark:bg-surface-dark;
+  }
+}
+.zpl-select-icon {
+  @apply w-xl h-xl absolute left-sm;
+}
+.zpl-select-hint-box {
+  /* Default */
+  @apply flex w-full justify-between absolute;
+}
+.zpl-select-hint {
+  /* Default */
+  @apply flex items-center gap-x-2xs py-2xs px-sm text-b3 text-text-soft;
+
+  svg {
+    @apply w-xl h-xl;
+  }
+
+  &.helper {
+    /* Default */
+    @apply flex-1;
+    @apply dark:text-text-dark-soft;
+  }
+  &.error {
+    /* Default */
+    @apply absolute text-text-danger;
+    @apply dark:text-text-dark-danger;
+  }
+  &.success {
+    /* Default */
+    @apply absolute text-text-success;
+    @apply dark:text-text-dark-success;
+  }
+}
+.zpl-select-list {
+  /* Default */
+  @apply flex-col bg-surface border border-border shadow-elevation-100 rounded-sm 
+	p-xs absolute w-full mt-2xs hidden z-50;
+  @apply dark:bg-surface-dark dark:border-border-dark	dark:shadow-dark-elevation-100;
+
+  &.showList {
+    @apply flex;
+  }
+}
+.zpl-select-item {
+  /* Default */
+  @apply py-xs px-sm text-text text-b2 truncate rounded-sm cursor-pointer;
+  @apply dark:text-text-dark;
+
+  &:not(:last-child) {
+    @apply mb-2xs;
+  }
+
+  /* Active */
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
+
+  /* Disabled */
+  &.disabled {
+    @apply bg-surface-disabled pointer-events-none text-text-disabled;
+    @apply dark:bg-surface-dark-disabled dark:text-text-dark-disabled;
+  }
+  &.selected {
+    @apply bg-surface-select text-text relative flex items-center;
+    @apply dark:bg-surface-dark-select dark:text-text-dark;
+  }
+
+  &.active:not(.selected):not(.disabled) {
+    @apply bg-surface-hover;
+    @apply dark:bg-surface-dark-hover;
+  }
+}
+.zpl-select-selected-icon {
+  /* Default */
+  @apply absolute text-primaryZarinpal w-xl h-xl left-sm;
+  @apply dark:text-primaryZarinpal-dark;
+}
+.zpl-select-skeleton-box {
+  /* Default */
+  @apply flex py-xs px-sm;
+
+  &:not(:last-child) {
+    @apply mb-2xs;
+  }
+}
+.zpl-select-skeleton {
+  /* Default */
+  @apply h-[18px] rounded-xs bg-surface-disabled relative overflow-hidden;
+  @apply dark:bg-surface-dark-disabled;
+
+  /* animated element */
+  &::after {
+    @apply absolute inset-0	-translate-x-full;
+    background-image: linear-gradient(
+      90deg,
+      rgba(#ffffff, 0) 0,
+      rgba(#ffffff, 0.2) 20%,
+      rgba(#ffffff, 0.5) 60%,
+      rgba(#ffffff, 0)
+    );
+    animation: shimmer 1s infinite;
+    content: "";
+  }
+  /* animation */
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

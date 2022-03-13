@@ -1,45 +1,46 @@
 import Dropdown from "./index.vue";
-import "@/utils/validations";
+import Button from "@/components/Button/index.vue";
+export default {
+  component: Dropdown,
+  title: "Components/Dropdown",
+};
 
 const Template = (_, { argTypes }) => ({
-  components: {
-    Dropdown,
-  },
+  components: { Dropdown, Button },
   props: Object.keys(argTypes),
-  data: () => ({
-    data: "",
-  }),
-  methods: {
-
+  data() {
+    return {
+      mylist: [
+        {
+          title: "عنوان",
+          icon: "plus",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "عنوان",
+          icon: "plus",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "عنوان",
+          icon: "plus",
+          color: "",
+          action: () => console.log("click"),
+        },
+      ],
+    };
   },
   template: `
-    <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px] rtl">
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3" placeholder="متن"/>
-      <Dropdown v-model="data" v-bind="$props" class="col-span-3" search />
-      <Dropdown v-model="data" loading v-bind="$props" class="col-span-3" label="حالت لودینگ"/>
-      <Dropdown v-model="data" disabled v-bind="$props" class="col-span-3" label="حالت غیر فعال" />
-      {{data}}
-    </div>
+  <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
+	  <Dropdown :list="mylist" width="362px" maxHeight="100px">
+      <template slot="button">
+          <Button text="منو" />
+      </template>
+    </Dropdown>
+  </div>
   `,
 });
 
-const dropdown = Template.bind({});
-
-dropdown.args = {
-  disabled: false,
-  label: "",
-  hint: "",
-  successMessage: "عملیات موفقیت آمیز بود",
-  options: [
-    { id: 1, text: "اولین گزینه", value: "first" },
-    { id: 2, text: "دومین گزینه", value: "second", disabled: true },
-    { id: 3, text: "سومین گزینه", value: "third" },
-    { id: 4, text: "چهارمین گزینه", value: "forth" },
-    { id: 5, text: "پنجمین گزینه", value: "fifth" },
-  ],
-  disabledOptionId: null,
-  loading: false,
-  rules: "required",
-};
-
-export default dropdown;
+export const Default = Template.bind({});

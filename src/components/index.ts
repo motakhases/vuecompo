@@ -22,7 +22,7 @@ export { default as DataSheetItem } from './DataSheet/Item/index.vue';
 
 export { default as DatePicker } from './DatePicker/index.vue';
 
-export { default as Dropdown } from './Dropdown/index.vue';
+export { default as Select } from './Select/index.vue';
 
 export { default as Filters } from './Filters/index.vue';
 export { default as FiltersAccordion } from './Filters/FilterAccordion/index.vue';
