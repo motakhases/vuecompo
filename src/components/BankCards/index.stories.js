@@ -76,7 +76,7 @@ const Template = (_, { argTypes }) => ({
 		</h1>
 		<div class="flex flex-wrap gap-md">
 			<BankCards
-				logo="eghtesadNovin"
+				logo="EghtesadNovin"
 				username="شایسته ملک پور"
 				bank-name="اقتصاد نوین"
 				amount="3650000"
@@ -84,7 +84,7 @@ const Template = (_, { argTypes }) => ({
 				rrn="892938820001277640002746"
 			/>
 			<BankCards
-				logo="shahr"
+				logo="Shahr"
 				username="شایسته ملک پور"
 				bank-name="بانک شهر"
 				amount="98570000"
@@ -92,7 +92,7 @@ const Template = (_, { argTypes }) => ({
 				rrn="892938820001277640002746"
 			/>
 			<BankCards
-				logo="pasargad"
+				logo="Pasargad"
 				username="شایسته ملک پور"
 				bank-name="پاسارگاد"
 				amount="4350000"
@@ -100,7 +100,7 @@ const Template = (_, { argTypes }) => ({
 				rrn="892938820001277640002746"
 			/>
 			<BankCards
-				logo="resalat"
+				logo="Resalat"
 				username="شایسته ملک پور"
 				bank-name="رسالت"
 				amount="748560000"
@@ -112,7 +112,7 @@ const Template = (_, { argTypes }) => ({
 			کارت بانکی با حساب پیش فرض
 		</h1>
 		<BankCards
-			logo="kosar"
+			logo="Kosar"
 			username="شایسته ملک پور"
 			bank-name="کوثر"
 			amount="89000000"
