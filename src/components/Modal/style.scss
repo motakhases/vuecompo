@@ -1,12 +1,12 @@
 .zpl-modal {
   direction: rtl;
-  @apply fixed top-0 bottom-0 right-0 left-0 z-40;
+  @apply fixed top-0 bottom-0 right-0 left-0 z-50;
   @apply flex justify-center items-center;
   // transition:  opacity 0.4s linear;
   // opacity: 0;
 }
 .zpl-modal-box {
-  @apply w-full max-h-[88vh] absolute bottom-0 z-[9999] rounded-t-md;
+  @apply w-full max-h-[88vh] absolute bottom-0 z-[100] rounded-t-md;
   @apply lg:w-[600px] lg:rounded-md lg:static;
   @apply flex flex-col;
   @apply text-text bg-surface shadow-elevation-100;
@@ -50,7 +50,7 @@
   }
 }
 .backdrop {
-  @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
+  @apply fixed top-0 bottom-0 right-0 left-0 z-50;
   @apply bg-alpha-overlay;
   @apply dark:bg-alpha-dark-overlay;
   // transition: all 0.15s linear;

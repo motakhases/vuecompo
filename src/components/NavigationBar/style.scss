@@ -1,7 +1,7 @@
 .zpl-nav-bar-container {
   // default
   @apply transition-all ease-in-out duration-200  fixed top-0 right-[-100%];
-  @apply h-full  w-[256px] bg-surface z-[999];
+  @apply h-full  w-[256px] bg-surface z-40;
 
   //responsive
   @apply lg:h-[calc(100vh-58px)] lg:sticky lg:top-[58px] lg:right-0;
