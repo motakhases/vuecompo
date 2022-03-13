@@ -1,5 +1,12 @@
 @import url("https://cdn.zarinpal.com/assets/fonts/all.css");
-
+@import url("https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono");
+/* roboto-mono-regular - latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono'); /* IE9 Compat Modes */
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

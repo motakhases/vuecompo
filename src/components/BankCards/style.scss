@@ -54,13 +54,13 @@ $bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
 }
 .zpl-bank-cards-text {
   @apply flex items-center gap-2xs font-IRANYekanFaNum text-b2 text-text;
-  @apply text-text-dark;
+  @apply dark:text-text-dark;
 }
 
 .zpl-bank-cards-currency {
   @apply text-b2;
 }
 .zpl-bank-cards-iban {
-  @apply relative z-10 text-b2 mb-2xs text-text;
-  @apply text-text-dark;
+  @apply relative z-10 text-b2 mb-2xs text-text font-Mono;
+  @apply dark:text-text-dark;
 }
