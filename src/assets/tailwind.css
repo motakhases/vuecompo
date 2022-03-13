@@ -1,17 +1,15 @@
 @import url("https://cdn.zarinpal.com/assets/fonts/all.css");
-@import url("https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono");
-/* roboto-mono-regular - latin */
-@font-face {
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono'); /* IE9 Compat Modes */
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400&display=swap"); /* roboto-mono-regular - latin */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
-  .rtl { direction: rtl; }
-  .ltr { direction: ltr; }
+  .rtl {
+    direction: rtl;
+  }
+  .ltr {
+    direction: ltr;
+  }
 }
