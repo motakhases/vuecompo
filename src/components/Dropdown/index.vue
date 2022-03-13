@@ -8,10 +8,11 @@
         v-if="toggle"
         :class="[
           'zpl-dropdown',
-          width ? `w-[${width}]` : null,
-          height ? `w-[${height}]` : null,
+          width ? finalWidth : null,
+          maxHeight ? finalMaxHeight : null,
         ]"
         :style="style"
+        dir="rtl"
       >
         <slot name="heeader" />
         <ul class="zpl-dropdown-list">
@@ -24,7 +25,10 @@
             ]"
             @click="item.action()"
           >
-            <Icon :name="item.icon" class="zpl-dropdown-icon" />
+            <Icon
+              :name="item.icon"
+              class="zpl-dropdown-icon"
+            />
             {{ item.title }}
           </li>
         </ul>
@@ -35,9 +39,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import logic from "./logic";
-import "./style.scss";
+import Vue from 'vue';
+import logic from './logic';
+import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
 </script>

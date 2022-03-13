@@ -10,30 +10,38 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      menu: false,
-      list: [
-        { title: "عنوان", icon: "plus", color: "" },
-        { title: "عنوان", icon: "plus", color: "" },
-        { title: "عنوان", icon: "plus", color: "" },
+      mylist: [
+        {
+          title: "عنوان",
+          icon: "plus",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "عنوان",
+          icon: "plus",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "عنوان",
+          icon: "plus",
+          color: "",
+          action: () => console.log("click"),
+        },
       ],
     };
   },
-  methods: {
-    toggleModal() {
-      this.menu = !this.menu;
-    },
-  },
   template: `
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <Dropdown title="عنوان کارت" :toggle="menu" >
-      محتوای دلخواه در کارت
+	  <Dropdown:list="mylist" width="362px" maxHeight="100px">
       <template slot="button">
-      <Button
-      text="منو"
-      @click.native="toggleModal"
-    />
+          <Button
+          text="منو"
+          @click.native="toggleModal"
+        />
       </template>
-    </Dropdown>
+    </Dropdown:list=>
   </div>
   `,
 });

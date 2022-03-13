@@ -1,24 +1,23 @@
 .zpl-dropdown {
   // default
   @apply bg-surface border border-border-soft shadow-elevation-100 rounded-sm;
-  @apply fixed p-xs overflow-auto z-[1000];
+  @apply fixed p-xs overflow-auto z-[900];
 
   // dark
   @apply dark:bg-surface-dark dark:border-border-dark dark:shadow-dark-elevation-100;
 
   &::-webkit-scrollbar {
-    @apply w-xs;
+    @apply w-2xs;
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
-    @apply bg-background;
-    @apply dark:bg-background-dark;
+    background-color: transparent;
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    @apply bg-surface-heavy;
+    @apply bg-surface-heavy rounded-md;
     @apply dark:bg-surface-dark-heavy;
   }
   &-list {

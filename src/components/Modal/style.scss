@@ -23,6 +23,22 @@
 }
 .zpl-modal-body {
   @apply overflow-y-auto min-h-[100px];
+  /* ---------------------------------- */
+  /* scroll style */
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-xs;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+    @apply dark:bg-surface-dark;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-heavy rounded-md;
+    @apply dark:bg-surface-dark-heavy;
+  }
 }
 .zpl-modal-footer {
   @apply p-md flex items-center justify-between;
@@ -40,22 +56,6 @@
   // transition: all 0.15s linear;
 }
 
-/* ---------------------------------- */
-/* scroll style */
-/* width */
-::-webkit-scrollbar {
-  @apply w-xs;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  @apply bg-surface;
-  @apply dark:bg-surface-dark;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  @apply bg-surface-heavy rounded-md;
-  @apply dark:bg-surface-dark-heavy;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s;

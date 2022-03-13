@@ -13,7 +13,7 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly width?: string;
 
-  @Prop({ type: String }) readonly height?: string;
+  @Prop({ type: String }) readonly maxHeight?: string;
 
   @Ref('button') readonly buttonRef!: HTMLElement
 
@@ -30,7 +30,17 @@ export default class Dropdown extends Vue {
 
   windowWidth= window.innerWidth
 
+  get finalWidth(): string {
+    return `w-[${this.width}]`;
+  }
+
+  get finalMaxHeight(): string {
+    return ` max-h-[${this.maxHeight}]`;
+  }
+
   updateStyle(): void {
+    // get the position of button and set it to menu
+
     if (this.buttonRef) {
       const {
         height, top, left, width,
@@ -38,6 +48,8 @@ export default class Dropdown extends Vue {
       const menuWidth = this.menuRef?.children[0]?.getBoundingClientRect().width;
 
       this.$set(this.style, 'top', `${top + height + 2}px`);
+
+      // if left space is smaller than menu width so open menue on right
       if (menuWidth > left) {
         this.$set(this.style, 'left', `${left}px`);
       } else {
@@ -47,6 +59,7 @@ export default class Dropdown extends Vue {
   }
 
   outsideClick(e: any): void {
+    // close menu
     if (!this.buttonRef?.children[0].contains(e.target)) {
       this.$nextTick(() => {
         this.toggle = false;
@@ -66,12 +79,14 @@ export default class Dropdown extends Vue {
       }
     });
     if (this.toggle) {
+      // append menu to body
       document.body.appendChild(this.menuRef);
     }
   }
 
   onResize():void {
     this.$nextTick(() => {
+      // update position of menue when window is resizing
       this.windowWidth = window.innerWidth;
       if (this.toggle) {
         this.updateStyle();
