@@ -1,13 +1,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import { now, yesterday, beforeDays } from '@/utils/momentCustom';
-import card from './card/index.vue';
-import noNotif from './NoNotif/index.vue';
 import Tabs from '@/components/Tabs/index.vue';
 import Tab from '@/components/Tabs/Tab/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Button from '@/components/Button/index.vue';
 import { Announcement } from '@/types';
+import noNotif from './NoNotif/index.vue';
+import card from './card/index.vue';
 
 @Component({
   components: {

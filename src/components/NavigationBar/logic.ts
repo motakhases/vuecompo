@@ -9,9 +9,9 @@ import {
 } from '@/types';
 
 // Components
-import NavItem from './NavItem/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Logo from '@/components/Logo/index.vue';
+import NavItem from './NavItem/index.vue';
 import SwitchTerminalPopover from './SwitchTerminalPopover/index.vue';
 
 @Component({

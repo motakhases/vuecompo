@@ -7,21 +7,9 @@ import JdateName from './JdateName';
 import tableDateFormat from './tableDateFormat';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-Vue.filter(
-  'strLimit', strLimit,
-);
-Vue.filter(
-  'numberFormat', numberFormat,
-);
-Vue.filter(
-  'cJalaali', cJalaali,
-);
-Vue.filter(
-  'jalaali', jalaali,
-);
-Vue.filter(
-  'JdateName', JdateName,
-);
-Vue.filter(
-  'tableDateFormat', tableDateFormat,
-);
+Vue.filter('strLimit', strLimit);
+Vue.filter('numberFormat', numberFormat);
+Vue.filter('cJalaali', cJalaali);
+Vue.filter('jalaali', jalaali);
+Vue.filter('JdateName', JdateName);
+Vue.filter('tableDateFormat', tableDateFormat);

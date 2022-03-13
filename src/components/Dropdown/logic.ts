@@ -62,9 +62,9 @@ export default class Dropdown extends Vue {
     }
   }
 
-  outsideClick(e: any): void {
+  outsideClick(e: Event): void {
     // close menu
-    if (!this.buttonRef?.children[0].contains(e.target)) {
+    if (!this.buttonRef?.children[0].contains(e.target as HTMLInputElement)) {
       this.$nextTick(() => {
         this.toggle = false;
       });

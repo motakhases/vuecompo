@@ -27,14 +27,14 @@
       <div class="zpl-modal-footer">
         <!-- right side -->
         <div
-          v-if="this.$slots.rightFooter"
+          v-if="$slots.rightFooter"
           class="zpl-modal-footer-container"
         >
           <slot name="rightFooter" />
         </div>
         <!-- left side -->
         <div
-          v-if="this.$slots.leftFooter"
+          v-if="$slots.leftFooter"
           class="zpl-modal-footer-container left"
         >
           <slot name="leftFooter" />
