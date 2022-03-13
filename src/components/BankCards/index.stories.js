@@ -11,49 +11,49 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       cards: [
-        "saman",
-        "pasargad",
-        "ayandeh",
-        "refah",
-        "dey",
-        "hekmat",
-        "keshavarzi",
-        "melall",
-        "toseeTaavon",
-        "sanatMadan",
-        "khavarMianeh",
-        "mellat",
-        "eghtesadNovin",
-        "melli",
-        "parsian",
-        "kosar",
-        "sepah",
-        "iranZamin",
-        "gardeshgari",
-        "zarinCard",
-        "karafarin",
-        "postbank",
-        "sina",
-        "shahr",
-        "ansar",
-        "tejarat",
-        "sarmayeh",
-        "saderat",
-        "ghavamin",
-        "maskan",
-        "resalat",
-        "noor",
-        "toseeSaderat",
+				"Saman",
+        "Pasargad",
+        "Ayandeh",
+        "Refah",
+        "Dey",
+        "Hekmat",
+        "Agriculture",
+        "Melal",
+        "ToseTavon",
+        "SanatMadan",
+        "Khavarmiane",
+        "Mellat",
+        "EghtesadNovin",
+        "Melli",
+        "Parsian",
+        "Kosar",
+        "Sepah",
+        "IranZamin",
+        "TourismBank",
+        "ZarinCard",
+        "KarAfarin",
+        "PostBank",
+        "Sina",
+        "CityBank",
+        "Ansar",
+        "Tejarat",
+        "Sarmayeh",
+        "Saderat",
+        "Ghavamin",
+        "Maskan",
+        "Resalat",
+        "Noor",
+        "ToseSaderat",
         "caspian",
         "futurebank",
         "iranEurope",
         "iranVenezuela",
-        "mehrEghtesad",
-        "mehrIran",
+        "MehrEghtesad",
+        "Mehr",
         "standardChartered",
         "taavonEslami",
-        "tosee",
-        "bankMarkazi",
+        "ToseEtebari",
+        "Cbi",
       ],
     };
   },
@@ -63,12 +63,13 @@ const Template = (_, { argTypes }) => ({
 			کارت بانکی
 		</h1>
 		<BankCards
-			logo="zarinCard"
+			logo="ZarinCard"
 			username="شایسته ملک پور"
 			bank-name="زرین کارت"
 			amount="5120000"
 			iban="IR870560085577703153460001"
 			rrn="892938820001277640002746"
+			class="w-[368px]"
 		/>
 		<h1 class="mt-sm font-bold dark:text-surface">
 			کارت بانکی های مختلف
