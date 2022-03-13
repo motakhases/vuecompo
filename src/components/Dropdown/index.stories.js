@@ -34,14 +34,11 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <Dropdown:list="mylist" width="362px" maxHeight="100px">
+	  <Dropdown :list="mylist" width="362px" maxHeight="100px">
       <template slot="button">
-          <Button
-          text="منو"
-          @click.native="toggleModal"
-        />
+          <Button text="منو" />
       </template>
-    </Dropdown:list=>
+    </Dropdown>
   </div>
   `,
 });

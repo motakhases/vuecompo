@@ -35,7 +35,11 @@ export default class Dropdown extends Vue {
   }
 
   get finalMaxHeight(): string {
-    return ` max-h-[${this.maxHeight}]`;
+    return `max-h-[${this.maxHeight}]`;
+  }
+
+  finalColor(color:string):string {
+    return `text-[${color}]`;
   }
 
   updateStyle(): void {

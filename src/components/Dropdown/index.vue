@@ -21,7 +21,7 @@
             :key="index"
             :class="[
               'zpl-dropdown-item',
-              item.color ? `text-${item.color}` : null,
+              item.color ? finalColor(item.color) : null,
             ]"
             @click="item.action()"
           >

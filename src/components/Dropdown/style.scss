@@ -6,6 +6,7 @@
   // dark
   @apply dark:bg-surface-dark dark:border-border-dark dark:shadow-dark-elevation-100;
 
+  /* scroll */
   &::-webkit-scrollbar {
     @apply w-2xs;
   }
@@ -26,16 +27,24 @@
   }
   &-item {
     // default
-    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2 text-text;
+    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2 text-text border border-transparent;
     &:not(:last-child) {
       @apply mb-2xs;
     }
+    /* dark */
+    @apply dark:text-text-dark;
 
-    // hover
-    @apply hover:bg-surface-hover active:bg-surface-active;
+    /* hover */
+    @apply hover:bg-surface-hover;
+    @apply dark:hover:bg-surface-dark-hover;
 
-    // dark
-    @apply dark:text-text-dark dark:hover:bg-surface-dark-hover dark:active:bg-surface-dark-active;
+    /* active */
+    @apply active:bg-surface-active;
+    @apply dark:active:bg-surface-dark-active;
+
+    /* focus */
+    @apply active:bg-surface-focus active:border-interactive-focus;
+    @apply dark:active:bg-surface-dark-focus dark:active:border-interactive-dark-focus;
   }
   &-icon {
     // default
