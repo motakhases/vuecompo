@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-table">
+  <div :class="['zpl-table', { bordered }]">
     <!-- Small view - Card -->
     <template v-if="isLoadCards">
       <Card
@@ -12,60 +12,70 @@
 
     <!-- Large view - Table -->
     <template v-else>
-      <table>
-        <!-- Head -->
-        <thead>
-          <tr>
-            <!-- CheckBox -->
-            <th
-              v-if="selectable"
-              class="checkbox-holder"
-            >
-              <CheckBox
-                v-model="isAllRowSelected"
-                name="all"
+      <div :class="['zpl-table-box', { bordered }]">
+        <table>
+          <!-- Head -->
+          <thead>
+            <tr>
+              <!-- CheckBox -->
+              <th
+                v-if="selectable"
+                class="checkbox-holder"
+              >
+                <CheckBox
+                  v-model="isAllRowSelected"
+                  name="all"
+                />
+              </th>
+              <!-- Column title -->
+              <Th
+                v-for="(col, index) in columns"
+                :key="index"
+                :title="col.title"
+                :label="col.label"
+                :object-key="col.key"
+                :can-sort="col.sort"
+                :width="col.width"
               />
-            </th>
-            <!-- Column title -->
-            <Th
-              v-for="(col, index) in columns"
-              :key="index"
-              :title="col.title"
-              :label="col.label"
-              :object-key="col.key"
-              :can-sort="col.sort"
-            />
-          </tr>
-        </thead>
+            </tr>
+          </thead>
 
-        <!-- Body -->
-        <tbody>
-          <tr
-            v-for="(td, tdIndex) in data"
-            :key="tdIndex"
-            :class="isRowSelected(tdIndex)"
-          >
-            <!-- CheckBox -->
-            <td
-              v-if="selectable"
-              class="checkbox-holder"
+          <!-- Body -->
+          <tbody>
+            <tr
+              v-for="(td, tdIndex) in data"
+              :key="tdIndex"
+              :class="isRowSelected(tdIndex)"
             >
-              <CheckBox
-                v-model="selectedRowsIndex"
-                :val="tdIndex"
-                name="single"
-                @click.native="selectRow"
+              <!-- CheckBox -->
+              <td
+                v-if="selectable"
+                class="checkbox-holder"
+              >
+                <CheckBox
+                  v-model="selectedRowsIndex"
+                  :val="tdIndex"
+                  name="single"
+                  @click.native="selectRow"
+                />
+              </td>
+              <!-- Row's data -->
+              <Td
+                v-for="(col, colIndex) in columns"
+                :key="colIndex"
+                :data="td[col.key]"
               />
-            </td>
-            <!-- Row's data -->
-            <Td
-              v-for="(col, colIndex) in columns"
-              :key="colIndex"
-              :data="td[col.key]"
-            />
-          </tr>
-        </tbody>
-      </table>
+              <!-- <div class="zpl-table-action">
+                <Button
+                  type="primary"
+                  size="small"
+                  icon="DotsMenu"
+                />
+              </div> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </template>
   </div>
 </template>

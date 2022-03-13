@@ -10,6 +10,7 @@ import Card from './_card/index.vue';
 // Components
 import Status from '@/components/Status/index.vue';
 import CheckBox from '@/components/CheckBox/index.vue';
+import Button from '@/components/Button/index.vue';
 
 // Interfaces
 interface IColumn {
@@ -21,6 +22,7 @@ interface IColumn {
   components: {
     Status,
     CheckBox,
+    Button,
     Th,
     Td,
     Card,
@@ -33,6 +35,8 @@ export default class Logic extends Vue {
   @Prop({ type: Array, required: true }) readonly columns!: IColumn[]
 
   @Prop({ type: Boolean }) readonly selectable?: boolean
+
+  @Prop({ type: Boolean }) readonly bordered?: boolean
 
   isLoadCards = false
 
@@ -75,8 +79,7 @@ export default class Logic extends Vue {
    * from virtual DOM at 768px
    */
   handleResponsiveComponents(): void {
-    const viewPortWidth = window.screen.width;
-
+    const viewPortWidth = window.innerWidth;
     if (viewPortWidth >= 768) {
       this.isLoadCards = false;
     } else {
@@ -85,7 +88,7 @@ export default class Logic extends Vue {
   }
 
   created(): void {
-    window.addEventListener('DOMContentLoaded', this.handleResponsiveComponents);
+    this.handleResponsiveComponents();
     window.addEventListener('resize', this.handleResponsiveComponents);
   }
 
