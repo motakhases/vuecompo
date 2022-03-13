@@ -25,11 +25,11 @@ const Template = (_, { argTypes }) => ({
     </div>
     <h1 class="mt-sm font-bold dark:text-surface"> انواع لوگوی بانک </h1>
     <div class="flex gap-sm">
-      <Thumbnail logo="zarinCard" />  
-      <Thumbnail logo="kosar" />  
-      <Thumbnail logo="postbank" />  
-      <Thumbnail logo="eghtesadNovin" />  
-      <Thumbnail logo="mellat" />  
+      <Thumbnail logo="ZarinCard" />  
+      <Thumbnail logo="Kosar" />  
+      <Thumbnail logo="PostBank" />  
+      <Thumbnail logo="EghtesadNovin" />  
+      <Thumbnail logo="Mellat" />  
     </div>
     <h1 class="mt-sm font-bold dark:text-surface"> همراه با عکس </h1>
     <Thumbnail :img="image" />  
