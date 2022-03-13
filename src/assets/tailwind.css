@@ -1,10 +1,15 @@
 @import url("https://cdn.zarinpal.com/assets/fonts/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400&display=swap"); /* roboto-mono-regular - latin */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
-  .rtl { direction: rtl; }
-  .ltr { direction: ltr; }
+  .rtl {
+    direction: rtl;
+  }
+  .ltr {
+    direction: ltr;
+  }
 }

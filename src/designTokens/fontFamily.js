@@ -4,5 +4,7 @@ module.exports = {
     IRANYekanFaNum: ['IRANYekanRdFaNum'],
     YekanBakhFaNum: ['YekanBakhFaNum'],
     YekanBakh: ['YekanBakhFaEn'],
+    Mono: ['Roboto Mono'],
+
   },
 };
