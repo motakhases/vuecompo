@@ -1,44 +1,50 @@
 .zpl-nav-bar-container {
-  /* Default */
-  @apply top-[58px] sticky h-[calc(100vh-58px)];
-}
-.zpl-nav-bar-menu {
-  /* Default */
-  @apply min-w-[256px] h-full bg-surface transition-all ease-in-out duration-200 right-0;
+  // default
+  @apply transition-all ease-in-out duration-200  fixed top-0 right-[-100%];
+  @apply h-full  w-[256px] bg-surface z-[999];
+
+  //responsive
+  @apply lg:h-[calc(100vh-58px)] lg:sticky lg:top-[58px] lg:right-0;
+
+  // dark
   @apply dark:bg-surface-dark;
 
-  /* toggle */
-  &.toggle {
-    @apply lg:min-w-[72px] transition-all ease-in duration-200 right-[-500px] lg:right-0;
-    @apply hidden sm:block;
-    transition-timing-function: ease-in;
+  &.show {
+    @apply lg:w-[72px] right-0;
+
     .zpl-nav-bar-header-title,
     .zpl-nav-bar-arrow,
     .zpl-nav-item-title,
     .zpl-nav-badge,
     .zpl-nav-terminal-header {
-      @apply hidden;
+      @apply lg:hidden;
     }
+
     .zpl-tooltip-container {
       &:hover {
         .zpl-tooltip {
-          @apply block;
+          @apply hidden lg:block;
         }
       }
     }
   }
 }
+
+.zpl-nav-overlay.show {
+  @apply w-full h-full fixed z-[998] bg-alpha-overlay left-0 top-0 lg:hidden;
+}
+
 .zpl-nav-bar-storybook {
   .zpl-nav-bar-menu {
-    @apply absolute
+    @apply absolute;
   }
 }
+
 .zpl-nav-bar-content {
-  /* Default */
   @apply p-md;
 }
+
 .zpl-nav-bar-list {
-  /* Default */
   @apply list-none flex flex-col gap-xs;
 
   &.has-border {
@@ -46,9 +52,10 @@
     @apply dark:border-border-dark-divider;
   }
 }
+
 .zpl-nav-bar-logo {
-  /* Default */
   @apply p-md lg:hidden;
+
   div {
     @apply w-[108px];
   }

@@ -11,7 +11,8 @@ const Template = (_, { argTypes }) => ({
         domain: 'zarin.express/zardu',
         name: 'زاردو',
         status: 'ACTIVE',
-      }, {
+      }, 
+      {
         domain: 'zarinp.al/xandar',
         name: 'زاندار',
         status: 'deactive',
@@ -62,6 +63,14 @@ const Template = (_, { argTypes }) => ({
             :terminals="terminals"
             :above-links="alinks"
             :below-links="blinks"
+          />
+          <NavigationBar
+            ref="navigationBar"
+            :terminals="terminals"
+            :above-links="sidebarLinks"
+            :below-links="belowLinks"
+            :active-terminal="activeTerminal"
+            @terminalClick="setActiveTerminal"
           />
         </div>
       </div>
