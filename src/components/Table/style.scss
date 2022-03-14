@@ -5,11 +5,21 @@
     @apply md:hidden;
 
     // default
-    @apply font-IRANYekanFaNum text-text bg-surface shadow-elevation-50 rounded-md overflow-hidden w-full mb-md p-md;
+    @apply font-IRANYekanFaNum text-text bg-surface rounded-md overflow-hidden w-full mb-md p-md;
     @apply last:mb-0;
 
+    &:not(.bordered) {
+      @apply shadow-elevation-50;
+      @apply dark:shadow-dark-elevation-50;
+    }
+
+    &.bordered {
+      @apply border border-border-divider;
+      @apply dark:border-border-dark-divider;
+    }
+
     // dark
-    @apply dark:bg-surface-dark dark:shadow-dark-elevation-50 dark:text-text-dark;
+    @apply dark:bg-surface-dark dark:text-text-dark;
 
     &-header {
       @apply flex items-center justify-between mb-sm;
@@ -164,13 +174,12 @@
   .description {
     @apply truncate;
   }
-}
-.sticky-col {
-  position: -webkit-sticky;
-  position: sticky;
-  width: 34px;
-  left: 16px;
-  div {
-    @apply p-0 #{!important};
+  .sticky-col {
+    @apply sticky left-0 w-4xl ;
+    & > div {
+      @apply py-sm px-md #{!important};
+      @apply shadow-elevation-50 bg-surface;
+      @apply dark:shadow-dark-elevation-50 dark:bg-surface-dark;
+    }
   }
 }

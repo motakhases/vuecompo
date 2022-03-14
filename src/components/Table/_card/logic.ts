@@ -31,6 +31,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array }) readonly columns!: ITableColumns[]
 
+  @Prop({ type: Boolean }) readonly bordered?: boolean
+
   get headerRight(): ITableRow {
     return Object.values(this.td)[0];
   }
