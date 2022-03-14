@@ -5,7 +5,6 @@ import {
 // Sub components
 import Status from '@/components/Status/index.vue';
 import CheckBox from '@/components/CheckBox/index.vue';
-import Button from '@/components/Button/index.vue';
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
 import Card from './_card/index.vue';
@@ -22,7 +21,6 @@ interface IColumn {
   components: {
     Status,
     CheckBox,
-    Button,
     Th,
     Td,
     Card,

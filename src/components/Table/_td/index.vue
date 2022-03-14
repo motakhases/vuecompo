@@ -1,5 +1,5 @@
 <template>
-  <td>
+  <td :class="[data.type === 'action' ? 'sticky-col' : null]">
     <div>
       <TypeRenderer :data="data" />
     </div>
@@ -13,4 +13,3 @@ import Logic from './logic';
 @Component
 export default class Td extends Mixins(Logic) {}
 </script>
-

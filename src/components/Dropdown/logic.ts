@@ -71,7 +71,7 @@ export default class Dropdown extends Vue {
     }
   }
 
-  onButtonClick(): void{
+  onButtonClick(): void {
     this.toggle = !this.toggle;
   }
 

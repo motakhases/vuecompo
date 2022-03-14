@@ -42,6 +42,29 @@ const Template = (_, { argTypes }) => ({
             },
           ],
         },
+        action: {
+          type: "action",
+          data: [
+            {
+              title: "عنوان",
+              icon: "plus",
+              color: "",
+              action: () => console.log("click"),
+            },
+            {
+              title: "عنوان",
+              icon: "plus",
+              color: "",
+              action: () => console.log("click"),
+            },
+            {
+              title: "عنوان",
+              icon: "plus",
+              color: "",
+              action: () => console.log("click"),
+            },
+          ],
+        },
       },
       {
         price: {
@@ -67,6 +90,29 @@ const Template = (_, { argTypes }) => ({
               title: "پرداخت موفق",
               type: "positive",
               size: "",
+            },
+          ],
+        },
+        action: {
+          type: "action",
+          data: [
+            {
+              title: "عنوان",
+              icon: "plus",
+              color: "",
+              action: () => console.log("click"),
+            },
+            {
+              title: "عنوان",
+              icon: "plus",
+              color: "",
+              action: () => console.log("click"),
+            },
+            {
+              title: "عنوان",
+              icon: "plus",
+              color: "",
+              action: () => console.log("click"),
             },
           ],
         },
@@ -98,6 +144,11 @@ const Template = (_, { argTypes }) => ({
       {
         title: "وضعیت",
         key: "status",
+        width: "15%",
+      },
+      {
+        title: "",
+        key: "action",
         width: "15%",
       },
     ],

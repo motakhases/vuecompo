@@ -49,4 +49,3 @@ import Logic from './logic';
 @Component
 export default class TableCard extends Mixins(Logic) {}
 </script>
-

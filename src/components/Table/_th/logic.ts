@@ -19,6 +19,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly width?: string
 
+  @Prop({ type: String }) readonly minWidth?: string
+
   @Prop({ type: Boolean }) readonly canSort?: boolean
 
   sortIcons = {

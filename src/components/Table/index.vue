@@ -9,7 +9,6 @@
         :columns="columns"
       />
     </template>
-
     <!-- Large view - Table -->
     <template v-else>
       <div :class="['zpl-table-box', { bordered }]">
@@ -36,6 +35,7 @@
                 :object-key="col.key"
                 :can-sort="col.sort"
                 :width="col.width"
+                :min-width="col.minWidth"
               />
             </tr>
           </thead>
@@ -65,13 +65,6 @@
                 :key="colIndex"
                 :data="td[col.key]"
               />
-              <!-- <div class="zpl-table-action">
-                <Button
-                  type="primary"
-                  size="small"
-                  icon="DotsMenu"
-                />
-              </div> -->
             </tr>
           </tbody>
         </table>
