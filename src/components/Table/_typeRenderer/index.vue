@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="['zpl-table-type-renderer', data.type === 'description' ? 'description' : '']"
+    :class="[
+      'zpl-table-type-renderer',
+      data.type === 'description' ? 'description' : '',
+      data.click ? 'cursor' : null]"
     @click="data.click ? data.click() : null"
   >
     <!--------------
@@ -64,9 +67,7 @@
       />
     </div>
 
-    <div
-      v-else-if="data.type === 'text'"
-    >
+    <div v-else-if="data.type === 'text'">
       {{ data.data }}
     </div>
     <div
@@ -74,6 +75,20 @@
       class="description"
     >
       {{ data.data }}
+    </div>
+    <div
+      v-else-if="data.type === 'action'"
+      class="zpl-table-action"
+    >
+      <Dropdown :list="data.data">
+        <template slot="button">
+          <Button
+            type="tertiary"
+            size="small"
+            icon="DotsMenu"
+          />
+        </template>
+      </Dropdown>
     </div>
   </div>
 </template>

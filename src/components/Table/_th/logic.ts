@@ -19,6 +19,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly width?: string
 
+  @Prop({ type: String }) readonly minWidth?: string
+
   @Prop({ type: Boolean }) readonly canSort?: boolean
 
   sortIcons = {
@@ -27,6 +29,14 @@ export default class Logic extends Vue {
   }
 
   sortOrder = 'asc'
+
+  get finalWidth(): string | null {
+    return this.width ? `w-[${this.width}]` : null;
+  }
+
+  get finalMinWidth(): string | null {
+    return this.minWidth ? `min-w-[${this.minWidth}]` : null;
+  }
 
   sort(): void {
     this.changeSortOrder();

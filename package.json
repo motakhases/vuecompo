@@ -28,6 +28,8 @@
     "@rollup/plugin-node-resolve": "^13.0.2",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/vue": "^6.4.9",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^5.4.0",

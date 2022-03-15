@@ -1,6 +1,6 @@
 <template>
   <th
-    :class="[`w-[${width}]`]"
+    :class="[finalWidth, finalMinWidth]"
   >
     <div
       :class="{ 'can-sort': canSort }"
@@ -13,7 +13,6 @@
         type="neutral"
         :text="label"
       />
-
       <Icon
         v-if="canSort"
         class="sort-icon"
@@ -30,6 +29,3 @@ import Logic from './logic';
 @Component
 export default class Th extends Mixins(Logic) {}
 </script>
-
-// TODO: Sorting icons
-// TODO: Loading

@@ -1,14 +1,25 @@
 .zpl-table {
+  @apply overflow-auto;
   &-card {
     // Show size
     @apply md:hidden;
 
     // default
-    @apply font-IRANYekanFaNum text-text bg-surface shadow-elevation-50 rounded-md overflow-hidden w-full mb-md p-md;
+    @apply font-IRANYekanFaNum text-text bg-surface rounded-md overflow-hidden w-full mb-md p-md;
     @apply last:mb-0;
 
+    &:not(.bordered) {
+      @apply shadow-elevation-50;
+      @apply dark:shadow-dark-elevation-50;
+    }
+
+    &.bordered {
+      @apply border border-border-divider;
+      @apply dark:border-border-dark-divider;
+    }
+
     // dark
-    @apply dark:bg-surface-dark dark:shadow-dark-elevation-50 dark:text-text-dark;
+    @apply dark:bg-surface-dark dark:text-text-dark;
 
     &-header {
       @apply flex items-center justify-between mb-sm;
@@ -42,10 +53,10 @@
   }
   &-box {
     // Show size
-    @apply hidden md:table;
+    @apply hidden md:block;
 
     // default
-    @apply bg-surface rounded-md overflow-hidden w-full;
+    @apply bg-surface rounded-md overflow-auto w-full;
 
     // dark
     @apply dark:bg-surface-dark-active;
@@ -95,13 +106,15 @@
     .date {
       @apply whitespace-nowrap;
     }
+    &.cursor {
+      @apply cursor-pointer;
+    }
   }
   &-action {
-    @apply absolute left-md top-1/2;
-    transform: translateY(-50%);
+    @apply hidden md:flex;
   }
   table {
-    @apply w-full table-fixed;
+    @apply w-full;
     tr {
       @apply relative;
       th {
@@ -160,5 +173,13 @@
   }
   .description {
     @apply truncate;
+  }
+  .sticky-col {
+    @apply sticky left-0 w-4xl ;
+    & > div {
+      @apply py-sm px-md #{!important};
+      @apply shadow-elevation-50 bg-surface;
+      @apply dark:shadow-dark-elevation-50 dark:bg-surface-dark;
+    }
   }
 }

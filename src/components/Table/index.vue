@@ -1,5 +1,5 @@
 <template>
-  <div :class="['zpl-table', { bordered }]">
+  <div :class="['zpl-table']">
     <!-- Small view - Card -->
     <template v-if="isLoadCards">
       <Card
@@ -7,9 +7,9 @@
         :key="index"
         :td="td"
         :columns="columns"
+        :bordered="bordered"
       />
     </template>
-
     <!-- Large view - Table -->
     <template v-else>
       <div :class="['zpl-table-box', { bordered }]">
@@ -18,14 +18,8 @@
           <thead>
             <tr>
               <!-- CheckBox -->
-              <th
-                v-if="selectable"
-                class="checkbox-holder"
-              >
-                <CheckBox
-                  v-model="isAllRowSelected"
-                  name="all"
-                />
+              <th v-if="selectable" class="checkbox-holder">
+                <CheckBox v-model="isAllRowSelected" name="all" />
               </th>
               <!-- Column title -->
               <Th
@@ -36,6 +30,7 @@
                 :object-key="col.key"
                 :can-sort="col.sort"
                 :width="col.width"
+                :min-width="col.minWidth"
               />
             </tr>
           </thead>
@@ -48,10 +43,7 @@
               :class="isRowSelected(tdIndex)"
             >
               <!-- CheckBox -->
-              <td
-                v-if="selectable"
-                class="checkbox-holder"
-              >
+              <td v-if="selectable" class="checkbox-holder">
                 <CheckBox
                   v-model="selectedRowsIndex"
                   :val="tdIndex"
@@ -65,13 +57,6 @@
                 :key="colIndex"
                 :data="td[col.key]"
               />
-              <!-- <div class="zpl-table-action">
-                <Button
-                  type="primary"
-                  size="small"
-                  icon="DotsMenu"
-                />
-              </div> -->
             </tr>
           </tbody>
         </table>

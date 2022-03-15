@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-table-card">
+  <div :class="['zpl-table-card', { bordered }]">
     <!-- Header -->
     <div class="zpl-table-card-header">
       <!-- Right side (first index of array data) -->
@@ -49,4 +49,3 @@ import Logic from './logic';
 @Component
 export default class TableCard extends Mixins(Logic) {}
 </script>
-
