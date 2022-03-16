@@ -12,7 +12,7 @@ import Icon from '@/components/Icon/index.vue';
     Button,
   },
 })
-export default class TextBox extends Vue {
+export default class TextField extends Vue {
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
 
   @Prop({ type: String }) readonly label?: string;
@@ -47,9 +47,13 @@ export default class TextBox extends Vue {
 
   @Prop({ type: String, default: '' }) readonly value!: string;
 
-  isInputFocused = !!this.value.length;
+  isInputFocused = false;
 
   copyToClipboardText = 'کپی';
+
+  created() {
+    this.isInputFocused = !!this.value.length;
+  }
 
   get model(): string | number {
     return this.formattedValue();

@@ -30,7 +30,7 @@ export default class TextBox extends Vue {
 
   @Prop({ type: String, default: '' }) readonly value!: string
 
-  isInputFocused = !!this.value.length
+  isInputFocused = false
 
   get rows():number {
     switch (this.size) {
@@ -43,6 +43,10 @@ export default class TextBox extends Vue {
     default:
       return 3;
     }
+  }
+
+  created() {
+    this.isInputFocused = !!this.value.length;
   }
 
   onFocusIn():void {
