@@ -1,154 +1,105 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */ /* eslint-disable
-no-console */
 <template>
-  <div
-    dir="rtl"
-    class="bg-background p-xl"
-  >
-    <div class="flex">
-      <div class="w-full">
-        <div class="container">
-          <Button
-            text="فیلتر"
-            @click.native="toggleModal"
-          />
-          <Filters
-            :is-open="modal"
-            :toggle="toggleModal"
-            :filter="filter"
-            :clear-query="clearQuery"
-          >
-            <FilterAccordion
-              v-model="activeAccordion"
-              text="وضعیت"
-              name="secondCheckBox"
-              val="status"
-            >
-              <Radio
-                v-model="filters.status"
-                name="r"
-                val="active"
-                text="موفق"
-              />
-              <Radio
-                v-model="filters.status"
-                name="r"
-                val="inactive"
-                text="ناموفق"
-              />
-            </FilterAccordion>
-            <FilterAccordion
-              v-model="activeAccordion"
-              text="تاریخ"
-              name="secondCheckBox"
-              val="date"
-            >
-              <FilterDate
-                @updateFilter="updateFilter"
-                @deleteFilter="deleteFilter"
-              />
-            </FilterAccordion>
-            <FilterAccordion
-              v-model="activeAccordion"
-              text="مبلغ"
-              name="thirdCheckBox"
-              val="amount"
-            >
-              <FilterAmount
-                @updateFilter="updateFilter"
-                @deleteFilter="deleteFilter"
-              />
-            </FilterAccordion>
-          </Filters>
-        </div>
-      </div>
+  <div dir="rtl">
+    <!-- Topbar -->
+    <TopBar
+      :terminals="terminals"
+      @showNotifs="$refs.notificationCenter.toggle()"
+      @toggleMenu="$refs.navigationBar.toggle()"
+    />
+
+    <!-- Main -->
+    <div class="flex w-full">
+      <NavigationBar
+        ref="navigationBar"
+        :terminals="terminals"
+        :above-links="sidebarLinks"
+        :below-links="belowLinks"
+        :active-terminal="activeTerminal"
+      />
+
+      <NotificationCenter
+        ref="notificationCenter"
+        :announcements="[]"
+      />
     </div>
   </div>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import Vue from 'vue';
-// Components
-import Filters from '@/components/Filters/index.vue';
-import Radio from '@/components/Radio/index.vue';
-import FilterAccordion from '@/components/Filters/FilterAccordion/index.vue';
-import FilterDate from '@/components/Filters/FilterDate/index.vue';
-import FilterAmount from '@/components/Filters/FilterAmount/index.vue';
-import Button from '@/components/Button/index.vue';
+
+/**
+ * Components
+ * --------------------------------
+ */
+import TopBar from '@/components/TopBar/index.vue';
+import NavigationBar from '@/components/NavigationBar/index.vue';
+import NotificationCenter from '@/components/NotificationCenter/index.vue';
 
 export default Vue.extend({
   name: 'App',
+
   components: {
-    Filters,
-    Radio,
-    FilterAccordion,
-    FilterDate,
-    FilterAmount,
-    Button,
+    TopBar,
+    NavigationBar,
+    NotificationCenter,
   },
+
   data() {
     return {
-      filters: {
-        status: '',
-      },
-      activeAccordion: [],
-      modal: false,
+      activeTerminal: {},
+      terminals: [
+        {
+          domain: '...',
+          id: '1',
+          logo: '...',
+          name: 'ترمینال تستی',
+          link: '...',
+          route: '...',
+        },
+      ],
+      sidebarLinks: [
+        {
+          title: 'پیشخوان',
+          link: '/',
+          icon: 'GridLayout',
+          active: true,
+        },
+        {
+          title: 'تراکنش‌ها',
+          link: '/',
+          icon: 'DrpItemCheck',
+        },
+        {
+          title: 'تسویه حساب',
+          link: '/',
+          icon: 'CreditCheckout',
+        },
+        {
+          title: 'محصولات',
+          link: '/',
+          icon: 'Box',
+        },
+      ],
+      belowLinks: [
+        {
+          title: 'حساب‌های بانکی',
+          link: '/',
+          icon: 'PaymentCard',
+        },
+        {
+          title: 'تیکت‌ها',
+          link: '/',
+          icon: 'ChatMessage',
+        },
+      ],
     };
-  },
-  created() {
-    // update filter list based on query
-    this.fillStatus();
-  },
-  methods: {
-    // add property to filter in components
-    updateFilter(i) {
-      this.filters = { ...this.filters, ...i };
-    },
-    // delete property from filter in components
-    deleteFilter(i) {
-      delete this.filters[i];
-    },
-    filter() {
-      const filterList = {};
-      Object.keys(this.filters).forEach((item) => {
-        // if property of filter has value
-        if (this.filters[item]?.length) {
-          // if property exist in active accordion
-          if (this.activeAccordion.length) {
-            this.activeAccordion.forEach((element) => {
-              // to check if it includes the item for min_amount, max_Amount, range_amount
-              if (item.includes(element)) {
-                filterList[item] = this.filters[item];
-              }
-            });
-          } else {
-            // if there is no active accordion so empty filters
-            this.filters = { status: '', date: '' };
-          }
-        }
-      });
-      // push filters list to query
-      this.$router.push({ query: filterList });
-
-      // close modal
-      this.toggleModal();
-    },
-
-    toggleModal() {
-      this.modal = !this.modal;
-    },
-    fillStatus() {
-      this.activeAccordion = Object.keys(this.$route.query);
-      this.filters = { ...this.filters, ...this.$route.query };
-    },
-    clearQuery() {
-      // clear filter list and query and close the modal
-      this.modal = false;
-      this.filters = {
-        status: '',
-      };
-      this.$router.replace({ query: {} });
-    },
   },
 });
 </script>
+
+<style>
+body {
+  @apply bg-background
+}
+</style>

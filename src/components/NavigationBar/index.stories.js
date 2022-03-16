@@ -1,24 +1,28 @@
 import NavigationBar from "./index.vue";
+import TopBar from "../TopBar/index.vue";
 
 const Template = (_, { argTypes }) => ({
   components: {
     NavigationBar,
+    TopBar
   },
+
   props: Object.keys(argTypes),
+
   data: () => ({
+    activeTerminal: {},
     terminals: [
       {
         domain: 'zarin.express/zardu',
         name: 'زاردو',
         status: 'ACTIVE',
+        id: '1',
+        logo: '...',
+        link: '...',
+        route: '...',
       }, 
-      {
-        domain: 'zarinp.al/xandar',
-        name: 'زاندار',
-        status: 'deactive',
-      },
     ],
-    alinks: [
+    sidebarLinks: [
       {
         title: 'پیشخوان',
         link: '/',
@@ -41,7 +45,7 @@ const Template = (_, { argTypes }) => ({
         icon: 'Box',
       },
     ],
-    blinks: [
+    belowLinks: [
       {
         title: 'حساب‌های بانکی',
         link: '/',
@@ -54,37 +58,22 @@ const Template = (_, { argTypes }) => ({
       },
     ],
   }),
-  template: `
-    <div class="grid grid-cols-3 gap-xl" dir="rtl">
-      <div class="col-span-2">
-        <h1 class="mb-md font-bold dark:text-surface"> حالت معمولی </h1>
-        <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border border-[#eee] h-[768px]" dir="rtl">
-          <NavigationBar
-            :terminals="terminals"
-            :above-links="alinks"
-            :below-links="blinks"
-          />
-          <NavigationBar
-            ref="navigationBar"
-            :terminals="terminals"
-            :above-links="sidebarLinks"
-            :below-links="belowLinks"
-            :active-terminal="activeTerminal"
-            @terminalClick="setActiveTerminal"
-          />
-        </div>
-      </div>
 
-      <div class="col-span-1">
-        <h1 class="mb-md font-bold dark:text-surface"> حالت بسته </h1>
-        <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border border-[#eee] h-[768px]" dir="rtl">
-          <NavigationBar
-            toggle
-            :terminals="terminals"
-            :above-links="alinks"
-            :below-links="blinks"
-          />
-        </div>
+  template: `
+    <div dir="rtl">
+      <div class="relative zpl-nav-bar-storybook bg-background dark:bg-background-dark border border-[#eee] h-[768px]" dir="rtl">
+        <TopBar
+          :terminals="terminals"
+          @showNotifs="$refs.notificationCenter.toggle()"
+          @toggleMenu="$refs.navigationBar.toggle()"
+        />  
+        <NavigationBar
+          ref="navigationBar"
+          :terminals="terminals"
+          :above-links="sidebarLinks"
+          :below-links="belowLinks"
+          :active-terminal="activeTerminal"
+        />
       </div>
     </div>
   `,
