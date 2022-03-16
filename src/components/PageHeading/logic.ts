@@ -1,4 +1,6 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component, Prop, Vue, Ref,
+} from 'vue-property-decorator';
 import { PageHeadingStatus } from '@/types';
 import Icon from '../Icon/index.vue';
 import Status from '../Status/index.vue';
@@ -20,15 +22,18 @@ export default class PageHeading extends Vue {
 
   @Prop({ type: Array }) readonly statuses?: PageHeadingStatus[]
 
+  @Ref('pageHeading') readonly pageHeading!: HTMLElement
+
   stickHeading = false
 
   checkScrolling(): void {
-    const element = this.$refs.pageHeading as HTMLElement;
-    const distanceOfTop = element.getBoundingClientRect().top;
-    if (distanceOfTop <= 56) {
-      this.stickHeading = true;
-    } else {
-      this.stickHeading = false;
+    const distanceOfTop = this.pageHeading?.getBoundingClientRect()?.top;
+    if (this.pageHeading) {
+      if (distanceOfTop <= 56) {
+        this.stickHeading = true;
+      } else {
+        this.stickHeading = false;
+      }
     }
   }
 
