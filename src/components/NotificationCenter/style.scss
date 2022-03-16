@@ -1,6 +1,6 @@
 .zpl-notification-modal {
   .zpl-notification-center {
-    @apply w-full h-[100vh] overflow-y-scroll fixed z-[9999] top-0 font-IRANYekanFaNum;
+    @apply w-full h-[100vh] overflow-y-scroll fixed z-[41] top-0 font-IRANYekanFaNum;
     @apply sm:max-w-[340px] sm:w-[360px];
     @apply bg-surface;
     @apply dark:bg-surface-dark;
@@ -96,7 +96,7 @@
     }
   }
   .backdrop {
-    @apply fixed top-0 bottom-0 right-0 left-0 z-[9998];
+    @apply fixed top-0 bottom-0 right-0 left-0 z-40;
     @apply bg-alpha-overlay;
     @apply dark:bg-alpha-dark-overlay;
   }
