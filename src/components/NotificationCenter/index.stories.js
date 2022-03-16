@@ -113,13 +113,12 @@ const Template = (_, { argTypes }) => ({
 			type="primary"
 			size="medium"
 			text="کلیک کن"
-			@click.native="toggleNotification"
+			@click.native="$refs.notificationCenter.toggle()"
 		/>
     <NotificationCenter
-      :announcements="data"
-			:isOpen="notif"
-			:toggle="toggleNotification"
-    />
+			ref="notificationCenter"
+			:announcements="[]"
+		/>
   </div>
   `,
 });
