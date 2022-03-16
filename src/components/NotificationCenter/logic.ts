@@ -1,11 +1,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import { now, yesterday, beforeDays } from '@/utils/momentCustom';
+import { Announcement } from '@/types';
+
 import Tabs from '@/components/Tabs/index.vue';
 import Tab from '@/components/Tabs/Tab/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Button from '@/components/Button/index.vue';
-import { Announcement } from '@/types';
 import noNotif from './NoNotif/index.vue';
 import card from './card/index.vue';
 
@@ -19,11 +20,13 @@ export default class NotificationCenter extends Vue {
 
   @Prop({ type: Array, default: () => [] }) readonly notifs?: Announcement[]
 
-  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
-
-  @Prop({ type: Function, required: true }) readonly toggle!: () => boolean
-
   showArchives = false
+
+  isShow = false
+
+  toggle(): void {
+    this.isShow = !this.isShow;
+  }
 
   todayCards(data:[]):never[] {
     return data?.filter(({ date }) => date === now('YYYY-M-D'));

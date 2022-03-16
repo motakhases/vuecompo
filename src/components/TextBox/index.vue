@@ -6,7 +6,7 @@
     <div :class="['zpl-textbox-group']">
       <textarea
         v-model="model"
-        :class="['zpl-textbox', { 'error': errors.length }]"
+        :class="['zpl-textbox', { 'error': errors && errors.length }]"
         :rows="rows"
         :disabled="disabled"
         :maxlength="maxlength"
@@ -49,7 +49,7 @@
 
         <!-- show when we have errors -->
         <div
-          v-if="errors.length"
+          v-if="errors && errors.length"
           class="zpl-textbox-hint error"
         >
           <Icon name="warning" />
