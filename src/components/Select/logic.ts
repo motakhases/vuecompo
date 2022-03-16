@@ -51,7 +51,7 @@ export default class Select extends Vue {
   /**
    * Data options
    */
-  isInputFocused = !!this.value.length
+  isInputFocused = false
 
   isBoxFocused = false
 
@@ -59,7 +59,7 @@ export default class Select extends Vue {
 
   activeOptionIndex = -1
 
-  filteredOptions: ISelectOptions[] = this.options
+  filteredOptions: ISelectOptions[] = []
 
   inputVal = ''
 
@@ -83,7 +83,10 @@ export default class Select extends Vue {
   }
 
   created(): void {
-    this.inputVal = this.options && this.value.length ? this.options.filter((i) => i.value === this.value)[0].text : '';
+    this.inputVal = this.options && this.value.length
+      ? this.options.filter((i) => i.value === this.value)[0].text : '';
+    this.isInputFocused = !!this.value.length;
+    this.filteredOptions = this.options;
   }
 
   /**

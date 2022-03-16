@@ -4,7 +4,7 @@ import {
 
 @Component({})
 export default class Toggle extends Vue {
-  @VModel({ type: String }) model!: string
+  @VModel({ type: Boolean }) model!: boolean
 
   @Prop({ type: Boolean }) readonly disabled?: boolean
 }
