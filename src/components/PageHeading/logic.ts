@@ -8,23 +8,27 @@ import Button from '../Button/index.vue';
 
 @Component({
   components: {
-    Icon, Status, Button,
+    Icon,
+    Status,
+    Button,
   },
 })
 export default class PageHeading extends Vue {
-  @Prop({ type: String, required: true }) readonly title!: string
+  @Prop({ type: String, required: true }) readonly title!: string;
 
-  @Prop({ type: String }) readonly desc?: string
+  @Prop({ type: String }) readonly desc?: string;
 
-  @Prop({ type: Boolean, default: false }) readonly returnBtn!: boolean
+  @Prop({ type: Boolean, default: false }) readonly returnBtn!: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly sticky!: boolean
+  @Prop({ type: Boolean, default: false }) readonly sticky!: boolean;
 
-  @Prop({ type: Array }) readonly statuses?: PageHeadingStatus[]
+  @Prop({ type: Array }) readonly statuses?: PageHeadingStatus[];
 
-  @Ref('pageHeading') readonly pageHeading!: HTMLElement
+  @Prop({ type: Function }) readonly returnFunction?: () => void
 
-  stickHeading = false
+  @Ref('pageHeading') readonly pageHeading!: HTMLElement;
+
+  stickHeading = false;
 
   checkScrolling(): void {
     const distanceOfTop = this.pageHeading?.getBoundingClientRect()?.top;

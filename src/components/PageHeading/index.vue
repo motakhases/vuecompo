@@ -7,7 +7,7 @@
       <div
         v-if="returnBtn"
         class="return-btn"
-        @click="router.go(-1)"
+        @click="returnFunction"
       >
         <Button
           icon="ArrowRight"
