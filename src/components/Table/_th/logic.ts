@@ -39,13 +39,15 @@ export default class Logic extends Vue {
   }
 
   sort(): void {
-    this.changeSortOrder();
+    if (this.canSort) {
+      this.changeSortOrder();
 
-    const order = `${this.objectKey}_${this.sortOrder}`.toUpperCase();
+      const order = `${this.objectKey}_${this.sortOrder}`.toUpperCase();
 
-    this.$router.push({
-      query: { ...this.$route.query, order },
-    });
+      this.$router.push({
+        query: { ...this.$route.query, order },
+      });
+    }
   }
 
   changeSortOrder(): void {
