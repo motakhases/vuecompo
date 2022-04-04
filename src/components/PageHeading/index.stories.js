@@ -13,6 +13,7 @@ const Template = (_, { argTypes }) => ({
         desc="توضیحات"
         :has-button="true"
         :statuses="statuses"
+        :returnFunction="returnFunction"
       >
         <template v-slot:buttons>
           <Button
@@ -44,7 +45,8 @@ pageHeading.args = {
     {
       text:'فعال', type:'positive'
     }
-  ]
+  ],
+  returnFunction:()=> console.log('click')
 
 };
 
