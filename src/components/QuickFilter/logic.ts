@@ -13,13 +13,13 @@ export default class QuickFilter extends Vue {
   @Prop({ type: String, required: true, default: () => [] })
   queryKey!: string;
 
-  changeFilter(item:QuickFilterBtn):void {
+  changeFilter(item:QuickFilterBtn): void {
     this.$router.push({
       query: { [this.queryKey]: item.value },
-    }).catch(() => 0);
+    });
   }
 
-  created() : void {
+  created(): void {
     if (!this.$route.query[this.queryKey]) {
       this.changeFilter(this.items[0]);
     }
