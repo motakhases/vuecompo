@@ -1,6 +1,9 @@
 <template>
-  <td :class="[data.type === 'action' ? 'sticky-col' : null]">
-    <div>
+  <td :class="[
+      data.type === 'action' ? 'sticky-col' : null,
+      data.click ? 'cursor-pointer' : null,
+    ]">
+    <div @click="data.click ? data.click() : null">
       <TypeRenderer :data="data" />
     </div>
   </td>

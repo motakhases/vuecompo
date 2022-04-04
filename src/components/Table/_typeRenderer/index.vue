@@ -3,8 +3,7 @@
     :class="[
       'zpl-table-type-renderer',
       data.type === 'description' ? 'description' : '',
-      data.click ? 'cursor' : null]"
-    @click="data.click ? data.click() : null"
+    ]"
   >
     <!--------------
         Custom
