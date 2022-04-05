@@ -23,7 +23,7 @@
               'zpl-dropdown-item',
               item.color ? finalColor(item.color) : null,
             ]"
-            @click="item.action()"
+            @click="item.action(customPayload)"
           >
             <Icon
               :name="item.icon"
