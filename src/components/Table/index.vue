@@ -8,6 +8,7 @@
         :td="td"
         :columns="columns"
         :bordered="bordered"
+        :actions="actions"
       />
     </template>
 
