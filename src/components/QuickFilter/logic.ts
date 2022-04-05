@@ -31,7 +31,6 @@ export default class QuickFilter extends Vue {
 
   @Watch('$route.query')
   checkRouteChange(): void {
-    console.log('hi');
     if (!this.$route.query[this.queryKey]) {
       this.changeFilter(this.items[0]);
     }
