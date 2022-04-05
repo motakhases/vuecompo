@@ -2,8 +2,9 @@
   <div
     :class="[
       'zpl-table-type-renderer',
-      data.type === 'description' ? 'description' : '',
-      data.click ? 'cursor' : null]"
+      data.type === 'description' ? 'description' : null,
+      data.click ? 'cursor' : null
+    ]"
     @click="data.click ? data.click() : null"
   >
     <!--------------
@@ -29,7 +30,7 @@
     </div>
 
     <!--------------
-        Number
+        Price
     -------------->
     <div v-else-if="data.type === 'price'">
       {{ data.data.toLocaleString() }}
@@ -67,28 +68,21 @@
       />
     </div>
 
+    <!--------------
+        Text
+    -------------->
     <div v-else-if="data.type === 'text'">
       {{ data.data }}
     </div>
+
+    <!--------------
+      Description
+    -------------->
     <div
       v-else-if="data.type === 'description'"
       class="description"
     >
       {{ data.data }}
-    </div>
-    <div
-      v-else-if="data.type === 'action'"
-      class="zpl-table-action"
-    >
-      <Dropdown :list="data.data">
-        <template slot="button">
-          <Button
-            type="tertiary"
-            size="small"
-            icon="DotsMenu"
-          />
-        </template>
-      </Dropdown>
     </div>
   </div>
 </template>
@@ -98,5 +92,5 @@ import { Component, Mixins } from 'vue-property-decorator';
 import Logic from './logic';
 
 @Component
-export default class typeRenderer extends Mixins(Logic) {}
+export default class TypeRenderer extends Mixins(Logic) {}
 </script>
