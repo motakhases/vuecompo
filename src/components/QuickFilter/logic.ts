@@ -1,4 +1,6 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component, Prop, Vue, Watch,
+} from 'vue-property-decorator';
 import { QuickFilterBtn } from '@/types';
 import QuickFilterButton from './Button/index.vue';
 
@@ -14,12 +16,22 @@ export default class QuickFilter extends Vue {
   queryKey!: string;
 
   changeFilter(item:QuickFilterBtn): void {
+    delete this.$route.query[this.queryKey];
+    delete this.$route.query.page;
     this.$router.push({
-      query: { [this.queryKey]: item.value },
+      query: { [this.queryKey]: item.value, ...this.$route.query },
     });
   }
 
   created(): void {
+    if (!this.$route.query[this.queryKey]) {
+      this.changeFilter(this.items[0]);
+    }
+  }
+
+  @Watch('$route.query')
+  checkRouteChange(): void {
+    console.log('hi');
     if (!this.$route.query[this.queryKey]) {
       this.changeFilter(this.items[0]);
     }
