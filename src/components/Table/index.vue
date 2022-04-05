@@ -10,6 +10,7 @@
         :bordered="bordered"
       />
     </template>
+
     <!-- Large view - Table -->
     <template v-else>
       <div :class="['zpl-table-box', { bordered }]">
@@ -51,12 +52,31 @@
                   @click.native="selectRow"
                 />
               </td>
+
               <!-- Row's data -->
               <Td
                 v-for="(col, colIndex) in columns"
                 :key="colIndex"
                 :data="td[col.key]"
               />
+
+              <!-- Actions -->
+              <td :class="{ 'sticky-col': actions }">
+                <div
+                  v-if="actions"
+                  class="zpl-table-action"
+                >
+                  <Dropdown :list="actions">
+                    <template slot="button">
+                      <Button
+                        type="tertiary"
+                        size="small"
+                        icon="DotsMenu"
+                      />
+                    </template>
+                  </Dropdown>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
