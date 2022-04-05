@@ -1,8 +1,9 @@
 <template>
-  <td>
-    <div v-if="data">
-      <TypeRenderer :data="data" />
-    </div>
+  <td 
+    :class="{ 'cursor-pointer': data.click }"
+    @click="data.click ? data.click() : null"
+  >
+      <TypeRenderer v-if="data" :data="data" />
   </td>
 </template>
 

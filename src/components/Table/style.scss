@@ -106,9 +106,6 @@
     .date {
       @apply whitespace-nowrap;
     }
-    &.cursor {
-      @apply cursor-pointer;
-    }
   }
   &-action {
     @apply hidden md:flex;
