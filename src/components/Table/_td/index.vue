@@ -1,6 +1,6 @@
 <template>
-  <td :class="[data.type === 'action' ? 'sticky-col' : null]">
-    <div>
+  <td>
+    <div v-if="data">
       <TypeRenderer :data="data" />
     </div>
   </td>
