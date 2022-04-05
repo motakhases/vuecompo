@@ -110,19 +110,22 @@ const Template = (_, { argTypes }) => ({
 
     actions: [
       {
-        title: "عنوان",
-        icon: "plus",
+        title: "ویرایش",
+        icon: "PenEdit",
+        color: "",
+        action: (x) => {
+          console.log("click")
+          console.log(x)
+        },
+      },
+      {
+        title: "بستن",
+        icon: "delete",
         color: "",
         action: () => console.log("click"),
       },
       {
-        title: "عنوان",
-        icon: "plus",
-        color: "",
-        action: () => console.log("click"),
-      },
-      {
-        title: "عنوان",
+        title: "افزدن",
         icon: "plus",
         color: "",
         action: () => console.log("click"),
