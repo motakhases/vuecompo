@@ -177,6 +177,7 @@
   .sticky-col {
     @apply sticky left-0 w-4xl ;
     & > div {
+      @apply absolute top-0 left-0 bottom-0;
       @apply py-sm px-md #{!important};
       @apply shadow-elevation-50 bg-surface;
       @apply dark:shadow-dark-elevation-50 dark:bg-surface-dark;
