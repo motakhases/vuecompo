@@ -49,6 +49,7 @@
       :terminals="terminals"
       :is-open="showTerminalList"
       :toggle="toggleTerminalList"
+      v-on="$listeners"
     />
   </div>
 </template>

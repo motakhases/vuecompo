@@ -22,6 +22,7 @@
             :link="terminal.domain"
             icon="terminal"
             :state="terminal.status"
+            v-on="$listeners"
           />
         </div>
 
