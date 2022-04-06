@@ -4,12 +4,14 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import { ValidationProvider } from 'vee-validate';
 import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
+import Tooltip from '@/components/Tooltip/index.vue';
 
 @Component({
   components: {
     ValidationProvider,
     Icon,
     Button,
+    Tooltip,
   },
 })
 export default class TextField extends Vue {

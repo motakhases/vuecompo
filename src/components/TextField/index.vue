@@ -63,13 +63,21 @@
           {{ unit }}
         </span>
 
-        <Button
-          v-if="copyable"
-          class="zpl-copy-button"
+        <!-- Copy to clipboard -->
+        <Tooltip
           :text="copyToClipboardText"
-          type="secondary"
-          @click.native="copyToClipboard"
-        />
+          position="topCenter"
+          space="smallSpace"
+          class="zpl-copy-button"
+          indicator=""
+        >
+          <Button
+            v-if="copyable"
+            text="کپی"
+            type="secondary"
+            @click.native="copyToClipboard"
+          />
+        </Tooltip>
 
         <!-- label -->
         <label
