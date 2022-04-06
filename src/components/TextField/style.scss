@@ -5,10 +5,14 @@
 }
 
 .zpl-copy-button {
-  @apply -ml-xs h-[38px];
+  @apply -ml-xs;
 
-  > span {
-    @apply whitespace-nowrap;
+  > .zpl-button {
+    @apply h-[38px];
+
+    span {
+      @apply whitespace-nowrap;
+    }
   }
 }
 
