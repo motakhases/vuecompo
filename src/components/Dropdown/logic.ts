@@ -30,14 +30,6 @@ export default class Dropdown extends Vue {
 
   windowWidth= window.innerWidth
 
-  get finalWidth(): string {
-    return `w-[${this.width}]`;
-  }
-
-  get finalMaxHeight(): string {
-    return `max-h-[${this.maxHeight}]`;
-  }
-
   finalColor(color:string):string {
     return `text-[${color}]`;
   }
