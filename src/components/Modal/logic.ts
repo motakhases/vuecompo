@@ -15,8 +15,4 @@ export default class Modal extends Vue {
   @Prop({ type: Boolean }) closable!: boolean;
 
   @Prop({ type: String }) readonly width?: string;
-
-  get finalWidth(): string {
-    return `w-[${this.width}]`;
-  }
 }
