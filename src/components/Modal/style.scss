@@ -6,7 +6,7 @@
 
 .zpl-modal-box {
   @apply max-h-[88vh] absolute bottom-0 z-[51] rounded-t-md;
-  @apply lg:rounded-md lg:static;
+  @apply w-full lg:rounded-md lg:static;
   @apply flex flex-col;
   @apply text-text bg-surface shadow-elevation-100;
   @apply dark:text-text-dark dark:bg-surface-dark dark:shadow-dark-elevation-100;

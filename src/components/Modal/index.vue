@@ -5,7 +5,7 @@
   >
     <div
       class="zpl-modal-box"
-       :style="[{ width, maxHeight }]"
+       :style="[{ width : finalWidth, maxHeight }]"
     >
       <!-- header -->
       <div class="zpl-modal-header">

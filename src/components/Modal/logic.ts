@@ -14,5 +14,23 @@ export default class Modal extends Vue {
 
   @Prop({ type: Boolean }) closable!: boolean;
 
-  @Prop({ type: String }) readonly width?: string;
+  @Prop({ type: String }) readonly width!: string;
+
+  finalWidth = ''
+
+  onResize(): void {
+    if (window.innerWidth >= 992) {
+      this.finalWidth = this.width;
+    } else {
+      this.finalWidth = '';
+    }
+  }
+
+  mounted(): void {
+    window.addEventListener('resize', this.onResize);
+  }
+
+  beforeDestroy():void {
+    window.removeEventListener('resize', this.onResize);
+  }
 }
