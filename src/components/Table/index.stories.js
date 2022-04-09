@@ -11,10 +11,11 @@ const Template = (_, { argTypes }) => ({
     tableData: [
       {
         price: {
-          type: "price",
-          data: 8100000,
-          click: () => {
-            console.log("clik");
+          type: "custom",
+          data: {
+            image: '',
+            title: 'سلام',
+            sub: 'بر تو'
           },
         },
         pay_id: {
@@ -39,29 +40,6 @@ const Template = (_, { argTypes }) => ({
             {
               icon: "CheckmarkCircle",
               type: "positive",
-            },
-          ],
-        },
-        action: {
-          type: "action",
-          data: [
-            {
-              title: "عنوان",
-              icon: "plus",
-              color: "",
-              action: () => console.log("click"),
-            },
-            {
-              title: "عنوان",
-              icon: "plus",
-              color: "",
-              action: () => console.log("click"),
-            },
-            {
-              title: "عنوان",
-              icon: "plus",
-              color: "",
-              action: () => console.log("click"),
             },
           ],
         },
@@ -90,29 +68,6 @@ const Template = (_, { argTypes }) => ({
               title: "پرداخت موفق",
               type: "positive",
               size: "",
-            },
-          ],
-        },
-        action: {
-          type: "action",
-          data: [
-            {
-              title: "عنوان",
-              icon: "plus",
-              color: "",
-              action: () => console.log("click"),
-            },
-            {
-              title: "عنوان",
-              icon: "plus",
-              color: "",
-              action: () => console.log("click"),
-            },
-            {
-              title: "عنوان",
-              icon: "plus",
-              color: "",
-              action: () => console.log("click"),
             },
           ],
         },
@@ -150,6 +105,31 @@ const Template = (_, { argTypes }) => ({
         title: "",
         key: "action",
         width: "15%",
+        minWidth:'220px'
+      },
+    ],
+
+    actions: [
+      {
+        title: "ویرایش",
+        icon: "PenEdit",
+        color: "",
+        action: (x) => {
+          console.log("click")
+          console.log(x)
+        },
+      },
+      {
+        title: "بستن",
+        icon: "delete",
+        color: "",
+        action: () => console.log("click"),
+      },
+      {
+        title: "افزدن",
+        icon: "plus",
+        color: "",
+        action: () => console.log("click"),
       },
     ],
   }),
@@ -159,7 +139,8 @@ const Template = (_, { argTypes }) => ({
       :data="tableData"
       :columns="columns"
       class="mb-xl"
-      :bordered="true"
+      bordered
+      :actions="actions"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">

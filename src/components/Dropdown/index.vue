@@ -6,12 +6,8 @@
     <div ref="menu">
       <div
         v-if="toggle"
-        :class="[
-          'zpl-dropdown',
-          width ? finalWidth : null,
-          maxHeight ? finalMaxHeight : null,
-        ]"
-        :style="style"
+        class="zpl-dropdown"
+        :style="[style, { width, maxHeight }]"
         dir="rtl"
       >
         <slot name="heeader" />
@@ -23,7 +19,7 @@
               'zpl-dropdown-item',
               item.color ? finalColor(item.color) : null,
             ]"
-            @click="item.action()"
+            @click="item.action(customPayload)"
           >
             <Icon
               :name="item.icon"

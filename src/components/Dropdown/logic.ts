@@ -15,6 +15,8 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly maxHeight?: string;
 
+  @Prop({ type: [String, Object, Array, Number] }) readonly customPayload?: any;
+
   @Ref('button') readonly buttonRef!: HTMLElement
 
   @Ref('menu') readonly menuRef!: HTMLElement
@@ -29,14 +31,6 @@ export default class Dropdown extends Vue {
   };
 
   windowWidth= window.innerWidth
-
-  get finalWidth(): string {
-    return `w-[${this.width}]`;
-  }
-
-  get finalMaxHeight(): string {
-    return `max-h-[${this.maxHeight}]`;
-  }
 
   finalColor(color:string):string {
     return `text-[${color}]`;

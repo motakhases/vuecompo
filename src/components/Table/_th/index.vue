@@ -1,6 +1,6 @@
 <template>
   <th
-    :class="[finalWidth, finalMinWidth]"
+    :style="[{ width, minWidth }]"
   >
     <div
       :class="{ 'can-sort': canSort }"
