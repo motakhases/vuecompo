@@ -16,6 +16,8 @@ export default class Modal extends Vue {
 
   @Prop({ type: String }) readonly width!: string;
 
+  @Prop({ type: String }) readonly maxHeight!: string;
+
   finalWidth = ''
 
   onResize(): void {
