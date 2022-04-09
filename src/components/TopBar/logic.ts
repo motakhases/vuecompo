@@ -23,4 +23,9 @@ export default class TopBar extends Vue {
   toggleTerminalList(): void {
     this.showTerminalList = !this.showTerminalList;
   }
+
+  terminalClick(payload: any): void {
+    this.toggleTerminalList();
+    this.$emit('terminalClick', payload);
+  }
 }

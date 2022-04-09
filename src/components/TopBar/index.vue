@@ -49,7 +49,7 @@
       :terminals="terminals"
       :is-open="showTerminalList"
       :toggle="toggleTerminalList"
-      v-on="$listeners"
+      @terminalClick="terminalClick"
     />
   </div>
 </template>
