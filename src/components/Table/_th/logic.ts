@@ -30,14 +30,6 @@ export default class Logic extends Vue {
 
   sortOrder = 'asc'
 
-  get finalWidth(): string | null {
-    return this.width ? `w-[${this.width}]` : null;
-  }
-
-  get finalMinWidth(): string | null {
-    return this.minWidth ? `min-w-[${this.minWidth}]` : null;
-  }
-
   sort(): void {
     if (this.canSort) {
       this.changeSortOrder();

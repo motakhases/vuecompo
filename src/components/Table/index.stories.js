@@ -150,6 +150,7 @@ const Template = (_, { argTypes }) => ({
         title: "",
         key: "action",
         width: "15%",
+        minWidth:'220px'
       },
     ],
   }),

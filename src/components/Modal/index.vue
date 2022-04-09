@@ -1,10 +1,11 @@
 <template>
   <div
     v-if="isOpen"
-    :class="['zpl-modal', { 'show' : isOpen }]"
+    :class="['zpl-modal', { 'show': isOpen }]"
   >
     <div
-      :class="['zpl-modal-box', width ? finalWidth : null]"
+      class="zpl-modal-box"
+       :style="[{ width: finalWidth, maxHeight }]"
     >
       <!-- header -->
       <div class="zpl-modal-header">
