@@ -30,7 +30,7 @@
         </div>
 
         <p
-          v-show="desc.length>0 && !stickHeading"
+          v-show="desc && desc.length>0 && !stickHeading"
           class="desc"
         >
           {{ desc }}
