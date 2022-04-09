@@ -36,6 +36,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: Boolean }) readonly bordered?: boolean
 
+  @Prop({ type: String }) readonly link!: string
+
   isLoadCards = false
 
   isAllRowSelected = false

@@ -3,7 +3,7 @@
       data.type === 'action' ? 'sticky-col' : null,
       data.click ? 'cursor-pointer' : null,
     ]" @click="data.click ? data.click() : null">
-      <TypeRenderer :data="data" />
+      <TypeRenderer :data="data" :link="link" />
   </td>
 </template>
 

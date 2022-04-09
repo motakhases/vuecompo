@@ -12,4 +12,6 @@ import TypeRenderer from '../_typeRenderer/index.vue';
 })
 export default class Logic extends Vue {
   @Prop({ type: Object }) readonly data?: any
+
+  @Prop({ type: String }) readonly link!: string
 }

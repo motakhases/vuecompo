@@ -14,6 +14,7 @@ interface ITypeRendererData {
     title?: string;
     sub?: string;
     type?: string;
+    link?: string
   }
 }
 
@@ -28,4 +29,10 @@ interface ITypeRendererData {
 })
 export default class Logic extends Vue {
   @Prop({ type: Object, required: true }) readonly data!: ITypeRendererData
+
+  @Prop({ type: String }) readonly link!: string
+
+  get linkComponentDetector(): string {
+    return this.link ? 'a' : 'div';
+  }
 }

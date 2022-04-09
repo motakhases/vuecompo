@@ -149,8 +149,6 @@ const Template = (_, { argTypes }) => ({
       {
         title: "",
         key: "action",
-        width: "15%",
-        minWidth:'220px'
       },
     ],
   }),
@@ -161,6 +159,7 @@ const Template = (_, { argTypes }) => ({
       :columns="columns"
       class="mb-xl"
       :bordered="true"
+      link="/ddd/"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">

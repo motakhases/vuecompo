@@ -56,6 +56,7 @@
                 v-for="(col, colIndex) in columns"
                 :key="colIndex"
                 :data="td[col.key]"
+                :link="link"
               />
             </tr>
           </tbody>
