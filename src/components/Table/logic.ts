@@ -5,6 +5,8 @@ import {
 // Sub components
 import Status from '@/components/Status/index.vue';
 import CheckBox from '@/components/CheckBox/index.vue';
+import Dropdown from '@/components/Dropdown/index.vue';
+import Button from '@/components/Button/index.vue';
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
 import Card from './_card/index.vue';
@@ -24,6 +26,8 @@ interface IColumn {
     Th,
     Td,
     Card,
+    Button,
+    Dropdown,
   },
 })
 export default class Logic extends Vue {
@@ -35,6 +39,8 @@ export default class Logic extends Vue {
   @Prop({ type: Boolean }) readonly selectable?: boolean
 
   @Prop({ type: Boolean }) readonly bordered?: boolean
+
+  @Prop({ type: Array }) readonly actions?: []
 
   isLoadCards = false
 
