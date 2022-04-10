@@ -81,6 +81,7 @@ const Template = (_, { argTypes }) => ({
         title: "مبلغ",
         key: "price",
         width: "20%",
+        maxWidth: "200px"
       },
       {
         title: "شناسه پرداخت",
@@ -91,6 +92,8 @@ const Template = (_, { argTypes }) => ({
         title: "توضیحات",
         key: "description",
         width: "35%",
+        maxWidth: "200px"
+
       },
       {
         title: "تاریخ و ساعت",

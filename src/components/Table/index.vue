@@ -33,6 +33,7 @@
                 :can-sort="col.sort"
                 :width="col.width"
                 :min-width="col.minWidth"
+                :max-width="col.maxWidth"
               />
             </tr>
           </thead>
@@ -60,6 +61,9 @@
                 :key="colIndex"
                 :data="td[col.key]"
                 :link="link"
+                :width="col.width"
+                :min-width="col.minWidth"
+                :max-width="col.maxWidth"
               />
 
               <!-- Actions -->

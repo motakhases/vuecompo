@@ -1,5 +1,5 @@
 <template>
-  <td v-if="data">
+  <td v-if="data" :style="[{ width, minWidth, maxWidth}]">
     <TypeRenderer :data="data" :link="link" />
   </td>
 </template>
