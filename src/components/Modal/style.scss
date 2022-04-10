@@ -47,7 +47,10 @@
 }
 
 .zpl-modal-footer-container {
-  @apply flex items-center gap-xs;
+  > div {
+    @apply flex items-center gap-xs;
+  }
+
   &.left {
     @apply mr-auto;
   }
