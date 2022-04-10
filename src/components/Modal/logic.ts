@@ -29,6 +29,7 @@ export default class Modal extends Vue {
   }
 
   mounted(): void {
+    window.addEventListener('load', this.onResize);
     window.addEventListener('resize', this.onResize);
   }
 
