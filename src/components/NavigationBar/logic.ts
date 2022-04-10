@@ -37,7 +37,7 @@ export default class NavigationBar extends Vue {
   onResize(): void {
     const width = window.innerWidth;
 
-    if (width >= 992 && width <= 1200) {
+    if (width >= 992 && width < 1200) {
       this.isShow = true;
     } else {
       this.isShow = false;
