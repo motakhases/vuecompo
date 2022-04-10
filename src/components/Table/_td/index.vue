@@ -1,9 +1,10 @@
 <template>
-  <td :class="[
-      data.type === 'action' ? 'sticky-col' : null,
-      data.click ? 'cursor-pointer' : null,
-    ]" @click="data.click ? data.click() : null">
-      <TypeRenderer :data="data" :link="link" />
+  <td
+    :class="{ 'cursor-pointer': data.click }"
+    @click="data.click ? data.click() : null"
+    v-if="data"
+  >
+      <TypeRenderer :data="data" />
   </td>
 </template>
 

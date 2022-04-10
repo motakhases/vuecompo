@@ -3,6 +3,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 // Components
 import Status from '@/components/Status/index.vue';
 import Label from '@/components/Label/index.vue';
+import Dropdown from '@/components/Dropdown/index.vue';
+import Button from '@/components/Button/index.vue';
 import TypeRenderer from '../_typeRenderer/index.vue';
 
 // Interfaces
@@ -24,6 +26,8 @@ interface ITableRow {
     Status,
     Label,
     TypeRenderer,
+    Dropdown,
+    Button,
   },
 })
 export default class Logic extends Vue {
@@ -32,6 +36,8 @@ export default class Logic extends Vue {
   @Prop({ type: Array }) readonly columns!: ITableColumns[]
 
   @Prop({ type: Boolean }) readonly bordered?: boolean
+
+  @Prop({ type: Array }) readonly actions?: []
 
   get headerRight(): ITableRow {
     return Object.values(this.td)[0];

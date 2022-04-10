@@ -3,10 +3,10 @@
     <!-- Header -->
     <div class="zpl-table-card-header">
       <!-- Right side (first index of array data) -->
-      <TypeRenderer :data="headerRight" />
+      <TypeRenderer v-if="headerRight" :data="headerRight" />
 
       <!-- Left side (Status and Actions) -->
-      <div>
+      <div class="zpl-table-card-header-left">
         <div
           v-for="(item, index) in headerLeft"
           :key="index"
@@ -21,6 +21,21 @@
               :icon="label.icon"
             />
           </template>
+        </div>
+
+        <div
+          v-if="actions"
+          class="zpl-table-action"
+        >
+          <Dropdown :list="actions" :custom-payload="td">
+            <template slot="button">
+              <Button
+                type="tertiary"
+                size="small"
+                icon="DotsMenu"
+              />
+            </template>
+          </Dropdown>
         </div>
       </div>
     </div>
@@ -37,7 +52,10 @@
       </span>
 
       <!-- Value -->
-      <TypeRenderer :data="td[col.key]" />
+      <TypeRenderer
+        v-if="td[col.key]"
+        :data="td[col.key]"
+      />
     </div>
   </div>
 </template>

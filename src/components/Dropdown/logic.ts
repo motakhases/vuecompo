@@ -15,6 +15,8 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly maxHeight?: string;
 
+  @Prop({ type: [String, Object, Array, Number] }) readonly customPayload?: any;
+
   @Ref('button') readonly buttonRef!: HTMLElement
 
   @Ref('menu') readonly menuRef!: HTMLElement
