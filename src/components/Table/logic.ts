@@ -44,6 +44,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly link?: string
 
+  @Prop({ type: String }) readonly dropdownWidth?: string
+
   isLoadCards = false
 
   isAllRowSelected = false

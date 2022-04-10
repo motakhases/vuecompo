@@ -72,7 +72,7 @@
                   v-if="actions"
                   class="zpl-table-action"
                 >
-                  <Dropdown :list="actions" :custom-payload="td">
+                  <Dropdown :list="actions" :custom-payload="td" :width="dropdownWidth">
                     <template slot="button">
                       <Button
                         type="tertiary"

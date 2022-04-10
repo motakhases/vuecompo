@@ -145,6 +145,7 @@ const Template = (_, { argTypes }) => ({
       bordered
       :actions="actions"
       link="/link"
+      dropdownWidth="320px"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">
