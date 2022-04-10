@@ -1,10 +1,6 @@
 <template>
-  <td
-    :class="{ 'cursor-pointer': data.click }"
-    @click="data.click ? data.click() : null"
-    v-if="data"
-  >
-      <TypeRenderer :data="data" />
+  <td v-if="data">
+    <TypeRenderer :data="data" :link="link" />
   </td>
 </template>
 

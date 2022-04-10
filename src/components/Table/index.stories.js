@@ -1,8 +1,10 @@
 import Table from "./index.vue";
+import StoryRouter from "storybook-vue-router";
 
 export default {
   component: Table,
   title: "Components/Table",
+  decorators: [(storyFn) => StoryRouter()(storyFn)],
 };
 
 const Template = (_, { argTypes }) => ({
@@ -139,6 +141,7 @@ const Template = (_, { argTypes }) => ({
       class="mb-xl"
       bordered
       :actions="actions"
+      link="/link"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">

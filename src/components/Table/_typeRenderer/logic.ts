@@ -28,7 +28,7 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly link!: string
 
-  get linkComponentDetector(): string {
-    return this.link ? 'a' : 'div';
+  get linkDetector(): string {
+    return this.link ? 'router-link' : 'div';
   }
 }

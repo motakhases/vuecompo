@@ -1,11 +1,12 @@
 <template>
-  <div
+  <component
+    :is="linkDetector"
+    :to="link"
     :class="[
       'zpl-table-type-renderer',
+      'zpl-table-cell',
       data.type === 'description' ? 'description' : null,
-      data.click ? 'cursor' : null
     ]"
-    @click="data.click ? data.click() : null"
   >
     <!--------------
         Custom
@@ -84,7 +85,7 @@
     >
       {{ data.data }}
     </div>
-  </div>
+  </component>
 </template>
 
 <script lang="ts">
