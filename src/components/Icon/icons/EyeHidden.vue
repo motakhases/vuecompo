@@ -22,7 +22,7 @@
     />
     <path
       d="M19.079 8.92099C19.77 9.72999 20.384 10.612 20.882 11.533C21.039 11.824 21.039 12.177 20.882 12.468"
-      stroke="#393946"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -50,3 +50,10 @@
     />
   </svg>
 </template>
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'EyeHidden',
+});
+</script>

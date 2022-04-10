@@ -3,7 +3,7 @@
     :style="[{ width, minWidth }]"
   >
     <div
-      :class="['zpl-table-cell', { 'can-sort': canSort }]"
+      :class="{ 'can-sort': canSort }"
       @click="sort"
     >
       {{ title }}

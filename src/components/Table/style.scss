@@ -146,6 +146,30 @@
       }
       th,
       td {
+        > div {
+          // default
+          @apply font-IRANYekanFaNum select-none font-normal p-md text-b2 text-text flex items-center gap-xs;
+
+          // dark
+          @apply dark:text-text-dark;
+
+          &.can-sort {
+            // default
+            @apply hover:bg-surface-hover cursor-pointer;
+
+            // dark
+            @apply dark:hover:bg-surface-dark-hover;
+
+            .sort-icon {
+              // default
+              @apply w-xs text-icon;
+
+              // dark
+              @apply dark:text-icon-dark;
+            }
+          }
+        }
+
         &.checkbox-holder {
           @apply w-[56px] p-md;
         }
@@ -175,7 +199,7 @@
     @apply truncate;
   }
   .sticky-col {
-    @apply sticky left-0 w-4xl;
+    @apply sticky left-0 w-4xl ;
     & > div {
       @apply absolute top-0 left-0 bottom-0;
       @apply py-sm px-md #{!important};

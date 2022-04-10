@@ -58,6 +58,7 @@ const Template = (_, { argTypes }) => ({
         "ExportArrowTopLeft",
         "Filters",
         "EyeShow",
+        "EyeHidden",
         "IndeterminateFill",
         "InvoicePlus",
         "MessageEditFill",
