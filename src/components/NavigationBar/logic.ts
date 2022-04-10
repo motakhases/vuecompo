@@ -33,4 +33,23 @@ export default class NavigationBar extends Vue {
   toggle(): void {
     this.isShow = !this.isShow;
   }
+
+  onResize(): void {
+    const width = window.innerWidth;
+
+    if (width >= 992 && width <= 1200) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  mounted(): void {
+    window.addEventListener('load', this.onResize);
+    window.addEventListener('resize', this.onResize);
+  }
+
+  beforeDestroy():void {
+    window.removeEventListener('resize', this.onResize);
+  }
 }
