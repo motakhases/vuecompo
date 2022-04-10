@@ -14,7 +14,11 @@
       class="today"
     />
     <div
-      v-if="date === 'CURRENT_WEEK'"
+      v-if="
+      (date === 'CURRENT_WEEK') |
+      (date === 'CURRENT_MONTH') |
+      (date === 'LAST_MONTH') |
+      (date === 'LAST_WEEK')"
       class="range-box"
     >
       <div class="range-input">

@@ -8,6 +8,9 @@ import { DatePickerValue } from '@/types';
 const date = {
   TODAY: 'امروز',
   CURRENT_WEEK: 'هفته جاری',
+  CURRENT_MONTH: 'ماه جاری',
+  LAST_MONTH: 'ماه گذشته',
+  LAST_WEEK: '۷ روز گذشته',
   OPTIONAL_PERIOD: 'بازه دلخواه',
 };
 
@@ -29,10 +32,21 @@ export default class FilterDate extends Vue {
 
   endOfWeek = moment().endOf('week').format('jYYYY-jM-jD');
 
+  startOfMonth = moment().startOf('jMonth').format('jYYYY-jM-jD');
+
+  endOfMonth = moment().endOf('jMonth').format('jYYYY-jM-jD');
+
+  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY-jM-jD')
+
+  lastWeek = moment().subtract(1, 'week').format('jYYYY-jM-jD')
+
   options = [
     { id: 1, text: date.TODAY, value: 'TODAY' },
     { id: 2, text: date.CURRENT_WEEK, value: 'CURRENT_WEEK' },
-    { id: 3, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
+    { id: 3, text: date.CURRENT_MONTH, value: 'CURRENT_MONTH' },
+    { id: 4, text: date.LAST_MONTH, value: 'LAST_MONTH' },
+    { id: 5, text: date.LAST_WEEK, value: 'LAST_WEEK' },
+    { id: 6, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
   ];
 
   get model(): DatePickerValue {
@@ -51,6 +65,15 @@ export default class FilterDate extends Vue {
       break;
     case 'CURRENT_WEEK':
       this.value = [this.startOfWeek, this.endOfWeek];
+      break;
+    case 'CURRENT_MONTH':
+      this.value = [this.startOfMonth, this.endOfMonth];
+      break;
+    case 'LAST_MONTH':
+      this.value = [this.lastMonth, this.today];
+      break;
+    case 'LAST_WEEK':
+      this.value = [this.lastWeek, this.today];
       break;
     default:
       return '';
