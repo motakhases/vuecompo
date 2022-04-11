@@ -83,24 +83,26 @@ export default class FilterDate extends Vue {
 
   @Watch('value')
   watchValue(): void {
-    // add property to filter
+    /**
+     * add property to filter
+     */
     this.$emit('updateFilter', { date: this.value });
   }
 
   mounted(): void {
-    // update value based on query
+    /**
+     * update value based on query
+     */
     if (Object.keys(this.$route.query).includes('date')) {
       this.date = 'OPTIONAL_PERIOD';
       this.value = JSON.parse(JSON.stringify(this.$route.query.date));
-      console.log(moment(this.value).format('jYYYY-jM-jD'));
-      console.log(this.value);
+
       if (typeof this.value === 'string') {
         const formattedValue = moment(this.value).format('jYYYY-jM-jD');
         this.value = [formattedValue, formattedValue];
       } else {
         const firstFormattedValue = moment(this.value[0]).format('jYYYY-jM-jD');
         const secondFormattedValue = moment(this.value[1]).format('jYYYY-jM-jD');
-
         this.value = [firstFormattedValue, secondFormattedValue];
       }
     }
