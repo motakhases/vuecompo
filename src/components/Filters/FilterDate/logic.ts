@@ -92,8 +92,16 @@ export default class FilterDate extends Vue {
     if (Object.keys(this.$route.query).includes('date')) {
       this.date = 'OPTIONAL_PERIOD';
       this.value = JSON.parse(JSON.stringify(this.$route.query.date));
+      console.log(moment(this.value).format('jYYYY-jM-jD'));
+      console.log(this.value);
       if (typeof this.value === 'string') {
-        this.value = [this.value, this.value];
+        const formattedValue = moment(this.value).format('jYYYY-jM-jD');
+        this.value = [formattedValue, formattedValue];
+      } else {
+        const firstFormattedValue = moment(this.value[0]).format('jYYYY-jM-jD');
+        const secondFormattedValue = moment(this.value[1]).format('jYYYY-jM-jD');
+
+        this.value = [firstFormattedValue, secondFormattedValue];
       }
     }
   }
