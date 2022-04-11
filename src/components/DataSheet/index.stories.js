@@ -22,48 +22,61 @@ const Template = (_, { argTypes }) => ({
     </DataSheet>
 
     <DataSheet>
-      <DataSheetRow :cols="{ xs:1, md:4, lg:4 }">
+      <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
-          :col-span="{ xs:1, md:2, lg:1 }"
         >
           260,000
           ریال
         </DataSheetItem>
         <DataSheetItem
           title="مجموع کارمزد تراکنش‌ها"
-          :col-span="{ xs:1, md:2, lg:1 }"
         >
           8,000
           ریال
         </DataSheetItem>
         <DataSheetItem
           title="مبلغ خالص تسویه"
-          :col-span="{ xs:1, md:2, lg:1 }"
         >
           242,000
           ریال
         </DataSheetItem>
         <DataSheetItem
           title="مبلغ خالص تسویه"
-          :col-span="{ xs:1, md:2, lg:1 }"
         >
           242,000
           ریال
         </DataSheetItem>
       </DataSheetRow>
 
-      <DataSheetRow :cols="{ xs:1, md:2 }">
+      <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
-          :col-span="{ xs:2, md:1, lg:1 }"
         >
           260,000
           ریال
         </DataSheetItem>
         <DataSheetItem
           title="مجموع کارمزد تراکنش‌ها"
-          :col-span="{ xs:2, md:1, lg:1 }"
+        >
+          8,000
+          ریال
+        </DataSheetItem>
+      </DataSheetRow>
+    </DataSheet>
+
+    <DataSheet>
+      <DataSheetRow>
+        <DataSheetItem
+          row
+          title="مجموع تراکنش‌ها"
+        >
+          260,000
+          ریال
+        </DataSheetItem>
+        <DataSheetItem
+          row
+          title="مجموع کارمزد تراکنش‌ها"
         >
           8,000
           ریال

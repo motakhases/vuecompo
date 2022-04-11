@@ -42,7 +42,7 @@
     }
 
     &.row {
-      @apply col-span-full flex-row items-center;
+      @apply flex-[1_0_100%] flex-row items-center;
 
       > span {
         @apply w-full
