@@ -33,6 +33,7 @@
                 :can-sort="col.sort"
                 :width="col.width"
                 :min-width="col.minWidth"
+                :max-width="col.maxWidth"
               />
             </tr>
           </thead>
@@ -59,6 +60,10 @@
                 v-for="(col, colIndex) in columns"
                 :key="colIndex"
                 :data="td[col.key]"
+                :route-name="routeName"
+                :width="col.width"
+                :min-width="col.minWidth"
+                :max-width="col.maxWidth"
               />
 
               <!-- Actions -->
@@ -67,7 +72,11 @@
                   v-if="actions"
                   class="zpl-table-action"
                 >
-                  <Dropdown :list="actions" :custom-payload="td">
+                  <Dropdown
+                    :list="actions"
+                    :custom-payload="td"
+                    :width="dropdownWidth"
+                  >
                     <template slot="button">
                       <Button
                         type="tertiary"

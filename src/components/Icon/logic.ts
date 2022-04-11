@@ -49,6 +49,7 @@ import DollarFill from './icons/DollarFill.vue';
 import ExportArrowTopLeft from './icons/ExportArrowTopLeft.vue';
 import Filters from './icons/Filter.vue';
 import EyeShow from './icons/EyeShow.vue';
+import EyeHidden from './icons/EyeHidden.vue';
 import IndeterminateFill from './icons/IndeterminateFill.vue';
 import InvoicePlus from './icons/InvoicePlus.vue';
 import MessageEditFill from './icons/MessageEditFill.vue';
@@ -113,6 +114,7 @@ import Download from './icons/Download.vue';
     ExportArrowTopLeft,
     Filters,
     EyeShow,
+    EyeHidden,
     IndeterminateFill,
     InvoicePlus,
     MessageEditFill,

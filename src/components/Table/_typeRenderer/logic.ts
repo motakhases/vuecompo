@@ -8,6 +8,7 @@ import Thumbnail from '@/components/Thumbnail/index.vue';
 // Interface
 interface ITypeRendererData {
   type: string;
+  id?: string | number;
   data: number | string | {
     title?: string;
     sub?: string;
@@ -24,4 +25,10 @@ interface ITypeRendererData {
 })
 export default class Logic extends Vue {
   @Prop({ type: Object, required: true }) readonly data!: ITypeRendererData
+
+  @Prop({ type: String }) readonly routeName!: string
+
+  get linkDetector(): string {
+    return this.routeName ? 'router-link' : 'div';
+  }
 }

@@ -42,6 +42,10 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array }) readonly actions?: []
 
+  @Prop({ type: String }) readonly routeName?: string
+
+  @Prop({ type: String }) readonly dropdownWidth?: string
+
   isLoadCards = false
 
   isAllRowSelected = false

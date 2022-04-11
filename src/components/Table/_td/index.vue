@@ -1,10 +1,6 @@
 <template>
-  <td
-    :class="{ 'cursor-pointer': data.click }"
-    @click="data.click ? data.click() : null"
-    v-if="data"
-  >
-      <TypeRenderer :data="data" />
+  <td v-if="data" :style="[{ width, minWidth, maxWidth}]">
+    <TypeRenderer :data="data" :route-name="routeName" />
   </td>
 </template>
 

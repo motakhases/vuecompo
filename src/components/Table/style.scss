@@ -75,6 +75,29 @@
       @apply dark:border-border-dark-divider;
     }
   }
+  &-cell {
+    // default
+    @apply font-IRANYekanFaNum select-none font-normal p-md text-b2 text-text flex items-center gap-xs;
+
+    // dark
+    @apply dark:text-text-dark;
+
+    &.can-sort {
+      // default
+      @apply hover:bg-surface-hover cursor-pointer;
+
+      // dark
+      @apply dark:hover:bg-surface-dark-hover;
+
+      .sort-icon {
+        // default
+        @apply w-xs text-icon;
+
+        // dark
+        @apply dark:text-icon-dark;
+      }
+    }
+  }
   &-type-renderer {
     .custom {
       @apply flex items-center gap-sm;

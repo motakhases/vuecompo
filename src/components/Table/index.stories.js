@@ -1,8 +1,10 @@
 import Table from "./index.vue";
+import StoryRouter from "storybook-vue-router";
 
 export default {
   component: Table,
   title: "Components/Table",
+  decorators: [(storyFn) => StoryRouter()(storyFn)],
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,6 +14,7 @@ const Template = (_, { argTypes }) => ({
       {
         price: {
           type: "custom",
+          id: 1,
           data: {
             image: '',
             title: 'سلام',
@@ -47,6 +50,7 @@ const Template = (_, { argTypes }) => ({
       {
         price: {
           type: "price",
+          id: 2,
           data: 8100000,
         },
         pay_id: {
@@ -79,6 +83,7 @@ const Template = (_, { argTypes }) => ({
         title: "مبلغ",
         key: "price",
         width: "20%",
+        maxWidth: "200px"
       },
       {
         title: "شناسه پرداخت",
@@ -89,6 +94,8 @@ const Template = (_, { argTypes }) => ({
         title: "توضیحات",
         key: "description",
         width: "35%",
+        maxWidth: "200px"
+
       },
       {
         title: "تاریخ و ساعت",
@@ -100,12 +107,6 @@ const Template = (_, { argTypes }) => ({
         title: "وضعیت",
         key: "status",
         width: "15%",
-      },
-      {
-        title: "",
-        key: "action",
-        width: "15%",
-        minWidth:'220px'
       },
     ],
 
@@ -141,6 +142,8 @@ const Template = (_, { argTypes }) => ({
       class="mb-xl"
       bordered
       :actions="actions"
+      route-name="session"
+      dropdownWidth="320px"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">

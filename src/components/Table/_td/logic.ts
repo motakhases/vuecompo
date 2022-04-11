@@ -12,4 +12,12 @@ import TypeRenderer from '../_typeRenderer/index.vue';
 })
 export default class Logic extends Vue {
   @Prop({ type: Object }) readonly data?: any
+
+  @Prop({ type: String }) readonly routeName!: string
+
+  @Prop({ type: String }) readonly width?: string
+
+  @Prop({ type: String }) readonly minWidth?: string
+
+  @Prop({ type: String }) readonly maxWidth?: string
 }
