@@ -60,7 +60,7 @@
                 v-for="(col, colIndex) in columns"
                 :key="colIndex"
                 :data="td[col.key]"
-                :link="link"
+                :route-name="routeName"
                 :width="col.width"
                 :min-width="col.minWidth"
                 :max-width="col.maxWidth"
@@ -72,7 +72,11 @@
                   v-if="actions"
                   class="zpl-table-action"
                 >
-                  <Dropdown :list="actions" :custom-payload="td" :width="dropdownWidth">
+                  <Dropdown
+                    :list="actions"
+                    :custom-payload="td"
+                    :width="dropdownWidth"
+                  >
                     <template slot="button">
                       <Button
                         type="tertiary"

@@ -14,6 +14,7 @@ const Template = (_, { argTypes }) => ({
       {
         price: {
           type: "custom",
+          id: 1,
           data: {
             image: '',
             title: 'سلام',
@@ -49,6 +50,7 @@ const Template = (_, { argTypes }) => ({
       {
         price: {
           type: "price",
+          id: 2,
           data: 8100000,
         },
         pay_id: {
@@ -106,10 +108,6 @@ const Template = (_, { argTypes }) => ({
         key: "status",
         width: "15%",
       },
-      {
-        title: "",
-        key: "action",
-      },
     ],
 
     actions: [
@@ -144,7 +142,7 @@ const Template = (_, { argTypes }) => ({
       class="mb-xl"
       bordered
       :actions="actions"
-      link="/link"
+      route-name="session"
       dropdownWidth="320px"
     />
 
