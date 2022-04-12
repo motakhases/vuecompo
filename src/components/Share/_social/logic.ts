@@ -15,9 +15,11 @@ export default class Social extends Vue {
 
   @Prop({ type: String, required: true }) url!: string;
 
-  socials = {
-    telegram: `https://t.me/share/url?url=${this.url}`,
-    whatsapp: `https://api.whatsapp.com/send?text=${this.url}`,
-    twitter: `https://twitter.com/share?url=${this.url}`,
+  get socials() {
+    return {
+      telegram: `https://t.me/share/url?url=${this.url}`,
+      whatsapp: `https://api.whatsapp.com/send?text=${this.url}`,
+      twitter: `https://twitter.com/share?url=${this.url}`,
+    };
   }
 }
