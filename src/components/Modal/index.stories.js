@@ -27,7 +27,7 @@ const Template = (_, { argTypes }) => ({
 			text="کلیک کن"
 			@click.native="toggleModal"
 		/>
-		<Modal :title="title" :is-open="modal" :toggle="toggleModal" width="320px">
+		<Modal :title="title" :is-open="modal" :toggle="toggleModal" width="520px">
 			<div slot="body">
 				لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
 				استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
@@ -41,14 +41,14 @@ const Template = (_, { argTypes }) => ({
 				اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده
 				قرار گیرد.
 			</div>
-			<div slot="leftFooter">
+			<template slot="leftFooter">
 				<Button
 					type="primary"
 					size="medium"
 					:text="ButtonText"
 					class="float-left"
 				/>
-			</div>
+			</template>
 		</Modal>
 	</div>
   `,
