@@ -14,7 +14,7 @@ const Template = (_, { argTypes }) => ({
         {
           title: "عنوان",
           icon: "plus",
-          color: "",
+          color: "text-danger",
           action: () => console.log("click"),
         },
         {
