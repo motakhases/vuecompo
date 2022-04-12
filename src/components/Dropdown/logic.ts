@@ -33,7 +33,7 @@ export default class Dropdown extends Vue {
   windowWidth= window.innerWidth
 
   finalColor(color:string):string {
-    return `text-[${color}]`;
+    return `!text-${color}`;
   }
 
   updateStyle(): void {
