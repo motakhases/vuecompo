@@ -32,7 +32,7 @@
     flex: 0 0 24px;
   }
 
-  &.nuxt-link-exact-active {
+  &.nuxt-link-active {
     @apply bg-primarySurface hover:cursor-default;
     @apply dark:bg-primarySurface-dark-select;
     &:before {
