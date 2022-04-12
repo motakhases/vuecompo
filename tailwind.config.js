@@ -26,6 +26,7 @@ module.exports = {
       pattern: /col-span-(1|2|3|4)/,
       variants: ['md', 'lg', 'xl'],
     },
+    '!text-text-danger',
   ],
   theme: {
     colors,
