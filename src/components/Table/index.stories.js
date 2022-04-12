@@ -77,6 +77,71 @@ const Template = (_, { argTypes }) => ({
         },
       },
     ],
+    tableData2: [
+      {
+        price: {
+          type: "custom",
+          data: {
+            image: '',
+            title: 'سلام',
+            sub: 'بر تو'
+          },
+        },
+        pay_id: {
+          type: "text",
+          data: 2234145522155,
+        },
+        description: {
+          type: "description",
+          data: "درخواست پرداخت دامنه شماره 2425",
+        },
+        created_at: {
+          type: "date",
+          data: "2020-11-30T11:55:07.000000Z",
+        },
+        status: {
+          type: "status",
+          data: [
+            {
+              title: "پرداخت موفق",
+              type: "positive",
+            },
+            {
+              icon: "CheckmarkCircle",
+              type: "positive",
+            },
+          ],
+        },
+      },
+      {
+        price: {
+          type: "price",
+          data: 8100000,
+        },
+        pay_id: {
+          type: "text",
+          data: 2234145522155,
+        },
+        description: {
+          type: "description",
+          data: "درخواست پرداخت دامنه شماره 2425",
+        },
+        created_at: {
+          type: "date",
+          data: "2020-11-30T11:55:07.000000Z",
+        },
+        status: {
+          type: "status",
+          data: [
+            {
+              title: "پرداخت موفق",
+              type: "positive",
+              size: "",
+            },
+          ],
+        },
+      },
+    ],
 
     columns: [
       {
@@ -142,7 +207,7 @@ const Template = (_, { argTypes }) => ({
       class="mb-xl"
       bordered
       :actions="actions"
-      route-name="session"
+      link-prefix="session"
       dropdownWidth="320px"
     />
 
@@ -150,7 +215,7 @@ const Template = (_, { argTypes }) => ({
       قابل انتخاب
     </h1>
     <Table
-      :data="tableData"
+      :data="tableData2"
       :columns="columns"
       selectable
     />

@@ -1,6 +1,10 @@
 <template>
   <td v-if="data" :style="[{ width, minWidth, maxWidth}]">
-    <TypeRenderer :data="data" :route-name="routeName" />
+    <TypeRenderer
+      :data="data"
+      :link-prefix="linkPrefix"
+      :link-id="linkId"
+    />
   </td>
 </template>
 
