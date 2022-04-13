@@ -1,5 +1,5 @@
 <template>
-  <li class="zpl-nav-item">
+  <li class="zpl-nav-item" @click="toggle">
     <Tooltip
       :text="title"
       position="left"
