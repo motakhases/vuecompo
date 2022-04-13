@@ -94,9 +94,9 @@
       </div>
     </template>
     <Empty-state
-    v-if="!data.length"
-    :title="`‌${emptyField}های درگاه شما`"
-    :caption="`${emptyField}های شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
+    v-if="!data || (data && !data.length)"
+    :title="`‌${emptyField} درگاه شما`"
+    :caption="`${emptyField} شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
     />
   </div>
 </template>
