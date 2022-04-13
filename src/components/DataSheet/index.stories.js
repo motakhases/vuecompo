@@ -10,6 +10,11 @@ export default {
 const Template = (_, { argTypes }) => ({
   components: { DataSheet, DataSheetRow, DataSheetItem },
   props: Object.keys(argTypes),
+  data: () => ({
+    obj: {
+      empty: ''
+    }
+  }),
   template: `
   <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
     <DataSheet class="mb-xl">
@@ -21,7 +26,7 @@ const Template = (_, { argTypes }) => ({
       </DataSheetRow>
     </DataSheet>
 
-    <DataSheet>
+    <DataSheet class="mb-xl">
       <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
@@ -47,9 +52,6 @@ const Template = (_, { argTypes }) => ({
           242,000
           ریال
         </DataSheetItem>
-      </DataSheetRow>
-
-      <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
         >
