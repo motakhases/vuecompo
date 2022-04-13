@@ -20,4 +20,6 @@ export default class NavItem extends Vue {
   @Prop({ type: String }) title!: string
 
   @Prop({ type: String }) badge!: string
+
+  @Prop({ type: Function }) toggle!: () => boolean
 }

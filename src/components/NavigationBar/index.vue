@@ -32,6 +32,7 @@
             :title="link.title"
             :icon="link.icon"
             :badge="link.badge"
+            :toggle="toggle"
           />
         </ul>
         <ul
@@ -46,6 +47,7 @@
             :title="link.title"
             :icon="link.icon"
             :badge="link.badge"
+            :toggle="toggle"
           />
         </ul>
       </div>
