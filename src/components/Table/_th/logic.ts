@@ -25,35 +25,30 @@ export default class Logic extends Vue {
 
   @Prop({ type: Boolean }) readonly canSort?: boolean
 
-  sortIcons = {
-    asc: 'FilledArrowUp',
-    des: 'FilledArrowDown',
-  }
-
-  sortOrder = 'asc'
+  sortIcon = ''
 
   sort(): void {
     if (this.canSort) {
-      this.changeSortOrder();
-
-      const order = `${this.objectKey}_${this.sortOrder}`.toUpperCase();
-
-      this.$router.push({
-        query: { ...this.$route.query, order },
-      });
+      const order = `${this.objectKey}_asc`.toUpperCase();
+      if (this.$route.query.order) {
+        this.sortIcon = 'FilledArrowDown';
+        const query = { ...this.$route.query };
+        delete query.order;
+        this.$router.replace({ query });
+      } else {
+        this.sortIcon = 'FilledArrowUp';
+        this.$router.push({
+          query: { ...this.$route.query, order },
+        });
+      }
     }
   }
 
-  changeSortOrder(): void {
-    switch (this.sortOrder) {
-    case 'des':
-      this.sortOrder = 'asc';
-      break;
-    case 'asc':
-      this.sortOrder = 'des';
-      break;
-    default:
-      break;
+  mounted() {
+    if (this.$route.query.order) {
+      this.sortIcon = 'FilledArrowUp';
+    } else {
+      this.sortIcon = 'FilledArrowDown';
     }
   }
 }

@@ -22,7 +22,7 @@
       <div class="zpl-timeline-sub">
         {{ subText }}
       </div>
-      <div class="zpl-timeline-sub">
+      <div class="zpl-timeline-sub" v-if="date">
         {{ date | jalaali }}
       </div>
     </div>

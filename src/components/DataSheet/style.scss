@@ -23,7 +23,7 @@
 
   &-item {
     // default
-    @apply font-IRANYekanFaNum text-b2 flex flex-col p-md border-l ml-[-1px] mb-[-1px] border-b border-border-divider gap-xs;
+    @apply font-IRANYekanFaNum text-b2 flex flex-col min-w-[200px] p-md border-l ml-[-1px] mb-[-1px] border-b border-border-divider gap-xs;
     @apply flex-[1_0_25%];
 
     // dark
