@@ -38,7 +38,7 @@ module.exports = {
     borderRadius,
     rotate,
     backgroundImage: {
-      'empty-box': "url('./Illustration/EmptyBox.svg')",
+      'empty-state': "url('./Illustration/emptyState.png')",
     },
     container: {
       center: true,

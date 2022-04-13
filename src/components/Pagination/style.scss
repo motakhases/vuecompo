@@ -1,40 +1,39 @@
-.zpl-pagination{
+.zpl-pagination {
   direction: rtl;
   @apply flex justify-between text-b2 text-text;
   @apply dark:text-text-dark;
-  .right-side{
-    @apply flex items-center;
-    .limit{
-      @apply border-l border-border-divider pl-md font-IRANYekanFaNum;
+  .right-side {
+    @apply flex items-center gap-x-md;
+    .limit {
+      @apply hidden lg:block border-l border-border-divider pl-md font-IRANYekanFaNum;
       @apply dark:border-border-dark-divider;
-      .limit-title{
+      .limit-title {
         @apply ml-xs;
       }
     }
-    .offset{
-      @apply mr-md;
-      .offset-title{
+    .offset {
+      .offset-title {
         @apply font-IRANYekanFaNum;
       }
     }
   }
-  .left-side{
-    @apply flex items-center;
-    .page{
-      @apply border-l border-border-divider pl-md font-IRANYekanFaNum;
+  .left-side {
+    @apply flex items-center gap-x-md;
+    .page {
+      @apply hidden lg:block border-l border-border-divider pl-md font-IRANYekanFaNum;
       @apply dark:border-border-dark-divider;
-      .page-title{
+      .page-title {
         @apply mr-sm font-IRANYekanFaNum;
       }
     }
-    .arrows{
-      @apply mr-md flex;
-      .arrow{
+    .arrows {
+      @apply flex;
+      .arrow {
         @apply ml-xs;
       }
     }
   }
-  .items-box{
+  .items-box {
     @apply absolute top-[36px] w-[60px] font-IRANYekanFaNum;
   }
 }
