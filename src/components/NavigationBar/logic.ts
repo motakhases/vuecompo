@@ -45,7 +45,7 @@ export default class NavigationBar extends Vue {
   }
 
   mounted(): void {
-    window.addEventListener('load', this.onResize);
+    this.onResize();
     window.addEventListener('resize', this.onResize);
   }
 
