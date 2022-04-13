@@ -16,7 +16,7 @@
       <Icon
         v-if="canSort"
         class="sort-icon"
-        :name="sortIcons[sortOrder]"
+        :name="sortIcon"
       />
     </div>
   </th>
