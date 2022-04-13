@@ -37,7 +37,7 @@
         />
       </div>
       <Notification
-        badge="99"
+        badge="1"
         @click.native="$emit('showNotifs')"
       />
       <UserProfile
