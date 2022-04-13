@@ -93,7 +93,7 @@
         </table>
       </div>
     </template>
-    <empty-state
+    <Empty-state
     v-if="!data.length"
     :title="`‌${emptyField}های درگاه شما`"
     :caption="`${emptyField}های شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
