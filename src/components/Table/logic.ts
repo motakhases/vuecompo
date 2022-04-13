@@ -8,6 +8,7 @@ import Status from '@/components/Status/index.vue';
 import CheckBox from '@/components/CheckBox/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Button from '@/components/Button/index.vue';
+import EmptyState from '@/components/EmptyState/index.vue';
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
 import Card from './_card/index.vue';
@@ -28,6 +29,7 @@ interface IColumn {
     Td,
     Card,
     Button,
+    EmptyState,
     Dropdown,
   },
 })
@@ -44,6 +46,8 @@ export default class Logic extends Vue {
   @Prop({ type: Array }) readonly actions?: []
 
   @Prop({ type: String }) readonly linkPrefix?: string
+
+  @Prop({ type: String, required: true }) readonly emptyField?: string
 
   @Prop({ type: String }) readonly dropdownWidth?: string
 
