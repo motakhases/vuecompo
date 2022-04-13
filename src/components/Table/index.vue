@@ -1,7 +1,7 @@
 <template>
   <div :class="['zpl-table']">
     <!-- Small view - Card -->
-    <template v-if="isLoadCards">
+    <template v-if="isLoadCards && data && data.length">
       <Card
         v-for="(td, index) in data"
         :key="index"
@@ -13,7 +13,7 @@
     </template>
 
     <!-- Large view - Table -->
-    <template v-else>
+    <template v-if="!isLoadCards && data && data.length">
       <div :class="['zpl-table-box', { bordered }]">
         <table>
           <!-- Head -->
@@ -93,6 +93,11 @@
         </table>
       </div>
     </template>
+    <empty-state
+    v-if="!data.length"
+    :title="`‌${emptyField}های درگاه شما`"
+    :caption="`${emptyField}های شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
+    />
   </div>
 </template>
 
