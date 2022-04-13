@@ -1,5 +1,5 @@
 <template>
-  <li class="zpl-nav-item" @click="toggle">
+  <li class="zpl-nav-item" @click="toggleMobileHandler">
     <Tooltip
       :text="title"
       position="left"

@@ -22,4 +22,10 @@ export default class NavItem extends Vue {
   @Prop({ type: String }) badge!: string
 
   @Prop({ type: Function }) toggle!: () => boolean
+
+  toggleMobileHandler(): void {
+    if (window.innerWidth < 992) {
+      this.toggle();
+    }
+  }
 }
