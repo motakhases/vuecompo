@@ -8,9 +8,11 @@ import { IDropdownOptions } from '@/types';
   components: { Button },
 })
 export default class EmptyState extends Vue {
-  @Prop({ type: String, required: false }) readonly title!: string;
+  @Prop({ type: String }) readonly title!: string;
 
-  @Prop({ type: String, required: false }) readonly caption!: string;
+  @Prop({ type: String }) readonly caption!: string;
 
-  @Prop({ type: Boolean, required: false, default: false }) readonly inCard!: boolean;
+  @Prop({ type: Array, default: () => [] }) readonly buttons!: [];
+
+  @Prop({ type: Boolean, default: false }) readonly inCard!: boolean;
 }
