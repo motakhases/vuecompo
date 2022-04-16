@@ -39,15 +39,27 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array }) readonly actions?: []
 
+  @Prop({ type: String }) readonly linkPrefix?: string
+
+  @Prop({ type: [String, Number] }) readonly linkId?: string | number
+
   get headerRight(): ITableRow {
     return Object.values(this.td)[0];
   }
 
   get headerLeft(): ITableRow[] {
-    return Object.values(this.td).filter((obj: ITableRow) => obj.type === 'status' || obj.type === 'actions');
+    return Object.values(this.td).filter(
+      (obj: ITableRow) => obj.type === 'status' || obj.type === 'actions',
+    );
   }
 
   get rendredData(): ITableColumns[] {
-    return this.columns.filter((obj: ITableColumns, index: number) => obj.key !== 'status' && obj.key !== 'actions' && index !== 0);
+    return this.columns.filter(
+      (obj: ITableColumns, index: number) => obj.key !== 'status' && obj.key !== 'actions' && index !== 0,
+    );
+  }
+
+  linkHandler(): void {
+    this.$router.push(`${this.linkPrefix}/${this.linkId}`);
   }
 }

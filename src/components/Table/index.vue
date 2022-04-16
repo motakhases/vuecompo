@@ -9,6 +9,8 @@
         :columns="columns"
         :bordered="bordered"
         :actions="actions"
+        :link-prefix="linkPrefix"
+        :link-id="findLinkId(td)"
       />
     </template>
 
