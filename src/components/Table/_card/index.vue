@@ -23,6 +23,35 @@
           </template>
         </div>
 
+      </div>
+    </div>
+    <ul>
+       <!-- Rows -->
+        <li
+          v-for="(col, colIndex) in rendredData"
+          :key="colIndex"
+          class="zpl-table-card-row"
+        >
+          <!-- Title of row [Static] -->
+          <span>
+            {{ col.title }}
+          </span>
+
+          <!-- Value -->
+          <TypeRenderer
+            v-if="td[col.key]"
+            :data="td[col.key]"
+          />
+        </li>
+    </ul>
+    <div class="zpl-table-card-action">
+      <Button
+      text="مشاهده جزئیات"
+      size="medium"
+      type="neutral"
+      afterIcon="AngleLeft"
+      @click.native="linkHandler"
+      v-if="linkPrefix" />
         <div
           v-if="actions"
           class="zpl-table-action"
@@ -37,25 +66,6 @@
             </template>
           </Dropdown>
         </div>
-      </div>
-    </div>
-
-    <!-- Rows -->
-    <div
-      v-for="(col, colIndex) in rendredData"
-      :key="colIndex"
-      class="zpl-table-card-row"
-    >
-      <!-- Title of row [Static] -->
-      <span>
-        {{ col.title }}
-      </span>
-
-      <!-- Value -->
-      <TypeRenderer
-        v-if="td[col.key]"
-        :data="td[col.key]"
-      />
     </div>
   </div>
 </template>

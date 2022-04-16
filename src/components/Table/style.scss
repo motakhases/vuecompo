@@ -55,6 +55,9 @@
         }
       }
     }
+    &-action {
+      @apply flex justify-between items-center mt-xl;
+    }
     &-status {
       @apply flex gap-2xs;
     }
@@ -117,7 +120,7 @@
     }
   }
   &-action {
-    @apply flex;
+    @apply flex mr-auto;
   }
   table {
     @apply w-full;
