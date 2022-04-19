@@ -14,7 +14,7 @@
         <ul class="zpl-dropdown-list">
           <li
             v-for="(item, index) in list"
-            v-show="item.visibility? item.visibility(customPayload) : true"
+            v-show="item.isShow? item.isShow(customPayload) : true"
             :key="index"
             :class="[
               'zpl-dropdown-item',

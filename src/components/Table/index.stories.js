@@ -186,14 +186,14 @@ const Template = (_, { argTypes }) => ({
         icon: "eyeHidden",
         color: "text-danger",
         action: () => console.log("click"),
-        visibility:(x)=>{return x.status.data[0].type === 'positive'},
+        isShow:(x)=>{return x.status.data[0].type === 'positive'},
       },
       {
         title: "فعال سازی",
         icon: "eyeShow",
         color: "",
         action: () => console.log("click"),
-        visibility:(x)=>{return x.status.data[0].type === 'negative'},
+        isShow:(x)=>{return x.status.data[0].type === 'negative'},
       },
       {
         title: "افزدن",
