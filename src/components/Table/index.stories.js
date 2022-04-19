@@ -37,12 +37,8 @@ const Template = (_, { argTypes }) => ({
           type: "status",
           data: [
             {
-              title: "پرداخت موفق",
-              type: "positive",
-            },
-            {
-              icon: "CheckmarkCircle",
-              type: "positive",
+              title: "پرداخت ناموفق",
+              type: "negative",
             },
           ],
         },
@@ -186,10 +182,18 @@ const Template = (_, { argTypes }) => ({
         },
       },
       {
-        title: "بستن",
-        icon: "delete",
+        title: "غیرفعال سازی",
+        icon: "eyeHidden",
+        color: "text-danger",
+        action: () => console.log("click"),
+        visibility:(x)=>{return x.status.data[0].type === 'positive'},
+      },
+      {
+        title: "فعال سازی",
+        icon: "eyeShow",
         color: "",
         action: () => console.log("click"),
+        visibility:(x)=>{return x.status.data[0].type === 'negative'},
       },
       {
         title: "افزدن",
