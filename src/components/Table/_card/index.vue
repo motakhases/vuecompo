@@ -51,7 +51,7 @@
       type="neutral"
       afterIcon="AngleLeft"
       @click.native="linkHandler"
-      v-if="linkPrefix" />
+      v-if="routeName" />
         <div
           v-if="actions"
           class="zpl-table-action"

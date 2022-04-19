@@ -207,7 +207,7 @@ const Template = (_, { argTypes }) => ({
       class="mb-xl"
       bordered
       :actions="actions"
-      link-prefix="session"
+      router-name="session"
       dropdownWidth="320px"
     />
 
