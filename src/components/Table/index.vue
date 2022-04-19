@@ -9,7 +9,7 @@
         :columns="columns"
         :bordered="bordered"
         :actions="actions"
-        :link-prefix="linkPrefix"
+        :route-name="routeName"
         :link-id="findLinkId(td)"
       />
     </template>
@@ -62,7 +62,7 @@
                 v-for="(col, colIndex) in columns"
                 :key="colIndex"
                 :data="td[col.key]"
-                :link-prefix="linkPrefix"
+                :route-name="routeName"
                 :link-id="findLinkId(td)"
                 :width="col.width"
                 :min-width="col.minWidth"

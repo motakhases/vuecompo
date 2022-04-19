@@ -26,11 +26,11 @@ interface ITypeRendererData {
 export default class Logic extends Vue {
   @Prop({ type: Object, required: true }) readonly data!: ITypeRendererData
 
-  @Prop({ type: String }) readonly linkPrefix?: string
+  @Prop({ type: String }) readonly routeName?: string
 
   @Prop({ type: [String, Number] }) readonly linkId?: string | number
 
   get linkDetector(): string {
-    return this.linkPrefix ? 'router-link' : 'div';
+    return this.routeName ? 'router-link' : 'div';
   }
 }

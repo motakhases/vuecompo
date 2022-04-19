@@ -2,7 +2,7 @@
   <td v-if="data" :style="[{ width, minWidth, maxWidth}]">
     <TypeRenderer
       :data="data"
-      :link-prefix="linkPrefix"
+      :route-name="routeName"
       :link-id="linkId"
     />
   </td>

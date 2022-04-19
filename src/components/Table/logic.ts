@@ -45,7 +45,7 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array }) readonly actions?: []
 
-  @Prop({ type: String }) readonly linkPrefix?: string
+  @Prop({ type: String }) readonly routeName?: string
 
   @Prop({ type: String, required: true }) readonly emptyField?: string
 

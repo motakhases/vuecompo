@@ -39,9 +39,9 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array }) readonly actions?: []
 
-  @Prop({ type: String }) readonly linkPrefix?: string
+  @Prop({ type: String }) readonly routeName?: string
 
-  @Prop({ type: [String, Number] }) readonly linkId?: string | number
+  @Prop({ type: [String, Number] }) readonly linkId!: string | number
 
   get headerRight(): ITableRow {
     return Object.values(this.td)[0];
@@ -60,6 +60,6 @@ export default class Logic extends Vue {
   }
 
   linkHandler(): void {
-    this.$router.push(`${this.linkPrefix}/${this.linkId}`);
+    this.$router.push({ name: this.routeName, params: { id: this.linkId.toString() } });
   }
 }

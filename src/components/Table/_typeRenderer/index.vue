@@ -1,7 +1,7 @@
 <template>
   <component
     :is="linkDetector"
-    :to="`${linkPrefix}/${linkId}`"
+    :to="{name:routeName , params:{id:linkId}}"
     :class="[
       'zpl-table-type-renderer',
       'zpl-table-cell',
