@@ -16,11 +16,6 @@
               name="واتساپ"
               :url="url"
             />
-            <Social
-              key-name="instagram"
-              name="اینستاگرام"
-              :url="url"
-            />
           </div>
 
           <!-- Link -->
