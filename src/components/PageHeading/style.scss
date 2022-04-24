@@ -10,7 +10,7 @@
     @apply lg:ml-md;
   }
   .heading-content {
-    @apply flex-grow ml-xs w-full order-3 mt-lg;
+    @apply flex-grow ml-xs;
     @apply lg:ml-md lg:order-none lg:mt-0;
     .title {
       @apply text-ls-h1 leading-[40px];

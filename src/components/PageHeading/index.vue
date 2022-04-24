@@ -14,7 +14,7 @@
           type="tertiary"
         />
       </div>
-      <div class="heading-content">
+      <div :class="['heading-content', {'mt-lg order-3 w-full': returnBtn}]">
         <div class="flex items-center gap-x-xs">
           <span class="title">
             {{ title }}
