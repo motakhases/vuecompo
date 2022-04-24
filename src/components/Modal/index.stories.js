@@ -27,7 +27,7 @@ const Template = (_, { argTypes }) => ({
 			text="کلیک کن"
 			@click.native="toggleModal"
 		/>
-		<Modal :title="title" :is-open="modal" :toggle="toggleModal" width="520px">
+		<Modal :title="title" v-if="modal" @close="toggleModal" width="520px">
 			<div slot="body">
 				لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
 				استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
