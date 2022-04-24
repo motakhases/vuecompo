@@ -29,7 +29,7 @@ export default class Share extends Vue {
     return `<a target="_blank" href="${this.url}">پرداخت آنلاین</a>`;
   }
 
-  download(dataUrl: string): void {
+  async download(dataUrl: string): Promise<void> {
     const link = document.createElement('a');
 
     link.target = '_blank';
