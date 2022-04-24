@@ -1,5 +1,7 @@
 <template>
-  <button
+  <component
+    :is="to ? 'router-link' : 'button'"
+    :to="to"
     :class="['zpl-button', size, type, { fill, icon }]"
     :disabled="disabled"
   >
@@ -37,7 +39,7 @@
       :name="icon"
       class="zpl-button-icon"
     />
-  </button>
+  </component>
 </template>
 
 <script lang="ts">

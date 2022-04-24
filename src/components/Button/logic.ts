@@ -1,5 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
+import { Route } from 'vue-router';
 
 @Component({
   components: { Icon },
@@ -22,4 +23,6 @@ export default class Button extends Vue {
   @Prop({ type: Boolean, default: false }) readonly fill!: boolean
 
   @Prop({ type: Boolean, default: false }) readonly loading!: boolean
+
+  @Prop({ type: [String, Object] }) readonly to?: Route
 }
