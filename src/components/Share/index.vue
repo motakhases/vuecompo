@@ -9,11 +9,13 @@
             <Social
               key-name="telegram"
               name="تلگرام"
+              :title="title"
               :url="url"
             />
             <Social
               key-name="whatsapp"
               name="واتساپ"
+              :title="title"
               :url="url"
             />
           </div>
