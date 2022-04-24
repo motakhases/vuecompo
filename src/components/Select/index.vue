@@ -11,7 +11,7 @@
       >
         <input
           v-if="search"
-          :class="['zpl-select-input']"
+          class="zpl-select-input"
           :disabled="disabled"
           :placeholder="placeholder"
           :value="inputModel"
@@ -20,12 +20,15 @@
           @keydown="onKeyDown"
           @input="inputHandler"
         >
+
+        <!-- Value -->
         <span
           v-else
-          class="zpl-select-value"
+          :class="['zpl-select-value', { 'has-value': inputVal.length }]"
         >
           {{ inputVal.length ? inputVal : placeholder }}
         </span>
+
         <!-- label -->
         <label
           v-if="label"
