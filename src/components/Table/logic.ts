@@ -39,7 +39,7 @@ export default class Logic extends Vue {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Prop({ type: Array }) readonly actions?: []
 
-  @Prop({ type: Array, required: true }) data!: any[]
+  @Prop({ type: Array }) data?: any[] | null
 
   @Prop({ type: String }) readonly routeName?: string
 
@@ -67,7 +67,7 @@ export default class Logic extends Vue {
   watchAllSelected(): void {
     this.selectedRowsIndex = [];
 
-    if (this.isAllRowSelected) {
+    if (this.data && this.isAllRowSelected) {
       for (let index = 0; index < this.data.length; index += 1) {
         this.selectedRowsIndex.push(index);
       }
