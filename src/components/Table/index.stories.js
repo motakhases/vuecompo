@@ -141,31 +141,31 @@ const Template = (_, { argTypes }) => ({
 
     columns: [
       {
-        title: "مبلغ",
+        // title: "مبلغ",
         key: "price",
         width: "20%",
         maxWidth: "200px"
       },
       {
-        title: "شناسه پرداخت",
+        // title: "شناسه پرداخت",
         key: "pay_id",
         width: "15%",
       },
       {
-        title: "توضیحات",
+        // title: "توضیحات",
         key: "description",
         width: "35%",
         maxWidth: "200px"
 
       },
       {
-        title: "تاریخ و ساعت",
+        // title: "تاریخ و ساعت",
         key: "created_at",
         sort: true,
         width: "15%",
       },
       {
-        title: "وضعیت",
+        // title: "وضعیت",
         key: "status",
         width: "15%",
       },

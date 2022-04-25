@@ -282,7 +282,7 @@
     &.actions {
       tbody td {
         &:last-child {
-          @apply block before:w-2xl before:h-2xl before:rounded-md;
+          @apply table-cell before:w-2xl before:h-2xl before:rounded-md;
         }
       }
     }

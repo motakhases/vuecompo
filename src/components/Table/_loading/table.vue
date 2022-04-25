@@ -4,15 +4,15 @@
       <thead>
         <tr>
           <th
-            v-for="col in cols"
-            :key="col"
+            v-for="(col, i) in cols"
+            :key="`${i}-col`"
             :width="col.width"
           />
         </tr>
       </thead>
       <tbody>
         <tr  v-for="row in rows" :key="row">
-          <td v-for="col in cols" :key="col">
+          <td v-for="(col, i) in cols" :key="`${i}-rows`">
             <span class="loading-custom" />
           </td>
           <td class="sticky-col" />
@@ -31,6 +31,6 @@ import {
 export default class Loading extends Vue {
   @Prop({ type: Number }) readonly rows!: number
 
-  @Prop({ type: Number }) readonly cols!: number
+  @Prop({ type: Array }) readonly cols!: any[]
 }
 </script>

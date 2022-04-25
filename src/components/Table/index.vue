@@ -23,7 +23,7 @@
     />
 
     <!-- Large view - Table -->
-    <template v-if="!isLoadCards && (!loading || data && data.length)">
+    <template v-if="!loading && !isLoadCards && data && data.length">
       <div
         :class="[
           'zpl-table-box',
