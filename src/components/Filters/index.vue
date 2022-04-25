@@ -1,8 +1,8 @@
 <template>
   <Modal
     title="فیلتر"
-    :is-open="isOpen"
-    :toggle="toggle"
+    v-if="isOpen"
+    @close="toggle"
     width="328px"
   >
     <template slot="body">
