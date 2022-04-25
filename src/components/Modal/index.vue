@@ -1,7 +1,6 @@
 <template>
   <div
-    v-if="isOpen"
-    :class="['zpl-modal', { 'show': isOpen }]"
+    :class="['zpl-modal']"
   >
     <div
       class="zpl-modal-box"
@@ -15,7 +14,7 @@
           type="tertiary"
           size="medium"
           class="cursor-pointer"
-          @click.native="toggle"
+          @click.native="close"
         />
       </div>
 
@@ -45,7 +44,7 @@
     <div
       ref="backdropRef"
       class="backdrop"
-      @click="closable ? toggle() : null"
+      @click="closable ? close() : null"
     />
   </div>
 </template>

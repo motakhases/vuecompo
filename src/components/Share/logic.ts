@@ -17,6 +17,8 @@ import Social from './_social/index.vue';
   },
 })
 export default class Share extends Vue {
+  @Prop({ type: String, required: true }) title!: string;
+
   @Prop({ type: String, required: true }) url!: string;
 
   get qrcode(): string {
@@ -27,10 +29,11 @@ export default class Share extends Vue {
     return `<a target="_blank" href="${this.url}">پرداخت آنلاین</a>`;
   }
 
-  download(dataUrl: string): void {
+  async download(dataUrl: string): Promise<void> {
     const link = document.createElement('a');
 
     link.target = '_blank';
+    link.download = this.title;
 
     link.href = dataUrl;
     document.body.appendChild(link);

@@ -12,6 +12,7 @@ const Template = (_, { argTypes }) => ({
   <div class="dark:bg-surface-dark" dir="rtl">
     <Share
       url="https://zarinp.al/376218"
+      title="This is product FELAAN"
     />
   </div>
   `,
