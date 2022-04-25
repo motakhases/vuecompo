@@ -12,6 +12,7 @@ import EmptyState from '@/components/EmptyState/index.vue';
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
 import Card from './_card/index.vue';
+import LoadingTable from './_loading/table.vue';
 
 // Components
 
@@ -31,25 +32,30 @@ interface IColumn {
     Button,
     EmptyState,
     Dropdown,
+    LoadingTable,
   },
 })
 export default class Logic extends Vue {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Prop({ type: Array, required: true }) data!: any[]
-
-  @Prop({ type: Array, required: true }) readonly columns!: IColumn[]
-
-  @Prop({ type: Boolean }) readonly selectable?: boolean
-
-  @Prop({ type: Boolean }) readonly bordered?: boolean
-
   @Prop({ type: Array }) readonly actions?: []
+
+  @Prop({ type: Array, required: true }) data!: any[]
 
   @Prop({ type: String }) readonly routeName?: string
 
-  @Prop({ type: String, required: true }) readonly emptyField?: string
+  @Prop({ type: Boolean }) readonly loading?: boolean
+
+  @Prop({ type: Boolean }) readonly hasCustom?: boolean
+
+  @Prop({ type: Boolean }) readonly bordered?: boolean
+
+  @Prop({ type: Boolean }) readonly selectable?: boolean
 
   @Prop({ type: String }) readonly dropdownWidth?: string
+
+  @Prop({ type: Array, required: true }) readonly columns!: IColumn[]
+
+  @Prop({ type: String, required: true }) readonly emptyField?: string
 
   isLoadCards = false
 

@@ -11,67 +11,67 @@ const Template = (_, { argTypes }) => ({
   components: { Table },
   data: () => ({
     tableData: [
-      {
-        price: {
-          type: "custom",
-          id: 1,
-          data: {
-            image: '',
-            title: 'سلام',
-            sub: 'بر تو'
-          },
-        },
-        pay_id: {
-          type: "text",
-          data: 2234145522155,
-        },
-        description: {
-          type: "description",
-          data: "درخواست پرداخت دامنه شماره 2425",
-        },
-        created_at: {
-          type: "date",
-          data: "2020-11-30T11:55:07.000000Z",
-        },
-        status: {
-          type: "status",
-          data: [
-            {
-              title: "پرداخت ناموفق",
-              type: "negative",
-            },
-          ],
-        },
-      },
-      {
-        price: {
-          type: "price",
-          id: 2,
-          data: 8100000,
-        },
-        pay_id: {
-          type: "text",
-          data: 2234145522155,
-        },
-        description: {
-          type: "description",
-          data: "درخواست پرداخت دامنه شماره 2425",
-        },
-        created_at: {
-          type: "date",
-          data: "2020-11-30T11:55:07.000000Z",
-        },
-        status: {
-          type: "status",
-          data: [
-            {
-              title: "پرداخت موفق",
-              type: "positive",
-              size: "",
-            },
-          ],
-        },
-      },
+      // {
+      //   price: {
+      //     type: "custom",
+      //     id: 1,
+      //     data: {
+      //       image: '',
+      //       title: 'سلام',
+      //       sub: 'بر تو'
+      //     },
+      //   },
+      //   pay_id: {
+      //     type: "text",
+      //     data: 2234145522155,
+      //   },
+      //   description: {
+      //     type: "description",
+      //     data: "درخواست پرداخت دامنه شماره 2425",
+      //   },
+      //   created_at: {
+      //     type: "date",
+      //     data: "2020-11-30T11:55:07.000000Z",
+      //   },
+      //   status: {
+      //     type: "status",
+      //     data: [
+      //       {
+      //         title: "پرداخت ناموفق",
+      //         type: "negative",
+      //       },
+      //     ],
+      //   },
+      // },
+      // {
+      //   price: {
+      //     type: "price",
+      //     id: 2,
+      //     data: 8100000,
+      //   },
+      //   pay_id: {
+      //     type: "text",
+      //     data: 2234145522155,
+      //   },
+      //   description: {
+      //     type: "description",
+      //     data: "درخواست پرداخت دامنه شماره 2425",
+      //   },
+      //   created_at: {
+      //     type: "date",
+      //     data: "2020-11-30T11:55:07.000000Z",
+      //   },
+      //   status: {
+      //     type: "status",
+      //     data: [
+      //       {
+      //         title: "پرداخت موفق",
+      //         type: "positive",
+      //         size: "",
+      //       },
+      //     ],
+      //   },
+      // },
     ],
     tableData2: [
       {
@@ -213,6 +213,30 @@ const Template = (_, { argTypes }) => ({
       :actions="actions"
       route-name="session"
       dropdownWidth="320px"
+      loading
+      hasCustom
+    />
+
+    <Table
+      :data="tableData"
+      :columns="columns"
+      class="mb-xl"
+      bordered
+      :actions="actions"
+      route-name="session"
+      dropdownWidth="320px"
+      loading
+      
+    />
+
+    <Table
+      :data="tableData"
+      :columns="columns"
+      class="mb-xl"
+      bordered
+      route-name="session"
+      dropdownWidth="320px"
+      loading
     />
 
     <h1 class="my-sm font-bold dark:text-surface">
