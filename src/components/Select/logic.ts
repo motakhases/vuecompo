@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import {
-  Vue, Component, Prop, Ref,
+  Vue, Component, Prop, Ref, Watch,
 } from 'vue-property-decorator';
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
@@ -46,7 +46,9 @@ export default class Select extends Vue {
    */
   @Ref() readonly optionRef!: Element
 
-  @Ref() readonly dropdownRef!: Element
+  @Ref() readonly menuRef!: HTMLElement
+
+  @Ref() readonly inputRef!: HTMLElement
 
   /**
    * Data options
@@ -62,6 +64,12 @@ export default class Select extends Vue {
   filteredOptions: ISelectOptions[] = []
 
   inputVal = ''
+
+  style = {
+    top: '',
+    left: '',
+    width: '',
+  };
 
   get inputModel():string {
     return this.inputVal;
@@ -80,6 +88,9 @@ export default class Select extends Vue {
       this.outsideClick,
       false,
     );
+    document.addEventListener('scroll', this.updateStyle);
+    // this.inputRef.children[0].addEventListener('click', this.onButtonClick, false);
+    window.addEventListener('resize', this.onResize);
   }
 
   created(): void {
@@ -89,9 +100,42 @@ export default class Select extends Vue {
     this.filteredOptions = this.options;
   }
 
+  @Watch('showList')
+  watchShowList(): void {
+    this.$nextTick(() => {
+      if (this.showList) {
+        this.updateStyle();
+      }
+    });
+    if (this.showList) {
+      // append menu to body
+      document.body.appendChild(this.menuRef);
+    }
+  }
+
   /**
    * Methods
    */
+  updateStyle(): void {
+    // get the position of button and set it to menu
+
+    if (this.inputRef) {
+      const {
+        height, top, left, width,
+      } = this.inputRef?.children[0]?.getBoundingClientRect();
+      const menuWidth = this.menuRef?.children[0]?.getBoundingClientRect().width;
+
+      this.$set(this.style, 'top', `${top + height + 2}px`);
+      this.$set(this.style, 'width', `${width}px`);
+
+      // if left space is smaller than menu width so open menue on right
+      if (menuWidth > left) {
+        this.$set(this.style, 'left', `${left}px`);
+      } else {
+        this.$set(this.style, 'left', `${left - menuWidth + width}px`);
+      }
+    }
+  }
 
   inputHandler(event:Event): void {
     this.inputVal = (event.target as HTMLInputElement).value;
@@ -171,7 +215,7 @@ export default class Select extends Vue {
       if (isArrowDownKey || isArrowUpKey) {
         for (let i = 0; i < this.filteredOptions.length; i += 1) {
           // find the active option based on class
-          const item = this.dropdownRef.children[i];
+          const item = this.menuRef.children[i];
           const activeOption = (item).classList.contains('active');
 
           // if there is active option then remove the active class and
@@ -249,5 +293,18 @@ export default class Select extends Vue {
 
   deactivateOption(e:IEvent):void {
     e.target.classList.remove('active');
+  }
+
+  onResize():void {
+    this.$nextTick(() => {
+      // update position of menue when window is resizing
+      if (this.showList) {
+        this.updateStyle();
+      }
+    });
+  }
+
+  beforeDestroy():void {
+    window.removeEventListener('resize', this.onResize);
   }
 }
