@@ -1,4 +1,4 @@
-import VueI18n from 'vue-i18n';
+import i18n from '@/i18n';
 import Button from '../index.vue';
 
 const Template = (_, { argTypes }) => ({
@@ -42,7 +42,7 @@ const Template = (_, { argTypes }) => ({
 
   </div>
   `,
-  i18n: new VueI18n({}),
+  i18n,
 });
 
 const Default = Template.bind({});
