@@ -23,6 +23,15 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vue/no-unused-vars': 'off',
     'vue/script-setup-uses-vars': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      }],
   },
   overrides: [
     {
@@ -36,4 +45,15 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
 };

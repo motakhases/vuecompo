@@ -13,7 +13,8 @@
     "build": "yarn build:vue && yarn build:rollup",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "test": "yarn test:unit"
+    "test": "yarn test:unit",
+    "generate": "node fetchLangs.mjs"
   },
   "main": "dist/zwc.umd.js",
   "files": [
@@ -92,7 +93,9 @@
   "types": "index.d.ts",
   "dependencies": {
     "@types/moment-jalaali": "^0.7.5",
+    "@types/node": "^17.0.26",
     "autoprefixer": "^10",
+    "axios": "^0.26.1",
     "moment": "2.24.0",
     "moment-jalaali": "^0.9.2",
     "moment-locales-webpack-plugin": "^1.2.0",

@@ -13,7 +13,7 @@
       <div class="zpl-button-loading-1" />
       <div class="zpl-button-loading-2" />
     </div>
-
+{{$t('session.show.time_line.title')}}
     <!-- shows if before icon exists -->
     <Icon
       v-if="beforeIcon && !loading"
