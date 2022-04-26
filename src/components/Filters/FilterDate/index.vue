@@ -3,7 +3,7 @@
     <Select
       v-model="date"
       :options="options"
-      placeholder="بازه تاریخ"
+      :placeholder="$t('common.export.date_range')"
       class="dropdown"
     />
     <Textfield
@@ -22,7 +22,7 @@
       class="range-box"
     >
       <div class="range-input">
-        <label>شروع</label>
+        <label>{{ $t('date.start') }}</label>
         <Textfield
           v-model="model[0]"
           suffix-icon="Calendar"
@@ -30,7 +30,7 @@
         />
       </div>
       <div class="range-input">
-        <label>پایان</label>
+        <label>{{ $t('date.end') }}</label>
         <Textfield
           v-model="model[1]"
           suffix-icon="Calendar"

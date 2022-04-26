@@ -91,6 +91,7 @@ export default {
     coupons: 'کدِ تخفیف',
     dashboard: 'پیشخوان',
     delete: 'حذف',
+    apply: 'اعمال',
     dismiss: 'فعلا نه!',
     done: 'متوجه شدم.',
     edit: 'ویرایش',
@@ -741,5 +742,10 @@ export default {
       REVERSED: 'بازگردانی شده',
       PAID: 'تسویه‌ شده',
     },
+  },
+  date: {
+    start: 'شروع',
+    end: 'پایان',
+    format: 'روز/ماه/سال',
   },
 };

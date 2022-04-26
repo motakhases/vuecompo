@@ -5,15 +5,6 @@ import Textfield from '@/components/TextField/index.vue';
 import DatePicker from '@/components/DatePicker/index.vue';
 import { DatePickerValue } from '@/types';
 
-const date = {
-  TODAY: 'امروز',
-  CURRENT_WEEK: 'هفته جاری',
-  CURRENT_MONTH: 'ماه جاری',
-  LAST_MONTH: 'ماه گذشته',
-  LAST_WEEK: '۷ روز گذشته',
-  OPTIONAL_PERIOD: 'بازه دلخواه',
-};
-
 @Component({
   components: {
     Select,
@@ -22,7 +13,16 @@ const date = {
   },
 })
 export default class FilterDate extends Vue {
-  date = '';
+  date = ''
+
+  dateList = {
+    TODAY: this.$i18n.t('common.export.today'),
+    CURRENT_WEEK: this.$i18n.t('common.export.current_week'),
+    CURRENT_MONTH: this.$i18n.t('common.export.current_month'),
+    LAST_MONTH: this.$i18n.t('common.export.prev_month'),
+    LAST_WEEK: this.$i18n.t('common.export.7_days'),
+    OPTIONAL_PERIOD: this.$i18n.t('common.export.range'),
+  }
 
   value: DatePickerValue = '';
 
@@ -41,12 +41,12 @@ export default class FilterDate extends Vue {
   lastWeek = moment().subtract(1, 'week').format('jYYYY-jM-jD')
 
   options = [
-    { id: 1, text: date.TODAY, value: 'TODAY' },
-    { id: 2, text: date.CURRENT_WEEK, value: 'CURRENT_WEEK' },
-    { id: 3, text: date.CURRENT_MONTH, value: 'CURRENT_MONTH' },
-    { id: 4, text: date.LAST_MONTH, value: 'LAST_MONTH' },
-    { id: 5, text: date.LAST_WEEK, value: 'LAST_WEEK' },
-    { id: 6, text: date.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
+    { id: 1, text: this.dateList.TODAY, value: 'TODAY' },
+    { id: 2, text: this.dateList.CURRENT_WEEK, value: 'CURRENT_WEEK' },
+    { id: 3, text: this.dateList.CURRENT_MONTH, value: 'CURRENT_MONTH' },
+    { id: 4, text: this.dateList.LAST_MONTH, value: 'LAST_MONTH' },
+    { id: 5, text: this.dateList.LAST_WEEK, value: 'LAST_WEEK' },
+    { id: 6, text: this.dateList.OPTIONAL_PERIOD, value: 'OPTIONAL_PERIOD' },
   ];
 
   get model(): DatePickerValue {
