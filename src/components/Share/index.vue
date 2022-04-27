@@ -28,11 +28,10 @@
             copyable
             ltr
           />
-
           <!-- Html code -->
           <TextField
             v-model="html"
-            :label="$t('referrer.zarinLink.showEmbeddedCode.htmlCodeLabel')"
+            :label="$t('product.show.html_code_label')"
             readonly
             copyable
             ltr

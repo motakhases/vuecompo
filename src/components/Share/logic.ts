@@ -5,6 +5,7 @@ import Tabs from '@/components/Tabs/index.vue';
 import Tab from '@/components/Tabs/Tab/index.vue';
 import Button from '@/components/Button/index.vue';
 import TextField from '@/components/TextField/index.vue';
+import { Translation } from '@/types';
 import Social from './_social/index.vue';
 
 @Component({
@@ -25,8 +26,8 @@ export default class Share extends Vue {
     return `https://tools.zarinpal.com/qr?r=q&s=256&q=${this.url}`;
   }
 
-  get html(): string {
-    return `<a target="_blank" href="${this.url}">پرداخت آنلاین</a>`;
+  get html(): Translation {
+    return this.$i18n.t('product.show.html_code', { link: this.url });
   }
 
   async download(dataUrl: string): Promise<void> {
