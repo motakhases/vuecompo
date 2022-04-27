@@ -32,8 +32,14 @@ export default class SwitchTerminalPopover extends Vue {
 
   get switcher(): INavigationBarActiveTerminal {
     return {
-      title: this.activeTerminal && this.activeTerminal.name ? this.activeTerminal.name : 'نمای کلی',
-      link: this.activeTerminal && this.activeTerminal.domain ? this.activeTerminal.domain : '',
+      title:
+      this.activeTerminal && this.activeTerminal.name
+        ? this.activeTerminal.name
+        : this.$i18n.t('common.overview'),
+      link:
+      this.activeTerminal && this.activeTerminal.domain
+        ? this.activeTerminal.domain
+        : '',
       icon: this.activeTerminal && this.activeTerminal.name ? 'terminal' : 'ChartSquare',
     };
   }
