@@ -85,6 +85,8 @@ export default {
       session_id: 'شناسه‌ی پرداخت',
       description: 'توضیحات',
       date: 'تاریخ',
+      empty_title: '{title} درگاه شما',
+      empty_caption: '{title} شما به صورت لحظه‌ای در این صفحه قابل مشاهده است',
     },
     deactivate: 'غیرفعال کردن',
     deactivate_button: 'بله، غیرفعال شود',
@@ -106,6 +108,7 @@ export default {
     error_long: 'وارد‌شده طولانی است.(کمتر  از {chars} کاراکتر){data}',
     error_short: 'وارد‌شده کوتاه است.(بیشتر از {chars} کاراکتر){data}',
     zarinPalAnnouncement: 'اطلاعیه‌ها',
+    archive_announcement: 'آرشیو اطلاعیه‌ها',
     notifications: 'اعلانات',
     export: {
       '7_days': '۷روز گذشته',
@@ -853,16 +856,31 @@ export default {
       REVERSED: 'بازگردانی شده',
       PAID: 'تسویه‌ شده',
     },
+    reconcileDetail: {
+      error: 'تسویه‌حسابی با این شناسه وجود ندارد. ',
+      errorSession: 'تراکنشی با این شناسه وجود ندارد. ',
+      totalFee: 'مجموع کارمزد تسویه ',
+      reconcileBy: ' تسویه توسط :',
+      totalSession: 'مجموع تراکنش‌ها ',
+      account: 'حساب ',
+      printArrived: 'پرینتِ رسید',
+      reconcileDefaultAccount: 'حساب پیش‌فرض تسویه ',
+      selectBankAccount: 'لطفا یک حساب بانکی انتخاب کنید.',
+      dateSaveTxt: 'تاریخ تسویه',
+      dateCreated: 'تاریخ ثبت ',
+      paid: 'تسویه شده',
+      amount: 'سهم واریز شده',
+      rrn: 'شناسه واریز',
+    },
   },
   date: {
     start: 'شروع',
     end: 'پایان',
     format: 'روز/ماه/سال',
   },
-  share: {
-    telegram: 'تلگرام',
-    whatsapp: 'واتساپ',
-    html_code: 'کد HTML',
-
+  pagination: {
+    rowNumber: 'تعداد سطر در هر صفحه :',
+    pageNumber: ' از {lastPage} صفحه',
+    result: '{from} - {to} از {all} نتیجه',
   },
 };

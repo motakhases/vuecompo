@@ -97,8 +97,8 @@
     </template>
     <Empty-state
     v-if="!data || (data && !data.length)"
-    :title="`‌${emptyField} درگاه شما`"
-    :caption="`${emptyField} شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
+    :title="$t('common.table.empty_title', { title : emptyField })"
+    :caption="$t('common.table.empty_caption', { title : emptyField })"
     />
   </div>
 </template>

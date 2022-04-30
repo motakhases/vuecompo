@@ -3,7 +3,7 @@ import {
 } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
 import Popover from '@/components/Popover/index.vue';
-import { ListsObject } from '@/types';
+import { ListsObject, Translation } from '@/types';
 
 @Component({
   components: {
@@ -73,11 +73,11 @@ export default class Pagination extends Vue {
     return list;
   }
 
-  get period():string {
+  get period():Translation {
     const all = this.lastPage * this.limit;
     const to = this.page * this.limit;
     const from = to - (this.limit - 1);
-    return `${from} - ${to} از ${all} نتیجه`;
+    return this.$i18n.t('pagination.result', { from, to, all });
   }
 }
 

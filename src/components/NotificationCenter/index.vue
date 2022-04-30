@@ -105,7 +105,7 @@
             @click.native="showArchives=false"
           />
           <h3 class="archive-title">
-            آرشیو اطلاعیه‌ها
+            {{ $t('common.archive_announcement') }}
           </h3>
         </div>
         <!-- Archive body-->

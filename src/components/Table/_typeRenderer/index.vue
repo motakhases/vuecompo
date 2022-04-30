@@ -39,7 +39,7 @@
         class="unit"
         size="small"
         type="neutral"
-        text="ریال"
+        :text="$t('common.rial')"
       />
     </div>
 
