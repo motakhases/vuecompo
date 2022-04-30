@@ -14,9 +14,22 @@
       />
     </template>
 
+    <!-- Loading -->
+    <LoadingTable
+      v-if="!isLoadCards && loading"
+      :rows="7"
+      :cols="columns"
+      :class="[{ hasCustom }, { actions }, { bordered }]"
+    />
+
     <!-- Large view - Table -->
-    <template v-if="!isLoadCards && data && data.length">
-      <div :class="['zpl-table-box', { bordered }]">
+    <template v-if="!loading && !isLoadCards && data && data.length">
+      <div
+        :class="[
+          'zpl-table-box',
+          { bordered }
+        ]"
+      >
         <table>
           <!-- Head -->
           <thead>
@@ -25,6 +38,7 @@
               <th v-if="selectable" class="checkbox-holder">
                 <CheckBox v-model="isAllRowSelected" name="all" />
               </th>
+
               <!-- Column title -->
               <Th
                 v-for="(col, index) in columns"
@@ -42,6 +56,7 @@
 
           <!-- Body -->
           <tbody>
+
             <tr
               v-for="(td, tdIndex) in data"
               :key="tdIndex"
@@ -95,6 +110,8 @@
         </table>
       </div>
     </template>
+
+    <!-- Empty State -->
     <Empty-state
     v-if="!data || (data && !data.length)"
     :title="$t('common.table.empty_title', { title : emptyField })"

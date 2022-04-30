@@ -5,9 +5,14 @@
   >
     <div :class="['zpl-select-group']">
       <div
-        :class="['zpl-select',isBoxFocused ? 'focused' : '', { error: errors.length }]"
+        :class="[
+          'zpl-select',
+          isBoxFocused ? 'focused' : '',
+          { error: errors.length },
+        ]"
         :disabled="disabled"
         @click="onFocusIn"
+        ref="inputRef"
       >
         <input
           v-if="search"
@@ -32,7 +37,10 @@
         <!-- label -->
         <label
           v-if="label"
-          :class="['zpl-select-label', isInputFocused | isBoxFocused ? 'isInputFocused' : '' ]"
+          :class="[
+            'zpl-select-label',
+            isInputFocused | isBoxFocused ? 'isInputFocused' : '',
+          ]"
         >
           {{ label }}
         </label>
@@ -74,61 +82,56 @@
           <span>{{ errors[0] }}</span>
         </div>
       </div>
-
-      <!-- dropdown list -->
-      <div :class="['zpl-select-list', { showList }]">
-        <!-- loading skeleton shows when loading is true -->
-        <div v-if="loading">
-          <div class="zpl-select-skeleton-box">
-            <span
-              class="zpl-select-skeleton"
-              style="width: 27%"
-            />
-          </div>
-          <div class="zpl-select-skeleton-box">
-            <span
-              class="zpl-select-skeleton"
-              style="width: 48%"
-            />
-          </div>
-          <div class="zpl-select-skeleton-box">
-            <span
-              class="zpl-select-skeleton"
-              style="width: 36%"
-            />
-          </div>
-        </div>
-
-        <!-- shows option list when loading is false -->
-        <ul
-          v-else
-          id="dropdown"
-          ref="dropdownRef"
+      <div ref="menuRef">
+        <!-- dropdown list -->
+        <div
+          :class="['zpl-select-list']"
+          v-if="showList"
+          :style="style"
         >
-          <li
-            v-for="(option, i) in filteredOptions"
-            :key="option.id"
-            ref="optionRef"
-            :class="[
-              'zpl-select-item',
-              {
-                disabled: option.disabled,
-                selected: value === option.value,
-                active: activeOptionIndex === i,
-              },
-            ]"
-            @click="selectOption(option.value, option.text)"
-            @mouseenter="activateOption"
-            @mouseleave="deactivateOption"
+          <!-- loading skeleton shows when loading is true -->
+          <div v-if="loading">
+            <div class="zpl-select-skeleton-box">
+              <span class="zpl-select-skeleton" style="width: 27%" />
+            </div>
+            <div class="zpl-select-skeleton-box">
+              <span class="zpl-select-skeleton" style="width: 48%" />
+            </div>
+            <div class="zpl-select-skeleton-box">
+              <span class="zpl-select-skeleton" style="width: 36%" />
+            </div>
+          </div>
+
+          <!-- shows option list when loading is false -->
+          <ul
+            v-else
+            id="dropdown"
           >
-            {{ option.text }}
-            <Icon
-              v-if="value === option.value"
-              name="tickLarge"
-              class="zpl-select-selected-icon"
-            />
-          </li>
-        </ul>
+            <li
+              v-for="(option, i) in filteredOptions"
+              :key="option.id"
+              ref="optionRef"
+              :class="[
+                'zpl-select-item',
+                {
+                  disabled: option.disabled,
+                  selected: value === option.value,
+                  active: activeOptionIndex === i,
+                },
+              ]"
+              @click="selectOption(option.value, option.text)"
+              @mouseenter="activateOption"
+              @mouseleave="deactivateOption"
+            >
+              {{ option.text }}
+              <Icon
+                v-if="value === option.value"
+                name="tickLarge"
+                class="zpl-select-selected-icon"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </ValidationProvider>

@@ -11,67 +11,67 @@ const Template = (_, { argTypes }) => ({
   components: { Table },
   data: () => ({
     tableData: [
-      {
-        price: {
-          type: "custom",
-          id: 1,
-          data: {
-            image: '',
-            title: 'سلام',
-            sub: 'بر تو'
-          },
-        },
-        pay_id: {
-          type: "text",
-          data: 2234145522155,
-        },
-        description: {
-          type: "description",
-          data: "درخواست پرداخت دامنه شماره 2425",
-        },
-        created_at: {
-          type: "date",
-          data: "2020-11-30T11:55:07.000000Z",
-        },
-        status: {
-          type: "status",
-          data: [
-            {
-              title: "پرداخت ناموفق",
-              type: "negative",
-            },
-          ],
-        },
-      },
-      {
-        price: {
-          type: "price",
-          id: 2,
-          data: 8100000,
-        },
-        pay_id: {
-          type: "text",
-          data: 2234145522155,
-        },
-        description: {
-          type: "description",
-          data: "درخواست پرداخت دامنه شماره 2425",
-        },
-        created_at: {
-          type: "date",
-          data: "2020-11-30T11:55:07.000000Z",
-        },
-        status: {
-          type: "status",
-          data: [
-            {
-              title: "پرداخت موفق",
-              type: "positive",
-              size: "",
-            },
-          ],
-        },
-      },
+      // {
+      //   price: {
+      //     type: "custom",
+      //     id: 1,
+      //     data: {
+      //       image: '',
+      //       title: 'سلام',
+      //       sub: 'بر تو'
+      //     },
+      //   },
+      //   pay_id: {
+      //     type: "text",
+      //     data: 2234145522155,
+      //   },
+      //   description: {
+      //     type: "description",
+      //     data: "درخواست پرداخت دامنه شماره 2425",
+      //   },
+      //   created_at: {
+      //     type: "date",
+      //     data: "2020-11-30T11:55:07.000000Z",
+      //   },
+      //   status: {
+      //     type: "status",
+      //     data: [
+      //       {
+      //         title: "پرداخت ناموفق",
+      //         type: "negative",
+      //       },
+      //     ],
+      //   },
+      // },
+      // {
+      //   price: {
+      //     type: "price",
+      //     id: 2,
+      //     data: 8100000,
+      //   },
+      //   pay_id: {
+      //     type: "text",
+      //     data: 2234145522155,
+      //   },
+      //   description: {
+      //     type: "description",
+      //     data: "درخواست پرداخت دامنه شماره 2425",
+      //   },
+      //   created_at: {
+      //     type: "date",
+      //     data: "2020-11-30T11:55:07.000000Z",
+      //   },
+      //   status: {
+      //     type: "status",
+      //     data: [
+      //       {
+      //         title: "پرداخت موفق",
+      //         type: "positive",
+      //         size: "",
+      //       },
+      //     ],
+      //   },
+      // },
     ],
     tableData2: [
       {
@@ -141,31 +141,31 @@ const Template = (_, { argTypes }) => ({
 
     columns: [
       {
-        title: "مبلغ",
+        // title: "مبلغ",
         key: "price",
         width: "20%",
         maxWidth: "200px"
       },
       {
-        title: "شناسه پرداخت",
+        // title: "شناسه پرداخت",
         key: "pay_id",
         width: "15%",
       },
       {
-        title: "توضیحات",
+        // title: "توضیحات",
         key: "description",
         width: "35%",
         maxWidth: "200px"
 
       },
       {
-        title: "تاریخ و ساعت",
+        // title: "تاریخ و ساعت",
         key: "created_at",
         sort: true,
         width: "15%",
       },
       {
-        title: "وضعیت",
+        // title: "وضعیت",
         key: "status",
         width: "15%",
       },
@@ -213,6 +213,30 @@ const Template = (_, { argTypes }) => ({
       :actions="actions"
       route-name="session"
       dropdownWidth="320px"
+      loading
+      hasCustom
+    />
+
+    <Table
+      :data="tableData"
+      :columns="columns"
+      class="mb-xl"
+      bordered
+      :actions="actions"
+      route-name="session"
+      dropdownWidth="320px"
+      loading
+      
+    />
+
+    <Table
+      :data="tableData"
+      :columns="columns"
+      class="mb-xl"
+      bordered
+      route-name="session"
+      dropdownWidth="320px"
+      loading
     />
 
     <h1 class="my-sm font-bold dark:text-surface">

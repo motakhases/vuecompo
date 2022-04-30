@@ -102,9 +102,9 @@
 .zpl-select-list {
   /* Default */
   @apply flex-col bg-surface border border-border shadow-elevation-100 rounded-sm 
-	p-xs absolute w-full mt-2xs hidden z-50;
+	p-xs fixed w-full mt-2xs z-50;
   @apply dark:bg-surface-dark dark:border-border-dark	dark:shadow-dark-elevation-100;
-
+  direction: rtl;
   &.showList {
     @apply flex;
   }
