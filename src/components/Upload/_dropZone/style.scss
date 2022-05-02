@@ -1,0 +1,22 @@
+.zpl-dropzone {
+  /* Default */
+  @apply h-[140px] bg-surface border border-dashed border-border rounded-sm;
+  @apply py-2xl px-md flex flex-col items-center relative;
+
+  /* hover */
+  @apply hover:bg-surface-hover;
+
+  &-text {
+    /* Default */
+    @apply mt-md text-b3 text-text;
+  }
+
+  input {
+    /* Default */
+    @apply opacity-0 absolute top-0 right-0 w-full h-full cursor-pointer;
+  }
+  button {
+    /* Default */
+    @apply relative z-10;
+  }
+}

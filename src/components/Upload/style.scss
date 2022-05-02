@@ -1,0 +1,24 @@
+.zpl-upload {
+  /* Default */
+  @apply flex flex-col gap-sm;
+
+  &-title {
+    /* Default */
+    @apply text-text text-ls-h3 font-bold;
+
+    /* dark */
+    @apply dark:text-text-dark;
+  }
+  &-restriction {
+    /* Default */
+    @apply list-none flex flex-col gap-2xs;
+
+    li {
+      /* Default */
+      @apply text-b3 text-text-soft;
+
+      /* dark */
+      @apply dark:text-text-dark-soft;
+    }
+  }
+}

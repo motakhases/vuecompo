@@ -43,6 +43,8 @@ import Calendar from './icons/Calendar.vue';
 import BankSignalSquare from './icons/BankSignalSquare.vue';
 import CheckMarkCircleOutlined from './icons/CheckMarkCircleOutlined.vue';
 import Copy from './icons/Copy.vue';
+import Cloud from './icons/Cloud.vue';
+import Clip from './icons/Clip.vue';
 import CreditCardCheckmark from './icons/CreditCardCheckmark.vue';
 import Discount from './icons/Discount.vue';
 import DollarFill from './icons/DollarFill.vue';
@@ -61,8 +63,10 @@ import SettingsRound from './icons/SettingsRound.vue';
 import Share from './icons/Share.vue';
 import Instagram from './icons/Instagram.vue';
 import Telegram from './icons/Telegram.vue';
+import Trash from './icons/Trash.vue';
 import Whatsapp from './icons/Whatsapp.vue';
 import Download from './icons/Download.vue';
+import Reload from './icons/Reload.vue';
 
 @Component({
   components: {
@@ -70,13 +74,17 @@ import Download from './icons/Download.vue';
     ChatMessage,
     CreditCheckout,
     ChevronUp,
+    CheckmarkCircle,
+    Clip,
+    Copy,
+    Cloud,
+    CreditCardCheckmark,
     DrpItemCheck,
     GridLayout,
     PaymentCard,
     AngleDown,
     AngleRight,
     AngleLeft,
-    CheckmarkCircle,
     FilledArrowDown,
     FilledArrowUp,
     TickLarge,
@@ -107,8 +115,7 @@ import Download from './icons/Download.vue';
     Calendar,
     BankSignalSquare,
     CheckMarkCircleOutlined,
-    Copy,
-    CreditCardCheckmark,
+    Reload,
     Discount,
     DollarFill,
     ExportArrowTopLeft,
@@ -127,6 +134,7 @@ import Download from './icons/Download.vue';
     Download,
     Instagram,
     Telegram,
+    Trash,
     Whatsapp,
   },
 })
