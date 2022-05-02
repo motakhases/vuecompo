@@ -33,7 +33,6 @@
           :name="suffixIcon"
           class="zpl-textfield-icon"
         />
-
         <!-- shows stepper to increase number or descrease -->
         <div
           v-if="stepper && type === 'number'"

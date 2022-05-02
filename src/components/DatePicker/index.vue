@@ -47,7 +47,7 @@
         <TextField
           v-model="model[0]"
           type="text"
-          after-icon="calender"
+          suffix-icon="Calendar"
           :placeholder="$t('date.format')"
           :disabled="disableStart"
         />
@@ -56,7 +56,7 @@
         <label for="">{{ $t('date.end') }}</label>
         <TextField
           v-model="model[1]"
-          after-icon="calender"
+          suffix-icon="Calendar"
           :placeholder="$t('date.format')"
           :disabled="disableEnd"
         />
@@ -66,7 +66,7 @@
       v-else
       id="editable-input"
       v-model="model"
-      after-icon="calender"
+      suffix-icon="Calendar"
       :placeholder="$t('date.format')"
       :disabled="disableSingle"
     />
