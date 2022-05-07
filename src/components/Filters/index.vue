@@ -1,8 +1,8 @@
 <template>
   <Modal
-    title="فیلتر"
-    v-if="isOpen"
-    @close="toggle"
+    :title="$t('common.export.filter')"
+    :is-open="isOpen"
+    :toggle="toggle"
     width="328px"
   >
     <template slot="body">
@@ -14,13 +14,13 @@
       <Button
         type="secondary"
         size="medium"
-        text="حذف"
+        :text="$t('common.delete')"
         @click.native="clearQuery"
       />
       <Button
         type="primary"
         size="medium"
-        text="اعمال"
+        :text="$t('common.apply')"
         @click.native="filter"
       />
     </template>

@@ -3,7 +3,7 @@
     <Select
       v-model="amountType"
       :options="options"
-      placeholder="بازه تاریخ"
+      :placeholder="$t('common.export.amount_range')"
       class="dropdown"
     />
     <div v-if="amountType">
@@ -12,21 +12,21 @@
         class="range-box"
       >
         <div class="range-input">
-          <label>از</label>
+          <label>{{ $t('common.from') }}</label>
           <Textfield
             v-model="model[0]"
             type="number"
             separator="comma"
-            unit="ریال"
+            :unit="$t('common.rial')"
           />
         </div>
         <div class="range-input">
-          <label>تا</label>
+          <label>{{ $t('common.to') }}</label>
           <Textfield
             v-model="model[1]"
             type="number"
             separator="comma"
-            unit="ریال"
+            :unit="$t('common.rial')"
           />
         </div>
       </div>
@@ -35,7 +35,7 @@
         v-model="model"
         type="number"
         separator="comma"
-        unit="ریال"
+        :unit="$t('common.rial')"
       />
     </div>
   </div>

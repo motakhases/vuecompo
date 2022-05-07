@@ -28,11 +28,11 @@
           :fill-container="true"
         >
           <Tab
-            title="اعلانات"
+            :title="$t('common.notifications')"
           >
             <div v-if="todayCards(notifs).length">
               <span class="notif-period">
-                امروز
+                {{ $t('dashboard.chart.today') }}
               </span>
               <card
                 :cards="todayCards(notifs)"
@@ -40,7 +40,7 @@
             </div>
             <div v-if="yesterdayCards(notifs).length">
               <span class="notif-period">
-                دیروز
+                {{ $t('dashboard.chart.yesterday') }}
               </span>
               <card
                 :cards="yesterdayCards(notifs)"
@@ -48,7 +48,7 @@
             </div>
             <div v-if="thisWeekCards(notifs).length">
               <span class="notif-period">
-                هفته جاری
+                {{ $t('dashboard.chart.current_week') }}
               </span>
               <card
                 :cards="thisWeekCards(notifs)"
@@ -57,11 +57,11 @@
             <noNotif v-else />
           </Tab>
           <Tab
-            title="اطلاعیه‌ها"
+            :title="$t('common.zarinPalAnnouncement')"
           >
             <div v-if="todayCards(announcements).length">
               <span class="notif-period">
-                امروز
+                {{ $t('dashboard.chart.today') }}
               </span>
               <card
                 :cards="todayCards(announcements)"
@@ -69,7 +69,7 @@
             </div>
             <div v-if="yesterdayCards(announcements).length">
               <span class="notif-period">
-                دیروز
+                 {{ $t('dashboard.chart.yesterday') }}
               </span>
               <card
                 :cards="yesterdayCards(announcements)"
@@ -77,7 +77,7 @@
             </div>
             <div v-if="thisWeekCards(announcements).length">
               <span class="notif-period">
-                هفته جاری
+                {{ $t('dashboard.chart.current_week') }}
               </span>
               <card
                 :cards="thisWeekCards(announcements)"
@@ -105,7 +105,7 @@
             @click.native="showArchives=false"
           />
           <h3 class="archive-title">
-            آرشیو اطلاعیه‌ها
+            {{ $t('common.archive_announcement') }}
           </h3>
         </div>
         <!-- Archive body-->

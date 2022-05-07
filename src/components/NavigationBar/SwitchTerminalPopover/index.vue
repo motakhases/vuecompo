@@ -14,7 +14,7 @@
         link="overview"
         :active="!hasActive"
       >
-        نمای کلی
+       {{ $t('common.overview') }}
       </Overview>
 
       <!-- Terminals -->
@@ -36,7 +36,7 @@
 
       <!-- Add new terminal -->
       <Create link="/home">
-        ایجاد درگاه جدید
+        {{ $t('terminal.create.new') }}
       </Create>
     </div>
   </div>

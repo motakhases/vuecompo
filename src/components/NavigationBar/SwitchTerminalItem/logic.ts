@@ -2,22 +2,14 @@ import {
   Vue, Prop, Component,
 } from 'vue-property-decorator';
 import { Route } from 'vue-router';
+import { Translation, IActiveTerminal } from '@/types';
 
 // Components
 import GatewayStatus from '@/components/GatewayStatus/index.vue';
-import Icon from '../../Icon/index.vue';
-import Thumbnail from '../../Thumbnail/index.vue';
+import Icon from '@/components/Icon/index.vue';
+import Thumbnail from '@/components/Thumbnail/index.vue';
 
 // Interface
-interface IActiveTerminal {
-  id: string
-  domain: string
-  logo: string
-  name: string
-  route: string
-  status: string
-}
-
 @Component({
   components: {
     Thumbnail, Icon, GatewayStatus,
@@ -42,24 +34,24 @@ export default class SwitchTerminalItem extends Vue {
 
   @Prop({ type: String }) state!: string
 
-  stateText(state: string): string {
-    let statusText = '';
+  stateText(state: Translation): Translation {
+    let statusText: Translation = '';
 
     switch (state) {
     case 'ACTIVE':
-      statusText = 'فعال';
+      statusText = this.$i18n.t('status.ACTIVE');
       break;
     case 'INACTIVE':
-      statusText = 'غیرفعال';
+      statusText = this.$i18n.t('status.INACTIVE');
       break;
     case 'PENDING_SHAPARAK':
-      statusText = 'ارسال شده به شاپرک';
+      statusText = this.$i18n.t('status.PENDING_SHAPARAK');
       break;
     case 'PENDING':
-      statusText = 'در انتظار';
+      statusText = this.$i18n.t('status.PENDING');
       break;
     case 'REJECTED':
-      statusText = 'رد شده';
+      statusText = this.$i18n.t('status.REJECTED');
       break;
     default:
       break;

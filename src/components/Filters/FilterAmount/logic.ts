@@ -26,10 +26,10 @@ export default class FilterAmount extends Vue {
   };
 
   options = [
-    { id: 1, text: 'برابراست با', value: this.types.EQUAL_TO },
-    { id: 2, text: 'کوچک‌تراز', value: this.types.LESS_THAN },
-    { id: 3, text: 'بازه مبلغ', value: this.types.PRICE_RANGE },
-    { id: 4, text: 'بزرگ‌تراز', value: this.types.GREATER_THAN },
+    { id: 1, text: this.$i18n.t('common.export.equal_to'), value: this.types.EQUAL_TO },
+    { id: 2, text: this.$i18n.t('common.export.st'), value: this.types.LESS_THAN },
+    { id: 3, text: this.$i18n.t('common.export.amount_range'), value: this.types.PRICE_RANGE },
+    { id: 4, text: this.$i18n.t('common.export.gt'), value: this.types.GREATER_THAN },
   ];
 
   get model(): AmountFilterValue {

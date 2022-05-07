@@ -2,7 +2,6 @@ import {
   Component, Vue, Prop,
 } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
-import { IDropdownOptions } from '@/types';
 
 @Component({
   components: { Button },

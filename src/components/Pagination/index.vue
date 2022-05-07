@@ -2,7 +2,9 @@
   <div class="zpl-pagination">
     <div class="right-side">
       <div class="limit">
-        <span class="limit-title">تعداد سطر در هر صفحه:</span>
+        <span class="limit-title">
+          {{ $t('pagination.rowNumber') }}
+        </span>
         <div class="relative inline-block">
           <Button
             :text="String(limit)"
@@ -42,7 +44,9 @@
             />
           </div>
         </div>
-        <span class="page-title"> از {{ lastPage }} صفحه</span>
+        <span class="page-title">
+          {{ $t('pagination.pageNumber', { lastPage }) }}
+        </span>
       </div>
       <div class="arrows">
         <div

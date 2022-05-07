@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "allowJs": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -14,34 +15,22 @@
     "baseUrl": ".",
     "declaration": true,
     "noImplicitAny": true,
-    "experimentalDecorators":true,
-    "types": [
-      "webpack-env",
-      "jest"
-    ],
+    "types": ["webpack-env", "jest"],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "./src/**/*",
     "src/**/*.ts",
+    "src/**/*.js",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "index.d.ts"
-, "stories/form.stories.js"  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "index.d.ts",
+    "stories/form.stories.js"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

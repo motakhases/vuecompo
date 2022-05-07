@@ -1,3 +1,5 @@
+import VueI18n from 'vue-i18n';
+
 export interface SegmentedBtn {
   text: string;
   id: number;
@@ -73,6 +75,20 @@ export type AmountFilterValue = string | (string | null)[];
 export type AccordionValue = string | string[];
 
 /**
+ * @/components/NavigationBar/SwitchTerminalItem
+ * ---------------------------------------------------
+ */
+
+export type Translation = VueI18n.TranslateResult;
+export interface IActiveTerminal {
+  id: string;
+  domain: string;
+  logo: string;
+  name: string;
+  route: string;
+  status: string;
+}
+/**
  * @/components/Select/Item
  * ---------------------------------------------------
  */
@@ -118,7 +134,7 @@ export interface INavigationBarTerminal {
   name: string;
 }
 export interface INavigationBarActiveTerminal {
-  title: string;
+  title: Translation;
   link: string | null;
   icon: string;
 }

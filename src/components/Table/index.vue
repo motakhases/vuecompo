@@ -113,9 +113,9 @@
 
     <!-- Empty State -->
     <Empty-state
-      v-if="!loading && (!data || (data && !data.length))"
-      :title="`‌${emptyField} درگاه شما`"
-      :caption="`${emptyField} شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
+    v-if="!data || (data && !data.length)"
+    :title="$t('common.table.empty_title', { title : emptyField })"
+    :caption="$t('common.table.empty_caption', { title : emptyField })"
     />
   </div>
 </template>

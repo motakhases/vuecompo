@@ -117,7 +117,7 @@ const Template = (_, { argTypes }) => ({
 		/>
     <NotificationCenter
 			ref="notificationCenter"
-			:announcements="[]"
+			:announcements="data"
 		/>
   </div>
   `,
