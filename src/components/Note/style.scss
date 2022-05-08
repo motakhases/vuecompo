@@ -1,0 +1,21 @@
+.zpl-note {
+  // default
+  @apply bg-surface shadow-elevation-50 rounded-md p-md;
+
+  // dark
+  @apply dark:bg-surface-dark dark:text-text-dark dark:shadow-dark-elevation-50;
+
+  &-head {
+    @apply flex items-center justify-between py-2xs;
+
+    &-title {
+      @apply text-b1 font-bold font-IRANYekanFaNum
+    }
+  }
+
+  &-actions {
+    @apply flex gap-xs;
+  }
+
+
+}
