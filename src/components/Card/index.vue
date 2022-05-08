@@ -9,7 +9,7 @@
         <slot name="actions" />
       </div>
     </div>
-    <!-- Content -->
+    <!-- body -->
     <div class="zpl-card-content">
       <slot />
     </div>
