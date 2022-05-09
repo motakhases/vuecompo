@@ -13,7 +13,6 @@ const Template = (_, { argTypes }) => ({
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
 	  <Card title="عنوان کارت">
       محتوای دلخواه در کارت
-
       <template #actions>
         <Button type="secondary" text="دکمه" />
       </template>
