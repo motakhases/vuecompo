@@ -1,8 +1,8 @@
 <template>
   <Modal
     :title="$t('common.export.filter')"
-    :is-open="isOpen"
-    :toggle="toggle"
+    @close="toggle"
+    v-if="isOpen"
     width="328px"
   >
     <template slot="body">
