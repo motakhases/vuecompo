@@ -1,6 +1,25 @@
 <template>
-  <div class="zpl-note">
-
+  <div v-if="show" class="zpl-note">
+    <TextBox
+      v-model="model"
+      size="large"
+      :label="$t('session.show.note.title')"
+    />
+    <ButtonGroup class="mt-md justify-end">
+      <Button
+        type="secondary"
+        :text="$t('common.cancel')"
+        size="medium"
+        @click.native="cancelNote"
+      />
+      <Button
+        type="primary"
+        :text="$t('common.save')"
+        size="medium"
+        :loading="loading"
+        @click.native="addNote"
+      />
+    </ButtonGroup>
   </div>
 </template>
 
