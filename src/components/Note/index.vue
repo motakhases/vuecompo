@@ -1,11 +1,6 @@
 <template>
   <div v-if="show" class="zpl-note">
-    <TextBox
-      v-model="model"
-      size="large"
-      :label="$t('session.show.note.title')"
-    />
-    <ButtonGroup class="mt-md justify-end">
+    <ButtonGroup class="mb-md justify-end">
       <Button
         type="secondary"
         :text="$t('common.cancel')"
@@ -17,9 +12,15 @@
         :text="$t('common.save')"
         size="medium"
         :loading="loading"
+        :disabled="!model.length"
         @click.native="addNote"
       />
     </ButtonGroup>
+    <TextBox
+      v-model="model"
+      size="large"
+      :label="$t('session.show.note.title')"
+    />
   </div>
 </template>
 
