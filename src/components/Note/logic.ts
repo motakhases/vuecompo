@@ -21,11 +21,11 @@ export default class Note extends Vue {
 
   @Prop({ type: Function }) readonly cancelNote!: () => boolean
 
-  get model(): string | string[] {
+  get noteText(): string | string[] {
     return this.value;
   }
 
-  set model(value: string | string[]) {
+  set noteText(value: string | string[]) {
     this.$emit('input', value);
   }
 }
