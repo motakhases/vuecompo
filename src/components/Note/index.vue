@@ -12,12 +12,12 @@
         :text="$t('common.save')"
         size="medium"
         :loading="loading"
-        :disabled="!model"
+        :disabled="!noteText"
         @click.native="addNote"
       />
     </ButtonGroup>
     <TextBox
-      v-model="model"
+      v-model="noteText"
       size="large"
       :label="$t('session.show.note.title')"
     />
