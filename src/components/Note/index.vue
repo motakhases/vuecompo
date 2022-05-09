@@ -12,7 +12,7 @@
         :text="$t('common.save')"
         size="medium"
         :loading="loading"
-        :disabled="!model.length"
+        :disabled="!model"
         @click.native="addNote"
       />
     </ButtonGroup>
