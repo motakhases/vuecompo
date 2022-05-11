@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Component, Prop, Watch, Emit, Vue,
+  Component, Prop, Watch, Emit, Vue, Ref,
 } from 'vue-property-decorator';
 
 // Sub components
@@ -57,11 +57,15 @@ export default class Logic extends Vue {
 
   @Prop({ type: String, required: true }) readonly emptyField?: string
 
+  @Ref('table') readonly tableRef!: HTMLElement
+
   isLoadCards = false
 
   isAllRowSelected = false
 
   selectedRowsIndex: number[] = []
+
+  tableOverflow = false
 
   @Watch('isAllRowSelected')
   watchAllSelected(): void {
@@ -103,6 +107,16 @@ export default class Logic extends Vue {
     return id.length ? id[0].id : null;
   }
 
+  isOverflowing():void {
+    if (this.tableRef) {
+      if (this.tableRef.scrollWidth !== this.tableRef.clientWidth) {
+        this.tableOverflow = true;
+      } else {
+        this.tableOverflow = false;
+      }
+    }
+  }
+
   /**
    * It toggles rendered components
    * from virtual DOM at 768px
@@ -119,9 +133,15 @@ export default class Logic extends Vue {
   created(): void {
     this.handleResponsiveComponents();
     window.addEventListener('resize', this.handleResponsiveComponents);
+    window.addEventListener('resize', this.isOverflowing);
   }
 
   destroyed(): void {
     window.removeEventListener('resize', this.handleResponsiveComponents);
+    window.removeEventListener('resize', this.isOverflowing);
+  }
+
+  mounted(): void {
+    this.isOverflowing();
   }
 }

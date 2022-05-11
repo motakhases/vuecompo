@@ -29,6 +29,7 @@
           'zpl-table-box',
           { bordered }
         ]"
+         ref="table"
       >
         <table>
           <!-- Head -->
@@ -85,11 +86,21 @@
               />
 
               <!-- Actions -->
-              <td :class="{ 'sticky-col': actions }">
+              <td :class="{ 'action-col': actions, 'stick': tableOverflow }">
                 <div
                   v-if="actions"
                   class="zpl-table-action"
                 >
+                <div class="outside-action">
+                   <Button
+                    type="tertiary"
+                    size="small"
+                    :icon="item.icon"
+                    v-for="(item, index) in actions.slice(0, 2)"
+                    :key="index"
+                    @click.native="item.action()"
+                  />
+                </div>
                   <Dropdown
                     :list="actions"
                     :custom-payload="td"

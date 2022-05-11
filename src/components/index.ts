@@ -26,7 +26,6 @@ export { default as Select } from './Select/index.vue';
 
 export { default as Filters } from './Filters/index.vue';
 export { default as FiltersAccordion } from './Filters/FilterAccordion/index.vue';
-export { default as FilterActions } from './Filters/FilterActions/index.vue';
 export { default as FilterAmount } from './Filters/FilterAmount/index.vue';
 export { default as FilterDate } from './Filters/FilterDate/index.vue';
 
