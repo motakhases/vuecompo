@@ -11,76 +11,76 @@ const Template = (_, { argTypes }) => ({
   components: { Table },
   data: () => ({
     tableData: [
-      // {
-      //   price: {
-      //     type: "custom",
-      //     id: 1,
-      //     data: {
-      //       image: '',
-      //       title: 'سلام',
-      //       sub: 'بر تو'
-      //     },
-      //   },
-      //   pay_id: {
-      //     type: "text",
-      //     data: 2234145522155,
-      //   },
-      //   description: {
-      //     type: "description",
-      //     data: "درخواست پرداخت دامنه شماره 2425",
-      //   },
-      //   created_at: {
-      //     type: "date",
-      //     data: "2020-11-30T11:55:07.000000Z",
-      //   },
-      //   status: {
-      //     type: "status",
-      //     data: [
-      //       {
-      //         title: "پرداخت ناموفق",
-      //         type: "negative",
-      //       },
-      //     ],
-      //   },
-      // },
-      // {
-      //   price: {
-      //     type: "price",
-      //     id: 2,
-      //     data: 8100000,
-      //   },
-      //   pay_id: {
-      //     type: "text",
-      //     data: 2234145522155,
-      //   },
-      //   description: {
-      //     type: "description",
-      //     data: "درخواست پرداخت دامنه شماره 2425",
-      //   },
-      //   created_at: {
-      //     type: "date",
-      //     data: "2020-11-30T11:55:07.000000Z",
-      //   },
-      //   status: {
-      //     type: "status",
-      //     data: [
-      //       {
-      //         title: "پرداخت موفق",
-      //         type: "positive",
-      //         size: "",
-      //       },
-      //     ],
-      //   },
-      // },
+      {
+        price: {
+          type: "custom",
+          id: 1,
+          data: {
+            image: "",
+            title: "سلام",
+            sub: "بر تو",
+          },
+        },
+        pay_id: {
+          type: "text",
+          data: 2234145522155,
+        },
+        description: {
+          type: "description",
+          data: "درخواست پرداخت دامنه شماره 2425",
+        },
+        created_at: {
+          type: "date",
+          data: "2020-11-30T11:55:07.000000Z",
+        },
+        status: {
+          type: "status",
+          data: [
+            {
+              title: "پرداخت ناموفق",
+              type: "negative",
+            },
+          ],
+        },
+      },
+      {
+        price: {
+          type: "price",
+          id: 2,
+          data: 8100000,
+        },
+        pay_id: {
+          type: "text",
+          data: 2234145522155,
+        },
+        description: {
+          type: "description",
+          data: "درخواست پرداخت دامنه شماره 2425",
+        },
+        created_at: {
+          type: "date",
+          data: "2020-11-30T11:55:07.000000Z",
+        },
+        status: {
+          type: "status",
+          data: [
+            {
+              title: "پرداخت موفق",
+              type: "positive",
+              size: "",
+            },
+          ],
+        },
+      },
     ],
     tableData2: [
       {
         price: {
           type: "custom",
           data: {
-            image: '',
-            title: 'سلام',
-            sub: 'بر تو'
+            image: "",
+            title: "سلام",
+            sub: "بر تو",
           },
         },
         pay_id: {
@@ -141,33 +141,37 @@ const Template = (_, { argTypes }) => ({
 
     columns: [
       {
-        // title: "مبلغ",
+        title: "مبلغ",
         key: "price",
         width: "20%",
-        maxWidth: "200px"
+        maxWidth: "200px",
+        minWidth: "200px",
       },
       {
-        // title: "شناسه پرداخت",
+        title: "شناسه پرداخت",
         key: "pay_id",
         width: "15%",
+        minWidth: "150px",
       },
       {
-        // title: "توضیحات",
+        title: "توضیحات",
         key: "description",
         width: "35%",
-        maxWidth: "200px"
-
+        maxWidth: "200px",
+        minWidth:"200px"
       },
       {
-        // title: "تاریخ و ساعت",
+        title: "تاریخ و ساعت",
         key: "created_at",
         sort: true,
         width: "15%",
+        minWidth:"250px"
       },
       {
-        // title: "وضعیت",
+        title: "وضعیت",
         key: "status",
         width: "15%",
+        minWidth:"150px"
       },
     ],
 
@@ -177,8 +181,8 @@ const Template = (_, { argTypes }) => ({
         icon: "PenEdit",
         color: "",
         action: (x) => {
-          console.log("click")
-          console.log(x)
+          console.log("click");
+          console.log(x);
         },
       },
       {
@@ -186,14 +190,18 @@ const Template = (_, { argTypes }) => ({
         icon: "eyeHidden",
         color: "text-danger",
         action: () => console.log("click"),
-        isShow:(x)=>{return x.status.data[0].type === 'positive'},
+        isShow: (x) => {
+          return x.status.data[0].type === "positive";
+        },
       },
       {
         title: "فعال سازی",
         icon: "eyeShow",
         color: "",
         action: () => console.log("click"),
-        isShow:(x)=>{return x.status.data[0].type === 'negative'},
+        isShow: (x) => {
+          return x.status.data[0].type === "negative";
+        },
       },
       {
         title: "افزدن",
@@ -213,7 +221,6 @@ const Template = (_, { argTypes }) => ({
       :actions="actions"
       route-name="session"
       dropdownWidth="320px"
-      loading
       hasCustom
     />
 
@@ -225,7 +232,6 @@ const Template = (_, { argTypes }) => ({
       :actions="actions"
       route-name="session"
       dropdownWidth="320px"
-      loading
       
     />
 
