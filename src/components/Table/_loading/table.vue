@@ -6,12 +6,12 @@
           <th
             v-for="(col, i) in cols"
             :key="`${i}-col`"
-            :width="col.width"
+            :style="[{ width : col.width, minWidth : col.minWidth }]"
           />
         </tr>
       </thead>
       <tbody>
-        <tr  v-for="row in rows" :key="row">
+        <tr  v-for="(row) in rows" :key="row">
           <td v-for="(col, i) in cols" :key="`${i}-rows`">
             <span class="loading-custom" />
           </td>
