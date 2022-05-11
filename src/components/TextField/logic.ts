@@ -1,4 +1,5 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
+import '@/utils/validations';
 
 // Components
 import { ValidationProvider } from 'vee-validate';

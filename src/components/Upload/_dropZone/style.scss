@@ -10,7 +10,9 @@
     /* Default */
     @apply mt-md text-b3 text-text;
   }
-
+  &.active {
+    @apply bg-surface-active;
+  }
   input {
     /* Default */
     @apply opacity-0 absolute top-0 right-0 w-full h-full cursor-pointer;

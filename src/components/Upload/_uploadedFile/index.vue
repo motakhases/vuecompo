@@ -1,17 +1,17 @@
 <template>
   <div class="zpl-uploaded">
-    <img :src="image" v-if="image" />
+    <img :src="file.image" v-if="file.image" />
     <Icon name="clip" v-else />
-    <div class="zpl-uploaded-name">name</div>
+    <div class="zpl-uploaded-name">{{ file.name }}</div>
     <Button
-      v-if="status === 'loading'"
+      v-if="file.status === 'loading'"
       icon="Delete"
       type="tertiary"
       size="medium"
     />
     <div v-else>
       <Button
-        v-if="status === 'failed'"
+        v-if="file.status === 'failed'"
         icon="Reload"
         type="tertiary"
         size="medium"

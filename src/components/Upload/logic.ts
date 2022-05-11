@@ -15,4 +15,8 @@ export default class Upload extends Vue {
   @Prop({ type: Boolean, default: true }) readonly indicator!: boolean
 
   @Prop({ type: String, default: 'large' }) readonly size!: string
+
+  @Prop({ type: Function }) readonly upload!: () => any
+
+  @Prop({ type: Array }) readonly uploadedList?: []
 }

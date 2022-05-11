@@ -14,9 +14,14 @@ const Template = (_, { argTypes }) => ({
       list: ["فرمت‌های مجاز: png و jpg", "حداکثر سایز فایل: ۵۰۰ کیلوبایت"],
     };
   },
+  methods:{
+    uploadFile(e){
+      console.log(e)
+    }
+  },
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl w-[360px]">
-   <Upload title="آپلود فایل" :restrictionList="list" />
+   <Upload title="آپلود فایل" :upload="uploadFile" :restrictionList="list" />
 
   
 	</div>
