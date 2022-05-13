@@ -1,4 +1,6 @@
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import {
+  Vue, Component, Prop, Watch,
+} from 'vue-property-decorator';
 
 // Components
 import { ValidationProvider } from 'vee-validate';
@@ -142,5 +144,12 @@ export default class TextField extends Vue {
     setTimeout(() => {
       this.copyToClipboardText = this.$i18n.t('common.copy');
     }, 1000);
+  }
+
+  @Watch('value')
+  updateLabel() {
+    if (this.value.length) {
+      this.isInputFocused = true;
+    }
   }
 }

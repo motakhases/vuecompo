@@ -1,5 +1,5 @@
 import {
-  Vue, Component, Prop, VModel,
+  Vue, Component, Prop, VModel, Watch,
 } from 'vue-property-decorator';
 
 import { ValidationProvider } from 'vee-validate';
@@ -56,6 +56,13 @@ export default class TextBox extends Vue {
   onFocusOut():void {
     if (!this.value) {
       this.isInputFocused = false;
+    }
+  }
+
+  @Watch('value')
+  updateLabel() {
+    if (this.value.length) {
+      this.isInputFocused = true;
     }
   }
 }
