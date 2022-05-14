@@ -158,20 +158,20 @@ const Template = (_, { argTypes }) => ({
         key: "description",
         width: "35%",
         maxWidth: "200px",
-        minWidth:"200px"
+        minWidth: "200px",
       },
       {
         title: "تاریخ و ساعت",
         key: "created_at",
         sort: true,
         width: "15%",
-        minWidth:"250px"
+        minWidth: "250px",
       },
       {
         title: "وضعیت",
         key: "status",
         width: "15%",
-        minWidth:"150px"
+        minWidth: "150px",
       },
     ],
 
@@ -243,6 +243,9 @@ const Template = (_, { argTypes }) => ({
       route-name="session"
       dropdownWidth="320px"
       loading
+      hasCustom
+      hasSubCustom
+      :actions="actions"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">
@@ -252,7 +255,19 @@ const Template = (_, { argTypes }) => ({
       :data="tableData2"
       :columns="columns"
       selectable
+      loading
+      hasCustom
     />
+    <h1 class="my-sm font-bold dark:text-surface">
+    قابل انتخاب
+  </h1>
+    <Table
+    :data="tableData2"
+    :columns="columns"
+    selectable
+    loading
+    
+  />
   </div>
   `,
 });
