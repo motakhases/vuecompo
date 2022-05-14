@@ -3,7 +3,7 @@
     <div class="zpl-progress-label" v-if="title || percentText">
       <span v-if="title">{{ title }}</span>
       <span class="zpl-progress-percent" v-if="percentText">
-        {{ percentText }}
+        {{ percent }}%
       </span>
     </div>
     <div :class="['zpl-progress', size]">
@@ -20,9 +20,6 @@
         class="zpl-progress-bar indeterminate"
       ></div>
     </div>
-  <div class="loading-bar">
-    <div class="blue-bar"></div>
-  </div>
   </div>
 </template>
 <script>

@@ -7,7 +7,7 @@ interface IDom{
 export default class ProgressBar extends Vue {
   @Prop({ type: String }) readonly title?: string
 
-  @Prop({ type: String }) readonly percentText?: string
+  @Prop({ type: Boolean }) readonly percentText?: boolean
 
   @Prop({ type: String, default: 'thick' }) readonly size!: string
 
