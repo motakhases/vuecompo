@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-uploaded">
-    <img :src="file.image" v-if="file.image" />
-    <Icon name="clip" v-else />
+    <img :src="file.image" />
+    <!-- <Icon name="clip" v-else /> -->
     <div class="zpl-uploaded-name">{{ file.name }}</div>
     <Button
       v-if="file.status === 'loading'"

@@ -7,12 +7,32 @@
       <li v-for="(item, index) in restrictionList" :key="index">{{ item }}</li>
     </ul>
     <slot />
-    <DropZone :upload="upload" />
     <UploadedFile
       v-for="(item, index) in uploadedList"
       :key="index"
       :file="item"
     />
+    <vue2Dropzone
+      class="zpl-dropzone"
+      :options="dropzoneOptions"
+      :useCustomSlot="true"
+      ref="dropzoneRef"
+      @vdropzone-file-added="getFiles"
+            @vdropzone-sending="uploadProgress"
+@vdropzone-thumbnail="images"
+@vdropzone-upload-progress="progress"
+       id="dropzone"
+    >
+      <Button
+        text="انتخاب فایل..."
+        beforeIcon="cloud"
+        type="neutral"
+        size="medium"
+        @click.native="chooseImage"
+      />
+      <span class="zpl-dropzone-text">یا فایل را در این قسمت رها کنید</span>
+    </vue2Dropzone>
+    <div @click="getFiles">files</div>
   </div>
 </template>
 
