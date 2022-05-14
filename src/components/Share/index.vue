@@ -2,19 +2,19 @@
   <div class="zpl-share">
     <Tabs>
       <!-- Sharing methods -->
-      <tab title="لینک">
+      <tab :title="$t('common.link')">
         <div class="zpl-share-tab">
           <!-- Social networks sharing -->
           <div class="zpl-share-socials">
             <Social
               key-name="telegram"
-              name="تلگرام"
+              :name="$t('user.common.TELEGRAM')"
               :title="title"
               :url="url"
             />
             <Social
               key-name="whatsapp"
-              name="واتساپ"
+              :name="$t('user.common.WHATSAPP')"
               :title="title"
               :url="url"
             />
@@ -23,16 +23,15 @@
           <!-- Link -->
           <TextField
             v-model="url"
-            label="لینک"
+            :label="$t('common.link')"
             readonly
             copyable
             ltr
           />
-
           <!-- Html code -->
           <TextField
             v-model="html"
-            label="کد HTML"
+            :label="$t('product.show.html_code_label')"
             readonly
             copyable
             ltr
@@ -41,17 +40,17 @@
       </tab>
 
       <!-- QR Code sharing method -->
-      <tab title="QR Code">
+      <tab :title="$t('auth.qr.code')">
         <div class="zpl-share-tab">
           <div class="_qr-wrapper">
             <img
               :src="qrcode"
-              alt="qrCode"
+              :alt="$t('auth.qr.alt')"
             >
           </div>
 
           <Button
-            text="دانلود QR Code"
+            :text="$t('auth.qr.download')"
             type="neutral"
             before-icon="Download"
             size="large"

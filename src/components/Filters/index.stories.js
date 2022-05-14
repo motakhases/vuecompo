@@ -1,5 +1,4 @@
 import Filters from "./index.vue";
-import FilterActions from "./FilterActions/index.vue";
 import Radio from "@/components/Radio/index.vue";
 import FilterAccordion from "./FilterAccordion/index.vue";
 import FilterDate from "./FilterDate/index.vue";
@@ -14,7 +13,6 @@ storiesOf('Components/Filters', module)
   .add('default', () => ({
     components: {
       Filters,
-      FilterActions,
       FilterAccordion,
       Radio,
       FilterDate,

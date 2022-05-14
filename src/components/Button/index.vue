@@ -13,7 +13,6 @@
       <div class="zpl-button-loading-1" />
       <div class="zpl-button-loading-2" />
     </div>
-
     <!-- shows if before icon exists -->
     <Icon
       v-if="beforeIcon && !loading"

@@ -26,7 +26,6 @@ export { default as Select } from './Select/index.vue';
 
 export { default as Filters } from './Filters/index.vue';
 export { default as FiltersAccordion } from './Filters/FilterAccordion/index.vue';
-export { default as FilterActions } from './Filters/FilterActions/index.vue';
 export { default as FilterAmount } from './Filters/FilterAmount/index.vue';
 export { default as FilterDate } from './Filters/FilterDate/index.vue';
 
@@ -88,3 +87,5 @@ export { default as TopBar } from './TopBar/index.vue';
 export { default as UserProfileCard } from './UserProfileCard/index.vue';
 
 export { default as Share } from './Share/index.vue';
+export { default as Note } from './Note/index.vue';
+

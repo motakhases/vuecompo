@@ -46,7 +46,7 @@
     </ul>
     <div class="zpl-table-card-action">
       <Button
-      text="مشاهده جزئیات"
+      :text="$t('common.show_detail')"
       size="medium"
       type="neutral"
       afterIcon="AngleLeft"

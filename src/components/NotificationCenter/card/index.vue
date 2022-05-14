@@ -35,7 +35,7 @@
               v-if="card.link"
               class="link"
               :href="card.link"
-              text="لینک"
+              :text="$t('common.link')"
             />
           </div>
         </div>

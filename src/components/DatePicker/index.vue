@@ -43,21 +43,21 @@
       class="zpl-date-picker-range"
     >
       <div class="zpl-date-picker-range-input">
-        <label for="">شروع</label>
+        <label for="">{{ $t('date.start') }}</label>
         <TextField
           v-model="model[0]"
           type="text"
-          after-icon="calender"
-          placeholder="روز/ماه/سال"
+          suffix-icon="Calendar"
+          :placeholder="$t('date.format')"
           :disabled="disableStart"
         />
       </div>
       <div class="zpl-date-picker-range-input">
-        <label for="">پایان</label>
+        <label for="">{{ $t('date.end') }}</label>
         <TextField
           v-model="model[1]"
-          after-icon="calender"
-          placeholder="روز/ماه/سال"
+          suffix-icon="Calendar"
+          :placeholder="$t('date.format')"
           :disabled="disableEnd"
         />
       </div>
@@ -66,8 +66,8 @@
       v-else
       id="editable-input"
       v-model="model"
-      after-icon="calender"
-      placeholder="روز/ماه/سال"
+      suffix-icon="Calendar"
+      :placeholder="$t('date.format')"
       :disabled="disableSingle"
     />
   </div>

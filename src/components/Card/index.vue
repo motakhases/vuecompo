@@ -2,15 +2,14 @@
   <div class="zpl-card">
     <!-- Header -->
     <div class="zpl-card-head">
-      <h4 class="zpl-card-head-title">
+      <h4 class="zpl-card-head-title" v-if="title">
         {{ title }}
       </h4>
       <div class="zpl-card-actions">
         <slot name="actions" />
       </div>
     </div>
-
-    <!-- Content -->
+    <!-- body -->
     <div class="zpl-card-content">
       <slot />
     </div>

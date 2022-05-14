@@ -52,7 +52,7 @@ export default class TextField extends Vue {
 
   isInputFocused = false;
 
-  copyToClipboardText = 'کپی';
+  copyToClipboardText = this.$i18n.t('common.copy');
 
   created() {
     this.isInputFocused = !!this.value.length;
@@ -138,10 +138,10 @@ export default class TextField extends Vue {
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(this.value);
 
-    this.copyToClipboardText = 'کپی شد';
+    this.copyToClipboardText = this.$i18n.t('common.copied');
 
     setTimeout(() => {
-      this.copyToClipboardText = 'کپی';
+      this.copyToClipboardText = this.$i18n.t('common.copy');
     }, 1000);
   }
 }

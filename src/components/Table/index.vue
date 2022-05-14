@@ -19,7 +19,7 @@
       v-if="!isLoadCards && loading"
       :rows="7"
       :cols="columns"
-      :class="[{ hasCustom }, { actions }, { bordered }]"
+      :class="[{ hasCustom }, { actions }, { bordered }, { hasSubCustom }]"
     />
 
     <!-- Large view - Table -->
@@ -29,6 +29,7 @@
           'zpl-table-box',
           { bordered }
         ]"
+         ref="table"
       >
         <table>
           <!-- Head -->
@@ -85,11 +86,21 @@
               />
 
               <!-- Actions -->
-              <td :class="{ 'sticky-col': actions }">
+              <td :class="{ 'action-col': actions, 'stick': tableOverflow }">
                 <div
                   v-if="actions"
                   class="zpl-table-action"
                 >
+                <div class="outside-action">
+                   <Button
+                    type="tertiary"
+                    size="small"
+                    :icon="item.icon"
+                    v-for="(item, index) in actions.slice(0, 2)"
+                    :key="index"
+                    @click.native="item.action()"
+                  />
+                </div>
                   <Dropdown
                     :list="actions"
                     :custom-payload="td"
@@ -113,9 +124,9 @@
 
     <!-- Empty State -->
     <Empty-state
-      v-if="!loading && (!data || (data && !data.length))"
-      :title="`‌${emptyField} درگاه شما`"
-      :caption="`${emptyField} شما به صورت لحظه‌ای در این صفحه قابل مشاهده است`"
+    v-if="!data || (data && !data.length)"
+    :title="$t('common.table.empty_title', { title : emptyField })"
+    :caption="$t('common.table.empty_caption', { title : emptyField })"
     />
   </div>
 </template>

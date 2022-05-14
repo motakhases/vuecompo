@@ -65,6 +65,7 @@
 
   &-box {
     // Show size
+
     @apply hidden md:block;
 
     // default
@@ -122,7 +123,10 @@
   }
 
   &-action {
-    @apply flex mr-auto;
+    @apply flex mr-auto items-center gap-xs justify-end;
+    .outside-action {
+      @apply items-center gap-xs hidden;
+    }
   }
 
   table {
@@ -166,6 +170,14 @@
       // default
       @apply border-t border-border-divider;
       @apply hover:bg-surface-hover active:bg-surface-active focus:bg-surface-focus;
+      &:hover {
+        .outside-action {
+          @apply flex;
+        }
+        .stick {
+          @apply min-w-[150px];
+        }
+      }
 
       // dark
       @apply dark:border-border-dark-divider;
@@ -185,15 +197,22 @@
     @apply truncate text-b2;
   }
 
-  .sticky-col {
-    @apply sticky #{!important};
-    @apply left-0 w-4xl min-w-[64px];
-
-    & > div {
-      @apply absolute top-0 left-0 bottom-0;
-      @apply py-sm px-md #{!important};
-      @apply shadow-elevation-50 bg-surface;
-      @apply dark:shadow-dark-elevation-50 dark:bg-surface-dark;
+  .action-col {
+    @apply pl-md;
+    &.stick {
+      @apply left-0 sticky #{!important};
+      @apply min-w-[66px];
+      & > div {
+        @apply absolute top-0 left-0 bottom-0;
+        @apply py-sm px-md #{!important};
+        @apply shadow-elevation-50 bg-surface;
+        @apply dark:shadow-dark-elevation-50 dark:bg-surface-dark;
+      }
+    }
+    &:not(&.stick) {
+      .zpl-table-action {
+        @apply w-[118px];
+      }
     }
   }
 
@@ -216,7 +235,6 @@
       @apply border border-border-divider;
       @apply dark:border-border-dark-divider;
     }
-
     thead {
       th {
         @apply relative h-[56px];
@@ -226,7 +244,7 @@
         @apply after:top-0 after:right-0 after:z-[1];
 
         @apply before:absolute before:content-[''] before:rounded-xs before:z-[2];
-        @apply before:w-[50%] before:max-w-[64px] before:h-md;
+        @apply before:w-[50%] before:max-w-[64px] before:h-sm;
         @apply before:right-md before:top-[50%] before:transform before:translate-y-[-50%];
         @apply before:bg-gray-80 before:animate-pulse;
       }
@@ -253,22 +271,25 @@
 
     .loading-custom {
       @apply hidden w-full h-full absolute top-0 z-[2];
-      
-      @apply before:absolute before:content-[''] before:rounded-xs before:z-[2];
-      @apply before:w-[40%] before:h-sm;
-      @apply before:right-[calc(40px+12px+16px)] before:top-[33%] before:transform before:translate-y-[-50%];
-      @apply before:bg-gray-80 before:animate-pulse;
-      
-      @apply after:absolute after:content-[''] after:rounded-xs after:z-[2];
-      @apply after:w-[30%] after:h-sm after:mt-xs;
-      @apply after:right-[calc(40px+12px+16px)] after:top-[54%] after:transform after:translate-y-[-50%];
-      @apply after:bg-gray-80 after:animate-pulse;
-    }
 
+      @apply before:absolute before:content-[''] before:rounded-xs before:z-[2];
+      @apply before:w-[50%] before:h-sm;
+      @apply before:right-[calc(40px+12px+16px)] before:top-[50%] before:transform before:translate-y-[-50%];
+      @apply before:bg-gray-80 before:animate-pulse;
+    }
+    &.hasSubCustom {
+      .loading-custom {
+        @apply after:absolute after:content-[''] after:rounded-xs after:z-[2];
+        @apply after:w-[30%] after:h-sm after:mt-xs;
+        @apply after:right-[calc(40px+12px+16px)] after:top-[54%] after:transform after:translate-y-[-50%];
+        @apply after:bg-gray-80 after:animate-pulse;
+        @apply before:top-[33%];
+      }
+    }
     &.hasCustom {
       tbody td {
         @apply h-[64px];
-        
+
         &:first-child {
           @apply before:w-[40px] before:h-[40px] before:rounded-md;
 
@@ -278,11 +299,17 @@
         }
       }
     }
-  
+
     &.actions {
       tbody td {
         &:last-child {
-          @apply table-cell before:w-2xl before:h-2xl before:rounded-md;
+          @apply min-w-[190px] table-cell before:w-2xl before:h-2xl before:rounded-md;
+          @apply before:left-md before:right-auto;
+        }
+      }
+      th {
+        &:last-child {
+          @apply before:hidden;
         }
       }
     }

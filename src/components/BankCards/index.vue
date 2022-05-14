@@ -12,7 +12,7 @@
           <span
             v-if="defaultAccount"
             class="zpl-bank-cards-username"
-          > حساب پیش‌فرض تسویه </span>
+          > {{ $t('reconcilation.reconcileDetail.reconcileDefaultAccount') }} </span>
           <span
             v-else
             class="zpl-bank-cards-username"
@@ -23,19 +23,21 @@
       </div>
       <div class="zpl-bank-cards-row">
         <div class="zpl-bank-cards-title">
-          سهم واریز شده
+          {{ $t('reconcilation.reconcileDetail.amount') }}
         </div>
         <div class="zpl-bank-cards-text">
           <FilterSample
             :number="amount"
             number-format
           />
-          <span class="zpl-bank-cards-currency">ریال</span>
+          <span class="zpl-bank-cards-currency">
+             {{ $t('common.rial') }}
+          </span>
         </div>
       </div>
       <div class="zpl-bank-cards-row">
         <div class="zpl-bank-cards-title">
-          شناسه واریز
+          {{ $t('reconcilation.reconcileDetail.rrn') }}
         </div>
         <div class="zpl-bank-cards-text">
           {{ rrn }}
