@@ -22,7 +22,7 @@
         type="tertiary"
         size="medium"
       />
-      <div v-else>
+      <div v-else class="flex items-center gap-2xs">
         <!-- reload button -->
         <Button
           v-if="file.status === 'error'"

@@ -4,13 +4,12 @@ import {
 import vue2Dropzone from 'vue2-dropzone';
 import Button from '@/components/Button/index.vue';
 import { IUploadedFiles, IDropzoneFiles } from '@/types';
-import DropZone from './_dropZone/index.vue';
 import UploadedFile from './_uploadedFile/index.vue';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
 @Component({
   components: {
-    DropZone, UploadedFile, vue2Dropzone, Button,
+    UploadedFile, vue2Dropzone, Button,
   },
 })
 export default class Upload extends Vue {
@@ -48,7 +47,7 @@ export default class Upload extends Vue {
     });
   }
 
-  images(file:IDropzoneFiles) {
+  fetchInitialData(file:IDropzoneFiles) {
     const attachment:IUploadedFiles = {
       name: '',
       image: '',

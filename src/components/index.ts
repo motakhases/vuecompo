@@ -89,3 +89,5 @@ export { default as UserProfileCard } from './UserProfileCard/index.vue';
 export { default as Share } from './Share/index.vue';
 export { default as Note } from './Note/index.vue';
 
+export { default as ProgressBar } from './ProgressBar/index.vue';
+export { default as Upload } from './Upload/index.vue';

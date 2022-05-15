@@ -25,7 +25,8 @@ const Template = (_, { argTypes }) => ({
    title="آپلود فایل" 
    :upload="uploadFile" 
    :restrictionList="list" 
-   :dropzone="false"
+   :dropzone="true"
+   :maxFiles="5"
    url="https://httpbin.org/post"
    />
 

@@ -15,18 +15,20 @@
       :options="dropzoneOptions"
       :useCustomSlot="true"
       ref="dropzoneRef"
-      @vdropzone-thumbnail="images"
+      @vdropzone-thumbnail="fetchInitialData"
       @vdropzone-upload-progress="fileUploadProgress"
       @vdropzone-success="successUploaded"
       id="dropzone"
     >
-        <Button
-          text="انتخاب فایل..."
-          beforeIcon="cloud"
-          type="neutral"
-          size="medium"
-        />
-        <span class="zpl-dropzone-text" v-if="dropzone">یا فایل را در این قسمت رها کنید</span>
+      <Button
+        :text="$t('product.add.select_file')"
+        beforeIcon="cloud"
+        type="neutral"
+        size="medium"
+      />
+      <span class="zpl-dropzone-text" v-if="dropzone">
+        {{$t('product.add.drag_image')}}
+      </span>
     </vue2Dropzone>
     <UploadedFile
       :removeFileHandler="removeFileHandler"
