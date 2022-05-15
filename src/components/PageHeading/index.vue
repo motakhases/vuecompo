@@ -3,7 +3,7 @@
     ref="pageHeading"
     :class="['zpl-page-heading', {'fixed-page-heading':stickHeading}]"
   >
-    <div class="container page-heading-container">
+    <div :class="['page-heading-container', smallContainer? 'small-container' : 'container']">
       <div
         v-if="returnBtn"
         class="return-btn"

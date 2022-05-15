@@ -149,6 +149,10 @@
     @apply absolute text-text-success;
     @apply dark:text-text-dark-success;
   }
+  &-maxlength {
+    @apply text-b3 text-text-soft mr-auto py-2xs px-xs font-IRANYekanFaNum;
+    @apply dark:text-text-dark-soft;
+  }
 }
 
 .zpl-textfield-hint-limit {

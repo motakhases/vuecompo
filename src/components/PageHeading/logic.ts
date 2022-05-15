@@ -22,6 +22,8 @@ export default class PageHeading extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly sticky!: boolean;
 
+  @Prop({ type: Boolean, default: false }) readonly smallContainer!: boolean;
+
   @Prop({ type: Array }) readonly statuses?: PageHeadingStatus[];
 
   @Prop({ type: Function }) readonly returnFunction?: () => void

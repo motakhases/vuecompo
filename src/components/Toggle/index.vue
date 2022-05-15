@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <label
-      :class="['zpl-toggle']"
+  <label
+    :class="['zpl-toggle']"
+  >
+    <input
+      v-model="model"
+      type="checkbox"
+      :disabled="disabled"
     >
-      <input
-        v-model="model"
-        type="checkbox"
-        :disabled="disabled"
-      >
-      <span class="slider" />
-    </label>
-  </div>
+    <span class="slider" />
+  </label>
 </template>
 
 <script lang="ts">

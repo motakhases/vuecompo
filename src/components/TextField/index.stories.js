@@ -8,7 +8,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data: () => ({
     disabled: "سلام از طرف یک فیلد غیر فعال",
-    hint: "",
+    hint: "vals",
     number: "",
     icon1: "",
     icon2: "",
@@ -26,6 +26,7 @@ const Template = (_, { argTypes }) => ({
   	  v-model="hint"
   	  class="col-span-1"
   	  label="فیلد عادی"
+			:maxlength="151515"
   	/>
   	<TextField
   	  v-model="number"

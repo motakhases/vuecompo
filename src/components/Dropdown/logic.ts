@@ -105,5 +105,6 @@ export default class Dropdown extends Vue {
 
   beforeDestroy():void {
     window.removeEventListener('resize', this.onResize);
+    document.body.removeChild(this.menuRef);
   }
 }

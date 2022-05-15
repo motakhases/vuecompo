@@ -1,5 +1,6 @@
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import '@/utils/validations';
+import {
+  Vue, Component, Prop, Watch,
+} from 'vue-property-decorator';
 
 // Components
 import { ValidationProvider } from 'vee-validate';
@@ -64,7 +65,7 @@ export default class TextField extends Vue {
 
   set model(value: string | number) {
     if (this.type === 'number') {
-      this.$emit('input', value.toString().replace(/,/g, ''));
+      this.$emit('input', this.toEnNumber(value).toString().replace(/,/g, ''));
     } else {
       this.$emit('input', value);
     }
@@ -95,7 +96,6 @@ export default class TextField extends Vue {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   toEnNumber(payload: number | string): string {
     const modifiedToEnNumber = payload
       .toString()
@@ -107,7 +107,7 @@ export default class TextField extends Vue {
 
   onlyNumber(event: KeyboardEvent): boolean | void {
     if (this.type === 'number') {
-      if (!/\d/.test(event.key) && event.key !== '.') {
+      if (!/\d/.test(this.toEnNumber(event.key)) && event.key !== '.') {
         return event.preventDefault();
       }
     }
@@ -143,5 +143,12 @@ export default class TextField extends Vue {
     setTimeout(() => {
       this.copyToClipboardText = this.$i18n.t('common.copy');
     }, 1000);
+  }
+
+  @Watch('value')
+  updateLabel() {
+    if (this.value.length) {
+      this.isInputFocused = true;
+    }
   }
 }
