@@ -1,0 +1,45 @@
+.zpl-progress {
+  @apply bg-surface-soft relative overflow-hidden;
+  @apply dark:bg-surface-dark;
+
+  &.thick {
+    @apply h-xs rounded-sm;
+    .zpl-progress-bar {
+      @apply rounded-sm;
+    }
+  }
+
+  &.thin {
+    @apply h-2xs rounded-xs;
+  }
+
+  &-label {
+    @apply flex items-center gap-xs text-text-soft text-ss-cp mb-md;
+    @apply dark:text-text-dark-soft;
+  }
+  &-percent {
+    @apply flex items-center font-IRANYekanFaNum;
+    &::before {
+      content: "";
+      @apply w-[2px] h-[2px] bg-text-soft ml-xs rounded-circle;
+      @apply dark:bg-text-dark-soft;
+    }
+  }
+  &-bar {
+    @apply h-full bg-primaryZarinpal;
+    @apply dark:bg-primaryZarinpal-dark;
+    transition: width 0.5s linear;
+    
+    &.indeterminate {
+      @apply relative w-1/2 left-1/2;
+      animation-timing-function: linear;
+      animation: bluebar 1.5s infinite ease;
+    }
+  }
+}
+
+@keyframes bluebar {
+  50% {
+    left: -80%;
+  }
+}

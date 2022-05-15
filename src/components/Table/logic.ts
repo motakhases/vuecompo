@@ -45,6 +45,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: Boolean }) readonly loading?: boolean
 
+  @Prop({ type: Boolean }) readonly hasSubCustom?: boolean
+
   @Prop({ type: Boolean }) readonly hasCustom?: boolean
 
   @Prop({ type: Boolean }) readonly bordered?: boolean

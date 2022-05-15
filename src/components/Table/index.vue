@@ -19,7 +19,7 @@
       v-if="!isLoadCards && loading"
       :rows="7"
       :cols="columns"
-      :class="[{ hasCustom }, { actions }, { bordered }]"
+      :class="[{ hasCustom }, { actions }, { bordered }, { hasSubCustom }]"
     />
 
     <!-- Large view - Table -->
