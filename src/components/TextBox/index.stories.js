@@ -14,7 +14,7 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md flex flex-col gap-sm">
     <TextBox v-model="sm" size="small" label="سایز کوچک" disabled />
-    <TextBox v-model="md" size="medium" label="سایز متوسط" />
+    <TextBox v-model="md" size="medium" label="سایز متوسط" :maxlength="151515" />
     <TextBox v-model="lg" size="large" label="سایز بزرگ" />
   </div>
   `,
