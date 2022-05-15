@@ -1,22 +1,50 @@
 <template>
-  <div class="zpl-uploaded">
-    <img :src="file.image" />
-    <!-- <Icon name="clip" v-else /> -->
-    <div class="zpl-uploaded-name">{{ file.name }}</div>
-    <Button
-      v-if="file.status === 'loading'"
-      icon="Delete"
-      type="tertiary"
-      size="medium"
-    />
-    <div v-else>
+  <div class="zpl-uploaded-box" v-if="uploadedList.length">
+    <div
+      class="zpl-uploaded"
+      v-for="(file, index) in uploadedList"
+      :key="index"
+      :removeFileHandler="removeFileHandler"
+    >
+      <!-- icon -->
+      <Icon name="clip" v-if="hasIcon" />
+
+      <!-- image -->
+      <img v-else :src="file.image" />
+
+      <!-- name -->
+      <div class="zpl-uploaded-name">{{ file.name }}</div>
+
+      <!-- close button -->
       <Button
-        v-if="file.status === 'failed'"
-        icon="Reload"
+        v-if="file.status === 'uploading'"
+        icon="Delete"
         type="tertiary"
         size="medium"
       />
-      <Button icon="Trash" type="tertiary" size="medium" />
+      <div v-else>
+        <!-- reload button -->
+        <Button
+          v-if="file.status === 'error'"
+          icon="Reload"
+          type="tertiary"
+          size="medium"
+        />
+
+        <!-- delete button -->
+        <Button
+          v-if="file.status === 'error' || file.status === 'success'"
+          icon="Trash"
+          type="tertiary"
+          size="medium"
+          @click.native="removeFileHandler(file)"
+        />
+      </div>
+
+      <!-- progress bar -->
+      <div class="zpl-uploaded-progress" v-if="file.status === 'uploading'">
+        <ProgressBar size="thin" :percent="file.progress ? file.progress : '0'" />
+      </div>
     </div>
   </div>
 </template>

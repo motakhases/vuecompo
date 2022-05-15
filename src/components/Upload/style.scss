@@ -49,3 +49,9 @@
     @apply flex flex-col items-center relative m-0;
   }
 }
+.zpl-none-dropzone {
+  @apply p-0 border-0 min-h-0 max-w-fit font-sans;
+  .dz-message {
+    @apply m-0;
+  }
+}

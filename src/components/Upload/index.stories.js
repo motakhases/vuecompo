@@ -21,7 +21,13 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl w-[360px]">
-   <Upload title="آپلود فایل" :upload="uploadFile" :restrictionList="list" />
+   <Upload 
+   title="آپلود فایل" 
+   :upload="uploadFile" 
+   :restrictionList="list" 
+   :dropzone="false"
+   url="https://httpbin.org/post"
+   />
 
   
 	</div>

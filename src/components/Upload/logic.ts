@@ -3,6 +3,7 @@ import {
 } from 'vue-property-decorator';
 import vue2Dropzone from 'vue2-dropzone';
 import Button from '@/components/Button/index.vue';
+import { IUploadedFiles, IDropzoneFiles } from '@/types';
 import DropZone from './_dropZone/index.vue';
 import UploadedFile from './_uploadedFile/index.vue';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
@@ -15,71 +16,75 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 export default class Upload extends Vue {
   @Prop({ type: String }) readonly title?: string
 
+  @Prop({ type: String }) readonly url!: string
+
   @Prop({ type: Array }) readonly restrictionList?: string[]
 
-  @Prop({ type: String, default: 'smallSpace' }) readonly space!: string
+  @Prop({ type: Number, default: 1 }) readonly maxFiles!: number
 
-  @Prop({ type: Boolean, default: true }) readonly indicator!: boolean
+  @Prop({ type: Number, default: 0.5 }) readonly maxFileSize!: number
 
-  @Prop({ type: String, default: 'large' }) readonly size!: string
-
-  @Prop({ type: Function }) readonly upload!: () => any
+  @Prop({ type: Boolean, default: true }) readonly dropzone!: boolean
 
   @Ref() readonly dropzoneRef!: any
 
   dropzoneOptions= {
-    url: 'https://httpbin.org/post',
-    thumbnailWidth: 150,
-    maxFilesize: 0.5,
+    url: '',
+    maxFilesize: this.maxFileSize,
     headers: { 'My-Awesome-Header': 'header value' },
     previewsContainer: false,
   }
 
-uploadedList=[]
+  uploadedList : IUploadedFiles[]=[]
 
-getFiles(file) {
-  // console.log(file);
-  // console.log(file.dataURL);
-  // console.log(file.height);
-  const attachment = {};
-  attachment._id = file.upload.uuid;
-  attachment.title = file.name;
-  attachment.type = 'file';
-  // attachment.content = 'File Upload by Select or Drop';
-  attachment.image = file.dataURL;
-  attachment.isLoading = true;
-  attachment.status = null;
-  attachment.size = file.size;
-  // this.uploadedList = [...this.uploadedList, attachment];
-}
+  compeletList:IDropzoneFiles[]=[]
 
-uploadProgress(file, progress, bytesSent) {
-  console.log('File Upload Progress', progress, file);
-  // this.tempAttachments.map((attachment) => {
-  //   if (attachment.title === file.name) {
-  //     attachment.progress = `${Math.floor(progress)}`;
-  //   }
-  // });
-  const attachment = {};
-  attachment.image = file.dataURL;
+  successUploaded(file:IDropzoneFiles) {
+    console.log(file);
+    this.uploadedList.forEach((item, index) => {
+      if (item.id === file.upload.uuid) {
+        this.$set(this.uploadedList[index], 'status', file.status);
+      }
+    });
+  }
 
-  // this.uploadedList = [...this.uploadedList, attachment];
-}
+  images(file:IDropzoneFiles) {
+    const attachment:IUploadedFiles = {
+      name: '',
+      image: '',
+      status: '',
+      id: '',
+      progress: '',
+    };
+    attachment.image = file.dataURL;
+    attachment.status = file.status;
+    attachment.name = file.name;
+    attachment.id = file.upload.uuid;
 
-images(file, dataUrl) {
-  console.log(file, dataUrl);
-  const attachment = {};
-  attachment.image = file.dataURL;
+    this.uploadedList = [...this.uploadedList, attachment];
+    this.compeletList = [...this.compeletList, file];
+  }
 
-  this.uploadedList = [...this.uploadedList, attachment];
-}
+  fileUploadProgress(file: IDropzoneFiles, progress: number) {
+    this.uploadedList.forEach((item, index) => {
+      if (item.id === file.upload.uuid) {
+        this.$set(this.uploadedList[index], 'progress', `${Math.floor(progress)}`);
+      }
+    });
+  }
 
-  // progress(file, progress, bytesSent) {
-  //   console.log(file.dataURL);
-  //   const attachment = {};
-  //   attachment.image = file.dataURL;
+  removeFileHandler(file: IDropzoneFiles) {
+    this.compeletList.forEach((item, i) => {
+      if (item.upload.uuid === file.id) {
+        this.compeletList.splice(i, 1);
+        this.dropzoneRef.removeFile(file);
+        this.uploadedList.splice(i, 1);
+      }
+    });
+  }
 
-//   this.uploadedList = [...this.uploadedList, attachment];
-//   console.log(this.uploadedList);
-// }
+  created(): void {
+    this.dropzoneOptions.url = this.url;
+    this.dropzoneOptions.maxFilesize = this.maxFileSize;
+  }
 }

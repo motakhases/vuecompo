@@ -154,3 +154,32 @@ export interface QuickFilterBtn {
   value: any;
   click(): void;
 }
+
+/**
+ * @/components/upload
+ * --------------------------------------------------
+ */
+
+export interface IUploadedFiles {
+  name: string;
+  image: string;
+  status: string;
+  id: string;
+  progress: string
+}
+
+/**
+ * @/components/upload dropzone
+ * --------------------------------------------------
+ */
+export interface IDropzoneFiles {
+  name: string;
+  image: string;
+  status: string;
+  id: string;
+  progress: string;
+  dataURL: string;
+  upload:{
+    uuid: string
+  }
+}
