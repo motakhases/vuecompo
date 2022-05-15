@@ -7,7 +7,7 @@
     @apply text-b2 text-text truncate flex-1;
   }
   img {
-    @apply w-[40px] h-[40px] overflow-hidden;
+    @apply w-[40px] h-[40px] overflow-hidden rounded-sm;
   }
   &-progress {
     @apply w-full;
