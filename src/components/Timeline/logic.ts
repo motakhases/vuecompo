@@ -8,9 +8,9 @@ import Icon from '@/components/Icon/index.vue';
 export default class Timeline extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string
 
-  @Prop({ type: String, required: true }) readonly subText!: string
+  @Prop({ type: String }) readonly subText?: string
 
-  @Prop({ type: String, required: true }) readonly date!: string
+  @Prop({ type: String }) readonly date?: string
 
   @Prop({ type: String, required: true }) readonly icon!: string
 
