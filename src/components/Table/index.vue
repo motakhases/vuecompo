@@ -125,8 +125,8 @@
     <!-- Empty State -->
     <Empty-state
     v-if="!data || (data && !data.length)"
-    :title="$t('common.table.empty_title', { title : emptyField })"
-    :caption="$t('common.table.empty_caption', { title : emptyField })"
+    :title="emptyTitle"
+    :caption="emptyCaption"
     />
   </div>
 </template>
