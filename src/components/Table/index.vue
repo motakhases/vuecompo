@@ -98,7 +98,7 @@
                     :icon="item.icon"
                     v-for="(item, index) in actions.slice(0, 2)"
                     :key="index"
-                    @click.native="item.action()"
+                    @click.native="item.action(td)"
                   />
                 </div>
                   <Dropdown
