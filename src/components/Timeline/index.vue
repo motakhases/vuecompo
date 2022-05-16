@@ -19,7 +19,7 @@
           :text="labelText"
         />
       </div>
-      <div class="zpl-timeline-sub">
+      <div class="zpl-timeline-sub" v-if="subText">
         {{ subText }}
       </div>
       <div class="zpl-timeline-sub" v-if="date">

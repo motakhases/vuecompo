@@ -7,14 +7,11 @@
       </span>
     </div>
     <div :class="['zpl-progress', size]">
-      <transition
+      <div
+        class="zpl-progress-bar determinate"
+        :style="{ width: `${percent}%` }"
         v-if="type === 'determinate'"
-        appear
-        @before-appear="beforeEnter"
-        @after-appear="enter"
-      >
-        <div class="zpl-progress-bar"></div>
-      </transition>
+      ></div>
       <div
         v-if="type === 'indeterminate'"
         class="zpl-progress-bar indeterminate"

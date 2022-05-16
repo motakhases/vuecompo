@@ -98,7 +98,7 @@
                     :icon="item.icon"
                     v-for="(item, index) in actions.slice(0, 2)"
                     :key="index"
-                    @click.native="item.action()"
+                    @click.native="item.action(td)"
                   />
                 </div>
                   <Dropdown
@@ -125,8 +125,8 @@
     <!-- Empty State -->
     <Empty-state
     v-if="!data || (data && !data.length)"
-    :title="$t('common.table.empty_title', { title : emptyField })"
-    :caption="$t('common.table.empty_caption', { title : emptyField })"
+    :title="emptyTitle"
+    :caption="emptyCaption"
     />
   </div>
 </template>

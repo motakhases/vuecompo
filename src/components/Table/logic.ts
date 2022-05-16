@@ -57,7 +57,9 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array, required: true }) readonly columns!: IColumn[]
 
-  @Prop({ type: String, required: true }) readonly emptyField?: string
+  @Prop({ type: String, required: true }) readonly emptyTitle?: string
+
+  @Prop({ type: String, required: true }) readonly emptyCaption?: string
 
   @Ref('table') readonly tableRef!: HTMLElement
 

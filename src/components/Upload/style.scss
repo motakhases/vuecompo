@@ -1,0 +1,57 @@
+.zpl-upload {
+  /* Default */
+  @apply flex flex-col gap-sm;
+
+  &-title {
+    /* Default */
+    @apply text-text text-ls-h3 font-bold;
+
+    /* dark */
+    @apply dark:text-text-dark;
+  }
+  &-restriction {
+    /* Default */
+    @apply list-none flex flex-col gap-2xs;
+
+    li {
+      /* Default */
+      @apply text-b3 text-text-soft;
+
+      /* dark */
+      @apply dark:text-text-dark-soft;
+    }
+  }
+}
+.zpl-dropzone {
+  /* Default */
+  @apply h-[140px] bg-surface border border-dashed border-border rounded-sm;
+  @apply py-2xl px-md font-sans;
+
+  /* hover */
+  @apply hover:bg-surface-hover;
+
+  &-text {
+    /* Default */
+    @apply mt-md text-b3 text-text;
+  }
+  &.active {
+    @apply bg-surface-active;
+  }
+  input {
+    /* Default */
+    @apply opacity-0 absolute top-0 right-0 w-full h-full cursor-pointer;
+  }
+  button {
+    /* Default */
+    @apply relative z-10;
+  }
+  .dz-message {
+    @apply flex flex-col items-center relative m-0;
+  }
+}
+.zpl-none-dropzone {
+  @apply p-0 border-0 min-h-0 max-w-fit font-sans;
+  .dz-message {
+    @apply m-0;
+  }
+}

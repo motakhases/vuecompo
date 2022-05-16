@@ -1,0 +1,18 @@
+.zpl-uploaded {
+  /* Default */
+  @apply flex items-center gap-md flex-wrap;
+
+  &-name {
+    /* Default */
+    @apply text-b2 text-text truncate flex-1;
+  }
+  img {
+    @apply w-[40px] h-[40px] overflow-hidden rounded-sm;
+  }
+  &-progress {
+    @apply w-full;
+  }
+  &-box {
+    @apply border border-border-divider rounded-sm p-sm flex flex-col gap-y-md;
+  }
+}

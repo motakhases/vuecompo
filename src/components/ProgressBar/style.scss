@@ -29,11 +29,14 @@
     @apply h-full bg-primaryZarinpal;
     @apply dark:bg-primaryZarinpal-dark;
     transition: width 0.5s linear;
-    
+
     &.indeterminate {
       @apply relative w-1/2 left-1/2;
       animation-timing-function: linear;
       animation: bluebar 1.5s infinite ease;
+    }
+    &.determinate {
+      transition: width 1s linear;
     }
   }
 }

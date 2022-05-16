@@ -7,6 +7,7 @@ import { ValidationProvider } from 'vee-validate';
 import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
+import '@/utils/validations';
 
 @Component({
   components: {

@@ -1,9 +1,9 @@
 import {
   Vue, Component, Prop, VModel, Watch,
 } from 'vue-property-decorator';
-
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
+import '@/utils/validations';
 
 @Component({
   components: {

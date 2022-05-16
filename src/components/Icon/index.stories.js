@@ -52,6 +52,8 @@ const Template = (_, { argTypes }) => ({
         "BankSignalSquare",
         "CheckMarkCircleOutlined",
         "Copy",
+        "Cloud",
+        "Clip",
         "CreditCardCheckmark",
         "Discount",
         "DollarFill",
@@ -71,7 +73,9 @@ const Template = (_, { argTypes }) => ({
         "Download",
         "Instagram",
         "Telegram",
+        "Trash",
         "Whatsapp",
+        "Reload"
       ],
     };
   },
