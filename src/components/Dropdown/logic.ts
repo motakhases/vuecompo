@@ -17,9 +17,9 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: [String, Object, Array, Number] }) readonly customPayload?: any;
 
-  @Ref('button') readonly buttonRef!: HTMLElement
+  @Ref('button') readonly buttonRef!: HTMLElement;
 
-  @Ref('menu') readonly menuRef!: HTMLElement
+  @Ref('menu') readonly menuRef!: any;
 
   toggle = false;
 
@@ -30,9 +30,9 @@ export default class Dropdown extends Vue {
     left: '',
   };
 
-  windowWidth= window.innerWidth
+  windowWidth = window.innerWidth;
 
-  finalColor(color:string):string {
+  finalColor(color: string): string {
     return `!text-${color}`;
   }
 
@@ -82,7 +82,7 @@ export default class Dropdown extends Vue {
     }
   }
 
-  onResize():void {
+  onResize(): void {
     this.$nextTick(() => {
       // update position of menue when window is resizing
       this.windowWidth = window.innerWidth;
@@ -99,12 +99,19 @@ export default class Dropdown extends Vue {
       this.outsideClick,
       false,
     );
-    this.buttonRef.children[0].addEventListener('click', this.onButtonClick, false);
+    this.buttonRef.children[0].addEventListener(
+      'click',
+      this.onButtonClick,
+      false,
+    );
     window.addEventListener('resize', this.onResize);
   }
 
-  beforeDestroy():void {
+  beforeDestroy(): void {
     window.removeEventListener('resize', this.onResize);
-    document.body.removeChild(this.menuRef);
+    if (this.menuRef) {
+      this.menuRef.parentNode.removeChild(this.menuRef);
+    }
+    this.toggle = false;
   }
 }
