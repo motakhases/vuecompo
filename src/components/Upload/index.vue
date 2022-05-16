@@ -3,7 +3,9 @@
     <div class="zpl-upload-title" v-if="title">
       {{ title }}
     </div>
-    <ul class="zpl-upload-restriction" v-if="restrictionList">
+    <ul
+      class="zpl-upload-restriction"
+      v-if="restrictionList && uploadedList.length < maxFiles">
       <li v-for="(item, index) in restrictionList" :key="index">{{ item }}</li>
     </ul>
     <slot />
