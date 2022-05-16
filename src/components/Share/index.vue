@@ -8,13 +8,13 @@
           <div class="zpl-share-socials">
             <Social
               key-name="telegram"
-              :name="$t('user.common.TELEGRAM')"
+              :name="$t('common.TELEGRAM')"
               :title="title"
               :url="url"
             />
             <Social
               key-name="whatsapp"
-              :name="$t('user.common.WHATSAPP')"
+              :name="$t('common.WHATSAPP')"
               :title="title"
               :url="url"
             />
