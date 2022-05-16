@@ -28,7 +28,6 @@
           suffix-icon="Calendar"
           disabled
         />
-        ddf
       </div>
       <div class="range-input">
         <label>{{ $t('date.end') }}</label>

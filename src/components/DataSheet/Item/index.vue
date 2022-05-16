@@ -3,7 +3,7 @@
     <span class="zpl-ds-item-title">
       {{ title }}
     </span>
-    <span>
+    <span class="truncate">
       <slot />
     </span>
   </div>

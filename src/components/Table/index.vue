@@ -124,7 +124,7 @@
 
     <!-- Empty State -->
     <Empty-state
-    v-if="!data || (data && !data.length)"
+    v-if="(!data && !loading) || (data && !data.length && !loading)"
     :title="emptyTitle"
     :caption="emptyCaption"
     />

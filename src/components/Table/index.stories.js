@@ -252,10 +252,9 @@ const Template = (_, { argTypes }) => ({
       قابل انتخاب
     </h1>
     <Table
-      :data="tableData2"
+      :data="[]"
       :columns="columns"
       selectable
-      loading
       hasCustom
     />
     <h1 class="my-sm font-bold dark:text-surface">
