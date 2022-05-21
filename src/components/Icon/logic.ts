@@ -67,6 +67,11 @@ import Trash from './icons/Trash.vue';
 import Whatsapp from './icons/Whatsapp.vue';
 import Download from './icons/Download.vue';
 import Reload from './icons/Reload.vue';
+import DarkMode from './icons/DarkMode.vue';
+import CodeBlock from './icons/CodeBlock.vue';
+import OfficialBadge from './icons/OfficialBadge.vue';
+import Github from './icons/Github.vue';
+import Link from './icons/Link.vue';
 
 @Component({
   components: {
@@ -136,6 +141,11 @@ import Reload from './icons/Reload.vue';
     Telegram,
     Trash,
     Whatsapp,
+    DarkMode,
+    CodeBlock,
+    OfficialBadge,
+    Github,
+    Link,
   },
 })
 export default class Icon extends Vue {

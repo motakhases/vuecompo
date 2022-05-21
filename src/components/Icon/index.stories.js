@@ -75,7 +75,12 @@ const Template = (_, { argTypes }) => ({
         "Telegram",
         "Trash",
         "Whatsapp",
-        "Reload"
+        "Reload",
+        "DarkMode",
+        "CodeBlock",
+        "OfficialBadge",
+        "Github",
+        "Link",
       ],
     };
   },
