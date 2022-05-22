@@ -4,6 +4,7 @@
       :data="data"
       :route-name="routeName"
       :link-id="linkId"
+      :params="params"
     />
   </td>
 </template>
