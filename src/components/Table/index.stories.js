@@ -12,9 +12,10 @@ const Template = (_, { argTypes }) => ({
   data: () => ({
     tableData: [
       {
+        id: "mne",
         price: {
           type: "custom",
-          id: 1,
+          id: "shayes",
           data: {
             image: "",
             title: "سلام",
@@ -222,6 +223,7 @@ const Template = (_, { argTypes }) => ({
       route-name="session"
       dropdownWidth="320px"
       hasCustom
+      :params="{terminal:'df'}"
     />
 
     <Table

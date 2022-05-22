@@ -14,6 +14,15 @@ module.exports = {
           query: { presets: ['es2015'] },
         },
       ],
+      rules: [
+        {
+          test: /\.(jpg|png|svg)$/,
+          loader: 'url-loader',
+          options: {
+            limit: Infinity, // everything
+          },
+        },
+      ],
     },
     target: 'node',
     browser: {
