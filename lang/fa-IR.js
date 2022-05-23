@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   auth: {
     logout: 'خروج',
