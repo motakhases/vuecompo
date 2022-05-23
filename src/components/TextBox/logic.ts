@@ -18,6 +18,8 @@ export default class TextBox extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean
 
+  @Prop({ type: String }) readonly inputName?: string;
+
   @Prop({ type: String, default: '' }) readonly label!: string
 
   @Prop({ type: Number }) readonly maxlength?: number

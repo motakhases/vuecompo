@@ -26,6 +26,8 @@ export default class TextField extends Vue {
 
   @Prop({ type: String }) readonly rules?: string;
 
+  @Prop({ type: String }) readonly inputName?: string;
+
   @Prop({ type: String }) readonly hint?: string;
 
   @Prop({ type: String }) readonly successMessage?: string;
