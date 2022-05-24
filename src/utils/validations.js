@@ -1,22 +1,12 @@
-import { extend } from 'vee-validate';
+import { extend, localize } from 'vee-validate';
+import * as rules from 'vee-validate/dist/rules';
+import fa from '../../lang/validationFa.json';
 
-extend('odd', {
-  validate: (value) => value % 2 !== 0,
-  message: 'این فیلد باید فرد باشد',
-});
-
-extend('required', {
-  validate(value) {
-    return {
-      required: true,
-      valid: ['', null, undefined].indexOf(value) === -1,
-    };
-  },
-  computesRequired: true,
-  message: 'این فیلد الزامیست',
-
-});
-extend('min', {
-  validate: (value) => value.length >= 3,
-  message: 'تعداد کاراکتر باید بیشتر از 3 باشد',
-});
+// eslint-disable-next-line no-restricted-syntax
+for (const [rule, validation] of Object.entries(rules)) {
+  extend(rule, {
+    ...validation,
+  });
+}
+localize('fa', fa);
+window.fa = fa;

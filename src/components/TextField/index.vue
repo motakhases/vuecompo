@@ -2,6 +2,8 @@
   <ValidationProvider
     v-slot="{ invalid, errors, passed }"
     :rules="rules"
+    :name="label"
+    :vid="inputName"
   >
     <div class="zpl-textfield-group">
       <div
@@ -21,6 +23,7 @@
           :disabled="disabled"
           :maxlength="maxlength"
           :placeholder="placeholder"
+          :name="inputName"
           :readonly="readonly"
           @focusout="onFocusOut"
           @focusin="onFocusIn"

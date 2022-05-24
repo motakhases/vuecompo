@@ -24,7 +24,9 @@ export default class TextField extends Vue {
 
   @Prop({ type: Number }) readonly maxlength?: number;
 
-  @Prop({ type: String }) readonly rules?: string;
+  @Prop({ type: [String, Object] }) readonly rules?: string|object;
+
+  @Prop({ type: String }) readonly inputName?: string;
 
   @Prop({ type: String }) readonly hint?: string;
 
