@@ -37,7 +37,7 @@ export default class Select extends Vue {
 
   @Prop({ type: Boolean }) readonly search?: boolean
 
-  @Prop({ type: String }) readonly rules?: string
+  @Prop({ type: [String, Object] }) readonly rules?: string|object;
 
   @Prop({ type: String }) readonly placeholder?: string
 
