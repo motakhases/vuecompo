@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.1.57",
+  "version": "2.1.58",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
