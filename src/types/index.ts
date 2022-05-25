@@ -1,4 +1,4 @@
-import VueI18n from 'vue-i18n';
+import VueI18n from "vue-i18n";
 
 export interface SegmentedBtn {
   text: string;
@@ -165,7 +165,7 @@ export interface IUploadedFiles {
   image: string;
   status: string;
   id: string;
-  progress: string
+  progress: string;
 }
 
 /**
@@ -179,7 +179,8 @@ export interface IDropzoneFiles {
   id: string;
   progress: string;
   dataURL: string;
-  upload:{
-    uuid: string
-  }
+  accepted: boolean;
+  upload: {
+    uuid: string;
+  };
 }

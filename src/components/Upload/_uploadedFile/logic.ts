@@ -12,4 +12,6 @@ export default class UploadedFile extends Vue {
   @Prop({ type: Boolean, default: false }) readonly hasIcon!: boolean
 
   @Prop({ type: Function }) readonly removeFileHandler!: () => any
+
+  @Prop({ type: Function }) readonly addFileManually!: () => any
 }
