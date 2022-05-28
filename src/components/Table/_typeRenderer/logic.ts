@@ -26,6 +26,8 @@ interface ITypeRendererData {
 export default class Logic extends Vue {
   @Prop({ type: Object, required: true }) readonly data!: ITypeRendererData
 
+  @Prop({ type: Object }) readonly params?: any
+
   @Prop({ type: String }) readonly routeName?: string
 
   @Prop({ type: [String, Number] }) readonly linkId?: string | number

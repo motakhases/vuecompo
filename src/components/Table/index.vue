@@ -11,9 +11,9 @@
         :actions="actions"
         :route-name="routeName"
         :link-id="findLinkId(td)"
+        :params="params"
       />
     </template>
-
     <!-- Loading -->
     <LoadingTable
       v-if="!isLoadCards && loading"
@@ -83,6 +83,7 @@
                 :width="col.width"
                 :min-width="col.minWidth"
                 :max-width="col.maxWidth"
+                :params="params"
               />
 
               <!-- Actions -->

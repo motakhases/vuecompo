@@ -61,6 +61,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly emptyCaption?: string
 
+  @Prop({ type: Object }) readonly params?: any
+
   @Ref('table') readonly tableRef!: HTMLElement
 
   isLoadCards = false
@@ -104,10 +106,8 @@ export default class Logic extends Vue {
   findLinkId(td: any) {
     const tdAsArray = Object.values(td);
     const tdValuesAsArray = Object.values(tdAsArray);
-
     const hasId = (obj: any): obj is any => obj?.id !== undefined;
     const id = tdValuesAsArray.filter(hasId);
-
     return id.length ? id[0].id : null;
   }
 

@@ -2,6 +2,9 @@
   <ValidationProvider
     v-slot="{ errors, passed }"
     :rules="rules"
+    :name="label"
+    :vid="inputName"
+
   >
     <div :class="['zpl-select-group']">
       <div
@@ -19,6 +22,7 @@
           class="zpl-select-input"
           :disabled="disabled"
           :placeholder="placeholder"
+          :name="inputName"
           :value="inputModel"
           @focusout="onFocusOut"
           @keyup="onKeyUp"

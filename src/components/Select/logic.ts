@@ -27,6 +27,8 @@ export default class Select extends Vue {
 
   @Prop({ type: String }) readonly hint?: string
 
+  @Prop({ type: String }) readonly inputName?: string;
+
   @Prop({ type: String }) readonly successMessage?: string
 
   @Prop({ type: Array }) readonly options!: ISelectOptions[]
@@ -35,7 +37,7 @@ export default class Select extends Vue {
 
   @Prop({ type: Boolean }) readonly search?: boolean
 
-  @Prop({ type: String }) readonly rules?: string
+  @Prop({ type: [String, Object] }) readonly rules?: string|object;
 
   @Prop({ type: String }) readonly placeholder?: string
 

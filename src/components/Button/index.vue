@@ -4,6 +4,7 @@
     :to="to"
     :class="['zpl-button', size, type, { fill, icon }]"
     :disabled="disabled"
+    :type="btnType"
   >
     <!-- shows if loading is true -->
     <div
@@ -13,6 +14,7 @@
       <div class="zpl-button-loading-1" />
       <div class="zpl-button-loading-2" />
     </div>
+
     <!-- shows if before icon exists -->
     <Icon
       v-if="beforeIcon && !loading"
