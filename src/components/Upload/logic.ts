@@ -31,6 +31,8 @@ export default class Upload extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
 
+  @Prop({ type: Object }) readonly headers?: any;
+
   @Prop({ type: Function, required: true }) readonly toast!: (
     text: string,
     type: string
@@ -43,10 +45,11 @@ export default class Upload extends Vue {
     maxFilesize: 1,
     maxFiles: 1,
     acceptedFiles: '',
-    headers: { 'My-Awesome-Header': 'header value' },
+    headers: { },
     previewsContainer: false,
     dictFileTooBig: this.$i18n.t('warnings.upload.size'),
     dictInvalidFileType: this.$i18n.t('warnings.upload.format'),
+    dictMaxFilesExceeded: this.$i18n.t('warnings.upload.files', { maxFiles: this.maxFiles }),
   };
 
   uploadedList: IUploadedFiles[] = [];
@@ -80,8 +83,7 @@ export default class Upload extends Vue {
   }
 
   error(file: IDropzoneFiles, msg:string, xhr: IDropzoneFiles) {
-    console.log(file, msg, xhr);
-    // this.toast(msg, 'error');
+    this.toast(msg, 'error');
   }
 
   addFileManually(file: IDropzoneFiles) {
@@ -115,5 +117,9 @@ export default class Upload extends Vue {
     this.dropzoneOptions.maxFilesize = this.maxFileSize;
     this.dropzoneOptions.maxFiles = this.maxFiles;
     this.dropzoneOptions.acceptedFiles = this.acceptedFiles;
+    this.dropzoneOptions.headers = this.headers;
+    this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
+    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t('warnings.upload.format');
+    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t('warnings.upload.files', { maxFiles: this.maxFiles });
   }
 }
