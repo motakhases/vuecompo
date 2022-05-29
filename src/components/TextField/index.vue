@@ -19,6 +19,7 @@
 
         <input
           v-model="model"
+          autocomplete="off"
           :class="['zpl-textfield-input', { ltr }]"
           :disabled="disabled"
           :maxlength="maxlength"
