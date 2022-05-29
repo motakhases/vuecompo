@@ -7,7 +7,7 @@
         :link="switcher.link"
         :icon="switcher.icon"
       />
-      <div class="zpl-nav-popover" v-if="showPopover" @click="handleHidePopover">
+      <div class="zpl-nav-popover" v-show="showPopover" @click="handleHidePopover">
         <div>
           <!-- Title -->
           <Overview link="overview" :active="!hasActive">
@@ -44,9 +44,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import logic from "./logic";
-import "./style.scss";
+import Vue from 'vue';
+import logic from './logic';
+import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
 </script>
