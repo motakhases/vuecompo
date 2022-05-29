@@ -5,7 +5,7 @@
 }
 .zpl-textbox {
   /* Default */
-  @apply border border-border rounded-sm w-full text-text-soft p-sm;
+  @apply border border-border rounded-sm w-full text-text p-sm;
   @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
 
   /* hover */
