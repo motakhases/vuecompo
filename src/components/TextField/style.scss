@@ -140,7 +140,7 @@
 
   &.error {
     /* Default */
-    @apply absolute text-text-danger;
+    @apply text-text-danger;
     @apply dark:text-text-dark-danger;
   }
 
