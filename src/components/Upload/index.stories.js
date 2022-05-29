@@ -27,6 +27,7 @@ const Template = (_, { argTypes }) => ({
    :restrictionList="list" 
    :dropzone="true"
    :maxFiles="5"
+   :maxFileSize="0.1"
    url="https://httpbin.org/post"
    acceptedFiles=".jpeg,.jpg,.png,.gif"
    />

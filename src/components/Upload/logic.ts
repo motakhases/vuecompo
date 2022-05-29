@@ -82,8 +82,10 @@ export default class Upload extends Vue {
     }
   }
 
-  error(file: IDropzoneFiles, msg:string, xhr: IDropzoneFiles) {
-    this.toast(msg, 'error');
+  error(file: IDropzoneFiles, msg: string, xhr: IDropzoneFiles) {
+    if (file.status !== 'canceled') {
+      this.toast(msg, 'error');
+    }
   }
 
   addFileManually(file: IDropzoneFiles) {
