@@ -13,7 +13,7 @@
     @apply flex-grow ml-xs;
     @apply lg:ml-md lg:order-none lg:mt-0;
     .title {
-      @apply text-ls-h1 leading-[40px];
+      @apply text-ls-h1 leading-[40px] font-bold;
       @apply text-text;
       @apply dark:text-text-dark;
     }

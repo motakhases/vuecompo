@@ -38,7 +38,10 @@
   /* Default */
   @apply absolute top-sm right-sm text-ls-cp z-10 py-[2px] px-2xs transition-all ease-in-out	delay-100;
   @apply dark:bg-surface-dark text-text-dark-soft;
-
+  
+  &:not(.isInputFocused) {
+    @apply text-b2;
+  }
   &.isInputFocused {
     @apply bg-surface -top-xs;
     @apply dark:bg-surface-dark;
