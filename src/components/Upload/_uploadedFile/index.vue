@@ -21,6 +21,7 @@
         icon="Delete"
         type="tertiary"
         size="medium"
+        @click.native="removeFileHandler(file)"
       />
       <div v-else class="flex items-center gap-2xs">
         <!-- reload button -->
@@ -29,6 +30,7 @@
           icon="Reload"
           type="tertiary"
           size="medium"
+          @click.native="addFileManually(file)"
         />
 
         <!-- delete button -->

@@ -28,6 +28,7 @@ const Template = (_, { argTypes }) => ({
    :dropzone="true"
    :maxFiles="5"
    url="https://httpbin.org/post"
+   acceptedFiles=".jpeg,.jpg,.png,.gif"
    />
 
   
