@@ -5,6 +5,7 @@
     :chart-id="chartId"
     :width="width"
     :height="height"
+    :plugins="plugins"
   />
 </template>
 
