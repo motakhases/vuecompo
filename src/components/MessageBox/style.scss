@@ -1,0 +1,31 @@
+.zpl-message-box {
+  @apply flex flex-row;
+  .avatar{
+    @apply w-[40px] h-[40px];
+    img{
+      @apply rounded-circle;
+    }
+  }
+  .message-box{
+    @apply w-full mr-md rounded-md rounded-tr-sm p-lg;
+    &.my-reply{
+      @apply border border-border-divider bg-surface;
+    }
+    &.others-reply{
+      @apply bg-surface-soft;
+    }
+    .content{
+      @apply whitespace-pre-line font-sans text-b2 text-text;
+    }
+    .attachment-link{
+      @apply mt-md;
+    }
+    .detail{
+      @apply text-text-soft text-ls-cp float-left mt-md;;
+      .detail-separator{
+        @apply px-2xs;
+      }
+    }
+    
+  }
+}

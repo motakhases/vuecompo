@@ -184,3 +184,13 @@ export interface IDropzoneFiles {
     uuid: string;
   };
 }
+
+/**
+ * @/components/messageBox
+ * --------------------------------------------------
+ */
+export interface ITicketRepliedUser {
+  name: string;
+  id: string;
+  avatar: string;
+}
