@@ -35,7 +35,8 @@
 }
 
 .zpl-nav-terminal-arrow {
-  @apply w-xl;
+  @apply w-xl text-icon;
+  @apply dark:text-icon-dark;
 }
 
 .zpl-nav-terminal-active {
