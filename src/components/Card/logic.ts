@@ -6,4 +6,14 @@ import Icon from '@/components/Icon/index.vue';
 })
 export default class Card extends Vue {
   @Prop({ type: String }) readonly title!: string;
+
+  hasContent = false
+
+  mounted() {
+    if (this.$slots.default) {
+      this.hasContent = true;
+    } else {
+      this.hasContent = false;
+    }
+  }
 }
