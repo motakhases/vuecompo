@@ -4,8 +4,8 @@
     :chart-data="chartData"
     :chart-id="chartId"
     :width="width"
-    :height="height"
     :plugins="plugins"
+    ref="chart"
   />
 </template>
 
