@@ -1,6 +1,6 @@
 .zpl-segment-button {
   /* Default */
-  @apply bg-transparent px-sm py-2xs rounded-sm text-text;
+  @apply bg-transparent px-sm py-2xs rounded-sm text-text text-btn font-medium;
   @apply dark:text-text-dark;
   &:not(:last-child) {
     @apply ml-2xs;
