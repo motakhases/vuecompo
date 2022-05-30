@@ -1,9 +1,9 @@
 .zpl-nav-item {
   @apply whitespace-nowrap;
-  
+
   /* tooltip */
   .zpl-tooltip-container {
-		@apply w-full;
+    @apply w-full;
     &:hover {
       .zpl-tooltip {
         @apply hidden;
@@ -38,6 +38,7 @@
     &:before {
       content: "";
       @apply bg-primaryZarinpal w-2xs h-2xl absolute right-[-16px] rounded-tl-sm rounded-bl-sm;
+      @apply dark:bg-primaryZarinpal-dark;
     }
     svg {
       @apply text-primaryZarinpal;
