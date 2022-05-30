@@ -7,11 +7,10 @@ import Button from '@/components/Button/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Notification from '@/components/TopBar/Notification/index.vue';
 import TerminalList from '@/components/TopBar/TerminalList/index.vue';
-import UserProfile from '@/components/TopBar/UserProfile/index.vue';
 
 @Component({
   components: {
-    Icon, Logo, Button, Notification, TerminalList, UserProfile, Dropdown,
+    Icon, Logo, Button, Notification, TerminalList, Dropdown,
   },
 })
 export default class TopBar extends Vue {
