@@ -6,26 +6,34 @@
       @apply rounded-circle;
     }
   }
-  .message-box{
-    @apply w-full mr-md rounded-md rounded-tr-sm p-lg;
-    &.my-reply{
-      @apply border border-border-divider bg-surface;
-    }
-    &.others-reply{
-      @apply bg-surface-soft;
-    }
-    .content{
-      @apply whitespace-pre-line font-sans text-b2 text-text;
-    }
-    .attachment-link{
-      @apply mt-md;
-    }
-    .detail{
-      @apply text-text-soft text-ls-cp float-left mt-md;;
-      .detail-separator{
-        @apply px-2xs;
+  .left-side{
+    @apply w-full mr-md;
+    .message-box{
+      @apply rounded-md rounded-tr-sm p-lg;
+      &.my-reply{
+        @apply border border-border-divider bg-surface;
+      }
+      &.others-reply{
+        @apply bg-surface-soft;
+      }
+      .content{
+        @apply whitespace-pre-line font-sans text-b2 text-text;
+      }
+      .attachment-link{
+        @apply mt-md;
+      }
+      .detail{
+        @apply text-text-soft text-ls-cp text-left mt-md;;
+        .detail-separator{
+          @apply px-2xs;
+        }
       }
     }
-    
+    .reply-feedback{
+      @apply px-lg mt-md text-ls-cp text-text-soft;
+      .thumbs-icons{
+        @apply mr-xs w-lg h-lg;
+      } 
+    }
   }
 }

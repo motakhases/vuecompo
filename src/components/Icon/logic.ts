@@ -63,6 +63,8 @@ import SettingsRound from './icons/SettingsRound.vue';
 import Share from './icons/Share.vue';
 import Instagram from './icons/Instagram.vue';
 import Telegram from './icons/Telegram.vue';
+import ThumbsDown from './icons/ThumbsDown.vue';
+import ThumbsUp from './icons/ThumbsUp.vue';
 import Trash from './icons/Trash.vue';
 import Whatsapp from './icons/Whatsapp.vue';
 import Download from './icons/Download.vue';
@@ -140,6 +142,8 @@ import Link from './icons/Link.vue';
     Instagram,
     Telegram,
     Trash,
+    ThumbsDown,
+    ThumbsUp,
     Whatsapp,
     DarkMode,
     CodeBlock,
