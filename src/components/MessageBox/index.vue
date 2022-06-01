@@ -29,7 +29,7 @@
             class="thumbs-icons"
             @click.native="replyFeedbackModal = true"
           />
-          <Modal v-if="replyFeedbackModal" @close="replyFeedbackModal = false" width="400px" title="گزارش پاسخ">
+          <Modal v-if="replyFeedbackModal" @close="replyFeedbackModal = false" width="400px" :title="$t(`ticket.report`)">
             <div slot="body" class="reply-feedback-modal">
               <div v-for="(item, index) in replyFeedbackItems" :key="index" class="feedback-box" @click="replyFeedback('INSUFFICIENT')">
                 <Icon
