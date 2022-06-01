@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-message-box">
-    <div class="avatar">
-      <img :src="user.avatar" width="40" height="40">
+    <div>
+      <Avatar :img="user.avatar"/>
     </div>
     <div class="left-side">
       <div :class="['message-box', {'my-reply':user.id===myId, 'others-reply':user.id!==myId}]">
