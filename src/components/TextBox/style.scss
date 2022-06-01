@@ -5,9 +5,16 @@
 }
 .zpl-textbox {
   /* Default */
-  @apply border border-border rounded-sm w-full text-text p-sm;
-  @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
+  @apply bg-transparent border border-border rounded-sm w-full text-text p-sm;
+  @apply dark:border-border-dark dark:text-text-dark;
 
+  &:not(.isInputFocused) {
+    @apply z-10;
+  }
+  &.isInputFocused {
+    @apply z-0;
+  }
+  
   /* hover */
   &:not(:focus):not(.error):not(:disabled):hover {
     @apply shadow-border-hover;
@@ -36,14 +43,14 @@
 }
 .zpl-textbox-label {
   /* Default */
-  @apply absolute top-sm right-sm text-ls-cp z-10 py-[2px] px-2xs transition-all ease-in-out	delay-100;
-  @apply dark:bg-surface-dark text-text-dark-soft;
-  
+  @apply absolute top-sm right-sm text-ls-cp py-[2px] px-2xs transition-all ease-in-out	delay-100 text-text-soft;
+  @apply dark:bg-surface-dark dark:text-text-dark-soft;
+
   &:not(.isInputFocused) {
-    @apply text-b2;
+    @apply text-b2 z-0;
   }
   &.isInputFocused {
-    @apply bg-surface -top-xs;
+    @apply bg-surface -top-xs z-10;
     @apply dark:bg-surface-dark;
   }
 }

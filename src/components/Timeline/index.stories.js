@@ -9,12 +9,15 @@ const Template = (_, { argTypes }) => ({
   components: { Timeline },
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col rtl">
+    <div class="w-[296px] mb-md">  
+      <Timeline title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
+    </div>
     <div class="w-[296px]">
       <Timeline title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
-      <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" icon="DollarFill" />
-      <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" labelText="labelText" icon="CheckmarkCircle"  />
-		  <Timeline title="عنوان رویداد" subText="زیرنویس" date="2022-01-15T15:05:25+03:30" labelText="labelText" icon="MessageEditFill"  />
-    </div>
+      <Timeline title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
+      <Timeline title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
+
+      </div>
 	</div>
   `,
 });

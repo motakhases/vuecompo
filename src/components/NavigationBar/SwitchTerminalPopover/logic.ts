@@ -26,6 +26,8 @@ export default class SwitchTerminalPopover extends Vue {
 
   @Prop({ type: Object }) activeTerminal?: INavigationBarTerminal
 
+  showPopover = false
+
   get hasActive(): boolean {
     return !!(this.activeTerminal && this.activeTerminal.domain);
   }
@@ -42,5 +44,13 @@ export default class SwitchTerminalPopover extends Vue {
         : '',
       icon: this.activeTerminal && this.activeTerminal.name ? 'terminal' : 'ChartSquare',
     };
+  }
+
+  handleShowPopover() {
+    this.showPopover = true;
+  }
+
+  handleHidePopover() {
+    this.showPopover = false;
   }
 }
