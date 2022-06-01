@@ -21,8 +21,8 @@
     </div>
   </div>
   <div class="rating-hint">
-    <span>ضعیف</span>
-    <span>عالی</span>
+    <span>{{$t(`ticket.ticketFeedback.weak`)}}</span>
+    <span>{{$t(`ticket.ticketFeedback.great`)}}</span>
   </div>
   </div>
 </template>

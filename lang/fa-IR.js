@@ -397,6 +397,7 @@ export default {
       bank_account: 'حساب بانکی', change_log: 'تغییرات پنل جدید', help: 'راهنمای زرین‌پال', products: 'محصولات', reconcile: 'تسویه‌حساب', send_new_1: 'اگر سوال موردنظر خود را پیدا نکردید،', send_new_2: 'تیکتِ جدید', send_new_3: 'بفرستید.', session: 'تراکنش', support: 'واحد امور مشتریان زرین‌پال', support_description: 'می‌توانید پاسخِ خود را از این صفحه دریافت کنید.', terminal: 'درگاه‌ پرداخت',
     },
     feedback: 'بازخورد',
+    ticketFeedback: { weak: 'ضعیف', great: 'عالی' },
     insufficient: 'گزارش پاسخ نامرتبط',
     priority: { HIGH: 'بسیار مهم', LOW: 'معمولی', MEDIUM: 'مهم' },
     report: 'گزارش پاسخ',
