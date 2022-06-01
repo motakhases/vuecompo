@@ -1,0 +1,69 @@
+.zpl-message-box {
+  @apply flex flex-row;
+  .avatar{
+    @apply w-[40px] h-[40px] flex-none;
+    img{
+      @apply rounded-circle;
+    }
+  }
+  .left-side{
+    @apply w-full mr-md;
+    .message-box{
+      @apply rounded-md rounded-tr-sm p-lg;
+      &.my-reply{
+        @apply border border-border-divider bg-surface;
+        @apply dark:border-border-dark-divider dark:bg-surface-dark;
+      }
+      &.others-reply{
+        @apply bg-surface-soft dark:bg-surface-dark-soft;
+      }
+      .content{
+        @apply whitespace-pre-line font-sans text-b2 text-text dark:text-text-dark;
+      }
+      .attachment-link{
+        @apply mt-md;
+      }
+      .detail{
+        @apply text-text-soft dark:text-text-dark-soft text-ls-cp text-left mt-md;
+        .detail-separator{
+          @apply px-2xs;
+        }
+      }
+    }
+    .reply-feedback{
+      @apply px-lg mt-md text-ls-cp text-text-soft dark:text-text-dark-soft;
+      .thumbs-icons{
+        @apply mr-xs w-lg h-lg cursor-pointer;
+        &.thumbs-up{
+          @apply text-icon-success dark:text-icon-dark-success;
+        }
+        &.thumbs-down{
+          @apply text-icon-danger dark:text-icon-dark-danger;
+        }
+      }
+      .question{
+        .reply-feedback-modal{
+          @apply px-md;
+          .feedback-box{
+            @apply px-sm py-md mt-md flex flex-row cursor-pointer;
+            @apply rounded-sm border bg-surface border-border-divider;
+            @apply dark:bg-surface-dark dark:border-border-dark-divider;
+            @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
+            .warn-icon{
+              @apply w-xl h-xl flex-none text-icon-warning;
+            }
+            .feedback-box-content{
+              @apply mr-xs;
+              span{
+                @apply text-b2 text-text dark:text-text-dark;
+              }
+              p{
+                @apply mt-xs text-b3 text-text-soft dark:text-text-dark-soft;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

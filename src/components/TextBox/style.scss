@@ -6,7 +6,7 @@
 .zpl-textbox {
   /* Default */
   @apply bg-transparent border border-border rounded-sm w-full text-text p-sm;
-  @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark;
+  @apply dark:border-border-dark dark:text-text-dark;
 
   &:not(.isInputFocused) {
     @apply z-10;
@@ -43,8 +43,8 @@
 }
 .zpl-textbox-label {
   /* Default */
-  @apply absolute top-sm right-sm text-ls-cp py-[2px] px-2xs transition-all ease-in-out	delay-100;
-  @apply dark:bg-surface-dark text-text-dark-soft;
+  @apply absolute top-sm right-sm text-ls-cp py-[2px] px-2xs transition-all ease-in-out	delay-100 text-text-soft;
+  @apply dark:bg-surface-dark dark:text-text-dark-soft;
 
   &:not(.isInputFocused) {
     @apply text-b2 z-0;
