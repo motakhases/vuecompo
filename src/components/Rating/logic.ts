@@ -17,7 +17,7 @@ export default class Rating extends Vue {
 
   @Prop({ type: Boolean, required: true }) readonly hasAvatar!: boolean ;
 
-  @Prop({ type: Boolean, default: false }) readonly captionRight!: boolean ;
+  @Prop({ type: Boolean }) readonly captionRight!: boolean ;
 
   existRates = ['1', '2', '3', '4', '5']
 
