@@ -34,6 +34,7 @@ const Template = (_, { argTypes }) => ({
         "Notification",
         "ChartSquare",
         "Plus",
+        "Minus",
         "Terminal",
         "Delete",
         "ClockRefresh",
