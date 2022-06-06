@@ -3,9 +3,7 @@
     :chart-options="options"
     :chart-data="chartData"
     :chart-id="chartId"
-    :width="width"
     :plugins="plugins"
-    ref="chart"
   />
 </template>
 
