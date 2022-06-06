@@ -1,11 +1,5 @@
 .zpl-message-box {
   @apply flex flex-row;
-  .avatar{
-    @apply w-[40px] h-[40px] flex-none;
-    img{
-      @apply rounded-circle;
-    }
-  }
   .left-side{
     @apply w-full mr-md;
     .message-box{

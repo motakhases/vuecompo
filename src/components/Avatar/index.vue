@@ -5,7 +5,7 @@
     <!-- with image -->
     <div
       v-if="img"
-      :class="['zpl-avatar-img', size]"
+      :class="['zpl-avatar-img', size, {'zpl-avatar-border': hasBorder}]"
       :style="{ backgroundImage: 'url(' + img + ')' }"
     />
 
