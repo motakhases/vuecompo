@@ -41,6 +41,8 @@ export { default as Link } from './Link/index.vue';
 
 export { default as Logo } from './Logo/index.vue';
 
+export { default as MessageBox } from './MessageBox/index.vue';
+
 export { default as Modal } from './Modal/index.vue';
 
 export { default as NavBadge } from './NavBadge/index.vue';
@@ -58,6 +60,8 @@ export { default as Pagination } from './Pagination/index.vue';
 export { default as Popover } from './Popover/index.vue';
 
 export { default as Radio } from './Radio/index.vue';
+
+export { default as Rating } from './Rating/index.vue';
 
 export { default as SegmentedButton } from './SegmentedButton/index.vue';
 
