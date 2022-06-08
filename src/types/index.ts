@@ -194,3 +194,14 @@ export interface ITicketRepliedUser {
   id: string;
   avatar: string;
 }
+
+/**
+ * @/components/ListMenu
+ * --------------------------------------------------
+ */
+export interface IListMenu {
+  id: number;
+  title: string;
+  amount: number;
+  active?: boolean
+}
