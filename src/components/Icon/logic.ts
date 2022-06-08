@@ -74,6 +74,7 @@ import CodeBlock from './icons/CodeBlock.vue';
 import OfficialBadge from './icons/OfficialBadge.vue';
 import Github from './icons/Github.vue';
 import Link from './icons/Link.vue';
+import Minus from './icons/Minus.vue';
 
 @Component({
   components: {
@@ -150,6 +151,7 @@ import Link from './icons/Link.vue';
     OfficialBadge,
     Github,
     Link,
+    Minus,
   },
 })
 export default class Icon extends Vue {
