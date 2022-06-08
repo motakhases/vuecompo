@@ -135,12 +135,20 @@
       @apply relative;
       th {
         @apply whitespace-nowrap;
+        .zpl-table-cell {
+          @apply font-medium;
+        }
+      }
+      td {
+        .zpl-table-cell {
+          @apply font-normal;
+        }
       }
       th,
       td {
         .zpl-table-cell {
           // default
-          @apply font-IRANYekanFaNum select-none font-normal p-md text-b2 text-text flex items-center gap-xs;
+          @apply font-IRANYekanFaNum select-none p-md text-b2 text-text flex items-center gap-xs;
 
           // dark
           @apply dark:text-text-dark;
@@ -250,11 +258,10 @@
         @apply before:w-[50%] before:max-w-[64px] before:h-sm;
         @apply before:right-md before:top-[50%] before:transform before:translate-y-[-50%];
         @apply before:bg-gray-80;
-         // @apply before:animate-pulse
+        // @apply before:animate-pulse
 
-         //dark
-         @apply dark:before:bg-gray-dark-80;
-
+        //dark
+        @apply dark:before:bg-gray-dark-80;
       }
     }
 
@@ -292,7 +299,6 @@
       @apply before:bg-gray-80;
       // @apply before:animate-pulse
       @apply dark:before:bg-gray-dark-80;
-
     }
     &.hasSubCustom {
       .loading-custom {
@@ -303,7 +309,6 @@
         @apply before:top-[33%];
         // @apply after:animate-pulse
         @apply dark:after:bg-gray-dark-80;
-
       }
     }
     &.hasCustom {

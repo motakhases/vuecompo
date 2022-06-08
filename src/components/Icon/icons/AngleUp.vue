@@ -7,7 +7,7 @@
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M10 16L14 12L10 8"
+      d="M16 14L12 10L8 14"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
@@ -19,6 +19,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'AngleRight',
+  name: 'AngleUp',
 });
 </script>
