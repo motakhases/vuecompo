@@ -63,7 +63,7 @@
       <Status
         v-for="(label, labelIndex) in data.data"
         :key="labelIndex"
-        :text="label.title"
+        :text="label.text"
         :icon="label.icon"
         :type="label.type"
       />
