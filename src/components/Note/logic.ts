@@ -17,8 +17,8 @@ export default class Note extends Vue {
   @Prop({ type: Boolean, required: true, default: false })
   readonly loading!: boolean
 
-  @Prop({ type: Boolean, required: true, default: false })
-  readonly disabled!: boolean
+  @Prop({ type: Boolean, default: false })
+  readonly disabled?: boolean
 
   @Prop({ type: Function }) readonly addNote!: () => boolean
 

@@ -19,7 +19,7 @@ export default class Upload extends Vue {
 
   @Prop({ type: String }) readonly url!: string;
 
-  @Prop({ type: String, required: true }) readonly acceptedFiles!: string;
+  @Prop({ type: String }) readonly acceptedFiles?: string;
 
   @Prop({ type: Array }) readonly restrictionList?: string[];
 
@@ -30,6 +30,8 @@ export default class Upload extends Vue {
   @Prop({ type: Boolean, default: true }) readonly dropzone!: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly hasIcon?: boolean
 
   @Prop({ type: Object }) readonly headers?: any;
 
