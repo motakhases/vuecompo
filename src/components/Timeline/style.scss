@@ -37,7 +37,7 @@
   @apply dark:border-border-dark-divider;
 }
 .zpl-timeline-title {
-  @apply flex items-center gap-xs text-b2 text-text mb-xs;
+  @apply flex items-center gap-xs text-b2 text-text mb-xs font-medium;
   @apply dark:text-text-dark;
 }
 .zpl-timeline-sub {
