@@ -1,0 +1,24 @@
+.zpl-time-picker {
+  @apply block bg-surface border border-border font-IRANYekanFaNum rounded-sm p-xs;
+  .vpd-container {
+    @apply m-0 w-full;
+    .vpd-content {
+      @apply w-full;
+      .vpd-header {
+        @apply bg-background text-text #{!important};
+      }
+
+      .vpd-counter {
+        @apply font-YekanBakhFaNum font-normal text-[80px] leading-[84px] text-text-soft;
+        @apply dark:text-text-dark-soft;
+      }
+      .vpd-up-arrow-btn,
+      .vpd-down-arrow-btn {
+        @apply flex justify-center h-xs;
+        svg {
+          @apply w-xs h-xs text-icon;
+        }
+      }
+    }
+  }
+}
