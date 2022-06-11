@@ -20,7 +20,7 @@
         class="image"
       >
         <Thumbnail
-          icon="product"
+          :icon="data.data.icon ? data.data.icon : 'product'"
           :img="data.data.image"
         />
       </div>
