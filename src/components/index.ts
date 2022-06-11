@@ -35,6 +35,8 @@ export { default as Icon } from './Icon/index.vue';
 
 export { default as InlineMessage } from './InlineMessage/index.vue';
 
+export { default as ListMenu } from './ListMenu/index.vue';
+
 export { default as Label } from './Label/index.vue';
 
 export { default as Link } from './Link/index.vue';
