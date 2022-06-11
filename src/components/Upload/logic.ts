@@ -120,7 +120,7 @@ export default class Upload extends Vue {
     this.dropzoneOptions.url = this.url;
     this.dropzoneOptions.maxFilesize = this.maxFileSize;
     this.dropzoneOptions.maxFiles = this.maxFiles;
-    this.dropzoneOptions.acceptedFiles = this.acceptedFiles;
+    this.dropzoneOptions.acceptedFiles = this.acceptedFiles ? this.acceptedFiles : '';
     this.dropzoneOptions.headers = this.headers;
     this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
     this.dropzoneOptions.dictInvalidFileType = this.$i18n.t('warnings.upload.format');
