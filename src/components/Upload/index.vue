@@ -39,6 +39,7 @@
       :removeFileHandler="removeFileHandler"
       :uploadedList="uploadedList"
       :addFileManually="addFileManually"
+      :hasIcon="hasIcon"
     />
   </div>
 </template>

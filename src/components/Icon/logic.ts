@@ -11,6 +11,7 @@ import PaymentCard from './icons/PaymentCard.vue';
 import AngleDown from './icons/AngleDown.vue';
 import AngleRight from './icons/AngleRight.vue';
 import AngleLeft from './icons/AngleLeft.vue';
+import AngleUp from './icons/AngleUp.vue';
 import CheckmarkCircle from './icons/CheckmarkCircle.vue';
 import FilledArrowDown from './icons/FilledArrowDown.vue';
 import FilledArrowUp from './icons/FilledArrowUp.vue';
@@ -94,6 +95,7 @@ import Minus from './icons/Minus.vue';
     AngleDown,
     AngleRight,
     AngleLeft,
+    AngleUp,
     FilledArrowDown,
     FilledArrowUp,
     TickLarge,

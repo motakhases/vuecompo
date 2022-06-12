@@ -20,6 +20,7 @@ const Template = (_, { argTypes }) => ({
         "AngleDown",
         "AngleRight",
         "AngleLeft",
+        "AngleUp",
         "AlarmTime",
         "CheckmarkCircle",
         "FilledArrowDown",
