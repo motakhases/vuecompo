@@ -1,23 +1,21 @@
 import {
   Vue, Prop, Component,
 } from 'vue-property-decorator';
-import moment from 'moment-jalaali';
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
-import Icon from '@/components/Icon/index.vue';
 import TextField from '@/components/TextField/index.vue';
-import { DateMoment, Attributes } from '@/types';
 import Button from '@/components/Button/index.vue';
 
 @Component({
   components: {
     TextField,
-    Icon,
     VuePersianDatetimePicker,
     Button,
   },
 })
 export default class Timepicker extends Vue {
   @Prop({ type: String }) value!: string;
+
+  show = false
 
   get model(): string {
     return this.value;
@@ -27,45 +25,26 @@ export default class Timepicker extends Vue {
     this.$emit('input', value);
   }
 
-time=''
+  toggleTime() {
+    this.show = !this.show;
+  }
 
-show=false
-
-toggleTime() {
-  this.show = !this.show;
-}
-
-submitHandler(submit: ()=> void): void {
-  submit();
-  this.show = false;
-}
-
-getModel(): string {
-  const result = this.value;
-
-  // const allowedDateFormats: string[] = ['YYYY/MM/DD', 'YYYY-MM-DD'];
-
-  // const validDateHandler = (value: string) => moment(value, 'YYYY-MM-DD', true).isValid();
-  // if (validDateHandler(this.value[0])) {
-  //   if (moment(this.value[0]).isAfter(this.value[1])) {
-  //     result = [this.value[1], this.value[0]];
-  //   }
-  // }
-
-  return result;
-}
-
-outsideClick(event:Event):void {
-  if (!this.$el.contains(event.target as HTMLInputElement)) {
+  submitHandler(submit: ()=> void): void {
+    submit();
     this.show = false;
   }
-}
 
-mounted(): void {
-  document.documentElement.addEventListener(
-    'click',
-    this.outsideClick,
-    false,
-  );
-}
+  outsideClick(event:Event):void {
+    if (!this.$el.contains(event.target as HTMLInputElement)) {
+      this.show = false;
+    }
+  }
+
+  mounted(): void {
+    document.documentElement.addEventListener(
+      'click',
+      this.outsideClick,
+      false,
+    );
+  }
 }
