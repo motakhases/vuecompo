@@ -54,6 +54,6 @@ export default class MessageBox extends Vue {
   @Emit()
   replyFeedback(feedbackType: string) {
     this.replyFeedbackModal = false;
-    return feedbackType;
+    return {feedbackType, id:this.id}
   }
 }
