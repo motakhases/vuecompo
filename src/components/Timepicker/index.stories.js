@@ -21,7 +21,9 @@ const Template = (_, { argTypes }) => ({
   <div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md rtl">
     <div class="w-[296px] flex flex-col gap-md">
       <h1 class="font-bold dark:text-surface">  </h1>
-		  <Timepicker v-model="singleDate" />
+   
+      <Timepicker v-model="singleDate" />
+
     </div>
   </div>
   `,

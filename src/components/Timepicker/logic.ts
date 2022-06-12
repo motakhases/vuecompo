@@ -20,25 +20,52 @@ export default class Timepicker extends Vue {
   @Prop({ type: String }) value!: string;
 
   get model(): string {
-    return this.getModel();
+    return this.value;
   }
 
   set model(value: string) {
     this.$emit('input', value);
   }
 
-  getModel(): string {
-    let result: string = this.value;
+time=''
 
-    // const allowedDateFormats: string[] = ['YYYY/MM/DD', 'YYYY-MM-DD'];
+show=false
 
-    const validDateHandler = (value: string) => moment(value, 'YYYY-MM-DD', true).isValid();
-    if (validDateHandler(this.value[0])) {
-      if (moment(this.value[0]).isAfter(this.value[1])) {
-        result = [this.value[1], this.value[0]];
-      }
-    }
+toggleTime() {
+  this.show = !this.show;
+}
 
-    return result;
+submitHandler(submit: ()=> void): void {
+  submit();
+  this.show = false;
+}
+
+getModel(): string {
+  const result = this.value;
+
+  // const allowedDateFormats: string[] = ['YYYY/MM/DD', 'YYYY-MM-DD'];
+
+  // const validDateHandler = (value: string) => moment(value, 'YYYY-MM-DD', true).isValid();
+  // if (validDateHandler(this.value[0])) {
+  //   if (moment(this.value[0]).isAfter(this.value[1])) {
+  //     result = [this.value[1], this.value[0]];
+  //   }
+  // }
+
+  return result;
+}
+
+outsideClick(event:Event):void {
+  if (!this.$el.contains(event.target as HTMLInputElement)) {
+    this.show = false;
   }
+}
+
+mounted(): void {
+  document.documentElement.addEventListener(
+    'click',
+    this.outsideClick,
+    false,
+  );
+}
 }
