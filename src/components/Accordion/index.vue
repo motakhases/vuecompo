@@ -1,10 +1,7 @@
 <template>
-  <button
-    :class="['zpl-segment-button', { active }]"
-    type="button"
-  >
-    {{ text }}
-  </button>
+  <div class="zpl-accordion">
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">

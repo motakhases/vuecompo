@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-message-box">
-    <div class="avatar">
-      <img :src="user.avatar" width="40" height="40">
+    <div>
+      <Avatar :img="user.avatar"/>
     </div>
     <div class="left-side">
       <div :class="['message-box', {'my-reply':user.id===myId, 'others-reply':user.id!==myId}]">
@@ -31,7 +31,7 @@
           />
           <Modal v-if="replyFeedbackModal" @close="replyFeedbackModal = false" width="400px" :title="$t(`ticket.report`)">
             <div slot="body" class="reply-feedback-modal">
-              <div v-for="(item, index) in replyFeedbackItems" :key="index" class="feedback-box" @click="replyFeedback('INSUFFICIENT')">
+              <div v-for="(item, index) in replyFeedbackItems" :key="index" class="feedback-box" @click="replyFeedback(item.type)">
                 <Icon
                   name="Warning"
                   class="warn-icon"

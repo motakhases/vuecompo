@@ -4,11 +4,14 @@ import {
 import Link from '@/components/Link/index.vue';
 import Modal from '@/components/Modal/index.vue';
 import Icon from '@/components/Icon/index.vue';
+import Avatar from '@/components/Avatar/index.vue';
 import { ITicketRepliedUser } from '@/types';
 import * as marked from 'marked';
 
 @Component({
-  components: { Link, Modal, Icon },
+  components: {
+    Link, Modal, Icon, Avatar,
+  },
 })
 export default class MessageBox extends Vue {
   @Prop({ type: String }) readonly id!: string
@@ -51,6 +54,6 @@ export default class MessageBox extends Vue {
   @Emit()
   replyFeedback(feedbackType: string) {
     this.replyFeedbackModal = false;
-    return feedbackType;
+    return { feedbackType, id: this.id };
   }
 }

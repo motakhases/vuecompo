@@ -35,11 +35,15 @@ export { default as Icon } from './Icon/index.vue';
 
 export { default as InlineMessage } from './InlineMessage/index.vue';
 
+export { default as ListMenu } from './ListMenu/index.vue';
+
 export { default as Label } from './Label/index.vue';
 
 export { default as Link } from './Link/index.vue';
 
 export { default as Logo } from './Logo/index.vue';
+
+export { default as MessageBox } from './MessageBox/index.vue';
 
 export { default as Modal } from './Modal/index.vue';
 
@@ -58,6 +62,8 @@ export { default as Pagination } from './Pagination/index.vue';
 export { default as Popover } from './Popover/index.vue';
 
 export { default as Radio } from './Radio/index.vue';
+
+export { default as Rating } from './Rating/index.vue';
 
 export { default as SegmentedButton } from './SegmentedButton/index.vue';
 
@@ -91,3 +97,6 @@ export { default as Note } from './Note/index.vue';
 
 export { default as ProgressBar } from './ProgressBar/index.vue';
 export { default as Upload } from './Upload/index.vue';
+
+export { default as Accordion } from './Accordion/index.vue';
+export { default as AccordionItem } from './Accordion/_item/index.vue';
