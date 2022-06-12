@@ -56,6 +56,7 @@ import EyeShow from './icons/EyeShow.vue';
 import EyeHidden from './icons/EyeHidden.vue';
 import IndeterminateFill from './icons/IndeterminateFill.vue';
 import InvoicePlus from './icons/InvoicePlus.vue';
+import Invoice from './icons/Invoice.vue';
 import MessageEditFill from './icons/MessageEditFill.vue';
 import PenAddNote from './icons/PenAddNote.vue';
 import PenEdit from './icons/PenEdit.vue';
@@ -110,6 +111,7 @@ import Minus from './icons/Minus.vue';
     ChartSquare,
     Plus,
     Terminal,
+    Invoice,
     Delete,
     ClockRefresh,
     ArrowLeft,

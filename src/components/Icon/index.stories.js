@@ -27,6 +27,7 @@ const Template = (_, { argTypes }) => ({
         "FilledArrowUp",
         "TickLarge",
         "TickSmall",
+        "Invoice",
         "Warning",
         "MenuBurger",
         "Profile",
