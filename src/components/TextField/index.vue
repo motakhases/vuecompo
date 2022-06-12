@@ -66,6 +66,14 @@
           {{ unit }}
         </span>
 
+        <!-- unit icon -->
+        <span
+          v-if="unitIcon"
+          class="zpl-textfield-unit"
+        >
+          <Icon :name="unitIcon" />
+        </span>
+
         <!-- Copy to clipboard -->
         <Tooltip
           :text="copyToClipboardText"
