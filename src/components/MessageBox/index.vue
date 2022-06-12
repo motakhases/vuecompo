@@ -31,7 +31,7 @@
           />
           <Modal v-if="replyFeedbackModal" @close="replyFeedbackModal = false" width="400px" :title="$t(`ticket.report`)">
             <div slot="body" class="reply-feedback-modal">
-              <div v-for="(item, index) in replyFeedbackItems" :key="index" class="feedback-box" @click="replyFeedback('INSUFFICIENT')">
+              <div v-for="(item, index) in replyFeedbackItems" :key="index" class="feedback-box" @click="replyFeedback(item.type)">
                 <Icon
                   name="Warning"
                   class="warn-icon"
