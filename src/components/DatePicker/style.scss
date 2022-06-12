@@ -1,5 +1,8 @@
 .zpl-date-picker-container {
   @apply w-full;
+  .vpd-actions {
+    @apply hidden;
+  }
 }
 .zpl-date-picker {
   &.no-preview {
@@ -199,9 +202,7 @@
   }
 }
 
-.vpd-actions {
-  @apply hidden;
-}
+
 
 .zpl-date-picker-range {
   @apply flex;

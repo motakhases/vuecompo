@@ -33,6 +33,7 @@ import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
 import ArrowFirst from './icons/ArrowFirst.vue';
 import ArrowLast from './icons/ArrowLast.vue';
+import AlarmTime from './icons/AlarmTime.vue';
 import Star from './icons/Star.vue';
 import NightModeCircle from './icons/NightModeCircle.vue';
 import NightModeSquare from './icons/NightModeSquare.vue';
@@ -115,6 +116,7 @@ import Minus from './icons/Minus.vue';
     ArrowRight,
     ArrowFirst,
     ArrowLast,
+    AlarmTime,
     Star,
     NightModeCircle,
     NightModeSquare,
