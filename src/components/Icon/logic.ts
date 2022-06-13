@@ -2,6 +2,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 // Icons
 import Box from './icons/Box.vue';
+import Letter from './icons/Letter.vue';
+import LetterOpen from './icons/LetterOpen.vue';
 import ChatMessage from './icons/ChatMessage.vue';
 import CreditCheckout from './icons/CreditCheckout.vue';
 import ChevronUp from './icons/ChevronUp.vue';
@@ -57,6 +59,7 @@ import EyeHidden from './icons/EyeHidden.vue';
 import IndeterminateFill from './icons/IndeterminateFill.vue';
 import InvoicePlus from './icons/InvoicePlus.vue';
 import Invoice from './icons/Invoice.vue';
+import InfoFill from './icons/InfoFill.vue';
 import MessageEditFill from './icons/MessageEditFill.vue';
 import PenAddNote from './icons/PenAddNote.vue';
 import PenEdit from './icons/PenEdit.vue';
@@ -72,6 +75,7 @@ import Trash from './icons/Trash.vue';
 import Whatsapp from './icons/Whatsapp.vue';
 import Download from './icons/Download.vue';
 import Reload from './icons/Reload.vue';
+import RatingEdit from './icons/RatingEdit.vue';
 import DarkMode from './icons/DarkMode.vue';
 import CodeBlock from './icons/CodeBlock.vue';
 import OfficialBadge from './icons/OfficialBadge.vue';
@@ -130,6 +134,8 @@ import Minus from './icons/Minus.vue';
     BankSignalSquare,
     CheckMarkCircleOutlined,
     Reload,
+    Letter,
+    LetterOpen,
     Discount,
     DollarFill,
     ExportArrowTopLeft,
@@ -138,10 +144,12 @@ import Minus from './icons/Minus.vue';
     EyeHidden,
     IndeterminateFill,
     InvoicePlus,
+    InfoFill,
     MessageEditFill,
     PenAddNote,
     PenEdit,
     QrCode,
+    RatingEdit,
     Search,
     SettingsRound,
     Share,
