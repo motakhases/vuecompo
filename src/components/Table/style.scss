@@ -98,6 +98,10 @@
 
           // dark
           @apply dark:text-text-dark;
+          
+          &.td-disable{
+            @apply text-text-disabled dark:text-text-dark-disabled;
+          }
         }
 
         .sub {
@@ -106,6 +110,10 @@
 
           // dark
           @apply dark:text-text-dark-soft;
+
+          &.td-disable{
+            @apply text-text-disabled dark:text-text-dark-disabled;
+          }
         }
       }
     }
@@ -119,6 +127,9 @@
     }
     .date {
       @apply whitespace-nowrap;
+    }
+    .td-disable{
+      @apply text-text-disabled dark:text-text-dark-disabled;
     }
   }
 
