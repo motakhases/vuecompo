@@ -126,6 +126,9 @@
     @apply flex mr-auto items-center gap-xs justify-end;
     .outside-action {
       @apply items-center gap-xs hidden;
+      &.outside-show{
+        @apply flex;
+      }
     }
   }
 

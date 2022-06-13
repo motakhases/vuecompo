@@ -92,7 +92,7 @@
                   v-if="actions"
                   class="zpl-table-action"
                 >
-                <div class="outside-action">
+                <div :class="['outside-action', {'outside-show': actions.length === 1}]">
                    <Button
                     type="tertiary"
                     size="small"
@@ -109,6 +109,7 @@
                   >
                     <template slot="button">
                       <Button
+                        v-if="actions.length>1"
                         type="tertiary"
                         size="small"
                         icon="DotsMenu"
