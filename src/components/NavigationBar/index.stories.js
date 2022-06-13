@@ -4,7 +4,7 @@ import TopBar from "../TopBar/index.vue";
 const Template = (_, { argTypes }) => ({
   components: {
     NavigationBar,
-    TopBar
+    TopBar,
   },
 
   props: Object.keys(argTypes),
@@ -13,48 +13,70 @@ const Template = (_, { argTypes }) => ({
     activeTerminal: {},
     terminals: [
       {
-        domain: 'zarin.express/zardu',
-        name: 'زاردو',
-        status: 'ACTIVE',
-        id: '1',
-        logo: '...',
-        link: '...',
-        route: '...',
-      }, 
+        domain: "zarin.express/zardu",
+        name: "زاردو",
+        status: "ACTIVE",
+        id: "1",
+        logo: "...",
+        link: "...",
+        route: "...",
+      },
+      {
+        domain: "zarin.express/zardu",
+        name: "hgffghfh",
+        status: "ACTIVE",
+        id: "2",
+        logo: "...",
+        link: "...",
+        route: "...",
+      },
     ],
     sidebarLinks: [
       {
-        title: 'پیشخوان',
-        link: '/',
-        icon: 'GridLayout',
+        title: "پیشخوان",
+        link: "/",
+        icon: "GridLayout",
         active: true,
       },
       {
-        title: 'تراکنش‌ها',
-        link: '/',
-        icon: 'DrpItemCheck',
+        title: "تراکنش‌ها",
+        link: "/",
+        icon: "DrpItemCheck",
       },
       {
-        title: 'تسویه حساب',
-        link: '/',
-        icon: 'CreditCheckout',
+        title: "تسویه حساب",
+        link: "/",
+        icon: "CreditCheckout",
+        subMenu: [
+          {
+            title: "پیشخوان",
+            link: "/",
+            icon: "GridLayout",
+            active: true,
+          },
+          {
+            title: "تراکنش‌ها",
+            link: "/",
+            icon: "DrpItemCheck",
+          },
+        ],
       },
       {
-        title: 'محصولات',
-        link: '/',
-        icon: 'Box',
+        title: "محصولات",
+        link: "/",
+        icon: "Box",
       },
     ],
     belowLinks: [
       {
-        title: 'حساب‌های بانکی',
-        link: '/',
-        icon: 'PaymentCard',
+        title: "حساب‌های بانکی",
+        link: "/",
+        icon: "PaymentCard",
       },
       {
-        title: 'تیکت‌ها',
-        link: '/',
-        icon: 'ChatMessage',
+        title: "تیکت‌ها",
+        link: "/",
+        icon: "ChatMessage",
       },
     ],
   }),
@@ -81,4 +103,4 @@ const Template = (_, { argTypes }) => ({
 
 const navigationBar = Template.bind({});
 
-export default navigationBar
+export default navigationBar;

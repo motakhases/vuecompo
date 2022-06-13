@@ -33,6 +33,7 @@
             :icon="link.icon"
             :badge="link.badge"
             :toggle="toggle"
+            :subMenu="link.subMenu"
           />
         </ul>
         <ul
@@ -48,6 +49,7 @@
             :icon="link.icon"
             :badge="link.badge"
             :toggle="toggle"
+            :subMenu="link.subMenu"
           />
         </ul>
       </div>

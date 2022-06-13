@@ -5,12 +5,8 @@
 }
 
 .zpl-nav-terminal-items {
-  @apply border-t border-border-divider;
+  @apply border-t border-border-divider p-xs;
   @apply dark:border-border-dark-divider;
   @apply overflow-y-auto overflow-x-hidden max-h-[335px];
   
-}
-
-::-webkit-scrollbar {
-  @apply hidden;
 }

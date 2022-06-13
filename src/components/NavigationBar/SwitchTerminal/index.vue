@@ -1,6 +1,7 @@
 <template>
   <a
     :to="link"
+    class="zpl-nav-terminal-container"
   >
     <div
       class="zpl-nav-terminal"
