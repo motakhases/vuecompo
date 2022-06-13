@@ -9,7 +9,7 @@ import ProgressBar from '@/components/ProgressBar/index.vue';
 export default class UploadedFile extends Vue {
   @Prop({ type: Array }) readonly uploadedList?: []
 
-  @Prop({ type: Boolean, default: false }) readonly hasIcon!: boolean
+  @Prop({ type: Boolean, default: false }) readonly hasIcon?: boolean
 
   @Prop({ type: Function }) readonly removeFileHandler!: () => any
 

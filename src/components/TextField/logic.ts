@@ -50,6 +50,8 @@ export default class TextField extends Vue {
 
   @Prop({ type: String }) readonly suffixIcon?: string;
 
+  @Prop({ type: String }) readonly unitIcon?: string;
+
   @Prop({ type: String }) readonly placeholder?: string;
 
   @Prop({ type: String }) readonly min?: string;

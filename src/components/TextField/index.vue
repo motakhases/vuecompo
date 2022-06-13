@@ -44,6 +44,7 @@
         >
           <button
             class="zpl-textfield-stepper-btn"
+            type="button"
             @click="increment"
           >
             <Icon name="filledArrowUp" />
@@ -65,6 +66,14 @@
           class="zpl-textfield-unit"
         >
           {{ unit }}
+        </span>
+
+        <!-- unit icon -->
+        <span
+          v-if="unitIcon"
+          class="zpl-textfield-unit"
+        >
+          <Icon :name="unitIcon" />
         </span>
 
         <!-- Copy to clipboard -->
