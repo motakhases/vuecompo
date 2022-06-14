@@ -50,9 +50,8 @@
   }
 }
 .zpl-nav-item-link {
-  @apply flex items-center rounded-sm p-xs gap-sm cursor-pointer text-text text-b2 w-full hover:cursor-pointer;
-  @apply dark:text-text-dark font-medium;
-
+  @apply flex items-center bg-surface rounded-sm p-xs gap-sm cursor-pointer text-text text-b2 w-full hover:cursor-pointer;
+  @apply dark:text-text-dark dark:bg-surface-dark font-medium;
   /* Hover */
   @apply hover:bg-surface-hover;
   @apply dark:hover:bg-surface-dark-hover;
