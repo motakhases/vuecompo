@@ -15,8 +15,11 @@
     .zpl-nav-bar-header-title,
     .zpl-nav-bar-arrow,
     .zpl-nav-item-title,
-    .zpl-nav-badge,
-    .zpl-nav-terminal-header {
+    .zpl-notification-badge,
+    .zpl-nav-terminal-header,
+    .arrow-icon,
+    .zpl-nav-item-link:before,
+    .zpl-nav-item-menu ul {
       @apply lg:hidden;
     }
 

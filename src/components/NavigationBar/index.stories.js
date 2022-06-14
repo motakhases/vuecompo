@@ -37,11 +37,13 @@ const Template = (_, { argTypes }) => ({
         link: "/",
         icon: "GridLayout",
         active: true,
+        badge: "25",
       },
       {
         title: "تراکنش‌ها",
         link: "/",
         icon: "DrpItemCheck",
+        badge:'2'
       },
       {
         title: "تسویه حساب",
@@ -51,13 +53,11 @@ const Template = (_, { argTypes }) => ({
           {
             title: "پیشخوان",
             link: "/",
-            icon: "GridLayout",
             active: true,
           },
           {
             title: "تراکنش‌ها",
             link: "/",
-            icon: "DrpItemCheck",
           },
         ],
       },
@@ -65,6 +65,18 @@ const Template = (_, { argTypes }) => ({
         title: "محصولات",
         link: "/",
         icon: "Box",
+        subMenu: [
+          {
+            title: "پیشخوان",
+            link: "/",
+            active: true,
+            badge:'10'
+          },
+          {
+            title: "تراکنش‌ها",
+            link: "/",
+          },
+        ],
       },
     ],
     belowLinks: [

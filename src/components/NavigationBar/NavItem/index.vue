@@ -7,30 +7,42 @@
       size="large"
       indicator
     >
-      <router-link :to="link" class="zpl-nav-item-link">
+      <div
+        :class="['zpl-nav-item-menu', showSub ? 'show-sub' : 'hide-sub']"
+        v-if="subMenu"
+        @click="toggleSub"
+      >
+        <div class="zpl-nav-item-link">
+          <Icon :name="icon" />
+          <span class="zpl-nav-item-title">
+            {{ title }}
+          </span>
+          <NotificationBadge v-if="findBadge(subMenu)" />
+          <Icon class="arrow-icon" v-if="showSub" name="AngleUp" />
+          <Icon class="arrow-icon" v-else name="AngleDown" />
+        </div>
+        <ul @click.stop="">
+          <li
+            v-for="(link, index) in subMenu"
+            :key="index"
+          >
+            <router-link :to="link.link" class="zpl-nav-item-sub">
+              <span class="zpl-nav-item-title">
+                {{ link.title }}
+              </span>
+              <NotificationBadge v-if="link.badge" :text="link.badge" />
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <router-link v-else :to="link" class="zpl-nav-item-link">
         <Icon :name="icon" />
         <span class="zpl-nav-item-title">
           {{ title }}
         </span>
-        <NavBadge v-if="badge" :text="badge" />
-        <Icon v-if="subMenu && !showSub" name="AngleDown" />
+        <NotificationBadge v-if="badge" :text="badge" />
       </router-link>
     </Tooltip>
-    <ul v-if="subMenu">
-      <li
-        v-for="(link, index) in subMenu"
-        :key="index"
-        :active="link.active"
-        :toggle="toggle"
-      >
-        <router-link :to="link.link" class="zpl-nav-item-link">
-          <span class="zpl-nav-item-title">
-            {{ link.title }}
-          </span>
-          <NavBadge v-if="link.badge" :text="link.badge" />
-        </router-link>
-      </li>
-    </ul>
   </li>
 </template>
 
