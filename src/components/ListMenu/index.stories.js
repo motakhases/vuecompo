@@ -32,8 +32,8 @@ const Template = () => ({
   },
   template: `
   <div class="bg-surface dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	Active Value: {{ active }}  
-  <ListMenu :list="list" @item-clicked="(n) => { this.active = n }" />
+    Active Value: {{ active }}  
+    <ListMenu :list="list" @item-clicked="(n) => { this.active = n }" />
   </div>
   `,
 });
