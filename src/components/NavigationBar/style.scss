@@ -44,7 +44,8 @@
 }
 
 .zpl-nav-bar-content {
-  @apply px-md py-xs;
+  @apply px-md py-xs overflow-y-scroll;
+  max-height: calc(100vh - 130px);
 }
 
 .zpl-nav-bar-list {
