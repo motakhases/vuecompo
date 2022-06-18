@@ -24,14 +24,15 @@
         }
       }
       .vpd-counter {
-        @apply font-YekanBakhFaNum font-normal text-[80px] leading-[84px] text-text-soft;
+        @apply font-Mono font-light text-[80px] leading-[84px] text-text-soft;
         @apply dark:text-text-dark-soft;
 
         input {
-          @apply pt-0 pb-md pl-2xl tracking-[13px];
+          @apply pt-0 pb-md tracking-[-3px] font-Mono font-light text-[80px] leading-[84px] text-text-soft;
+          @apply dark:text-text-dark-soft;
         }
-        .vpd-counter-item{
-          @apply w-[45px]
+        .vpd-counter-item {
+          @apply w-[45px];
         }
       }
       .vpd-up-arrow-btn,
