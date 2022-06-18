@@ -26,16 +26,13 @@
       .vpd-counter {
         @apply font-YekanBakhFaNum font-normal text-[80px] leading-[84px] text-text-soft;
         @apply dark:text-text-dark-soft;
-        &.vpd-is-focused {
-          input {
-            @apply pb-lg font-normal text-[80px] leading-[84px] text-text-soft;
-            @apply dark:text-text-dark-soft;
 
-          }
+        input {
+          @apply pt-0 pb-md pl-2xl tracking-[13px];
         }
-      }
-      .vpd-counter-item {
-        @apply w-max min-w-[35px];
+        .vpd-counter-item{
+          @apply w-[45px]
+        }
       }
       .vpd-up-arrow-btn,
       .vpd-down-arrow-btn {
