@@ -1,12 +1,13 @@
 .zpl-nav-popover {
   @apply w-[320px] bg-surface shadow-elevation-100 rounded-sm absolute top-0;
   @apply dark:bg-surface-dark;
-	right: calc(100% - 8px);
+  right: calc(100% - 8px);
+
+  &-container {
+    @apply cursor-pointer;
+  }
 }
 
 .zpl-nav-terminal-items {
-  @apply border-t border-border-divider p-xs;
-  @apply dark:border-border-dark-divider;
-  @apply overflow-y-auto overflow-x-hidden max-h-[335px];
-  
+  @apply p-xs overflow-y-auto overflow-x-hidden max-h-[335px];
 }
