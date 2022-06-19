@@ -1,11 +1,20 @@
 .zpl-time-picker {
   @apply block bg-surface border border-border font-IRANYekanFaNum rounded-sm p-xs absolute w-full;
+  @apply dark:bg-surface-dark dark:border-border-dark;
+
+  .vpd-is-inline {
+    @apply mt-0;
+  }
   .vpd-container {
     @apply m-0 w-full;
     .vpd-content {
       @apply w-full;
       .vpd-header {
-        @apply bg-background text-text #{!important};
+        @apply bg-background text-text py-xs px-md rounded-sm #{!important};
+        @apply dark:bg-background-dark dark:text-text-dark;
+        .vpd-date {
+          @apply text-b1 font-medium h-auto;
+        }
       }
       .vpd-body {
         & > div {
@@ -15,14 +24,23 @@
         }
       }
       .vpd-counter {
-        @apply font-YekanBakhFaNum font-normal text-[80px] leading-[84px] text-text-soft;
+        @apply font-Mono font-light text-[80px] leading-[84px] text-text-soft;
         @apply dark:text-text-dark-soft;
+
+        input {
+          @apply pt-0 pb-md tracking-[-3px] font-Mono font-light text-[80px] leading-[84px] text-text-soft;
+          @apply dark:text-text-dark-soft;
+        }
+        .vpd-counter-item {
+          @apply w-[45px];
+        }
       }
       .vpd-up-arrow-btn,
       .vpd-down-arrow-btn {
         @apply flex justify-center h-lg;
         svg {
-          @apply w-xs h-xs text-icon;
+          @apply w-md h-md text-icon;
+          @apply dark:text-icon-dark;
         }
       }
       .vpd-addon-list {

@@ -5,14 +5,14 @@ import { Route } from 'vue-router';
 import { Translation, IActiveTerminal } from '@/types';
 
 // Components
-import GatewayStatus from '@/components/GatewayStatus/index.vue';
+import Status from '@/components/Status/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Thumbnail from '@/components/Thumbnail/index.vue';
 
 // Interface
 @Component({
   components: {
-    Thumbnail, Icon, GatewayStatus,
+    Thumbnail, Icon, Status,
   },
 })
 export default class SwitchTerminalItem extends Vue {

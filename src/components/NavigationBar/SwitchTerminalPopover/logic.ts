@@ -1,12 +1,9 @@
 import {
-  Vue, Prop, Component,
+  Vue, Prop, Component, Ref,
 } from 'vue-property-decorator';
 
 // Interfaces
-import {
-  INavigationBarTerminal,
-  INavigationBarActiveTerminal,
-} from '@/types';
+import { INavigationBarTerminal, INavigationBarActiveTerminal } from '@/types';
 
 // Components
 import Create from '../Create/index.vue';
@@ -16,17 +13,22 @@ import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
 
 @Component({
   components: {
-    Create, Overview, SwitchTerminal, SwitchTerminalItem,
+    Create,
+    Overview,
+    SwitchTerminal,
+    SwitchTerminalItem,
   },
 })
 export default class SwitchTerminalPopover extends Vue {
-  @Prop({ type: Boolean, default: false }) show!: boolean
+  @Prop({ type: Boolean, default: false }) show!: boolean;
 
-  @Prop({ type: Array }) terminals!: INavigationBarTerminal[]
+  @Prop({ type: Array }) terminals!: INavigationBarTerminal[];
 
-  @Prop({ type: Object }) activeTerminal?: INavigationBarTerminal
+  @Prop({ type: Object }) activeTerminal?: INavigationBarTerminal;
 
-  showPopover = false
+  @Ref('terminal') readonly terminal!: HTMLElement;
+
+  showPopover = false;
 
   get hasActive(): boolean {
     return !!(this.activeTerminal && this.activeTerminal.domain);
@@ -35,15 +37,29 @@ export default class SwitchTerminalPopover extends Vue {
   get switcher(): INavigationBarActiveTerminal {
     return {
       title:
-      this.activeTerminal && this.activeTerminal.name
-        ? this.activeTerminal.name
-        : this.$i18n.t('common.overview'),
+        this.activeTerminal && this.activeTerminal.name
+          ? this.activeTerminal.name
+          : this.$i18n.t('common.overview'),
       link:
-      this.activeTerminal && this.activeTerminal.domain
-        ? this.activeTerminal.domain
-        : '',
-      icon: this.activeTerminal && this.activeTerminal.name ? 'terminal' : 'ChartSquare',
+        this.activeTerminal && this.activeTerminal.domain
+          ? this.activeTerminal.domain
+          : '',
+      icon:
+        this.activeTerminal && this.activeTerminal.name
+          ? 'terminal'
+          : 'ChartSquare',
     };
+  }
+
+  /**
+   * Mounted
+   */
+  mounted(): void {
+    document.documentElement.addEventListener(
+      'click',
+      this.outsideClick,
+      false,
+    );
   }
 
   handleShowPopover() {
@@ -52,5 +68,13 @@ export default class SwitchTerminalPopover extends Vue {
 
   handleHidePopover() {
     this.showPopover = false;
+  }
+
+  outsideClick(event: Event): void {
+    if (!this.terminal?.children[0].contains(event.target as HTMLInputElement)) {
+      this.$nextTick(() => {
+        this.showPopover = false;
+      });
+    }
   }
 }

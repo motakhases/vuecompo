@@ -47,8 +47,6 @@ export { default as MessageBox } from './MessageBox/index.vue';
 
 export { default as Modal } from './Modal/index.vue';
 
-export { default as NavBadge } from './NavBadge/index.vue';
-
 export { default as NavigationBar } from './NavigationBar/index.vue';
 
 export { default as NotificationBadge } from './NotificationBadge/index.vue';

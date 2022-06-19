@@ -16,8 +16,8 @@
 
   &.neutral {
     /* Default */
-    @apply bg-surface-soft  text-text-soft;
-    @apply dark:bg-surface-dark-soft dark:text-text-dark-soft;
+    @apply bg-surface-soft text-text;
+    @apply dark:bg-surface-dark-soft dark:text-text-dark;
   }
 
   &.outlined {
