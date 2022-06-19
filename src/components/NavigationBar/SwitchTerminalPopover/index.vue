@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-nav-popover-container">
     <!-- Active terminal -->
-    <div @mouseover="handleShowPopover" @mouseleave="handleHidePopover">
+    <div @click="handleShowPopover" ref="terminal">
       <SwitchTerminal
         :title="switcher.title"
         :link="switcher.link"
@@ -9,11 +9,6 @@
       />
       <div class="zpl-nav-popover" v-show="showPopover" @click="handleHidePopover">
         <div>
-          <!-- Title -->
-          <Overview link="overview" :active="!hasActive">
-            {{ $t("common.overview") }}
-          </Overview>
-
           <!-- Terminals -->
           <div class="zpl-nav-terminal-items">
             <SwitchTerminalItem

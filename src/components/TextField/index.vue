@@ -53,7 +53,7 @@
           <button
             class="zpl-textfield-stepper-btn"
             type="button"
-            :disabled="value == 0"
+            :disabled="value === min"
             @click="decrement"
           >
             <Icon name="filledArrowDown" />

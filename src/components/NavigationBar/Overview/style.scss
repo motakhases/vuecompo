@@ -1,6 +1,6 @@
 .zpl-nav-overview {
   /* Default */
-  @apply flex items-center py-md px-sm text-text text-b2 gap-sm;
+  @apply flex items-center p-xs text-text text-b2 gap-sm w-full rounded-sm;
   @apply dark:text-text-dark;
 
   /* Hover */
@@ -14,6 +14,10 @@
   /* focus */
   @apply focus:bg-surface focus:shadow-border-focus-heavy focus:relative focus:z-10;
   @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
+
+  &-box {
+    @apply p-xs flex;
+  }
 }
 .zpl-nav-overview-active {
   /* Default */

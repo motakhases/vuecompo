@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['zpl-status', type , {icon} ]"
+    :class="['zpl-status', type.toLowerCase() , {icon} ]"
   >
     <span
       v-if="indicator"
