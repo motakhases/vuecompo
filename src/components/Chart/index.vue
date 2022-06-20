@@ -1,9 +1,8 @@
 <template>
-  <LineChartGenerator
-    :chart-options="options"
-    :chart-data="chartData"
-    :chart-id="chartId"
-    :plugins="plugins"
+  <VueApexCharts
+    :type="type"
+    :options="options"
+    :series="series"
   />
 </template>
 

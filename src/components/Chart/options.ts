@@ -1,94 +1,101 @@
-import { title } from '@/utils/chart';
+import { day, hour, month } from '@/utils/momentCustom';
+
+function generateSeries(w: any, dataPointIndex: number) {
+  return w.globals.series.map((i: any, index: number) => (
+    `
+    <div class="serie">
+      <span class="title">
+        <span style="background-color: ${w.globals.fill.colors[index]}"></span>
+        ${w.globals.seriesNames[index]}
+      </span>
+      <span>
+        ${i[dataPointIndex].toLocaleString()}
+        تومان
+      </span>
+    </div>
+    `
+  )).join(' ');
+}
 
 export default {
-  responsive: true,
-  maintainAspectRatio: false,
-  scales: {
-    y: {
-      grid: {
-        display: false,
-      },
-      ticks: {
-        display: false,
-        grid: {
-          display: false,
-        },
+  chart: {
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+    fontFamily: 'IRANYekanRdFaNum',
+  },
+  stroke: {
+    width: 3,
+  },
+  grid: {
+    strokeDashArray: 4,
+    position: 'back',
+    xaxis: {
+      lines: {
+        show: true,
       },
     },
-    x: {
-      grid: {
-        borderDash: [5, 10],
-        color: '#DADBE1',
-      },
-      ticks: {
-        font: {
-          family: 'IRANYekanRdFaNum',
-          size: 11,
-          weight: '500',
-        },
+    yaxis: {
+      lines: {
+        show: false,
       },
     },
   },
-  interaction: {
-    mode: 'index',
-    intersect: false,
+  dataLabels: {
+    enabled: false,
   },
-  elements: {
-    line: {
-      tension: 0,
-    },
-    point: {
-      pointRadius: 0,
-      hoverRadius: 0,
+  colors: ['#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
+  fill: {
+    gradient: {
+      type: 'vertical',
+      opacityFrom: 0.4,
+      opacityTo: 0,
+      stops: [0, 100],
     },
   },
-  plugins: {
-    chartAreaBorder: {
-      borderColor: '#DADBE1',
-      borderWidth: 1,
-      borderDash: [5, 10],
-      borderDashOffset: 1,
+  yaxis: {
+    labels: {
+      show: false,
     },
-    legend: {
-      labels: {
-        usePointStyle: true,
-        padding: 24,
-        font: {
-          family: 'IRANYekanRdFaNum',
-          size: 11,
-          weight: '500',
-        },
+  },
+  xaxis: {
+    labels: {
+      trim: true,
+      style: {
+        fontSize: 11,
       },
-      position: 'bottom',
-      align: 'start',
-      rtl: true,
-      boxWidth: 10,
+      formatter(value: any) {
+        return day(value);
+      },
     },
-    title: {
-      display: false,
-    },
-    tooltip: {
-      rtl: true,
-      usePointStyle: true,
-      boxPadding: 4,
-      backgroundColor: '#19191A',
-      cornerRadius: 4,
-      padding: 12,
-      titleSpacing: 12,
-      titleAlign: 'left',
-      bodySpacing: 12,
-      titleFont: {
-        family: 'IRANYekanRdFaNum',
-        size: 12,
-        weight: '400',
-      },
-      bodyFont: {
-        family: 'IRANYekanRdFaNum',
-        size: 12,
-      },
-      callbacks: {
-        title,
-      },
+    crosshairs: { show: false },
+    tooltip: { enabled: false },
+  },
+  legend: {
+    position: 'bottom',
+    horizontalAlign: 'left',
+    offsetY: 24,
+  },
+  tooltip: {
+    custom({
+      series, seriesIndex, dataPointIndex, w,
+    }: any) {
+      const date = w.config.series[0].data[dataPointIndex].x;
+
+      return `
+        <div class="c-t">
+          <div>
+            ${hour(date)} - ${day(date)} - ${month(date)}
+          </div>
+          <div class="series">
+            ${generateSeries(w, dataPointIndex)}
+          </div>
+        </div>
+      `;
     },
   },
 };
+

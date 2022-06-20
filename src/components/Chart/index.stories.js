@@ -10,14 +10,14 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      data: {
-        labels: ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه'],
-        datasets: [{ data: [40, 20, 12, 32, 14, 18, 22] }],
-      }
+      series: [{
+        name: 'sales',
+        data: [30,40,35,50,49,60,70,91,125]
+      }]
     }
   },
   template: `
-    <Chart :height="100" :chart-data="data" />
+    <Chart :series="series" />
   `,
 });
 
