@@ -1,11 +1,13 @@
 <template>
   <li class="zpl-nav-item" @click="toggleMobileHandler">
+    <span v-if="divider" class="divider"  />
     <Tooltip
       :text="title"
       position="left"
       space="largeSpace"
       size="large"
       indicator
+      v-else
     >
       <div
         :class="['zpl-nav-item-menu', showSub ? 'show-sub' : 'hide-sub']"
@@ -35,7 +37,7 @@
           </li>
         </ul>
       </div>
-      <router-link v-else :to="link" class="zpl-nav-item-link">
+      <router-link v-if="link" :to="link" class="zpl-nav-item-link">
         <Icon :name="icon" />
         <span class="zpl-nav-item-title">
           {{ title }}
