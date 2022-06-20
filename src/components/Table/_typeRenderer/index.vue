@@ -20,7 +20,7 @@
         class="image"
       >
         <Thumbnail
-          icon="product"
+          :icon="data.data.icon ? data.data.icon : 'product'"
           :img="data.data.image"
         />
       </div>
@@ -63,7 +63,7 @@
       <Status
         v-for="(label, labelIndex) in data.data"
         :key="labelIndex"
-        :text="label.title"
+        :text="label.text"
         :icon="label.icon"
         :type="label.type"
       />

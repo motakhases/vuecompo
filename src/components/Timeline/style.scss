@@ -8,18 +8,19 @@
     @apply dark:bg-border-dark-divider;
   }
 
-  &:first-of-type {
-    &::before {
-      @apply h-[50%] bottom-0;
+  &:not(:only-child) {
+    &:first-of-type {
+      &::before {
+        @apply h-[50%] bottom-0;
+      }
+    }
+    &:last-of-type {
+      &::before {
+        @apply h-[50%] top-0;
+      }
     }
   }
 
-  &:last-of-type {
-    color: green;
-    &::before {
-      @apply h-[50%] top-0;
-    }
-  }
   &:not(:first-of-type):not(:last-of-type) {
     &::before {
       @apply h-full top-0;
@@ -36,7 +37,7 @@
   @apply dark:border-border-dark-divider;
 }
 .zpl-timeline-title {
-  @apply flex items-center gap-xs text-b2 text-text mb-xs;
+  @apply flex items-center gap-xs text-b2 text-text mb-xs font-medium;
   @apply dark:text-text-dark;
 }
 .zpl-timeline-sub {

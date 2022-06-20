@@ -8,4 +8,6 @@ export default class Avatar extends Vue {
   @Prop({ type: String, default: 'medium' }) readonly size!: string;
 
   @Prop({ type: String }) readonly img!: string;
+
+  @Prop({ type: Boolean, default: false }) readonly hasBorder!: boolean;
 }

@@ -1,0 +1,26 @@
+.zpl-list-menu {
+  @apply flex flex-col gap-2xs;
+
+  &-item {
+    @apply flex justify-between items-center rounded-sm text-b2 p-xs text-text dark:text-text-dark;
+    @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
+    @apply active:bg-surface-active dark:active:bg-surface-dark-active;
+
+    .icon {
+      @apply w-xl h-xl text-icon-disabled dark:text-icon-dark-disabled;
+    }
+
+    .amount {
+      @apply text-text-soft dark:text-text-dark-soft ml-xs font-IRANYekanFaNum font-normal;
+    }
+
+    &.active {
+      @apply text-primaryZarinpal dark:text-primaryZarinpal-dark;
+
+      .icon {
+        @apply text-primaryZarinpal dark:text-primaryZarinpal-dark;
+      }
+  
+    }
+  }
+}

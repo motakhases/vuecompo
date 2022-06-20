@@ -1,0 +1,40 @@
+.zpl-accordion {
+  @apply border border-border-divider dark:border-border-dark-divider rounded-sm overflow-hidden;
+
+  &-item {
+    @apply flex flex-col;
+    @apply border-b border-border-divider dark:border-border-dark-divider last:border-b-0;
+
+    > button {
+      @apply flex justify-between items-center p-md text-ls-h3;
+      @apply bg-surface dark:bg-surface-dark text-text dark:text-text-dark;
+      @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
+      @apply active:bg-surface-active dark:active:bg-surface-dark-active;
+
+      > .icon {
+        @apply w-xl h-xl text-icon dark:text-icon-dark;
+      }
+
+      &:focus {
+        @apply outline-none;
+
+        .icon {
+          @apply border-2 border-interactive-focus dark:border-interactive-dark-focus;
+        }
+      }
+
+      &:hover,
+      &:active {
+        .icon {
+          @apply text-primaryZarinpal dark:text-primaryZarinpal-dark;
+        }
+      }
+    }
+
+    ._content {
+      @apply p-md pr-[56px];
+      @apply bg-surface-soft dark:bg-surface-dark-soft text-text dark:text-text-dark;
+      @apply border-t border-border-divider dark:border-border-dark-divider;
+    }
+  }
+}

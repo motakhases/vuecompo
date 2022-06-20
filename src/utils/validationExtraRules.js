@@ -60,3 +60,12 @@ extend('isPhoneValidate', {
     return false;
   },
 });
+extend('Multiplication', {
+  validate(value, { step }) {
+    if (value) {
+      return value % step === 0;
+    }
+    return false;
+  },
+  params: ['step'],
+});

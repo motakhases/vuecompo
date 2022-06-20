@@ -27,15 +27,46 @@
   @apply h-[140px] bg-surface border border-dashed border-border rounded-sm;
   @apply py-2xl px-md font-sans;
 
+  /* dark */
+  @apply dark:bg-surface-dark dark:border-border-dark;
+
   /* hover */
   @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
 
+  &.dz-drag-hover {
+    @apply bg-surface-active;
+    @apply dark:bg-surface-dark-active;
+    .dz-message {
+      @apply opacity-100;
+    }
+  }
+
+  /* disabled */
+  &.disabled {
+    @apply pointer-events-none cursor-not-allowed bg-surface-disabled;
+
+    /* dark */
+    @apply bg-surface-dark-disabled;
+
+    .zpl-dropzone-text {
+      @apply text-text-disabled;
+
+      /* dark */
+      @apply dark:text-text-dark-disabled;
+    }
+  }
   &-text {
     /* Default */
-    @apply mt-md text-b3 text-text;
+    @apply mt-md text-b3 text-text-soft;
+    /* dark */
+    @apply dark:text-text-dark-soft;
   }
   &.active {
     @apply bg-surface-active;
+
+    /* dark */
+    @apply bg-surface-dark-active;
   }
   input {
     /* Default */

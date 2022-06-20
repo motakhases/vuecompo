@@ -9,7 +9,7 @@
     <div :class="['zpl-textbox-group']">
       <textarea
         v-model="model"
-        :class="['zpl-textbox', { 'error': errors && errors.length }]"
+        :class="['zpl-textbox', { 'error': errors && errors.length }, { isInputFocused }]"
         :rows="rows"
         :disabled="disabled"
         name="inputName"

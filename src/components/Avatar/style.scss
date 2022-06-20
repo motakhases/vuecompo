@@ -41,4 +41,7 @@
       @apply w-4xl h-4xl;
     }
   }
+  .zpl-avatar-border{
+    @apply border-2 border-surface dark:border-surface-dark
+  }
 }

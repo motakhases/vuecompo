@@ -1,6 +1,6 @@
 import { extend, localize } from 'vee-validate';
 import * as rules from 'vee-validate/dist/rules';
-import fa from '../../lang/validationFa.json';
+import fa from '@/../lang/validationFa';
 
 // eslint-disable-next-line no-restricted-syntax
 for (const [rule, validation] of Object.entries(rules)) {

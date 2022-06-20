@@ -8,11 +8,19 @@ export default {
 
 const Template = (_, { argTypes }) => ({
   components: { Card, Button },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  
   props: Object.keys(argTypes),
   template: `
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
+  {{show}}
+  <div @click="()=>this.show = !this.show">show</div>
 	  <Card title="عنوان کارت">
-      محتوای دلخواه در کارت
+      <div v-if="show">محتوای دلخواه در کارت</div>
       <template #actions>
         <Button type="secondary" text="دکمه" />
       </template>

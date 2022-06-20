@@ -15,9 +15,10 @@
       <div class="zpl-terminal-item-link">
         {{ link }}
       </div>
-      <GatewayStatus
+      <Status
         :type="state"
         :text="stateText(state)"
+        class="mt-sm"
       />
       <div
         v-if="active === true"
