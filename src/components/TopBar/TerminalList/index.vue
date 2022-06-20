@@ -5,14 +5,6 @@
   >
     <div class="modal">
       <div>
-        <!-- Title -->
-        <Overview
-          link="overview"
-          active
-        >
-        {{ $t('common.overview') }}
-        </Overview>
-
         <!-- Terminals -->
         <div class="terminal-items">
           <SwitchTerminalItem
