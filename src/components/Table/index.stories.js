@@ -258,6 +258,7 @@ const Template = (_, { argTypes }) => ({
       :columns="columns"
       selectable
       hasCustom
+      :inCard="true"
     />
     <h1 class="my-sm font-bold dark:text-surface">
     قابل انتخاب

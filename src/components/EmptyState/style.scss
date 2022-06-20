@@ -1,8 +1,13 @@
 .zpl-emptystate {
-  @apply bg-surface shadow-elevation-50 rounded-md;
-  @apply dark:bg-surface-dark dark:shadow-dark-elevation-50;
+  @apply bg-surface rounded-md;
+  @apply dark:bg-surface-dark;
+
+  &:not(.in-card){
+    @apply shadow-elevation-50;
+    @apply dark:shadow-dark-elevation-50;
+  }
   .zpl-emptystate-box{
-    @apply max-w-[296px] mx-auto text-center px-md box-content;
+    @apply max-w-[296px] mx-auto text-center px-md py-xl box-content;
     .bg-empty-state {
       @apply w-[128px] h-[128px] bg-no-repeat bg-center mx-auto;
     }

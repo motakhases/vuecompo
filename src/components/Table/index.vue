@@ -128,6 +128,7 @@
     v-if="(!data && !loading) || (data && !data.length && !loading)"
     :title="emptyTitle"
     :caption="emptyCaption"
+    :inCard="inCard"
     />
   </div>
 </template>
