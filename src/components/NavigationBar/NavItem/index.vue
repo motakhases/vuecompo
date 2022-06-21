@@ -6,7 +6,7 @@
       position="left"
       space="largeSpace"
       size="large"
-      indicator
+      :hideTooltip="!isShow"
       v-else
     >
       <div
