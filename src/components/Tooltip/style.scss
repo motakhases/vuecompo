@@ -18,7 +18,7 @@
 
 .zpl-tooltip {
   /* Default */
-  @apply bg-surface-dark rounded-sm px-xs z-10 w-max	max-w-[328px] fixed;
+  @apply bg-surface-dark rounded-sm px-xs z-50 w-max	max-w-[328px] fixed;
   @apply dark:bg-surface;
 
   span {

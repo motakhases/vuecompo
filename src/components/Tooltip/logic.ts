@@ -15,6 +15,8 @@ export default class Tooltip extends Vue {
 
   @Prop({ type: Boolean, default: true }) readonly indicator!: boolean
 
+  @Prop({ type: Boolean }) readonly hideTooltip?: boolean
+
   @Prop({ type: String, default: 'large' }) readonly size!: string
 
   @Ref('tooltipBtn') readonly buttonRef!: HTMLElement;
@@ -94,7 +96,11 @@ export default class Tooltip extends Vue {
   }
 
   onButtonHover(): void {
-    this.toggle = !this.toggle;
+    if (this.hideTooltip) {
+      this.toggle = false;
+    } else {
+      this.toggle = !this.toggle;
+    }
   }
 
   @Watch('toggle')
@@ -108,6 +114,23 @@ export default class Tooltip extends Vue {
       // append tooltip to body
       document.body.appendChild(this.tooltipRef);
     }
+  }
+
+  @Watch('hideTooltip')
+  hide(): void {
+    if (this.hideTooltip) {
+      this.toggle = false;
+    }
+  }
+
+  getScrollParent = (node:any) => {
+    if (node === null) {
+      return null;
+    } if (node.scrollHeight > node.clientHeight) {
+      return node;
+    }
+
+    return this.getScrollParent(node.parentNode);
   }
 
   outsideHover(e: Event): void {
@@ -142,6 +165,9 @@ export default class Tooltip extends Vue {
       false,
     );
     window.addEventListener('resize', this.onResize);
+    if (this.getScrollParent(this.buttonRef)) {
+      this.getScrollParent(this.buttonRef).addEventListener('scroll', this.updateStyle);
+    }
   }
 
   beforeDestroy(): void {
