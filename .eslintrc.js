@@ -16,7 +16,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/no-extraneous-dependencies': 0,
-    'max-len': ['error', { code: 180 }],
+    'max-len': 'off',
     'vue/no-v-html': 0,
     'linebreak-style': 0,
     'class-methods-use-this': 'off',
