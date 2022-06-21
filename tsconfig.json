@@ -14,7 +14,8 @@
     "sourceMap": true,
     "baseUrl": ".",
     "declaration": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
+
     "types": [
       "webpack-env",
       "jest",

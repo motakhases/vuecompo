@@ -1,12 +1,15 @@
 <template>
-  <div class="zpl-tooltip-container">
+  <div class="zpl-tooltip-container" ref="tooltipBtn">
     <slot />
-    <div :class="['zpl-tooltip', position, space, size]">
-      <Indicator
-        v-if="indicator"
-        :position="position"
-      />
-      <span>{{ text }}</span>
+    <div ref="tooltip">
+      <div
+        v-if="toggle"
+        :class="['zpl-tooltip', position, space, size]"
+        :style="[style]"
+      >
+        <Indicator v-if="indicator" :position="position" />
+        <span>{{ text }}</span>
+      </div>
     </div>
   </div>
 </template>
