@@ -11,7 +11,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-    <Tooltip space="smallSpace" text="راهنمای ابزار" indicator  position="left">
+    <Tooltip space="smallSpace" text="راهنمای ابزار"  position="left">
 			<Button text="یک دکمه تولتیپ دار" size="small" type="secondary" />
 		</Tooltip>
 
@@ -41,9 +41,12 @@ const Template = (_, { argTypes }) => ({
       <Tooltip space="smallSpace" text="راهنمای ابزار" indicator position="left">
         <Button text="چپ" size="small" type="secondary" />
       </Tooltip>
+      <Tooltip space="largeSpace" text="راهنمای ابزار" indicator position="left">
+        <Button text="چپ" size="small" type="secondary" />
+      </Tooltip>
     </div>   
     <h1 class="mt-sm mb-lg font-bold dark:text-surface"> تولتیپ بدون فلش </h1>
-    <Tooltip space="smallSpace" text="راهنمای ابزار" position="left">
+    <Tooltip space="smallSpace" text="راهنمای ابزار" position="left" :indicator="false">
       <Button text="دکمه" size="small" type="secondary" />
     </Tooltip>
 
@@ -59,10 +62,10 @@ const Template = (_, { argTypes }) => ({
 
     <h1 class="mt-sm mb-lg font-bold dark:text-surface"> فاصله های مختلف تولتیپ </h1>
     <div class="flex items-center gap-sm mt-lg">
-      <Tooltip space="smallSpace" text="راهنمای ابزار" position="topCenter" size="large" indicator>
+      <Tooltip space="smallSpace" text="راهنمای ابزار" position="left" size="large" indicator>
         <Button text="تولتیپ کوچک" size="small" type="secondary" />
       </Tooltip>
-      <Tooltip space="largeSpace" text="راهنمای ابزار" position="topCenter" size="large" indicator>
+      <Tooltip space="largeSpace" text="راهنمای ابزار" position="left" size="large" indicator>
         <Button text="تولتیپ بزرگ" size="small" type="secondary" />
       </Tooltip>
     </div>   

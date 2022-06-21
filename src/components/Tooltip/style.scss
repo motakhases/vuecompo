@@ -18,7 +18,7 @@
 
 .zpl-tooltip {
   /* Default */
-  @apply bg-surface-dark rounded-sm px-xs absolute z-10 w-max	max-w-[328px] hidden;
+  @apply bg-surface-dark rounded-sm px-xs z-10 w-max	max-w-[328px] fixed;
   @apply dark:bg-surface;
 
   span {
@@ -33,68 +33,5 @@
   &.large {
     @apply py-[6px] text-b3;
   }
-
-  &.topLeft,
-  &.bottomLeft {
-    @apply left-0;
-  }
-
-  &.topCenter,
-  &.bottomCenter {
-    @apply left-2/4;
-    transform: translateX(-50%);
-  }
-
-  &.topRight,
-  &.bottomRight {
-    @apply right-0;
-  }
-
-  &.topLeft,
-  &.topCenter,
-  &.topRight {
-    &.smallSpace {
-      bottom: calc(100% + 8px);
-    }
-    &.largeSpace {
-      bottom: calc(100% + 16px);
-    }
-  }
-
-  &.bottomLeft,
-  &.bottomCenter,
-  &.bottomRight {
-    &.smallSpace {
-      top: calc(100% + 8px);
-    }
-    &.largeSpace {
-      top: calc(100% + 16px);
-    }
-  }
-
-  &.right {
-    &.smallSpace {
-      left: calc(100% + 8px);
-      transform: translateY(-50%);
-      @apply top-2/4;
-    }
-    &.largeSpace {
-      left: calc(100% + 16px);
-      transform: translateY(-50%);
-      @apply top-2/4;
-    }
-  }
-
-  &.left {
-    &.smallSpace {
-      right: calc(100% + 8px);
-      transform: translateY(-50%);
-      @apply top-2/4;
-    }
-    &.largeSpace {
-      right: calc(100% + 16px);
-      transform: translateY(-50%);
-      @apply top-2/4;
-    }
-  }
+  
 }
