@@ -19,6 +19,7 @@
 
         <input
           v-model="model"
+          autocomplete="off"
           :class="['zpl-textfield-input', { ltr }]"
           :disabled="disabled"
           :maxlength="maxlength"
@@ -43,6 +44,7 @@
         >
           <button
             class="zpl-textfield-stepper-btn"
+            type="button"
             @click="increment"
           >
             <Icon name="filledArrowUp" />
@@ -50,7 +52,8 @@
 
           <button
             class="zpl-textfield-stepper-btn"
-            :disabled="value == 0"
+            type="button"
+            :disabled="value === min"
             @click="decrement"
           >
             <Icon name="filledArrowDown" />
@@ -63,6 +66,14 @@
           class="zpl-textfield-unit"
         >
           {{ unit }}
+        </span>
+
+        <!-- unit icon -->
+        <span
+          v-if="unitIcon"
+          class="zpl-textfield-unit"
+        >
+          <Icon :name="unitIcon" />
         </span>
 
         <!-- Copy to clipboard -->

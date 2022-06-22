@@ -1,6 +1,6 @@
 .zpl-nav-terminal {
-  @apply py-md pl-sm pr-md text-text text-b2 gap-sm relative;
-  @apply hidden lg:flex lg:items-center;
+  @apply p-xs text-text text-b2 gap-sm relative rounded-sm;
+  @apply hidden lg:flex lg:items-center w-full;
 
   /* Hover */
   @apply hover:bg-surface-hover;
@@ -17,6 +17,9 @@
 
   .zpl-thumbnail {
     flex: 0 0 40px;
+  }
+  &-container {
+    @apply p-xs flex;
   }
 }
 
@@ -35,7 +38,8 @@
 }
 
 .zpl-nav-terminal-arrow {
-  @apply w-xl;
+  @apply w-xl text-icon;
+  @apply dark:text-icon-dark;
 }
 
 .zpl-nav-terminal-active {

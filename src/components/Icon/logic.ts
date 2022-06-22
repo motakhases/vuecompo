@@ -11,6 +11,7 @@ import PaymentCard from './icons/PaymentCard.vue';
 import AngleDown from './icons/AngleDown.vue';
 import AngleRight from './icons/AngleRight.vue';
 import AngleLeft from './icons/AngleLeft.vue';
+import AngleUp from './icons/AngleUp.vue';
 import CheckmarkCircle from './icons/CheckmarkCircle.vue';
 import FilledArrowDown from './icons/FilledArrowDown.vue';
 import FilledArrowUp from './icons/FilledArrowUp.vue';
@@ -32,6 +33,7 @@ import ArrowLeft from './icons/ArrowLeft.vue';
 import ArrowRight from './icons/ArrowRight.vue';
 import ArrowFirst from './icons/ArrowFirst.vue';
 import ArrowLast from './icons/ArrowLast.vue';
+import AlarmTime from './icons/AlarmTime.vue';
 import Star from './icons/Star.vue';
 import NightModeCircle from './icons/NightModeCircle.vue';
 import NightModeSquare from './icons/NightModeSquare.vue';
@@ -54,6 +56,7 @@ import EyeShow from './icons/EyeShow.vue';
 import EyeHidden from './icons/EyeHidden.vue';
 import IndeterminateFill from './icons/IndeterminateFill.vue';
 import InvoicePlus from './icons/InvoicePlus.vue';
+import Invoice from './icons/Invoice.vue';
 import MessageEditFill from './icons/MessageEditFill.vue';
 import PenAddNote from './icons/PenAddNote.vue';
 import PenEdit from './icons/PenEdit.vue';
@@ -63,6 +66,8 @@ import SettingsRound from './icons/SettingsRound.vue';
 import Share from './icons/Share.vue';
 import Instagram from './icons/Instagram.vue';
 import Telegram from './icons/Telegram.vue';
+import ThumbsDown from './icons/ThumbsDown.vue';
+import ThumbsUp from './icons/ThumbsUp.vue';
 import Trash from './icons/Trash.vue';
 import Whatsapp from './icons/Whatsapp.vue';
 import Download from './icons/Download.vue';
@@ -72,6 +77,7 @@ import CodeBlock from './icons/CodeBlock.vue';
 import OfficialBadge from './icons/OfficialBadge.vue';
 import Github from './icons/Github.vue';
 import Link from './icons/Link.vue';
+import Minus from './icons/Minus.vue';
 
 @Component({
   components: {
@@ -90,6 +96,7 @@ import Link from './icons/Link.vue';
     AngleDown,
     AngleRight,
     AngleLeft,
+    AngleUp,
     FilledArrowDown,
     FilledArrowUp,
     TickLarge,
@@ -104,12 +111,14 @@ import Link from './icons/Link.vue';
     ChartSquare,
     Plus,
     Terminal,
+    Invoice,
     Delete,
     ClockRefresh,
     ArrowLeft,
     ArrowRight,
     ArrowFirst,
     ArrowLast,
+    AlarmTime,
     Star,
     NightModeCircle,
     NightModeSquare,
@@ -140,12 +149,15 @@ import Link from './icons/Link.vue';
     Instagram,
     Telegram,
     Trash,
+    ThumbsDown,
+    ThumbsUp,
     Whatsapp,
     DarkMode,
     CodeBlock,
     OfficialBadge,
     Github,
     Link,
+    Minus,
   },
 })
 export default class Icon extends Vue {

@@ -10,7 +10,7 @@
       </div>
     </div>
     <!-- body -->
-    <div class="zpl-card-content">
+    <div class="zpl-card-content" v-if="hasContent">
       <slot />
     </div>
   </div>

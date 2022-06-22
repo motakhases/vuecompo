@@ -1,9 +1,10 @@
 <template>
   <router-link
     to="/"
-    class="zpl-nav-overview"
+    class="zpl-nav-overview-box"
   >
-    <Thumbnail icon="chartSquare" />
+  <div class="zpl-nav-overview">
+     <Thumbnail icon="chartSquare" />
     <div class="zpl-nav-overview-title">
       <slot />
     </div>
@@ -13,6 +14,7 @@
     >
       <Icon name="tickSmall" />
     </div>
+  </div>
   </router-link>
 </template>
 

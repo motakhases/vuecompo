@@ -1,9 +1,11 @@
 .zpl-page-heading {
   direction: rtl;
+  &:not(.fixed-page-heading) {
+    @apply py-md;
+  }
   .page-heading-container {
     @apply flex flex-wrap;
     @apply lg:flex-nowrap;
-    @apply py-md;
   }
   .return-btn {
     @apply h-[40px] rounded-sm ml-xs;
@@ -13,7 +15,7 @@
     @apply flex-grow ml-xs;
     @apply lg:ml-md lg:order-none lg:mt-0;
     .title {
-      @apply text-ls-h1 leading-[40px];
+      @apply text-ls-h1 leading-[40px] font-bold;
       @apply text-text;
       @apply dark:text-text-dark;
     }

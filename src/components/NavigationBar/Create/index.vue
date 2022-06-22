@@ -1,5 +1,5 @@
 <template>
-  <div class="rtl">
+  <div class="zpl-nav-create-box">
     <a
       :to="link"
       class="zpl-nav-create"

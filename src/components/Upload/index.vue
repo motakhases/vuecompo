@@ -11,7 +11,8 @@
     <slot />
     <vue2Dropzone
       :class="[
-        dropzone? 'zpl-dropzone':'zpl-none-dropzone',
+        dropzone ? 'zpl-dropzone' : 'zpl-none-dropzone',
+        disabled ? 'disabled': null,
         uploadedList.length >= maxFiles ? 'hidden' : 'null',
       ]"
       :options="dropzoneOptions"
@@ -20,6 +21,7 @@
       @vdropzone-thumbnail="fetchInitialData"
       @vdropzone-upload-progress="fileUploadProgress"
       @vdropzone-success="successUploaded"
+      @vdropzone-error='error'
       id="dropzone"
     >
       <Button
@@ -27,6 +29,7 @@
         beforeIcon="cloud"
         type="neutral"
         size="medium"
+        :disabled="disabled"
       />
       <span class="zpl-dropzone-text" v-if="dropzone">
         {{$t('product.add.drag_image')}}
@@ -35,6 +38,8 @@
     <UploadedFile
       :removeFileHandler="removeFileHandler"
       :uploadedList="uploadedList"
+      :addFileManually="addFileManually"
+      :hasIcon="hasIcon"
     />
   </div>
 </template>

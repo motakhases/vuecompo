@@ -11,12 +11,7 @@
           class="zpl-topbar-menu"
         /> -->
       <div class="zpl-topbar-logo">
-        <Logo
-          size="medium"
-          name="zarinpal"
-          type="logo"
-          language="fa"
-        />
+        <Logo size="medium" name="zarinpal" type="logo" language="fa" />
       </div>
       <div class="zpl-topbar-terminal-btn">
         <Button
@@ -28,22 +23,15 @@
       </div>
     </div>
     <div class="zpl-topbar-left-side">
-      <div
-        class="zpl-topbar-question-btn"
-      >
-        <Button
-          icon="questionCircle"
-          type="tertiary"
-        />
+      <div class="zpl-topbar-question-btn">
+        <Button icon="questionCircle" type="tertiary" />
       </div>
-      <Notification
-        badge="1"
-        @click.native="$emit('showNotifs')"
-      />
-      <UserProfile
-        :show-profile-box="showProfileBox"
-        @click.native="showProfileBox=!showProfileBox"
-      />
+      <Notification badge="1" @click.native="$emit('showNotifs')" />
+      <Dropdown :list="profileList" width="256px">
+        <template slot="button">
+          <Button type="tertiary" size="medium" icon="profile" />
+        </template>
+      </Dropdown>
     </div>
     <TerminalList
       :terminals="terminals"

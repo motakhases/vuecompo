@@ -1,12 +1,11 @@
 import TopBar from "./index.vue";
 import Logo from "@/components/Logo/index.vue";
 import Icon from "@/components/Icon/index.vue";
-import UserProfile from "./UserProfile/index.vue";
 import Notification from "./Notification/index.vue";
 import Button from "@/components/Button/index.vue";
 
 const Template = (_, { argTypes }) => ({
-  components: { TopBar, Logo, Icon, UserProfile, Notification, Button },
+  components: { TopBar, Logo, Icon, Notification, Button },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl h-[630px]">

@@ -10,3 +10,4 @@ export const month = (date:string):string => moment(date).format('D jMMMM');
 export const now = (format:string):string => moment().format(format);
 export const yesterday = (format:string):string => moment().subtract(1, 'days').format(format);
 export const beforeDays = (days:number, format:string):string => moment().subtract(days, 'days').format(format);
+

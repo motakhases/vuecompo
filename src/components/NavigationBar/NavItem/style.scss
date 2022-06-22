@@ -1,31 +1,68 @@
 .zpl-nav-item {
-  @apply whitespace-nowrap;
-  
+  @apply whitespace-nowrap flex;
+
   /* tooltip */
   .zpl-tooltip-container {
-		@apply w-full;
+    @apply w-full;
     &:hover {
       .zpl-tooltip {
         @apply hidden;
       }
     }
   }
+  &-menu {
+    transition: all 0.2s cubic-bezier(0.86, 0, 0.07, 1);
+    ul {
+      @apply mt-xs pr-[36px] relative;
+      &:before {
+        @apply content-[''] w-[1px] bg-border-divider absolute right-lg top-xs bottom-xs;
+      }
+    }
+  }
+  &-sub {
+    @apply p-xs text-b2 font-medium text-text flex items-center rounded-sm gap-xs;
+    @apply dark:text-text-dark;
+
+    @apply hover:before:flex;
+
+    /* focus */
+    @apply focus:shadow-border-focus-heavy;
+    @apply dark:focus:shadow-dark-border-focus-heavy;
+
+    &::before {
+      @apply content-[''] w-[2px] h-xl bg-border absolute right-lg rounded-l-xs hidden;
+    }
+
+    &.nuxt-link-active {
+      @apply hover:cursor-default text-primaryZarinpal;
+      @apply dark:text-primaryZarinpal-dark;
+      &:before {
+        @apply flex bg-primaryZarinpal;
+        @apply dark:bg-primaryZarinpal-dark;
+      }
+    }
+  }
+  .show-sub {
+    @apply max-h-[500px];
+  }
+  .hide-sub {
+    @apply max-h-[40px] overflow-hidden;
+  }
 }
 .zpl-nav-item-link {
-  @apply flex items-center rounded-sm p-xs gap-md cursor-pointer text-text text-b2 w-full hover:cursor-pointer;
-  @apply dark:text-text-dark;
-
+  @apply flex items-center bg-surface rounded-sm p-xs gap-sm cursor-pointer text-text text-b2 w-full hover:cursor-pointer;
+  @apply dark:text-text-dark dark:bg-surface-dark font-medium;
   /* Hover */
-  @apply hover:bg-primarySurface-hover;
-  @apply dark:hover:bg-primarySurface-dark-hover;
+  @apply hover:bg-surface-hover;
+  @apply dark:hover:bg-surface-dark-hover;
 
   /* Active */
-  @apply active:bg-primarySurface-active;
-  @apply dark:active:bg-primarySurface-dark-active;
+  @apply active:bg-surface-active;
+  @apply dark:active:bg-surface-dark-active;
 
   /* focus */
-  @apply focus:bg-primarySurface focus:shadow-border-focus-heavy;
-  @apply dark:focus:bg-primarySurface-dark dark:focus:shadow-dark-border-focus-heavy;
+  @apply focus:bg-surface focus:shadow-border-focus-heavy;
+  @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
 
   svg {
     @apply h-xl w-xl;
@@ -38,6 +75,7 @@
     &:before {
       content: "";
       @apply bg-primaryZarinpal w-2xs h-2xl absolute right-[-16px] rounded-tl-sm rounded-bl-sm;
+      @apply dark:bg-primaryZarinpal-dark;
     }
     svg {
       @apply text-primaryZarinpal;
