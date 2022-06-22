@@ -23,6 +23,20 @@ const Template = () => ({
           متن توضیحات کامل اینجا نوشته می‌شود
         </AccordionItem>
       </Accordion>
+
+      <Accordion rightIconStyle>
+        <AccordionItem title="عنوان آیتم اول">
+          متن توضیحات کامل اینجا نوشته می‌شود
+          as
+          <a href="dd">BB</a>
+        </AccordionItem>
+        <AccordionItem title="عنوان آیتم دوم">
+          متن توضیحات کامل اینجا نوشته می‌شود
+        </AccordionItem>
+        <AccordionItem title="عنوان آیتم سوم">
+          متن توضیحات کامل اینجا نوشته می‌شود
+        </AccordionItem>
+      </Accordion>
     </div>
   `,
 });

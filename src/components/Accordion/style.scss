@@ -32,9 +32,21 @@
     }
 
     ._content {
-      @apply p-md pr-[56px];
+      @apply p-md;
       @apply bg-surface-soft dark:bg-surface-dark-soft text-text dark:text-text-dark;
       @apply border-t border-border-divider dark:border-border-dark-divider;
+    }
+  }
+
+  &.right-icon-style {
+    .zpl-accordion-item {
+      > button {
+        @apply justify-end flex-row-reverse gap-md;
+      }
+    }
+
+    ._content {
+      @apply pr-[56px];
     }
   }
 }
