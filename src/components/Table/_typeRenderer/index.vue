@@ -6,6 +6,7 @@
       'zpl-table-type-renderer',
       'zpl-table-cell',
       data.type === 'description' ? 'description' : null,
+      data.leftAlign ? 'justify-end' : null
     ]"
   >
     <!--------------

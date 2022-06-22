@@ -25,6 +25,7 @@ const Template = (_, { argTypes }) => ({
         pay_id: {
           type: "text",
           data: 2234145522155,
+          leftAlign:true
         },
         description: {
           type: "description",
@@ -33,6 +34,7 @@ const Template = (_, { argTypes }) => ({
         created_at: {
           type: "date",
           data: "2020-11-30T11:55:07.000000Z",
+          leftAlign:true
         },
         status: {
           type: "status",
