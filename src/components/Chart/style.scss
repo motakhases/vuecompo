@@ -9,22 +9,34 @@
     }
   }
 
-  &::before {
-    @apply h-[1px] w-[calc(100%-30px)] bg-border-divider dark:bg-border-dark-divider content-[''] block;
-    @apply absolute left-[50%] translate-x-[-49.1%] top-[29px];
-  }
+  // &::before {
+  //   @apply h-[1px] w-[calc(100%-30px)] bg-border dark:bg-border-dark content-[''] block;
+  //   @apply absolute left-[50%] translate-x-[-49.1%] top-[29px];
+  // }
 }
 
 .apexcharts-gridline,
 .apexcharts-xaxis-tick {
-  @apply stroke-border-divider dark:stroke-border-dark-divider
+  @apply stroke-border dark:stroke-border-dark
 }
 
 .apexcharts-xaxis {
   > line {
-    @apply stroke-border-divider dark:stroke-border-dark-divider;
+    @apply stroke-border dark:stroke-border-dark;
   }
 }
+
+.five-sparate-ticks {
+  .apexcharts-xaxis-label {
+    @apply hidden;
+  
+    &:nth-of-type(5n),
+    &:nth-of-type(1) {
+      @apply block;
+    }
+  }
+}
+
 
 .apexcharts-xaxis-texts-g {
   .apexcharts-text {

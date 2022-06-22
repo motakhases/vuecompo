@@ -1,4 +1,4 @@
-import { day, hour, month } from '@/utils/momentCustom';
+import { dayName, hour, month } from '@/utils/momentCustom';
 
 function generateSeries(w: any, dataPointIndex: number) {
   return w.globals.series.map((i: any, index: number) => (
@@ -28,7 +28,7 @@ export default {
     fontFamily: 'IRANYekanRdFaNum',
   },
   stroke: {
-    width: 3,
+    width: 2,
   },
   grid: {
     strokeDashArray: 4,
@@ -48,31 +48,10 @@ export default {
     enabled: false,
   },
   colors: ['#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
-  fill: {
-    gradient: {
-      type: 'vertical',
-      opacityFrom: 0.4,
-      opacityTo: 0,
-      stops: [0, 100],
-    },
-  },
   yaxis: {
     labels: {
       show: false,
     },
-  },
-  xaxis: {
-    labels: {
-      trim: true,
-      style: {
-        fontSize: 11,
-      },
-      formatter(value: any) {
-        return day(value);
-      },
-    },
-    crosshairs: { show: false },
-    tooltip: { enabled: false },
   },
   legend: {
     position: 'bottom',
@@ -88,7 +67,7 @@ export default {
       return `
         <div class="c-t">
           <div>
-            ${hour(date)} - ${day(date)} - ${month(date)}
+            ${hour(date)} - ${dayName(date)} - ${month(date)}
           </div>
           <div class="series">
             ${generateSeries(w, dataPointIndex)}
