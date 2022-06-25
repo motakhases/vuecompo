@@ -98,3 +98,5 @@ export { default as Upload } from './Upload/index.vue';
 
 export { default as Accordion } from './Accordion/index.vue';
 export { default as AccordionItem } from './Accordion/_item/index.vue';
+
+export { default as Chart } from './Chart/index.vue';
