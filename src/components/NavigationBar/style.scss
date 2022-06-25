@@ -44,17 +44,18 @@
 }
 
 .zpl-nav-bar-content {
-  @apply px-md py-xs overflow-y-scroll;
+  @apply px-md py-xs overflow-y-auto;
   max-height: calc(100vh - 130px);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .zpl-nav-bar-list {
   @apply list-none flex flex-col gap-xs;
 
-  &.has-border {
-    @apply pb-2xl mb-2xl border-b border-border-divider;
-    @apply dark:border-border-dark-divider;
-  }
 }
 
 .zpl-nav-bar-logo {

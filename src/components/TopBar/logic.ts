@@ -16,6 +16,8 @@ import TerminalList from '@/components/TopBar/TerminalList/index.vue';
 export default class TopBar extends Vue {
   @Prop({ type: Array }) terminals!: []
 
+  @Prop({ type: String, default: 'عنوان درگاه' }) readonly activeTerminal?: string
+
   showTerminalList = false
 
   showProfileBox = false

@@ -48,6 +48,10 @@
   .hide-sub {
     @apply max-h-[40px] overflow-hidden;
   }
+  .divider {
+    @apply w-full h-[1px] bg-border-divider my-md mx-xs;
+    @apply dark:bg-border-dark-divider;
+  }
 }
 .zpl-nav-item-link {
   @apply flex items-center bg-surface rounded-sm p-xs gap-sm cursor-pointer text-text text-b2 w-full hover:cursor-pointer;
