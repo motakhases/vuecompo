@@ -3,7 +3,7 @@ import { DataSheetItemSpans } from '@/types';
 
 @Component
 export default class DataSheetItem extends Vue {
-  @Prop({ type: String, required: true }) readonly title!: string;
+  @Prop({ type: String }) readonly title?: string;
 
   @Prop({ type: Boolean }) readonly row?: boolean;
 

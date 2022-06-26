@@ -47,8 +47,6 @@ export { default as MessageBox } from './MessageBox/index.vue';
 
 export { default as Modal } from './Modal/index.vue';
 
-export { default as NavBadge } from './NavBadge/index.vue';
-
 export { default as NavigationBar } from './NavigationBar/index.vue';
 
 export { default as NotificationBadge } from './NotificationBadge/index.vue';
@@ -100,3 +98,7 @@ export { default as Upload } from './Upload/index.vue';
 
 export { default as Accordion } from './Accordion/index.vue';
 export { default as AccordionItem } from './Accordion/_item/index.vue';
+
+export { default as Chart } from './Chart/index.vue';
+
+export { default as TimePicker } from './Timepicker/index.vue';

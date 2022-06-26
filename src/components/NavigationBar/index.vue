@@ -21,26 +21,11 @@
       <!-- Nav item links -->
       <div class="zpl-nav-bar-content">
         <ul
-          v-if="aboveLinks.length"
-          class="zpl-nav-bar-list has-border"
-        >
-          <NavItem
-            v-for="(link, index) in aboveLinks"
-            :key="index"
-            :active="link.active"
-            :link="link.link"
-            :title="link.title"
-            :icon="link.icon"
-            :badge="link.badge"
-            :toggle="toggle"
-          />
-        </ul>
-        <ul
-          v-if="belowLinks && belowLinks.length"
+          v-if="navItems.length"
           class="zpl-nav-bar-list"
         >
           <NavItem
-            v-for="(link, index) in belowLinks"
+            v-for="(link, index) in navItems"
             :key="index"
             :active="link.active"
             :link="link.link"
@@ -48,6 +33,9 @@
             :icon="link.icon"
             :badge="link.badge"
             :toggle="toggle"
+            :isShow="isShow"
+            :subMenu="link.subMenu"
+            :divider="link.divider"
           />
         </ul>
       </div>

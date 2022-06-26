@@ -16,7 +16,7 @@
             <Status
               v-for="(label, labelIndex) in item.data"
               :key="labelIndex"
-              :text="label.title "
+              :text="label.text"
               :type="label.type"
               :icon="label.icon"
             />

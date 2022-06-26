@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-accordion">
+  <div :class="['zpl-accordion', { 'right-icon-style': rightIconStyle }]">
     <slot />
   </div>
 </template>

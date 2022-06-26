@@ -1,6 +1,6 @@
 <template>
   <div :class="['zpl-ds-item', spans, { row }]">
-    <span class="zpl-ds-item-title">
+    <span class="zpl-ds-item-title" v-if="title">
       {{ title }}
     </span>
     <span class="truncate">
