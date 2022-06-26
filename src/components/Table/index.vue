@@ -103,6 +103,7 @@
                   />
                 </div>
                   <Dropdown
+                    v-if="actions.length>1"
                     :list="actions"
                     :custom-payload="td"
                     :width="dropdownWidth"
