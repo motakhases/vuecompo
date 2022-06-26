@@ -5,7 +5,7 @@
     </div>
     <div class="left-side">
       <div :class="['message-box', {'my-reply':user.id===myId, 'others-reply':user.id!==myId}]">
-        <pre class="content" v-html="markDownToHtml">
+        <pre class="content prose max-w-none" v-html="markDownToHtml">
         </pre>
         <div class="attachment-link" v-if="attachment">
           <Link :href="attachment" :text="$t(`ticket.downloadAttachment`)" target="_blank"/>
