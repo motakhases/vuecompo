@@ -33,7 +33,10 @@ $bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
   }
 }
 .zpl-bank-cards-top {
-  @apply mb-xl gap-x-sm flex items-center;
+  @apply gap-x-sm flex items-center;
+}
+.zpl-bank-cards-bottom {
+  @apply mt-xl;
 }
 .zpl-bank-cards-body {
   @apply pt-lg px-md pb-md;
