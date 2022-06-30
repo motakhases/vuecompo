@@ -1,0 +1,19 @@
+.zpl-reciept {
+  @apply bg-surface-soft rounded-sm p-sm flex items-center gap-xs;
+  @apply dark:bg-surface-dark-soft;
+
+  &-title {
+    @apply text-b3 text-text-soft font-medium;
+    @apply dark:text-text-dark-soft;
+  }
+
+  &-divider {
+    @apply w-full h-[1px] border-t border-dashed border-border;
+    @apply dark:border-border-dark;
+  }
+
+  &-text {
+    @apply text-text text-b3 font-medium font-IRANYekanFaNum;
+    @apply dark:text-text-dark;
+  }
+}
