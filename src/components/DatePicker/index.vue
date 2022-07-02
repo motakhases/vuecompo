@@ -1,5 +1,6 @@
 <template>
   <div class="zpl-date-picker-container">
+    <!-- DatePicker itself -->
     <VuePersianDatetimePicker
       v-model="model"
       locale="fa"
@@ -10,7 +11,7 @@
       custom-input="#editable-input"
       auto-submit
       :range="range"
-      :class="['zpl-date-picker', { 'no-preview': !preview }]"
+      :class="['zpl-date-picker', { 'no-preview': !preview }, { 'dropdown-style': dropdown }, { 'show': isDrpShow }]"
       :highlight="highlightToday"
       @change="dateMoment = $event"
     >
@@ -38,6 +39,8 @@
         <Icon name="close" />
       </template>
     </VuePersianDatetimePicker>
+
+    <!-- Range mode inputs -->
     <div
       v-if="range"
       class="zpl-date-picker-range"
@@ -62,6 +65,8 @@
         />
       </div>
     </div>
+
+    <!-- Main input -->
     <TextField
       v-else
       id="editable-input"
@@ -69,6 +74,7 @@
       suffix-icon="Calendar"
       :placeholder="$t('date.format')"
       :disabled="disableSingle"
+      ref="input"
     />
   </div>
 </template>

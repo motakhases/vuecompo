@@ -29,6 +29,27 @@ export default class DatePicker extends Vue {
 
   @Prop({ type: [String, Array] }) value!: DatePickerValue;
 
+  @Prop({ type: Boolean }) dropdown?: boolean;
+
+  isDrpShow: null|boolean = null
+
+  mounted() {
+    console.log(this.$refs.input);
+    const inputRef = this.$refs.input;
+
+    if (inputRef) {
+      const { $el }:any = this.$refs.input;
+      const elInput = $el.querySelector('input');
+
+      elInput.addEventListener('focus', () => {
+        this.isDrpShow = true;
+      });
+      elInput.addEventListener('blur', () => {
+        this.isDrpShow = false;
+      });
+    }
+  }
+
   get model(): string | string[] {
     return this.getModel();
   }

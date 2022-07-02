@@ -28,6 +28,9 @@ const Template = (_, { argTypes }) => ({
 
       <h1 class="mt-sm font-bold dark:text-surface"> تقویم با حالت پیش نمایش تاریخ </h1>
 		  <DatePicker v-model="previewDate" :preview="previewMode" />
+
+      <h1 class="mt-sm font-bold dark:text-surface"> تقویم به صورت dropdown </h1>
+		  <DatePicker v-model="previewDate" dropdown />
     </div>
   </div>
   `,
