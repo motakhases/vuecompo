@@ -112,7 +112,7 @@
 
 .zpl-select-item {
   /* Default */
-  @apply py-xs px-sm rounded-sm cursor-pointer flex items-center gap-xs;
+  @apply py-xs px-sm rounded-sm cursor-pointer flex gap-xs;
 
   &:not(:last-child) {
     @apply mb-2xs;
