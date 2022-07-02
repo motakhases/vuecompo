@@ -47,7 +47,6 @@ const Template = (_, { argTypes }) => ({
       },
       {
         title: "تسویه حساب",
-        link: "/",
         icon: "CreditCheckout",
         subMenu: [
           {
@@ -63,7 +62,6 @@ const Template = (_, { argTypes }) => ({
       },
       {
         title: "محصولات",
-        link: "/",
         icon: "Box",
         subMenu: [
           {

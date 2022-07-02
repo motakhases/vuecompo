@@ -3,7 +3,7 @@
     <span class="zpl-ds-item-title" v-if="title">
       {{ title }}
     </span>
-    <span class="truncate">
+    <span :class="['truncate', { 'text-left' : leftAlign && row } ]">
       <slot />
     </span>
   </div>

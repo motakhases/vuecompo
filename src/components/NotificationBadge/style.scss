@@ -1,6 +1,6 @@
 .zpl-notification-badge {
   /* Default */
-  @apply bg-primaryZarinpal border border-text-onPrimary rounded-circle p-[2px] font-IRANYekanFaNum;
+  @apply bg-primaryZarinpal border border-text-onPrimary rounded-circle px-[2px] pt-2xs pb-[2px] font-IRANYekanFaNum;
   @apply text-text-onDanger text-ls-cp block;
   @apply dark:bg-primaryZarinpal-dark dark:text-text-dark-onDanger dark:border-surface-dark;
 
