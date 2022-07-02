@@ -78,6 +78,7 @@ import OfficialBadge from './icons/OfficialBadge.vue';
 import Github from './icons/Github.vue';
 import Link from './icons/Link.vue';
 import Minus from './icons/Minus.vue';
+import Info from './icons/Info.vue';
 
 @Component({
   components: {
@@ -158,6 +159,7 @@ import Minus from './icons/Minus.vue';
     Github,
     Link,
     Minus,
+    Info,
   },
 })
 export default class Icon extends Vue {

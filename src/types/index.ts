@@ -1,4 +1,4 @@
-import VueI18n from "vue-i18n";
+import VueI18n from 'vue-i18n';
 
 export interface SegmentedBtn {
   text: string;
@@ -203,5 +203,10 @@ export interface IListMenu {
   id: number;
   title: string;
   amount: number;
-  active?: boolean
+  active?: boolean;
+}
+export interface ISummaryOptions {
+  text: string;
+  sub: string;
+  infoText?: string;
 }
