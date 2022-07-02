@@ -14,10 +14,10 @@
   }
 
   &.dropdown-style {
-    @apply absolute opacity-30 pointer-events-none top-[47px] min-w-[320px] left-0 right-0;
+    @apply absolute hidden top-[47px] min-w-[320px] left-0 right-0;
 
     &.show {
-      @apply opacity-100 pointer-events-auto;
+      @apply block;
     }
 
     .vpd-content {
