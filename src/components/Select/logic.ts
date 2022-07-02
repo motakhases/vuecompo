@@ -4,7 +4,7 @@ import {
 } from 'vue-property-decorator';
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
-
+import BankLogos from '@/components/BankLogos/index.vue';
 import { ISelectOptions, IEvent } from '@/types';
 
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
@@ -13,6 +13,7 @@ const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
   components: {
     ValidationProvider,
     Icon,
+    BankLogos,
   },
 })
 export default class Select extends Vue {

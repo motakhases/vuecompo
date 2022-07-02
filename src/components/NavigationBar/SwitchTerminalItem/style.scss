@@ -1,6 +1,6 @@
 .zpl-terminal-item {
   /* Default */
-  @apply flex w-full justify-start items-center p-xs text-text text-b2 gap-sm rounded-sm hover:cursor-pointer;
+  @apply flex w-full justify-start p-xs text-text text-b2 gap-sm rounded-sm hover:cursor-pointer;
 
   /* Hover */
   @apply hover:bg-surface-hover;

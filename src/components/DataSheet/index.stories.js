@@ -59,9 +59,10 @@ const Template = (_, { argTypes }) => ({
           ریال
         </DataSheetItem>
         <DataSheetItem
+        leftAlign
           title="مجموع کارمزد تراکنش‌ها"
         >
-          8,000
+          77,000
           ریال
         </DataSheetItem>
       </DataSheetRow>
@@ -71,6 +72,7 @@ const Template = (_, { argTypes }) => ({
       <DataSheetRow>
         <DataSheetItem
           row
+          leftAlign
           title="مجموع تراکنش‌ها"
         >
           260,000
