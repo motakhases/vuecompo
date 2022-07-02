@@ -96,6 +96,9 @@ export interface ISelectOptions {
   text: string;
   value: string | number;
   disabled?: boolean;
+  icon?: string;
+  logo?: string;
+  sub?: string;
 }
 export interface IEvent {
   target: HTMLInputElement;

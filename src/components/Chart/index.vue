@@ -1,9 +1,15 @@
 <template>
   <VueApexCharts
-    :class="{ 'five-sparate-ticks': xType !== 'week' }"
+    :class="[
+      { 'month-sparate-ticks': xType === 'month' },
+      { 'week-sparate-ticks': xType === 'week' },
+      { 'day-sparate-ticks': xType === 'day' },
+      { 'no-legend': hideLegend },
+    ]"
     :type="type"
     :options="options"
     :series="series"
+    :height="height"
     ref="chart"
   />
 </template>

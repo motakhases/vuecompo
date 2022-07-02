@@ -26,11 +26,32 @@
   }
 }
 
-.five-sparate-ticks {
+.month-sparate-ticks {
   .apexcharts-xaxis-label {
     @apply hidden;
   
     &:nth-of-type(5n),
+    &:nth-of-type(1) {
+      @apply block;
+    }
+  }
+}
+
+.week-sparate-ticks {
+  .apexcharts-xaxis-label {
+    @apply hidden md:block;
+  
+    &:nth-of-type(odd) {
+      @apply block;
+    }
+  }
+}
+
+.day-sparate-ticks {
+  .apexcharts-xaxis-label {
+    @apply hidden;
+  
+    &:nth-of-type(4n),
     &:nth-of-type(1) {
       @apply block;
     }
@@ -49,13 +70,24 @@
 
   &-series {
     display: flex !important;
-    @apply flex-row gap-2xs items-center text-ls-cp font-medium;
+    @apply flex-row gap-2xs items-center text-ls-cp font-medium ml-0 #{!important};
 
     .apexcharts-legend-text {
       @apply text-text-soft dark:text-text-dark-soft #{!important};
     }
   }
+
+  &-marker {
+    @apply w-xs h-xs #{!important};
+  }
 }
+
+.no-legend {
+  .apexcharts-legend {
+    @apply hidden;
+  }
+}
+
 
 .apexcharts-tooltip {
   .c-t {
