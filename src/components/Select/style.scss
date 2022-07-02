@@ -46,7 +46,7 @@
   @apply dark:text-text-dark-soft;
 
   &.has-value {
-    @apply text-text dark:text-text-dark
+    @apply text-text dark:text-text-dark;
   }
 }
 
@@ -112,8 +112,7 @@
 
 .zpl-select-item {
   /* Default */
-  @apply py-xs px-sm text-text text-b2 truncate rounded-sm cursor-pointer;
-  @apply dark:text-text-dark;
+  @apply py-xs px-sm rounded-sm cursor-pointer flex gap-xs;
 
   &:not(:last-child) {
     @apply mb-2xs;
@@ -125,23 +124,34 @@
 
   /* Disabled */
   &.disabled {
-    @apply bg-surface-disabled pointer-events-none text-text-disabled;
-    @apply dark:bg-surface-dark-disabled dark:text-text-dark-disabled;
+    @apply opacity-50 pointer-events-none text-text-disabled;
+    @apply dark:text-text-dark-disabled;
   }
   &.selected {
-    @apply bg-surface-select text-text relative flex items-center;
-    @apply dark:bg-surface-dark-select dark:text-text-dark;
+    @apply bg-primarySurface-select text-text relative flex items-center;
+    @apply dark:bg-primarySurface-dark-select dark:text-text-dark;
   }
 
   &.active:not(.selected):not(.disabled) {
     @apply bg-surface-hover;
     @apply dark:bg-surface-dark-hover;
   }
+  .info {
+    @apply flex-1;
+  }
+  .title {
+    @apply text-text text-b2 font-normal truncate;
+    @apply dark:text-text-dark;
+  }
+  .sub {
+    @apply mt-2xs text-text-soft text-ls-cp;
+    @apply dark:text-text-dark-soft;
+  }
 }
 
 .zpl-select-selected-icon {
   /* Default */
-  @apply absolute text-primaryZarinpal w-xl h-xl left-sm;
+  @apply absolute text-primaryZarinpal w-sm h-sm left-sm;
   @apply dark:text-primaryZarinpal-dark;
 }
 
