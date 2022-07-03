@@ -11,6 +11,10 @@ export default class Chart extends Vue {
 
   @Prop({ type: Array }) readonly series!: ApexAxisChartSeries;
 
+  @Prop({ type: Boolean }) readonly hideLegend!: boolean;
+
+  @Prop({ type: String }) readonly height!: string;
+
   @Prop({ type: String }) readonly xType!: string;
 
   options = {

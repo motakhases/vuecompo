@@ -12,20 +12,19 @@ const Template = (_, { argTypes }) => ({
   data: () => ({
     tableData: [
       {
-        id: "mne",
         price: {
           type: "custom",
-          id: "shayes",
+          id: "i.id",
           data: {
             image: "",
-            title: "سلام",
-            sub: "بر تو",
+            title: "عنوان",
+            sub:"زیرنویس"
           },
         },
         pay_id: {
           type: "text",
           data: 2234145522155,
-          leftAlign:true
+          leftAlign: true,
         },
         description: {
           type: "description",
@@ -34,13 +33,13 @@ const Template = (_, { argTypes }) => ({
         created_at: {
           type: "date",
           data: "2020-11-30T11:55:07.000000Z",
-          leftAlign:true
+          leftAlign: true,
         },
         status: {
           type: "status",
           data: [
             {
-              title: "پرداخت ناموفق",
+              text: "پرداخت ناموفق",
               type: "negative",
             },
           ],
@@ -48,9 +47,12 @@ const Template = (_, { argTypes }) => ({
       },
       {
         price: {
-          type: "price",
-          id: 2,
-          data: 8100000,
+          type: "custom",
+          id: "i.id",
+          data: {
+            image: "",
+            title: "i.title",
+          },
         },
         pay_id: {
           type: "text",
@@ -196,15 +198,16 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
     <Table
-      :data="tableData"
+
+
       :columns="columns"
-      class="mb-xl"
-      bordered
+      :data="tableData"
       :actions="actions"
-      route-name="session"
-      dropdownWidth="320px"
-      hasCustom
-      :params="{terminal:'df'}"
+      route-name="panel-terminal-product-id___fa"
+      :empty-title="$t('empty.product.title')"
+      :empty-caption="$t('empty.product.caption')"
+      dropdown-width="200px"
+      has-custom
     />
 
     <Table

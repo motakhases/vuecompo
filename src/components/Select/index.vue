@@ -4,7 +4,6 @@
     :rules="rules"
     :name="label"
     :vid="inputName"
-
   >
     <div :class="['zpl-select-group']">
       <div
@@ -28,7 +27,7 @@
           @keyup="onKeyUp"
           @keydown="onKeyDown"
           @input="inputHandler"
-        >
+        />
 
         <!-- Value -->
         <div v-else :class="['zpl-select-value', { 'has-value': inputVal.length }]">
@@ -68,10 +67,7 @@
         </div>
 
         <!-- show when we have successMessage -->
-        <div
-          v-if="successMessage && passed"
-          class="zpl-select-hint success"
-        >
+        <div v-if="successMessage && passed" class="zpl-select-hint success">
           <Icon name="checkmarkCircle" />
           <span>
             {{ successMessage }}
@@ -79,21 +75,14 @@
         </div>
 
         <!-- show when we have errors -->
-        <div
-          v-if="errors.length"
-          class="zpl-select-hint error"
-        >
+        <div v-if="errors.length" class="zpl-select-hint error">
           <Icon name="warning" />
           <span>{{ errors[0] }}</span>
         </div>
       </div>
       <div ref="menuRef">
         <!-- dropdown list -->
-        <div
-          :class="['zpl-select-list']"
-          v-if="showList"
-          :style="style"
-        >
+        <div :class="['zpl-select-list']" v-if="showList" :style="style">
           <!-- loading skeleton shows when loading is true -->
           <div v-if="loading">
             <div class="zpl-select-skeleton-box">
@@ -108,10 +97,7 @@
           </div>
 
           <!-- shows option list when loading is false -->
-          <ul
-            v-else
-            id="dropdown"
-          >
+          <ul v-else id="dropdown">
             <li
               v-for="(option, i) in filteredOptions"
               :key="option.id"
@@ -128,10 +114,19 @@
               @mouseenter="activateOption"
               @mouseleave="deactivateOption"
             >
-              {{ option.text }}
+              <Icon v-if="option.icon" :name="option.icon" class="w-xl h-xl" />
+              <BankLogos
+                v-if="option.logo"
+                :logo="option.logo"
+                class="w-xl h-xl"
+              />
+              <div class="info">
+                <div class="title">{{ option.text }}</div>
+                <div class="sub">{{ option.sub }}</div>
+              </div>
               <Icon
                 v-if="value === option.value"
-                name="tickLarge"
+                name="tickSmall"
                 class="zpl-select-selected-icon"
               />
             </li>

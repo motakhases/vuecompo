@@ -29,6 +29,15 @@ export default {
   },
   stroke: {
     width: 2,
+    curve: 'smooth',
+  },
+  fill: {
+    gradient: {
+      type: 'vertical',
+      opacityFrom: 0.25,
+      opacityTo: 0,
+      stops: [0, 100],
+    },
   },
   grid: {
     strokeDashArray: 4,
@@ -47,7 +56,7 @@ export default {
   dataLabels: {
     enabled: false,
   },
-  colors: ['#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
+  colors: ['#0A33FF', '#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
   yaxis: {
     labels: {
       show: false,

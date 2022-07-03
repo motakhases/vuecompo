@@ -1,4 +1,4 @@
-import VueI18n from "vue-i18n";
+import VueI18n from 'vue-i18n';
 
 export interface SegmentedBtn {
   text: string;
@@ -96,6 +96,9 @@ export interface ISelectOptions {
   text: string;
   value: string | number;
   disabled?: boolean;
+  icon?: string;
+  logo?: string;
+  sub?: string;
 }
 export interface IEvent {
   target: HTMLInputElement;
@@ -204,7 +207,12 @@ export interface IListMenu {
   id: number;
   title: string;
   amount: number;
-  active?: boolean
+  active?: boolean;
+}
+export interface ISummaryOptions {
+  text: string;
+  sub: string;
+  infoText?: string;
 }
 /**
  * @/components/Table

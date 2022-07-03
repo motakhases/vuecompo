@@ -7,6 +7,8 @@ export default class DataSheetItem extends Vue {
 
   @Prop({ type: Boolean }) readonly row?: boolean;
 
+  @Prop({ type: Boolean }) readonly leftAlign?: boolean;
+
   @Prop({ type: Object }) readonly colSpan?: DataSheetItemSpans;
 
   get spans(): string {

@@ -89,6 +89,7 @@ const Template = (_, { argTypes }) => ({
         "OfficialBadge",
         "Github",
         "Link",
+        "Info"
       ],
     };
   },
