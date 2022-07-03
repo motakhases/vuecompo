@@ -1,5 +1,5 @@
 import {
-  Vue, Prop, Component,
+  Vue, Prop, Component, Watch,
 } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
@@ -29,12 +29,46 @@ export default class DatePicker extends Vue {
 
   @Prop({ type: [String, Array] }) value!: DatePickerValue;
 
+  @Prop({ type: Boolean }) dropdown?: boolean;
+
+  isDrpShow: null|boolean = null
+
+  mounted() {
+    /**
+     * Open dropdown in input focus
+     */
+    const inputRef = this.$refs.input;
+    if (inputRef) {
+      const { $el }: any = this.$refs.input;
+      const elInput = $el.querySelector('input');
+      elInput.addEventListener('focus', () => {
+        this.isDrpShow = true;
+      });
+    }
+
+    /**
+   * Click out: close dropdown
+   */
+    document.addEventListener('click', (e: any) => {
+      let me = false;
+      for (let index = 0; index < e.path.length; index += 1) {
+        const element = e.path[index];
+        if (element.id === 'dropdown') {
+          me = true;
+          return;
+        }
+      }
+      if (!me) this.isDrpShow = false;
+    });
+  }
+
   get model(): string | string[] {
     return this.getModel();
   }
 
   set model(value: string | string[]) {
-    this.$emit('input', value);
+    const result = value || '';
+    this.$emit('input', result);
   }
 
   getModel(): DatePickerValue {
@@ -49,7 +83,7 @@ export default class DatePicker extends Vue {
       }
     }
 
-    return result;
+    return result || '';
   }
 
   highlightToday(formatted: string, dateMoment: DateMoment): Attributes {
@@ -58,5 +92,15 @@ export default class DatePicker extends Vue {
       attributes.class = 'is-today';
     }
     return attributes;
+  }
+
+  /**
+   * Close dropdown after value is chosen
+   */
+  @Watch('model')
+  onModelChange(value: string) {
+    if (value) {
+      this.isDrpShow = false;
+    }
   }
 }
