@@ -192,7 +192,8 @@ export interface IDropzoneFiles {
 export interface ITicketRepliedUser {
   name: string;
   id: string;
-  avatar: string;
+  // eslint-disable-next-line camelcase
+  managed_avatar: string;
 }
 
 /**
@@ -204,4 +205,15 @@ export interface IListMenu {
   title: string;
   amount: number;
   active?: boolean
+}
+/**
+ * @/components/Table
+ * --------------------------------------------------
+ */
+export interface ITableActions {
+  title: string,
+  icon: string,
+  color: string,
+  action: void,
+  isShow: any,
 }

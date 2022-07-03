@@ -89,19 +89,19 @@
               <!-- Actions -->
               <td :class="{ 'action-col': actions, 'stick': tableOverflow }">
                 <div
-                  v-if="actions"
+                  v-if="actions && handleSingleAction(td)"
                   class="zpl-table-action"
                 >
-                <div :class="['outside-action', {'outside-show': actions.length === 1}]">
-                   <Button
-                    type="tertiary"
-                    size="small"
-                    :icon="item.icon"
-                    v-for="(item, index) in actions.slice(0, 2)"
-                    :key="index"
-                    @click.native="item.action(td)"
-                  />
-                </div>
+                  <div :class="['outside-action', {'outside-show': actions.length === 1}]">
+                    <Button
+                      type="tertiary"
+                      size="small"
+                      :icon="item.icon"
+                      v-for="(item, index) in actions.slice(0, 2)"
+                      :key="index"
+                      @click.native="item.action(td)"
+                    />
+                  </div>
                   <Dropdown
                     v-if="actions.length>1"
                     :list="actions"
@@ -110,7 +110,6 @@
                   >
                     <template slot="button">
                       <Button
-                        v-if="actions.length>1"
                         type="tertiary"
                         size="small"
                         icon="DotsMenu"

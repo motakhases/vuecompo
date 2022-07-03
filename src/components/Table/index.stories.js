@@ -187,30 +187,9 @@ const Template = (_, { argTypes }) => ({
           console.log("click");
           console.log(x);
         },
-      },
-      {
-        title: "غیرفعال سازی",
-        icon: "eyeHidden",
-        color: "text-danger",
-        action: () => console.log("click"),
         isShow: (x) => {
-          return x.status.data[0].type === "positive";
+          return x.id === 'mne'
         },
-      },
-      {
-        title: "فعال سازی",
-        icon: "eyeShow",
-        color: "",
-        action: () => console.log("click"),
-        isShow: (x) => {
-          return x.status.data[0].type === "negative";
-        },
-      },
-      {
-        title: "افزدن",
-        icon: "plus",
-        color: "",
-        action: () => console.log("click"),
       },
     ],
   }),
