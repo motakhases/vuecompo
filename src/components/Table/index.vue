@@ -11,6 +11,7 @@
         :actions="actions"
         :route-name="routeName"
         :link-id="findLinkId(td)"
+        :click="findClickFunc(td)"
         :params="params"
       />
     </template>
@@ -80,12 +81,12 @@
                 :data="td[col.key]"
                 :route-name="routeName"
                 :link-id="findLinkId(td)"
+                :click="findClickFunc(td)"
                 :width="col.width"
                 :min-width="col.minWidth"
                 :max-width="col.maxWidth"
                 :params="params"
               />
-
               <!-- Actions -->
               <td :class="{ 'action-col': actions, 'stick': tableOverflow }">
                 <div
