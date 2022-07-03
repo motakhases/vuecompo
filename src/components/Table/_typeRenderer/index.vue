@@ -6,8 +6,10 @@
       'zpl-table-type-renderer',
       'zpl-table-cell',
       data.type === 'description' ? 'description' : null,
-      data.leftAlign ? 'justify-end' : null
+      data.leftAlign ? 'justify-end' : null,
+      click ? 'cursor-pointer' : null
     ]"
+    @click="click ? click() : null"
   >
     <!--------------
         Custom

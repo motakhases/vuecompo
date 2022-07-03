@@ -113,6 +113,16 @@ export default class Logic extends Vue {
     return id.length ? id[0].id : null;
   }
 
+  findClickFunc(td: any) {
+    const tdAsArray = Object.values(td);
+    const tdValuesAsArray = Object.values(tdAsArray);
+    const hasClickFunc = (obj: any): obj is any => obj?.click !== undefined;
+    const clickFunc = tdValuesAsArray.filter(hasClickFunc);
+    console.log(clickFunc);
+
+    return clickFunc.length ? clickFunc[0].click : null;
+  }
+
   isOverflowing():void {
     if (this.tableRef) {
       if (this.tableRef.scrollWidth !== this.tableRef.clientWidth) {
