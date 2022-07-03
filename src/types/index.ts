@@ -208,3 +208,8 @@ export interface IListMenu {
   amount: number;
   active?: boolean;
 }
+export interface ISummaryOptions {
+  text: string;
+  sub: string;
+  infoText?: string;
+}
