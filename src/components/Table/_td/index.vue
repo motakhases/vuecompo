@@ -5,6 +5,7 @@
       :route-name="routeName"
       :link-id="linkId"
       :params="params"
+      :click="click"
     />
   </td>
 </template>

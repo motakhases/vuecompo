@@ -24,4 +24,6 @@ export default class Logic extends Vue {
   @Prop({ type: String }) readonly maxWidth?: string
 
   @Prop({ type: Object }) readonly params?: any
+
+  @Prop({ type: Function }) readonly click?: () => void
 }
