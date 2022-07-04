@@ -33,7 +33,7 @@
             <div slot="body" class="reply-feedback-modal">
               <div v-for="(item, index) in replyFeedbackItems" :key="index" class="feedback-box" @click="replyFeedback(item.type)">
                 <Icon
-                  name="Warning"
+                  name="WarningOutline"
                   class="warn-icon"
                 />
                 <div class="feedback-box-content">
