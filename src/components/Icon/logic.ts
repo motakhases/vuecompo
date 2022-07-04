@@ -20,6 +20,7 @@ import FilledArrowUp from './icons/FilledArrowUp.vue';
 import TickLarge from './icons/TickLarge.vue';
 import TickSmall from './icons/TickSmall.vue';
 import Warning from './icons/Warning.vue';
+import WarningOutline from './icons/WarningOutline.vue';
 import MenuBurger from './icons/MenuBurger.vue';
 import Profile from './icons/Profile.vue';
 import UserProfileSquare from './icons/UserProfileSquare.vue';
@@ -107,6 +108,7 @@ import Info from './icons/Info.vue';
     TickLarge,
     TickSmall,
     Warning,
+    WarningOutline,
     MenuBurger,
     Profile,
     UserProfileSquare,
