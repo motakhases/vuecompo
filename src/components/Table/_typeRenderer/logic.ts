@@ -32,6 +32,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: [String, Number] }) readonly linkId?: string | number
 
+  @Prop({ type: Function }) readonly click?: () => void
+
   get linkDetector(): string {
     return this.routeName ? 'router-link' : 'div';
   }

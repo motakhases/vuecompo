@@ -15,6 +15,7 @@ const Template = (_, { argTypes }) => ({
         price: {
           type: "custom",
           id: "i.id",
+          click:()=>console.log('click'),
           data: {
             image: "",
             title: "عنوان",
@@ -24,7 +25,6 @@ const Template = (_, { argTypes }) => ({
         pay_id: {
           type: "text",
           data: 2234145522155,
-          leftAlign: true,
         },
         description: {
           type: "description",
@@ -33,7 +33,6 @@ const Template = (_, { argTypes }) => ({
         created_at: {
           type: "date",
           data: "2020-11-30T11:55:07.000000Z",
-          leftAlign: true,
         },
         status: {
           type: "status",
@@ -203,7 +202,6 @@ const Template = (_, { argTypes }) => ({
       :columns="columns"
       :data="tableData"
       :actions="actions"
-      route-name="panel-terminal-product-id___fa"
       :empty-title="$t('empty.product.title')"
       :empty-caption="$t('empty.product.caption')"
       dropdown-width="200px"
