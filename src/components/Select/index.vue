@@ -30,12 +30,13 @@
         />
 
         <!-- Value -->
-        <span
-          v-else
-          :class="['zpl-select-value', { 'has-value': inputVal.length }]"
-        >
-          {{ inputVal.length ? inputVal : placeholder }}
-        </span>
+        <div v-else :class="['zpl-select-value', { 'has-value': inputVal.length }]">
+          <input v-model="inputVal" v-show="false">
+          <span
+          >
+            {{ inputVal.length ? inputVal : placeholder }}
+          </span>
+        </div>
 
         <!-- label -->
         <label

@@ -9,6 +9,7 @@ import CheckBox from '@/components/CheckBox/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Button from '@/components/Button/index.vue';
 import EmptyState from '@/components/EmptyState/index.vue';
+import { ITableActions } from '@/types/index';
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
 import Card from './_card/index.vue';
@@ -37,7 +38,7 @@ interface IColumn {
 })
 export default class Logic extends Vue {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Prop({ type: Array }) readonly actions?: []
+  @Prop({ type: Array }) readonly actions?: ITableActions[]
 
   @Prop({ type: Array }) data?: any[] | null
 
@@ -94,6 +95,12 @@ export default class Logic extends Vue {
   @Emit('input')
   emitSelectedRows(payload: number[]): number[] {
     return payload;
+  }
+
+  handleSingleAction(customPayload): boolean {
+    if (this.actions && this.actions.length === 1) {
+      return this.actions[0].isShow(customPayload);
+    } return true;
   }
 
   isRowSelected(index: number): string | null {

@@ -98,6 +98,10 @@
 
           // dark
           @apply dark:text-text-dark;
+          
+          &.td-disable{
+            @apply text-text-disabled dark:text-text-dark-disabled;
+          }
         }
 
         .sub {
@@ -106,6 +110,10 @@
 
           // dark
           @apply dark:text-text-dark-soft;
+
+          &.td-disable{
+            @apply text-text-disabled dark:text-text-dark-disabled;
+          }
         }
       }
     }
@@ -120,12 +128,18 @@
     .date {
       @apply whitespace-nowrap;
     }
+    .td-disable{
+      @apply text-text-disabled dark:text-text-dark-disabled;
+    }
   }
 
   &-action {
     @apply flex mr-auto items-center gap-xs justify-end;
     .outside-action {
       @apply items-center gap-xs hidden;
+      &.outside-show{
+        @apply flex;
+      }
     }
   }
 

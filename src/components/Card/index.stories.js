@@ -20,11 +20,21 @@ const Template = (_, { argTypes }) => ({
   {{show}}
   <div @click="()=>this.show = !this.show">show</div>
 	  <Card title="عنوان کارت">
-      <div v-if="show">محتوای دلخواه در کارت</div>
+      <div >محتوای دلخواه در کارت</div>
       <template #actions>
         <Button type="secondary" text="دکمه" />
       </template>
     </Card>
+    <Card >
+      <div >محتوای دلخواه در کارت</div>
+    </Card>
+    <Card >
+      <div >محتوای دلخواه در کارت</div>
+      <template #actions>
+        <Button type="secondary" text="دکمه" />
+      </template>
+    </Card>
+
   </div>
   `,
 });
