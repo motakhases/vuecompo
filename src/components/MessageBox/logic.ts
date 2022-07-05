@@ -48,7 +48,6 @@ export default class MessageBox extends Vue {
   ]
 
   get markDownToHtml() {
-    // return marked.parse(this.content);
     return marked.parse(this.content);
   }
 
