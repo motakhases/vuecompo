@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-card">
     <!-- Header -->
-    <div class="zpl-card-head">
+    <div class="zpl-card-head" v-if="title">
       <h4 class="zpl-card-head-title" v-if="title">
         {{ title }}
       </h4>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <!-- body -->
-    <div class="zpl-card-content" v-if="hasContent">
+    <div :class="{'zpl-card-content': title}" v-if="hasContent">
       <slot />
     </div>
   </div>

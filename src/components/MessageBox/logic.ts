@@ -6,7 +6,7 @@ import Modal from '@/components/Modal/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Avatar from '@/components/Avatar/index.vue';
 import { ITicketRepliedUser } from '@/types';
-import marked from 'marked';
+import * as marked from 'marked';
 
 @Component({
   components: {
