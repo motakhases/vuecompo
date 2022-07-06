@@ -67,7 +67,7 @@
               <!-- CheckBox -->
               <td v-if="selectable" class="checkbox-holder">
                 <CheckBox
-                  v-model="selectedRowsIndex"
+                  v-model="model"
                   :val="tdIndex"
                   name="single"
                   @click.native="selectRow"
