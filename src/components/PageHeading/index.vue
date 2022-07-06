@@ -12,6 +12,7 @@
         <Button
           icon="ArrowRight"
           type="tertiary"
+          size="medium"
         />
       </div>
       <div :class="['heading-content', {'mt-lg order-3 w-full': returnBtn}]">

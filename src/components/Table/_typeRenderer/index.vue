@@ -25,6 +25,7 @@
         <Thumbnail
           :icon="data.data.icon ? data.data.icon : 'product'"
           :img="data.data.image"
+          :logo="data.data.logo"
         />
       </div>
       <div class="text">
