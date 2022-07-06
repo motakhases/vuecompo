@@ -1,0 +1,28 @@
+.zpl-balance {
+  @apply border border-border-divider rounded-sm p-sm;
+  @apply dark:border-border-dark-divider;
+
+  &-list {
+    @apply flex flex-col gap-md;
+  }
+  &-item {
+    @apply flex items-center gap-xs;
+  }
+  &-title {
+    @apply text-b3 text-text-soft font-medium whitespace-nowrap flex items-center gap-xs;
+    @apply dark:text-text-dark-soft;
+  }
+  &-icon {
+    @apply w-md h-md text-icon-disabled;
+    @apply dark:text-icon-dark-disabled;
+  }
+  &-divider {
+    @apply w-full h-[1px] border-t border-dashed border-border;
+    @apply dark:border-border-dark;
+  }
+
+  &-text {
+    @apply text-text text-b3 font-medium font-IRANYekanFaNum whitespace-nowrap;
+    @apply dark:text-text-dark;
+  }
+}
