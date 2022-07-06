@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Component, Prop, Watch, Emit, Vue, Ref,
+  Component, Prop, Watch, Vue, Ref,
 } from 'vue-property-decorator';
 
 // Sub components
@@ -68,33 +68,36 @@ export default class Logic extends Vue {
 
   @Ref('table') readonly tableRef!: HTMLElement
 
+  @Prop({ type: Array }) value?: number[]
+
   isLoadCards = false
 
   isAllRowSelected = false
 
-  selectedRowsIndex: number[] = []
-
   tableOverflow = false
+
+  get model() {
+    return this.value;
+  }
+
+  set model(value) {
+    this.value = value;
+    this.$emit('input', value);
+  }
 
   @Watch('isAllRowSelected')
   watchAllSelected(): void {
-    this.selectedRowsIndex = [];
+    this.model = [];
 
     if (this.data && this.isAllRowSelected) {
       for (let index = 0; index < this.data.length; index += 1) {
-        this.selectedRowsIndex.push(index);
+        this.model?.push(index);
       }
     }
   }
 
-  @Watch('selectedRowsIndex')
-  watchSelectedRowsIndex(value: number[]): void {
-    this.emitSelectedRows(value);
-  }
-
-  @Emit('input')
-  emitSelectedRows(payload: number[]): number[] {
-    return payload;
+  resetAllSelected() {
+    this.model = [];
   }
 
   handleSingleAction(customPayload): boolean {
@@ -104,7 +107,7 @@ export default class Logic extends Vue {
   }
 
   isRowSelected(index: number): string | null {
-    const isSelected = this.selectedRowsIndex.includes(index);
+    const isSelected = this.model?.includes(index);
     return isSelected ? 'selected' : null;
   }
 
@@ -125,7 +128,6 @@ export default class Logic extends Vue {
     const tdValuesAsArray = Object.values(tdAsArray);
     const hasClickFunc = (obj: any): obj is any => obj?.click !== undefined;
     const clickFunc = tdValuesAsArray.filter(hasClickFunc);
-    console.log(clickFunc);
 
     return clickFunc.length ? clickFunc[0].click : null;
   }
