@@ -23,6 +23,14 @@
           @apply px-2xs;
         }
       }
+      .prose{
+        ul,ol{
+          @apply pr-lg;
+        }
+        p{
+          @apply m-0
+        }
+      }
     }
     .reply-feedback{
       @apply px-lg mt-md text-ls-cp text-text-soft dark:text-text-dark-soft;

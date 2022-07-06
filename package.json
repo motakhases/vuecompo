@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.1.69",
+  "version": "2.1.71",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
@@ -32,6 +32,7 @@
     "@storybook/builder-webpack5": "^6.4.19",
     "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/vue": "^6.4.9",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/chart.js": "^2.9.37",
     "@types/jest": "^24.0.19",
     "@types/marked": "^4.0.3",
