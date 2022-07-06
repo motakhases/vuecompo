@@ -101,9 +101,9 @@
 
 .zpl-select-list {
   /* Default */
-  @apply flex-col bg-surface border border-border shadow-elevation-100 rounded-sm 
+  @apply flex-col bg-surface border border-border-soft shadow-elevation-100 rounded-sm 
 	p-xs fixed w-full mt-2xs z-50;
-  @apply dark:bg-surface-dark dark:border-border-dark	dark:shadow-dark-elevation-100;
+  @apply dark:bg-surface-dark dark:border-border-dark-soft	dark:shadow-dark-elevation-100;
   direction: rtl;
   &.showList {
     @apply flex;
@@ -128,7 +128,7 @@
     @apply dark:text-text-dark-disabled;
   }
   &.selected {
-    @apply bg-primarySurface-select text-text relative flex items-center;
+    @apply bg-primarySurface-select text-text relative flex;
     @apply dark:bg-primarySurface-dark-select dark:text-text-dark;
   }
 
@@ -151,7 +151,7 @@
 
 .zpl-select-selected-icon {
   /* Default */
-  @apply absolute text-primaryZarinpal w-sm h-sm left-sm;
+  @apply absolute text-primaryZarinpal w-sm h-sm left-sm top-2/4 -translate-y-1/2;
   @apply dark:text-primaryZarinpal-dark;
 }
 
