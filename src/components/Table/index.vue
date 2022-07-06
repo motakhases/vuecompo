@@ -11,7 +11,7 @@
         :actions="actions"
         :route-name="routeName"
         :link-id="findLinkId(td)"
-        :click="findClickFunc(td)"
+        :handleClickFromOutside="findClickFunc(td)"
         :params="params"
       />
     </template>
@@ -81,7 +81,7 @@
                 :data="td[col.key]"
                 :route-name="routeName"
                 :link-id="findLinkId(td)"
-                :click="findClickFunc(td)"
+                :handleClickFromOutside="findClickFunc(td)"
                 :width="col.width"
                 :min-width="col.minWidth"
                 :max-width="col.maxWidth"

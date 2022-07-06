@@ -45,7 +45,7 @@ export default class Logic extends Vue {
 
   @Prop({ type: Object }) readonly params?: any
 
-  @Prop({ type: Function }) readonly click?: () => void
+  @Prop({ type: Function }) readonly handleClickFromOutside?: () => void
 
   get headerRight(): ITableRow {
     return Object.values(this.td)[0];

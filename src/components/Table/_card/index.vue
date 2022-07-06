@@ -54,8 +54,8 @@
         size="medium"
         type="neutral"
         afterIcon="AngleLeft"
-        @click.native="click()"
-        v-if="click"
+        @click.native="handleClickFromOutside()"
+        v-if="handleClickFromOutside"
       />
       <div v-if="actions" class="zpl-table-action">
         <Dropdown :list="actions" :custom-payload="td">
