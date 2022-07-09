@@ -2,16 +2,17 @@
   <div class="zpl-balance">
     <div class="zpl-balance-title">
       {{ title }}
-      <Icon name="Reload" />
+      <Icon name="Reload" @click.native="reloadHandler" />
     </div>
-    <div>
-      <div>
-        {{amount|numberFormat}}
+    <div class="flex items-center gap-sm">
+      <div class="zpl-balance-amount">
+        {{ amount | numberFormat }}
         <Label
         size="small"
         type="neutral"
         :text="$t('common.rial')" />
       </div>
+      <Button icon="plus" size="small" type="text" @click.native="addHandler" />
     </div>
   </div>
 </template>

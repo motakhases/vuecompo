@@ -7,8 +7,11 @@
     @apply dark:text-text-dark-soft;
 
     svg {
-      @apply text-primaryZarinpal;
+      @apply text-primaryZarinpal cursor-pointer;
       @apply dark:text-primaryZarinpal-dark;
     }
+  }
+  &-amount {
+    @apply text-text text-ls-h3 font-bold dark:text-text-dark;
   }
 }
