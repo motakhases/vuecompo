@@ -272,30 +272,32 @@
       @apply bg-white-60;
     }
   }
-  //text
-
-  &.primaryText {
-    @apply text-primaryZarinpal text-b3 font-medium gap-2xs;
-    @apply dark:text-primaryZarinpal-dark;
+  &.primary-LE {
+    /* Default */
+    @apply bg-primarySurface text-primaryZarinpal;
+    @apply dark:bg-primarySurface-dark dark:text-primaryZarinpal-dark;
 
     /* Hover */
-    @apply hover:text-primaryZarinpal-hover;
-    @apply dark:hover:text-primaryZarinpal-dark-hover;
+    @apply hover:bg-primarySurface-hover;
+    @apply dark:hover:bg-primarySurface-dark-hover;
 
     /* Active */
-    @apply active:text-primaryZarinpal-active;
-    @apply dark:active:text-primaryZarinpal-dark-active;
+    @apply active:bg-primarySurface-active;
+    @apply dark:active:bg-primarySurface-dark-active;
 
     /* Disabled */
-    @apply disabled:text-primaryZarinpal-disabled;
-    @apply dark:disabled:text-primaryZarinpal-dark-disabled;
+    @apply disabled:bg-primarySurface-disabled;
+    @apply dark:disabled:bg-primarySurface-dark-disabled;
 
     /* focused */
-    @apply focus:text-primaryZarinpal;
-    @apply dark:focus:text-primaryZarinpal-dark;
+    @apply focus:bg-primarySurface;
+    @apply dark:focus:bg-primarySurface-dark;
     
-    .zpl-button-icon {
-      @apply w-lg h-lg;
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
     }
   }
 

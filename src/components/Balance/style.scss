@@ -1,0 +1,17 @@
+.zpl-balance {
+  @apply border border-border-divider rounded-sm p-sm flex justify-between items-center font-IRANYekanFaNum;
+  @apply dark:border-border-dark-divider;
+
+  &-title {
+    @apply text-b3 text-text-soft font-medium whitespace-nowrap flex items-center gap-xs;
+    @apply dark:text-text-dark-soft;
+
+    svg {
+      @apply text-primaryZarinpal cursor-pointer;
+      @apply dark:text-primaryZarinpal-dark;
+    }
+  }
+  &-amount {
+    @apply text-text text-ls-h3 font-bold dark:text-text-dark;
+  }
+}
