@@ -6,7 +6,7 @@ import Button from '@/components/Button/index.vue';
   components: { Icon, Button },
 })
 export default class Modal extends Vue {
-  @Prop({ type: String, required: true }) readonly title!: string;
+  @Prop({ type: String }) readonly title?: string;
 
   @Prop({ type: Boolean }) closable!: boolean;
 

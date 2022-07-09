@@ -7,6 +7,8 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
     <Button size="large" text="دکمه" type="primary"  />
+    <Button text="دکمه" type="primaryText" beforeIcon="QuestionCircle"  afterIcon="QuestionCircle" />
+
     <h1 class="mt-sm font-bold dark:text-surface"> دکمه تمام عرض </h1>
     <Button size="large" text="دکمه" type="primary" fill  />
     <h1 class="mt-sm font-bold dark:text-surface"> دکمه با آیکن </h1>

@@ -128,7 +128,6 @@ export default class Logic extends Vue {
     const tdValuesAsArray = Object.values(tdAsArray);
     const hasClickFunc = (obj: any): obj is any => obj?.click !== undefined;
     const clickFunc = tdValuesAsArray.filter(hasClickFunc);
-
     return clickFunc.length ? clickFunc[0].click : null;
   }
 

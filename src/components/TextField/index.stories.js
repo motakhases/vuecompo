@@ -26,7 +26,8 @@ const Template = (_, { argTypes }) => ({
   	  v-model="hint"
   	  class="col-span-1"
   	  label="فیلد عادی"
-			:maxlength="151515"
+			:maxlength="5"
+			maxPreview
   	/>
   	<TextField
   	  v-model="number"
