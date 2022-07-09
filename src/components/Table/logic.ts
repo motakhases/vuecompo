@@ -81,19 +81,23 @@ export default class Logic extends Vue {
   }
 
   set model(value) {
-    this.value = value;
-    this.$emit('input', value);
+    let sameAddressValue = this.value;
+    sameAddressValue = value;
+    this.$emit('input', sameAddressValue);
   }
 
   @Watch('isAllRowSelected')
   watchAllSelected(): void {
+    const d: number[] = [];
     this.model = [];
 
     if (this.data && this.isAllRowSelected) {
       for (let index = 0; index < this.data.length; index += 1) {
-        this.model?.push(index);
+        d.push(index);
       }
     }
+
+    this.model = d;
   }
 
   resetAllSelected() {
