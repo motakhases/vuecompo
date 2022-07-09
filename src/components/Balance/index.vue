@@ -12,7 +12,7 @@
         type="neutral"
         :text="$t('common.rial')" />
       </div>
-      <Button icon="plus" size="small" type="text" @click.native="addHandler" />
+      <Button icon="plus" size="small" type="primary-LE" @click.native="addHandler" />
     </div>
   </div>
 </template>
