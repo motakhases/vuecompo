@@ -1,6 +1,6 @@
 <template>
   <ValidationProvider
-    v-slot="{ invalid, errors, passed }"
+    v-slot="{ errors, passed }"
     :rules="rules"
     :name="label"
     :vid="inputName"
@@ -136,7 +136,7 @@
 
         <!-- Max Length -->
         <span
-          v-if="maxlength"
+          v-if="maxPreview"
           class="zpl-textfield-hint-maxlength"
         >
           {{ maxlength }}/{{ value.length }}

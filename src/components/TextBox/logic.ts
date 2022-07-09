@@ -24,6 +24,8 @@ export default class TextBox extends Vue {
 
   @Prop({ type: Number }) readonly maxlength?: number
 
+  @Prop({ type: Boolean, default: false }) readonly maxPreview!: boolean;
+
   @Prop({ type: [String, Object] }) readonly rules?: string|object;
 
   @Prop({ type: String, default: '' }) readonly hint?: string
