@@ -46,6 +46,8 @@ export default class TextField extends Vue {
 
   @Prop({ type: Boolean }) readonly ltr!: boolean;
 
+  @Prop({ type: Boolean, default: false }) readonly maxPreview!: boolean;
+
   @Prop({ type: String }) readonly prefixIcon?: string;
 
   @Prop({ type: String }) readonly suffixIcon?: string;

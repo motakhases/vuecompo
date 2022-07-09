@@ -7,9 +7,9 @@
       'zpl-table-cell',
       data.type === 'description' ? 'description' : null,
       data.leftAlign ? 'justify-end' : null,
-      click ? 'cursor-pointer' : null
+      handleClickFromOutside ? 'cursor-pointer' : null
     ]"
-    @click="click ? click() : null"
+    @click="handleClickFromOutside ? handleClickFromOutside() : null"
   >
     <!--------------
         Custom
@@ -23,8 +23,9 @@
         class="image"
       >
         <Thumbnail
-          :icon="data.data.icon ? data.data.icon : 'product'"
+          :icon="data.data.icon"
           :img="data.data.image"
+          :logo="data.data.logo"
         />
       </div>
       <div class="text">

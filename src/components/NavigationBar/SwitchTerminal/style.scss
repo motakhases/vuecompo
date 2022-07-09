@@ -21,10 +21,14 @@
   &-container {
     @apply p-xs flex;
   }
+  &-box {
+    @apply w-full;
+  }
 }
 
 .zpl-nav-terminal-header {
   @apply w-full flex justify-between items-center relative overflow-hidden;
+  flex: 0 0 calc(100% - 52px);
 }
 
 .zpl-nav-terminal-title {
