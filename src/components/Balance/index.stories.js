@@ -22,9 +22,6 @@ export const Default = Template.bind({});
 // Default.argTypes = {};
 
 Default.args = {
-  options: [
-    { id: 1, text: "عنوان", sub: "۱۰۰۰۰ ریال" },
-    { id: 4, text: "عنوان", sub: "۵۰۰۰۰۰ ریال" },
-    { id: 5, text: "عنوان", sub: "۴۵۰۰۰۰ ریال", infoText: "متن" },
-  ],
+  title: "موجودی",
+  amount: "125255252",
 };
