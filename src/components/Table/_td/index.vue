@@ -5,7 +5,7 @@
       :route-name="routeName"
       :link-id="linkId"
       :params="params"
-      :click="click"
+      :handleClickFromOutside="handleClickFromOutside"
     />
   </td>
 </template>
