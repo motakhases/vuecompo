@@ -12,14 +12,14 @@ const Template = (_, { argTypes }) => ({
   data: () => ({
     tableData: [
       {
-        id: "mne",
         price: {
           type: "custom",
-          id: "shayes",
+          id: "i.id",
+          click:()=>console.log('click'),
           data: {
             image: "",
-            title: "سلام",
-            sub: "بر تو",
+            title: "عنوان",
+            sub:"زیرنویس"
           },
         },
         pay_id: {
@@ -38,7 +38,7 @@ const Template = (_, { argTypes }) => ({
           type: "status",
           data: [
             {
-              title: "پرداخت ناموفق",
+              text: "پرداخت ناموفق",
               type: "negative",
             },
           ],
@@ -46,9 +46,12 @@ const Template = (_, { argTypes }) => ({
       },
       {
         price: {
-          type: "price",
-          id: 2,
-          data: 8100000,
+          type: "custom",
+          id: "i.id",
+          data: {
+            image: "",
+            title: "i.title",
+          },
         },
         pay_id: {
           type: "text",
@@ -185,45 +188,24 @@ const Template = (_, { argTypes }) => ({
           console.log("click");
           console.log(x);
         },
-      },
-      {
-        title: "غیرفعال سازی",
-        icon: "eyeHidden",
-        color: "text-danger",
-        action: () => console.log("click"),
         isShow: (x) => {
-          return x.status.data[0].type === "positive";
+          return x.id === 'mne'
         },
-      },
-      {
-        title: "فعال سازی",
-        icon: "eyeShow",
-        color: "",
-        action: () => console.log("click"),
-        isShow: (x) => {
-          return x.status.data[0].type === "negative";
-        },
-      },
-      {
-        title: "افزدن",
-        icon: "plus",
-        color: "",
-        action: () => console.log("click"),
       },
     ],
   }),
   template: `
   <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
     <Table
-      :data="tableData"
+
+
       :columns="columns"
-      class="mb-xl"
-      bordered
+      :data="tableData"
       :actions="actions"
-      route-name="session"
-      dropdownWidth="320px"
-      hasCustom
-      :params="{terminal:'df'}"
+      :empty-title="$t('empty.product.title')"
+      :empty-caption="$t('empty.product.caption')"
+      dropdown-width="200px"
+      has-custom
     />
 
     <Table
@@ -258,6 +240,7 @@ const Template = (_, { argTypes }) => ({
       :columns="columns"
       selectable
       hasCustom
+      :inCard="true"
     />
     <h1 class="my-sm font-bold dark:text-surface">
     قابل انتخاب

@@ -47,7 +47,6 @@ const Template = (_, { argTypes }) => ({
       },
       {
         title: "تسویه حساب",
-        link: "/",
         icon: "CreditCheckout",
         subMenu: [
           {
@@ -63,7 +62,6 @@ const Template = (_, { argTypes }) => ({
       },
       {
         title: "محصولات",
-        link: "/",
         icon: "Box",
         subMenu: [
           {
@@ -78,8 +76,9 @@ const Template = (_, { argTypes }) => ({
           },
         ],
       },
-    ],
-    belowLinks: [
+      {
+        divider:true
+      },
       {
         title: "حساب‌های بانکی",
         link: "/",
@@ -104,8 +103,7 @@ const Template = (_, { argTypes }) => ({
         <NavigationBar
           ref="navigationBar"
           :terminals="terminals"
-          :above-links="sidebarLinks"
-          :below-links="belowLinks"
+          :nav-items="sidebarLinks"
           :active-terminal="activeTerminal"
         />
       </div>

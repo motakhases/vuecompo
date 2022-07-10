@@ -1,10 +1,7 @@
 <template>
-  <div class="zpl-emptystate">
+  <div :class="['zpl-emptystate', inCard ? 'in-card' : null]">
     <div
-      :class="[
-        'zpl-emptystate-box',
-        { 'py-[40px]': !inCard, 'py-2xl': inCard },
-      ]"
+      class="zpl-emptystate-box"
     >
       <div class="bg-empty-state" />
       <div class="zpl-emptystate-content">

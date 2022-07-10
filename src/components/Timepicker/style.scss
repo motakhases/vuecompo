@@ -1,5 +1,5 @@
 .zpl-time-picker {
-  @apply block bg-surface border border-border font-IRANYekanFaNum rounded-sm p-xs absolute w-full;
+  @apply block bg-surface border border-border font-IRANYekanFaNum rounded-sm p-xs absolute w-full z-20;
   @apply dark:bg-surface-dark dark:border-border-dark;
 
   .vpd-is-inline {

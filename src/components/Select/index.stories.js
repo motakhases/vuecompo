@@ -9,9 +9,7 @@ const Template = (_, { argTypes }) => ({
   data: () => ({
     data: "",
   }),
-  methods: {
-
-  },
+  methods: {},
   template: `
     <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px] rtl">
       <Select v-model="data" v-bind="$props" class="col-span-3" placeholder="متن"/>
@@ -31,10 +29,30 @@ select.args = {
   hint: "",
   successMessage: "عملیات موفقیت آمیز بود",
   options: [
-    { id: 1, text: "اولین گزینه", value: "first" },
+    { id: 1, text: "اولین گزینه", icon: "warning", value: "first" },
     { id: 2, text: "دومین گزینه", value: "second", disabled: true },
-    { id: 3, text: "سومین گزینه", value: "third" },
-    { id: 4, text: "چهارمین گزینه", value: "forth" },
+    {
+      id: 3,
+      text: "سومین گزینه",
+      sub: "زیرنویس",
+      logo: "Saman",
+      value: "third",
+      disabled: true,
+    },
+    {
+      id: 4,
+      text: " گزینه",
+      sub: "زیرنویس",
+      logo: "Saman",
+      value: "forth",
+    },
+    {
+      id: 8,
+      text: "چهارمین گزینه",
+      sub: "زیرنویس",
+      logo: "Saman",
+      value: "ollll",
+    },
     { id: 5, text: "پنجمین گزینه", value: "fifth" },
   ],
   disabledOptionId: null,

@@ -30,6 +30,8 @@ export default class NavItem extends Vue {
 
   @Prop({ type: Boolean }) isShow!: boolean
 
+  @Prop({ type: Boolean }) divider!: boolean
+
   showSub = false
 
   toggleSub() {

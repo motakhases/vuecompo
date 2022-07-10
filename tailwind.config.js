@@ -11,6 +11,7 @@ const {
 
 module.exports = {
   darkMode: 'class',
+  important: true,
   content: [
     './public/**/*.html',
     './src/**/*.vue',
@@ -44,5 +45,8 @@ module.exports = {
       center: true,
     },
   },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   variants: {},
 };

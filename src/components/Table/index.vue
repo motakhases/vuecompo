@@ -11,6 +11,7 @@
         :actions="actions"
         :route-name="routeName"
         :link-id="findLinkId(td)"
+        :handleClickFromOutside="findClickFunc(td)"
         :params="params"
       />
     </template>
@@ -66,7 +67,7 @@
               <!-- CheckBox -->
               <td v-if="selectable" class="checkbox-holder">
                 <CheckBox
-                  v-model="selectedRowsIndex"
+                  v-model="model"
                   :val="tdIndex"
                   name="single"
                   @click.native="selectRow"
@@ -80,29 +81,30 @@
                 :data="td[col.key]"
                 :route-name="routeName"
                 :link-id="findLinkId(td)"
+                :handleClickFromOutside="findClickFunc(td)"
                 :width="col.width"
                 :min-width="col.minWidth"
                 :max-width="col.maxWidth"
                 :params="params"
               />
-
               <!-- Actions -->
               <td :class="{ 'action-col': actions, 'stick': tableOverflow }">
                 <div
-                  v-if="actions"
+                  v-if="actions && handleSingleAction(td)"
                   class="zpl-table-action"
                 >
-                <div class="outside-action">
-                   <Button
-                    type="tertiary"
-                    size="small"
-                    :icon="item.icon"
-                    v-for="(item, index) in actions.slice(0, 2)"
-                    :key="index"
-                    @click.native="item.action(td)"
-                  />
-                </div>
+                  <div :class="['outside-action', {'outside-show': actions.length === 1}]">
+                    <Button
+                      type="tertiary"
+                      size="small"
+                      :icon="item.icon"
+                      v-for="(item, index) in actions.slice(0, 2)"
+                      :key="index"
+                      @click.native="item.action(td)"
+                    />
+                  </div>
                   <Dropdown
+                    v-if="actions.length>1"
                     :list="actions"
                     :custom-payload="td"
                     :width="dropdownWidth"
@@ -128,6 +130,7 @@
     v-if="(!data && !loading) || (data && !data.length && !loading)"
     :title="emptyTitle"
     :caption="emptyCaption"
+    :inCard="inCard"
     />
   </div>
 </template>

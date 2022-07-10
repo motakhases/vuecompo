@@ -75,6 +75,13 @@ const Template = (_, { argTypes }) => ({
 			کارت بانکی های مختلف
 		</h1>
 		<div class="flex flex-wrap gap-md">
+		<BankCards
+		logo="Resalat"
+		username="شایسته ملک پور"
+		bank-name="رسالت"
+		iban="IR870560085577703153460001"
+
+	/>
 			<BankCards
 				logo="EghtesadNovin"
 				username="شایسته ملک پور"

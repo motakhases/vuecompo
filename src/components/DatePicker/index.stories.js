@@ -13,6 +13,7 @@ const Template = (_, { argTypes }) => ({
       singleDate: "",
       rangeDate: [],
       previewDate: "",
+      drpdata: '',
       rangeMode: true,
       previewMode: true,
     };
@@ -23,11 +24,15 @@ const Template = (_, { argTypes }) => ({
       <h1 class="font-bold dark:text-surface"> تقویم </h1>
 		  <DatePicker v-model="singleDate" />
 
+      <h1 class="mt-sm font-bold dark:text-surface"> تقویم به صورت dropdown </h1>
+		  <DatePicker v-model="drpdata" dropdown />
+
       <h1 class="mt-sm font-bold dark:text-surface"> تقویم با بازه زمانی </h1>
 		  <DatePicker v-model="rangeDate" :range="rangeMode" />
 
       <h1 class="mt-sm font-bold dark:text-surface"> تقویم با حالت پیش نمایش تاریخ </h1>
 		  <DatePicker v-model="previewDate" :preview="previewMode" />
+
     </div>
   </div>
   `,

@@ -9,6 +9,7 @@ const Template = (_, { argTypes }) => ({
     <Button type="secondary" text="Secondary" />
     <Button type="tertiary" text="Tertiary" />
     <Button type="decretive" text="Decretive" />
+    <Button type="primary-LE" text="primary-LE" />
   </div>
   `,
 });

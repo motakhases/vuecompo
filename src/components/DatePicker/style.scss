@@ -1,45 +1,68 @@
 .zpl-date-picker-container {
-  @apply w-full;
+  @apply w-full relative;
+
   .vpd-actions {
     @apply hidden;
   }
 }
+
 .zpl-date-picker {
   &.no-preview {
     .vpd-date {
       @apply hidden;
     }
   }
+
+  &.dropdown-style {
+    @apply absolute hidden top-[47px] min-w-[320px] left-0 right-0 z-20;
+
+    &.show {
+      @apply block;
+    }
+
+    .vpd-content {
+      @apply border-border-soft shadow-elevation-50;
+    }
+  }
+
   .vpd-wrapper {
     @apply mt-0;
   }
+
   .vpd-container {
     @apply font-IRANYekanFaNum mt-0 mb-xs w-full;
   }
+
   .vpd-content {
     @apply bg-surface border border-border rounded-sm p-xs w-full;
     @apply dark:bg-surface-dark dark:border-border-dark;
   }
+
   .vpd-header {
     @apply rounded-sm text-text px-2xs bg-background #{!important};
     @apply dark:bg-background-dark dark:text-text-dark #{!important};
   }
+
   .vpd-body {
     br {
       @apply hidden;
     }
   }
+
   .vpd-week {
     @apply p-0 text-text-soft text-b3;
     @apply dark:text-text-dark-soft;
   }
+
   .vpd-weekday {
     @apply w-[14.28%];
   }
+
   .vpd-days {
     @apply p-0;
     overflow: unset;
   }
+
   .vpd-day {
     @apply text-text text-b3 flex justify-center items-center w-[14.28%] rounded-sm;
     @apply dark:text-text-dark;
@@ -94,16 +117,19 @@
       @apply hidden #{!important};
     }
   }
+
   .vpd-date {
     span {
       @apply text-b1 text-text h-2xl mt-xs py-2xs px-sm;
       @apply dark:text-text-dark;
     }
   }
+
   .vpd-next,
   .vpd-prev {
     @apply w-[40px] h-[40px] flex items-center;
   }
+
   .vpd-month-label {
     @apply text-b2 py-xs;
 
@@ -111,6 +137,7 @@
       @apply h-xl w-xl mr-xs;
     }
   }
+
   .vpd-year-label {
     @apply opacity-100 h-auto mb-0;
     span {
@@ -122,10 +149,12 @@
       }
     }
   }
+
   .vpd-controls {
     @apply text-text h-[40px] my-xs;
     @apply dark:text-text-dark;
   }
+
   .vpd-addon-list-item {
     @apply h-auto py-xs text-b3 border-none rounded-sm mb-md w-[29%];
     @apply dark:text-text-dark;
@@ -144,6 +173,7 @@
       @apply dark:bg-primaryZarinpal-dark dark:text-text-dark-onPrimary #{!important};
     }
   }
+
   .vpd-addon-list {
     @apply mt-xs pt-[48px] pr-sm;
     @apply dark:bg-surface-dark;
@@ -163,28 +193,35 @@
       @apply dark:bg-surface-dark-heavy;
     }
   }
+
   .vpd-month {
     overflow: unset;
   }
+
   .vpd-month-list {
     @apply pr-2xs;
   }
+
   .vpd-close-addon {
     @apply flex items-center justify-center text-icon rounded-sm bg-surface;
     @apply left-0 top-xs w-[40px] h-[40px];
     @apply dark:bg-surface-dark dark:text-icon-dark;
   }
+
   .vpd-range-first {
     @apply border border-primaryZarinpal rounded-r-[96px];
     @apply dark:border-primaryZarinpal-dark;
   }
+
   .vpd-range-last {
     @apply border border-primaryZarinpal rounded-l-[96px];
     @apply dark:border-primaryZarinpal-dark;
   }
+
   .vpd-day-effect {
     @apply rounded-sm top-0 left-0 w-[40px] h-[40px];
   }
+
   .is-today {
     @apply text-primaryZarinpal relative #{!important};
     @apply dark:text-primaryZarinpal-dark #{!important};
@@ -202,14 +239,13 @@
   }
 }
 
-
-
 .zpl-date-picker-range {
   @apply flex;
   label {
     @apply inline-block mr-2xs mb-xs text-text-soft;
   }
 }
+
 .zpl-date-picker-range-input {
   flex: 1;
   &:first-child {

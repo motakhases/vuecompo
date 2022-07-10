@@ -98,3 +98,9 @@ export { default as Upload } from './Upload/index.vue';
 
 export { default as Accordion } from './Accordion/index.vue';
 export { default as AccordionItem } from './Accordion/_item/index.vue';
+
+export { default as Chart } from './Chart/index.vue';
+
+export { default as TimePicker } from './Timepicker/index.vue';
+
+export { default as Summary } from './Summary/index.vue';

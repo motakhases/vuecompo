@@ -16,56 +16,54 @@
             <Status
               v-for="(label, labelIndex) in item.data"
               :key="labelIndex"
-              :text="label.title "
+              :text="label.text"
               :type="label.type"
               :icon="label.icon"
             />
           </template>
         </div>
-
       </div>
     </div>
     <ul>
-       <!-- Rows -->
-        <li
-          v-for="(col, colIndex) in rendredData"
-          :key="colIndex"
-          class="zpl-table-card-row"
-        >
-          <!-- Title of row [Static] -->
-          <span>
-            {{ col.title }}
-          </span>
+      <!-- Rows -->
+      <li
+        v-for="(col, colIndex) in rendredData"
+        :key="colIndex"
+        class="zpl-table-card-row"
+      >
+        <!-- Title of row [Static] -->
+        <span>
+          {{ col.title }}
+        </span>
 
-          <!-- Value -->
-          <TypeRenderer
-            v-if="td[col.key]"
-            :data="td[col.key]"
-          />
-        </li>
+        <!-- Value -->
+        <TypeRenderer v-if="td[col.key]" :data="td[col.key]" />
+      </li>
     </ul>
     <div class="zpl-table-card-action">
       <Button
-      :text="$t('common.show_detail')"
-      size="medium"
-      type="neutral"
-      afterIcon="AngleLeft"
-      @click.native="linkHandler"
-      v-if="routeName" />
-        <div
-          v-if="actions"
-          class="zpl-table-action"
-        >
-          <Dropdown :list="actions" :custom-payload="td">
-            <template slot="button">
-              <Button
-                type="tertiary"
-                size="small"
-                icon="DotsMenu"
-              />
-            </template>
-          </Dropdown>
-        </div>
+        :text="$t('common.show_detail')"
+        size="medium"
+        type="neutral"
+        afterIcon="AngleLeft"
+        @click.native="linkHandler"
+        v-if="routeName"
+      />
+      <Button
+        :text="$t('common.show_detail')"
+        size="medium"
+        type="neutral"
+        afterIcon="AngleLeft"
+        @click.native="handleClickFromOutside()"
+        v-if="handleClickFromOutside"
+      />
+      <div v-if="actions" class="zpl-table-action">
+        <Dropdown :list="actions" :custom-payload="td">
+          <template slot="button">
+            <Button type="tertiary" size="small" icon="DotsMenu" />
+          </template>
+        </Dropdown>
+      </div>
     </div>
   </div>
 </template>

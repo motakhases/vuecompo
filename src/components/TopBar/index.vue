@@ -17,7 +17,7 @@
         <Button
           after-icon="AngleDown"
           type="tertiary"
-          text="عنوان درگاه"
+          :text="activeTerminal"
           @click.native="toggleTerminalList"
         />
       </div>

@@ -31,9 +31,13 @@ export default class Upload extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly hasIcon?: boolean
+  @Prop({ type: Boolean, default: false }) readonly hasIcon?: boolean;
 
   @Prop({ type: Object }) readonly headers?: any;
+
+  @Prop({ type: Function }) readonly sendFileHandler!: (file)=> void;
+
+  @Prop({ type: Function }) readonly deleteFileHandler!: (file)=> void;
 
   @Prop({ type: Function, required: true }) readonly toast!: (
     text: string,
@@ -51,7 +55,11 @@ export default class Upload extends Vue {
     previewsContainer: false,
     dictFileTooBig: this.$i18n.t('warnings.upload.size'),
     dictInvalidFileType: this.$i18n.t('warnings.upload.format'),
-    dictMaxFilesExceeded: this.$i18n.t('warnings.upload.files', { maxFiles: this.maxFiles }),
+    dictMaxFilesExceeded: this.$i18n.t('warnings.upload.files', {
+      maxFiles: this.maxFiles,
+    }),
+    autoProcessQueue: false,
+
   };
 
   uploadedList: IUploadedFiles[] = [];
@@ -82,6 +90,7 @@ export default class Upload extends Vue {
       this.uploadedList = [...this.uploadedList, attachment];
       this.compeletList = [...this.compeletList, file];
     }
+    this.sendFileHandler(this.uploadedList);
   }
 
   error(file: IDropzoneFiles, msg: string, xhr: IDropzoneFiles) {
@@ -114,16 +123,24 @@ export default class Upload extends Vue {
         this.uploadedList.splice(i, 1);
       }
     });
+    this.deleteFileHandler(this.uploadedList);
   }
 
   created(): void {
     this.dropzoneOptions.url = this.url;
     this.dropzoneOptions.maxFilesize = this.maxFileSize;
     this.dropzoneOptions.maxFiles = this.maxFiles;
-    this.dropzoneOptions.acceptedFiles = this.acceptedFiles ? this.acceptedFiles : '';
+    this.dropzoneOptions.acceptedFiles = this.acceptedFiles
+      ? this.acceptedFiles
+      : '';
     this.dropzoneOptions.headers = this.headers;
     this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
-    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t('warnings.upload.format');
-    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t('warnings.upload.files', { maxFiles: this.maxFiles });
+    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t(
+      'warnings.upload.format',
+    );
+    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t(
+      'warnings.upload.files',
+      { maxFiles: this.maxFiles },
+    );
   }
 }

@@ -5,7 +5,6 @@ import {
 // Interfaces
 import {
   INavigationBarTerminal,
-  INavigationBarLinks,
 } from '@/types';
 
 // Components
@@ -22,9 +21,7 @@ import SwitchTerminalPopover from './SwitchTerminalPopover/index.vue';
 export default class NavigationBar extends Vue {
   @Prop({ type: Array }) readonly terminals!: INavigationBarTerminal[]
 
-  @Prop({ type: Array, required: true }) readonly aboveLinks!: INavigationBarLinks[]
-
-  @Prop({ type: Array }) readonly belowLinks!: INavigationBarTerminal[]
+  @Prop({ type: Array, required: true }) readonly navItems!: INavigationBarTerminal[]
 
   @Prop({ type: Object }) readonly activeTerminal?: INavigationBarTerminal
 

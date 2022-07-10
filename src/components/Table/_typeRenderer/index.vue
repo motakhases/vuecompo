@@ -6,7 +6,10 @@
       'zpl-table-type-renderer',
       'zpl-table-cell',
       data.type === 'description' ? 'description' : null,
+      data.leftAlign ? 'justify-end' : null,
+      handleClickFromOutside ? 'cursor-pointer' : null
     ]"
+    @click="handleClickFromOutside ? handleClickFromOutside() : null"
   >
     <!--------------
         Custom
@@ -20,13 +23,14 @@
         class="image"
       >
         <Thumbnail
-          :icon="data.data.icon ? data.data.icon : 'product'"
+          :icon="data.data.icon"
           :img="data.data.image"
+          :logo="data.data.logo"
         />
       </div>
       <div class="text">
-        <span class="title"> {{ data.data.title }} </span>
-        <small class="sub"> {{ data.data.sub }} </small>
+        <span :class="['title', {'td-disable' : data.disable}]"> {{ data.data.title }} </span>
+        <small :class="['sub', {'td-disable' : data.disable}]"> {{ data.data.sub }} </small>
       </div>
     </div>
 
@@ -36,7 +40,7 @@
     <div v-else-if="data.type === 'price'">
       {{ data.data.toLocaleString() }}
       <Label
-        class="unit"
+        :class="['unit', {'td-disable' : data.disable}]"
         size="small"
         type="neutral"
         :text="$t('common.rial')"
@@ -48,7 +52,7 @@
     -------------->
     <div
       v-else-if="data.type === 'date'"
-      class="date"
+      :class="['date', {'td-disable' : data.disable}]"
     >
       {{ data.data | tableDateFormat }}
     </div>
@@ -72,7 +76,7 @@
     <!--------------
         Text
     -------------->
-    <div v-else-if="data.type === 'text'">
+    <div v-else-if="data.type === 'text'" :class="{'td-disable' : data.disable}">
       {{ data.data }}
     </div>
 
@@ -81,7 +85,7 @@
     -------------->
     <div
       v-else-if="data.type === 'description'"
-      class="description"
+      :class="['description', {'td-disable' : data.disable}]"
     >
       {{ data.data }}
     </div>

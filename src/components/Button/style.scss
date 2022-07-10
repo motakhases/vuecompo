@@ -272,6 +272,34 @@
       @apply bg-white-60;
     }
   }
+  &.primary-LE {
+    /* Default */
+    @apply bg-primarySurface text-primaryZarinpal;
+    @apply dark:bg-primarySurface-dark dark:text-primaryZarinpal-dark;
+
+    /* Hover */
+    @apply hover:bg-primarySurface-hover;
+    @apply dark:hover:bg-primarySurface-dark-hover;
+
+    /* Active */
+    @apply active:bg-primarySurface-active;
+    @apply dark:active:bg-primarySurface-dark-active;
+
+    /* Disabled */
+    @apply disabled:bg-primarySurface-disabled;
+    @apply dark:disabled:bg-primarySurface-dark-disabled;
+
+    /* focused */
+    @apply focus:bg-primarySurface;
+    @apply dark:focus:bg-primarySurface-dark;
+    
+    /* loading */
+    .zpl-button-loading-1,
+    .zpl-button-loading-2 {
+      @apply bg-black-40;
+      @apply dark:bg-white-60;
+    }
+  }
 
   &.small {
     @apply px-sm py-2xs;

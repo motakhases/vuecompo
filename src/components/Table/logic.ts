@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Component, Prop, Watch, Emit, Vue, Ref,
+  Component, Prop, Watch, Vue, Ref,
 } from 'vue-property-decorator';
 
 // Sub components
@@ -9,6 +9,7 @@ import CheckBox from '@/components/CheckBox/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 import Button from '@/components/Button/index.vue';
 import EmptyState from '@/components/EmptyState/index.vue';
+import { ITableActions } from '@/types/index';
 import Th from './_th/index.vue';
 import Td from './_td/index.vue';
 import Card from './_card/index.vue';
@@ -37,7 +38,7 @@ interface IColumn {
 })
 export default class Logic extends Vue {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Prop({ type: Array }) readonly actions?: []
+  @Prop({ type: Array }) readonly actions?: ITableActions[]
 
   @Prop({ type: Array }) data?: any[] | null
 
@@ -61,41 +62,56 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly emptyCaption?: string
 
+  @Prop({ type: Boolean, default: false }) readonly inCard!: boolean;
+
   @Prop({ type: Object }) readonly params?: any
 
   @Ref('table') readonly tableRef!: HTMLElement
+
+  @Prop({ type: Array }) value?: number[]
 
   isLoadCards = false
 
   isAllRowSelected = false
 
-  selectedRowsIndex: number[] = []
-
   tableOverflow = false
+
+  get model() {
+    return this.value;
+  }
+
+  set model(value) {
+    let sameAddressValue = this.value;
+    sameAddressValue = value;
+    this.$emit('input', sameAddressValue);
+  }
 
   @Watch('isAllRowSelected')
   watchAllSelected(): void {
-    this.selectedRowsIndex = [];
+    const d: number[] = [];
+    this.model = [];
 
     if (this.data && this.isAllRowSelected) {
       for (let index = 0; index < this.data.length; index += 1) {
-        this.selectedRowsIndex.push(index);
+        d.push(index);
       }
     }
+
+    this.model = d;
   }
 
-  @Watch('selectedRowsIndex')
-  watchSelectedRowsIndex(value: number[]): void {
-    this.emitSelectedRows(value);
+  resetAllSelected() {
+    this.model = [];
   }
 
-  @Emit('input')
-  emitSelectedRows(payload: number[]): number[] {
-    return payload;
+  handleSingleAction(customPayload): boolean {
+    if (this.actions && this.actions.length === 1) {
+      return this.actions[0].isShow(customPayload);
+    } return true;
   }
 
   isRowSelected(index: number): string | null {
-    const isSelected = this.selectedRowsIndex.includes(index);
+    const isSelected = this.model?.includes(index);
     return isSelected ? 'selected' : null;
   }
 
@@ -109,6 +125,14 @@ export default class Logic extends Vue {
     const hasId = (obj: any): obj is any => obj?.id !== undefined;
     const id = tdValuesAsArray.filter(hasId);
     return id.length ? id[0].id : null;
+  }
+
+  findClickFunc(td: any) {
+    const tdAsArray = Object.values(td);
+    const tdValuesAsArray = Object.values(tdAsArray);
+    const hasClickFunc = (obj: any): obj is any => obj?.click !== undefined;
+    const clickFunc = tdValuesAsArray.filter(hasClickFunc);
+    return clickFunc.length ? clickFunc[0].click : null;
   }
 
   isOverflowing():void {

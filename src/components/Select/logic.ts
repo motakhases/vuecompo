@@ -4,7 +4,7 @@ import {
 } from 'vue-property-decorator';
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
-
+import BankLogos from '@/components/BankLogos/index.vue';
 import { ISelectOptions, IEvent } from '@/types';
 
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
@@ -13,6 +13,7 @@ const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
   components: {
     ValidationProvider,
     Icon,
+    BankLogos,
   },
 })
 export default class Select extends Vue {
@@ -102,18 +103,23 @@ export default class Select extends Vue {
     this.filteredOptions = this.options;
   }
 
-  @Watch('showList')
-  watchShowList(): void {
-    this.$nextTick(() => {
-      if (this.showList) {
-        this.updateStyle();
-      }
-    });
-    if (this.showList) {
-      // append menu to body
-      document.body.appendChild(this.menuRef);
-    }
+@Watch('loading')
+  updateOptions() {
+    this.filteredOptions = this.options;
   }
+
+  @Watch('showList')
+watchShowList(): void {
+  this.$nextTick(() => {
+    if (this.showList) {
+      this.updateStyle();
+    }
+  });
+  if (this.showList) {
+    // append menu to body
+    document.body.appendChild(this.menuRef);
+  }
+}
 
   /**
    * Methods
@@ -217,12 +223,13 @@ export default class Select extends Vue {
       if (isArrowDownKey || isArrowUpKey) {
         for (let i = 0; i < this.filteredOptions.length; i += 1) {
           // find the active option based on class
-          const item = this.menuRef.children[i];
+          const item = this.menuRef.querySelectorAll('li')[i];
           const activeOption = (item).classList.contains('active');
-
           // if there is active option then remove the active class and
           // update the index of active option in order to move active class
-          if (activeOption) {
+          if ((item).classList.contains('disabled')) {
+            // this.activeOptionIndex += i;
+          } else if (activeOption) {
             this.activeOptionIndex = i;
             (item).classList.remove('active');
           }

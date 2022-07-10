@@ -1,0 +1,119 @@
+.apexcharts-canvas {
+  direction: rtl;
+
+  > svg {
+    @apply overflow-visible;
+
+    > foreignObject {
+      @apply overflow-visible;
+    }
+  }
+
+  // &::before {
+  //   @apply h-[1px] w-[calc(100%-30px)] bg-border dark:bg-border-dark content-[''] block;
+  //   @apply absolute left-[50%] translate-x-[-49.1%] top-[29px];
+  // }
+}
+
+.apexcharts-gridline,
+.apexcharts-xaxis-tick {
+  @apply stroke-border dark:stroke-border-dark
+}
+
+.apexcharts-xaxis {
+  > line {
+    @apply stroke-border dark:stroke-border-dark;
+  }
+}
+
+.month-sparate-ticks {
+  .apexcharts-xaxis-label {
+    @apply hidden;
+  
+    &:nth-of-type(5n),
+    &:nth-of-type(1) {
+      @apply block;
+    }
+  }
+}
+
+.week-sparate-ticks {
+  .apexcharts-xaxis-label {
+    @apply hidden md:block;
+  
+    &:nth-of-type(odd) {
+      @apply block;
+    }
+  }
+}
+
+.day-sparate-ticks {
+  .apexcharts-xaxis-label {
+    @apply hidden;
+  
+    &:nth-of-type(4n),
+    &:nth-of-type(1) {
+      @apply block;
+    }
+  }
+}
+
+
+.apexcharts-xaxis-texts-g {
+  .apexcharts-text {
+    @apply fill-text-soft dark:fill-text-dark-soft;
+  }
+}
+
+.apexcharts-legend {
+  @apply flex gap-xl;
+
+  &-series {
+    display: flex !important;
+    @apply flex-row gap-2xs items-center text-ls-cp font-medium ml-0 #{!important};
+
+    .apexcharts-legend-text {
+      @apply text-text-soft dark:text-text-dark-soft #{!important};
+    }
+  }
+
+  &-marker {
+    @apply w-xs h-xs #{!important};
+  }
+}
+
+.no-legend {
+  .apexcharts-legend {
+    @apply hidden;
+  }
+}
+
+
+.apexcharts-tooltip {
+  .c-t {
+    @apply flex flex-col text-right gap-sm text-ls-cp font-normal font-IRANYekanFaNum;
+    @apply p-sm rounded-sm min-w-[140px];
+    @apply bg-surface-dark dark:bg-surface dark:text-text text-text-dark;
+
+    .series {
+      @apply flex flex-col gap-sm;
+
+      .serie {
+        @apply flex flex-col gap-xs;
+
+        .title {
+          @apply flex items-center gap-2xs;
+          @apply text-text-dark-soft dark:text-text-soft;
+
+          > span {
+            @apply w-xs h-xs rounded-circle block bg-secondary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.apexcharts-tooltip-marker {
+  background: #000;
+}
