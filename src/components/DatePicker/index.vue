@@ -71,7 +71,8 @@
       v-else
       id="editable-input"
       v-model="model"
-      suffix-icon="Calendar"
+      :suffix-icon="!dropdown && 'Calendar'"
+      :unitIcon="dropdown && 'Calendar'"
       :placeholder="$t('date.format')"
       :disabled="disableSingle"
       ref="input"
