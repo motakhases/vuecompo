@@ -71,6 +71,7 @@ const Template = (_, { argTypes }) => ({
         "MessageEditFill",
         "PenAddNote",
         "PenEdit",
+        "PenEditSingle",
         "QrCode",
         "RatingEdit",
         "Search",
