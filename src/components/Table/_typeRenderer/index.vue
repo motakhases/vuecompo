@@ -7,19 +7,21 @@
       'zpl-table-cell',
       data.type === 'description' ? 'description' : null,
       data.leftAlign ? 'justify-end' : null,
-      handleClickFromOutside ? 'cursor-pointer' : null
+      handleClickFromOutside ? 'cursor-pointer' : null,
     ]"
     @click="handleClickFromOutside ? handleClickFromOutside() : null"
   >
     <!--------------
         Custom
     -------------->
-    <div
-      v-if="data.type === 'custom'"
-      class="custom"
-    >
+    <div v-if="data.type === 'custom'" class="custom">
       <div
-        v-if="data.data.image || data.data.image === ''"
+        v-if="
+          data.data.image ||
+          data.data.image === '' ||
+          data.data.logo ||
+          data.data.icon
+        "
         class="image"
       >
         <Thumbnail
@@ -28,9 +30,19 @@
           :logo="data.data.logo"
         />
       </div>
+      <div
+        class="image"
+        v-else-if="data.data.avatarImage || data.data.avatarImage === ''"
+      >
+        <Avatar size="medium" :img="data.data.avatarImage" />
+      </div>
       <div class="text">
-        <span :class="['title', {'td-disable' : data.disable}]"> {{ data.data.title }} </span>
-        <small :class="['sub', {'td-disable' : data.disable}]"> {{ data.data.sub }} </small>
+        <span :class="['title', { 'td-disable': data.disable }]">
+          {{ data.data.title }}
+        </span>
+        <small :class="['sub', { 'td-disable': data.disable }]">
+          {{ data.data.sub }}
+        </small>
       </div>
     </div>
 
@@ -40,7 +52,7 @@
     <div v-else-if="data.type === 'price'">
       {{ data.data.toLocaleString() }}
       <Label
-        :class="['unit', {'td-disable' : data.disable}]"
+        :class="['unit', { 'td-disable': data.disable }]"
         size="small"
         type="neutral"
         :text="$t('common.rial')"
@@ -52,7 +64,7 @@
     -------------->
     <div
       v-else-if="data.type === 'date'"
-      :class="['date', {'td-disable' : data.disable}]"
+      :class="['date', { 'td-disable': data.disable }]"
     >
       {{ data.data | tableDateFormat }}
     </div>
@@ -60,10 +72,7 @@
     <!--------------
         Status
     -------------->
-    <div
-      v-else-if="data.type === 'status'"
-      class="status"
-    >
+    <div v-else-if="data.type === 'status'" class="status">
       <Status
         v-for="(label, labelIndex) in data.data"
         :key="labelIndex"
@@ -72,11 +81,25 @@
         :type="label.type"
       />
     </div>
-
+    <!--------------
+        label
+    -------------->
+    <div v-else-if="data.type === 'label'" class="status">
+      <Label
+        v-for="(label, labelIndex) in data.data"
+        :key="labelIndex"
+        size="small"
+        :type="label.type"
+        :text="label.text"
+      />
+    </div>
     <!--------------
         Text
     -------------->
-    <div v-else-if="data.type === 'text'" :class="{'td-disable' : data.disable}">
+    <div
+      v-else-if="data.type === 'text'"
+      :class="{ 'td-disable': data.disable }"
+    >
       {{ data.data }}
     </div>
 
@@ -85,7 +108,7 @@
     -------------->
     <div
       v-else-if="data.type === 'description'"
-      :class="['description', {'td-disable' : data.disable}]"
+      :class="['description', { 'td-disable': data.disable }]"
     >
       {{ data.data }}
     </div>

@@ -18,6 +18,7 @@ const Template = (_, { argTypes }) => ({
           click:()=>console.log('click'),
           data: {
             image: "",
+            icon:"terminal",
             title: "عنوان",
             sub:"زیرنویس"
           },
@@ -35,11 +36,15 @@ const Template = (_, { argTypes }) => ({
           data: "2020-11-30T11:55:07.000000Z",
         },
         status: {
-          type: "status",
+          type: "label",
           data: [
             {
               text: "پرداخت ناموفق",
               type: "negative",
+            },
+            {
+              text: "پرداخت موفق",
+              type: "neutral",
             },
           ],
         },
@@ -49,7 +54,7 @@ const Template = (_, { argTypes }) => ({
           type: "custom",
           id: "i.id",
           data: {
-            image: "",
+            avatarImage:"https://faces-img.xcdn.link/image-lorem-face-6511.jpg",
             title: "i.title",
           },
         },
@@ -83,6 +88,7 @@ const Template = (_, { argTypes }) => ({
           type: "custom",
           data: {
             image: "",
+            icon:"terminal",
             title: "سلام",
             sub: "بر تو",
           },
@@ -131,12 +137,11 @@ const Template = (_, { argTypes }) => ({
           data: "2020-11-30T11:55:07.000000Z",
         },
         status: {
-          type: "status",
+          type: "label",
           data: [
             {
               title: "پرداخت موفق",
-              type: "positive",
-              size: "",
+              type: "negative",
             },
           ],
         },
