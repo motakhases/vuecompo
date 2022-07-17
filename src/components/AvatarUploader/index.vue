@@ -1,10 +1,7 @@
 <template>
   <div :class="['zpl-avatar-upload', size]">
-    <Thumbnail
-      icon="terminal"
-      size="large"
-      :img="img ? img : null"
-    />
+    <Thumbnail icon="terminal" size="large" :img="img ? img : null" />
+    <!-- if there is an image -->
     <Dropdown :list="dropList" width="200px" v-if="img">
       <template slot="button">
         <button class="zpl-avatar-upload-button loading">
@@ -16,12 +13,9 @@
         </button>
       </template>
     </Dropdown>
-
+    <!-- v-else -->
     <vue2Dropzone
-      :class="[
-        'zpl-none-dropzone',
-        !img ? '' : 'hidden',
-      ]"
+      :class="['zpl-none-dropzone', !img ? '' : 'hidden']"
       :options="dropzoneOptions"
       :useCustomSlot="true"
       ref="dropzoneRef"

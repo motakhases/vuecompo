@@ -107,13 +107,13 @@ export default class AvatarUploader extends Vue {
     this.dropzoneRef.dropzone.hiddenFileInput.click();
   }
 
-  error(file: IDropzoneFiles, msg: string, xhr: IDropzoneFiles) {
+  error(file: IDropzoneFiles, msg: string) {
     if (file.status !== 'canceled') {
       this.toast(msg, 'error');
     }
   }
 
-  added(file) {
+  added() {
     if (this.compeletList) {
       this.dropzoneRef.removeFile(this.compeletList);
     }

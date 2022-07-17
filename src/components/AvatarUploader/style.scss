@@ -26,6 +26,8 @@
     /* focused */
     @apply focus:bg-primaryZarinpal;
     @apply dark:focus:bg-primaryZarinpal-dark;
+    @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+    @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
 
     .zpl-button-loading {
       /* Default */

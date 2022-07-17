@@ -5,6 +5,11 @@ export default {
 };
 const Template = (_, { argTypes }) => ({
   components: { AvatarUploader },
+  data(){
+    return{
+      image:''
+    }
+  },
   props: Object.keys(argTypes),
   methods: {
     uploadFile(e) {
@@ -12,9 +17,11 @@ const Template = (_, { argTypes }) => ({
     },
     sendFileHandlers(file){
       console.log(file)
+      this.image=file.image
     },
     deleteFileHandlers(file){
       console.log(file)
+      this.image=''
     }
   },
   template: `
@@ -27,6 +34,7 @@ const Template = (_, { argTypes }) => ({
     :sendFileHandler="sendFileHandlers"
     :deleteFileHandler="deleteFileHandlers"
     url="https://next.zarinpal.com/api/v4/graphql"
+    :img="image"
     />
 
   </div>
