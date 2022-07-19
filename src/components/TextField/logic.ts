@@ -48,6 +48,8 @@ export default class TextField extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly maxPreview!: boolean;
 
+  @Prop({ type: Boolean, default: false }) readonly mono?: boolean;
+
   @Prop({ type: String }) readonly prefixIcon?: string;
 
   @Prop({ type: String }) readonly suffixIcon?: string;
@@ -119,6 +121,13 @@ export default class TextField extends Vue {
       if (!/\d/.test(this.toEnNumber(event.key)) && event.key !== '.') {
         return event.preventDefault();
       }
+    }
+    // if  there is maxlength check the value length
+    if (this.maxlength) {
+      if (this.value.length === this.maxlength) {
+        return event.preventDefault();
+      }
+      return true;
     }
     return true;
   }

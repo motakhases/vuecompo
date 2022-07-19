@@ -4,6 +4,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import Label from '@/components/Label/index.vue';
 import Status from '@/components/Status/index.vue';
 import Thumbnail from '@/components/Thumbnail/index.vue';
+import Avatar from '@/components/Avatar/index.vue';
 
 // Interface
 interface ITypeRendererData {
@@ -21,6 +22,7 @@ interface ITypeRendererData {
     Label,
     Status,
     Thumbnail,
+    Avatar,
   },
 })
 export default class Logic extends Vue {
