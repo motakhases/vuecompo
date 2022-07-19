@@ -1,0 +1,54 @@
+.zpl-skeleton {
+  &-item {
+    @apply w-full overflow-hidden;
+    &::before {
+      @apply content-[""] bg-gray-40 flex w-1/2 h-full;
+      @apply dark:bg-gray-dark-40;
+      animation: loader 500ms linear infinite;
+    }
+    &.light {
+      @apply bg-gray-80;
+      @apply dark:bg-gray-dark-80;
+    }
+
+    &.body {
+      @apply rounded-xs h-sm;
+    }
+    &.heading {
+      @apply rounded-xs h-lg;
+    }
+    &.thumbnail {
+      @apply w-[40px] h-[40px] rounded-md;
+    }
+    &.avatar {
+      @apply w-[40px] h-[40px] rounded-circle;
+    }
+    &.iconButton {
+      @apply w-2xl h-2xl rounded-sm;
+    }
+    &.iconCircle {
+      @apply w-xl h-xl rounded-circle;
+    }
+    &.iconSquare {
+      @apply w-xl h-xl rounded-sm;
+    }
+    &.toggle {
+      @apply w-[36px] h-xl rounded-lg;
+    }
+    &.button {
+      @apply w-[80px] h-[40px] rounded-sm;
+    }
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}

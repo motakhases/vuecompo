@@ -45,8 +45,27 @@
       @apply flex-[1_0_100%] flex-row items-center;
 
       > span {
-        @apply w-full
+        @apply w-full;
       }
+    }
+  }
+  // loading
+
+  .loading {
+    .title-box {
+      @apply py-2xs;
+    }
+    .title {
+      @apply w-1/3 h-sm bg-gray-80 mb-sm rounded-xs;
+      @apply dark:bg-gray-dark-80;
+    }
+    .text-box {
+      @apply bg-surface-soft rounded-md py-xs pl-md pr-xs h-[56px] flex items-center justify-end;
+      @apply dark:bg-surface-dark-soft;
+    }
+    .text {
+      @apply w-[calc(100%-56px)] bg-gray-80 h-sm rounded-xs;
+      @apply dark:bg-gray-dark-80;
     }
   }
 }

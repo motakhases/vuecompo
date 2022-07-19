@@ -1,7 +1,10 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { DataSheetItemSpans } from '@/types';
+import Loading from '../loading/index.vue';
 
-@Component
+@Component({
+  components: { Loading },
+})
 export default class DataSheetItem extends Vue {
   @Prop({ type: String }) readonly title?: string;
 
@@ -10,6 +13,8 @@ export default class DataSheetItem extends Vue {
   @Prop({ type: Boolean }) readonly leftAlign?: boolean;
 
   @Prop({ type: Object }) readonly colSpan?: DataSheetItemSpans;
+
+  @Prop({ type: Boolean }) readonly loading?: boolean;
 
   get spans(): string {
     let classes = '';

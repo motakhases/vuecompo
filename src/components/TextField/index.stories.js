@@ -22,6 +22,14 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">
+	<TextField
+  	  v-model="hint"
+  	  class="col-span-1"
+  	  label="فیلد عادی"
+			:maxlength="5"
+			maxPreview
+			loading
+  	/>
   	<TextField
   	  v-model="hint"
   	  class="col-span-1"
