@@ -13,3 +13,22 @@
     direction: ltr;
   }
 }
+.skeleton {
+  @apply overflow-hidden;
+}
+.skeleton::before {
+  @apply content-[""] bg-gray-100 flex w-1/2 h-full;
+  @apply dark:bg-gray-dark-40;
+  animation: loader 1s linear infinite;
+}
+@keyframes loader {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  50% {
+    transform: translateX(-60%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
