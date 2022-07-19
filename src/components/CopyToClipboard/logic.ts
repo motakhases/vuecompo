@@ -6,7 +6,9 @@ import Tooltip from '@/components/Tooltip/index.vue';
 import Loading from './loading/index.vue';
 
 @Component({
-  components: { Icon, Tooltip, Loading },
+  components: {
+    Icon, Tooltip, Loading,
+  },
 })
 export default class CopyToClipboard extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string;

@@ -7,7 +7,7 @@ import Icon from '@/components/Icon/index.vue';
 export default class Skeleton extends Vue {
   @Prop({ type: String }) readonly text?: string
 
-  @Prop({ type: String, default: 'neutral' }) readonly type!: string
+  @Prop({ type: String, default: 'body' }) readonly type!: string
 
   @Prop({ type: String, default: 'light' }) readonly color?: string
 

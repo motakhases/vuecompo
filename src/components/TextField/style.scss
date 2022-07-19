@@ -48,6 +48,7 @@
   }
   &-loading {
     @apply border border-border-disabled rounded-sm py-[17px] px-sm;
+    @apply dark:border-border-dark-disabled;
   }
 }
 
