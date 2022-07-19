@@ -20,16 +20,20 @@ const Template = (_, { argTypes }) => ({
             image: "",
             icon:"terminal",
             title: "عنوان",
-            sub:"زیرنویس"
+            sub:"زیرنویس",
+            subMono:true,
+            titleMono: true
           },
         },
         pay_id: {
           type: "text",
           data: 2234145522155,
+          mono:true
         },
         description: {
           type: "description",
           data: "درخواست پرداخت دامنه شماره 2425",
+          mono: true
         },
         created_at: {
           type: "date",

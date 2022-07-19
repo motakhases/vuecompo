@@ -37,10 +37,10 @@
         <Avatar size="medium" :img="data.data.avatarImage" />
       </div>
       <div class="text">
-        <span :class="['title', { 'td-disable': data.disable }]">
+        <span :class="['title', { 'td-disable': data.disable, 'font-Mono' : data.data.titleMono  }]">
           {{ data.data.title }}
         </span>
-        <small :class="['sub', { 'td-disable': data.disable }]">
+        <small :class="['sub', { 'td-disable': data.disable, 'font-Mono' : data.data.subMono  }]">
           {{ data.data.sub }}
         </small>
       </div>
@@ -52,7 +52,7 @@
     <div v-else-if="data.type === 'price'">
       {{ data.data.toLocaleString() }}
       <Label
-        :class="['unit', { 'td-disable': data.disable }]"
+        :class="['unit', { 'td-disable': data.disable, 'font-Mono' : data.mono  }]"
         size="small"
         type="neutral"
         :text="$t('common.rial')"
@@ -98,7 +98,7 @@
     -------------->
     <div
       v-else-if="data.type === 'text'"
-      :class="{ 'td-disable': data.disable }"
+      :class="{ 'td-disable': data.disable, 'font-Mono' : data.mono }"
     >
       {{ data.data }}
     </div>
@@ -108,7 +108,7 @@
     -------------->
     <div
       v-else-if="data.type === 'description'"
-      :class="['description', { 'td-disable': data.disable }]"
+      :class="['description', { 'td-disable': data.disable, 'font-Mono' : data.mono }]"
     >
       {{ data.data }}
     </div>
