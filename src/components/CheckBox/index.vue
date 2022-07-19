@@ -1,23 +1,24 @@
 <template>
-  <label
-    :class="[
-      'zpl-checkbox',
-      { 'zpl-checkbox-disabled': disabled }
-    ]"
-  >
-    {{ text }}
+  <div>
+    <div v-if="loading" class="zpl-checkbox-loading">
+      <Skeleton type="iconSquare" />
+      <Skeleton type="body" class="w-2/3" />
+    </div>
+    <label v-else :class="['zpl-checkbox', { 'zpl-checkbox-disabled': disabled }]">
+      {{ text }}
 
-    <input
-      v-model="model"
-      type="checkbox"
-      :name="`checkbox-${name}`"
-      :value="val"
-      :disabled="disabled"
-      @change="change"
-    >
+      <input
+        v-model="model"
+        type="checkbox"
+        :name="`checkbox-${name}`"
+        :value="val"
+        :disabled="disabled"
+        @change="change"
+      />
 
-    <span class="checkmark" />
-  </label>
+      <span class="checkmark" />
+    </label>
+  </div>
 </template>
 
 <script lang="ts">

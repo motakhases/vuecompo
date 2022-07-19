@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
     ],
   }),
   template: `
-  <div class="dark:bg-surface-dark grid gap-y-md p-sm rounded-md">
+  <div class="dark:bg-surface-dark grid gap-y-md p-sm rounded-md rtl">
       <CheckBox
         v-model="data"
         name="firstCheckBox"
@@ -40,6 +40,13 @@ const Template = (_, { argTypes }) => ({
         v-model="data"
         name="firstCheckBox"
         val="پنجمین گزینه"
+        text="پنجمین گزینه"
+      />
+      <CheckBox
+        v-model="data"
+        name="firstCheckBox"
+        val="پنجمین گزینه"
+        loading
         text="پنجمین گزینه"
       />
   </div>
