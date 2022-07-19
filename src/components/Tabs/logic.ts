@@ -2,15 +2,19 @@ import {
   Vue, Prop, Component,
 } from 'vue-property-decorator';
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
+import Skeleton from '@/components/Skeleton/index.vue';
 import Tab from './Tab/logic';
 
 @Component({
   components: {
     NotificationBadge,
+    Skeleton,
   },
 })
 export default class Tabs extends Vue {
   @Prop({ type: Boolean, default: false }) fillContainer?: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   selectedIndex = 0
 

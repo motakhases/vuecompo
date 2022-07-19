@@ -7,11 +7,14 @@
           :key="tab.title"
           :class="['tab', {active:index==selectedIndex}]"
           @click="selectTab(index)"
-        >
+        >      <Skeleton type="body" class="w-[50px]" v-if="loading" />
+<div v-else>
           <span>
             {{ tab.title }}
           </span>
           <NotificationBadge v-if="tab.warning" />
+</div>
+
         </li>
       </template>
     </ul>
