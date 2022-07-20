@@ -32,6 +32,7 @@ const Template = (_, { argTypes }) => ({
     <QuickFilter
       :items="list"
       query-key="filter"
+      loading
     />
   </div>
   `,

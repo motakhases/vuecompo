@@ -12,6 +12,8 @@ export default class QuickFilter extends Vue {
   @Prop({ type: Array, required: true, default: () => [] })
   items!: QuickFilterBtn[];
 
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
   @Prop({ type: String, required: true, default: () => [] })
   queryKey!: string;
 

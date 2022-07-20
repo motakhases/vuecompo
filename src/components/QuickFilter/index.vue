@@ -6,6 +6,7 @@
       :text="item.text"
       :value="item.value"
       @click.native="changeFilter(item)"
+      :loading="loading"
     />
   </div>
 </template>

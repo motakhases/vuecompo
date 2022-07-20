@@ -1,9 +1,16 @@
 <template>
-  <button
-    :class="['zpl-quick-filter-button', { 'active' : $route.query[$parent.queryKey] === value }]"
-  >
-    {{ text }}
-  </button>
+  <div>
+    <Skeleton type="body" v-if="loading" class="w-[50px]" />
+    <button
+      :class="[
+        'zpl-quick-filter-button',
+        { active: $route.query[$parent.queryKey] === value },
+      ]"
+      v-else
+    >
+      {{ text }}
+    </button>
+  </div>
 </template>
 
 <script lang="ts">
