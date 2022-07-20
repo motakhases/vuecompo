@@ -1,6 +1,6 @@
 .zpl-skeleton {
   &-item {
-    @apply w-full overflow-hidden;
+    @apply w-full h-full overflow-hidden;
     &::before {
       @apply content-[""] bg-gray-40 flex w-1/2 h-full;
       @apply dark:bg-gray-dark-40;
@@ -24,7 +24,7 @@
       @apply w-[40px] h-[40px] rounded-circle;
     }
     &.iconButton {
-      @apply w-2xl h-2xl rounded-sm;
+      @apply rounded-sm;
     }
     &.iconCircle {
       @apply w-xl h-xl rounded-circle;

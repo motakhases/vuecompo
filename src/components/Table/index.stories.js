@@ -206,15 +206,12 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
     <Table
+    :data="tableData2"
+    :columns="columns"
+loading
+hasCustom
+:actions="actions"
 
-
-      :columns="columns"
-      :data="tableData"
-      :actions="actions"
-      :empty-title="$t('empty.product.title')"
-      :empty-caption="$t('empty.product.caption')"
-      dropdown-width="200px"
-      has-custom
     />
 
     <Table
@@ -225,7 +222,8 @@ const Template = (_, { argTypes }) => ({
       :actions="actions"
       route-name="session"
       dropdownWidth="320px"
-      
+      loading
+      hasCustom
     />
 
     <Table
