@@ -1,70 +1,86 @@
 .zpl-message-box {
-  @apply flex flex-row;
-  .left-side{
+  @apply flex;
+  .left-side {
     @apply w-full mr-md;
-    .message-box{
+    .message-box {
       @apply rounded-md rounded-tr-sm p-lg;
-      &.my-reply{
+      &.my-reply {
         @apply border border-border-divider bg-surface;
         @apply dark:border-border-dark-divider dark:bg-surface-dark;
       }
-      &.others-reply{
+      &.others-reply {
         @apply bg-surface-soft dark:bg-surface-dark-soft;
       }
-      .content{
+      .content {
         @apply whitespace-pre-line font-sans text-b2 text-text dark:text-text-dark;
       }
-      .attachment-link{
+      .attachment-link {
         @apply mt-md;
       }
-      .detail{
+      .detail {
         @apply text-text-soft dark:text-text-dark-soft text-ls-cp text-left mt-md;
-        .detail-separator{
+        .detail-separator {
           @apply px-2xs;
         }
       }
-      .prose{
-        ul,ol{
+      .prose {
+        ul,
+        ol {
           @apply pr-lg;
         }
-        p{
-          @apply m-0
+        p {
+          @apply m-0;
         }
       }
     }
-    .reply-feedback{
+    .reply-feedback {
       @apply px-lg mt-md text-ls-cp text-text-soft dark:text-text-dark-soft;
-      .thumbs-icons{
+      .thumbs-icons {
         @apply mr-xs w-lg h-lg cursor-pointer;
-        &.thumbs-up{
+        &.thumbs-up {
           @apply text-icon-success dark:text-icon-dark-success;
         }
-        &.thumbs-down{
+        &.thumbs-down {
           @apply text-icon-danger dark:text-icon-dark-danger;
         }
       }
-      .question{
-        .reply-feedback-modal{
+      .question {
+        .reply-feedback-modal {
           @apply px-md;
-          .feedback-box{
+          .feedback-box {
             @apply px-sm py-md mt-md flex flex-row cursor-pointer;
             @apply rounded-sm border bg-surface border-border-divider;
             @apply dark:bg-surface-dark dark:border-border-dark-divider;
             @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
-            .warn-icon{
+            .warn-icon {
               @apply w-xl h-xl flex-none text-icon-warning;
             }
-            .feedback-box-content{
+            .feedback-box-content {
               @apply mr-xs;
-              span{
+              span {
                 @apply text-b2 text-text dark:text-text-dark;
               }
-              p{
+              p {
                 @apply mt-xs text-b3 text-text-soft dark:text-text-dark-soft;
               }
             }
           }
         }
+      }
+    }
+  }
+  .loading {
+    @apply flex gap-md w-full;
+
+    .card {
+      @apply bg-surface border border-border-divider rounded-b-md rounded-tl-md rounded-tr-sm flex-1 p-lg;
+      @apply dark:bg-surface-dark dark:border-border-dark-divider;
+
+      &-header {
+        @apply py-2xs flex flex-col gap-sm mb-md;
+      }
+      &-footer {
+        @apply flex justify-end items-center;
       }
     }
   }
