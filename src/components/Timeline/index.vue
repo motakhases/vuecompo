@@ -1,15 +1,27 @@
 <template>
-  <div class="zpl-timeline">
-    <div class="zpl-timeline-icon">
+  <div :class="[{ 'zpl-timeline': !loading }]">
+    <!-- loading -->
+    <div v-if="loading">
+      <Loading />
+      <Loading />
+      <Loading />
+    </div>
+
+    <div v-if="!loading" class="zpl-timeline-icon">
       <Icon
         :name="icon"
-        :class="icon === 'CheckmarkCircle'
-          ? 'blue' : icon === 'DollarFill'
-            ? 'green' : icon === 'MessageEditFill'
-              ? 'warning' : null"
+        :class="
+          icon === 'CheckmarkCircle'
+            ? 'blue'
+            : icon === 'DollarFill'
+            ? 'green'
+            : icon === 'MessageEditFill'
+            ? 'warning'
+            : null
+        "
       />
     </div>
-    <div class="zpl-timeline-cart">
+    <div v-if="!loading" class="zpl-timeline-cart">
       <div class="zpl-timeline-title">
         <span>{{ title }}</span>
         <Label
