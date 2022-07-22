@@ -70,6 +70,7 @@ const Template = (_, { argTypes }) => ({
 			iban="IR870560085577703153460001"
 			rrn="892938820001277640002746"
 			class="w-[368px]"
+			loading
 		/>
 		<h1 class="mt-sm font-bold dark:text-surface">
 			کارت بانکی های مختلف

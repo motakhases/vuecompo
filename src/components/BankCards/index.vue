@@ -6,7 +6,9 @@
       defaultAccount ? 'background' : '',
     ]"
   >
+  <Loading v-if="loading" />
     <div
+    v-else
       :class="['zpl-bank-cards-container', defaultAccount ? 'background' : '']"
     >
       <div class="zpl-bank-cards-top">
