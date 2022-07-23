@@ -3,7 +3,7 @@ import {
 } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
-import Loading from './Loading/index.vue';
+import Loading from './loading/index.vue';
 
 @Component({
   components: {

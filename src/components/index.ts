@@ -104,3 +104,11 @@ export { default as Chart } from './Chart/index.vue';
 export { default as TimePicker } from './Timepicker/index.vue';
 
 export { default as Summary } from './Summary/index.vue';
+
+export { default as AvatarUploader } from './AvatarUploader/index.vue';
+
+export { default as Balance } from './Balance/index.vue';
+
+export { default as Skeleton } from './Skeleton/index.vue';
+
+export { default as CopyToClipboard } from './CopyToClipboard/index.vue';
