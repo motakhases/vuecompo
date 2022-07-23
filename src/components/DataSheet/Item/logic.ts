@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { DataSheetItemSpans } from '@/types';
-import Loading from '../loading/index.vue';
+import Loading from '../Loading/index.vue';
 
 @Component({
   components: { Loading },
