@@ -1,9 +1,9 @@
 <template>
   <div class="zpl-balance">
     <Skeleton type="body" class="w-1/4" />
-    <div class="flex items-center gap-sm">
+    <div class="flex items-center gap-sm flex-1 justify-end">
       <Skeleton type="body" class="w-1/4" />
-      <Skeleton type="iconButton" />
+      <Skeleton type="iconButton" class="w-2xl h-2xl" />
     </div>
   </div>
 </template>
