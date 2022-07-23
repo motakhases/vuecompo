@@ -155,37 +155,3 @@
   @apply dark:text-primaryZarinpal-dark;
 }
 
-.zpl-select-skeleton-box {
-  /* Default */
-  @apply flex py-xs px-sm;
-
-  &:not(:last-child) {
-    @apply mb-2xs;
-  }
-}
-
-.zpl-select-skeleton {
-  /* Default */
-  @apply h-[18px] rounded-xs bg-surface-disabled relative overflow-hidden;
-  @apply dark:bg-surface-dark-disabled;
-
-  /* animated element */
-  &::after {
-    @apply absolute inset-0	-translate-x-full;
-    background-image: linear-gradient(
-      90deg,
-      rgba(#ffffff, 0) 0,
-      rgba(#ffffff, 0.2) 20%,
-      rgba(#ffffff, 0.5) 60%,
-      rgba(#ffffff, 0)
-    );
-    animation: shimmer 1s infinite;
-    content: "";
-  }
-  /* animation */
-  @keyframes shimmer {
-    100% {
-      transform: translateX(100%);
-    }
-  }
-}

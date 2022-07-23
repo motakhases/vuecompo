@@ -6,6 +6,7 @@ import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 import BankLogos from '@/components/BankLogos/index.vue';
 import { ISelectOptions, IEvent } from '@/types';
+import Skeleton from '@/components/Skeleton/index.vue';
 
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
 
@@ -14,6 +15,7 @@ const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
     ValidationProvider,
     Icon,
     BankLogos,
+    Skeleton,
   },
 })
 export default class Select extends Vue {
