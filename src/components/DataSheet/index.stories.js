@@ -19,7 +19,7 @@ const Template = (_, { argTypes }) => ({
   <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
     <DataSheet class="mb-xl">
       <DataSheetRow>
-        <DataSheetItem title="مجموع تراکنش‌ها">
+        <DataSheetItem row loading title="مجموع تراکنش‌ها" leftAlign>
           260,000
           ریال
         </DataSheetItem>
@@ -30,6 +30,7 @@ const Template = (_, { argTypes }) => ({
       <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
+          loading
         >
           260,000
           ریال

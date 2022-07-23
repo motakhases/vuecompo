@@ -1,10 +1,16 @@
 .zpl-skeleton {
   &-item {
-    @apply w-full h-full overflow-hidden;
+    @apply w-full h-full overflow-hidden relative;
     &::before {
-      @apply content-[""] bg-gray-40 flex w-1/2 h-full;
-      @apply dark:bg-gray-dark-40;
-      animation: loader 500ms linear infinite;
+        @apply absolute inset-0	-translate-x-full content-[""] bg-skeleton;
+        @apply dark:bg-skeleton-dark;
+        animation: shimmer 1s infinite;      
+      /* animation */
+      @keyframes shimmer {
+        100% {
+          transform: translateX(100%);
+        }
+      }
     }
     &.light {
       @apply bg-gray-80;

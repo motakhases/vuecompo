@@ -40,13 +40,15 @@ module.exports = {
     rotate,
     backgroundImage: {
       'empty-state': "url('./Illustration/emptyState.png')",
+      skeleton:
+        'linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0))',
+      'skeleton-dark':
+        'linear-gradient(90deg, rgba(0, 0, 0, 0) 0,rgba(0, 0, 0, 0.2) 20%,rgba(0, 0, 0, 0.5) 60%,rgba(0, 0, 0, 0))',
     },
     container: {
       center: true,
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require('@tailwindcss/typography')],
   variants: {},
 };

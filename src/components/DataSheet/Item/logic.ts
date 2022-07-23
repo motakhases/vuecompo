@@ -1,9 +1,9 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { DataSheetItemSpans } from '@/types';
-import Loading from '../Loading/index.vue';
+import Skeleton from '@/components/Skeleton/index.vue';
 
 @Component({
-  components: { Loading },
+  components: { Skeleton },
 })
 export default class DataSheetItem extends Vue {
   @Prop({ type: String }) readonly title?: string;
