@@ -13,5 +13,7 @@ export default class Thumbnail extends Vue {
   @Prop({ type: String }) readonly img?: string;
 
   @Prop({ type: String }) readonly alt?: string;
+
+  @Prop({ type: String, default: 'medium' }) readonly size?: string;
 }
 

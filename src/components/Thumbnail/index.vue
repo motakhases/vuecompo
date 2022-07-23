@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-thumbnail">
+  <div :class="['zpl-thumbnail', size]">
     <Icon
       v-if="icon && !img"
       :name="icon"
