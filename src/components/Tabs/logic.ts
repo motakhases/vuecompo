@@ -2,15 +2,23 @@ import {
   Vue, Prop, Component,
 } from 'vue-property-decorator';
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
+import Skeleton from '@/components/Skeleton/index.vue';
 import Tab from './Tab/logic';
+import Loading from './Loading/index.vue';
 
 @Component({
   components: {
     NotificationBadge,
+    Skeleton,
+    Loading,
   },
 })
 export default class Tabs extends Vue {
   @Prop({ type: Boolean, default: false }) fillContainer?: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
+  @Prop({ type: Number, default: 1 }) readonly loadingNumber!: number;
 
   selectedIndex = 0
 

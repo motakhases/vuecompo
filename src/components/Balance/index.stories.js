@@ -12,6 +12,7 @@ const Template = (_, { argTypes }) => ({
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
     <h1 class="mt-sm font-bold dark:text-surface"> رسید </h1>
     <Balance v-bind="$props"/>
+    <Balance v-bind="$props" loading />
 
   </div>
   `,

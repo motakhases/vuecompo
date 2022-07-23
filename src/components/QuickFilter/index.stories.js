@@ -30,8 +30,15 @@ const Template = (_, { argTypes }) => ({
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
     <h1 class="mt-sm font-bold dark:text-surface"> دکمه فیلتر </h1>
     <QuickFilter
+    :items="list"
+    query-key="filter"
+
+  />
+    <QuickFilter
       :items="list"
       query-key="filter"
+      loading
+      :loadingNumber="4"
     />
   </div>
   `,

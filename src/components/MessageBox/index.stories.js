@@ -15,7 +15,7 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
 	<div class="dark:bg-surface-dark p-sm rounded-md relative z-10" dir="rtl">
-	<message-box v-bind="reply" my-id="7" @reply-feedback="testEmit" />
+	<message-box v-bind="reply" my-id="7" @reply-feedback="testEmit" loading />
 	</div>
   `,
 });

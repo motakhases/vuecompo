@@ -7,7 +7,7 @@ const Template = (_, { argTypes }) => ({
     data: '',
   }),
   template: `
-  <div class="dark:bg-surface-dark grid gap-y-md p-md rounded-md">
+  <div class="dark:bg-surface-dark grid gap-y-md p-md rounded-md rtl">
       <Radio
         v-model="data"
         name="radio"
@@ -26,6 +26,14 @@ const Template = (_, { argTypes }) => ({
         name="radio"
         val="سومین گزینه"
         text="سومین گزینه"
+      />
+      <Radio
+        v-model="data"
+        disabled
+        name="radio"
+        val="سومین گزینه"
+        text="سومین گزینه"
+        loading
       />
   </div>
   `,

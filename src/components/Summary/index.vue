@@ -1,6 +1,7 @@
 <template>
   <div class="zpl-reciept">
-    <ul class="zpl-reciept-list">
+    <Loading v-if="loading" :loadingNumber="loadingNumber" />
+    <ul class="zpl-reciept-list" v-else>
       <li class="zpl-reciept-item" v-for="option in options" :key="option.id">
         <div class="zpl-reciept-title">
           {{ option.text }}

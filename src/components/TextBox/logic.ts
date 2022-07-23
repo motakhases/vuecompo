@@ -3,12 +3,15 @@ import {
 } from 'vue-property-decorator';
 import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
+import Skeleton from '@/components/Skeleton/index.vue';
+
 import '@/utils/validations';
 
 @Component({
   components: {
     ValidationProvider,
     Icon,
+    Skeleton,
   },
 })
 export default class TextBox extends Vue {
@@ -17,6 +20,8 @@ export default class TextBox extends Vue {
   @Prop({ type: String, default: 'medium' }) readonly size?: string
 
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean
 
   @Prop({ type: String }) readonly inputName?: string;
 

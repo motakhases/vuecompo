@@ -1,16 +1,21 @@
 <template>
   <div class="loading">
     <div class="title-box">
-      <div class="title skeleton" />
+      <Skeleton class="w-1/3" type="body" />
     </div>
-     <div class="text-box">
-      <div class="text skeleton" />
+    <div class="text-box">
+      <Skeleton class="w-[calc(100%-56px)]" type="body" />
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Skeleton from '@/components/Skeleton/index.vue';
 
-@Component
+@Component({
+  components: {
+    Skeleton,
+  },
+})
 export default class ClipLoading extends Vue {}
 </script>

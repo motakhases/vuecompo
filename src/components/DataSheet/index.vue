@@ -1,6 +1,15 @@
 <template>
   <div class="zpl-ds">
-    <slot />
+    <DataSheetRow v-if="loading">
+      <DataSheetItem
+        v-for="index in loadingNumber"
+        :key="index"
+        :row="row"
+        :loading="loading"
+        :leftAlign="leftAlign"
+      />
+    </DataSheetRow>
+    <slot v-else />
   </div>
 </template>
 

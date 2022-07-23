@@ -4,11 +4,13 @@ import {
 import Button from '@/components/Button/index.vue';
 import Popover from '@/components/Popover/index.vue';
 import { ListsObject, Translation } from '@/types';
+import Loading from './Loading/index.vue';
 
 @Component({
   components: {
     Button,
     Popover,
+    Loading,
   },
 })
 export default class Pagination extends Vue {
@@ -17,6 +19,8 @@ export default class Pagination extends Vue {
   @Prop({ type: Number, default: 4 }) initLimit!: number
 
   @Prop({ type: Number, default: 10 }) lastPage!: number
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   @Emit('changeLimit')
   emitChangeLimit(newLimit: number): number {

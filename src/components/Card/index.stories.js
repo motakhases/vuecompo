@@ -19,7 +19,7 @@ const Template = (_, { argTypes }) => ({
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
   {{show}}
   <div @click="()=>this.show = !this.show">show</div>
-	  <Card title="عنوان کارت">
+	  <Card title="عنوان کارت" loading>
       <div >محتوای دلخواه در کارت</div>
       <template #actions>
         <Button type="secondary" text="دکمه" />
