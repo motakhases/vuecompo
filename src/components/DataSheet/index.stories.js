@@ -17,20 +17,20 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
   <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-    <DataSheet class="mb-xl">
+    <DataSheet class="mb-xl" loading :loadingNumber="5">
       <DataSheetRow>
-        <DataSheetItem row loading title="مجموع تراکنش‌ها" leftAlign>
+        <DataSheetItem title="مجموع تراکنش‌ها" leftAlign>
           260,000
           ریال
         </DataSheetItem>
       </DataSheetRow>
     </DataSheet>
 
-    <DataSheet class="mb-xl">
+    <DataSheet class="mb-xl" loading>
       <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
-          loading
+          
         >
           260,000
           ریال
