@@ -63,6 +63,7 @@ import Invoice from './icons/Invoice.vue';
 import InfoFill from './icons/InfoFill.vue';
 import MessageEditFill from './icons/MessageEditFill.vue';
 import PenAddNote from './icons/PenAddNote.vue';
+import PenEditSingle from './icons/PenEditSingle.vue';
 import PenEdit from './icons/PenEdit.vue';
 import QrCode from './icons/QrCode.vue';
 import Search from './icons/Search.vue';
@@ -150,6 +151,7 @@ import Info from './icons/Info.vue';
     InfoFill,
     MessageEditFill,
     PenAddNote,
+    PenEditSingle,
     PenEdit,
     QrCode,
     RatingEdit,
