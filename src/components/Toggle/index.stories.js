@@ -11,6 +11,8 @@ const Template = (_, { argTypes }) => ({
     <Toggle v-model="value" disabled />
     <Toggle />
     <Toggle disabled />
+    <Toggle loading />
+
   </div>
   `,
 });

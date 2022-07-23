@@ -14,7 +14,7 @@
   &.isInputFocused {
     @apply z-0;
   }
-  
+
   /* hover */
   &:not(:focus):not(.error):not(:disabled):hover {
     @apply shadow-border-hover;
@@ -39,6 +39,10 @@
       /* focused */
       @apply focus:border-border-danger outline-none;
     }
+  }
+  &-loading {
+    @apply border border-border-disabled rounded-sm py-[17px] px-sm h-[120px];
+    @apply dark:border-border-dark-disabled;
   }
 }
 .zpl-textbox-label {

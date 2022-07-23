@@ -46,6 +46,10 @@
       @apply dark:border-border-dark-danger;
     }
   }
+  &-loading {
+    @apply border border-border-disabled rounded-sm py-[17px] px-sm;
+    @apply dark:border-border-dark-disabled;
+  }
 }
 
 .zpl-textfield-input-box {
@@ -56,7 +60,7 @@
   /* Default */
   @apply bg-transparent border-none outline-none w-full z-10 py-sm text-b2 text-text;
   @apply dark:text-text-dark;
-  
+
   &::placeholder {
     @apply text-b2 text-text-soft;
     @apply dark:text-text-dark-soft;

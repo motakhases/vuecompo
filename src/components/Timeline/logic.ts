@@ -1,9 +1,10 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import Label from '@/components/Label/index.vue';
 import Icon from '@/components/Icon/index.vue';
+import Loading from './Loading/index.vue';
 
 @Component({
-  components: { Label, Icon },
+  components: { Label, Icon, Loading },
 })
 export default class Timeline extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string
@@ -17,5 +18,7 @@ export default class Timeline extends Vue {
   @Prop({ type: [String, Number] }) readonly labelText?: string | number
 
   @Prop({ type: String }) readonly labelType?: string
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 }
 

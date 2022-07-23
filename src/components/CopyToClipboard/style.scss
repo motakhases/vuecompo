@@ -1,0 +1,36 @@
+.zpl-clipboard {
+  // default
+
+  &-title {
+    @apply text-b3 font-medium text-text-soft mb-sm;
+    @apply dark:text-text-dark-soft;
+  }
+
+  &-box {
+    @apply flex gap-md items-center bg-surface-soft rounded-md py-xs pl-md pr-xs;
+    @apply dark:bg-surface-dark-soft;
+  }
+  &-icon {
+    @apply p-xs;
+
+    svg {
+      @apply w-xl h-xl text-icon cursor-pointer;
+      @apply dark:text-icon-dark;
+    }
+  }
+  &-text {
+    @apply text-b2 text-text font-Mono text-left flex-1;
+    @apply dark:text-text-dark;
+  }
+
+  // loading
+  .loading {
+    .title-box {
+      @apply py-2xs;
+    }
+    .text-box {
+      @apply bg-surface-soft rounded-md py-xs pl-md pr-xs h-[56px] flex items-center justify-end mt-sm;
+      @apply dark:bg-surface-dark-soft;
+    }
+  }
+}

@@ -1,24 +1,24 @@
 <template>
-  <label
-    :class="
-      [
-        'zpl-radio',
-        { 'zpl-radio-disabled': disabled }
-      ]
-    "
-  >
-    {{ text }}
+  <div>
+    <div v-if="loading" class="zpl-radio-loading">
+      <Skeleton type="iconCircle" />
+      <Skeleton type="body" class="w-2/3" />
+    </div>
 
-    <input
-      v-model="model"
-      type="radio"
-      :name="`radio-${name}`"
-      :value="val"
-      :disabled="disabled"
-    >
+    <label v-else :class="['zpl-radio', { 'zpl-radio-disabled': disabled }]">
+      {{ text }}
 
-    <span class="checkmark" />
-  </label>
+      <input
+        v-model="model"
+        type="radio"
+        :name="`radio-${name}`"
+        :value="val"
+        :disabled="disabled"
+      />
+
+      <span class="checkmark" />
+    </label>
+  </div>
 </template>
 
 <script lang="ts">

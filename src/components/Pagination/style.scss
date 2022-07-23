@@ -36,4 +36,15 @@
   .items-box {
     @apply absolute top-[36px] w-[60px] font-IRANYekanFaNum;
   }
+  &-box {
+    //loading
+    .loading {
+      @apply flex justify-between h-[48px] items-center;
+
+      .line-number {
+        @apply border-l border-border-divider pl-md ml-md;
+        @apply dark:border-border-dark-divider;
+      }
+    }
+  }
 }

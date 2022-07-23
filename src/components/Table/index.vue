@@ -20,7 +20,10 @@
       v-if="!isLoadCards && loading"
       :rows="7"
       :cols="columns"
-      :class="[{ hasCustom }, { actions }, { bordered }, { hasSubCustom }]"
+      :hasSubCustom="hasSubCustom"
+      :hasCustom="hasCustom"
+      :actions="actions"
+      :class="[ { bordered } ]"
     />
 
     <!-- Large view - Table -->

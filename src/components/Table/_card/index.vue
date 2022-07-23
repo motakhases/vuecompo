@@ -21,6 +21,15 @@
               :icon="label.icon"
             />
           </template>
+           <template v-if="item.type === 'label'">
+            <Label
+              v-for="(label, labelIndex) in item.data"
+              :key="labelIndex"
+              :text="label.text"
+              :type="label.type"
+               size="small"
+            />
+          </template>
         </div>
       </div>
     </div>

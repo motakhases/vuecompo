@@ -1,9 +1,16 @@
 .zpl-thumbnail {
   /* Default */
-  @apply w-[40px] h-[40px] flex items-center justify-center bg-surface-soft;
+  @apply flex items-center justify-center bg-surface-soft;
   @apply border border-border-soft rounded-md overflow-hidden;
   @apply dark:bg-surface-dark-soft dark:border-border-dark-soft;
 
+  /* size */
+  &.medium {
+    @apply w-[40px] h-[40px];
+  }
+  &.large {
+    @apply w-[62px] h-[62px];
+  }
   svg {
     /* Default */
     @apply h-xl w-xl text-black-40;
@@ -12,12 +19,11 @@
 
   img {
     /* Default */
-    @apply overflow-hidden max-h-full max-w-full;
+    @apply overflow-hidden max-h-full max-w-full h-full;
   }
   .zpl-thumbnail-logo {
-    &::before{
-          @apply w-xl h-xl;
-
+    &::before {
+      @apply w-xl h-xl;
     }
   }
 }

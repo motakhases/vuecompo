@@ -98,8 +98,8 @@
 
           // dark
           @apply dark:text-text-dark;
-          
-          &.td-disable{
+
+          &.td-disable {
             @apply text-text-disabled dark:text-text-dark-disabled;
           }
         }
@@ -111,7 +111,7 @@
           // dark
           @apply dark:text-text-dark-soft;
 
-          &.td-disable{
+          &.td-disable {
             @apply text-text-disabled dark:text-text-dark-disabled;
           }
         }
@@ -128,7 +128,7 @@
     .date {
       @apply whitespace-nowrap;
     }
-    .td-disable{
+    .td-disable {
       @apply text-text-disabled dark:text-text-dark-disabled;
     }
   }
@@ -137,7 +137,7 @@
     @apply flex mr-auto items-center gap-xs justify-end;
     .outside-action {
       @apply items-center gap-xs hidden;
-      &.outside-show{
+      &.outside-show {
         @apply flex;
       }
     }
@@ -259,97 +259,13 @@
     }
     thead {
       th {
-        @apply relative h-[56px];
-
-        // loading pseudos
-        @apply after:absolute after:content-[''] after:w-full after:h-full after:bg-white-100;
-        @apply after:top-0 after:right-0 after:z-[1];
-
-        //dark
-        @apply dark:after:bg-surface-dark;
-
-        @apply before:absolute before:content-[''] before:rounded-xs before:z-[2];
-        @apply before:w-[50%] before:max-w-[64px] before:h-sm;
-        @apply before:right-md before:top-[50%] before:transform before:translate-y-[-50%];
-        @apply before:bg-gray-80;
-        // @apply before:animate-pulse
-
-        //dark
-        @apply dark:before:bg-gray-dark-80;
+        @apply relative h-[56px] p-md;
       }
     }
 
     tbody {
       td {
-        @apply relative h-[56px];
-
-        // loading pseudos
-        @apply after:absolute after:content-[''] after:w-full after:h-full after:bg-white-100;
-        @apply after:top-0 after:right-0 after:z-[1];
-
-        //dark
-        @apply dark:after:bg-surface-dark;
-
-        @apply before:absolute before:content-[''] before:rounded-xs before:z-[2];
-        @apply before:w-[50%] before:h-sm;
-        @apply before:right-md before:top-[50%] before:transform before:translate-y-[-50%];
-        @apply before:bg-gray-80;
-        // @apply before:animate-pulse
-
-        @apply dark:before:bg-gray-dark-80;
-
-        &:last-child {
-          @apply hidden;
-        }
-      }
-    }
-
-    .loading-custom {
-      @apply hidden w-full h-full absolute top-0 z-[2];
-
-      @apply before:absolute before:content-[''] before:rounded-xs before:z-[2];
-      @apply before:w-[50%] before:h-sm;
-      @apply before:right-[calc(40px+12px+16px)] before:top-[50%] before:transform before:translate-y-[-50%];
-      @apply before:bg-gray-80;
-      // @apply before:animate-pulse
-      @apply dark:before:bg-gray-dark-80;
-    }
-    &.hasSubCustom {
-      .loading-custom {
-        @apply after:absolute after:content-[''] after:rounded-xs after:z-[2];
-        @apply after:w-[30%] after:h-sm after:mt-xs;
-        @apply after:right-[calc(40px+12px+16px)] after:top-[54%] after:transform after:translate-y-[-50%];
-        @apply after:bg-gray-80;
-        @apply before:top-[33%];
-        // @apply after:animate-pulse
-        @apply dark:after:bg-gray-dark-80;
-      }
-    }
-    &.hasCustom {
-      tbody td {
-        @apply h-[64px];
-
-        &:first-child {
-          @apply before:w-[40px] before:h-[40px] before:rounded-md;
-
-          .loading-custom {
-            @apply block;
-          }
-        }
-      }
-    }
-
-    &.actions {
-      tbody td {
-        &:last-child {
-          @apply min-w-[190px] table-cell before:w-2xl before:h-2xl before:rounded-md;
-          @apply before:left-md before:right-auto;
-        }
-      }
-      th {
-        &:last-child {
-          @apply before:hidden;
-        }
+        @apply relative h-[56px] p-md;
       }
     }
   }

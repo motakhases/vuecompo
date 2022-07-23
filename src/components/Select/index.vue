@@ -30,10 +30,12 @@
         />
 
         <!-- Value -->
-        <div v-else :class="['zpl-select-value', { 'has-value': inputVal.length }]">
-          <input v-model="inputVal" v-show="false">
-          <span
-          >
+        <div
+          v-else
+          :class="['zpl-select-value', { 'has-value': inputVal.length }]"
+        >
+          <input v-model="inputVal" v-show="false" />
+          <span>
             {{ inputVal.length ? inputVal : placeholder }}
           </span>
         </div>
@@ -84,16 +86,10 @@
         <!-- dropdown list -->
         <div :class="['zpl-select-list']" v-if="showList" :style="style">
           <!-- loading skeleton shows when loading is true -->
-          <div v-if="loading">
-            <div class="zpl-select-skeleton-box">
-              <span class="zpl-select-skeleton" style="width: 27%" />
-            </div>
-            <div class="zpl-select-skeleton-box">
-              <span class="zpl-select-skeleton" style="width: 48%" />
-            </div>
-            <div class="zpl-select-skeleton-box">
-              <span class="zpl-select-skeleton" style="width: 36%" />
-            </div>
+          <div v-if="loading" class="flex flex-col gap-[34px] py-[15px] px-sm">
+            <Skeleton type="body" class="w-1/4" />
+            <Skeleton type="body" class="w-1/2" />
+            <Skeleton type="body" class="w-1/3" />
           </div>
 
           <!-- shows option list when loading is false -->

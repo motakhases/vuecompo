@@ -1,8 +1,9 @@
 import {
   Vue, Component, Prop, VModel,
 } from 'vue-property-decorator';
+import Skeleton from '@/components/Skeleton/index.vue';
 
-@Component({})
+@Component({ components: { Skeleton } })
 export default class Radio extends Vue {
   @VModel({ type: String }) model!: string
 
@@ -13,4 +14,6 @@ export default class Radio extends Vue {
   @Prop({ type: String }) readonly text?: string
 
   @Prop({ type: Boolean }) readonly disabled?: boolean
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 }

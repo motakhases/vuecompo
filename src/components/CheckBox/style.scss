@@ -5,25 +5,25 @@
   @apply text-text min-h-[21px];
   @apply dark:text-text-dark;
 
-  input{
+  input {
     @apply hidden;
   }
 
-  .checkmark { 
+  .checkmark {
     @apply absolute top-0 right-0 h-lg w-lg rounded-sm;
     @apply border-2 border-border;
     @apply hover:bg-surface-hover;
     @apply disabled:border-border-disabled;
-    
+
     // dark states
     @apply dark:hover:bg-surface-dark-hover dark:border-border-dark;
     @apply dark:disabled:border-border-dark-disabled;
-    
-    &:after{
+
+    &:after {
       @apply absolute hidden top-[3px] left-[7px] w-[6px] h-[12px] border-r-2 border-b-2;
-      @apply border-surface ; 
+      @apply border-surface;
       // dark states
-      @apply dark:border-surface-dark ; 
+      @apply dark:border-surface-dark;
       content: "";
       transform: rotate(45deg);
     }
@@ -32,7 +32,9 @@
   &-disabled {
     @apply text-text-disabled dark:text-text-dark-disabled pointer-events-none;
   }
-
+  &-loading {
+    @apply flex items-center gap-xs;
+  }
   input:checked ~ .checkmark {
     @apply border-none;
     @apply bg-primaryZarinpal;
@@ -42,9 +44,9 @@
     @apply dark:bg-primaryZarinpal-dark;
     @apply dark:hover:bg-primaryZarinpal-dark-hover;
     @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
-    
-    &:after{
-      @apply block; 
+
+    &:after {
+      @apply block;
     }
   }
 

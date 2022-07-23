@@ -7,6 +7,8 @@ import { ValidationProvider } from 'vee-validate';
 import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
+import Skeleton from '@/components/Skeleton/index.vue';
+
 import '@/utils/validations';
 
 @Component({
@@ -15,10 +17,13 @@ import '@/utils/validations';
     Icon,
     Button,
     Tooltip,
+    Skeleton,
   },
 })
 export default class TextField extends Vue {
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   @Prop({ type: String }) readonly label?: string;
 
@@ -47,6 +52,8 @@ export default class TextField extends Vue {
   @Prop({ type: Boolean }) readonly ltr!: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly maxPreview!: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly mono?: boolean;
 
   @Prop({ type: String }) readonly prefixIcon?: string;
 
@@ -119,6 +126,13 @@ export default class TextField extends Vue {
       if (!/\d/.test(this.toEnNumber(event.key)) && event.key !== '.') {
         return event.preventDefault();
       }
+    }
+    // if  there is maxlength check the value length
+    if (this.maxlength) {
+      if (this.value.length === this.maxlength) {
+        return event.preventDefault();
+      }
+      return true;
     }
     return true;
   }

@@ -7,10 +7,11 @@ import Icon from '@/components/Icon/index.vue';
 import Avatar from '@/components/Avatar/index.vue';
 import { ITicketRepliedUser } from '@/types';
 import * as marked from 'marked';
+import Loading from './Loading/index.vue';
 
 @Component({
   components: {
-    Link, Modal, Icon, Avatar,
+    Link, Modal, Icon, Avatar, Loading,
   },
 })
 export default class MessageBox extends Vue {
@@ -29,6 +30,8 @@ export default class MessageBox extends Vue {
   @Prop({ type: Object }) readonly user?: ITicketRepliedUser
 
   @Prop({ type: String }) readonly myId!: string
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   replyFeedbackModal = false
 

@@ -5,43 +5,34 @@
     :name="label"
     :vid="inputName"
   >
-    <div class="zpl-textfield-group">
+    <div v-if="loading" class="zpl-textfield-loading">
+      <Skeleton type="body" class="w-1/3" />
+    </div>
+    <div class="zpl-textfield-group" v-else>
       <div
-        :class="['zpl-textfield', { 'invalid': errors.length }]"
+        :class="['zpl-textfield', { invalid: errors.length }]"
         :disabled="disabled"
       >
         <!-- Prefix Icon -->
-        <Icon
-          v-if="prefixIcon"
-          :name="prefixIcon"
-          class="zpl-textfield-icon"
-        />
+        <Icon v-if="prefixIcon" :name="prefixIcon" class="zpl-textfield-icon" />
 
         <input
           v-model="model"
           autocomplete="off"
-          :class="['zpl-textfield-input', { ltr }]"
+          :class="['zpl-textfield-input', { ltr, 'font-Mono': mono }]"
           :disabled="disabled"
-          :maxlength="maxlength"
           :placeholder="placeholder"
           :name="inputName"
           :readonly="readonly"
           @focusout="onFocusOut"
           @focusin="onFocusIn"
           @keypress="onlyNumber"
-        >
+        />
 
         <!-- Suffic Icon -->
-        <Icon
-          v-if="suffixIcon"
-          :name="suffixIcon"
-          class="zpl-textfield-icon"
-        />
+        <Icon v-if="suffixIcon" :name="suffixIcon" class="zpl-textfield-icon" />
         <!-- shows stepper to increase number or descrease -->
-        <div
-          v-if="stepper && type === 'number'"
-          class="zpl-textfield-stepper"
-        >
+        <div v-if="stepper && type === 'number'" class="zpl-textfield-stepper">
           <button
             class="zpl-textfield-stepper-btn"
             type="button"
@@ -61,18 +52,12 @@
         </div>
 
         <!-- unit -->
-        <span
-          v-if="unit"
-          class="zpl-textfield-unit"
-        >
+        <span v-if="unit" class="zpl-textfield-unit">
           {{ unit }}
         </span>
 
         <!-- unit icon -->
-        <span
-          v-if="unitIcon"
-          class="zpl-textfield-unit"
-        >
+        <span v-if="unitIcon" class="zpl-textfield-unit">
           <Icon :name="unitIcon" />
         </span>
 
@@ -113,32 +98,21 @@
         </div>
 
         <!-- Success Message -->
-        <div
-          v-if="successMessage && passed"
-          class="zpl-textfield-hint success"
-        >
-          <Icon
-            name="CheckmarkCircle"
-          />
+        <div v-if="successMessage && passed" class="zpl-textfield-hint success">
+          <Icon name="CheckmarkCircle" />
           <span>
             {{ successMessage }}
           </span>
         </div>
 
         <!-- Errors -->
-        <div
-          v-if="errors.length"
-          class="zpl-textfield-hint error"
-        >
+        <div v-if="errors.length" class="zpl-textfield-hint error">
           <Icon name="warning" />
           <span>{{ errors[0] }}</span>
         </div>
 
         <!-- Max Length -->
-        <span
-          v-if="maxPreview"
-          class="zpl-textfield-hint-maxlength"
-        >
+        <span v-if="maxPreview" class="zpl-textfield-hint-maxlength">
           {{ maxlength }}/{{ value.length }}
         </span>
       </div>

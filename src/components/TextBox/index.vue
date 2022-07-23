@@ -4,12 +4,18 @@
     :rules="rules"
     :name="label"
     :vid="inputName"
-
   >
-    <div :class="['zpl-textbox-group']">
+    <div v-if="loading" class="zpl-textbox-loading">
+      <Skeleton type="body" class="w-1/3" />
+    </div>
+    <div :class="['zpl-textbox-group']" v-else>
       <textarea
         v-model="model"
-        :class="['zpl-textbox', { 'error': errors && errors.length }, { isInputFocused }]"
+        :class="[
+          'zpl-textbox',
+          { error: errors && errors.length },
+          { isInputFocused },
+        ]"
         :rows="rows"
         :disabled="disabled"
         name="inputName"
@@ -19,10 +25,7 @@
       />
 
       <!-- show when we have label -->
-      <label
-        v-if="label"
-        :class="['zpl-textbox-label', { isInputFocused }]"
-      >
+      <label v-if="label" :class="['zpl-textbox-label', { isInputFocused }]">
         {{ label }}
       </label>
 
@@ -39,32 +42,21 @@
         </div>
 
         <!-- show when we have successMessage -->
-        <div
-          v-if="successMessage && passed"
-          class="zpl-textbox-hint success"
-        >
-          <Icon
-            name="checkmarkCircle"
-          />
+        <div v-if="successMessage && passed" class="zpl-textbox-hint success">
+          <Icon name="checkmarkCircle" />
           <span>
             {{ successMessage }}
           </span>
         </div>
 
         <!-- show when we have errors -->
-        <div
-          v-if="errors && errors.length"
-          class="zpl-textbox-hint error"
-        >
+        <div v-if="errors && errors.length" class="zpl-textbox-hint error">
           <Icon name="warning" />
           <span>{{ errors[0] }}</span>
         </div>
 
         <!-- show when we have maxlength -->
-        <span
-          v-if="maxPreview"
-          class="zpl-textbox-hint-maxlength"
-        >
+        <span v-if="maxPreview" class="zpl-textbox-hint-maxlength">
           {{ maxlength }}/{{ value.length }}
         </span>
       </div>
