@@ -53,7 +53,7 @@ export default class Logic extends Vue {
 
   get headerLeft(): ITableRow[] {
     return Object.values(this.td).filter(
-      (obj: ITableRow) => obj.type === 'status' || obj.type === 'actions',
+      (obj: ITableRow) => obj.type === 'status' || obj.type === 'actions' || obj.type === 'label',
     );
   }
 

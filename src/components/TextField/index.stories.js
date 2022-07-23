@@ -55,6 +55,8 @@ const Template = (_, { argTypes }) => ({
 			separator="comma"
   	  label="فیلد واحد دار"
   	  unit="ریال"
+			:maxlength="5"
+			:mono="true"
   	/>
 		<TextField
 			v-model="limit"
