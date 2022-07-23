@@ -13,14 +13,13 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   methods: {
     uploadFile(e) {
-      console.log(e);
+      alert('error')
     },
     sendFileHandlers(file){
       console.log(file)
       this.image=file.image
     },
     deleteFileHandlers(file){
-      console.log(file)
       this.image=''
     }
   },
