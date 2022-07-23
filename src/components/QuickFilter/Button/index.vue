@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <Skeleton type="body" v-if="loading" class="w-[50px]" />
-    <button
-      :class="[
-        'zpl-quick-filter-button',
-        { active: $route.query[$parent.queryKey] === value },
-      ]"
-      v-else
-    >
-      {{ text }}
-    </button>
-  </div>
+  <button
+    :class="[
+      'zpl-quick-filter-button',
+      { active: $route.query[$parent.queryKey] === value },
+    ]"
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script lang="ts">
