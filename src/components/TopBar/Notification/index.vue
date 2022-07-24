@@ -3,6 +3,7 @@
     <Button
       icon="notification"
       type="tertiary"
+      size="medium"
     />
     <NotificationBadge
       class="zpl-topbar-navigation-badge"

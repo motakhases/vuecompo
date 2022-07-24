@@ -85,10 +85,12 @@ import Github from './icons/Github.vue';
 import Link from './icons/Link.vue';
 import Minus from './icons/Minus.vue';
 import Info from './icons/Info.vue';
+import Pin from './icons/Pin.vue';
 
 @Component({
   components: {
     Box,
+    Pin,
     ChatMessage,
     CreditCheckout,
     ChevronUp,

@@ -5,7 +5,7 @@
 }
 .zpl-textbox {
   /* Default */
-  @apply bg-transparent border border-border rounded-sm w-full text-text p-sm;
+  @apply bg-transparent border border-border rounded-sm w-full text-text text-b2 p-sm;
   @apply dark:border-border-dark dark:text-text-dark;
 
   &:not(.isInputFocused) {

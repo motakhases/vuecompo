@@ -4,6 +4,7 @@
       <Button
         icon="menuBurger"
         type="tertiary"
+        size="medium"
         @click.native="$emit('toggleMenu')"
       />
       <!-- <Icon
@@ -17,6 +18,7 @@
         <Button
           after-icon="AngleDown"
           type="tertiary"
+          size="medium"
           :text="activeTerminal"
           @click.native="toggleTerminalList"
         />
@@ -24,7 +26,7 @@
     </div>
     <div class="zpl-topbar-left-side">
       <div class="zpl-topbar-question-btn">
-        <Button icon="questionCircle" type="tertiary" />
+        <Button icon="questionCircle" type="tertiary" size="medium" />
       </div>
       <Notification badge="1" @click.native="$emit('showNotifs')" />
       <Dropdown :list="profileList" width="256px">
