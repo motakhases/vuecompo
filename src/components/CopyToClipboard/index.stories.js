@@ -11,7 +11,7 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="bg-surface dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md w-[256px]" dir="rtl">
 	  <CopyToClipboard title="عنوان" text="text to be copied" />
-    <CopyToClipboard loading title="عنوان" text="text to be copied" />
+    <CopyToClipboard loading text="text to be copied" />
 
   </div>
   `,

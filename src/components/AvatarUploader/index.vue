@@ -1,6 +1,21 @@
 <template>
   <div :class="['zpl-avatar-upload', size]">
-    <Thumbnail icon="terminal" size="large" :img="img ? img : null" />
+    <vue2Dropzone
+      :class="['zpl-none-dropzone']"
+      :options="dropzoneOptions"
+      :useCustomSlot="true"
+      ref="dropzoneRef"
+      @vdropzone-thumbnail="fetchInitialData"
+      @vdropzone-error="error"
+      @vdropzone-file-added="added"
+      id="dropzone"
+    >
+      <Thumbnail icon="terminal" size="large" :img="img ? img : null" />
+      <!-- if there is no image -->
+      <button v-if="!img" class="zpl-avatar-upload-button">
+        <Icon name="Cloud" />
+      </button>
+    </vue2Dropzone>
     <!-- if there is an image -->
     <Dropdown :list="dropList" width="200px" v-if="img">
       <template slot="button">
@@ -13,21 +28,6 @@
         </button>
       </template>
     </Dropdown>
-    <!-- v-else -->
-    <vue2Dropzone
-      :class="['zpl-none-dropzone', !img ? '' : 'hidden']"
-      :options="dropzoneOptions"
-      :useCustomSlot="true"
-      ref="dropzoneRef"
-      @vdropzone-thumbnail="fetchInitialData"
-      @vdropzone-error="error"
-      @vdropzone-file-added="added"
-      id="dropzone"
-    >
-      <button class="zpl-avatar-upload-button">
-        <Icon name="Cloud" />
-      </button>
-    </vue2Dropzone>
   </div>
 </template>
 

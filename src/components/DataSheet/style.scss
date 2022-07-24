@@ -31,7 +31,7 @@
 
     &-title {
       // default
-      @apply text-b3 text-text-soft font-IRANYekanFaNum font-normal;
+      @apply text-b3 text-text-soft font-IRANYekanFaNum font-normal flex-1;
 
       // dark
       @apply dark:text-text-dark-soft;

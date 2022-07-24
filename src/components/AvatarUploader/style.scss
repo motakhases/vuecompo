@@ -1,5 +1,5 @@
 .zpl-avatar-upload {
-  @apply w-max relative;
+  @apply w-max relative cursor-pointer;
 
   .focused {
     @apply w-[58px] h-[58px];

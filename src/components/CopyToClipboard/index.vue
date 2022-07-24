@@ -1,6 +1,6 @@
 <template>
   <div class="zpl-clipboard">
-    <Loading v-if="loading" />
+    <Loading v-if="loading" :title="title" />
     <div v-else>
       <!-- Header -->
       <h4 class="zpl-clipboard-title">

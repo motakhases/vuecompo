@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    <div class="title-box">
+    <div class="title-box" v-if="title">
       <Skeleton class="w-1/3" type="body" />
     </div>
     <div class="text-box">
@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Skeleton from '@/components/Skeleton/index.vue';
 
 @Component({
@@ -17,5 +17,7 @@ import Skeleton from '@/components/Skeleton/index.vue';
     Skeleton,
   },
 })
-export default class ClipLoading extends Vue {}
+export default class ClipLoading extends Vue {
+  @Prop({ type: String }) readonly title?: string;
+}
 </script>
