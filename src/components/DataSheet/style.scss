@@ -41,7 +41,7 @@
       @apply whitespace-nowrap;
     }
 
-    .row {
+    &.row {
       @apply flex-[1_0_100%] flex-row items-center;
 
       > span {
