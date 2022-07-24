@@ -5,11 +5,18 @@
       :class="['flex w-full gap-lg', row ? 'flex-row' : 'flex-col']"
       v-if="loading"
     >
-      <Skeleton type="body" :class="[row ? 'w-1/3' : 'w-1/2']" />
-      <Skeleton
-        type="body"
-        :class="[row ? (leftAlign ? 'mr-auto w-1/2' : 'w-1/2') : 'w-full']"
-      />
+      <div :class="[ row ? 'flex-1' : null]">
+        <Skeleton type="body" class="w-[64px]" />
+      </div>
+      <div :class="[ row ? 'flex-1' : null]">
+        <Skeleton
+          type="body"
+          :class="[
+            'w-[200px]',
+            row ? (leftAlign ? 'mr-auto' : null) : null,
+          ]"
+        />
+      </div>
     </div>
     <!-- content -->
     <div v-else :class="['flex w-full gap-xs', row ? 'flex-row' : 'flex-col']">
@@ -18,7 +25,7 @@
       </span>
       <span
         :class="[
-          'truncate',
+          'truncate flex-1',
           { 'text-left flex justify-end': leftAlign && row },
         ]"
       >
@@ -29,8 +36,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator';
-import Logic from './logic';
+import { Component, Mixins } from "vue-property-decorator";
+import Logic from "./logic";
 
 @Component
 export default class DataSheet extends Mixins(Logic) {}
