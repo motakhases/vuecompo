@@ -13,7 +13,7 @@ import Loading from './Loading/index.vue';
 export default class CopyToClipboard extends Vue {
   @Prop({ type: String }) readonly title?: string;
 
-  @Prop({ type: String, required: true }) readonly text!: string;
+  @Prop({ type: String }) readonly text!: string;
 
   @Prop({ type: Boolean }) readonly loading?: boolean;
 

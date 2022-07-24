@@ -12,6 +12,7 @@
         :text="copyToClipboardText"
         indicator
         position="topCenter"
+        class="!w-full"
       >
         <div class="zpl-clipboard-box">
           <!-- clipboard icon -->

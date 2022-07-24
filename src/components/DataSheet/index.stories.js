@@ -1,6 +1,6 @@
 import DataSheet from "./index.vue";
-import DataSheetRow from './Row/index.vue';
-import DataSheetItem from './Item/index.vue';
+import DataSheetRow from "./Row/index.vue";
+import DataSheetItem from "./Item/index.vue";
 
 export default {
   component: DataSheet,
@@ -12,8 +12,8 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data: () => ({
     obj: {
-      empty: ''
-    }
+      empty: "",
+    },
   }),
   template: `
   <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
@@ -129,7 +129,7 @@ const Template = (_, { argTypes }) => ({
         </DataSheetItem>
       </DataSheetRow>
     </DataSheet>
-    <DataSheet loading row>
+    <DataSheet  row>
     <DataSheetRow>
       <DataSheetItem
         row
@@ -146,6 +146,66 @@ const Template = (_, { argTypes }) => ({
         8,000
         ریال
       </DataSheetItem>
+      <DataSheetItem
+      row
+      leftAlign
+      title="مجموع تراکنش‌ها"
+    >
+      260,000
+      ریال
+    </DataSheetItem>
+    <DataSheetItem
+      row
+      title="مجموع کارمزد تراکنش‌ها"
+    >
+      8,000
+      ریال
+    </DataSheetItem>
+    <DataSheetItem
+    row
+    leftAlign
+    title="مجموع تراکنش‌ها"
+  >
+    260,000
+    ریال
+  </DataSheetItem>
+  <DataSheetItem
+    row
+    title="مجموع کارمزد تراکنش‌ها"
+  >
+    8,000
+    ریال
+  </DataSheetItem>
+  <DataSheetItem
+  row
+  
+  title="مجموع تراکنش‌ها"
+>
+  260,000
+  ریال
+</DataSheetItem>
+<DataSheetItem
+  row
+  title="مجموع کارمزد تراکنش‌ها"
+>
+  8,000
+  ریال
+</DataSheetItem>
+<DataSheetItem
+row
+leftAlign
+title="مجموع تراکنش‌ها"
+>
+260,000
+ریال
+</DataSheetItem>
+<DataSheetItem
+row
+title="مجموع کارمزد تراکنش‌ها"
+>
+8,000
+ریال
+</DataSheetItem>
     </DataSheetRow>
   </DataSheet>
   </div>
