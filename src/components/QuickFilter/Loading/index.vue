@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-quick-filter">
+  <div class="zpl-quick-filter py-[22px]">
     <div v-for="index in loadingNumber" :key="index" class="tab">
       <Skeleton type="body" class="w-1/2 min-w-[55px]" />
     </div>
