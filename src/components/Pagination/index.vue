@@ -1,6 +1,7 @@
 <template>
   <div class="zpl-pagination-box">
-    <div class="zpl-pagination" v-if="loading">
+    <Loading v-if="loading" />
+    <div class="zpl-pagination" v-else>
       <div class="right-side">
         <div class="limit">
           <span class="limit-title">
@@ -87,7 +88,6 @@
         </div>
       </div>
     </div>
-    <Loading v-else />
   </div>
 </template>
 

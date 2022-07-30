@@ -42,7 +42,17 @@ const Template = (_, { argTypes }) => ({
    :sendFileHandler="uploadFile"
    />
 
-  
+   <Upload 
+   :upload="uploadFile" 
+   :dropzone="false"
+   :maxFiles="5"
+   :maxFileSize="0.1"
+   url="https://next.zarinpal.com/api/v4/graphql"
+   acceptedFiles=".jpeg,.jpg,.png,.gif"
+   :toast="uploadFile"
+   :headers="header"
+   :sendFileHandler="uploadFile"
+   />
 	</div>
   `,
 });

@@ -1,5 +1,7 @@
 <template>
-  <div class="zpl-upload">
+  <div class="zpl-upload-box">
+    <Loading v-if="loading"  :title="!!title" :dropzone="dropzone" :list="!!restrictionList"/>
+    <div class="zpl-upload" v-else>
     <div class="zpl-upload-title" v-if="title">
       {{ title }}
     </div>
@@ -41,6 +43,8 @@
       :addFileManually="addFileManually"
       :hasIcon="hasIcon"
     />
+    </div>
+
   </div>
 </template>
 
