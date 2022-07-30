@@ -20,7 +20,7 @@
           <Skeleton v-if="desc" type="body" class="mt-sm w-[240px]" />
         </div>
       </div>
-      <Skeleton v-if="button" type="button" />
+      <Skeleton v-if="button" type="button" class="w-[80px]" />
     </div>
   </div>
 </template>

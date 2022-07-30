@@ -1,20 +1,14 @@
 <template>
-  <div :class="['zpl-ds-item', spans, { row }]">
+  <div :class="['zpl-ds-item loading', spans, { row, leftAlign }]">
     <!-- loading -->
-    <div
-      :class="['flex w-full gap-lg', row ? 'flex-row' : 'flex-col']"
-      v-if="loading"
-    >
-      <div :class="[ row ? 'flex-1' : null]">
+    <div class="zpl-ds-item-box" v-if="loading">
+      <div class="loading-title">
         <Skeleton type="body" class="w-[64px]" />
       </div>
-      <div :class="[ row ? 'flex-1' : null]">
+      <div class="loading-title">
         <Skeleton
           type="body"
-          :class="[
-            'w-[200px]',
-            row ? (leftAlign ? 'mr-auto' : null) : null,
-          ]"
+          class="loading-title-skeleton"
         />
       </div>
     </div>
@@ -36,8 +30,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator';
-import Logic from './logic';
+import { Component, Mixins } from "vue-property-decorator";
+import Logic from "./logic";
 
 @Component
 export default class DataSheet extends Mixins(Logic) {}

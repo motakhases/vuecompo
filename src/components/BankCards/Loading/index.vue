@@ -3,16 +3,16 @@
     <div class="zpl-bank-cards-top">
       <Skeleton type="thumbnail" />
       <div class="flex-1">
-        <Skeleton type="body" class="w-4/6" />
-        <Skeleton type="body" class="w-1/3 mt-sm" />
+        <Skeleton type="body" class="w-[219px]" />
+        <Skeleton type="body" class="w-[56px] mt-sm" />
       </div>
     </div>
-    <div class="zpl-bank-cards-bottom py-lg">
-      <div class="flex justify-between">
+    <div class="zpl-bank-cards-bottom py-lg" v-if="amont || rrn">
+      <div class="flex justify-between" v-if="amount">
         <Skeleton type="body" class="w-1/4" />
         <Skeleton type="body" class="w-1/5" />
       </div>
-      <div class="flex justify-between mt-lg">
+      <div class="flex justify-between mt-lg" v-if="rrn">
         <Skeleton type="body"  class="w-1/6"/>
         <Skeleton type="body" class="w-2/5" />
       </div>
@@ -20,7 +20,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Skeleton from '@/components/Skeleton/index.vue';
 
 @Component({
@@ -28,5 +28,9 @@ import Skeleton from '@/components/Skeleton/index.vue';
     Skeleton,
   },
 })
-export default class MessageBoxLoading extends Vue {}
+export default class MessageBoxLoading extends Vue {
+  @Prop({ type: Boolean, default: true }) readonly amount?: boolean;
+
+  @Prop({ type: Boolean, default: true }) readonly rrn?: boolean;
+}
 </script>
