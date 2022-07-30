@@ -20,5 +20,7 @@ export default class Timeline extends Vue {
   @Prop({ type: String }) readonly labelType?: string
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
+  @Prop({ type: Number, default: 1 }) readonly loadingNumber!: number;
 }
 

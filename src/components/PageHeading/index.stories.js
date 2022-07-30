@@ -24,6 +24,32 @@ const Template = (_, { argTypes }) => ({
           />
         </template>
       </PageHeading>
+      <PageHeading
+      :return-btn="returnBTN"
+      :sticky="sticky"
+      title="عنوان"
+      desc="توضیحات"
+      :has-button="true"
+      :statuses="statuses"
+      :returnFunction="returnFunction"
+      loading
+    >
+      <template v-slot:buttons>
+        <Button
+          text="تست"
+        />
+        <Button
+          text="تست دو"
+        />
+      </template>
+    </PageHeading>
+    <PageHeading
+    title="عنوان"
+    desc="توضیحات"
+    loading
+  >
+
+  </PageHeading>
   </div>  
   `,
 });

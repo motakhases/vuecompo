@@ -2,13 +2,13 @@
   <div
     :class="[
       'zpl-bank-cards',
-      `${camelCaseConverter(logo)}-card`,
+      `${!loading ? camelCaseConverter(logo) : null}-card`,
       defaultAccount ? 'background' : '',
     ]"
   >
-  <Loading v-if="loading" />
+    <Loading v-if="loading" />
     <div
-    v-else
+      v-else
       :class="['zpl-bank-cards-container', defaultAccount ? 'background' : '']"
     >
       <div class="zpl-bank-cards-top">
