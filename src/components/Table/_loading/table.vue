@@ -26,7 +26,7 @@
             <Skeleton v-else type="body" class="w-1/2" />
           </td>
           <td class="sticky-col" v-if="actions">
-            <Skeleton type="iconButton" class="w-2xl h-2xl" />
+            <Skeleton type="iconButton" class="w-2xl h-2xl mr-auto" />
           </td>
         </tr>
       </tbody>
