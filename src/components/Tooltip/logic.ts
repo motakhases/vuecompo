@@ -19,6 +19,8 @@ export default class Tooltip extends Vue {
 
   @Prop({ type: String, default: 'large' }) readonly size!: string
 
+  @Prop({ type: String, default: 'hover' }) readonly trigger!: string
+
   @Ref('tooltipBtn') readonly buttonRef!: HTMLElement;
 
   @Ref('tooltip') readonly tooltipRef!: any;
@@ -95,7 +97,7 @@ export default class Tooltip extends Vue {
     }
   }
 
-  onButtonHover(): void {
+  onButtonTrigger(): void {
     if (this.hideTooltip) {
       this.toggle = false;
     } else {
@@ -133,7 +135,7 @@ export default class Tooltip extends Vue {
     return this.getScrollParent(node.parentNode);
   }
 
-  outsideHover(e: Event): void {
+  outsideTrigger(e: Event): void {
     // close tooltip
     if (!this.buttonRef?.children[0].contains(e.target as HTMLInputElement)) {
       this.$nextTick(() => {
@@ -152,22 +154,48 @@ export default class Tooltip extends Vue {
     });
   }
 
+  click() {
+    console.log('clik');
+  }
+
+  triggerHandler() {
+    if (this.trigger === 'hover') {
+      document.documentElement.addEventListener(
+        'mouseover',
+        this.outsideTrigger,
+        false,
+      ); this.buttonRef.children[0].addEventListener(
+        'mouseenter',
+        this.onButtonTrigger,
+        false,
+      );
+    } else if (this.trigger === 'click') {
+      this.buttonRef.children[0].addEventListener(
+        'click', () => {
+          this.onButtonTrigger();
+          // hide tooltip after 1500ms
+          setTimeout(() => {
+            this.toggle = false;
+          }, 1500, this);
+        },
+        false,
+      );
+      document.documentElement.addEventListener(
+        'click',
+        this.outsideTrigger,
+        false,
+      );
+    }
+  }
+
   mounted(): void {
     document.addEventListener('scroll', this.updateStyle);
-    document.documentElement.addEventListener(
-      'mouseover',
-      this.outsideHover,
-      false,
-    );
-    this.buttonRef.children[0].addEventListener(
-      'mouseenter',
-      this.onButtonHover,
-      false,
-    );
+
     window.addEventListener('resize', this.onResize);
     if (this.getScrollParent(this.buttonRef)) {
       this.getScrollParent(this.buttonRef).addEventListener('scroll', this.updateStyle);
     }
+    this.triggerHandler();
   }
 
   beforeDestroy(): void {

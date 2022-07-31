@@ -13,6 +13,7 @@
         indicator
         position="topCenter"
         class="!w-full"
+        trigger="click"
       >
         <div class="zpl-clipboard-box">
           <!-- clipboard icon -->

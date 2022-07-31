@@ -208,7 +208,7 @@ const Template = (_, { argTypes }) => ({
     <Table
     :data="tableData2"
     :columns="columns"
-loading
+
 hasCustom
 :actions="actions"
 
@@ -233,7 +233,6 @@ hasCustom
       bordered
       route-name="session"
       dropdownWidth="320px"
-      loading
       hasCustom
       hasSubCustom
       :actions="actions"

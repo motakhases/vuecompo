@@ -14,8 +14,8 @@
         <Button
           icon="plus"
           size="small"
-          type="primary-LE"
-          @click.native="addHandler"
+          type="primary"
+          :to="{name:'sdd'}"
         />
       </div>
     </div>

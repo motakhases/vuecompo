@@ -17,16 +17,10 @@ export default class CopyToClipboard extends Vue {
 
   @Prop({ type: Boolean }) readonly loading?: boolean;
 
-  copyToClipboardText = this.$i18n.t('common.copy');
+  copyToClipboardText = this.$i18n.t('common.copied');
 
   copyToClipboardHandler(): void {
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(this.text);
-
-    this.copyToClipboardText = this.$i18n.t('common.copied');
-
-    setTimeout(() => {
-      this.copyToClipboardText = this.$i18n.t('common.copy');
-    }, 1000);
   }
 }
