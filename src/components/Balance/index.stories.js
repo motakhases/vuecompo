@@ -26,5 +26,5 @@ Default.args = {
   title: "موجودی",
   amount: "125255252",
   reloadHandler: () => console.log('reloadHandler'),
-  addHandler: () => console.log('addHandler')
+  href:'https://google.com'
 };

@@ -86,9 +86,11 @@ import Link from './icons/Link.vue';
 import Minus from './icons/Minus.vue';
 import Info from './icons/Info.vue';
 import Pin from './icons/Pin.vue';
+import Refund from './icons/Refund.vue';
 
 @Component({
   components: {
+    Refund,
     Box,
     Pin,
     ChatMessage,

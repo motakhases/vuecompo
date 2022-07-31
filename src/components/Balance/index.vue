@@ -14,8 +14,9 @@
         <Button
           icon="plus"
           size="small"
-          type="primary"
-          :to="{name:'sdd'}"
+          type="primary-LE"
+          :href="href"
+          target="_blank"
         />
       </div>
     </div>
