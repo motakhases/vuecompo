@@ -47,6 +47,16 @@ export default class PageHeading extends Vue {
     }
   }
 
+  numberOfButtons() {
+    if (this.$slots.buttons) {
+      if (this.$slots.buttons.length > 1) {
+        return 2;
+      }
+      return 1;
+    }
+    return 0;
+  }
+
   mounted(): void {
     if (this.sticky) {
       document.addEventListener('scroll', this.checkScrolling);

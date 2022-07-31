@@ -8,7 +8,7 @@
       :smallContainer="smallContainer"
       :returnBtn="returnBtn"
       :desc="desc && !stickHeading"
-      :button="$slots.buttons"
+:button="numberOfButtons()"
     />
     <div
       :class="[

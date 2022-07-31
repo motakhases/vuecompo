@@ -30,8 +30,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from "vue-property-decorator";
-import Logic from "./logic";
+import { Component, Mixins } from 'vue-property-decorator';
+import Logic from './logic';
 
 @Component
 export default class DataSheet extends Mixins(Logic) {}

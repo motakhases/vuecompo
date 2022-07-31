@@ -14,6 +14,7 @@ const Template = (_, { argTypes }) => ({
         :has-button="true"
         :statuses="statuses"
         :returnFunction="returnFunction"
+        loading
       >
         <template v-slot:buttons>
           <Button
@@ -35,21 +36,9 @@ const Template = (_, { argTypes }) => ({
       loading
     >
       <template v-slot:buttons>
-        <Button
-          text="تست"
-        />
-        <Button
-          text="تست دو"
-        />
       </template>
     </PageHeading>
-    <PageHeading
-    title="عنوان"
-    desc="توضیحات"
-    loading
-  >
 
-  </PageHeading>
   </div>  
   `,
 });
