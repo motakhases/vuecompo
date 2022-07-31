@@ -70,6 +70,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: Array }) value?: number[]
 
+  @Prop({ type: Number, default: 7 }) readonly loadingNumber!: number;
+
   isLoadCards = false
 
   isAllRowSelected = false

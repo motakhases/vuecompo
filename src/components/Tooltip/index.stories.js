@@ -17,8 +17,8 @@ const Template = (_, { argTypes }) => ({
 
     <h1 class="mt-sm font-bold dark:text-surface"> انواع وضعیت </h1>
     <div class="flex gap-sm mt-lg">
-      <Tooltip  space="smallSpace" text="راهنمای ابزار" indicator position="topLeft">
-        <Button text="بالا چپ" size="small" type="secondary" />
+      <Tooltip  space="smallSpace" text="راهنمای ابزار" indicator position="topLeft" trigger="click">
+        <Button text=" کیلیک بالا چپ" size="small" type="secondary" />
       </Tooltip>
       <Tooltip  space="smallSpace" text="راهنمای ابزار" indicator position="topCenter">
         <Button text="بالا وسط" size="small" type="secondary" />

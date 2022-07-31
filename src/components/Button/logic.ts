@@ -14,6 +14,10 @@ export default class Button extends Vue {
 
   @Prop({ type: String }) readonly afterIcon!: string
 
+  @Prop({ type: String }) readonly href?: string
+
+  @Prop({ type: String }) readonly target?: string
+
   @Prop({ type: String, default: 'button' }) readonly btnType!: string
 
   @Prop({ type: String, default: '' }) readonly size?: string

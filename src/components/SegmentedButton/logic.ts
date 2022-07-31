@@ -1,10 +1,11 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { SegmentedBtn } from '@/types';
+import Skeleton from '@/components/Skeleton/index.vue';
 import SegmentBtn from './Button/index.vue';
 import Button from './Button/logic';
 
 @Component({
-  components: { SegmentBtn },
+  components: { SegmentBtn, Skeleton },
 })
 
 export default class SegmentedButton extends Vue {
@@ -12,6 +13,8 @@ export default class SegmentedButton extends Vue {
   readonly items!: SegmentedBtn[];
 
   @Prop({ type: Boolean, default: false }) readonly fill!: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
    tabs:Button[] = [];
 

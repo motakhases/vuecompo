@@ -6,12 +6,14 @@ import Button from '@/components/Button/index.vue';
 import { IUploadedFiles, IDropzoneFiles } from '@/types';
 import UploadedFile from './_uploadedFile/index.vue';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+import Loading from './Loading/index.vue';
 
 @Component({
   components: {
     UploadedFile,
     vue2Dropzone,
     Button,
+    Loading,
   },
 })
 export default class Upload extends Vue {
@@ -32,6 +34,8 @@ export default class Upload extends Vue {
   @Prop({ type: Boolean, default: false }) readonly disabled?: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly hasIcon?: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   @Prop({ type: Object }) readonly headers?: any;
 

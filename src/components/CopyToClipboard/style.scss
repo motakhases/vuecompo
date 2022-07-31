@@ -7,11 +7,11 @@
   }
 
   &-box {
-    @apply flex gap-md items-center bg-surface-soft rounded-md py-xs pl-md pr-xs;
+    @apply flex gap-md items-center bg-surface-soft rounded-md py-xs pl-md pr-xs pointer-events-none;
     @apply dark:bg-surface-dark-soft;
   }
   &-icon {
-    @apply p-xs;
+    @apply p-xs pointer-events-auto;
 
     svg {
       @apply w-xl h-xl text-icon cursor-pointer;

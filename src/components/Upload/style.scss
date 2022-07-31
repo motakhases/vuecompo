@@ -21,6 +21,14 @@
       @apply dark:text-text-dark-soft;
     }
   }
+  &-box {
+    .loading {
+      .dropzone {
+        @apply pt-2xl px-md pb-[36px] bg-surface border border-border rounded-sm flex flex-col items-center gap-lg;
+        @apply dark:bg-surface-dark dark:border-border-dark;
+      }
+    }
+  }
 }
 .zpl-dropzone {
   /* Default */

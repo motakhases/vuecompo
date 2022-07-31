@@ -83,6 +83,12 @@ const Template = (_, { argTypes }) => ({
 		iban="IR870560085577703153460001"
 
 	/>
+	<BankCards
+		username="شایسته ملک پور"
+		bank-name="رسالت"
+		iban="IR870560085577703153460001"
+loading
+	/>
 			<BankCards
 				logo="EghtesadNovin"
 				username="شایسته ملک پور"

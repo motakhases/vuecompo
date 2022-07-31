@@ -19,7 +19,7 @@ const Template = (_, { argTypes }) => ({
 
       </div>
       <div class="w-[296px]">
-      <Timeline loading title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
+      <Timeline :loadingNumber="5" loading  title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
 
 
       </div>

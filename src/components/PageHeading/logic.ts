@@ -2,15 +2,17 @@ import {
   Component, Prop, Vue, Ref,
 } from 'vue-property-decorator';
 import { PageHeadingStatus } from '@/types';
-import Icon from '../Icon/index.vue';
-import Status from '../Status/index.vue';
-import Button from '../Button/index.vue';
+import Button from '@/components/Button/index.vue';
+import Icon from '@/components/Icon/index.vue';
+import Status from '@/components/Status/index.vue';
+import Loading from './Loading/index.vue';
 
 @Component({
   components: {
     Icon,
     Status,
     Button,
+    Loading,
   },
 })
 export default class PageHeading extends Vue {
@@ -28,6 +30,8 @@ export default class PageHeading extends Vue {
 
   @Prop({ type: Function }) readonly returnFunction?: () => void
 
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
   @Ref('pageHeading') readonly pageHeading!: HTMLElement;
 
   stickHeading = false;
@@ -41,6 +45,16 @@ export default class PageHeading extends Vue {
         this.stickHeading = false;
       }
     }
+  }
+
+  numberOfButtons() {
+    if (this.$slots.buttons) {
+      if (this.$slots.buttons.length > 1) {
+        return 2;
+      }
+      return 1;
+    }
+    return 0;
   }
 
   mounted(): void {

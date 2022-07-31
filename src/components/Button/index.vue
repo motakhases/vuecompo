@@ -1,16 +1,15 @@
 <template>
   <component
-    :is="to ? 'router-link' : 'button'"
+    :is="to ? 'router-link' : href ? 'a' : 'button'"
     :to="to"
     :class="['zpl-button', size, type, { fill, icon }]"
     :disabled="disabled"
     :type="btnType"
+    :href="href"
+    :target="target"
   >
     <!-- shows if loading is true -->
-    <div
-      v-if="loading"
-      class="zpl-button-loading"
-    >
+    <div v-if="loading" class="zpl-button-loading">
       <div class="zpl-button-loading-1" />
       <div class="zpl-button-loading-2" />
     </div>
@@ -35,11 +34,7 @@
     />
     <!-- shows if icon exists -->
 
-    <Icon
-      v-if="icon && !loading"
-      :name="icon"
-      class="zpl-button-icon"
-    />
+    <Icon v-if="icon && !loading" :name="icon" class="zpl-button-icon" />
   </component>
 </template>
 

@@ -2,7 +2,7 @@
   <div>
     <div v-if="loading" class="zpl-radio-loading">
       <Skeleton type="iconCircle" />
-      <Skeleton type="body" class="w-2/3" />
+      <Skeleton type="body" class="w-[96px]" />
     </div>
 
     <label v-else :class="['zpl-radio', { 'zpl-radio-disabled': disabled }]">

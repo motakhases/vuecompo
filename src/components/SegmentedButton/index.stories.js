@@ -32,8 +32,12 @@ const Template = (_, { argTypes }) => ({
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md rtl">
 		<SegmentedButton :items="list" />
+    <div class="w-[200px]">    <SegmentedButton :items="list" loading />
+</div>
+
     <h1 class="mt-md mb-sm font-bold dark:text-surface"> حالت تمام عرض </h1>
 		<SegmentedButton :items="list" fill />
+		<SegmentedButton loading :items="list" fill />
 
 	</div>
   `,

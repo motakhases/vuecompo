@@ -18,7 +18,7 @@
     <!-- Loading -->
     <LoadingTable
       v-if="!isLoadCards && loading"
-      :rows="7"
+      :rows="loadingNumber"
       :cols="columns"
       :hasSubCustom="hasSubCustom"
       :hasCustom="hasCustom"

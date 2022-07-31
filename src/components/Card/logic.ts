@@ -3,9 +3,10 @@ import {
 } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
+import Loading from './Loading/index.vue';
 
 @Component({
-  components: { Icon, Skeleton },
+  components: { Icon, Skeleton, Loading },
 })
 export default class Card extends Vue {
   @Prop({ type: String }) readonly title!: string;

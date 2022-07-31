@@ -14,6 +14,7 @@ const Template = (_, { argTypes }) => ({
         :has-button="true"
         :statuses="statuses"
         :returnFunction="returnFunction"
+        loading
       >
         <template v-slot:buttons>
           <Button
@@ -24,6 +25,20 @@ const Template = (_, { argTypes }) => ({
           />
         </template>
       </PageHeading>
+      <PageHeading
+      :return-btn="returnBTN"
+      :sticky="sticky"
+      title="عنوان"
+      desc="توضیحات"
+      :has-button="true"
+      :statuses="statuses"
+      :returnFunction="returnFunction"
+      loading
+    >
+      <template v-slot:buttons>
+      </template>
+    </PageHeading>
+
   </div>  
   `,
 });

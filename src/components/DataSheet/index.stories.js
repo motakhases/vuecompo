@@ -68,7 +68,7 @@ const Template = (_, { argTypes }) => ({
         </DataSheetItem>
       </DataSheetRow>
     </DataSheet>
-    <DataSheet class="mb-xl">
+    <DataSheet class="mb-xl" loading leftAlign row>
     <DataSheetRow>
       <DataSheetItem
         title="مجموع تراکنش‌ها"
@@ -110,7 +110,7 @@ const Template = (_, { argTypes }) => ({
       </DataSheetItem>
     </DataSheetRow>
   </DataSheet>
-    <DataSheet>
+    <DataSheet loading row>
       <DataSheetRow>
         <DataSheetItem
           row

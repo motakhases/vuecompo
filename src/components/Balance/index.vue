@@ -15,7 +15,8 @@
           icon="plus"
           size="small"
           type="primary-LE"
-          @click.native="addHandler"
+          :href="href"
+          target="_blank"
         />
       </div>
     </div>

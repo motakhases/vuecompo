@@ -2,7 +2,7 @@
   <div>
     <div v-if="loading" class="zpl-checkbox-loading">
       <Skeleton type="iconSquare" />
-      <Skeleton type="body" class="w-2/3" />
+      <Skeleton type="body" class="w-[96px]" />
     </div>
     <label v-else :class="['zpl-checkbox', { 'zpl-checkbox-disabled': disabled }]">
       {{ text }}

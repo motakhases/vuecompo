@@ -16,7 +16,8 @@ export default class Balance extends Vue {
 
   @Prop({ type: Function }) readonly reloadHandler!: () => void
 
-  @Prop({ type: Function }) readonly addHandler!: () => void
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
+  @Prop({ type: String }) readonly href?: string
 }

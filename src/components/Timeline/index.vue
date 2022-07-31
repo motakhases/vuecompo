@@ -1,11 +1,7 @@
 <template>
   <div :class="[{ 'zpl-timeline': !loading }]">
     <!-- loading -->
-    <div v-if="loading">
-      <Loading />
-      <Loading />
-      <Loading />
-    </div>
+    <Loading  :loadingNumber="loadingNumber" v-if="loading" />
 
     <div v-if="!loading" class="zpl-timeline-icon">
       <Icon
