@@ -30,7 +30,7 @@ const Template = (_, { argTypes }) => ({
     </Card>
     <Card loading>
       <div >محتوای دلخواه در کارت</div>
-      <template #actions>
+      <template slot="actions">
         <Button type="secondary" text="دکمه" />
       </template>
     </Card>

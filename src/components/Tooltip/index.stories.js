@@ -11,7 +11,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-    <Tooltip space="smallSpace" text="راهنمای ابزار"  position="left">
+    <Tooltip space="smallSpace" text="% 0.1 + 5000 ریال"  position="left">
 			<Button text="یک دکمه تولتیپ دار" size="small" type="secondary" />
 		</Tooltip>
 

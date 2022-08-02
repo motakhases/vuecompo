@@ -1,15 +1,12 @@
 <template>
-  <div :class="['zpl-ds-item loading', spans, { row, leftAlign }]">
+  <div :class="['zpl-ds-item ', spans, { row, leftAlign, loading }]">
     <!-- loading -->
     <div class="zpl-ds-item-box" v-if="loading">
       <div class="loading-title">
         <Skeleton type="body" class="w-[64px]" />
       </div>
       <div class="loading-title">
-        <Skeleton
-          type="body"
-          class="loading-title-skeleton"
-        />
+        <Skeleton type="body" class="loading-title-skeleton w-[200px]" />
       </div>
     </div>
     <!-- content -->

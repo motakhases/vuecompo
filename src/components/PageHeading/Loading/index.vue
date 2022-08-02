@@ -20,7 +20,7 @@
           <Skeleton v-if="desc" type="body" class="mt-sm w-[240px]" />
         </div>
       </div>
-      <div v-if="button > 0" class="flex">
+      <div v-if="button > 0" class="flex gap-xs">
       <Skeleton v-for="index in button" :key="index" type="button" class="w-[80px]" />
       </div>
     </div>

@@ -17,7 +17,8 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
   <div class="dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-    <DataSheet class="mb-xl" loading :loadingNumber="5">
+  <DataSheet class="mb-xl" loading :loadingNumber="5"/>
+    <DataSheet class="mb-xl">
       <DataSheetRow>
         <DataSheetItem title="مجموع تراکنش‌ها" leftAlign>
           260,000
@@ -26,7 +27,7 @@ const Template = (_, { argTypes }) => ({
       </DataSheetRow>
     </DataSheet>
 
-    <DataSheet class="mb-xl" loading>
+    <DataSheet class="mb-xl" >
       <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
