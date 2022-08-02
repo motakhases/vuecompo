@@ -14,6 +14,9 @@ const Template = (_, { argTypes }) => ({
       url="https://zarinp.al/376218"
       title="This is product FELAAN"
     />
+    <Share
+   loading
+  />
   </div>
   `,
 });

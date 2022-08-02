@@ -22,8 +22,9 @@
   @apply dark:bg-surface;
 
   span {
-    @apply flex text-text-dark text-right;
+    @apply flex text-text-dark text-right font-IRANYekanFaNum;
     @apply dark:text-text;
+    direction: rtl
   }
 
   &.small {

@@ -10,15 +10,15 @@ import Loading from './Loading/index.vue';
   },
 })
 export default class BankCards extends Vue {
-  @Prop({ type: String, required: true }) readonly bankName!: string
+  @Prop({ type: String }) readonly bankName!: string
 
-  @Prop({ type: String, required: true }) readonly logo!: string
+  @Prop({ type: String }) readonly logo!: string
 
-  @Prop({ type: String, required: true }) readonly username!: string
+  @Prop({ type: String }) readonly username!: string
 
   @Prop({ type: String }) readonly amount?: string
 
-  @Prop({ type: String, required: true }) readonly iban!: string
+  @Prop({ type: String }) readonly iban!: string
 
   @Prop({ type: String }) readonly rrn?: string
 

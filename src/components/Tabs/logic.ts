@@ -4,13 +4,11 @@ import {
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
 import Tab from './Tab/logic';
-import Loading from './Loading/index.vue';
 
 @Component({
   components: {
     NotificationBadge,
     Skeleton,
-    Loading,
   },
 })
 export default class Tabs extends Vue {

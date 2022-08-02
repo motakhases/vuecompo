@@ -292,7 +292,7 @@
     /* focused */
     @apply focus:bg-primarySurface;
     @apply dark:focus:bg-primarySurface-dark;
-    
+
     /* loading */
     .zpl-button-loading-1,
     .zpl-button-loading-2 {
@@ -300,7 +300,32 @@
       @apply dark:bg-white-60;
     }
   }
+  //text
 
+  &.primaryText {
+    @apply text-primaryZarinpal text-b3 font-medium gap-2xs;
+    @apply dark:text-primaryZarinpal-dark;
+
+    /* Hover */
+    @apply hover:text-primaryZarinpal-hover;
+    @apply dark:hover:text-primaryZarinpal-dark-hover;
+
+    /* Active */
+    @apply active:text-primaryZarinpal-active;
+    @apply dark:active:text-primaryZarinpal-dark-active;
+
+    /* Disabled */
+    @apply disabled:text-primaryZarinpal-disabled;
+    @apply dark:disabled:text-primaryZarinpal-dark-disabled;
+
+    /* focused */
+    @apply focus:text-primaryZarinpal;
+    @apply dark:focus:text-primaryZarinpal-dark;
+
+    .zpl-button-icon {
+      @apply w-lg h-lg;
+    }
+  }
   &.small {
     @apply px-sm py-2xs;
 

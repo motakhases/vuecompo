@@ -1,18 +1,18 @@
 <template>
   <div>
     <ul :class="['zpl-tabs', { 'full-tabs': fillContainer }]">
-      <Loading :loadingNumber="loadingNumber" v-if="loading" />
-      <template v-for="(tab, index) in tabs" v-else>
+      <template v-for="(tab, index) in tabs">
         <li
           v-if="tab.title"
           :key="tab.title"
           :class="['tab', { active: index == selectedIndex }]"
           @click="selectTab(index)"
         >
-            <span>
-              {{ tab.title }}
-            </span>
-            <NotificationBadge v-if="tab.warning" />
+          <Skeleton type="body" class="w-1/2 min-w-[55px]" v-if="loading" />
+          <span v-else>
+            {{ tab.title }}
+          </span>
+          <NotificationBadge v-if="tab.warning" />
         </li>
       </template>
     </ul>

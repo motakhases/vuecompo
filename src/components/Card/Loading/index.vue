@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between py-[10px]">
     <Skeleton type="heading" class="w-1/5" v-if="title" />
     <div class="zpl-card-actions mr-auto" v-if="actions">
       <Skeleton type="button" class="w-[80px]" />

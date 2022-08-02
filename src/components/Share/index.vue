@@ -1,6 +1,6 @@
 <template>
   <div class="zpl-share">
-    <Tabs>
+    <Tabs :loading="loading" :loadingNumber="2">
       <!-- Sharing methods -->
       <tab :title="$t('common.link')">
         <div class="zpl-share-tab">
@@ -27,6 +27,7 @@
             readonly
             copyable
             ltr
+            :loading="loading"
           />
           <!-- Html code -->
           <TextField
@@ -35,6 +36,7 @@
             readonly
             copyable
             ltr
+            :loading="loading"
           />
         </div>
       </tab>

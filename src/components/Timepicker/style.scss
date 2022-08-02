@@ -8,10 +8,11 @@
   .vpd-container {
     @apply m-0 w-full;
     .vpd-content {
-      @apply w-full;
+      @apply w-full bg-surface;
+      @apply dark:bg-surface-dark;
       .vpd-header {
         @apply bg-background text-text py-xs px-md rounded-sm #{!important};
-        @apply dark:bg-background-dark dark:text-text-dark;
+        @apply dark:bg-background-dark dark:text-text-dark #{!important};
         .vpd-date {
           @apply text-b1 font-medium h-auto;
         }
@@ -45,12 +46,14 @@
       }
       .vpd-addon-list {
         @apply border-0 overflow-visible;
+        @apply dark:bg-surface-dark;
       }
       .vpd-time-column {
         @apply mt-xl;
       }
       .vpd-actions {
         @apply flex flex-row-reverse;
+        @apply dark:bg-surface-dark;
         button {
           /* Default */
           @apply rounded-sm inline-flex justify-center items-center text-center gap-x-xs w-max

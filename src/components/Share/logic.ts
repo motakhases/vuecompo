@@ -22,6 +22,8 @@ export default class Share extends Vue {
 
   @Prop({ type: String, required: true }) url!: string;
 
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
   get qrcode(): string {
     return `https://tools.zarinpal.com/qr?r=q&s=256&q=${this.url}`;
   }

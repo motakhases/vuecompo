@@ -73,6 +73,7 @@
             v-if="copyable"
             :text="$t('common.copy')"
             type="secondary"
+            size="medium"
             @click.native="copyToClipboard"
           />
         </Tooltip>
