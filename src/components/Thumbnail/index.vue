@@ -14,6 +14,11 @@
       :logo="logo"
       class="zpl-thumbnail-logo"
     />
+    <PSPLogos
+      v-if="pspLogo"
+      :logo="pspLogo"
+      class="zpl-thumbnail-logo"
+    />
   </div>
 </template>
 

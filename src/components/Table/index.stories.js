@@ -91,8 +91,7 @@ const Template = (_, { argTypes }) => ({
         price: {
           type: "custom",
           data: {
-            image: "",
-            icon:"terminal",
+            pspLogo:"Sadad",
             title: "سلام",
             sub: "بر تو",
           },

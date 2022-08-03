@@ -20,7 +20,8 @@
           data.data.image ||
           data.data.image === '' ||
           data.data.logo ||
-          data.data.icon
+          data.data.icon ||
+          data.data.pspLogo
         "
         class="image"
       >
@@ -28,6 +29,7 @@
           :icon="data.data.icon"
           :img="data.data.image"
           :logo="data.data.logo"
+          :pspLogo="data.data.pspLogo"
         />
       </div>
       <div
