@@ -6,7 +6,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-    <Button size="large" text="دکمه" type="primary"  />
+    <Button size="medium" text="دکمه" type="primary"  />
     <Button text="دکمه" type="primaryText" beforeIcon="QuestionCircle"  afterIcon="QuestionCircle" />
 
     <h1 class="mt-sm font-bold dark:text-surface"> دکمه تمام عرض </h1>

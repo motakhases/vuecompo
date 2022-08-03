@@ -335,7 +335,7 @@
   }
 
   &.medium {
-    @apply px-md py-xs;
+    @apply px-md py-[7px];
 
     &.icon {
       @apply p-xs;
