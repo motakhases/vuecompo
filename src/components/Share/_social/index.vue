@@ -1,18 +1,17 @@
 <template>
   <div class="zpl-social">
     <!-- Icon -->
-    <a
-      :href="socials[keyName]"
-      target="_blank"
-      class="zpl-social-icon"
-    >
-      <Icon
-        :name="keyName"
-        class="_icon"
-      />
+    <div class="zpl-social-icon" v-if="loading">
+      <Skeleton type="iconCircle" />
+    </div>
+    <a v-else :href="socials[keyName]" target="_blank" class="zpl-social-icon">
+      <Icon :name="keyName" class="_icon" />
     </a>
+
     <!-- Name -->
-    <span class="zpl-social-name">
+    <Skeleton v-if="loading" type="body" class="w-[54px]" />
+
+    <span v-else class="zpl-social-name">
       {{ name }}
     </span>
   </div>

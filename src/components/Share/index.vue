@@ -11,12 +11,14 @@
               :name="$t('common.TELEGRAM')"
               :title="title"
               :url="url"
+              :loading="loading"
             />
             <Social
               key-name="whatsapp"
               :name="$t('common.WHATSAPP')"
               :title="title"
               :url="url"
+              :loading="loading"
             />
           </div>
 

@@ -1,13 +1,13 @@
 <template>
   <div class="zpl-card">
-    <!-- loading -->
-    <Loading :actions="!!$slots.actions" v-if="loading" :title="!!title" />
     <!-- Header -->
-    <div class="zpl-card-head" v-if="title && !loading">
-      <h4 class="zpl-card-head-title">
+    <div class="zpl-card-head">
+      <h4 class="zpl-card-head-title" v-if="title && !loading">
         {{ title }}
       </h4>
-      <div class="zpl-card-actions" v-if="$slots.actions">
+          <Skeleton type="heading" class="w-1/5" v-if="loading && title"  />
+
+      <div class="zpl-card-actions">
         <slot name="actions" />
       </div>
     </div>

@@ -1,0 +1,48 @@
+/**-------------------------------------------------------------------------------------------------------------------
+card-bank-variable
+-------------------------------------------------------------------------------------------------------------------- */
+$bankLogos: (
+
+  "Asan": (
+    "uri": "AsanPardakht.svg",
+  ),
+  "Bpm": (
+    "uri": "BehpardakhtMellat.svg",
+  ),
+  "FanAVACart": (
+    "uri": "FanAVACart.svg",
+  ),
+  "Ikc": (
+    "uri": "IranKish.svg",
+  ),
+  "Pna": (
+    "uri": "PardakhtNovin.svg",
+  ),
+  "Parsian": (
+    "uri": "Parsian.svg",
+  ),
+  "Pep": (
+    "uri": "Pasargad.svg",
+  ),
+  "Sadad": (
+    "uri": "Sadad.svg",
+  ),
+  "Mca": (
+    "uri": "Sepehr.svg",
+  ),
+);
+/**-------------------------------------------------------------------------------------------------------------------
+css for logo
+-------------------------------------------------------------------------------------------------------------------- */
+@for $i from 1 through length($bankLogos) {
+  $name: nth(map-keys($bankLogos), $i);
+  $obj: map-get($bankLogos, $name);
+  $uri: map-get($obj, "uri");
+  .psp-logo-#{$name} {
+    &:before {
+      @apply min-h-[24px] min-w-[24px] h-full w-full bg-cover	bg-no-repeat flex;
+      content: "";
+      background-image: url("./logos/#{$uri}");
+    }
+  }
+}
