@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-card">
     <!-- loading -->
-    <Loading :actions="!!$slots.actions" v-if="loading" :title="!!title" />
+    <Loading v-if="loading && title" />
     <!-- Header -->
     <div class="zpl-card-head" v-if="title && !loading">
       <h4 class="zpl-card-head-title">

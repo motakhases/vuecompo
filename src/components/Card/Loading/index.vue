@@ -1,13 +1,10 @@
 <template>
   <div class="flex items-center justify-between py-[10px]">
-    <Skeleton type="heading" class="w-1/5" v-if="title" />
-    <div class="zpl-card-actions mr-auto" v-if="actions">
-      <Skeleton type="button" class="w-[80px]" />
-    </div>
+    <Skeleton type="heading" class="w-1/5" />
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import Skeleton from '@/components/Skeleton/index.vue';
 
 @Component({
@@ -16,8 +13,5 @@ import Skeleton from '@/components/Skeleton/index.vue';
   },
 })
 export default class CardLoading extends Vue {
-  @Prop({ type: Boolean }) readonly actions!: boolean;
-
-  @Prop({ type: Boolean }) readonly title!: boolean;
 }
 </script>
