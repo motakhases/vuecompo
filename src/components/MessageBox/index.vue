@@ -1,81 +1,82 @@
 <template>
   <div class="zpl-message-box">
     <Loading v-if="loading" />
-    <div class="flex" v-else>
-          <div>
-      <Avatar :img="user.managed_avatar" />
-    </div>
-    <div class="left-side">
-      <div
-        :class="[
-          'message-box',
-          { 'my-reply': user.id === myId, 'others-reply': user.id !== myId },
-        ]"
-      >
-        <pre class="content prose max-w-none" v-html="markDownToHtml"></pre>
-        <div class="attachment-link" v-if="attachment">
-          <Link
-            :href="attachment"
-            :text="$t(`ticket.downloadAttachment`)"
-            target="_blank"
-          />
-        </div>
-        <div class="detail">
-          <span>{{ user.name }}</span>
-          <span class="detail-separator">•</span>
-          <span>{{ created_at | JdateHour | faNum }} </span>
-        </div>
+    <div class="flex w-full" v-else>
+      <div>
+        <Avatar :img="user.managed_avatar" />
       </div>
-      <div class="reply-feedback" v-if="user.id !== myId && user.id !== '11'">
-        <div class="question" v-if="feedback_type === 'NONE'">
-          <span>{{ $t(`ticket.wasHelpful`) }}</span>
-          <Icon
-            name="ThumbsUp"
-            class="thumbs-icons"
-            @click.native="replyFeedback('HELPFUL')"
-          />
-          <Icon
-            name="ThumbsDown"
-            class="thumbs-icons"
-            @click.native="replyFeedbackModal = true"
-          />
-          <Modal
-            v-if="replyFeedbackModal"
-            @close="replyFeedbackModal = false"
-            width="400px"
-            :title="$t(`ticket.report`)"
-          >
-            <div slot="body" class="reply-feedback-modal">
-              <div
-                v-for="(item, index) in replyFeedbackItems"
-                :key="index"
-                class="feedback-box"
-                @click="replyFeedback(item.type)"
-              >
-                <Icon name="WarningOutline" class="warn-icon" />
-                <div class="feedback-box-content">
-                  <span>{{ $t(`ticket.replyReportTypes.${item.type}`) }}</span>
-                  <p>{{ item.content }}</p>
+      <div class="left-side">
+        <div
+          :class="[
+            'message-box',
+            { 'my-reply': user.id === myId, 'others-reply': user.id !== myId },
+          ]"
+        >
+          <pre class="content prose max-w-none" v-html="markDownToHtml"></pre>
+          <div class="attachment-link" v-if="attachment">
+            <Link
+              :href="attachment"
+              :text="$t(`ticket.downloadAttachment`)"
+              target="_blank"
+            />
+          </div>
+          <div class="detail">
+            <span>{{ user.name }}</span>
+            <span class="detail-separator">•</span>
+            <span>{{ created_at | JdateHour | faNum }} </span>
+          </div>
+        </div>
+        <div class="reply-feedback" v-if="user.id !== myId && user.id !== '11'">
+          <div class="question" v-if="feedback_type === 'NONE'">
+            <span>{{ $t(`ticket.wasHelpful`) }}</span>
+            <Icon
+              name="ThumbsUp"
+              class="thumbs-icons"
+              @click.native="replyFeedback('HELPFUL')"
+            />
+            <Icon
+              name="ThumbsDown"
+              class="thumbs-icons"
+              @click.native="replyFeedbackModal = true"
+            />
+            <Modal
+              v-if="replyFeedbackModal"
+              @close="replyFeedbackModal = false"
+              width="400px"
+              :title="$t(`ticket.report`)"
+            >
+              <div slot="body" class="reply-feedback-modal">
+                <div
+                  v-for="(item, index) in replyFeedbackItems"
+                  :key="index"
+                  class="feedback-box"
+                  @click="replyFeedback(item.type)"
+                >
+                  <Icon name="WarningOutline" class="warn-icon" />
+                  <div class="feedback-box-content">
+                    <span>{{
+                      $t(`ticket.replyReportTypes.${item.type}`)
+                    }}</span>
+                    <p>{{ item.content }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Modal>
-        </div>
-        <div v-else>
-          <span>{{ $t(`ticket.replyReportTypes.${feedback_type}`) }}</span>
-          <Icon
-            :name="feedback_type === 'HELPFUL' ? 'ThumbsUp' : 'ThumbsDown'"
-            :class="[
-              'thumbs-icons',
-              feedback_type === 'HELPFUL' ? 'thumbs-up' : 'thumbs-down',
-            ]"
-            @click.native="replyFeedback('HELPFUL')"
-          />
+            </Modal>
+          </div>
+          <div v-else>
+            <span>{{ $t(`ticket.replyReportTypes.${feedback_type}`) }}</span>
+            <Icon
+              :name="feedback_type === 'HELPFUL' ? 'ThumbsUp' : 'ThumbsDown'"
+              :class="[
+                'thumbs-icons',
+                feedback_type === 'HELPFUL' ? 'thumbs-up' : 'thumbs-down',
+              ]"
+              @click.native="replyFeedback('HELPFUL')"
+            />
+          </div>
         </div>
       </div>
     </div>
-    </div>
-
   </div>
 </template>
 

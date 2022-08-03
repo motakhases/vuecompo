@@ -6,7 +6,7 @@
     ]"
   >
     <div class="flex justify-between w-full">
-      <div class="flex gap-md items-center">
+      <div class="flex gap-md">
         <Button
           v-if="returnBtn"
           icon="ArrowRight"

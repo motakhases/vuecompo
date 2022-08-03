@@ -28,9 +28,9 @@ const Template = (_, { argTypes }) => ({
     <Card title="ss">
       <div >محتوای دلخواه در کارت</div>
     </Card>
-    <Card loading>
+    <Card title="dsdssd" >
       <div >محتوای دلخواه در کارت</div>
-      <template slot="actions">
+      <template #actions>
         <Button type="secondary" text="دکمه" />
       </template>
     </Card>

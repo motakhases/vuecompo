@@ -11,15 +11,15 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       logos: [
-        "AsanPardakht",
-        "BehpardakhtMellat",
+        "Asan",
+        "Bpm",
         "FanAVACart",
-        "IranKish",
-        "PardakhtNovin",
+        "Ikc",
+        "Pna",
         "Parsian",
-        "Pasargad",
+        "Pep",
         "Sadad",
-        "Sepehr",
+        "Mca",
       ],
     };
   },

@@ -18,9 +18,9 @@ import Social from './_social/index.vue';
   },
 })
 export default class Share extends Vue {
-  @Prop({ type: String, required: true }) title!: string;
+  @Prop({ type: String }) title!: string;
 
-  @Prop({ type: String, required: true }) url!: string;
+  @Prop({ type: String }) url!: string;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
