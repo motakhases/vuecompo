@@ -56,7 +56,7 @@ export default {
   dataLabels: {
     enabled: false,
   },
-  colors: ['#0A33FF', '#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
+  colors: ['#0A33FF', '#DADBE1', '#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
   yaxis: {
     labels: {
       show: false,

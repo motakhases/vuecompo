@@ -131,7 +131,7 @@ const Template = (_, { argTypes }) => ({
         <span class="bg-secondary dark:bg-secondary-dark dark:text-text-dark rounded-sm px-xs py-2xs font-Mono">
         x-type: day
         </span>
-        <Chart :series="day" x-type="day" />
+        <Chart :series="day" x-type="day" height="100%" />
       </div>
 
       <div class="col-span-1">
