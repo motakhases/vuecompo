@@ -10,6 +10,7 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       names: [
+        "FilledDelete",
         "Refund",
         "Pin",
         "Box",

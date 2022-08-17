@@ -1,0 +1,60 @@
+.zpl-filter {
+  &-button {
+    /* Default */
+    @apply border-border-divider text-text text-b2 py-2xs pr-sm pl-2xs bg-surface rounded-[20px];
+    @apply flex items-center;
+    @apply dark:border-border-dark-divider dark:bg-surface-dark dark:text-text-dark;
+
+    /* Hover */
+    @apply hover:bg-secondary-hover;
+    @apply dark:hover:bg-secondary-dark-hover;
+
+    /* Active */
+    @apply active:bg-secondary-active;
+    @apply dark:active:bg-secondary-dark-active;
+
+    /* focused */
+    @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+    @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+
+    &.isActive {
+      /* Default */
+      @apply bg-primaryZarinpal text-text-onPrimary;
+      @apply dark:bg-primaryZarinpal-dark dark:text-text-dark-onPrimary;
+
+      /* Hover */
+      @apply hover:bg-primaryZarinpal-hover;
+      @apply dark:hover:bg-primaryZarinpal-dark-hover;
+
+      /* Active */
+      @apply active:bg-primaryZarinpal-active;
+      @apply dark:active:bg-primaryZarinpal-dark-active;
+
+      /* Disabled */
+      @apply disabled:bg-primaryZarinpal-disabled;
+      @apply dark:disabled:bg-primaryZarinpal-dark-disabled;
+
+      /* focused */
+      @apply focus:bg-primaryZarinpal;
+      @apply dark:focus:bg-primaryZarinpal-dark;
+    }
+  }
+  &-delete {
+    @apply mr-2xs;
+  }
+  &-header {
+    @apply flex items-center mb-xl;
+  }
+  &-title {
+    @apply flex-1 text-ls-h3 font-bold text-text;
+    @apply dark:text-text-dark;
+  }
+  &-delete-btn {
+    @apply flex items-center gap-2xs text-b3 text-text-soft cursor-pointer;
+    @apply dark:text-text-dark-soft;
+
+    svg {
+      @apply w-lg h-lg p-[3px];
+    }
+  }
+}
