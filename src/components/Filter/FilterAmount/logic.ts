@@ -28,10 +28,10 @@ export default class FilterAmount extends Vue {
   };
 
   options = [
-    { id: 1, text: this.$i18n.t('common.export.equal_to'), value: this.types.EQUAL_TO },
-    { id: 2, text: this.$i18n.t('common.export.st'), value: this.types.LESS_THAN },
+    { id: 1, text: this.$i18n.t('common.export.amount'), value: this.types.EQUAL_TO },
+    { id: 2, text: this.$i18n.t('common.export.max_amount'), value: this.types.LESS_THAN },
     { id: 3, text: this.$i18n.t('common.export.amount_range'), value: this.types.PRICE_RANGE },
-    { id: 4, text: this.$i18n.t('common.export.gt'), value: this.types.GREATER_THAN },
+    { id: 4, text: this.$i18n.t('common.export.min_amount'), value: this.types.GREATER_THAN },
   ];
 
   getDateValue(option: string) {
@@ -52,9 +52,13 @@ export default class FilterAmount extends Vue {
   }
 
   set amountType(value: string) {
+    if (value === 'range_amount') {
+      this.shownValue = '';
+    } else {
+      this.shownValue = this.getDateValue(value);
+    }
     // when dropdown value is changed delete the previous property
     this.$emit('deleteFilter', this.typeValue);
-    this.shownValue = this.getDateValue(value);
     this.$emit('updatedValue', this.shownValue);
     this.typeValue = value;
     this.dataLoaded = true;

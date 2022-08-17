@@ -18,7 +18,7 @@
               @click.native="clearHandler"
             />
           </div>
-          <Icon name="AngleDown" class="w-xl h-xl mr-2xs" />
+          <Icon v-else name="AngleDown" class="w-xl h-xl mr-2xs" />
         </button>
       </template>
       <template slot="body">

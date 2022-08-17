@@ -2,7 +2,7 @@
   &-button {
     /* Default */
     @apply border-border-divider text-text text-b2 py-2xs pr-sm pl-2xs bg-surface rounded-[20px];
-    @apply flex items-center;
+    @apply flex items-center font-IRANYekanFaNum;
     @apply dark:border-border-dark-divider dark:bg-surface-dark dark:text-text-dark;
 
     /* Hover */
@@ -40,7 +40,7 @@
     }
   }
   &-delete {
-    @apply mr-2xs;
+    @apply mr-xs ml-2xs;
   }
   &-header {
     @apply flex items-center mb-xl;

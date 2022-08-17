@@ -111,15 +111,17 @@ export default class FilterDate extends Vue {
      * update value based on query
      */
     if (Object.keys(this.$route.query).includes('date')) {
-      this.date = 'OPTIONAL_PERIOD';
-      this.value = JSON.parse(JSON.stringify(this.$route.query.date));
-      if (typeof this.value === 'string') {
-        const formattedValue = moment(this.value, 'jYYYY-jM-jD').format('jYYYY-jM-jD');
-        this.value = [formattedValue, formattedValue];
-      } else {
-        const firstFormattedValue = moment(this.value[0], 'jYYYY-jM-jD').format('jYYYY-jM-jD');
-        const secondFormattedValue = moment(this.value[1], 'jYYYY-jM-jD').format('jYYYY-jM-jD');
-        this.value = [firstFormattedValue, secondFormattedValue];
+      if (this.$route.query.date) {
+        this.date = 'OPTIONAL_PERIOD';
+        this.value = JSON.parse(JSON.stringify(this.$route.query.date));
+        if (typeof this.value === 'string') {
+          const formattedValue = moment(this.value, 'jYYYY-jM-jD').format('jYYYY-jM-jD');
+          this.value = [formattedValue, formattedValue];
+        } else {
+          const firstFormattedValue = moment(this.value[0], 'jYYYY-jM-jD').format('jYYYY-jM-jD');
+          const secondFormattedValue = moment(this.value[1], 'jYYYY-jM-jD').format('jYYYY-jM-jD');
+          this.value = [firstFormattedValue, secondFormattedValue];
+        }
       }
     }
   }
