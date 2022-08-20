@@ -18,9 +18,7 @@ import FilterAmount from './FilterAmount/index.vue';
   },
 })
 export default class Logic extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean;
-
-  @Prop({ type: Function }) readonly toggle!: () => boolean;
+  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
 
   @Prop({ type: Function }) readonly clearQuery!: (key: string) => boolean;
 
@@ -110,7 +108,7 @@ export default class Logic extends Vue {
                   JSON.stringify(this.$route.query.date),
                 );
                 if (typeof dateVal === 'string') {
-                  const formattedValue = moment(dateVal, 'jYYYY-jM-jD').format(
+                  const formattedValue = moment(dateVal, 'YYYY-M-D').format(
                     'jYYYY/jM/jD',
                   );
                   dateVal = [formattedValue, formattedValue];
@@ -120,11 +118,11 @@ export default class Logic extends Vue {
                 } else {
                   const firstFormattedValue = moment(
                     dateVal[0],
-                    'jYYYY-jM-jD',
+                    'YYYY-M-D',
                   ).format('jYYYY/jM/jD');
                   const secondFormattedValue = moment(
                     dateVal[1],
-                    'jYYYY-jM-jD',
+                    'YYYY-M-D',
                   ).format('jYYYY/jM/jD');
                   dateVal = [firstFormattedValue, secondFormattedValue];
                   this.finalActiveVal = this.activeValue

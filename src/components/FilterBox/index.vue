@@ -2,7 +2,6 @@
   <div>
     <Dropdown
       width="300px"
-      class="p-md"
       :autoClose="false"
       :isClose="isClose"
       @close="toggleClose"
@@ -37,11 +36,12 @@
           </div>
           <slot />
           <Button
-            class="w-full mt-lg"
+            class="!w-full mt-lg"
             type="primary"
             size="medium"
             :text="$t('common.apply')"
             @click.native="buttonHandler"
+            :disabled="disabled"
           />
         </div>
       </template>
@@ -55,5 +55,5 @@ import Logic from './logic';
 import './style.scss';
 
 @Component
-export default class Filter extends Mixins(Logic) {}
+export default class FilterBox extends Mixins(Logic) {}
 </script>

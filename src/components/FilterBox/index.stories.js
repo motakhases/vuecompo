@@ -1,15 +1,15 @@
-import Shayeste from "./index.vue";
+import FilterBox from "./index.vue";
 import Button from "../Button/index.vue";
 import Radio from "@/components/Radio/index.vue";
 import FilterDate from "./FilterDate/index.vue";
 
 export default {
-  component: Shayeste,
-  title: "Components/Shayeste",
+  component: FilterBox,
+  title: "Components/FilterBox",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Shayeste, Button, Radio, FilterDate },
+  components: { FilterBox, Button, Radio, FilterDate },
   data() {
     return {
       show: false,
@@ -44,7 +44,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="   dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <Shayeste title="عنوان کارت" :filter="filter" title="تاریخ">
+	  <FilterBox title="عنوان کارت" :filter="filter" title="تاریخ">
     <div class="w-full">
         <Radio
     v-model="filters.status"
@@ -60,8 +60,8 @@ const Template = (_, { argTypes }) => ({
   />
     </div>
 
-    </Shayeste>
-    <Shayeste title="عنوان کارت" :filter="filter" title="یتاریخ">
+    </FilterBox>
+    <FilterBox title="عنوان کارت" :filter="filter" title="یتاریخ">
     <div class="w-full">
     <FilterDate
     @updateFilter="updateFilter"
@@ -69,7 +69,7 @@ const Template = (_, { argTypes }) => ({
   />
     </div>
 
-    </Shayeste>
+    </FilterBox>
 
 
   </div>
