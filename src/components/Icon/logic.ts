@@ -88,6 +88,7 @@ import Info from './icons/Info.vue';
 import Pin from './icons/Pin.vue';
 import Refund from './icons/Refund.vue';
 import FilledDelete from './icons/FilledDelete.vue';
+import Refresh from './icons/Refresh.vue';
 
 @Component({
   components: {
@@ -178,6 +179,7 @@ import FilledDelete from './icons/FilledDelete.vue';
     Minus,
     Info,
     FilledDelete,
+    Refresh,
   },
 })
 export default class Icon extends Vue {
