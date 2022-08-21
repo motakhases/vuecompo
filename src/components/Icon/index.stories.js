@@ -83,6 +83,7 @@ const Template = (_, { argTypes }) => ({
         "Download",
         "Instagram",
         "Telegram",
+        "Telegram2",
         "Trash",
         "Whatsapp",
         "Reload",
@@ -94,6 +95,7 @@ const Template = (_, { argTypes }) => ({
         "Github",
         "Link",
         "Info",
+        "AtSign",
         "Refresh"
       ],
     };

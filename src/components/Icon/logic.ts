@@ -89,6 +89,8 @@ import Pin from './icons/Pin.vue';
 import Refund from './icons/Refund.vue';
 import FilledDelete from './icons/FilledDelete.vue';
 import Refresh from './icons/Refresh.vue';
+import Telegram2 from './icons/Telegram2.vue';
+import AtSign from './icons/AtSign.vue';
 
 @Component({
   components: {
@@ -180,6 +182,8 @@ import Refresh from './icons/Refresh.vue';
     Info,
     FilledDelete,
     Refresh,
+    Telegram2,
+    AtSign,
   },
 })
 export default class Icon extends Vue {
