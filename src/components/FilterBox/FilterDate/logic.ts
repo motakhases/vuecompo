@@ -3,6 +3,9 @@ import moment from 'moment-jalaali';
 import Select from '@/components/Select/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import DatePicker from '@/components/DatePicker/index.vue';
+import DataSheet from '@/components/DataSheet/index.vue';
+import DataSheetRow from '@/components/DataSheet/Row/index.vue';
+import DataSheetItem from '@/components/DataSheet/Item/index.vue';
 import { DatePickerValue, Translation } from '@/types';
 
 @Component({
@@ -10,6 +13,9 @@ import { DatePickerValue, Translation } from '@/types';
     Select,
     Textfield,
     DatePicker,
+    DataSheet,
+    DataSheetRow,
+    DataSheetItem,
   },
 })
 export default class FilterDate extends Vue {
@@ -28,19 +34,19 @@ export default class FilterDate extends Vue {
 
   shownValue: Translation = ''
 
-  today = moment().format('jYYYY-jM-jD');
+  today = moment().format('jYYYY/jM/jD');
 
-  startOfWeek = moment().startOf('week').format('jYYYY-jM-jD');
+  startOfWeek = moment().startOf('week').format('jYYYY/jM/jD');
 
-  endOfWeek = moment().endOf('week').format('jYYYY-jM-jD');
+  endOfWeek = moment().endOf('week').format('jYYYY/jM/jD');
 
-  startOfMonth = moment().startOf('jMonth').format('jYYYY-jM-jD');
+  startOfMonth = moment().startOf('jMonth').format('jYYYY/jM/jD');
 
-  endOfMonth = moment().endOf('jMonth').format('jYYYY-jM-jD');
+  endOfMonth = moment().endOf('jMonth').format('jYYYY/jM/jD');
 
-  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY-jM-jD')
+  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY/jM/jD')
 
-  lastWeek = moment().subtract(1, 'week').format('jYYYY-jM-jD')
+  lastWeek = moment().subtract(1, 'week').format('jYYYY/jM/jD')
 
   options = [
     { id: 1, text: this.dateList.TODAY, value: 'TODAY' },
@@ -115,11 +121,11 @@ export default class FilterDate extends Vue {
         this.date = 'OPTIONAL_PERIOD';
         this.value = JSON.parse(JSON.stringify(this.$route.query.date));
         if (typeof this.value === 'string') {
-          const formattedValue = moment(this.value, 'jYYYY-jM-jD').format('jYYYY-jM-jD');
+          const formattedValue = moment(this.value, 'YYYY-M-D').format('jYYYY-jM-jD');
           this.value = [formattedValue, formattedValue];
         } else {
-          const firstFormattedValue = moment(this.value[0], 'jYYYY-jM-jD').format('jYYYY-jM-jD');
-          const secondFormattedValue = moment(this.value[1], 'jYYYY-jM-jD').format('jYYYY-jM-jD');
+          const firstFormattedValue = moment(this.value[0], 'YYYY-M-D').format('jYYYY-jM-jD');
+          const secondFormattedValue = moment(this.value[1], 'YYYY-M-D').format('jYYYY-jM-jD');
           this.value = [firstFormattedValue, secondFormattedValue];
         }
       }

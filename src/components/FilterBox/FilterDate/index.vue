@@ -6,43 +6,35 @@
       :placeholder="$t('common.export.date_range')"
       class="dropdown"
     />
-    <Textfield
-      v-if="date === 'TODAY'"
-      v-model="model"
-      suffix-icon="Calendar"
-      disabled
-      class="today"
-    />
+    <DataSheet v-if="date === 'TODAY'">
+      <DataSheetRow>
+        <DataSheetItem row leftAlign :title="$t('common.export.today')">
+          {{ model }}
+        </DataSheetItem>
+      </DataSheetRow>
+    </DataSheet>
     <div
       v-if="
-      (date === 'CURRENT_WEEK') |
-      (date === 'CURRENT_MONTH') |
-      (date === 'LAST_MONTH') |
-      (date === 'LAST_WEEK')"
-      class="range-box"
+        (date === 'CURRENT_WEEK') |
+          (date === 'CURRENT_MONTH') |
+          (date === 'LAST_MONTH') |
+          (date === 'LAST_WEEK')
+      "
     >
-      <div class="range-input">
-        <label>{{ $t('date.start') }}</label>
-        <Textfield
-          v-model="model[0]"
-          suffix-icon="Calendar"
-          disabled
-        />
-      </div>
-      <div class="range-input">
-        <label>{{ $t('date.end') }}</label>
-        <Textfield
-          v-model="model[1]"
-          suffix-icon="Calendar"
-          disabled
-        />
-      </div>
+    <DataSheet>
+      <DataSheetRow>
+        <DataSheetItem row leftAlign :title="$t('common.from')">
+          {{ model[0] }}
+        </DataSheetItem>
+      </DataSheetRow>
+        <DataSheetRow>
+        <DataSheetItem row leftAlign :title="$t('common.to')">
+          {{ model[1] }}
+        </DataSheetItem>
+      </DataSheetRow>
+    </DataSheet>
     </div>
-    <DatePicker
-      v-if="date === 'OPTIONAL_PERIOD'"
-      v-model="model"
-      range
-    />
+    <DatePicker v-if="date === 'OPTIONAL_PERIOD'" v-model="model" range />
   </div>
 </template>
 

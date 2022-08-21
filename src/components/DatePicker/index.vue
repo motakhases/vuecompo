@@ -46,7 +46,7 @@
       class="zpl-date-picker-range"
     >
       <div class="zpl-date-picker-range-input">
-        <label for="">{{ $t('date.start') }}</label>
+        <label for="">{{ $t('common.from') }}</label>
         <TextField
           v-model="model[0]"
           type="text"
@@ -56,7 +56,7 @@
         />
       </div>
       <div class="zpl-date-picker-range-input">
-        <label for="">{{ $t('date.end') }}</label>
+        <label for="">{{ $t('common.to') }}</label>
         <TextField
           v-model="model[1]"
           suffix-icon="Calendar"

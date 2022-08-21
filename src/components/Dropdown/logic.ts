@@ -135,7 +135,7 @@ export default class Dropdown extends Vue {
     if (this.isClose) {
       this.$emit('close');
       if (this.menuRef) {
-        this.menuRef.parentNode.removeChild(this.menuRef);
+        this.menuRef.parentNode?.removeChild(this.menuRef);
       }
       this.toggle = false;
     }

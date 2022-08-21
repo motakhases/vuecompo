@@ -36,7 +36,7 @@
           </div>
           <slot />
           <Button
-            class="!w-full mt-lg"
+            class="!w-full mt-xl"
             type="primary"
             size="medium"
             :text="$t('common.apply')"

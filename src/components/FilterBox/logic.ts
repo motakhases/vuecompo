@@ -64,40 +64,39 @@ export default class Logic extends Vue {
       queryKeys.forEach((i) => {
         if (this.value === 'amount') {
           // update value based on query
-          Object.keys(this.$route.query).forEach((key) => {
-            if (amountList.includes(key)) {
-              const amountVal = JSON.parse(
-                JSON.stringify(this.$route.query[key]),
-              );
-              this.amountQueryKey = key;
+          const queryAmount = queryKeys.filter((el) => amountList.includes(el))[0];
+          if (queryAmount) {
+            const amountVal = JSON.parse(
+              JSON.stringify(this.$route.query[queryAmount]),
+            );
+            this.amountQueryKey = queryAmount;
 
-              this.isActive = true;
-              this.finalActiveVal = this.activeValue
-                ? this.activeValue
-                : amountVal;
+            this.isActive = true;
+            this.finalActiveVal = this.activeValue
+              ? this.activeValue
+              : amountVal;
 
-              if (amountVal) {
-                if (key === 'range_amount') {
-                  this.finalActiveVal = `از ${(
+            if (amountVal) {
+              if (queryAmount === 'range_amount') {
+                this.finalActiveVal = `از ${(
                     this as any
-                  ).$options.filters.numberFormat(amountVal[0])} تا ${(
+                ).$options.filters.numberFormat(amountVal[0])} تا ${(
                     this as any
-                  ).$options.filters.numberFormat(amountVal[1])}
+                ).$options.filters.numberFormat(amountVal[1])}
                   ${this.$i18n.t('common.rial')}
                   `;
-                } else {
-                  this.finalActiveVal = `${this.$i18n.t(
-                    `common.export.${key}`,
-                  )} ${(this as any).$options.filters.numberFormat(
-                    amountVal,
-                  )} ${this.$i18n.t('common.rial')}`;
-                }
+              } else {
+                this.finalActiveVal = `${this.$i18n.t(
+                  `common.export.${queryAmount}`,
+                )} ${(this as any).$options.filters.numberFormat(
+                  amountVal,
+                )} ${this.$i18n.t('common.rial')}`;
               }
-            } else {
-              this.isActive = false;
-              this.finalActiveVal = '';
             }
-          });
+          } else {
+            this.isActive = false;
+            this.finalActiveVal = '';
+          }
         } else if (queryKeys.includes(this.value)) {
           if (i === this.value) {
             if (queries[i]) {
@@ -140,6 +139,9 @@ export default class Logic extends Vue {
           this.finalActiveVal = '';
         }
       });
+    } else {
+      this.isActive = false;
+      this.finalActiveVal = '';
     }
   }
 

@@ -1,7 +1,7 @@
 .zpl-filter {
   &-button {
     /* Default */
-    @apply border-border-divider text-text text-b2 py-2xs pr-sm pl-2xs bg-surface rounded-[20px];
+    @apply border border-border-divider text-text text-b2 py-2xs pr-sm pl-2xs bg-surface rounded-[20px];
     @apply flex items-center font-IRANYekanFaNum;
     @apply dark:border-border-dark-divider dark:bg-surface-dark dark:text-text-dark;
 

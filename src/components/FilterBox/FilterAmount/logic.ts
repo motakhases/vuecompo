@@ -92,4 +92,8 @@ export default class FilterAmount extends Vue {
       }
     });
   }
+
+  mounted() {
+    this.$emit('updateFilter', { [this.amountType]: this.value });
+  }
 }
