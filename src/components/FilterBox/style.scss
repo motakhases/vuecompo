@@ -41,6 +41,10 @@
   }
   &-delete {
     @apply mr-xs ml-2xs;
+     /* Hover */
+     @apply hover:opacity-80;
+     /* Active */
+     @apply active:opacity-60;
   }
   &-header {
     @apply flex items-center mb-xl;
