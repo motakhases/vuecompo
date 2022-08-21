@@ -91,6 +91,7 @@ import FilledDelete from './icons/FilledDelete.vue';
 import Refresh from './icons/Refresh.vue';
 import Telegram2 from './icons/Telegram2.vue';
 import AtSign from './icons/AtSign.vue';
+import CircleDelete from './icons/CircleDelete.vue';
 
 @Component({
   components: {
@@ -184,6 +185,7 @@ import AtSign from './icons/AtSign.vue';
     Refresh,
     Telegram2,
     AtSign,
+    CircleDelete,
   },
 })
 export default class Icon extends Vue {

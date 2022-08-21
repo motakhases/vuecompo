@@ -96,6 +96,7 @@ const Template = (_, { argTypes }) => ({
         "Link",
         "Info",
         "AtSign",
+        "CircleDelete",
         "Refresh"
       ],
     };
