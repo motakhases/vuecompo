@@ -111,3 +111,5 @@ export { default as Balance } from './Balance/index.vue';
 export { default as Skeleton } from './Skeleton/index.vue';
 
 export { default as CopyToClipboard } from './CopyToClipboard/index.vue';
+
+export { default as Zp } from './Zp/index.vue';
