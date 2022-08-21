@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-card">
     <!-- Header -->
-    <div class="zpl-card-head">
+    <div class="zpl-card-head" v-if="$slots.actions || title">
       <h4 class="zpl-card-head-title" v-if="title && !loading">
         {{ title }}
       </h4>

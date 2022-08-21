@@ -1,0 +1,33 @@
+.zpl-zp {
+  @apply rounded-[50px] inline-flex items-center gap-xs p-2xs pl-sm;
+  @apply text-text-onPrimary dark:text-text-dark-onPrimary;
+
+  &-level {
+    @apply rounded-[50px]  text-b3 flex items-center gap-2xs font-medium;
+    @apply py-2xs px-xs bg-white-20;
+
+    .icon {
+      @apply w-[12px] h-[12px];
+    }
+  }
+
+  &-id {
+    @apply font-Mono text-b2 font-medium;
+  }
+
+  &.GOLD {
+    @apply bg-zarin-heavy
+  }
+
+  &.SILVER {
+    @apply bg-[#AEBDC8]
+  }
+
+  &.BASIC {
+    @apply bg-primaryZarinpal
+  }
+
+  &.NEW {
+    @apply bg-indigo-500
+  }
+}

@@ -15,6 +15,10 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly maxHeight?: string;
 
+  @Prop({ type: Boolean, default: true }) readonly autoClose?: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly isClose?: boolean;
+
   @Prop({ type: [String, Object, Array, Number] }) readonly customPayload?: any;
 
   @Ref('button') readonly buttonRef!: HTMLElement;
@@ -57,11 +61,21 @@ export default class Dropdown extends Vue {
   }
 
   outsideClick(e: Event): void {
+    const menu = document.getElementById('select-dropdown');
+    const event = e.target as HTMLInputElement;
     // close menu
-    if (!this.buttonRef?.children[0].contains(e.target as HTMLInputElement)) {
-      this.$nextTick(() => {
-        this.toggle = false;
-      });
+    if (this.autoClose) {
+      if (!this.buttonRef?.children[0].contains(event)) {
+        this.$nextTick(() => {
+          this.toggle = false;
+        });
+      }
+    } else if (!menu?.contains(event) && !this.buttonRef?.children[0].contains(event)) {
+      if (!this.menuRef?.children[0]?.contains(event)) {
+        this.$nextTick(() => {
+          this.toggle = false;
+        });
+      }
     }
   }
 
@@ -97,12 +111,13 @@ export default class Dropdown extends Vue {
     document.documentElement.addEventListener(
       'click',
       this.outsideClick,
-      false,
+      true,
     );
+
     this.buttonRef.children[0].addEventListener(
       'click',
       this.onButtonClick,
-      false,
+      true,
     );
     window.addEventListener('resize', this.onResize);
   }
@@ -110,8 +125,19 @@ export default class Dropdown extends Vue {
   beforeDestroy(): void {
     window.removeEventListener('resize', this.onResize);
     if (this.menuRef) {
-      this.menuRef.parentNode.removeChild(this.menuRef);
+      this.menuRef.parentNode?.removeChild(this.menuRef);
     }
     this.toggle = false;
+  }
+
+  @Watch('isClose')
+  updateToggle() {
+    if (this.isClose) {
+      this.$emit('close');
+      if (this.menuRef) {
+        this.menuRef.parentNode?.removeChild(this.menuRef);
+      }
+      this.toggle = false;
+    }
   }
 }

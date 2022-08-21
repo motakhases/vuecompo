@@ -22,6 +22,7 @@
       :cols="columns"
       :hasSubCustom="hasSubCustom"
       :hasCustom="hasCustom"
+      :hasImage="hasImage"
       :actions="actions"
       :class="[ { bordered } ]"
     />

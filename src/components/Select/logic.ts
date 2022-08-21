@@ -24,51 +24,51 @@ export default class Select extends Vue {
   /**
    * Props
    */
-  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
+  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean;
 
-  @Prop({ type: String }) readonly label?: string
+  @Prop({ type: String }) readonly label?: string;
 
-  @Prop({ type: String }) readonly hint?: string
+  @Prop({ type: String }) readonly hint?: string;
 
   @Prop({ type: String }) readonly inputName?: string;
 
-  @Prop({ type: String }) readonly successMessage?: string
+  @Prop({ type: String }) readonly successMessage?: string;
 
-  @Prop({ type: Array }) readonly options!: ISelectOptions[]
+  @Prop({ type: Array }) readonly options!: ISelectOptions[];
 
-  @Prop({ type: Boolean }) readonly loading?: boolean
+  @Prop({ type: Boolean }) readonly loading?: boolean;
 
-  @Prop({ type: Boolean }) readonly search?: boolean
+  @Prop({ type: Boolean }) readonly search?: boolean;
 
-  @Prop({ type: [String, Object] }) readonly rules?: string|object;
+  @Prop({ type: [String, Object] }) readonly rules?: string | object;
 
-  @Prop({ type: String }) readonly placeholder?: string
+  @Prop({ type: String }) readonly placeholder?: string;
 
-  @Prop({ type: String, default: '' }) readonly value!: string
+  @Prop({ type: String, default: '' }) readonly value!: string;
 
   /**
    * Refs
    */
-  @Ref() readonly optionRef!: Element
+  @Ref() readonly optionRef!: Element;
 
-  @Ref() readonly menuRef!: HTMLElement
+  @Ref() readonly menuRef!: HTMLElement;
 
-  @Ref() readonly inputRef!: HTMLElement
+  @Ref() readonly inputRef!: HTMLElement;
 
   /**
    * Data options
    */
-  isInputFocused = false
+  isInputFocused = false;
 
-  isBoxFocused = false
+  isBoxFocused = false;
 
-  showList = false
+  showList = false;
 
-  activeOptionIndex = -1
+  activeOptionIndex = -1;
 
-  filteredOptions: ISelectOptions[] = []
+  filteredOptions: ISelectOptions[] = [];
 
-  inputVal = ''
+  inputVal = '';
 
   style = {
     top: '',
@@ -76,18 +76,20 @@ export default class Select extends Vue {
     width: '',
   };
 
-  get inputModel():string {
+  get inputModel(): string {
     return this.inputVal;
   }
 
-  set inputModel(value:string) {
-    this.inputVal = this.options ? this.options.filter((i) => i.value === this.value)[0].text : '';
+  set inputModel(value: string) {
+    this.inputVal = this.options
+      ? this.options.filter((i) => i.value === this.value)[0].text
+      : '';
   }
 
   /**
    * Mounted
    */
-  mounted():void {
+  mounted(): void {
     document.documentElement.addEventListener(
       'click',
       this.outsideClick,
@@ -100,28 +102,36 @@ export default class Select extends Vue {
 
   created(): void {
     this.inputVal = this.options && this.value.length
-      ? this.options.filter((i) => i.value === this.value)[0].text : '';
+      ? this.options.filter((i) => i.value === this.value)[0].text
+      : '';
     this.isInputFocused = !!this.value.length;
     this.filteredOptions = this.options;
   }
 
-@Watch('loading')
+  @Watch('loading')
   updateOptions() {
     this.filteredOptions = this.options;
   }
 
-  @Watch('showList')
-watchShowList(): void {
-  this.$nextTick(() => {
-    if (this.showList) {
-      this.updateStyle();
-    }
-  });
-  if (this.showList) {
-    // append menu to body
-    document.body.appendChild(this.menuRef);
+  @Watch('value')
+  updateValue() {
+    this.inputVal = this.options && this.value.length
+      ? this.options.filter((i) => i.value === this.value)[0].text
+      : '';
   }
-}
+
+  @Watch('showList')
+  watchShowList(): void {
+    this.$nextTick(() => {
+      if (this.showList) {
+        this.updateStyle();
+      }
+    });
+    if (this.showList) {
+      // append menu to body
+      document.body.appendChild(this.menuRef);
+    }
+  }
 
   /**
    * Methods
@@ -147,11 +157,11 @@ watchShowList(): void {
     }
   }
 
-  inputHandler(event:Event): void {
+  inputHandler(event: Event): void {
     this.inputVal = (event.target as HTMLInputElement).value;
   }
 
-  onFocusIn(event:KeyboardEvent):void {
+  onFocusIn(event: KeyboardEvent): void {
     // for adding active label style
     this.isInputFocused = true;
     this.isBoxFocused = true;
@@ -165,7 +175,7 @@ watchShowList(): void {
     }
   }
 
-  onFocusOut():void {
+  onFocusOut(): void {
     if (!this.value || !this.inputVal) {
       this.isInputFocused = false;
     }
@@ -173,7 +183,7 @@ watchShowList(): void {
     this.activeOptionIndex = -1;
   }
 
-  selectOption(value:string, text:string):void {
+  selectOption(value: string, text: string): void {
     this.inputVal = text;
     this.$emit('input', value);
     this.hideOptions();
@@ -181,18 +191,18 @@ watchShowList(): void {
     this.isBoxFocused = false;
   }
 
-  showOptions():void {
+  showOptions(): void {
     this.showList = true;
   }
 
-  hideOptions():void {
+  hideOptions(): void {
     this.$nextTick(() => {
       this.showList = false;
     });
   }
 
   // TODO: change any
-  outsideClick(event:Event):void {
+  outsideClick(event: Event): void {
     if (!this.$el.contains(event.target as HTMLInputElement)) {
       this.hideOptions();
       this.isBoxFocused = false;
@@ -202,19 +212,17 @@ watchShowList(): void {
     }
   }
 
-  onKeyUp(event:KeyboardEvent):void {
+  onKeyUp(event: KeyboardEvent): void {
     // if any key code in the list is pressed do nothing
     if (keyList.includes(event.key)) {
       return;
     }
 
     // otherwise filter the list based on value that user is typing
-    this.filteredOptions = this.options.filter(
-      (option:ISelectOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()),
-    );
+    this.filteredOptions = this.options.filter((option: ISelectOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()));
   }
 
-  onKeyDown(e:KeyboardEvent):void {
+  onKeyDown(e: KeyboardEvent): void {
     const isArrowDownKey = e.key === 'ArrowDown';
     const isArrowUpKey = e.key === 'ArrowUp';
     const isEnterKey = e.key === 'Enter';
@@ -226,14 +234,14 @@ watchShowList(): void {
         for (let i = 0; i < this.filteredOptions.length; i += 1) {
           // find the active option based on class
           const item = this.menuRef.querySelectorAll('li')[i];
-          const activeOption = (item).classList.contains('active');
+          const activeOption = item.classList.contains('active');
           // if there is active option then remove the active class and
           // update the index of active option in order to move active class
-          if ((item).classList.contains('disabled')) {
+          if (item.classList.contains('disabled')) {
             // this.activeOptionIndex += i;
           } else if (activeOption) {
             this.activeOptionIndex = i;
-            (item).classList.remove('active');
+            item.classList.remove('active');
           }
         }
       }
@@ -272,7 +280,8 @@ watchShowList(): void {
         if (this.activeOptionIndex >= 0 && this.filteredOptions) {
           // take the name of active option
           const newValue = this.filteredOptions[this.activeOptionIndex]
-            ? this.filteredOptions[this.activeOptionIndex].text : '';
+            ? this.filteredOptions[this.activeOptionIndex].text
+            : '';
 
           // update the value of input
           // this.$emit('updateData', newValue);
@@ -293,20 +302,20 @@ watchShowList(): void {
     }
   }
 
-  activateOption(e:IEvent):void {
+  activateOption(e: IEvent): void {
     // if any option has active class remove it
-    [].forEach.call(this.optionRef, (el:HTMLElement) => {
+    [].forEach.call(this.optionRef, (el: HTMLElement) => {
       el.classList.remove('active');
     });
     // add active class when a mouse enters
     e.target.classList.add('active');
   }
 
-  deactivateOption(e:IEvent):void {
+  deactivateOption(e: IEvent): void {
     e.target.classList.remove('active');
   }
 
-  onResize():void {
+  onResize(): void {
     this.$nextTick(() => {
       // update position of menue when window is resizing
       if (this.showList) {
@@ -315,7 +324,11 @@ watchShowList(): void {
     });
   }
 
-  beforeDestroy():void {
+  beforeDestroy(): void {
     window.removeEventListener('resize', this.onResize);
+    if (this.menuRef) {
+      this.menuRef?.parentNode?.removeChild(this.menuRef);
+    }
+    this.showList = false;
   }
 }

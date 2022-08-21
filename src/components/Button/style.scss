@@ -38,7 +38,7 @@
     }
   }
 
-  &.secondary {
+  &.secondary { 
     /* Default */
     @apply bg-secondary text-text;
     @apply dark:bg-secondary-dark dark:text-text-dark;

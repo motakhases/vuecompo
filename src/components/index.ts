@@ -24,10 +24,9 @@ export { default as DatePicker } from './DatePicker/index.vue';
 
 export { default as Select } from './Select/index.vue';
 
-export { default as Filters } from './Filters/index.vue';
-export { default as FiltersAccordion } from './Filters/FilterAccordion/index.vue';
-export { default as FilterAmount } from './Filters/FilterAmount/index.vue';
-export { default as FilterDate } from './Filters/FilterDate/index.vue';
+export { default as FilterBox } from './FilterBox/index.vue';
+export { default as FilterAmount } from './FilterBox/FilterAmount/index.vue';
+export { default as FilterDate } from './FilterBox/FilterDate/index.vue';
 
 export { default as GatewayStatus } from './GatewayStatus/index.vue';
 
@@ -112,3 +111,5 @@ export { default as Balance } from './Balance/index.vue';
 export { default as Skeleton } from './Skeleton/index.vue';
 
 export { default as CopyToClipboard } from './CopyToClipboard/index.vue';
+
+export { default as Zp } from './Zp/index.vue';

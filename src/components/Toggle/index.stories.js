@@ -8,7 +8,7 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
-    <Toggle v-model="value" disabled />
+    <Toggle v-model="value" />
     <Toggle />
     <Toggle disabled />
     <Toggle loading />

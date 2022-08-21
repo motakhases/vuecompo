@@ -223,6 +223,9 @@ hasCustom
       dropdownWidth="320px"
       loading
       hasCustom
+      hasSubCustom
+      :hasImage="false"
+
     />
 
     <Table
