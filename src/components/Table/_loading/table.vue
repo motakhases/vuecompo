@@ -17,7 +17,7 @@
           <td v-for="(col, i) in cols" :key="`${i}-rows`">
             <span class="loading-custom" />
             <div v-if="hasCustom && i === 0" class="flex gap-sm items-center">
-              <Skeleton type="thumbnail" />
+              <Skeleton v-if="hasImage" type="thumbnail" />
               <div class="flex-1">
                 <Skeleton type="body" class="w-2/3" />
                 <Skeleton type="body" class="w-1/3 mt-xs" v-if="hasSubCustom" />
@@ -52,5 +52,7 @@ export default class Loading extends Vue {
   @Prop({ type: Boolean }) readonly hasCustom?: boolean;
 
   @Prop({ type: Array }) readonly actions?: ITableActions[];
+
+  @Prop({ type: Boolean, default: true }) readonly hasImage?: boolean
 }
 </script>

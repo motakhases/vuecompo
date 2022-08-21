@@ -1,0 +1,18 @@
+.zpl-filter-amount {
+  .dropdown {
+    @apply mb-md block;
+  }
+
+  .range-box {
+    @apply flex;
+    label {
+      @apply inline-block mr-2xs mb-xs text-text-soft;
+    }
+  }
+  .range-input {
+    @apply flex-1;
+    &:first-child {
+      @apply ml-sm;
+    }
+  }
+}
