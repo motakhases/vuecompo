@@ -93,7 +93,7 @@
           </div>
 
           <!-- shows option list when loading is false -->
-          <ul v-else id="dropdown">
+          <ul v-else id="select-dropdown">
             <li
               v-for="(option, i) in filteredOptions"
               :key="option.id"

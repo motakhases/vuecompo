@@ -2,6 +2,7 @@
   <div class="zpl-topbar-container">
     <div class="zpl-topbar-right-side">
       <Button
+        v-if="hasMenu"
         icon="menuBurger"
         type="tertiary"
         size="medium"
@@ -36,6 +37,7 @@
       </Dropdown>
     </div>
     <TerminalList
+      v-if="hasMenu"
       :terminals="terminals"
       :is-open="showTerminalList"
       :toggle="toggleTerminalList"

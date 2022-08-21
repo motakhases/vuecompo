@@ -10,7 +10,9 @@
         :style="[style, { width, maxHeight }]"
         dir="rtl"
       >
-        <slot name="heeader" />
+        <slot name="header" />
+                <slot name="body" />
+
         <ul class="zpl-dropdown-list">
           <li
             v-for="(item, index) in list"
