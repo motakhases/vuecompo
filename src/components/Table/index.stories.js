@@ -237,7 +237,7 @@ hasCustom
       dropdownWidth="320px"
       hasCustom
       hasSubCustom
-      :hasImage="false"
+      hasImage
       :actions="actions"
     />
 

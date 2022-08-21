@@ -1,6 +1,6 @@
 .zpl-card {
   // default
-  @apply bg-surface shadow-elevation-50 rounded-md p-md;
+  @apply bg-surface shadow-elevation-50 rounded-md p-md flex flex-col;
 
   // dark
   @apply dark:bg-surface-dark dark:text-text-dark dark:shadow-dark-elevation-50;
@@ -18,6 +18,6 @@
   }
 
   &-content {
-    @apply pt-xl;
+    @apply pt-xl flex-1;
   }
 }

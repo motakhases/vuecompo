@@ -31,7 +31,11 @@ export default class DatePicker extends Vue {
 
   @Prop({ type: Boolean }) dropdown?: boolean;
 
-  isDrpShow: null|boolean = null
+  @Prop({ type: Boolean }) button?: boolean;
+
+  isDrpShow: null | boolean = null;
+
+  buttonText = moment().format('jD jMMMM');
 
   mounted() {
     /**
@@ -45,10 +49,9 @@ export default class DatePicker extends Vue {
         this.isDrpShow = true;
       });
     }
-
     /**
-   * Click out: close dropdown
-   */
+     * Click out: close dropdown
+     */
     document.addEventListener('click', (e: any) => {
       let me = false;
       for (let index = 0; index < e.path.length; index += 1) {
@@ -60,6 +63,9 @@ export default class DatePicker extends Vue {
       }
       if (!me) this.isDrpShow = false;
     });
+    if (this.value) {
+      this.buttonText = moment(this.value, 'jYYYY-jM-jD').format('jD jMMMM');
+    }
   }
 
   get model(): string | string[] {
@@ -94,6 +100,14 @@ export default class DatePicker extends Vue {
     return attributes;
   }
 
+  toggleDropdown() {
+    if (this.isDrpShow) {
+      this.isDrpShow = false;
+    } else {
+      this.isDrpShow = true;
+    }
+  }
+
   /**
    * Close dropdown after value is chosen
    */
@@ -101,6 +115,14 @@ export default class DatePicker extends Vue {
   onModelChange(value: string) {
     if (value) {
       this.isDrpShow = false;
+      this.buttonText = moment(this.value, 'jYYYY/jM/jD').format('jD jMMMM');
+      const valueYear = moment(this.value, 'jYYYY/jM/jD').format('jYYYY');
+      const currentYear = moment().format('jYYYY');
+      if (valueYear === currentYear) {
+        this.buttonText = moment(this.value, 'jYYYY/jM/jD').format('jD jMMMM');
+      } else {
+        this.buttonText = moment(this.value, 'jYYYY/jM/jD').format('jD jMMMM jYYYY');
+      }
     }
   }
 }

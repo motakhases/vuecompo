@@ -1,4 +1,5 @@
 import DatePicker from "./index.vue";
+import moment from 'moment-jalaali';
 
 export default {
   component: DatePicker,
@@ -10,7 +11,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      singleDate: "",
+      singleDate: moment().subtract(1, 'days').format('jYYYY-jMM-jDD'),
       rangeDate: [],
       previewDate: "",
       drpdata: '',
@@ -22,11 +23,11 @@ const Template = (_, { argTypes }) => ({
   <div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md rtl">
     <div class="w-[296px] flex flex-col gap-md">
       <h1 class="font-bold dark:text-surface"> تقویم </h1>
-		  <DatePicker v-model="singleDate" />
+		  <DatePicker v-model="singleDate" button />
 
       <h1 class="mt-sm font-bold dark:text-surface"> تقویم به صورت dropdown </h1>
 		  <DatePicker v-model="drpdata" dropdown />
-
+{{drpdata}}drpdata
       <h1 class="mt-sm font-bold dark:text-surface"> تقویم با بازه زمانی </h1>
 		  <DatePicker v-model="rangeDate" :range="rangeMode" />
 
