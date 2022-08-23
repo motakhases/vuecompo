@@ -1,6 +1,7 @@
 <template>
   <span
     :class="['zpl-lable', size, type]"
+    v-if="text"
   >
     {{ text }}
   </span>
