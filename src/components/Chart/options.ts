@@ -2,7 +2,7 @@ import { dayName, hour, month } from '@/utils/momentCustom';
 
 function generateSeries(w: any, dataPointIndex: number) {
   return w.globals.series.map((i: any, index: number) => (
-    `
+    i[dataPointIndex] ? `
     <div class="serie">
       <span class="title">
         <span style="background-color: ${w.globals.fill.colors[index]}"></span>
@@ -13,7 +13,7 @@ function generateSeries(w: any, dataPointIndex: number) {
         تومان
       </span>
     </div>
-    `
+    ` : null
   )).join(' ');
 }
 
