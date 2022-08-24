@@ -56,7 +56,6 @@ export default {
   dataLabels: {
     enabled: false,
   },
-  colors: ['#0A33FF', '#DADBE1', '#FF4059', '#FF865A', '#FFAB34', '#3BAC63', '#02BFE4', '#824EC0', '#624ED6'],
   yaxis: {
     labels: {
       show: false,
@@ -72,12 +71,14 @@ export default {
       series, seriesIndex, dataPointIndex, w,
     }: any) {
       const date = w.config.series[0].data[dataPointIndex].x;
+      const { xType } = w.config;
 
       return `
         <div class="c-t">
-          <div>
-            ${hour(date)} - ${dayName(date)} - ${month(date)}
-          </div>
+          ${(xType === 'day')
+    ? `<div>${hour(date)}</div>`
+    : `<div>${hour(date)} - ${dayName(date)} - ${month(date)}</div>`
+}
           <div class="series">
             ${generateSeries(w, dataPointIndex)}
           </div>

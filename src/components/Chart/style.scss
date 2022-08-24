@@ -52,7 +52,9 @@
     @apply hidden;
   
     &:nth-of-type(4n),
-    &:nth-of-type(1) {
+    &:first-child,
+    &:last-child
+    &:not(:nth-last-of-type(1n)) {
       @apply block;
     }
   }
@@ -66,7 +68,7 @@
 }
 
 .apexcharts-legend {
-  @apply flex gap-xl;
+  @apply flex flex-row-reverse justify-end gap-xl #{!important};
 
   &-series {
     display: flex !important;
