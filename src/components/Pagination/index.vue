@@ -8,20 +8,30 @@
             {{ $t("pagination.rowNumber") }}
           </span>
           <div class="relative inline-block">
-            <Button
+            <!-- <Button
               :text="String(limit)"
               type="secondary"
               size="small"
               suffix-icon="angleDown"
               @click.native="limitBox = !limitBox"
-            />
-            <div class="items-box">
+            /> -->
+            <Dropdown :list="limitsList" width="63px" maxHeight="224px">
+              <template slot="button">
+                <Button
+                  :text="String(limit)"
+                  type="secondary"
+                  size="small"
+                  after-icon="angleDown"
+                />
+              </template>
+            </Dropdown>
+            <!-- <div class="items-box">
               <Popover
                 v-show="limitBox"
                 :items="limitsList"
                 @select="emitChangeLimit"
               />
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="offset">
@@ -31,7 +41,17 @@
       <div class="left-side">
         <div class="page">
           <div class="relative inline-block">
-            <Button
+            <Dropdown :list="pagesList" width="63px" maxHeight="224px">
+              <template slot="button">
+                <Button
+                  :text="String(page)"
+                  type="tertiary"
+                  size="small"
+                  after-icon="angleDown"
+                />
+              </template>
+            </Dropdown>
+            <!-- <Button
               :text="String(page)"
               type="tertiary"
               size="small"
@@ -44,7 +64,7 @@
                 :items="pagesList"
                 @select="emitChangePage"
               />
-            </div>
+            </div> -->
           </div>
           <span class="page-title">
             {{ $t("pagination.pageNumber", { lastPage }) }}
@@ -92,9 +112,9 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import logic from './logic';
-import './style.scss';
+import Vue from "vue";
+import logic from "./logic";
+import "./style.scss";
 
 export default Vue.extend({ mixins: [logic] });
 </script>
