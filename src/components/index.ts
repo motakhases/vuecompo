@@ -113,3 +113,7 @@ export { default as Skeleton } from './Skeleton/index.vue';
 export { default as CopyToClipboard } from './CopyToClipboard/index.vue';
 
 export { default as Zp } from './Zp/index.vue';
+
+export { default as Otp } from './Otp/index.vue';
+
+export { default as Timer } from './Timer/index.vue';

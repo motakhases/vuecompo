@@ -10,7 +10,7 @@
     :options="options"
     :series="series"
     :height="height"
-    ref="chart"
+    ref="Chart"
   />
 </template>
 
