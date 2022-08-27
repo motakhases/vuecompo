@@ -102,7 +102,7 @@
                       type="tertiary"
                       size="small"
                       :icon="item.icon"
-                      v-for="(item, index) in actions.slice(0, 2)"
+                      v-for="(item, index) in actions.filter((i)=>i.icon).slice(0, 2)"
                       :key="index"
                       @click.native="item.action(td)"
                     />
