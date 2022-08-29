@@ -262,17 +262,17 @@ export default class Select extends Vue {
     // const decs = title.concat(text);
     // this.textareaValue = this.textareaValue.concat(decs);
     // this.inputValue = this.inputValue.concat(title);
-    // if (title) {
+    if (option.title) {
     //   // this.tagList = [...this.tagList, { label: title }];
     //   this.$set(this.tagList, this.tagList.length, { label: title });
     //   this.isTagValue = true;
     //   console.log(this.isTagValue);
-    // this.$nextTick(() => {
-    //   this.$el
-    //     .querySelectorAll<HTMLInputElement>('.tag-input')
-    //     [this.inputs.length - 2]?.focus();
-    // });
-    // }
+      this.$nextTick(() => {
+        this.$el
+          .querySelectorAll<HTMLInputElement>('.tag-input')
+          [this.inputs.length - 2]?.focus();
+      });
+    }
 
     const inputsLatestObjectIndex = this.inputs.length - 1;
     if (!this.inputs[inputsLatestObjectIndex].value) {
@@ -281,12 +281,13 @@ export default class Select extends Vue {
         value: '',
       };
     } else {
-      const empty = this.inputs.indexOf(
-        this.inputs.filter((i) => !i.title && !i.value.trim())[0],
-      );
-      if (empty) {
-        this.inputs.splice(empty, 1);
-      }
+      console.log(this.inputs, 'this.inputs');
+      // const empty = this.inputs.indexOf(
+      //   this.inputs.filter((i) => !i.title && !i.value.trim())[0],
+      // );
+      // if (empty) {
+      //   this.inputs.splice(empty, 1);
+      // }
       this.inputs.push({
         title: option.title,
         value: '',
@@ -315,8 +316,14 @@ export default class Select extends Vue {
   }
 
   activeNextInput(value, index) {
-    const hasValue = value;
-    if (hasValue) {
+    if (this.inputs[index].title) {
+      if (value) {
+        this.inputs[index + 1].disabled = false;
+        this.$nextTick(() => {
+          this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
+        });
+      }
+    } else if (value.trim()) {
       this.inputs[index + 1].disabled = false;
       this.$nextTick(() => {
         this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
@@ -390,6 +397,10 @@ export default class Select extends Vue {
 
     // otherwise filter the list based on value that user is typing
     this.filteredOptions = this.options.filter((option: ISelectOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()));
+  }
+
+  filterInputs(value, event: KeyboardEvent) {
+    this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(value.toLowerCase()));
   }
 
   onKeyDown(e: KeyboardEvent): void {

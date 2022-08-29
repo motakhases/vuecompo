@@ -5,12 +5,12 @@
       :disabled="disabled"
     >
       <div class="relative w-full h-full flex items-center">
-        <!-- <span class="absolute z-[9]" v-if="!tagList.length && !searchInputVal && !isBoxFocused">جستجو</span> -->
+        <span class="absolute z-[9]" v-if="!inputs[0].value && !isBoxFocused">جستجو</span>
         <div class="tags">
           <span
             v-for="(input, index) in inputs"
             :key="index"
-            :class="['flex', !input.title ? 'w-full' : '']"
+            :class="['flex', !input.title && !input.value  ? 'w-full' : '']"
           >
             <!-- <span v-if="input.title">
               {{ input.title }}
@@ -26,8 +26,9 @@
               v-show="!input.disabled"
               @keydown.delete="removeInput(input, index)"
               @keydown.space="activeNextInput(input.value, index)"
+               @keyup="(e) => filterInputs(input.value, e)"
               :class="[
-                'outline-none min-w-md min-w-[12px] tag-input',
+                'outline-none min-w-md min-w-[12px] tag-input bg-transparent', !input.title && !input.value  ? 'w-full' : '',
               ]"
               @focus="!input.title ? onFocusIn() : null"
               size="1"

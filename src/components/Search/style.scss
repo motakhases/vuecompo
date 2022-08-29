@@ -106,5 +106,5 @@
 }
 
 .tags {
-  @apply select-none w-full flex;
+  @apply select-none w-full flex relative z-20 bg-transparent;
 }
