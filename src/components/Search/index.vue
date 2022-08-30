@@ -1,14 +1,14 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
     {{ isInputFocused }}
-    {{ inputs }}
+    {{ activeInput }}
     <div
       :class="['zpl-search', isBoxFocused ? 'focused' : '']"
       @focusin="searchFocusIn"
       @focusout="searchFocusOut"
     >
       <div class="w-full h-full flex items-center">
-        <span class="absolute z-[9]" v-if="!inputs[0].value && !isBoxFocused">
+        <span class="absolute z-[9] zpl-search-placeholder" v-if="!inputs[0].value && !inputs[0].title">
           {{ $t("common.search") }}
         </span>
         <div class="tags">
@@ -45,13 +45,13 @@
                   : '',
                 !input.value && !input.disabled ? 'flex-1' : '',
                 input.disabled ? 'flex-1' : '',
-                inputs.length - 1 === index && !input.disabled ? 'w-full' : '',
+                inputs.length - 1 === index && !input.disabled ? 'flex-1' : '',
                 inputs.length - 2 === index && inputs[inputs.length-1].disabled ? 'flex-1':''
               ]"
               @focus="!input.title ? onFocusIn() : null"
               size="1"
               @input="(e) => inputsHandler(input, e)"
-              @keydown="onKeyDown"
+              @keydown="(e) => onKeyDown(index, e)"
               @focusout="onFocusOut"
             />
             <!-- <div
@@ -87,7 +87,7 @@
                 active: activeOptionIndex === i,
               },
             ]"
-            @click="selectOption(option)"
+            @click="selectOption(option , i)"
             @mouseenter="activateOption"
             @mouseleave="deactivateOption"
           >

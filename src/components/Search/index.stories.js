@@ -38,7 +38,7 @@ Default.args = {
       id: 4,
       title: "شناسه پرداخت:",
       text: "1255",
-      value: "id",
+      value: "pay",
       isUnique: true
     },
     {

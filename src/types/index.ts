@@ -93,8 +93,7 @@ export interface IActiveTerminal {
  * ---------------------------------------------------
  */
 export interface ISelectOptions {
-  title?: string;
-  text?:string;
+  text: string;
   value: string | number;
   disabled?: boolean;
   icon?: string;

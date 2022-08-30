@@ -13,6 +13,13 @@ interface IInput{
   value:string
   disabled?:boolean
 }
+interface ISelectItem{
+  title:string;
+  text:string
+  isUnique?:boolean
+  value: string
+}
+
 @Component({
   components: {
     Icon,
@@ -25,7 +32,7 @@ export default class Search extends Vue {
    * Props
    */
 
-  @Prop({ type: Array }) readonly options!: ISelectOptions[];
+  @Prop({ type: Array }) readonly options!: ISelectItem[];
 
   @Prop({ type: String, default: '' }) readonly value!: string;
 
@@ -49,13 +56,15 @@ export default class Search extends Vue {
 
   activeOptionIndex = -1;
 
-  filteredOptions: ISelectOptions[] = [];
+  filteredOptions: ISelectItem[] = [];
 
   inputValue = '';
 
   buttonSearchText = '';
 
   showMenueList = true;
+
+activeInput=0
 
 inputs:IInput[] = [{ title: null, value: '', disabled: false }];
 
@@ -84,6 +93,7 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     );
     document.addEventListener('scroll', this.updateStyle);
     window.addEventListener('resize', this.onResize);
+    this.filteredOptions = this.options;
   }
 
   @Watch('showList')
@@ -92,12 +102,11 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       if (this.showList) {
         this.updateStyle();
       } else if (!this.isBoxFocused) {
-        console.log(this.isBoxFocused, 'this.isBoxFocused)');
-        // this.isInputFocused = false;
+      // this.isInputFocused = false;
       }
     });
     if (this.showList) {
-      // append menu to body
+    // append menu to body
       document.body.appendChild(this.menuRef);
     }
   }
@@ -147,7 +156,7 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     // open dropdown
     this.showMenueList = true;
     this.showOptions();
-    this.filteredOptions = this.options;
+    // this.filteredOptions = this.options;
     // const isEnterKey = event.key === 'Enter';
     // if (isEnterKey) {
     //   this.showOptions();
@@ -219,29 +228,42 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     });
 
     if (option.isUnique) {
-      console.log('uniq');
       this.filteredOptions.splice(index, 1);
     }
   }
 
-  removeInput(input, index, event) {
-    console.log('inde', index);
-    if (!input.value && (index > 0 || input.title)) {
-      this.inputs.splice(index, 1);
-      this.inputs[index].disabled = false;
-      if (index === 0) {
-        this.onFocusIn(event);
-        this.buttonSearchText = '';
+  removeInput(input, index: number, event) {
+    if (index === 0) {
+      this.onFocusIn(event);
+      this.buttonSearchText = '';
+      if (input.title && !input.value) {
+        this.inputs.splice(index, 1);
+        if (!this.inputs.length) {
+          this.inputs.push({
+            title: null,
+            value: 'r',
+            disabled: false,
+          });
+        } this.filteredOptions = this.options;
       }
-      console.log('remove', index);
+    } else if (!input.value && (index > 0 || input.title)) {
+      this.inputs.splice(index, 1);
+      // this.inputs[index].disabled = false;
+      this.activeInput = index - 1;
+
+      // activeInput === index
+      this.$nextTick(() => {
+        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index - 1]?.focus();
+      });
     }
   }
 
-  activeNextInput(value, index) {
-    console.log('active space');
+  activeNextInput(value: string, index: number) {
     this.showMenueList = true;
-    this.filteredOptions = this.options;
-    console.log(this.filteredOptions, 'filteredOptions');
+    console.log('space');
+    this.showOptions();
+    // this.filteredOptions = this.options;
+    this.activeInput = index;
     // this.buttonSearchText = '';
     if (this.inputs[index].title) {
       if (value) {
@@ -253,7 +275,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       }
     } else if (value.trim()) {
       if (index === this.inputs.length - 1) {
-        console.log('text');
         this.inputs.push({
           title: null,
           value: '',
@@ -264,12 +285,40 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
         });
       } else {
         this.inputs[index + 1].disabled = false;
-        // this.filteredOptions = this.options;
+        this.showOptions();
         this.$nextTick(() => {
           this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
         });
       }
     }
+    this.filteredOptions = this.options;
+    const me = this.options.filter((i) => {
+      console.log(i);
+    const shayest=  this.inputs.filter((md) => {
+        console.log(md.title === i.title && i.isUnique);
+        // md.title === i.title && i.isUnique), 'hy  '
+        if(!i.isUnique){
+          return i
+        }else{
+           if (md.title === i.title && i.isUnique) {
+
+        } else {
+          return i;
+        }
+        }
+       
+      });
+      // if (i.isUnique) {
+console.log('shayeste', shayest)
+      // },
+      // return !i.isUnique;
+      // if (this.inputs.map((m) => m.title !== i.title && !i.isUnique)) {
+      //   return i;
+      // }
+      // (i.isUnique ? !this.inputs.some((m) => m.title === i.text) : '');
+    });
+    console.log(this.filteredOptions, 'this.filteredOptions');
+    console.log(me, 'me');
   }
 
   inputsHandler(input, event: Event) {
@@ -322,21 +371,21 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
   onKeyUp(event: KeyboardEvent): void {
     // if any key code in the list is pressed do nothing
     if (keyList.includes(event.key)) {
-      return;
+      console.log('ket');
     }
-    console.log('filterin');
     // otherwise filter the list based on value that user is typing
     // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
   }
 
   filterInputs(input, event: KeyboardEvent) {
-    this.filteredOptions = this.options;
+    // this.filteredOptions = this.options;
     if (!input.title) {
-      this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+      this.filteredOptions = this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
     }
+    console.log('here');
   }
 
-  onKeyDown(e: KeyboardEvent): void {
+  onKeyDown(index, e: KeyboardEvent): void {
     const isArrowDownKey = e.key === 'ArrowDown';
     const isArrowUpKey = e.key === 'ArrowUp';
     const isEnterKey = e.key === 'Enter';
@@ -390,7 +439,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
 
         // if enter key is pressed
       } else if (isEnterKey) {
-        console.log('enetee');
         // if there's active option and we have filter list
         if (this.activeOptionIndex >= 0 && this.filteredOptions) {
           // // take the name of active option
@@ -402,10 +450,10 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
           // // this.$emit('updateData', newValue);
           // this.inputValue = newValue;
           // close the dropdown
-          this.selectOption(this.filteredOptions[this.activeOptionIndex]);
+          this.selectOption(this.filteredOptions[this.activeOptionIndex], index);
 
           this.hideOptions();
-
+          console.log('enter');
           // disable the active option
           this.activeOptionIndex = -1;
         }
@@ -413,6 +461,7 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       // if dropdown is closed and enter key is pressed
     } else if (isEnterKey) {
       // open the dropdown
+
       // this.showOptions();
       // // show the compelete list
       // this.filteredOptions = this.options;
@@ -420,7 +469,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
   }
 
   wrapper(index) {
-    console.log('clik wrpaper', index);
     const idx = index === 0 ? 0 : index - 1;
     this.$nextTick(() => {
       this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[idx]?.focus();
