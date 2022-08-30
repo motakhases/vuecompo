@@ -4,40 +4,28 @@ import {
 } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import { ISelectOptions, IEvent } from '@/types';
-import Skeleton from '@/components/Skeleton/index.vue';
 import Label from '@/components/Label/index.vue';
 import Button from '@/components/Button/index.vue';
-import { watch } from 'fs';
 
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
-
+interface IInput{
+  title:string | null;
+  value:string
+  disabled?:boolean
+}
 @Component({
   components: {
     Icon,
-    Skeleton,
     Label,
     Button,
   },
 })
-export default class Select extends Vue {
-  // @VModel({ type: String }) model!: string
-
+export default class Search extends Vue {
   /**
    * Props
    */
-  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean;
-
-  @Prop({ type: String }) readonly label?: string;
-
-  @Prop({ type: String }) readonly inputName?: string;
-
-  @Prop({ type: String }) readonly successMessage?: string;
 
   @Prop({ type: Array }) readonly options!: ISelectOptions[];
-
-  @Prop({ type: [String, Object] }) readonly rules?: string | object;
-
-  @Prop({ type: String }) readonly placeholder?: string;
 
   @Prop({ type: String, default: '' }) readonly value!: string;
 
@@ -49,10 +37,6 @@ export default class Select extends Vue {
   @Ref() readonly menuRef!: HTMLElement;
 
   @Ref() readonly inputRef!: HTMLElement;
-
-  @Ref() readonly textInputRef!: HTMLElement;
-
-  @Ref() readonly tagInputRef!: HTMLElement;
 
   /**
    * Data options
@@ -67,23 +51,13 @@ export default class Select extends Vue {
 
   filteredOptions: ISelectOptions[] = [];
 
-  inputVal = '';
-
-  textareaValue = '';
-
-  tagList = [];
-
   inputValue = '';
-
-  isTagValue = false;
-
-  searchInputVal = '';
 
   buttonSearchText = '';
 
   showMenueList = true;
 
-  inputs = [{ title: null, value: '' }];
+inputs:IInput[] = [{ title: null, value: '', disabled: false }];
 
   style = {
     top: '',
@@ -91,23 +65,11 @@ export default class Select extends Vue {
     width: '',
   };
 
-  get searchModel(): string {
-    return this.searchInputVal;
-  }
-
-  set searchModel(value: string) {
-    this.searchInputVal = value;
-    this.$emit('input', value);
-  }
-
   get inputModel(): string {
     return this.inputValue;
   }
 
   set inputModel(value: string) {
-    // this.inputVal = this.options
-    //   ? this.options.filter((i) => i.value === this.value)[0].text
-    //   : '';
     this.inputValue = value;
   }
 
@@ -121,71 +83,23 @@ export default class Select extends Vue {
       false,
     );
     document.addEventListener('scroll', this.updateStyle);
-    // this.inputRef.children[0].addEventListener('click', this.onButtonClick, false);
     window.addEventListener('resize', this.onResize);
   }
-
-  created(): void {
-    this.inputVal = this.options && this.value.length
-      ? this.options.filter((i) => i.value === this.value)[0].text
-      : '';
-    this.isInputFocused = !!this.value.length;
-    this.filteredOptions = this.options;
-  }
-
-  @Watch('loading')
-  updateOptions() {
-    this.filteredOptions = this.options;
-  }
-
-  // @Watch('value')
-  // updateValue() {
-  //   this.inputVal = this.options && this.value.length
-  //     ? this.options.filter((i) => i.value === this.value)[0].text
-  //     : '';
-  // }
 
   @Watch('showList')
   watchShowList(): void {
     this.$nextTick(() => {
       if (this.showList) {
         this.updateStyle();
+      } else if (!this.isBoxFocused) {
+        console.log(this.isBoxFocused, 'this.isBoxFocused)');
+        // this.isInputFocused = false;
       }
     });
     if (this.showList) {
       // append menu to body
       document.body.appendChild(this.menuRef);
     }
-  }
-
-  @Watch('isTagValue')
-  changeTag() {
-    if (!this.isTagValue) {
-      this.textInputRef.focus();
-      this.$nextTick(() => {
-        this.$el
-          .querySelectorAll<HTMLInputElement>('.searchTextInput')[0]
-          ?.focus();
-        // console.log(this.$el.getElementsByClassName('searchTextInput')[0]);
-      });
-    }
-  }
-
-  @Watch('tagList')
-  tag() {
-    console.log('tag change');
-    const list: string[] = [];
-    this.tagList.map((item) => {
-      if (item.value) {
-        this.showMenueList = false;
-        this.showOptions();
-        // list.push(`" ${item.label} ${item.value} "`);
-      } else {
-        // this.isTagValue = true;
-      }
-    });
-    console.log(list);
-    this.buttonSearchText = list.join();
   }
 
   /**
@@ -216,38 +130,42 @@ export default class Select extends Vue {
     this.inputValue = (event.target as HTMLInputElement).value;
   }
 
-  onBoxclick() {
-    if (this.isTagValue) {
-      this.$nextTick(() => {
-        this.$el
-          .querySelectorAll<HTMLInputElement>('.tag-input')
-          [this.tagList.length - 1]?.focus();
-      });
-    }
-  }
+  // onBoxclick() {
+  //   if (this.isTagValue) {
+  //     this.$nextTick(() => {
+  //       this.$el
+  //         .querySelectorAll<HTMLInputElement>('.tag-input')
+  //         [this.tagList.length - 1]?.focus();
+  //     });
+  //   }
+  // }
 
   onFocusIn(event: KeyboardEvent): void {
     // for adding active label style
-    this.isInputFocused = true;
     this.isBoxFocused = true;
 
     // open dropdown
-    if (this.tagList.length) {
-      // console.log(this.tagList[this.tagList.length - 1]);
-      // if(this.tagList[length - 1])
-    }
     this.showMenueList = true;
     this.showOptions();
     this.filteredOptions = this.options;
-    const isEnterKey = event.key === 'Enter';
-    if (isEnterKey) {
-      this.showOptions();
+    // const isEnterKey = event.key === 'Enter';
+    // if (isEnterKey) {
+    //   this.showOptions();
+    // }
+  }
+
+  activeInputHandler() {
+    const isInputActive = document.querySelector('.zpl-search')?.classList.contains('focused');
+    if (isInputActive) {
+      this.isInputFocused = true;
+    } else {
+      this.isInputFocused = false;
     }
   }
 
   onFocusOut(): void {
-    if (!this.value || !this.inputVal) {
-      this.isInputFocused = false;
+    if (!this.value || !this.inputValue) {
+      // this.isInputFocused = false;
     }
     // to remove active class
     this.activeOptionIndex = -1;
@@ -257,8 +175,8 @@ export default class Select extends Vue {
     // this.inputVal = text;
     this.$emit('input', option.value);
     this.hideOptions();
-    this.isInputFocused = true;
     this.isBoxFocused = false;
+    this.activeInputHandler();
     // const decs = title.concat(text);
     // this.textareaValue = this.textareaValue.concat(decs);
     // this.inputValue = this.inputValue.concat(title);
@@ -268,12 +186,9 @@ export default class Select extends Vue {
     //   this.isTagValue = true;
     //   console.log(this.isTagValue);
       this.$nextTick(() => {
-        this.$el
-          .querySelectorAll<HTMLInputElement>('.tag-input')
-          [this.inputs.length - 2]?.focus();
+        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 2]?.focus();
       });
     }
-
     const inputsLatestObjectIndex = this.inputs.length - 1;
     if (!this.inputs[inputsLatestObjectIndex].value) {
       this.inputs[inputsLatestObjectIndex] = {
@@ -281,13 +196,13 @@ export default class Select extends Vue {
         value: '',
       };
     } else {
-      console.log(this.inputs, 'this.inputs');
-      // const empty = this.inputs.indexOf(
-      //   this.inputs.filter((i) => !i.title && !i.value.trim())[0],
-      // );
-      // if (empty) {
-      //   this.inputs.splice(empty, 1);
-      // }
+      const empty = this.inputs.indexOf(
+        this.inputs.filter((i) => !i.title && !i.value.trim())[0],
+      );
+      if (empty) {
+        this.inputs.splice(empty, 1);
+      }
+
       this.inputs.push({
         title: option.title,
         value: '',
@@ -304,67 +219,75 @@ export default class Select extends Vue {
     });
 
     if (option.isUnique) {
-      this.options.splice(index, 1);
+      console.log('uniq');
+      this.filteredOptions.splice(index, 1);
     }
   }
 
-  removeInput(input, index) {
+  removeInput(input, index, event) {
+    console.log('inde', index);
     if (!input.value && (index > 0 || input.title)) {
       this.inputs.splice(index, 1);
       this.inputs[index].disabled = false;
+      if (index === 0) {
+        this.onFocusIn(event);
+        this.buttonSearchText = '';
+      }
+      console.log('remove', index);
     }
   }
 
   activeNextInput(value, index) {
+    console.log('active space');
+    this.showMenueList = true;
+    this.filteredOptions = this.options;
+    console.log(this.filteredOptions, 'filteredOptions');
+    // this.buttonSearchText = '';
     if (this.inputs[index].title) {
       if (value) {
         this.inputs[index + 1].disabled = false;
+
         this.$nextTick(() => {
           this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
         });
       }
     } else if (value.trim()) {
-      this.inputs[index + 1].disabled = false;
-      this.$nextTick(() => {
-        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
+      if (index === this.inputs.length - 1) {
+        console.log('text');
+        this.inputs.push({
+          title: null,
+          value: '',
+          disabled: false,
+        });
+        this.$nextTick(() => {
+          this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
+        });
+      } else {
+        this.inputs[index + 1].disabled = false;
+        // this.filteredOptions = this.options;
+        this.$nextTick(() => {
+          this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
+        });
+      }
+    }
+  }
+
+  inputsHandler(input, event: Event) {
+    (event?.target as HTMLTextAreaElement)?.setAttribute('size', input.value.length);
+    if (input.value.trim()) {
+      const list: string[] = [];
+      if (input.title) {
+        // this.showMenueList = false;
+      }
+      // this.showOptions();
+      this.inputs.forEach((item) => {
+        if (item.value) {
+          list.push(`${item.title ?? ''} ${item.value}`);
+        } else {
+          // this.isTagValue = true;
+        }
       });
-    }
-  }
-
-  inputsHandler(value, event: Event) {
-    event.target.setAttribute('size', value.length);
-  }
-
-  tagInputHandler(index, label, event: Event): void {
-    const { value } = event.target as HTMLInputElement;
-    event.target.setAttribute('size', value.length);
-
-    // this.tagList[index] = { ...this.tagList[index]};
-    this.$set(this.tagList, index, { label, value });
-  }
-
-  tagInputFocusin(index, event: KeyboardEvent) {
-    this.hideOptions();
-    this.isTagValue = false;
-    if (!this.searchInputVal.trim().length) {
-      this.isTagValue = true;
-    }
-  }
-
-  tagInputKeyUp() {
-    this.isTagValue = false;
-    this.textInputRef.focus();
-    this.$nextTick(() => {
-      this.$el
-        .querySelectorAll<HTMLInputElement>('.searchTextInput')[0]
-        ?.focus();
-    });
-  }
-
-  tagInputDelete(index) {
-    if (!this.tagList[index].value.length) {
-      this.tagList.splice(index, 1);
-      this.isTagValue = false;
+      this.buttonSearchText = `"${list.join(' ')}"`;
     }
   }
 
@@ -383,10 +306,17 @@ export default class Select extends Vue {
     if (!this.$el.contains(event.target as HTMLInputElement)) {
       this.hideOptions();
       this.isBoxFocused = false;
-      if (!this.value || !this.inputVal) {
-        this.isInputFocused = false;
-      }
+      this.activeInputHandler();
     }
+  }
+
+  searchFocusIn() {
+    this.activeInputHandler();
+  }
+
+  searchFocusOut() {
+    // this.isInputFocused = false;
+    // console.log('searchFocusOut')
   }
 
   onKeyUp(event: KeyboardEvent): void {
@@ -394,13 +324,16 @@ export default class Select extends Vue {
     if (keyList.includes(event.key)) {
       return;
     }
-
+    console.log('filterin');
     // otherwise filter the list based on value that user is typing
-    this.filteredOptions = this.options.filter((option: ISelectOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()));
+    // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
   }
 
-  filterInputs(value, event: KeyboardEvent) {
-    this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(value.toLowerCase()));
+  filterInputs(input, event: KeyboardEvent) {
+    this.filteredOptions = this.options;
+    if (!input.title) {
+      this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+    }
   }
 
   onKeyDown(e: KeyboardEvent): void {
@@ -457,17 +390,20 @@ export default class Select extends Vue {
 
         // if enter key is pressed
       } else if (isEnterKey) {
+        console.log('enetee');
         // if there's active option and we have filter list
         if (this.activeOptionIndex >= 0 && this.filteredOptions) {
-          // take the name of active option
-          const newValue = this.filteredOptions[this.activeOptionIndex]
-            ? this.filteredOptions[this.activeOptionIndex].text
-            : '';
+          // // take the name of active option
+          // const newValue = this.filteredOptions[this.activeOptionIndex]
+          //   ? this.filteredOptions[this.activeOptionIndex].title
+          //   : '';
 
-          // update the value of input
-          // this.$emit('updateData', newValue);
-          this.inputVal = newValue;
+          // // update the value of input
+          // // this.$emit('updateData', newValue);
+          // this.inputValue = newValue;
           // close the dropdown
+          this.selectOption(this.filteredOptions[this.activeOptionIndex]);
+
           this.hideOptions();
 
           // disable the active option
@@ -477,10 +413,18 @@ export default class Select extends Vue {
       // if dropdown is closed and enter key is pressed
     } else if (isEnterKey) {
       // open the dropdown
-      this.showOptions();
-      // show the compelete list
-      this.filteredOptions = this.options;
+      // this.showOptions();
+      // // show the compelete list
+      // this.filteredOptions = this.options;
     }
+  }
+
+  wrapper(index) {
+    console.log('clik wrpaper', index);
+    const idx = index === 0 ? 0 : index - 1;
+    this.$nextTick(() => {
+      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[idx]?.focus();
+    });
   }
 
   activateOption(e: IEvent): void {

@@ -1,20 +1,31 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
+    {{ isInputFocused }}
+    {{ inputs }}
     <div
       :class="['zpl-search', isBoxFocused ? 'focused' : '']"
-      :disabled="disabled"
+      @focusin="searchFocusIn"
+      @focusout="searchFocusOut"
     >
-      <div class="relative w-full h-full flex items-center">
-        <span class="absolute z-[9]" v-if="!inputs[0].value && !isBoxFocused">جستجو</span>
+      <div class="w-full h-full flex items-center">
+        <span class="absolute z-[9]" v-if="!inputs[0].value && !isBoxFocused">
+          {{ $t("common.search") }}
+        </span>
         <div class="tags">
           <span
             v-for="(input, index) in inputs"
             :key="index"
-            :class="['flex', !input.title && !input.value  ? 'w-full' : '']"
+            :class="[
+              'zpl-search-tag-input',
+              !input.title && !input.value.trim() && !input.disabled
+                ? 'w-full'
+                : '',
+              !input.value && !input.disabled ? 'w-full' : '',
+                inputs.length - 1 === index && !input.disabled ? 'w-full' : '',
+                                inputs.length - 2 === index && inputs[inputs.length-1].disabled ? 'w-full':''
+
+            ]"
           >
-            <!-- <span v-if="input.title">
-              {{ input.title }}
-            </span> -->
             <Label
               type="neutral"
               size="small"
@@ -25,78 +36,47 @@
               v-model="input.value"
               v-show="!input.disabled"
               @keydown.delete="removeInput(input, index)"
-              @keydown.space="activeNextInput(input.value, index)"
-               @keyup="(e) => filterInputs(input.value, e)"
+              @keydown.space="(e) => activeNextInput(input.value, index, e)"
+              @keyup="(e) => filterInputs(input, e)"
               :class="[
-                'outline-none min-w-md min-w-[12px] tag-input bg-transparent', !input.title && !input.value  ? 'w-full' : '',
+                'tag-input',
+                !input.title && !input.value.trim() && !input.disabled
+                  ? 'w-full'
+                  : '',
+                !input.value && !input.disabled ? 'flex-1' : '',
+                input.disabled ? 'flex-1' : '',
+                inputs.length - 1 === index && !input.disabled ? 'w-full' : '',
+                inputs.length - 2 === index && inputs[inputs.length-1].disabled ? 'flex-1':''
               ]"
               @focus="!input.title ? onFocusIn() : null"
               size="1"
-              @input="(e) => inputsHandler(input.value, e)"
+              @input="(e) => inputsHandler(input, e)"
+              @keydown="onKeyDown"
+              @focusout="onFocusOut"
             />
+            <!-- <div
+              v-if="input.disabled"
+              class="absolute inset-0"
+              @click="() => wrapper(index)"
+            /> -->
           </span>
-          <!-- <span v-for="(tag, index) in tagList" :key="index">
-            <Label type="neutral" size="small" :text="tag.label" />
-            <input
-              class="outline-none min-w-md min-w-[12px] tag-input"
-              @input="(e) => tagInputHandler(index, tag.label, e)"
-              @focusin="tagInputFocusin(index)"
-              @keydown.space="tagInputKeyUp"
-              @keydown.delete="(e) => tagInputDelete(index, e)"
-              ref="tagInputRef"
-              size="1"
-            />
-          </span> -->
         </div>
-        <!-- <input
-          class="
-            relative
-            z-10
-            outline-none
-            flex-1
-            searchTextInput
-            bg-transparent
-          "
-          ref="textInputRef"
-          @focus="onFocusIn"
-          v-show="!isTagValue"
-          id="searchTextInput"
-          v-model="searchModel"
-        />
-        <div v-if="isTagValue" class="h-full flex-1" @click="onBoxclick"></div> -->
-        <!-- <form class="w-full h-full ">
-          <textarea
-            class="zpl-search-input"
-            :name="inputName"
-            :value="inputModel"
-            @focusout="onFocusOut"
-            @keyup="onKeyUp"
-            @keydown="onKeyDown"
-            @input="inputHandler"
-             @focus="onFocusIn"
-            rows="1"
-            autocomplete="off"
-            spellcheck="false"
-            style="overflow: hidden; overflow-wrap: break-word"
-          />
-        </form> -->
+      </div>
+      <div class="zpl-search-icon">
+        <Icon name="SearchSmall" />
       </div>
     </div>
-    <div class="zpl-search-icon">
-      <Icon name="SearchSmall" />
-    </div>
-    <Label
-      v-if="!isInputFocused"
-      class="zpl-search-dash"
-      size="small"
-      type="neutral"
-      text="/"
-    />
+    <Label class="zpl-search-dash" size="small" type="neutral" text="/" />
     <div ref="menuRef">
       <!-- dropdown list -->
       <div :class="['zpl-search-list']" v-if="showList" :style="style">
-        <div class="zpl-search-format">{{ $t("common.search_format") }}</div>
-        <ul id="select-dropdown" v-if="showMenueList">
+        <div
+          class="zpl-search-format"
+          v-if="showMenueList && filteredOptions.length"
+        >
+          {{ $t("common.search_format") }}
+        </div>
+        <ul id="select-dropdown" v-if="showMenueList && filteredOptions.length">
           <li
             v-for="(option, i) in filteredOptions"
             :key="option.id"
@@ -104,8 +84,6 @@
             :class="[
               'zpl-search-item',
               {
-                disabled: option.disabled,
-                selected: value === option.value,
                 active: activeOptionIndex === i,
               },
             ]"
@@ -117,11 +95,6 @@
               <Label type="neutral" size="small" :text="option.title" />
               <div class="title">{{ option.text }}</div>
             </div>
-            <!-- <Icon
-              v-if="value === option.value"
-              name="tickSmall"
-              class="zpl-search-selected-icon"
-            /> -->
           </li>
         </ul>
         <Button
@@ -129,7 +102,8 @@
           type="primary"
           size="medium"
           :text="` مشاهده نتایج  ${buttonSearchText} `"
-          class="w-full"
+          class="w-full justify-start truncate"
+          beforeIcon="ArrowLeft"
         />
       </div>
     </div>
@@ -137,9 +111,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import logic from "./logic";
-import "./style.scss";
+import Vue from 'vue';
+import logic from './logic';
+import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
 </script>

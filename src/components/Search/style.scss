@@ -12,16 +12,13 @@
     @apply shadow-border-hover;
   }
 
-  /* Disabled */
-  &[disabled] {
-    @apply bg-surface-disabled border-border-disabled;
-    @apply dark:bg-surface-dark-disabled dark:border-border-dark-disabled;
-  }
-
   /* focus */
   &:focus-within:not(.error) {
-    @apply border-interactive-focus outline-none shadow-border-focus-soft;
+    @apply border-interactive-focus outline-none shadow-border-focus-soft rounded-sm;
     @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
+    &~.zpl-search-dash{
+      @apply hidden
+    }
   }
   &.focused {
     @apply border-interactive-focus outline-none shadow-border-focus-soft rounded-sm;
@@ -36,8 +33,15 @@
     }
   }
   &-format {
-    @apply p-xs mb-xs text-text-soft text-ls-cp font-medium;
+    @apply p-xs text-text-soft text-ls-cp font-medium;
     @apply dark:text-text-dark-soft;
+  }
+  &-tag-input {
+    @apply flex gap-xs;
+    input {
+      @apply outline-none min-w-[12px]  bg-transparent text-text text-b2;
+      @apply dark:text-text-dark;
+    }
   }
 }
 .zpl-search-input {
@@ -55,7 +59,7 @@
 
 .zpl-search-list {
   /* Default */
-  @apply flex-col bg-surface border border-border-soft shadow-elevation-100 rounded-sm 
+  @apply flex flex-col gap-xs bg-surface border border-border-soft shadow-elevation-100 rounded-sm 
 	p-xs fixed w-full mt-2xs z-50;
   @apply dark:bg-surface-dark dark:border-border-dark-soft	dark:shadow-dark-elevation-100;
   direction: rtl;
@@ -67,10 +71,6 @@
 .zpl-search-item {
   /* Default */
   @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2;
-
-  &:not(:last-child) {
-    @apply mb-2xs;
-  }
 
   /* Active */
   @apply active:bg-surface-active;
@@ -106,5 +106,5 @@
 }
 
 .tags {
-  @apply select-none w-full flex relative z-20 bg-transparent;
+  @apply select-none w-full flex z-20 bg-transparent;
 }
