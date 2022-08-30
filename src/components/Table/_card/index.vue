@@ -21,13 +21,13 @@
               :icon="label.icon"
             />
           </template>
-           <template v-if="item.type === 'label'">
+          <template v-if="item.type === 'label'">
             <Label
               v-for="(label, labelIndex) in item.data"
               :key="labelIndex"
               :text="label.text"
               :type="label.type"
-               size="small"
+              size="small"
             />
           </template>
         </div>
@@ -66,12 +66,27 @@
         @click.native="handleClickFromOutside()"
         v-if="handleClickFromOutside"
       />
-      <div v-if="actions" class="zpl-table-action">
-        <Dropdown :list="actions" :custom-payload="td">
-          <template slot="button">
-            <Button type="tertiary" size="small" icon="DotsMenu" />
-          </template>
-        </Dropdown>
+      <div v-if="actions" class="w-full">
+        <div
+          v-if="actions.length === 1"
+          :class="['outside-action flex justify-end']"
+        >
+          <Button
+            type="tertiary"
+            size="small"
+            :icon="item.icon"
+            v-for="(item, index) in actions"
+            :key="index"
+            @click.native="item.action(td)"
+          />
+        </div>
+        <div v-if="actions.length > 1" class="zpl-table-action">
+          <Dropdown :list="actions" :custom-payload="td">
+            <template slot="button">
+              <Button type="tertiary" size="small" icon="DotsMenu" />
+            </template>
+          </Dropdown>
+        </div>
       </div>
     </div>
   </div>
