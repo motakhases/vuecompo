@@ -37,10 +37,81 @@ export default class Chart extends Vue {
     },
   }
 
+  get resolveData() {
+    /**
+     * detect each index length
+     * --------------------------------------
+     */
+    const lengths: number[] = [];
+    if (this.series.length) {
+      this.series.forEach((s) => {
+        lengths.push(s.data.length);
+      });
+    }
+
+    /**
+     * find longer length index
+     * --------------------------------------
+     */
+    const longestLength = lengths.indexOf(Math.max(...lengths));
+
+    /**
+     * Create categories based on
+     * the longer array
+     * --------------------------------------
+     */
+    const category: string[] = [];
+    this.series[longestLength].data.forEach((x) => {
+      category.push(x.x);
+    });
+
+    /**
+     * Create new series without
+     * categories
+     * --------------------------------------
+     */
+    const series: any[] = [];
+    this.series.forEach((s, index) => {
+      series[index] = {
+        name: s.name,
+        data: [],
+      };
+      s.data.forEach((sData) => {
+        series[index].data.push(sData.y);
+      });
+    });
+
+    /**
+     * Make all data lengths equal
+     * --------------------------------------
+     */
+    series.forEach((s) => {
+      const diffNum = lengths[longestLength] - s.data.length;
+
+      if (s.data.length < lengths[longestLength]) {
+        for (let i = diffNum; i > 0; i -= 1) {
+          s.data.push(null);
+        }
+      }
+    });
+
+    console.log({
+      lengths,
+      longestLength,
+      category,
+      series,
+    });
+
+    return { category, series };
+  }
+
   mounted() {
     this.Chart.updateOptions({
       xType: this.xType,
       colors: this.colors,
+      xaxis: {
+        categories: this.resolveData.category,
+      },
     });
   }
 
