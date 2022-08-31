@@ -100,6 +100,7 @@
                   <div :class="['outside-action', {'outside-show': actions.length === 1}]">
                     <Button
                       type="tertiary"
+                      :class="[item.color ? `text-${item.color}` : null]"
                       size="small"
                       :icon="item.icon"
                       v-for="(item, index) in actions.filter((i)=>i.icon).slice(0, 2)"

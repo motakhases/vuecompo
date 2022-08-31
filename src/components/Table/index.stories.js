@@ -203,7 +203,7 @@ const Template = (_, { argTypes }) => ({
       {
         title: "ویرایش",
         icon: "PenEdit",
-        color: "",
+        color: "text-danger",
         action: (x) => {
           console.log("click");
           console.log(x);
@@ -220,6 +220,16 @@ const Template = (_, { argTypes }) => ({
         },
         isShow:()=> true,
       },
+    ],
+    actions2: [
+      {
+        icon: 'CircleDelete',
+        color: 'text-danger',
+        action: (x) => {
+          console.log(x)
+        },
+        isShow: () => true
+      }
     ]
   }),
   template: `
@@ -257,7 +267,7 @@ hasCustom
       hasCustom
       hasSubCustom
       hasImage
-      :actions="actions"
+      :actions="actions2"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">
