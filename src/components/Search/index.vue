@@ -27,9 +27,10 @@
                 ? 'w-full'
                 : '',
             ]"
+
           >
             <Label
-              type="outlined"
+              type="neutral"
               size="small"
               :text="input.title"
               v-if="input.title"
@@ -54,11 +55,11 @@
                   : '',
               ]"
               :style="[{ width: input.width }]"
-              @focus="!input.title ? onFocusIn() : null"
+              @focus="(e) => !input.title ? onFocusIn(e) : null"
               size="1"
               @input="(e) => inputsHandler(input, e)"
               @keydown="(e) => onKeyDown(index, e)"
-              @focusout="onFocusOut"
+               ref="tagRef"
             />
             <!-- <div
               v-if="input.disabled"
@@ -98,7 +99,7 @@
             @mouseleave="deactivateOption"
           >
             <div class="info">
-              <Label type="outlined" size="small" :text="option.title" />
+              <Label type="neutral" size="small" :text="option.title" />
               <div class="title">{{ option.text }}</div>
             </div>
           </li>

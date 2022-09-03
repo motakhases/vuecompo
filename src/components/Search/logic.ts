@@ -35,7 +35,7 @@ export default class Search extends Vue {
 
   @Prop({ type: Array }) readonly options!: ISelectItem[];
 
-  @Prop({ type: Function }) readonly onSearch!: () => void;
+  @Prop({ type: Function }) readonly onSearch!: (value: string) => void;
 
   /**
    * Refs
@@ -45,6 +45,8 @@ export default class Search extends Vue {
   @Ref() readonly menuRef!: HTMLElement;
 
   @Ref() readonly inputRef!: HTMLElement;
+
+  @Ref() readonly tagRef!: HTMLElement;
 
   /**
    * Data options
@@ -141,10 +143,6 @@ export default class Search extends Vue {
     this.showMenueList = true;
     this.showOptions();
     // this.filteredOptions = this.options;
-    // const isEnterKey = event.key === 'Enter';
-    // if (isEnterKey) {
-    //   this.showOptions();
-    // }
   }
 
   activeInputHandler() {
@@ -158,22 +156,17 @@ export default class Search extends Vue {
     }
   }
 
-  onFocusOut(): void {
-    // to remove active class
-    this.activeOptionIndex = -1;
-  }
-
   selectOption(option, index): void {
     // this.inputVal = text;
     this.$emit('input', option.value);
     this.hideOptions();
-    this.activeInputHandler();
+    // this.activeInputHandler();
+    // this.isInputFocused = true;
     if (option.title) {
       this.$nextTick(() => {
-        this.$el
-          .querySelectorAll<HTMLInputElement>('.tag-input')
-          [this.inputs.length - 2]?.focus();
+        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 2]?.focus();
       });
+      // this.focusNextInput(index);
     }
     const inputsLatestObjectIndex = this.inputs.length - 1;
     if (!this.inputs[inputsLatestObjectIndex].value) {
@@ -231,9 +224,7 @@ export default class Search extends Vue {
       this.inputs.splice(index, 1);
       this.activeInput = index - 1;
       this.$nextTick(() => {
-        this.$el
-          .querySelectorAll<HTMLInputElement>('.tag-input')
-          [index - 1]?.focus();
+        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index - 1]?.focus();
       });
     }
     if (value) {
@@ -243,19 +234,14 @@ export default class Search extends Vue {
 
   focusNextInput(index: number) {
     this.$nextTick(() => {
-      this.$el
-        .querySelectorAll<HTMLInputElement>('.tag-input')
-        [index + 1]?.focus();
+      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
     });
   }
 
   activeNextInput(value: string, index: number, event) {
-    this.showMenueList = true;
-
-    this.showOptions();
-    // this.filteredOptions = this.options;
+    // this.showMenueList = true;
+    // this.showOptions();
     this.activeInput = index;
-    // this.buttonSearchText = '';
     if (this.inputs[index].title) {
       if (value) {
         this.inputs[index + 1].disabled = false;
@@ -263,16 +249,19 @@ export default class Search extends Vue {
       }
     } else if (value.trim()) {
       if (index === this.inputs.length - 1) {
-        this.inputs.push({
-          title: null,
-          value: '',
-          disabled: false,
-        });
-        this.focusNextInput(index);
+        // this.inputs.push({
+        //   title: null,
+        //   value: '',
+        //   disabled: false,
+        // });
+        // this.focusNextInput(index);
+        // this.hideOptions()
+        this.showMenueList = false;
       } else {
         this.inputs[index + 1].disabled = false;
-        this.showOptions();
+        // this.showOptions();
         this.focusNextInput(index);
+        console.log('activa');
       }
     }
     this.filteredOptions = this.options.filter(
@@ -337,9 +326,58 @@ export default class Search extends Vue {
     // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
   }
 
-  filterInputs(input, index, event: KeyboardEvent) {
+  filterInputs(input, index: number, event: KeyboardEvent) {
     // this.filteredOptions = this.options;
-    console.log(input, 'input');
+    console.log('changer', input.value);
+    this.inputs[index].width = `${input.value.length}ch`;
+    this.tagRef[index].style.width = `${input.value.length}ch`;
+    // this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.style.width = `${input.value.length}ch`;
+    const regex = /([^ \\:]+ ?){1,2}: ?$/;
+    const isMatched = regex.test(input.value);
+    const myRegexp = new RegExp(regex);
+    const match = myRegexp.exec(input.value);
+    this.inputs[index].width = `${0}ch`;
+    if (match) {
+      // console.log('ms', index);
+      // event.target = ''
+      // console.log(this.filteredOptions.filter((option) => option?.title?.toLowerCase() === input.value));
+      const availableLabel = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
+      if (availableLabel.length) {
+        // console.log('is,amma', index, this.inputs);
+        // input.value = '';
+        this.inputs[index].value = input.value.replace(match[0], '');
+        // this.tagRef[index + 1].focus();
+        this.$nextTick(() => {
+          this.tagRef[index].style.width = `${input.value.length}ch`;
+          this.tagRef[index + 1].focus();
+        });
+        console.log(this.inputs[index].value, 'this.inputs[index].value');
+        // this.inputs[index].title = availableLabel[0].title;
+        if (this.inputs[index].value.trim()) {
+          this.inputs.push({
+            title: availableLabel[0].title,
+            value: '',
+          });
+        } else {
+          this.inputs[index].title = availableLabel[0].title;
+        }
+
+        this.inputs.push({
+          title: null,
+          value: '',
+          disabled: true,
+        });
+        this.hideOptions();
+        // event.target.value = ''
+      }
+    } else {
+      console.log('no ma');
+    }
+    const isEnterKey = event.key === 'Enter';
+    if (isEnterKey) {
+      this.hideOptions();
+      this.onSearch(this.buttonSearchText.replace(/['"]+/g, ''));
+    }
     if (!input.title) {
       // this.filteredOptions = this.filteredOptions.length
       //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
@@ -356,16 +394,14 @@ export default class Search extends Vue {
         this.filteredOptions = me.filter((option) => option?.title
           ?.toLowerCase()
           .includes(input.value.trim().toLowerCase()));
-        console.log(me, 'me');
       }
     }
     // this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
-    console.log(this.filteredOptions, 'filter inout');
     // this.inputWidth = `${event?.target.value.length}px`;
     this.inputs[index].width = `${event?.target.value.length}ch`;
   }
 
-  onKeyDown(index, e: KeyboardEvent): void {
+  onKeyDown(index: number, e: KeyboardEvent): void {
     const isArrowDownKey = e.key === 'ArrowDown';
     const isArrowUpKey = e.key === 'ArrowUp';
     const isEnterKey = e.key === 'Enter';
@@ -450,7 +486,7 @@ export default class Search extends Vue {
     }
   }
 
-  wrapper(index) {
+  wrapper(index: number) {
     const idx = index === 0 ? 0 : index - 1;
     this.$nextTick(() => {
       this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[idx]?.focus();
@@ -485,5 +521,29 @@ export default class Search extends Vue {
       this.menuRef?.parentNode?.removeChild(this.menuRef);
     }
     this.showList = false;
+    window.removeEventListener('keypress', this.onSlashPress);
+  }
+
+  created() {
+    window.addEventListener('keypress', this.onSlashPress);
+  }
+
+  onSlashPress(event: KeyboardEvent) {
+    if (!this.$el.contains(event.target as HTMLInputElement)) {
+      event.preventDefault();
+      if (event.key !== '/') {
+        return;
+      }
+
+      if (document.activeElement === this.inputRef) {
+        return;
+      }
+      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 1]?.focus();
+      //   if (event.code === 'Slash') {
+      //     this.showOptions();
+
+    //     this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 1]?.focus();
+    //   }
+    }
   }
 }
