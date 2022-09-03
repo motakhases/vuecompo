@@ -3,7 +3,7 @@ import {
   Vue, Component, Prop, Ref, Watch,
 } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
-import { ISelectOptions, IEvent } from '@/types';
+import { IEvent } from '@/types';
 import Label from '@/components/Label/index.vue';
 import Button from '@/components/Button/index.vue';
 
@@ -12,6 +12,7 @@ interface IInput{
   title:string | null;
   value:string
   disabled?:boolean
+  width?:string
 }
 interface ISelectItem{
   title:string;
@@ -33,8 +34,6 @@ export default class Search extends Vue {
    */
 
   @Prop({ type: Array }) readonly options!: ISelectItem[];
-
-  @Prop({ type: String, default: '' }) readonly value!: string;
 
   /**
    * Refs
@@ -359,6 +358,7 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
 
   filterInputs(input, index, event: KeyboardEvent) {
     // this.filteredOptions = this.options;
+    console.log(input, 'input');
     if (!input.title) {
       // this.filteredOptions = this.filteredOptions.length
       //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
@@ -366,7 +366,10 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       if (index === 0 && !input.value) {
         this.filteredOptions = this.options;
       } else {
-        this.filteredOptions = this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+        const me = this.options.filter((objFromA) => !this.inputs.find((objFromB) => objFromA.title === objFromB.title && objFromA.isUnique));
+
+        this.filteredOptions = me.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+        console.log(me, 'me');
       }
     }
     // this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));

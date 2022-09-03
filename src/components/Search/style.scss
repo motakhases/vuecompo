@@ -113,7 +113,7 @@
 }
 
 .tags {
-  @apply select-none w-full flex z-20 bg-transparent;
+  @apply select-none w-full flex z-20 bg-transparent gap-xs;
 }
 .input-sizer {
   display: inline-grid;

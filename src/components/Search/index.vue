@@ -2,7 +2,7 @@
   <div :class="['zpl-search-group']" ref="inputRef">
     {{inputWidth}}
     <div
-      :class="['zpl-search', isBoxFocused ? 'focused' : '']"
+      :class="['zpl-search']"
       @focusin="searchFocusIn"
       @focusout="searchFocusOut"
     >
