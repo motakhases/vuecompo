@@ -28,12 +28,6 @@ export default class Chart extends Vue {
     xaxis: {
       crosshairs: { show: false },
       tooltip: { enabled: false },
-      labels: {
-        trim: false,
-        rotate: 0,
-        hideOverlappingLabels: false,
-        formatter: (value: string) => this.xaxisFormatter(value),
-      },
     },
   }
 
@@ -95,24 +89,26 @@ export default class Chart extends Vue {
       }
     });
 
-    console.log({
-      lengths,
-      longestLength,
-      category,
-      series,
-    });
-
     return { category, series };
   }
 
   mounted() {
     this.Chart.updateOptions({
       xType: this.xType,
+      categories: this.resolveData.category,
       colors: this.colors,
       xaxis: {
         categories: this.resolveData.category,
+        labels: {
+          trim: false,
+          rotate: 0,
+          hideOverlappingLabels: false,
+          formatter: (value: string) => this.xaxisFormatter(value),
+        },
       },
     });
+
+    this.Chart.updateSeries(this.resolveData.series);
   }
 
   xaxisFormatter(value: string) {

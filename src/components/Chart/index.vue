@@ -9,7 +9,7 @@
     ]"
     :type="type"
     :options="options"
-    :series="resolveData.series"
+    :series="[]"
     :height="height"
     ref="Chart"
   />
