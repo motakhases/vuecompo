@@ -1,6 +1,6 @@
 .zpl-pagination {
   direction: rtl;
-  @apply flex justify-between text-b2 text-text;
+  @apply flex justify-between text-b2 text-text-soft;
   @apply dark:text-text-dark;
   .right-side {
     @apply flex items-center gap-x-md;
@@ -9,11 +9,13 @@
       @apply dark:border-border-dark-divider;
       .limit-title {
         @apply ml-xs;
+        @apply dark:text-text-dark-soft;
       }
     }
     .offset {
       .offset-title {
         @apply font-IRANYekanFaNum;
+        @apply dark:text-text-dark-soft;
       }
     }
   }

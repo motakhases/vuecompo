@@ -15,9 +15,13 @@ export default class Dropdown extends Vue {
 
   @Prop({ type: String }) readonly maxHeight?: string;
 
+  @Prop({ type: String }) readonly value?: string;
+
   @Prop({ type: Boolean, default: true }) readonly autoClose?: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly isClose?: boolean;
+
+  @Prop({ type: Boolean, default: false }) readonly selected?: boolean;
 
   @Prop({ type: [String, Object, Array, Number] }) readonly customPayload?: any;
 

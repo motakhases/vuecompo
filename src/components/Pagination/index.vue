@@ -8,30 +8,22 @@
             {{ $t("pagination.rowNumber") }}
           </span>
           <div class="relative inline-block">
-            <!-- <Button
-              :text="String(limit)"
-              type="secondary"
-              size="small"
-              suffix-icon="angleDown"
-              @click.native="limitBox = !limitBox"
-            /> -->
-            <Dropdown :list="limitsList" width="63px" maxHeight="224px">
+            <Dropdown
+              :list="limitsList"
+              width="68px"
+              maxHeight="224px"
+              selected
+              :value="String(page)"
+            >
               <template slot="button">
                 <Button
                   :text="String(limit)"
-                  type="secondary"
+                  type="neutral"
                   size="small"
                   after-icon="angleDown"
                 />
               </template>
             </Dropdown>
-            <!-- <div class="items-box">
-              <Popover
-                v-show="limitBox"
-                :items="limitsList"
-                @select="emitChangeLimit"
-              />
-            </div> -->
           </div>
         </div>
         <div class="offset">
@@ -41,30 +33,22 @@
       <div class="left-side">
         <div class="page">
           <div class="relative inline-block">
-            <Dropdown :list="pagesList" width="63px" maxHeight="224px">
+            <Dropdown
+              :list="pagesList"
+              width="68px"
+              maxHeight="224px"
+              selected
+              :value="String(page)"
+            >
               <template slot="button">
                 <Button
                   :text="String(page)"
-                  type="tertiary"
+                  type="neutral"
                   size="small"
                   after-icon="angleDown"
                 />
               </template>
             </Dropdown>
-            <!-- <Button
-              :text="String(page)"
-              type="tertiary"
-              size="small"
-              suffix-icon="angleDown"
-              @click.native="pageBox = !pageBox"
-            />
-            <div class="items-box">
-              <Popover
-                v-show="pageBox"
-                :items="pagesList"
-                @select="emitChangePage"
-              />
-            </div> -->
           </div>
           <span class="page-title">
             {{ $t("pagination.pageNumber", { lastPage }) }}
@@ -73,7 +57,7 @@
         <div class="arrows">
           <div v-if="page != 1" class="arrow">
             <Button
-              type="secondary"
+              type="tertiary"
               size="small"
               icon="arrowFirst"
               @click.native="emitChangePage(1)"
@@ -82,7 +66,7 @@
           <div class="arrow">
             <Button
               :disabled="page == 1"
-              type="tertiary"
+              type="neutral"
               size="small"
               icon="angleRight"
               @click.native="emitChangePage(page - 1)"
@@ -91,7 +75,7 @@
           <div class="arrow">
             <Button
               :disabled="page == lastPage"
-              type="tertiary"
+              type="neutral"
               size="small"
               icon="angleLeft"
               @click.native="emitChangePage(page + 1)"
@@ -99,7 +83,7 @@
           </div>
           <div v-if="page != lastPage" class="arrow">
             <Button
-              type="secondary"
+              type="tertiary"
               size="small"
               icon="arrowLast"
               @click.native="emitChangePage(lastPage)"
@@ -112,9 +96,9 @@
 </template>
 
 <script>
-import Vue from "vue";
-import logic from "./logic";
-import "./style.scss";
+import Vue from 'vue';
+import logic from './logic';
+import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
 </script>

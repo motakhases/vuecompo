@@ -11,20 +11,22 @@
         dir="rtl"
       >
         <slot name="header" />
-                <slot name="body" />
+        <slot name="body" />
 
         <ul class="zpl-dropdown-list">
           <li
             v-for="(item, index) in list"
-            v-show="item.isShow? item.isShow(customPayload) : true"
+            v-show="item.isShow ? item.isShow(customPayload) : true"
             :key="index"
             :class="[
               'zpl-dropdown-item',
               item.color ? finalColor(item.color) : null,
+              { selected: selected ? value === item.title : '' },
             ]"
             @click="item.action(customPayload)"
           >
             <Icon
+              v-if="item.icon"
               :name="item.icon"
               class="zpl-dropdown-icon"
             />
