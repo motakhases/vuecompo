@@ -1,14 +1,16 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
-    {{ isInputFocused }}
-    {{ activeInput }}
+    {{inputWidth}}
     <div
       :class="['zpl-search', isBoxFocused ? 'focused' : '']"
       @focusin="searchFocusIn"
       @focusout="searchFocusOut"
     >
       <div class="w-full h-full flex items-center">
-        <span class="absolute z-[9] zpl-search-placeholder" v-if="!inputs[0].value && !inputs[0].title">
+        <span
+          class="zpl-search-placeholder"
+          v-if="!inputs[0].value && !inputs[0].title"
+        >
           {{ $t("common.search") }}
         </span>
         <div class="tags">
@@ -21,13 +23,14 @@
                 ? 'w-full'
                 : '',
               !input.value && !input.disabled ? 'w-full' : '',
-                inputs.length - 1 === index && !input.disabled ? 'w-full' : '',
-                                inputs.length - 2 === index && inputs[inputs.length-1].disabled ? 'w-full':''
-
+              inputs.length - 1 === index && !input.disabled ? 'w-full' : '',
+              inputs.length - 2 === index && inputs[inputs.length - 1].disabled
+                ? 'w-full'
+                : '',
             ]"
           >
             <Label
-              type="neutral"
+              type="outlined"
               size="small"
               :text="input.title"
               v-if="input.title"
@@ -35,19 +38,23 @@
             <input
               v-model="input.value"
               v-show="!input.disabled"
-              @keydown.delete="removeInput(input, index)"
+              @keydown.delete="(e) => removeInput(input, index, e)"
               @keydown.space="(e) => activeNextInput(input.value, index, e)"
-              @keyup="(e) => filterInputs(input, e)"
+              @keyup="(e) => filterInputs(input, index, e)"
               :class="[
-                'tag-input',
+                'tag-input ',
                 !input.title && !input.value.trim() && !input.disabled
                   ? 'w-full'
                   : '',
                 !input.value && !input.disabled ? 'flex-1' : '',
                 input.disabled ? 'flex-1' : '',
                 inputs.length - 1 === index && !input.disabled ? 'flex-1' : '',
-                inputs.length - 2 === index && inputs[inputs.length-1].disabled ? 'flex-1':''
+                inputs.length - 2 === index &&
+                inputs[inputs.length - 1].disabled
+                  ? 'flex-1'
+                  : '',
               ]"
+              :style="[{ width: input.width }]"
               @focus="!input.title ? onFocusIn() : null"
               size="1"
               @input="(e) => inputsHandler(input, e)"
@@ -87,12 +94,12 @@
                 active: activeOptionIndex === i,
               },
             ]"
-            @click="selectOption(option , i)"
+            @click="selectOption(option, i)"
             @mouseenter="activateOption"
             @mouseleave="deactivateOption"
           >
             <div class="info">
-              <Label type="neutral" size="small" :text="option.title" />
+              <Label type="outlined" size="small" :text="option.title" />
               <div class="title">{{ option.text }}</div>
             </div>
           </li>

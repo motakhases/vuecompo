@@ -16,12 +16,11 @@
   &:focus-within:not(.error) {
     @apply border-interactive-focus outline-none shadow-border-focus-soft rounded-sm;
     @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
-    &~.zpl-search-dash{
-      @apply hidden
+    & ~ .zpl-search-dash {
+      @apply hidden;
     }
-    .zpl-search-placeholder{
-      @apply hidden
-
+    .zpl-search-placeholder {
+      @apply hidden;
     }
   }
   &.focused {
@@ -47,7 +46,10 @@
       @apply dark:text-text-dark;
     }
   }
-  &-placeholder{}
+  &-placeholder {
+    @apply absolute z-[9] text-b2  text-text;
+    @apply dark:text-text-dark;
+  }
 }
 .zpl-search-input {
   /* Default */
@@ -112,4 +114,21 @@
 
 .tags {
   @apply select-none w-full flex z-20 bg-transparent;
+}
+.input-sizer {
+  display: inline-grid;
+  vertical-align: top;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  font-family: inherit;
+  font-size: inherit;
+}
+.input-sizer::after {
+  content: attr(data-value) "  ";
+  visibility: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  white-space: pre-wrap;
 }

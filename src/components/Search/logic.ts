@@ -66,6 +66,8 @@ export default class Search extends Vue {
 
 activeInput=0
 
+inputWidth=''
+
 inputs:IInput[] = [{ title: null, value: '', disabled: false }];
 
   style = {
@@ -228,39 +230,44 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     });
 
     if (option.isUnique) {
-      this.filteredOptions.splice(index, 1);
+      // this.filteredOptions.splice(index, 1);
     }
+    console.log(this.filteredOptions);
   }
 
   removeInput(input, index: number, event) {
+    const { value } = event.target as HTMLInputElement;
     if (index === 0) {
       this.onFocusIn(event);
       this.buttonSearchText = '';
-      if (input.title && !input.value) {
+      if (input.title && !value) {
         this.inputs.splice(index, 1);
         if (!this.inputs.length) {
           this.inputs.push({
             title: null,
-            value: 'r',
+            value: '',
             disabled: false,
           });
-        } this.filteredOptions = this.options;
+        } else {
+          this.inputs[index].disabled = false;
+        }
+        this.filteredOptions = this.options;
       }
-    } else if (!input.value && (index > 0 || input.title)) {
+    } else if (!value && (index > 0 || input.title)) {
       this.inputs.splice(index, 1);
-      // this.inputs[index].disabled = false;
       this.activeInput = index - 1;
-
-      // activeInput === index
       this.$nextTick(() => {
         this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index - 1]?.focus();
       });
     }
+    if (value) {
+      this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(value.trim().toLowerCase()));
+    }
   }
 
-  activeNextInput(value: string, index: number) {
+  activeNextInput(value: string, index: number, event) {
     this.showMenueList = true;
-    console.log('space');
+
     this.showOptions();
     // this.filteredOptions = this.options;
     this.activeInput = index;
@@ -291,44 +298,17 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
         });
       }
     }
-    this.filteredOptions = this.options;
-    const me = this.options.filter((i) => {
-      console.log(i);
-    const shayest=  this.inputs.filter((md) => {
-        console.log(md.title === i.title && i.isUnique);
-        // md.title === i.title && i.isUnique), 'hy  '
-        if(!i.isUnique){
-          return i
-        }else{
-           if (md.title === i.title && i.isUnique) {
-
-        } else {
-          return i;
-        }
-        }
-       
-      });
-      // if (i.isUnique) {
-console.log('shayeste', shayest)
-      // },
-      // return !i.isUnique;
-      // if (this.inputs.map((m) => m.title !== i.title && !i.isUnique)) {
-      //   return i;
-      // }
-      // (i.isUnique ? !this.inputs.some((m) => m.title === i.text) : '');
-    });
+    this.filteredOptions = this.options.filter((objFromA) => !this.inputs.find((objFromB) => objFromA.title === objFromB.title && objFromA.isUnique));
     console.log(this.filteredOptions, 'this.filteredOptions');
-    console.log(me, 'me');
   }
 
   inputsHandler(input, event: Event) {
-    (event?.target as HTMLTextAreaElement)?.setAttribute('size', input.value.length);
+    // (event?.target as HTMLTextAreaElement)?.setAttribute('size', input.value.length);
     if (input.value.trim()) {
       const list: string[] = [];
       if (input.title) {
         // this.showMenueList = false;
       }
-      // this.showOptions();
       this.inputs.forEach((item) => {
         if (item.value) {
           list.push(`${item.title ?? ''} ${item.value}`);
@@ -377,12 +357,22 @@ console.log('shayeste', shayest)
     // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
   }
 
-  filterInputs(input, event: KeyboardEvent) {
+  filterInputs(input, index, event: KeyboardEvent) {
     // this.filteredOptions = this.options;
     if (!input.title) {
-      this.filteredOptions = this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+      // this.filteredOptions = this.filteredOptions.length
+      //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
+      //   : this.options;
+      if (index === 0 && !input.value) {
+        this.filteredOptions = this.options;
+      } else {
+        this.filteredOptions = this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+      }
     }
-    console.log('here');
+    // this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+    console.log(this.filteredOptions, 'filter inout');
+    // this.inputWidth = `${event?.target.value.length}px`;
+    this.inputs[index].width = `${event?.target.value.length}ch`;
   }
 
   onKeyDown(index, e: KeyboardEvent): void {
