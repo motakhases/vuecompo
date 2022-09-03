@@ -49,10 +49,10 @@ export default class Dropdown extends Vue {
 
     if (this.buttonRef) {
       const {
-        height, top, left, width,
+        height, top, left, width, bottom, y,
       } = this.buttonRef?.children[0]?.getBoundingClientRect();
       const menuWidth = this.menuRef?.children[0]?.getBoundingClientRect().width;
-
+      const menuHeight = this.menuRef?.children[0]?.getBoundingClientRect().height;
       this.$set(this.style, 'top', `${top + height + 2}px`);
 
       // if left space is smaller than menu width so open menue on right
@@ -60,6 +60,9 @@ export default class Dropdown extends Vue {
         this.$set(this.style, 'left', `${left}px`);
       } else {
         this.$set(this.style, 'left', `${left - menuWidth + width}px`);
+      }
+      if (menuHeight > window.innerHeight - bottom) {
+        this.$set(this.style, 'top', `${top - menuHeight}px`);
       }
     }
   }

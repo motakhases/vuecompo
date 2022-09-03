@@ -13,7 +13,7 @@
               width="68px"
               maxHeight="224px"
               selected
-              :value="String(page)"
+              :value="String(limit)"
             >
               <template slot="button">
                 <Button

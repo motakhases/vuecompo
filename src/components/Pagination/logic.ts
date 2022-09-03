@@ -18,14 +18,15 @@ import Loading from './Loading/index.vue';
 export default class Pagination extends Vue {
   @Prop({ type: Number, default: 1 }) initPage!: number
 
-  @Prop({ type: Number, default: 4 }) initLimit!: number
+  @Prop({ type: Number, default: 5 }) initLimit!: number
 
-  @Prop({ type: Number, default: 10 }) lastPage!: number
+  @Prop({ type: Number, default: 1 }) lastPage!: number
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   @Emit('changeLimit')
   emitChangeLimit(newLimit: number): number {
+    console.log(newLimit)
     this.limit = newLimit;
     this.limitBox = false;
     return newLimit;
@@ -53,15 +54,16 @@ export default class Pagination extends Vue {
 
   get limitsList(): ListsObject[] {
     const list: ListsObject[] = [];
-    for (let limit = 4; limit <= 24;) {
+    for (let limit = 5; limit <= 25;) {
       list.push(
         {
           title: limit.toString(),
-          action: () => this.emitChangeLimit(limit),
+          action: () => this.emitChangeLimit(limit - 5),
         },
       );
-      limit += 4;
+      limit += 5;
     }
+    console.log(list)
     return list;
   }
 

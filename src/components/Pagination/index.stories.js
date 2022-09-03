@@ -27,6 +27,6 @@ Default.argTypes = {
 
 Default.args = {
   lastPage: 20,
-  initLimit: 8,
+  initLimit: 15,
   initPage: 1
 };
