@@ -1,6 +1,5 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
-    {{inputWidth}}
     <div
       :class="['zpl-search']"
       @focusin="searchFocusIn"
@@ -13,7 +12,7 @@
         >
           {{ $t("common.search") }}
         </span>
-        <div class="tags">
+        <div class="zpl-search-tags">
           <span
             v-for="(input, index) in inputs"
             :key="index"
@@ -108,9 +107,11 @@
           v-if="buttonSearchText"
           type="primary"
           size="medium"
-          :text="` مشاهده نتایج  ${buttonSearchText} `"
+          :text="` ${$t('common.show_results')} ${buttonSearchText} `"
           class="w-full justify-start truncate"
           beforeIcon="ArrowLeft"
+          @click.native="onSearch"
+          truncate
         />
       </div>
     </div>

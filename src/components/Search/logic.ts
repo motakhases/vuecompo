@@ -8,17 +8,17 @@ import Label from '@/components/Label/index.vue';
 import Button from '@/components/Button/index.vue';
 
 const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
-interface IInput{
-  title:string | null;
-  value:string
-  disabled?:boolean
-  width?:string
+interface IInput {
+  title: string | null;
+  value: string;
+  disabled?: boolean;
+  width?: string;
 }
-interface ISelectItem{
-  title:string;
-  text:string
-  isUnique?:boolean
-  value: string
+interface ISelectItem {
+  title: string;
+  text: string;
+  isUnique?: boolean;
+  value: string;
 }
 
 @Component({
@@ -35,6 +35,8 @@ export default class Search extends Vue {
 
   @Prop({ type: Array }) readonly options!: ISelectItem[];
 
+  @Prop({ type: Function }) readonly onSearch!: () => void;
+
   /**
    * Refs
    */
@@ -49,8 +51,6 @@ export default class Search extends Vue {
    */
   isInputFocused = false;
 
-  isBoxFocused = false;
-
   showList = false;
 
   activeOptionIndex = -1;
@@ -63,11 +63,11 @@ export default class Search extends Vue {
 
   showMenueList = true;
 
-activeInput=0
+  activeInput = 0;
 
-inputWidth=''
+  inputWidth = '';
 
-inputs:IInput[] = [{ title: null, value: '', disabled: false }];
+  inputs: IInput[] = [{ title: null, value: '', disabled: false }];
 
   style = {
     top: '',
@@ -102,12 +102,10 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     this.$nextTick(() => {
       if (this.showList) {
         this.updateStyle();
-      } else if (!this.isBoxFocused) {
-      // this.isInputFocused = false;
       }
     });
     if (this.showList) {
-    // append menu to body
+      // append menu to body
       document.body.appendChild(this.menuRef);
     }
   }
@@ -136,23 +134,8 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     }
   }
 
-  inputHandler(event: Event): void {
-    this.inputValue = (event.target as HTMLInputElement).value;
-  }
-
-  // onBoxclick() {
-  //   if (this.isTagValue) {
-  //     this.$nextTick(() => {
-  //       this.$el
-  //         .querySelectorAll<HTMLInputElement>('.tag-input')
-  //         [this.tagList.length - 1]?.focus();
-  //     });
-  //   }
-  // }
-
   onFocusIn(event: KeyboardEvent): void {
     // for adding active label style
-    this.isBoxFocused = true;
 
     // open dropdown
     this.showMenueList = true;
@@ -165,7 +148,9 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
   }
 
   activeInputHandler() {
-    const isInputActive = document.querySelector('.zpl-search')?.classList.contains('focused');
+    const isInputActive = document
+      .querySelector('.zpl-search')
+      ?.classList.contains('focused');
     if (isInputActive) {
       this.isInputFocused = true;
     } else {
@@ -174,9 +159,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
   }
 
   onFocusOut(): void {
-    if (!this.value || !this.inputValue) {
-      // this.isInputFocused = false;
-    }
     // to remove active class
     this.activeOptionIndex = -1;
   }
@@ -185,18 +167,12 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     // this.inputVal = text;
     this.$emit('input', option.value);
     this.hideOptions();
-    this.isBoxFocused = false;
     this.activeInputHandler();
-    // const decs = title.concat(text);
-    // this.textareaValue = this.textareaValue.concat(decs);
-    // this.inputValue = this.inputValue.concat(title);
     if (option.title) {
-    //   // this.tagList = [...this.tagList, { label: title }];
-    //   this.$set(this.tagList, this.tagList.length, { label: title });
-    //   this.isTagValue = true;
-    //   console.log(this.isTagValue);
       this.$nextTick(() => {
-        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 2]?.focus();
+        this.$el
+          .querySelectorAll<HTMLInputElement>('.tag-input')
+          [this.inputs.length - 2]?.focus();
       });
     }
     const inputsLatestObjectIndex = this.inputs.length - 1;
@@ -231,7 +207,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     if (option.isUnique) {
       // this.filteredOptions.splice(index, 1);
     }
-    console.log(this.filteredOptions);
   }
 
   removeInput(input, index: number, event) {
@@ -256,12 +231,22 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       this.inputs.splice(index, 1);
       this.activeInput = index - 1;
       this.$nextTick(() => {
-        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index - 1]?.focus();
+        this.$el
+          .querySelectorAll<HTMLInputElement>('.tag-input')
+          [index - 1]?.focus();
       });
     }
     if (value) {
       this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(value.trim().toLowerCase()));
     }
+  }
+
+  focusNextInput(index: number) {
+    this.$nextTick(() => {
+      this.$el
+        .querySelectorAll<HTMLInputElement>('.tag-input')
+        [index + 1]?.focus();
+    });
   }
 
   activeNextInput(value: string, index: number, event) {
@@ -274,10 +259,7 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
     if (this.inputs[index].title) {
       if (value) {
         this.inputs[index + 1].disabled = false;
-
-        this.$nextTick(() => {
-          this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
-        });
+        this.focusNextInput(index);
       }
     } else if (value.trim()) {
       if (index === this.inputs.length - 1) {
@@ -286,18 +268,18 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
           value: '',
           disabled: false,
         });
-        this.$nextTick(() => {
-          this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
-        });
+        this.focusNextInput(index);
       } else {
         this.inputs[index + 1].disabled = false;
         this.showOptions();
-        this.$nextTick(() => {
-          this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
-        });
+        this.focusNextInput(index);
       }
     }
-    this.filteredOptions = this.options.filter((objFromA) => !this.inputs.find((objFromB) => objFromA.title === objFromB.title && objFromA.isUnique));
+    this.filteredOptions = this.options.filter(
+      (objFromA) => !this.inputs.find(
+        (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
+      ),
+    );
     console.log(this.filteredOptions, 'this.filteredOptions');
   }
 
@@ -333,7 +315,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
   outsideClick(event: Event): void {
     if (!this.$el.contains(event.target as HTMLInputElement)) {
       this.hideOptions();
-      this.isBoxFocused = false;
       this.activeInputHandler();
     }
   }
@@ -366,9 +347,15 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       if (index === 0 && !input.value) {
         this.filteredOptions = this.options;
       } else {
-        const me = this.options.filter((objFromA) => !this.inputs.find((objFromB) => objFromA.title === objFromB.title && objFromA.isUnique));
+        const me = this.options.filter(
+          (objFromA) => !this.inputs.find(
+            (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
+          ),
+        );
 
-        this.filteredOptions = me.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
+        this.filteredOptions = me.filter((option) => option?.title
+          ?.toLowerCase()
+          .includes(input.value.trim().toLowerCase()));
         console.log(me, 'me');
       }
     }
@@ -443,7 +430,10 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
           // // this.$emit('updateData', newValue);
           // this.inputValue = newValue;
           // close the dropdown
-          this.selectOption(this.filteredOptions[this.activeOptionIndex], index);
+          this.selectOption(
+            this.filteredOptions[this.activeOptionIndex],
+            index,
+          );
 
           this.hideOptions();
           console.log('enter');
@@ -454,7 +444,6 @@ inputs:IInput[] = [{ title: null, value: '', disabled: false }];
       // if dropdown is closed and enter key is pressed
     } else if (isEnterKey) {
       // open the dropdown
-
       // this.showOptions();
       // // show the compelete list
       // this.filteredOptions = this.options;
