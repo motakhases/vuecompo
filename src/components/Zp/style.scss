@@ -4,7 +4,7 @@
 
   &-level {
     @apply rounded-[50px]  text-b3 flex items-center gap-2xs font-medium;
-    @apply py-2xs px-xs bg-white-20;
+    @apply py-[2px] px-xs bg-white-20;
 
     .icon {
       @apply w-[12px] h-[12px];
@@ -27,7 +27,7 @@
     @apply bg-primaryZarinpal
   }
 
-  &.NEW {
-    @apply bg-indigo-500
+  &.BLUE {
+    @apply bg-primaryZarinpal
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <VueApexCharts
+    v-if="resolveData.series"
     :class="[
       { 'month-sparate-ticks': xType === 'month' },
       { 'week-sparate-ticks': xType === 'week' },
@@ -8,7 +9,7 @@
     ]"
     :type="type"
     :options="options"
-    :series="series"
+    :series="resolveData.series"
     :height="height"
     ref="Chart"
   />
