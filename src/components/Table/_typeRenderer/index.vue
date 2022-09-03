@@ -43,6 +43,7 @@
           :class="[
             'title',
             { 'td-disable': data.disable, 'font-Mono': data.data.titleMono },
+            data.data.titleClasses
           ]"
         >
           {{ data.data.title }}
@@ -51,6 +52,7 @@
           :class="[
             'sub',
             { 'td-disable': data.disable, 'font-Mono': data.data.subMono },
+            data.data.subClasses
           ]"
         >
           {{ data.data.sub }}
@@ -96,6 +98,7 @@
         :type="label.type"
       />
     </div>
+
     <!--------------
         label
     -------------->
@@ -108,12 +111,13 @@
         :text="label.text"
       />
     </div>
+    
     <!--------------
         Text
     -------------->
     <div
       v-else-if="data.type === 'text'"
-      :class="{ 'td-disable': data.disable, 'font-Mono': data.mono }"
+      :class="[{ 'td-disable': data.disable, 'font-Mono': data.mono }, data.classes]"
     >
       {{ data.data }}
     </div>
@@ -126,6 +130,7 @@
       :class="[
         'description',
         { 'td-disable': data.disable, 'font-Mono': data.mono },
+        data.classes
       ]"
     >
       {{ data.data }}

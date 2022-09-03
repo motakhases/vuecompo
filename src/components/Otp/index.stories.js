@@ -35,7 +35,7 @@ const Template = (_, { argTypes }) => ({
     },
   },
   template: `
-  <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
+  <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md w-[400px]" dir="rtl">
 
 
 	  <Otp  

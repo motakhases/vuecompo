@@ -196,11 +196,41 @@ const Template = (_, { argTypes }) => ({
           console.log("click");
           console.log(x);
         },
-        isShow: (x) => {
-          return x.id === 'mne'
-        },
+        isShow:()=> true,
       },
     ],
+    act:[
+      {
+        title: "ویرایش",
+        icon: "PenEdit",
+        color: "text-danger",
+        action: (x) => {
+          console.log("click");
+          console.log(x);
+        },
+        isShow:()=> true,
+      },
+      {
+        title: "ویرایش",
+        icon: "",
+        color: "",
+        action: (x) => {
+          console.log("click");
+          console.log(x);
+        },
+        isShow:()=> true,
+      },
+    ],
+    actions2: [
+      {
+        icon: 'CircleDelete',
+        color: 'text-danger',
+        action: (x) => {
+          console.log(x)
+        },
+        isShow: () => true
+      }
+    ]
   }),
   template: `
   <div class="dark:bg-background-dark p-sm rounded-md" dir="rtl">
@@ -218,10 +248,9 @@ hasCustom
       :columns="columns"
       class="mb-xl"
       bordered
-      :actions="actions"
+      :actions="act"
       route-name="session"
       dropdownWidth="320px"
-      loading
       hasCustom
       hasSubCustom
       :hasImage="false"
@@ -238,7 +267,7 @@ hasCustom
       hasCustom
       hasSubCustom
       hasImage
-      :actions="actions"
+      :actions="actions2"
     />
 
     <h1 class="my-sm font-bold dark:text-surface">

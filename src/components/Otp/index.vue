@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[328px]">
+  <div class="w-full">
     <div class="zpl-otp">
       <!-- To turn off autocomplete when otp-input is password-->
       <input

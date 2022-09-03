@@ -1,15 +1,10 @@
 <template>
   <div
-    :class="['zpl-status', type.toLowerCase() , {icon} ]"
+    :class="['zpl-status', type.toLowerCase(), { icon }]"
+    v-if="text || icon"
   >
-    <span
-      v-if="indicator"
-      class="circle"
-    />
-    <Icon
-      v-if="icon"
-      :name="icon"
-    />
+    <span v-if="indicator" class="circle" />
+    <Icon v-if="icon" :name="icon" />
     {{ text }}
   </div>
 </template>

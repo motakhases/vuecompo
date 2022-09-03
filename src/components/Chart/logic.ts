@@ -1,4 +1,6 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component, Prop, Vue, Ref,
+} from 'vue-property-decorator';
 import VueApexCharts from 'vue-apexcharts';
 import { dayName, hour, dayNumber } from '@/utils/momentCustom';
 import options from './options';
@@ -11,11 +13,15 @@ export default class Chart extends Vue {
 
   @Prop({ type: Array }) readonly series!: ApexAxisChartSeries;
 
+  @Prop({ type: Array }) readonly colors!: ApexAxisChartSeries;
+
   @Prop({ type: Boolean }) readonly hideLegend!: boolean;
 
   @Prop({ type: String }) readonly height!: string;
 
   @Prop({ type: String }) readonly xType!: string;
+
+  @Ref() readonly Chart!: any
 
   options = {
     ...options,
@@ -29,6 +35,13 @@ export default class Chart extends Vue {
         formatter: (value: string) => this.xaxisFormatter(value),
       },
     },
+  }
+
+  mounted() {
+    this.Chart.updateOptions({
+      xType: this.xType,
+      colors: this.colors,
+    });
   }
 
   xaxisFormatter(value: string) {
