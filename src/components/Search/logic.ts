@@ -246,6 +246,7 @@ export default class Search extends Vue {
       if (value) {
         this.inputs[index + 1].disabled = false;
         this.focusNextInput(index);
+        event.preventDefault();
       }
     } else if (value.trim()) {
       if (index === this.inputs.length - 1) {
@@ -261,6 +262,8 @@ export default class Search extends Vue {
         this.inputs[index + 1].disabled = false;
         // this.showOptions();
         this.focusNextInput(index);
+        event.preventDefault();
+
         console.log('activa');
       }
     }
@@ -343,6 +346,7 @@ export default class Search extends Vue {
       // console.log(this.filteredOptions.filter((option) => option?.title?.toLowerCase() === input.value));
       const availableLabel = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
       if (availableLabel.length) {
+        event.preventDefault();
         // console.log('is,amma', index, this.inputs);
         // input.value = '';
         this.inputs[index].value = input.value.replace(match[0], '');
@@ -522,10 +526,23 @@ export default class Search extends Vue {
     }
     this.showList = false;
     window.removeEventListener('keypress', this.onSlashPress);
+    window.removeEventListener('keyup', this.onEscPress);
   }
 
   created() {
     window.addEventListener('keypress', this.onSlashPress);
+    window.addEventListener('keyup', this.onEscPress);
+  }
+
+  onEscPress(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      const input = this.$el.getElementsByTagName('input');
+      const inputList = Array.prototype.slice.call(input);
+      inputList.forEach((element) => {
+        element.blur();
+      });
+      this.hideOptions();
+    }
   }
 
   onSlashPress(event: KeyboardEvent) {
@@ -539,11 +556,6 @@ export default class Search extends Vue {
         return;
       }
       this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 1]?.focus();
-      //   if (event.code === 'Slash') {
-      //     this.showOptions();
-
-    //     this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 1]?.focus();
-    //   }
     }
   }
 }
