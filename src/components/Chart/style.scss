@@ -51,10 +51,12 @@
   .apexcharts-xaxis-label {
     @apply hidden;
   
-    &:nth-of-type(4n),
-    &:first-child,
-    &:last-child
-    &:not(:nth-last-of-type(1n)) {
+    &:nth-of-type(1),
+    &:nth-of-type(5),
+    &:nth-of-type(9),
+    &:nth-of-type(13),
+    &:nth-of-type(17),
+    &:nth-of-type(21) {
       @apply block;
     }
   }

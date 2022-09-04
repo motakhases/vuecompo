@@ -70,7 +70,7 @@ export default {
     custom({
       series, seriesIndex, dataPointIndex, w,
     }: any) {
-      const date = w.config.series[0].data[dataPointIndex].x;
+      const date = w.config.categories[dataPointIndex];
       const { xType } = w.config;
 
       return `
