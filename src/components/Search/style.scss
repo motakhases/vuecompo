@@ -42,7 +42,7 @@
   &-tag-input {
     @apply flex gap-xs;
     input {
-      @apply outline-none min-w-[12px]  bg-transparent text-text text-b2;
+      @apply outline-none min-w-[12px]  bg-transparent text-text text-b2 font-IRANYekanFaNum;
       @apply dark:text-text-dark;
     }
   }
@@ -102,8 +102,8 @@
     }
     &:hover {
       .zpl-lable {
-        @apply border border-border;
-        @apply dark:border-border-dark;
+        @apply bg-surface;
+        @apply dark:bg-surface-dark;
       }
     }
   }
