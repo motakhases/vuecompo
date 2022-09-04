@@ -26,7 +26,6 @@ export default class Pagination extends Vue {
 
   @Emit('changeLimit')
   emitChangeLimit(newLimit: number): number {
-    console.log(newLimit)
     this.limit = newLimit;
     this.limitBox = false;
     return newLimit;
@@ -50,6 +49,9 @@ export default class Pagination extends Vue {
   created(): void {
     this.limit = this.initLimit;
     this.page = this.initPage;
+    // this.$router.push({
+    //   query: { limit: String(this.initLimit), ...this.$route.query },
+    // });
   }
 
   get limitsList(): ListsObject[] {
@@ -63,7 +65,6 @@ export default class Pagination extends Vue {
       );
       limit += 5;
     }
-    console.log(list)
     return list;
   }
 
