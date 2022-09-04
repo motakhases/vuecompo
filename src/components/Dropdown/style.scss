@@ -27,7 +27,7 @@
   }
   &-item {
     // default
-    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2 text-text border border-transparent;
+    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2 text-text border border-transparent font-IRANYekanFaNum;
     &:not(:last-child) {
       @apply mb-2xs;
     }
@@ -45,6 +45,11 @@
     /* focus */
     @apply active:bg-surface-focus active:border-interactive-focus;
     @apply dark:active:bg-surface-dark-focus dark:active:border-interactive-dark-focus;
+
+    &.selected {
+      @apply bg-primarySurface;
+      @apply dark:bg-primarySurface-dark;
+    }
   }
   &-icon {
     // default

@@ -14,4 +14,6 @@ export default class Toggle extends Vue {
   @Prop({ type: Boolean }) readonly disabled?: boolean
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
+
+  @Prop({ type: String }) readonly text?: string
 }

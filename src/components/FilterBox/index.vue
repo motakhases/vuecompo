@@ -5,6 +5,7 @@
       :autoClose="false"
       :isClose="isClose"
       @close="toggleClose"
+      maxHeight="490px"
     >
       <template slot="button">
         <button :class="['zpl-filter-button', { isActive }]">

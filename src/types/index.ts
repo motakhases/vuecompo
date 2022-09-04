@@ -44,7 +44,7 @@ export interface Announcement {
  */
 export interface ListsObject {
   title: string;
-  value: number;
+  action: ()=> void;
 }
 
 export interface Paginate {
