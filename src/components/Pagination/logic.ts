@@ -49,9 +49,9 @@ export default class Pagination extends Vue {
   created(): void {
     this.limit = this.initLimit;
     this.page = this.initPage;
-    // this.$router.push({
-    //   query: { limit: String(this.initLimit), ...this.$route.query },
-    // });
+    this.$router.push({
+      query: { limit: String(this.initLimit), ...this.$route.query },
+    });
   }
 
   get limitsList(): ListsObject[] {
