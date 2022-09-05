@@ -99,6 +99,7 @@ const Template = (_, { argTypes }) => ({
         "CircleDelete",
         "Refresh",
         "SearchSmall"
+        "Refresh"
       ],
     };
   },

@@ -93,6 +93,7 @@ import Telegram2 from './icons/Telegram2.vue';
 import AtSign from './icons/AtSign.vue';
 import CircleDelete from './icons/CircleDelete.vue';
 import SearchSmall from './icons/SearchSmall.vue';
+import ExcelColor from './icons/ExcelColor.vue';
 
 @Component({
   components: {
@@ -188,6 +189,8 @@ import SearchSmall from './icons/SearchSmall.vue';
     AtSign,
     CircleDelete,
     SearchSmall,
+    ExcelColor,
+
   },
 })
 export default class Icon extends Vue {
