@@ -48,6 +48,8 @@ export default class Search extends Vue {
 
   @Ref() readonly tagRef!: HTMLElement;
 
+  @Ref() readonly deleteRef!: HTMLElement;
+
   /**
    * Data options
    */
@@ -149,11 +151,6 @@ export default class Search extends Vue {
     const isInputActive = document
       .querySelector('.zpl-search')
       ?.classList.contains('focused');
-    if (isInputActive) {
-      this.isInputFocused = true;
-    } else {
-      this.isInputFocused = false;
-    }
   }
 
   selectOption(option, index): void {
@@ -163,6 +160,7 @@ export default class Search extends Vue {
     // this.activeInputHandler();
     // this.isInputFocused = true;
     if (option.title) {
+      // this.focusNextInput(this.inputs.length > 1 ? this.inputs.length - 2 : this.inputs.length - 1);
       this.$nextTick(() => {
         this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 2]?.focus();
       });
@@ -187,10 +185,7 @@ export default class Search extends Vue {
         value: '',
       });
     }
-    // this.inputs.push({
-    //   title: option.title,
-    //   value: '',
-    // });
+
     this.inputs.push({
       title: null,
       value: '',
@@ -233,8 +228,9 @@ export default class Search extends Vue {
   }
 
   focusNextInput(index: number) {
+    this.isInputFocused = true;
     this.$nextTick(() => {
-      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index + 1]?.focus();
+      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.focus();
     });
   }
 
@@ -245,7 +241,7 @@ export default class Search extends Vue {
     if (this.inputs[index].title) {
       if (value) {
         this.inputs[index + 1].disabled = false;
-        this.focusNextInput(index);
+        this.focusNextInput(index + 1);
         event.preventDefault();
       }
     } else if (value.trim()) {
@@ -261,10 +257,8 @@ export default class Search extends Vue {
       } else {
         this.inputs[index + 1].disabled = false;
         // this.showOptions();
-        this.focusNextInput(index);
+        this.focusNextInput(index + 1);
         event.preventDefault();
-
-        console.log('activa');
       }
     }
     this.filteredOptions = this.options.filter(
@@ -272,7 +266,6 @@ export default class Search extends Vue {
         (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
       ),
     );
-    console.log(this.filteredOptions, 'this.filteredOptions');
   }
 
   inputsHandler(input, event: Event) {
@@ -305,6 +298,7 @@ export default class Search extends Vue {
 
   // TODO: change any
   outsideClick(event: Event): void {
+    // console.log(this.deleteRef);
     if (!this.$el.contains(event.target as HTMLInputElement)) {
       this.hideOptions();
       this.activeInputHandler();
@@ -331,51 +325,46 @@ export default class Search extends Vue {
 
   filterInputs(input, index: number, event: KeyboardEvent) {
     // this.filteredOptions = this.options;
-    console.log('changer', input.value);
-    this.inputs[index].width = `${input.value.length}ch`;
+    // console.log('changer', input.value);
+    // console.log(document.activeElement?.tagName === 'INPUT');
+    this.isInputFocused = true;
     this.tagRef[index].style.width = `${input.value.length}ch`;
-    // this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.style.width = `${input.value.length}ch`;
+    // check if there's : in the word
     const regex = /([^ \\:]+ ?){1,2}: ?$/;
-    const isMatched = regex.test(input.value);
     const myRegexp = new RegExp(regex);
     const match = myRegexp.exec(input.value);
     this.inputs[index].width = `${0}ch`;
     if (match) {
-      // console.log('ms', index);
-      // event.target = ''
-      // console.log(this.filteredOptions.filter((option) => option?.title?.toLowerCase() === input.value));
       const availableLabel = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
+      // check if the label exists in the list
       if (availableLabel.length) {
         event.preventDefault();
-        // console.log('is,amma', index, this.inputs);
-        // input.value = '';
         this.inputs[index].value = input.value.replace(match[0], '');
-        // this.tagRef[index + 1].focus();
-        this.$nextTick(() => {
-          this.tagRef[index].style.width = `${input.value.length}ch`;
-          this.tagRef[index + 1].focus();
-        });
-        console.log(this.inputs[index].value, 'this.inputs[index].value');
-        // this.inputs[index].title = availableLabel[0].title;
-        if (this.inputs[index].value.trim()) {
-          this.inputs.push({
-            title: availableLabel[0].title,
-            value: '',
+        if (!availableLabel[0].isUnique) {
+          // if label is not unique so create the label
+          this.$nextTick(() => {
+            this.tagRef[index].style.width = `${input.value.length}ch`;
+            this.tagRef[index + 1].focus();
           });
-        } else {
-          this.inputs[index].title = availableLabel[0].title;
-        }
 
-        this.inputs.push({
-          title: null,
-          value: '',
-          disabled: true,
-        });
-        this.hideOptions();
+          if (this.inputs[index].value.trim()) {
+            this.inputs.push({
+              title: availableLabel[0].title,
+              value: '',
+            });
+          } else {
+            this.inputs[index].title = availableLabel[0].title;
+          }
+
+          this.inputs.push({
+            title: null,
+            value: '',
+            disabled: true,
+          });
+          this.hideOptions();
+        }
         // event.target.value = ''
       }
-    } else {
-      console.log('no ma');
     }
     const isEnterKey = event.key === 'Enter';
     if (isEnterKey) {
@@ -399,10 +388,10 @@ export default class Search extends Vue {
           ?.toLowerCase()
           .includes(input.value.trim().toLowerCase()));
       }
+    } else if (index !== 0) {
+      this.showOptions();
+      this.showMenueList = false;
     }
-    // this.filteredOptions = this.options.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()));
-    // this.inputWidth = `${event?.target.value.length}px`;
-    this.inputs[index].width = `${event?.target.value.length}ch`;
   }
 
   onKeyDown(index: number, e: KeyboardEvent): void {
@@ -490,13 +479,6 @@ export default class Search extends Vue {
     }
   }
 
-  wrapper(index: number) {
-    const idx = index === 0 ? 0 : index - 1;
-    this.$nextTick(() => {
-      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[idx]?.focus();
-    });
-  }
-
   activateOption(e: IEvent): void {
     // if any option has active class remove it
     [].forEach.call(this.optionRef, (el: HTMLElement) => {
@@ -548,14 +530,44 @@ export default class Search extends Vue {
   onSlashPress(event: KeyboardEvent) {
     if (!this.$el.contains(event.target as HTMLInputElement)) {
       event.preventDefault();
-      if (event.key !== '/') {
-        return;
+      if (event.key === '/') {
+        if (this.inputs[this.inputs.length - 1].disabled) {
+          this.focusNextInput(this.inputs.length - 2);
+        } else {
+          this.focusNextInput(this.inputs.length - 1);
+        }
       }
-
-      if (document.activeElement === this.inputRef) {
-        return;
-      }
-      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[this.inputs.length - 1]?.focus();
     }
   }
+
+  inputWidthHandler(input: IInput, index: number): boolean | undefined {
+    return (!input.title && !input.value.trim() && !input.disabled)
+    || (!input.value && !input.disabled)
+    || (this.inputs.length - 1 === index && !input.disabled)
+    || (this.inputs.length - 2 === index && this.inputs[this.inputs.length - 1].disabled);
+  }
+
+  deleteInputHandler(event) {
+    this.inputs = [{ title: null, value: '', disabled: false }];
+    this.buttonSearchText = '';
+    // console.log(document.activeElement?.tagName === 'INPUT');
+    // event.preventDefault();
+    if (this.isInputFocused) {
+      // this.focusNextInput(0);
+      // this.filteredOptions = this.options;
+      // this.showOptions();
+      // console.log(this.showList, 'this.showList', this.filteredOptions);
+    }
+  }
+
+  labelClickHandler(index: number) {
+    this.focusNextInput(index);
+    this.$nextTick(() => {
+      this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.select();
+    });
+  }
+  // @Watch('inputs')
+  // inputsChange(){
+  //   if()
+  // }
 }

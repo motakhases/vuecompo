@@ -18,22 +18,15 @@
             :key="index"
             :class="[
               'zpl-search-tag-input',
-              !input.title && !input.value.trim() && !input.disabled
-                ? 'w-full'
-                : '',
-              !input.value && !input.disabled ? 'w-full' : '',
-              inputs.length - 1 === index && !input.disabled ? 'w-full' : '',
-              inputs.length - 2 === index && inputs[inputs.length - 1].disabled
-                ? 'w-full'
-                : '',
+              inputWidthHandler(input, index) ? 'w-full' : '',
             ]"
-
           >
             <Label
               type="neutral"
               size="small"
               :text="input.title"
               v-if="input.title"
+              @click.native="() => labelClickHandler(index)"
             />
             <input
               v-model="input.value"
@@ -46,26 +39,19 @@
                 !input.title && !input.value.trim() && !input.disabled
                   ? 'w-full'
                   : '',
-                !input.value && !input.disabled ? 'flex-1' : '',
-                input.disabled ? 'flex-1' : '',
-                inputs.length - 1 === index && !input.disabled ? 'flex-1' : '',
-                inputs.length - 2 === index &&
-                inputs[inputs.length - 1].disabled
+                (input.disabled) ||
+                (!input.value && !input.disabled) ||
+                (inputs.length - 1 === index && !input.disabled) ||
+                (inputs.length - 2 === index &&
+                  inputs[inputs.length - 1].disabled)
                   ? 'flex-1'
                   : '',
               ]"
-              :style="[{ width: input.width }]"
-              @focus="(e) => !input.title ? onFocusIn(e) : null"
-              size="1"
+              @focus="(e) => (!input.title ? onFocusIn(e) : null)"
               @input="(e) => inputsHandler(input, e)"
               @keydown="(e) => onKeyDown(index, e)"
-               ref="tagRef"
+              ref="tagRef"
             />
-            <!-- <div
-              v-if="input.disabled"
-              class="absolute inset-0"
-              @click="() => wrapper(index)"
-            /> -->
           </span>
         </div>
       </div>
@@ -73,7 +59,13 @@
         <Icon name="SearchSmall" />
       </div>
     </div>
-    <Label class="zpl-search-dash" size="small" type="neutral" text="/" />
+    <Icon
+    v-if="inputs[0].title || inputs[0].value"
+     @click.native="(e) => deleteInputHandler(e)"
+     name="FilledDelete"
+      class="zpl-search-delete"
+       />
+    <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" />
     <div ref="menuRef">
       <!-- dropdown list -->
       <div :class="['zpl-search-list']" v-if="showList" :style="style">
@@ -109,7 +101,7 @@
           type="primary"
           size="medium"
           :text="` ${$t('common.show_results')} ${buttonSearchText} `"
-          class="w-full justify-start truncate"
+          class="w-full justify-start truncate font-IRANYekanFaNum"
           beforeIcon="ArrowLeft"
           @click.native="onSearch"
           truncate

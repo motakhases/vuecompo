@@ -73,7 +73,7 @@
   }
   &-item {
     /* Default */
-    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2;
+    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2 font-IRANYekanFaNum;
 
     /* Active */
     @apply active:bg-surface-active;
@@ -109,5 +109,9 @@
   }
   &-tags {
     @apply select-none w-full flex z-20 bg-transparent gap-xs overflow-auto;
+  }
+  &-delete {
+    @apply absolute top-xs left-xs text-icon-disabled cursor-pointer;
+    @apply dark:text-icon-dark-disabled
   }
 }
