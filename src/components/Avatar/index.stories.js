@@ -12,12 +12,14 @@ const Template = (_, { argTypes }) => ({
 	    <Avatar size="small" />
 	    <Avatar size="medium" />
 	    <Avatar size="large" />
+	    <Avatar size="xlarge" />
 		</div>
     <h1 class="font-bold dark:text-surface">  آواتار همراه با عکس</h1>
     <div class="flex gap-lg">
       <Avatar size="small" img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg" />
       <Avatar size="medium" img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg" />
       <Avatar size="large" img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg" />
+      <Avatar size="xlarge" img="https://faces-img.xcdn.link/image-lorem-face-6511.jpg" />
     </div>
   </div>
   `,

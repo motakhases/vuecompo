@@ -38,6 +38,10 @@
     }
 
     &.large {
+      @apply w-4xl h-4xl;
+    }
+
+    &.xlarge {
       @apply w-[80px] h-[80px];
     }
   }
