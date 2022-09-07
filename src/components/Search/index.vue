@@ -1,5 +1,6 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
+    {{showList}}
     <div
       :class="['zpl-search']"
       @focusin="searchFocusIn"
@@ -64,6 +65,7 @@
      @click.native="(e) => deleteInputHandler(e)"
      name="FilledDelete"
       class="zpl-search-delete"
+      ref="deleteBtnRef"
        />
     <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" />
     <div ref="menuRef">
