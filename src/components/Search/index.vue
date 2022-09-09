@@ -1,11 +1,7 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
-    {{showList}}
-    <div
-      :class="['zpl-search']"
-      @focusin="searchFocusIn"
-      @focusout="searchFocusOut"
-    >
+    {{isInputFocused}}
+    <div :class="['zpl-search']">
       <div class="w-full h-full flex items-center">
         <span
           class="zpl-search-placeholder"
@@ -40,7 +36,7 @@
                 !input.title && !input.value.trim() && !input.disabled
                   ? 'w-full'
                   : '',
-                (input.disabled) ||
+                input.disabled ||
                 (!input.value && !input.disabled) ||
                 (inputs.length - 1 === index && !input.disabled) ||
                 (inputs.length - 2 === index &&
@@ -61,13 +57,13 @@
       </div>
     </div>
     <Icon
-    v-if="inputs[0].title || inputs[0].value"
-     @click.native="(e) => deleteInputHandler(e)"
-     name="FilledDelete"
+      v-show="inputs[0].title || inputs[0].value"
+      @click.native="(e) => deleteInputHandler(e)"
+      name="FilledDelete"
       class="zpl-search-delete"
       ref="deleteBtnRef"
-       />
-    <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" />
+    />
+    <!-- <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" /> -->
     <div ref="menuRef">
       <!-- dropdown list -->
       <div :class="['zpl-search-list']" v-if="showList" :style="style">
