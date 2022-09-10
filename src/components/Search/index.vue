@@ -57,13 +57,13 @@
       </div>
     </div>
     <Icon
-      v-show="inputs[0].title || inputs[0].value"
+      v-if="inputs[0].title || inputs[0].value"
       @click.native="(e) => deleteInputHandler(e)"
       name="FilledDelete"
       class="zpl-search-delete"
       ref="deleteBtnRef"
     />
-    <!-- <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" /> -->
+    <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" />
     <div ref="menuRef">
       <!-- dropdown list -->
       <div :class="['zpl-search-list']" v-if="showList" :style="style" id="shayeste">

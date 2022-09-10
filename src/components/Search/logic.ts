@@ -96,7 +96,7 @@ export default class Search extends Vue {
     document.documentElement.addEventListener(
       'click',
       this.outsideClick,
-      false,
+      true,
     );
     document.addEventListener('scroll', this.updateStyle);
     window.addEventListener('resize', this.onResize);
@@ -169,7 +169,7 @@ export default class Search extends Vue {
 
   selectOption(option, index): void {
     // this.inputVal = text;
-    this.hideOptions();
+    this.showMenueList = false;
     this.$emit('input', option.value);
     this.hideOptions();
     this.isInputFocused = true;
@@ -178,9 +178,8 @@ export default class Search extends Vue {
       this.$nextTick(() => {
         this.tagRef[this.inputs.length - 2]?.focus();
       });
-      console.log('fopxus here');
+      console.log('fopxus here', option);
       // this.showOptions();
-      this.showMenueList = false;
     }
     const inputsLatestObjectIndex = this.inputs.length - 1;
     if (!this.inputs[inputsLatestObjectIndex].value) {
@@ -213,8 +212,10 @@ export default class Search extends Vue {
 
   removeInput(input, index: number, event) {
     const { value } = event.target as HTMLInputElement;
+    console.log(index);
+
     if (index === 0) {
-      this.onFocusIn();
+      // this.onFocusIn();
       this.buttonSearchText = '';
       if (input.title && !value) {
         this.inputs.splice(index, 1);
@@ -229,6 +230,7 @@ export default class Search extends Vue {
         }
         this.filteredOptions = this.options;
       }
+      console.log(this.buttonSearchText);
     } else if (!value && (index > 0 || input.title)) {
       this.inputs.splice(index, 1);
       this.activeInput = index - 1;
@@ -322,10 +324,14 @@ export default class Search extends Vue {
 
   // TODO: change any
   outsideClick(event: Event): void {
-    if (!this.$el.contains(event.target as HTMLInputElement)) {
+    const e = event.target as HTMLInputElement;
+    if (!this.$el.contains(e)) {
       // this.isInputFocused = false;
       // this.hideOptions();
-
+      if (!this.menuRef.contains(e)) {
+        this.hideOptions();
+        this.isInputFocused = false;
+      }
       // if (this.deleteBtnRef.$el.contains(event.target as HTMLInputElement)) {
       //   // this.isInputFocused = false;
       // } else {
@@ -350,222 +356,128 @@ export default class Search extends Vue {
   filterInputs(input, index: number, event: KeyboardEvent) {
     this.isInputFocused = true;
     this.updateButtonText();
-
-    const matchLabel = this.options.map((i) => i.title);
-    // if (matchLabel) {\b(?:the|on|of)\b
-    const label = new RegExp(/\b(:شماره کارت)\b/g).exec(input.value);
-    const arr = ['شماره کارت:', 'ایمیل:'];
-    // const str = 'اول شماره کارت: ۴۱۵۵ شماره کارت:۴۱۵۵  ایمیل:۲۵۶۵';
-    const indicesArr = [];
-    matchLabel.sort((a, b) => b.length - a.length);
-    const regexObj = new RegExp(matchLabel.map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), 'gi');
-    let matches;
-    // eslint-disable-next-line no-cond-assign
-    while (matches = regexObj.exec(input.value)) {
-      const obj = { start: matches.index, end: regexObj.lastIndex };
-      indicesArr.push(obj);
+    // if it's the first input and it doesn't have a value so empty search button
+    if (index === 0 && !input.value) {
+      this.buttonSearchText = '';
     }
-    console.log(indicesArr);
-    if (indicesArr.length) {
-      const finalArr: IInput[] = [];
-      const str = input.value;
-      let lastIndex;
-      indicesArr.forEach((item, index) => {
-        const title = input.value.substring(item.start, item.end);
-        // console.log(str, 'str');
-        if (lastIndex) {
-        // console.log('lastIndex', slm, str.substring(lastIndex, item.start));
-        // slm[slm.length - 1].value = str.substring(0, item.start);
-        }
-        // str = str.replace(title, '');
+    this.isInputFocused = true;
+    // update input width based on value length
+    this.tagRef[index].style.width = `${input.value.length}ch`;
 
-        lastIndex = item.end;
-        // this.inputs[index].title = title;
-        const last = indicesArr.length - 1 > index ? indicesArr[index + 1].start : indicesArr.length;
-        // console.log(str.substring(item.end, last), 'str.substring(item.end, last)', item.end, last);
-        console.log(item.end, 'item.end');
-        console.log(last, 'last');
-        finalArr.push({
-          title,
-          value: indicesArr.length - 1 > index
-            ? str.substring(item.end, indicesArr[index + 1].start) : str.substring(item.end),
+    // check if there's : in the word
+    const regex = /([^ \\:]+ ?){1,2}: ?$/;
+    // const regex = /([^:\s]+ ?){1,2}:/;
+    const myRegexp = new RegExp(regex);
+    const match = myRegexp.exec(input.value);
 
-        });
-        console.log(finalArr, 'slm', last);
+    // this.inputs[index].width = `${0}ch`;
+    if (match) {
+      const availableLabel = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
+      // check if the label exists in the list
+      if (availableLabel.length) {
+        event.preventDefault();
+        this.inputs[index].value = input.value.replace(match[0], '');
+        if (!availableLabel[0].isUnique) {
+        // if label is not unique so create the label
+          this.$nextTick(() => {
+            this.tagRef[index].style.width = `${input.value.length}ch`;
+            this.tagRef[index + 1].focus();
+            this.isInputFocused = true;
+          });
 
-      // this.inputs.push({
-      //   title,
-      //   value: input.value.replace(title, ''),
-      // });
-      // this.inputs[index].value = labelVal.replace(title, '');
-      });
-      finalArr.push({ title: null, value: '', disabled: true });
-      this.inputs = finalArr;
-    }
-
-    //   matchLabel?.map((tag) => {
-    //     if ((input.value).includes(tag)) {
-    //       console.log(tag);
-    //     }
-    //   });
-    // }
-    // const matchLabel = this.options.map((i) => i.title);
-    if (matchLabel) {
-      // console.log(matchLabel, 'matchLabel');
-      let me = input.value;
-      // const matchlabel = new RegExp(matchLabel.join('|')).exec(input.value);
-      // console.log(matchlabel[0], matchlabel.index);
-      // while (matchlabel) {
-      //   // console.log('me');
-      // }
-      matchLabel.map((i) => {
-        if (me.includes(i)) {
-          // console.log(i, 'i');
-          const textTillLabel = input.value.substring(0, input.value.indexOf(i));
-          const labelVal = input.value.substring(input.value.indexOf(i));
-          if (textTillLabel) {
-            // this.inputs[index].value = textTillLabel;
-          }
-          // console.log(textTillLabel, 'textTillLabel', i, input.value.indexOf(i));
-          // this.inputs[index].value = input.value.substring(0, input.value.indexOf(i));
-          // console.log(input.value.substring(0, input.value.indexOf(i)));
-          // console.log(labelVal, 'labelVal');
-          // if (input.value.indexOf(i) === 0) {
-          //   // this.inputs[0].title = i;
-          //   // this.inputs[0].value = labelVal.replace(i, '');
-          //   this.inputs[index].value = '';
-          //   this.inputs[index].disabled = true;
-
-          //   this.inputs.unshift({
-          //     title: i,
-          //     value: labelVal.replace(i, ''),
-          //   });
-          // } else {
-          //   this.inputs.push({
-          //     title: i,
-          //     value: labelVal.replace(i, ''),
-          //   });
-          // }
-
-          me = labelVal.replace(i, '');
-          const splitList:string[] = this.inputs[this.inputs.length - 1].value.split(i);
-          // splitList.map((item, index) => {
-          //   console.log(item, splitList);
-          //   if (index === 0) {
-          //     if (item.trim().length) {
-          //       this.inputs[index].value = splitList[0];
-          //     } else {
-          //       this.inputs[index].title = i;
-          //       this.inputs[index].value = splitList[1];
-          //       // this.inputs.unshift({
-          //       //   title: i,
-          //       //   value: splitList[1],
-          //       // });
-          //     }
-          //   } else if (index === 1) {
-          //     if (splitList[0].length) {
-          //       this.inputs.push({
-          //         title: i,
-          //         value: item,
-          //       });
-          //     }
-          //   }
-          //   if (item.length) {
-          //     // if (index === 0) {
-          //     //   this.inputs[index].value = splitList[0];
-          //     // } else {
-          //     //   this.inputs.push({
-          //     //     title: i,
-          //     //     value: item,
-          //     //   });
-          //     // }
-          //   } else {
-          //     // this.inputs[index].title = i;
-
-          //     // this.inputs[index].value = splitList[1];
-
-          //     // this.inputs.unshift({
-          //     //   title: i,
-          //     //   value: splitList[1],
-          //     // });
-          //   }
-          // });
-          // this.inputs[index].value = input.value.replace(i, '');
-          // this.$nextTick(() => {
-          //   this.tagRef[index].style.width = `${input.value.length}ch`;
-          //   this.tagRef[index + 1].focus();
-          // });
-          console.log(this.inputs[this.inputs.length - 1]);
-        }
-      });
-      const reg = new RegExp(/(توضیحات|شناسه پرداخت|شماره کارت|شناس|متن)?:/);
-
-      this.isInputFocused = true;
-      // update input width based on value length
-      this.tagRef[index].style.width = `${input.value.length}ch`;
-
-      // check if there's : in the word
-      const regex = /([^ \\:]+ ?){1,2}: ?$/;
-      // const regex = /([^:\s]+ ?){1,2}:/;
-      const myRegexp = new RegExp(regex);
-      const match = myRegexp.exec(input.value);
-
-      // this.inputs[index].width = `${0}ch`;
-      if (match) {
-        const availableLabel = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
-        // check if the label exists in the list
-        if (availableLabel.length) {
-          event.preventDefault();
-          this.inputs[index].value = input.value.replace(match[0], '');
-          if (!availableLabel[0].isUnique) {
-          // if label is not unique so create the label
-            this.$nextTick(() => {
-              this.tagRef[index].style.width = `${input.value.length}ch`;
-              this.tagRef[index + 1].focus();
-              this.isInputFocused = true;
-            });
-
-            if (this.inputs[index].value.trim()) {
-              this.inputs.push({
-                title: availableLabel[0].title,
-                value: '',
-              });
-            } else {
-              this.inputs[index].title = availableLabel[0].title;
-            }
-
+          if (this.inputs[index].value.trim()) {
             this.inputs.push({
-              title: null,
+              title: availableLabel[0].title,
               value: '',
-              disabled: true,
             });
-            this.hideOptions();
+          } else {
+            this.inputs[index].title = availableLabel[0].title;
           }
-        // event.target.value = ''
-        }
-      }
-      const isEnterKey = event.key === 'Enter';
-      if (isEnterKey) {
-        this.hideOptions();
-        this.onSearch(this.buttonSearchText.replace(/['"]+/g, ''));
-      }
-      if (!input.title) {
-      // this.filteredOptions = this.filteredOptions.length
-      //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
-      //   : this.options;
-        if (index === 0 && !input.value) {
-          this.filteredOptions = this.options;
-        } else {
-          const shayeste = this.options.filter(
-            (objFromA) => !this.inputs.find(
-              (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
-            ),
-          );
 
-          this.filteredOptions = shayeste.filter((option) => option?.title
-            ?.toLowerCase()
-            .includes(input.value.trim().toLowerCase()));
+          this.inputs.push({
+            title: null,
+            value: '',
+            disabled: true,
+          });
+          this.hideOptions();
         }
+      // event.target.value = ''
+      }
+    } else {
+      const indicesArr = [];
+      const matchLabel = this.options.map((i) => i.title);
+      // matchLabel.sort((a, b) => b.length - a.length);
+      const regexObj = new RegExp(matchLabel.map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), 'gi');
+      let matches;
+      // eslint-disable-next-line no-cond-assign
+      while (matches = regexObj.exec(input.value)) {
+        const obj = { start: matches.index, end: regexObj.lastIndex };
+        indicesArr.push(obj);
+      }
+      console.log(indicesArr);
+      if (indicesArr.length) {
+        const finalArr: IInput[] = [];
+        const str = input.value;
+        let lastIndex;
+        indicesArr.forEach((item, index) => {
+          const title = input.value.substring(item.start, item.end);
+          // console.log(str, 'str');
+          if (lastIndex) {
+            // console.log('lastIndex', slm, str.substring(lastIndex, item.start));
+            // slm[slm.length - 1].value = str.substring(0, item.start);
+          }
+          // str = str.replace(title, '');
+
+          lastIndex = item.end;
+          // this.inputs[index].title = title;
+          const last = indicesArr.length - 1 > index ? indicesArr[index + 1].start : indicesArr.length;
+          // console.log(str.substring(item.end, last), 'str.substring(item.end, last)', item.end, last);
+          console.log(item.end, 'item.end');
+          console.log(last, 'last');
+          finalArr.push({
+            title,
+            value: indicesArr.length - 1 > index
+              ? str.substring(item.end, indicesArr[index + 1].start) : str.substring(item.end),
+
+          });
+          console.log(finalArr, 'slm', last);
+
+          // this.inputs.push({
+          //   title,
+          //   value: input.value.replace(title, ''),
+          // });
+          // this.inputs[index].value = labelVal.replace(title, '');
+        });
+        finalArr.push({ title: null, value: '', disabled: true });
+        this.inputs = finalArr;
+      }
+    }
+    const isEnterKey = event.key === 'Enter';
+    if (isEnterKey) {
+      this.hideOptions();
+      this.onSearch(this.buttonSearchText.replace(/['"]+/g, ''));
+    }
+    if (!input.title) {
+    // this.filteredOptions = this.filteredOptions.length
+    //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
+    //   : this.options;
+      if (index === 0 && !input.value) {
+        this.filteredOptions = this.options;
+      } else {
+        const shayeste = this.options.filter(
+          (objFromA) => !this.inputs.find(
+            (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
+          ),
+        );
+
+        this.filteredOptions = shayeste.filter((option) => option?.title
+          ?.toLowerCase()
+          .includes(input.value.trim().toLowerCase()));
+      }
+    } else {
+      console.log('heree');
+      if (index === 0 && !input.value) {
+        this.hideOptions();
       } else {
         this.showOptions();
         this.showMenueList = false;
