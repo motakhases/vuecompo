@@ -1,6 +1,5 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
-    {{isInputFocused}}
     <div :class="['zpl-search']">
       <div class="w-full h-full flex items-center">
         <span
@@ -44,9 +43,10 @@
                   ? 'flex-1'
                   : '',
               ]"
-              @focus="(e) => (!input.title ? onFocusIn(e) : null)"
+              @focus="(e) =>  onFocusIn(input, index)"
               @input="(e) => inputsHandler(input, e)"
               @keydown="(e) => onKeyDown(index, e)"
+              @blur="onBlur"
               ref="tagRef"
             />
           </span>
@@ -66,7 +66,7 @@
     <!-- <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" /> -->
     <div ref="menuRef">
       <!-- dropdown list -->
-      <div :class="['zpl-search-list']" v-if="showList" :style="style">
+      <div :class="['zpl-search-list']" v-if="showList" :style="style" id="shayeste">
         <div
           class="zpl-search-format"
           v-if="showMenueList && filteredOptions.length"
