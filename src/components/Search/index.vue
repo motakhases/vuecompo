@@ -25,8 +25,8 @@
               @click.native="() => labelClickHandler(index)"
             />
             <input
-              v-model="input.value"
               v-show="!input.disabled"
+              v-model="input.value"
               @keydown.delete="(e) => removeInput(input, index, e)"
               @keydown.space="(e) => activeNextInput(input.value, index, e)"
               @keyup="(e) => filterInputs(input, index, e)"
@@ -44,11 +44,13 @@
                   : '',
               ]"
               @focus="(e) =>  onFocusIn(input, index)"
-              @input="(e) => inputsHandler(input, e)"
+              @input="(e) => inputsHandler(input, e,index)"
               @keydown="(e) => onKeyDown(index, e)"
-              @blur="onBlur"
+              @blur="() => onBlur(index)"
+              @paste="onPaste"
               ref="tagRef"
             />
+            <div ref="shallowTextRef" class="zpl-search-shallow-input">{{input.value}}</div>
           </span>
         </div>
       </div>
@@ -56,6 +58,7 @@
         <Icon name="SearchSmall" />
       </div>
     </div>
+
     <Icon
       v-if="inputs[0].title || inputs[0].value"
       @click.native="(e) => deleteInputHandler(e)"

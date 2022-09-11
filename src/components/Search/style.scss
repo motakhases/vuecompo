@@ -43,8 +43,16 @@
     @apply flex gap-xs;
     input {
       @apply outline-none min-w-[12px]  bg-transparent text-text text-b2 font-IRANYekanFaNum;
-      @apply dark:text-text-dark;
+      @apply dark:text-text-dark focus-visible:outline-none;
     }
+    .tag-input {
+      @apply whitespace-nowrap text-text text-b2 font-IRANYekanFaNum text-right;
+      @apply dark:text-text-dark focus-visible:outline-none;
+    }
+  }
+  &-shallow-input {
+    @apply absolute invisible text-b2 font-IRANYekanFaNum text-text-onPrimary;
+    @apply dark:text-text;
   }
   &-placeholder {
     @apply absolute z-[9] text-b2  text-text;
@@ -108,7 +116,7 @@
     }
   }
   &-tags {
-    @apply select-none w-full flex z-20 bg-transparent gap-xs overflow-auto;
+    @apply select-none w-full h-full flex z-20 bg-transparent gap-xs overflow-auto;
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
     &::-webkit-scrollbar {
