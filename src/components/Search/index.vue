@@ -1,5 +1,5 @@
 <template>
-  <div :class="['zpl-search-group']" ref="inputRef">
+  <div :class="['zpl-search-group']" ref="inputRef" @click="onFocusIn">
     <div :class="['zpl-search']">
       <div class="w-full h-full flex items-center">
         <span

@@ -20,10 +20,11 @@ interface ISelectItem {
   text: string;
   isUnique?: boolean;
   value: string;
+  key:string
 }
 interface IItemPosition {
-  start:string;
-  end:string
+  start:number;
+  end:number
 }
 @Component({
   components: {
@@ -154,18 +155,17 @@ export default class Search extends Vue {
     // open dropdown
     // const input = this.inputs[this.inputs.length - 2];
     // console.log(input, index);
+    this.isInputFocused = true;
+    if (!index) {
+      this.tagRef[0].focus();
+    }
     if (input) {
-      this.isInputFocused = true;
-
       if (input?.title) {
-        if (index !== 0) {
-          if (this.buttonSearchText) {
-            this.showMenueList = false;
-            this.showOptions();
-          }
-          // this.showMenueList = false;
-        } else {
+        if (index === 0 && !input?.value) {
           this.hideOptions();
+        } else if (this.buttonSearchText) {
+          this.showMenueList = false;
+          this.showOptions();
         }
       } else {
         this.showMenueList = true;
@@ -401,17 +401,14 @@ export default class Search extends Vue {
 
     // this.inputs[index].width = `${0}ch`;
     if (match) {
-      const availableLabel = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
+      const availableLabel:ISelectItem[] = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
       // check if the label exists in the list
       if (availableLabel.length) {
-        console.log(this.inputs, 'this.inputs');
         const isUniqueInput = this.inputs.filter((i) => i.key === availableLabel[0].key);
-        console.log(isUniqueInput, 'isUniqueInput');
-        console.log(this.inputs[index], this.inputs.filter((i) => i.key));
         event.preventDefault();
         this.inputs[index].value = input.value.replace(match[0], '');
         const unique = availableLabel[0].isUnique;
-        if (availableLabel[0].key, !unique || (unique && !isUniqueInput.length)) {
+        if (!unique || (unique && !isUniqueInput.length)) {
         // if label is not unique so create the label
           this.$nextTick(() => {
             this.tagRef[index + 1].focus();
@@ -447,7 +444,7 @@ export default class Search extends Vue {
       let matches;
       // eslint-disable-next-line no-cond-assign
       while (matches = regexObj.exec(input.value)) {
-        const obj = { start: matches.index, end: regexObj.lastIndex };
+        const obj:IItemPosition = { start: matches.index, end: regexObj.lastIndex };
         indicesArr.push(obj);
       }
       // console.log(indicesArr);
@@ -455,11 +452,9 @@ export default class Search extends Vue {
         const finalArr: IInput[] = [];
         const str = input.value;
 
-        indicesArr.forEach((item, index) => {
+        indicesArr.forEach((item, i) => {
           const title = input.value.substring(item.start, item.end);
-          console.log(item.start);
-          if (index === 0 && +item.start > 0) {
-            console.log(str.substring(0, item.start));
+          if (i === 0 && item.start > 0) {
             finalArr.push({
               title: null,
               value: str.substring(0, item.start),
@@ -469,9 +464,9 @@ export default class Search extends Vue {
           // this.inputs.splice(index, 1);
           finalArr.push({
             title,
-            value: indicesArr.length - 1 > index
-              ? str.substring(item.end, indicesArr[index + 1].start) : str.substring(item.end),
-            key: input.key,
+            value: indicesArr.length - 1 > i
+              ? str.substring(item.end, indicesArr[i + 1].start) : str.substring(item.end),
+            key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key,
           });
 
           // console.log(finalArr, 'slm', last);
@@ -488,7 +483,7 @@ export default class Search extends Vue {
         // });
         // this.inputs = finalArr;
         this.inputs.splice(index, 1);
-        finalArr.forEach((item, i) => {
+        finalArr.forEach((item) => {
           this.inputs.splice(index + 1, 0, item);
           this.shallowTextRef[index].innerHTML = item.value;
         });
@@ -497,7 +492,10 @@ export default class Search extends Vue {
             title: null, value: '', disabled: true, key: '',
           });
         }
-
+        this.$nextTick(() => {
+          this.tagRef[this.inputs.length - 2].focus();
+          this.isInputFocused = true;
+        });
         // console.log(this.inputs);
         // console.log(finalArr, 'finalArr', index);
 
@@ -507,6 +505,7 @@ export default class Search extends Vue {
     const isEnterKey = event.key === 'Enter';
     if (isEnterKey) {
       this.hideOptions();
+      console.log(this.inputs);
       this.onSearch(this.buttonSearchText.replace(/['"]+/g, ''));
     }
     if (!input.title) {
