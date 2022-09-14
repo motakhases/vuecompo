@@ -1,6 +1,6 @@
 <template>
-  <div :class="['zpl-search-group']" ref="inputRef" @click="onFocusIn">
-    <div :class="['zpl-search']">
+  <div :class="['zpl-search-group']" ref="inputRef">
+    <div :class="['zpl-search']" @click.self="onFocusIn">
       <div class="w-full h-full flex items-center">
         <span
           class="zpl-search-placeholder"
@@ -43,22 +43,21 @@
                   ? 'flex-1'
                   : '',
               ]"
-              @focus="(e) =>  onFocusIn(input, index)"
-              @input="(e) => inputsHandler(input, e,index)"
+              @focus="(e) => onFocusIn(input, index)"
+              @input="(e) => inputsHandler(input, e, index)"
               @keydown="(e) => onKeyDown(index, e)"
-              @blur="() => onBlur(index)"
-              @paste="onPaste"
               ref="tagRef"
             />
-            <div ref="shallowTextRef" class="zpl-search-shallow-input">{{input.value}}</div>
+            <div ref="shallowTextRef" class="zpl-search-shallow-input">
+              {{ input.value }}
+            </div>
           </span>
         </div>
       </div>
-      <div class="zpl-search-icon">
-        <Icon name="SearchSmall" />
-      </div>
     </div>
-
+    <div class="zpl-search-icon">
+      <Icon name="SearchSmall" />
+    </div>
     <Icon
       v-if="inputs[0].title || inputs[0].value"
       @click.native="(e) => deleteInputHandler(e)"
@@ -66,10 +65,21 @@
       class="zpl-search-delete"
       ref="deleteBtnRef"
     />
-    <Label v-else class="zpl-search-dash" size="small" type="neutral" text="/" />
+    <Label
+      v-else
+      class="zpl-search-dash"
+      size="small"
+      type="neutral"
+      text="/"
+    />
     <div ref="menuRef">
       <!-- dropdown list -->
-      <div :class="['zpl-search-list']" v-if="showList" :style="style" id="shayeste">
+      <div
+        :class="['zpl-search-list']"
+        v-if="showList"
+        :style="style"
+        id="shayeste"
+      >
         <div
           class="zpl-search-format"
           v-if="showMenueList && filteredOptions.length"

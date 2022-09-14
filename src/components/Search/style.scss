@@ -1,7 +1,7 @@
 .zpl-search {
   /* Default */
-  @apply bg-surface flex items-center border border-border-divider rounded-xl w-full text-text-soft h-2xl relative;
-  @apply dark:bg-surface-dark dark:border-border-dark dark:text-text-dark  py-2xs pr-[36px] pl-2xl cursor-text;
+  @apply bg-transparent flex items-center border border-border-divider rounded-xl w-full text-text-soft h-2xl relative z-10;
+  @apply dark:border-border-dark dark:text-text-dark  py-2xs pr-[36px] pl-2xl cursor-text;
 
   /* hover */
   &:not(:focus-within):not(.focused):not(.error):not([disabled]):hover {
@@ -64,7 +64,7 @@
     @apply placeholder:text-b2 placeholder:text-text;
   }
   &-icon {
-    @apply w-xl h-xl absolute right-xs top-2xs flex text-icon;
+    @apply w-xl h-xl absolute right-xs top-2xs flex text-icon z-0;
   }
   &-dash {
     @apply w-xl h-xl absolute left-2xs top-2xs flex justify-center rounded-circle;
@@ -124,7 +124,7 @@
     }
   }
   &-delete {
-    @apply absolute top-xs left-xs text-icon-disabled cursor-pointer;
+    @apply absolute top-xs left-xs text-icon-disabled cursor-pointer z-10;
     @apply dark:text-icon-dark-disabled;
   }
 }

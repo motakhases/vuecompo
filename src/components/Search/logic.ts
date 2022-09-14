@@ -12,19 +12,17 @@ interface IInput {
   title: string | null;
   value: string;
   disabled?: boolean;
-  width?: string;
-  key: string
+  key: string;
 }
 interface ISelectItem {
   title: string;
-  text: string;
   isUnique?: boolean;
   value: string;
-  key:string
+  key: string;
 }
 interface IItemPosition {
-  start:number;
-  end:number
+  start: number;
+  end: number;
 }
 @Component({
   components: {
@@ -40,9 +38,9 @@ export default class Search extends Vue {
 
   @Prop({ type: Array }) readonly options!: ISelectItem[];
 
-  @Prop({ type: Function }) readonly onSearch!: (value: string) => void;
+  @Prop({ type: Function }) readonly onSearch!: (value: IInput[]) => void;
 
-  @Prop({ type: String }) readonly value!: string;
+  @Prop({ type: String, default: '' }) readonly value!: string;
 
   /**
    * Refs
@@ -70,21 +68,20 @@ export default class Search extends Vue {
 
   filteredOptions: ISelectItem[] = [];
 
-  inputValue = '';
-
   buttonSearchText = '';
 
   showMenueList = true;
 
   activeInput = 0;
 
-  inputWidth = '';
-
-  observer=null
-
-  inputs: IInput[] = [{
-    title: null, value: '', disabled: false, key: '',
-  }];
+  inputs: IInput[] = [
+    {
+      title: null,
+      value: '',
+      disabled: false,
+      key: '',
+    },
+  ];
 
   style = {
     top: '',
@@ -92,26 +89,26 @@ export default class Search extends Vue {
     width: '',
   };
 
-  get inputModel(): string {
-    return this.inputValue;
-  }
-
-  set inputModel(value: string) {
-    this.inputValue = value;
-  }
-
   /**
    * Mounted
    */
   mounted(): void {
-    document.documentElement.addEventListener(
-      'click',
-      this.outsideClick,
-      true,
-    );
+    document.documentElement.addEventListener('click', this.outsideClick, true);
     document.addEventListener('scroll', this.updateStyle);
     window.addEventListener('resize', this.onResize);
     this.filteredOptions = this.options;
+    if (this.value) {
+      this.inputs[0].value = this.value;
+      this.checkValidLabel(this.inputs[0], 0);
+    }
+  }
+
+  get me() {
+    return this.value;
+  }
+
+  set me(val) {
+    this.$emit('input', val);
   }
 
   @Watch('showList')
@@ -153,9 +150,8 @@ export default class Search extends Vue {
 
   onFocusIn(input, index): void {
     // open dropdown
-    // const input = this.inputs[this.inputs.length - 2];
-    // console.log(input, index);
     this.isInputFocused = true;
+    // when whole container is clicked, focus in first input
     if (!index) {
       this.tagRef[0].focus();
     }
@@ -177,8 +173,7 @@ export default class Search extends Vue {
     }
   }
 
-  selectOption(option, index): void {
-    // this.inputVal = text;
+  selectOption(option): void {
     this.showMenueList = false;
     this.$emit('input', option.value);
     this.hideOptions();
@@ -188,8 +183,6 @@ export default class Search extends Vue {
       this.$nextTick(() => {
         this.tagRef[this.inputs.length - 2]?.focus();
       });
-      console.log('fopxus here', option);
-      // this.showOptions();
     }
     const inputsLatestObjectIndex = this.inputs.length - 1;
     if (!this.inputs[inputsLatestObjectIndex].value) {
@@ -218,9 +211,6 @@ export default class Search extends Vue {
       disabled: true,
       key: '',
     });
-    if (option.isUnique) {
-      // this.filteredOptions.splice(index, 1);
-    }
   }
 
   removeInput(input, index: number, event) {
@@ -302,7 +292,7 @@ export default class Search extends Vue {
       if (item.value) {
         list.push(`${item.title ?? ''} ${item.value}`);
       } else {
-      // this.isTagValue = true;
+        // this.isTagValue = true;
       }
     });
     this.buttonSearchText = `"${list.join(' ')}"`;
@@ -318,80 +308,23 @@ export default class Search extends Vue {
         // this.showMenueList = false;
       }
       this.updateButtonText();
+    } else if (index === 0) {
+      this.deleteInputHandler();
+      this.showMenueList = true;
+
+      // this.onFocusIn(input, 0);
     }
+    this.checkValidLabel(input, index);
+    this.filteredOptions = this.options;
   }
 
-  showOptions(): void {
-    this.showList = true;
-  }
-
-  hideOptions(): void {
-  // this.isInputFocused = false;
-    this.$nextTick(() => {
-      this.showList = false;
-    });
-  }
-
-  onBlur(index) {
-  // console.log('onBlur');
-  // this.isInputFocused = false;
-  // this.inputs[index].value = this.inputs[index].value;
-  }
-
-  onPaste(e) {
-  // e.preventDefault();
-  // let text = null;
-
-  // if (window.clipboardData && clipboardData.setData) {
-  //   text = window.clipboardData.getData('text');
-  // } else {
-  //   text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste Your Text Here');
-  // }
-  // document.execCommand('insertText', false, text);
-  }
-
-  // TODO: change any
-  outsideClick(event: Event): void {
-    const e = event.target as HTMLInputElement;
-    if (!this.$el.contains(e)) {
-    // this.isInputFocused = false;
-    // this.hideOptions();
-      if (!this.menuRef.contains(e)) {
-        this.hideOptions();
-        this.isInputFocused = false;
-      }
-    // if (this.deleteBtnRef.$el.contains(event.target as HTMLInputElement)) {
-    //   // this.isInputFocused = false;
-    // } else {
-    //   // this.isInputFocused = false;
-    // }
-    }
-  }
-
-  onKeyUp(event: KeyboardEvent): void {
-  // if any key code in the list is pressed do nothing
-    if (keyList.includes(event.key)) {
-      console.log('ket');
-    }
-  // otherwise filter the list based on value that user is typing
-  // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
-  }
-
-  splitAtIndex(value, index) {
-    return `${value.substring(0, index)},${value.substring(index)}`;
-  }
-
-  filterInputs(input, index: number, event: KeyboardEvent) {
-    event.stopPropagation();
-    this.isInputFocused = true;
-    this.updateButtonText();
-    // if it's the first input and it doesn't have a value so empty search button
-    if (index === 0 && !input.value) {
-      this.buttonSearchText = '';
-    }
-    this.isInputFocused = true;
+  checkValidLabel(input, index) {
     // update input width based on value length
-    this.tagRef[index].style.width = `${this.shallowTextRef[index].getBoundingClientRect().width}px`;
+    this.$nextTick(() => {
+      this.tagRef[index].style.width = `${
+        this.shallowTextRef[index].getBoundingClientRect().width
+      }px`;
+    });
 
     // check if there's : in the word
     const regex = /([^ \\:]+ ?){1,2}: ?$/;
@@ -401,15 +334,19 @@ export default class Search extends Vue {
 
     // this.inputs[index].width = `${0}ch`;
     if (match) {
-      const availableLabel:ISelectItem[] = this.options.filter((option) => option?.title?.toLowerCase() === match[0]);
+      const availableLabel: ISelectItem[] = this.options.filter(
+        (option) => option?.title?.toLowerCase() === match[0],
+      );
       // check if the label exists in the list
       if (availableLabel.length) {
-        const isUniqueInput = this.inputs.filter((i) => i.key === availableLabel[0].key);
-        event.preventDefault();
+        const isUniqueInput = this.inputs.filter(
+          (i) => i.key === availableLabel[0].key,
+        );
+        // event.preventDefault();
         this.inputs[index].value = input.value.replace(match[0], '');
         const unique = availableLabel[0].isUnique;
         if (!unique || (unique && !isUniqueInput.length)) {
-        // if label is not unique so create the label
+          // if label is not unique so create the label
           this.$nextTick(() => {
             this.tagRef[index + 1].focus();
             this.isInputFocused = true;
@@ -434,17 +371,26 @@ export default class Search extends Vue {
           });
           this.hideOptions();
         }
-      // event.target.value = ''
+        // event.target.value = ''
       }
     } else {
-      const indicesArr:IItemPosition[] = [];
+      const indicesArr: IItemPosition[] = [];
       const matchLabel = this.options.map((i) => i.title);
       // matchLabel.sort((a, b) => b.length - a.length);
-      const regexObj = new RegExp(matchLabel.map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), 'gi');
+      const regexObj = new RegExp(
+        matchLabel
+          // eslint-disable-next-line no-useless-escape
+          .map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
+          .join('|'),
+        'gi',
+      );
       let matches;
       // eslint-disable-next-line no-cond-assign
-      while (matches = regexObj.exec(input.value)) {
-        const obj:IItemPosition = { start: matches.index, end: regexObj.lastIndex };
+      while ((matches = regexObj.exec(input.value))) {
+        const obj: IItemPosition = {
+          start: matches.index,
+          end: regexObj.lastIndex,
+        };
         indicesArr.push(obj);
       }
       // console.log(indicesArr);
@@ -464,20 +410,21 @@ export default class Search extends Vue {
           // this.inputs.splice(index, 1);
           finalArr.push({
             title,
-            value: indicesArr.length - 1 > i
-              ? str.substring(item.end, indicesArr[i + 1].start) : str.substring(item.end),
+            value:
+              indicesArr.length - 1 > i
+                ? str.substring(item.end, indicesArr[i + 1].start)
+                : str.substring(item.end),
             key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key,
           });
 
           // console.log(finalArr, 'slm', last);
 
-        // this.inputs.push({
-        //   title,
-        //   value: input.value.replace(title, ''),
-        // });
-        // this.inputs[index].value = labelVal.replace(title, '');
+          // this.inputs.push({
+          //   title,
+          //   value: input.value.replace(title, ''),
+          // });
+          // this.inputs[index].value = labelVal.replace(title, '');
         });
-        console.log(this.inputs, ' console.log(this.inputs);');
         // finalArr.push({
         //   title: null, value: '', disabled: true, key: '',
         // });
@@ -489,11 +436,14 @@ export default class Search extends Vue {
         });
         if (!this.inputs[this.inputs.length - 1].disabled) {
           this.inputs.push({
-            title: null, value: '', disabled: true, key: '',
+            title: null,
+            value: '',
+            disabled: true,
+            key: '',
           });
         }
         this.$nextTick(() => {
-          this.tagRef[this.inputs.length - 2].focus();
+          // this.tagRef[this.inputs.length - 2].focus();
           this.isInputFocused = true;
         });
         // console.log(this.inputs);
@@ -502,16 +452,70 @@ export default class Search extends Vue {
         // this.shallowTextRef[index].innerHTML = input.value;
       }
     }
+  }
+
+  showOptions(): void {
+    this.showList = true;
+  }
+
+  hideOptions(): void {
+    // this.isInputFocused = false;
+    this.$nextTick(() => {
+      this.showList = false;
+    });
+  }
+
+  // TODO: change any
+  outsideClick(event: Event): void {
+    const e = event.target as HTMLInputElement;
+    if (!this.$el.contains(e)) {
+      // this.isInputFocused = false;
+      // this.hideOptions();
+      if (!this.menuRef.contains(e)) {
+        this.hideOptions();
+        this.isInputFocused = false;
+      }
+      // if (this.deleteBtnRef.$el.contains(event.target as HTMLInputElement)) {
+      //   // this.isInputFocused = false;
+      // } else {
+      //   // this.isInputFocused = false;
+      // }
+    }
+  }
+
+  onKeyUp(event: KeyboardEvent): void {
+    // if any key code in the list is pressed do nothing
+    if (keyList.includes(event.key)) {
+      console.log('ket');
+    }
+    // otherwise filter the list based on value that user is typing
+    // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
+  }
+
+  splitAtIndex(value, index) {
+    return `${value.substring(0, index)},${value.substring(index)}`;
+  }
+
+  filterInputs(input, index: number, event: KeyboardEvent) {
+    event.stopPropagation();
+    this.isInputFocused = true;
+    this.updateButtonText();
+    // if it's the first input and it doesn't have a value so empty search button
+    if (index === 0 && !input.value) {
+      this.buttonSearchText = '';
+    }
+    this.isInputFocused = true;
+
     const isEnterKey = event.key === 'Enter';
     if (isEnterKey) {
       this.hideOptions();
       console.log(this.inputs);
-      this.onSearch(this.buttonSearchText.replace(/['"]+/g, ''));
+      this.onSearch(this.inputs);
     }
     if (!input.title) {
-    // this.filteredOptions = this.filteredOptions.length
-    //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
-    //   : this.options;
+      // this.filteredOptions = this.filteredOptions.length
+      //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
+      //   : this.options;
       if (index === 0 && !input.value) {
         this.filteredOptions = this.options;
       } else {
@@ -534,7 +538,9 @@ export default class Search extends Vue {
     this.inputs.forEach((item, i) => {
       this.$nextTick(() => {
         // this.shallowTextRef[index].innerHTML = item.value;
-        this.tagRef[i].style.width = `${this.shallowTextRef[i].getBoundingClientRect().width}px`;
+        this.tagRef[i].style.width = `${
+          this.shallowTextRef[i].getBoundingClientRect().width
+        }px`;
       });
     });
   }
@@ -546,16 +552,16 @@ export default class Search extends Vue {
 
     // if dropdown is open
     if (this.showList) {
-    // if arrow up or down key is pressed
+      // if arrow up or down key is pressed
       if (isArrowDownKey || isArrowUpKey) {
         for (let i = 0; i < this.filteredOptions.length; i += 1) {
-        // find the active option based on class
+          // find the active option based on class
           const item = this.menuRef.querySelectorAll('li')[i];
           const activeOption = item.classList.contains('active');
           // if there is active option then remove the active class and
           // update the index of active option in order to move active class
           if (item.classList.contains('disabled')) {
-          // this.activeOptionIndex += i;
+            // this.activeOptionIndex += i;
           } else if (activeOption) {
             this.activeOptionIndex = i;
             item.classList.remove('active');
@@ -564,50 +570,46 @@ export default class Search extends Vue {
       }
       // if arrow down key is pressed
       if (isArrowDownKey) {
-      // if there's no active index so the first index is active
+        // if there's no active index so the first index is active
         if (this.activeOptionIndex === -1) {
           this.activeOptionIndex = 0;
 
-        // active next option till the end of list
+          // active next option till the end of list
         } else if (this.activeOptionIndex < this.filteredOptions.length - 1) {
           this.activeOptionIndex += 1;
 
-        // if we achieved to the end of list so go to the first option
+          // if we achieved to the end of list so go to the first option
         } else if (this.activeOptionIndex >= this.filteredOptions.length - 1) {
           this.activeOptionIndex = 0;
         }
-      // if arrow up key is pressed
+        // if arrow up key is pressed
       } else if (isArrowUpKey) {
-      // if there's no active index so the first index is active
+        // if there's no active index so the first index is active
         if (this.activeOptionIndex === -1) {
           this.activeOptionIndex = 0;
 
-        // if we achieved to the first of list so go to the last option
+          // if we achieved to the first of list so go to the last option
         } else if (this.activeOptionIndex === 0) {
           this.activeOptionIndex = this.filteredOptions.length - 1;
 
-        // active previous option till the start of list
+          // active previous option till the start of list
         } else if (this.activeOptionIndex <= this.filteredOptions.length - 1) {
           this.activeOptionIndex -= 1;
         }
 
-      // if enter key is pressed
+        // if enter key is pressed
       } else if (isEnterKey) {
-      // if there's active option and we have filter list
+        // if there's active option and we have filter list
         if (this.activeOptionIndex >= 0 && this.filteredOptions) {
-        // // take the name of active option
-        // const newValue = this.filteredOptions[this.activeOptionIndex]
-        //   ? this.filteredOptions[this.activeOptionIndex].title
-        //   : '';
+          // // take the name of active option
+          // const newValue = this.filteredOptions[this.activeOptionIndex]
+          //   ? this.filteredOptions[this.activeOptionIndex].title
+          //   : '';
 
           // // update the value of input
           // // this.$emit('updateData', newValue);
-          // this.inputValue = newValue;
           // close the dropdown
-          this.selectOption(
-            this.filteredOptions[this.activeOptionIndex],
-            index,
-          );
+          this.selectOption(this.filteredOptions[this.activeOptionIndex]);
 
           this.hideOptions();
           console.log('enter');
@@ -615,17 +617,17 @@ export default class Search extends Vue {
           this.activeOptionIndex = -1;
         }
       }
-    // if dropdown is closed and enter key is pressed
+      // if dropdown is closed and enter key is pressed
     } else if (isEnterKey) {
-    // open the dropdown
-    // this.showOptions();
-    // // show the compelete list
-    // this.filteredOptions = this.options;
+      // open the dropdown
+      // this.showOptions();
+      // // show the compelete list
+      // this.filteredOptions = this.options;
     }
   }
 
   activateOption(e: IEvent): void {
-  // if any option has active class remove it
+    // if any option has active class remove it
     [].forEach.call(this.optionRef, (el: HTMLElement) => {
       el.classList.remove('active');
     });
@@ -639,7 +641,7 @@ export default class Search extends Vue {
 
   onResize(): void {
     this.$nextTick(() => {
-    // update position of menue when window is resizing
+      // update position of menue when window is resizing
       if (this.showList) {
         this.updateStyle();
       }
@@ -686,13 +688,16 @@ export default class Search extends Vue {
   }
 
   inputWidthHandler(input: IInput, index: number): boolean | undefined {
-    return (!input.title && !input.value.trim() && !input.disabled)
-    || (!input.value && !input.disabled)
-    || (this.inputs.length - 1 === index && !input.disabled)
-    || (this.inputs.length - 2 === index && this.inputs[this.inputs.length - 1].disabled);
+    return (
+      (!input.title && !input.value.trim() && !input.disabled)
+      || (!input.value && !input.disabled)
+      || (this.inputs.length - 1 === index && !input.disabled)
+      || (this.inputs.length - 2 === index
+        && this.inputs[this.inputs.length - 1].disabled)
+    );
   }
 
-  deleteInputHandler(event) {
+  deleteInputHandler() {
     this.buttonSearchText = '';
     this.filteredOptions = this.options;
     // console.log(this.inputs);
@@ -700,9 +705,14 @@ export default class Search extends Vue {
       this.focusNextInput(0);
       this.showOptions();
     }
-    this.inputs = [{
-      title: null, value: '', disabled: false, key: '',
-    }];
+    this.inputs = [
+      {
+        title: null,
+        value: '',
+        disabled: false,
+        key: '',
+      },
+    ];
   }
 
   labelClickHandler(index: number) {
@@ -710,5 +720,10 @@ export default class Search extends Vue {
     this.$nextTick(() => {
       this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.select();
     });
+  }
+
+  @Watch('value')
+  valueChange() {
+    console.log('value chjanfe');
   }
 }
