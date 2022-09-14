@@ -1,7 +1,12 @@
-.zpl-toggle{
-  @apply relative inline-block w-[40px] h-[24px];
-  @apply sm:w-[36px] sm:h-[20px];
-  input{
+.zpl-toggle {
+  @apply flex items-center gap-xs;
+
+  &-input {
+    @apply relative inline-block w-[40px] h-[24px];
+    @apply sm:w-[36px] sm:h-[20px];
+  }
+
+  input {
     @apply opacity-0 w-0 h-0;
   }
   .slider {
@@ -18,20 +23,25 @@
   }
   // checked and disabled states
   input:checked + .slider {
-   @apply bg-primaryZarinpal;
-   @apply dark:bg-primaryZarinpal-dark;
+    @apply bg-primaryZarinpal;
+    @apply dark:bg-primaryZarinpal-dark;
   }
   input:checked + .slider:before {
     @apply right-[unset] left-2xs;
   }
   input:disabled + .slider {
-   @apply bg-surface-disabled;
-   @apply dark:bg-surface-dark-disabled;
+    @apply bg-surface-disabled;
+    @apply dark:bg-surface-dark-disabled;
   }
   input:checked:disabled + .slider {
     @apply bg-primaryZarinpal-disabled;
     @apply dark:bg-primaryZarinpal-dark-disabled;
   }
- 
-
+  &-text {
+    @apply text-b2 text-text;
+    @apply dark:text-text-dark;
+  }
+  &-loading {
+    @apply flex items-center gap-xs;
+  }
 }

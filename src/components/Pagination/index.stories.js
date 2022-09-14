@@ -15,12 +15,7 @@ const Template = (_, { argTypes }) => ({
       :initLimit="initLimit"
       :initPage="initPage"
     />
-    <Pagination
-    loading
-    :lastPage="lastPage"
-    :initLimit="initLimit"
-    :initPage="initPage"
-  />
+   
   </div>
   `,
 });
@@ -32,6 +27,6 @@ Default.argTypes = {
 
 Default.args = {
   lastPage: 20,
-  initLimit: 8,
+  initLimit: 15,
   initPage: 1
 };

@@ -4,6 +4,7 @@ import {
 import Button from '@/components/Button/index.vue';
 import Popover from '@/components/Popover/index.vue';
 import { ListsObject, Translation } from '@/types';
+import Dropdown from '@/components/Dropdown/index.vue';
 import Loading from './Loading/index.vue';
 
 @Component({
@@ -11,6 +12,7 @@ import Loading from './Loading/index.vue';
     Button,
     Popover,
     Loading,
+    Dropdown,
   },
 })
 export default class Pagination extends Vue {
@@ -18,7 +20,7 @@ export default class Pagination extends Vue {
 
   @Prop({ type: Number, default: 5 }) initLimit!: number
 
-  @Prop({ type: Number, default: 10 }) lastPage!: number
+  @Prop({ type: Number, default: 1 }) lastPage!: number
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
@@ -47,6 +49,9 @@ export default class Pagination extends Vue {
   created(): void {
     this.limit = this.initLimit;
     this.page = this.initPage;
+    this.$router.push({
+      query: { limit: String(this.initLimit), ...this.$route.query },
+    });
   }
 
   mounted() {
@@ -57,14 +62,14 @@ export default class Pagination extends Vue {
 
   get limitsList(): ListsObject[] {
     const list: ListsObject[] = [];
-    for (let limit = 4; limit <= 24;) {
+    for (let limit = 5; limit <= 25;) {
       list.push(
         {
           title: limit.toString(),
-          value: limit,
+          action: () => this.emitChangeLimit(limit - 5),
         },
       );
-      limit += 4;
+      limit += 5;
     }
     return list;
   }
@@ -76,7 +81,7 @@ export default class Pagination extends Vue {
       list.push(
         {
           title: page.toString(),
-          value: page,
+          action: () => this.emitChangePage(page),
         },
       );
     }

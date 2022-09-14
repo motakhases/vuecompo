@@ -20,7 +20,7 @@
     }
 
     &.large {
-      @apply p-lg bg-surface-soft  rounded-circle;
+      @apply p-lg bg-surface-soft rounded-circle;
       @apply dark:bg-surface-dark-soft;
     }
   }
@@ -39,6 +39,10 @@
 
     &.large {
       @apply w-4xl h-4xl;
+    }
+
+    &.xlarge {
+      @apply w-[80px] h-[80px];
     }
   }
   .zpl-avatar-border{
