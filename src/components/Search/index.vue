@@ -112,7 +112,7 @@
           type="primary"
           size="medium"
           :text="` ${$t('common.show_results')} ${buttonSearchText} `"
-          class="w-full justify-start truncate font-IRANYekanFaNum"
+          class="zpl-search-btn"
           beforeIcon="ArrowLeft"
           @click.native="onSearch"
           truncate

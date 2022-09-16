@@ -127,4 +127,7 @@
     @apply absolute top-xs left-xs text-icon-disabled cursor-pointer z-10;
     @apply dark:text-icon-dark-disabled;
   }
+  &-btn {
+    @apply w-full justify-start truncate font-IRANYekanFaNum #{!important};
+  }
 }

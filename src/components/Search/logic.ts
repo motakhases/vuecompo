@@ -14,6 +14,9 @@ interface IInput {
   disabled?: boolean;
   key: string;
 }
+interface ISearch {
+  [key:string]: string;
+}
 interface ISelectItem {
   title: string;
   isUnique?: boolean;
@@ -38,7 +41,7 @@ export default class Search extends Vue {
 
   @Prop({ type: Array }) readonly options!: ISelectItem[];
 
-  @Prop({ type: Function }) readonly onSearch!: (value: IInput[]) => void;
+  @Prop({ type: Function }) readonly onSearch!: (value: ISearch[]) => void;
 
   @Prop({ type: String, default: '' }) readonly value!: string;
 
@@ -471,7 +474,7 @@ export default class Search extends Vue {
     if (!this.$el.contains(e)) {
       // this.isInputFocused = false;
       // this.hideOptions();
-      if (!this.menuRef.contains(e)) {
+      if (!this.menuRef?.contains(e)) {
         this.hideOptions();
         this.isInputFocused = false;
       }
@@ -509,8 +512,8 @@ export default class Search extends Vue {
     const isEnterKey = event.key === 'Enter';
     if (isEnterKey) {
       this.hideOptions();
-      console.log(this.inputs);
-      this.onSearch(this.inputs);
+      const filteredSearchRes = this.inputs.filter((i) => !i.disabled).map((i) => ({ [i.key]: i.value.trim() }));
+      this.onSearch(filteredSearchRes);
     }
     if (!input.title) {
       // this.filteredOptions = this.filteredOptions.length
