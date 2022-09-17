@@ -114,7 +114,7 @@
           :text="` ${$t('common.show_results')} ${buttonSearchText} `"
           class="zpl-search-btn"
           beforeIcon="ArrowLeft"
-          @click.native="onSearch"
+          @click.native="onSearchClick"
           truncate
         />
       </div>

@@ -41,9 +41,11 @@ export default class Search extends Vue {
 
   @Prop({ type: Array }) readonly options!: ISelectItem[];
 
-  @Prop({ type: Function }) readonly onSearch!: (value: ISearch[]) => void;
+  @Prop({ type: Function }) readonly onSearch!: (value: ISearch) => void;
 
   @Prop({ type: String, default: '' }) readonly value!: string;
+
+  @Prop({ type: String, default: 'description' }) readonly descriptionKey!: string;
 
   /**
    * Refs
@@ -82,7 +84,7 @@ export default class Search extends Vue {
       title: null,
       value: '',
       disabled: false,
-      key: '',
+      key: this.descriptionKey,
     },
   ];
 
@@ -212,7 +214,7 @@ export default class Search extends Vue {
       title: null,
       value: '',
       disabled: true,
-      key: '',
+      key: this.descriptionKey,
     });
   }
 
@@ -228,11 +230,15 @@ export default class Search extends Vue {
             title: null,
             value: '',
             disabled: false,
-            key: '',
+            key: this.descriptionKey,
           });
         } else {
           this.inputs[index].disabled = false;
         }
+        this.filteredOptions = this.options;
+      }
+      if (!input.title && !value) {
+        this.showOptions();
         this.filteredOptions = this.options;
       }
     } else if (!value && (index > 0 || input.title)) {
@@ -314,11 +320,12 @@ export default class Search extends Vue {
     } else if (index === 0) {
       this.deleteInputHandler();
       this.showMenueList = true;
-
+      if (!input.value) {
+        this.filteredOptions = this.options;
+      }
       // this.onFocusIn(input, 0);
     }
     this.checkValidLabel(input, index);
-    this.filteredOptions = this.options;
   }
 
   checkValidLabel(input, index) {
@@ -370,7 +377,7 @@ export default class Search extends Vue {
             title: null,
             value: '',
             disabled: true,
-            key: '',
+            key: this.descriptionKey,
           });
           this.hideOptions();
         }
@@ -400,14 +407,13 @@ export default class Search extends Vue {
       if (indicesArr.length) {
         const finalArr: IInput[] = [];
         const str = input.value;
-
         indicesArr.forEach((item, i) => {
           const title = input.value.substring(item.start, item.end);
           if (i === 0 && item.start > 0) {
             finalArr.push({
               title: null,
               value: str.substring(0, item.start),
-              key: 'text',
+              key: this.descriptionKey,
             });
           }
           // this.inputs.splice(index, 1);
@@ -417,7 +423,7 @@ export default class Search extends Vue {
               indicesArr.length - 1 > i
                 ? str.substring(item.end, indicesArr[i + 1].start)
                 : str.substring(item.end),
-            key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key,
+            key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ?? this.descriptionKey,
           });
 
           // console.log(finalArr, 'slm', last);
@@ -442,7 +448,7 @@ export default class Search extends Vue {
             title: null,
             value: '',
             disabled: true,
-            key: '',
+            key: this.descriptionKey,
           });
         }
         this.$nextTick(() => {
@@ -466,6 +472,12 @@ export default class Search extends Vue {
     this.$nextTick(() => {
       this.showList = false;
     });
+  }
+
+  onSearchClick(): void {
+    this.hideOptions();
+    const filteredSearchRes = this.inputs.filter((i) => !i.disabled && i.value.trim().length).map((i) => ({ [i.key]: i.value.trim() }));
+    this.onSearch(filteredSearchRes.reduce(((r, c) => Object.assign(r, c)), {}));
   }
 
   // TODO: change any
@@ -511,9 +523,7 @@ export default class Search extends Vue {
 
     const isEnterKey = event.key === 'Enter';
     if (isEnterKey) {
-      this.hideOptions();
-      const filteredSearchRes = this.inputs.filter((i) => !i.disabled).map((i) => ({ [i.key]: i.value.trim() }));
-      this.onSearch(filteredSearchRes);
+      this.onSearchClick();
     }
     if (!input.title) {
       // this.filteredOptions = this.filteredOptions.length
@@ -615,7 +625,6 @@ export default class Search extends Vue {
           this.selectOption(this.filteredOptions[this.activeOptionIndex]);
 
           this.hideOptions();
-          console.log('enter');
           // disable the active option
           this.activeOptionIndex = -1;
         }
@@ -713,7 +722,7 @@ export default class Search extends Vue {
         title: null,
         value: '',
         disabled: false,
-        key: '',
+        key: this.descriptionKey,
       },
     ];
   }
@@ -723,10 +732,5 @@ export default class Search extends Vue {
     this.$nextTick(() => {
       this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.select();
     });
-  }
-
-  @Watch('value')
-  valueChange() {
-    console.log('value chjanfe');
   }
 }
