@@ -118,3 +118,5 @@ export { default as Zp } from './Zp/index.vue';
 export { default as Otp } from './Otp/index.vue';
 
 export { default as Timer } from './Timer/index.vue';
+
+export { default as PremiumBadge } from './PremiumBadge/index.vue';

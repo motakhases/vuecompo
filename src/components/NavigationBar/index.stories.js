@@ -37,7 +37,7 @@ const Template = (_, { argTypes }) => ({
         link: "/",
         icon: "GridLayout",
         active: true,
-        badge: "25",
+        premiumBadge: true,
       },
       {
         title: "تراکنش‌ها",
@@ -53,6 +53,7 @@ const Template = (_, { argTypes }) => ({
             title: "پیشخوان",
             link: "/",
             active: true,
+            premiumBadge:true
           },
           {
             title: "تراکنش‌ها",
