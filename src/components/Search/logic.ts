@@ -153,7 +153,7 @@ export default class Search extends Vue {
     }
   }
 
-  onFocusIn(input, index): void {
+  onFocusIn(input: IInput, index: number): void {
     // open dropdown
     this.isInputFocused = true;
     // when whole container is clicked, focus in first input
@@ -178,7 +178,7 @@ export default class Search extends Vue {
     }
   }
 
-  selectOption(option): void {
+  selectOption(option: ISelectItem): void {
     this.showMenueList = false;
     this.$emit('input', option.value);
     this.hideOptions();
@@ -218,10 +218,9 @@ export default class Search extends Vue {
     });
   }
 
-  removeInput(input, index: number, event) {
+  removeInput(input: IInput, index: number, event: Event) {
     const { value } = event.target as HTMLInputElement;
     if (index === 0) {
-      // this.onFocusIn();
       this.buttonSearchText = '';
       if (input.title && !value) {
         this.inputs.splice(index, 1);
@@ -241,11 +240,12 @@ export default class Search extends Vue {
         this.showOptions();
         this.filteredOptions = this.options;
       }
-    } else if (!value && (index > 0 || input.title)) {
+    } else if (!value && (input.title)) {
       this.inputs.splice(index, 1);
       this.activeInput = index - 1;
+      // focus on previous input
       this.$nextTick(() => {
-        this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index - 1]?.focus();
+        this.tagRef[index - 1]?.focus();
         this.isInputFocused = true;
       });
     }
@@ -261,9 +261,7 @@ export default class Search extends Vue {
     });
   }
 
-  activeNextInput(value: string, index: number, event) {
-    // this.showMenueList = true;
-    // this.showOptions();
+  activeNextInput(value: string, index: number, event:Event) {
     this.activeInput = index;
     if (this.inputs[index].title) {
       if (value) {
@@ -273,17 +271,9 @@ export default class Search extends Vue {
       }
     } else if (value.trim()) {
       if (index === this.inputs.length - 1) {
-        // this.inputs.push({
-        //   title: null,
-        //   value: '',
-        //   disabled: false,
-        // });
-        // this.focusNextInput(index);
-        // this.hideOptions()
         this.showMenueList = false;
       } else {
         this.inputs[index + 1].disabled = false;
-        // this.showOptions();
         this.focusNextInput(index + 1);
         event.preventDefault();
       }
@@ -300,30 +290,22 @@ export default class Search extends Vue {
     this.inputs.forEach((item) => {
       if (item.value) {
         list.push(`${item.title ?? ''} ${item.value}`);
-      } else {
-        // this.isTagValue = true;
       }
     });
     this.buttonSearchText = `"${list.join(' ')}"`;
   }
 
-  inputsHandler(input, event: Event, index) {
+  inputsHandler(input: IInput, event: Event, index: number) {
     event.stopPropagation();
     this.shallowTextRef[index].innerHTML = input.value;
-    // this.inputs[index].value = value;
-    // (event?.target as HTMLTextAreaElement)?.setAttribute('size', input.value.length);
+
     if (input.value.trim()) {
-      if (input.title) {
-        // this.showMenueList = false;
-      }
       this.updateButtonText();
     } else if (index === 0) {
-      this.deleteInputHandler();
       this.showMenueList = true;
       if (!input.value) {
         this.filteredOptions = this.options;
       }
-      // this.onFocusIn(input, 0);
     }
     this.checkValidLabel(input, index);
   }
@@ -507,17 +489,20 @@ export default class Search extends Vue {
     // this.filteredOptions = this.options.filter((option: ISelectOptions) => option.title.toLowerCase().includes(this.inputVal.toLowerCase()));
   }
 
-  splitAtIndex(value, index) {
+  splitAtIndex(value: string, index: number) {
     return `${value.substring(0, index)},${value.substring(index)}`;
   }
 
-  filterInputs(input, index: number, event: KeyboardEvent) {
+  filterInputs(input: IInput, index: number, event: KeyboardEvent) {
     event.stopPropagation();
     this.isInputFocused = true;
     this.updateButtonText();
     // if it's the first input and it doesn't have a value so empty search button
     if (index === 0 && !input.value) {
       this.buttonSearchText = '';
+      if (!input.title) {
+        this.deleteInputHandler();
+      }
     }
     this.isInputFocused = true;
 
