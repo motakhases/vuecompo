@@ -98,7 +98,8 @@ const Template = (_, { argTypes }) => ({
         "AtSign",
         "CircleDelete",
         "Refresh",
-        "Premium"
+        "Premium",
+        "PinFill"
       ],
     };
   },

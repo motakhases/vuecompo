@@ -20,6 +20,8 @@ const Template = (_, { argTypes }) => ({
         logo: "...",
         link: "...",
         route: "...",
+        active: true,
+        pinned: true
       },
       {
         domain: "zarin.express/zardu",

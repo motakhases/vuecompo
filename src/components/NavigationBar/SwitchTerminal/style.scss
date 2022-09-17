@@ -32,7 +32,7 @@
 }
 
 .zpl-nav-terminal-title {
-  @apply text-btn text-text truncate;
+  @apply text-btn text-text truncate font-medium;
   @apply dark:text-text-dark;
 }
 

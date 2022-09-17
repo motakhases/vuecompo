@@ -93,6 +93,7 @@ import Telegram2 from './icons/Telegram2.vue';
 import AtSign from './icons/AtSign.vue';
 import CircleDelete from './icons/CircleDelete.vue';
 import Premium from './icons/Premium.vue';
+import PinFill from './icons/PinFill.vue';
 
 @Component({
   components: {
@@ -188,6 +189,7 @@ import Premium from './icons/Premium.vue';
     AtSign,
     CircleDelete,
     Premium,
+    PinFill,
   },
 })
 export default class Icon extends Vue {
