@@ -18,7 +18,7 @@ import Loading from './Loading/index.vue';
 export default class Pagination extends Vue {
   @Prop({ type: Number, default: 1 }) initPage!: number
 
-  @Prop({ type: Number, default: 5 }) initLimit!: number
+  @Prop({ type: Number, default: 15 }) initLimit!: number
 
   @Prop({ type: Number, default: 1 }) lastPage!: number
 
@@ -49,6 +49,9 @@ export default class Pagination extends Vue {
   created(): void {
     this.limit = this.initLimit;
     this.page = this.initPage;
+  }
+
+  mounted() {
     this.$router.push({
       query: { limit: String(this.initLimit), ...this.$route.query },
     });

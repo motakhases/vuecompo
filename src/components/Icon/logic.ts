@@ -92,6 +92,7 @@ import Refresh from './icons/Refresh.vue';
 import Telegram2 from './icons/Telegram2.vue';
 import AtSign from './icons/AtSign.vue';
 import CircleDelete from './icons/CircleDelete.vue';
+import ExcelColor from './icons/ExcelColor.vue';
 import Premium from './icons/Premium.vue';
 import PinFill from './icons/PinFill.vue';
 
@@ -188,6 +189,7 @@ import PinFill from './icons/PinFill.vue';
     Telegram2,
     AtSign,
     CircleDelete,
+    ExcelColor,
     Premium,
     PinFill,
   },
