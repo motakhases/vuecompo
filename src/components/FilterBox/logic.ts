@@ -38,6 +38,22 @@ export default class Logic extends Vue {
 
   amountQueryKey = '';
 
+  showFilterBtn = false
+
+  today = moment().format('YYYY-MM-D')
+
+  startOfWeek = moment().startOf('week').format('YYYY-MM-D')
+
+  endOfWeek = moment().endOf('week').format('YYYY-MM-D')
+
+  startOfMonth = moment().startOf('jMonth').format('YYYY-MM-D')
+
+  endOfMonth = moment().endOf('jMonth').format('YYYY-MM-D')
+
+  lastMonth = moment().subtract(1, 'jMonth').format('YYYY-MM-D')
+
+  lastWeek = moment().subtract(1, 'week').format('YYYY-MM-D')
+
   toggleClose() {
     this.isClose = !this.isClose;
   }
@@ -63,7 +79,7 @@ export default class Logic extends Vue {
     if (queryKeys.length) {
       queryKeys.forEach((i) => {
         if (this.value === 'amount') {
-          // update value based on query
+        // update value based on query
           const queryAmount = queryKeys.filter((el) => amountList.includes(el))[0];
           if (queryAmount) {
             const amountVal = JSON.parse(
@@ -107,13 +123,26 @@ export default class Logic extends Vue {
                   JSON.stringify(this.$route.query.date),
                 );
                 if (typeof dateVal === 'string') {
-                  const formattedValue = moment(dateVal, 'YYYY-M-D').format(
-                    'jYYYY/jM/jD',
-                  );
-                  dateVal = [formattedValue, formattedValue];
-                  this.finalActiveVal = this.activeValue
-                    ? this.activeValue
-                    : `${formattedValue}`;
+                  if (dateVal === this.today) {
+                    this.finalActiveVal = this.$i18n.t('common.export.today') as string;
+                  } else {
+                    const formattedValue = moment(dateVal, 'YYYY-M-D').format(
+                      'jYYYY/jM/jD',
+                    );
+                    dateVal = [formattedValue, formattedValue];
+                    this.finalActiveVal = dateVal;
+                  }
+                } else if (dateVal[0] === this.startOfWeek && dateVal[1] === this.endOfWeek) {
+                  this.finalActiveVal = this.$i18n.t('common.export.current_week') as string;
+                } else if (
+                  dateVal[0] === this.startOfMonth
+                    && dateVal[1] === this.endOfMonth
+                ) {
+                  this.finalActiveVal = this.$i18n.t('common.export.current_month') as string;
+                } else if (dateVal[0] === this.lastMonth && dateVal[1] === this.today) {
+                  this.finalActiveVal = this.$i18n.t('common.export.prev_month') as string;
+                } else if (dateVal[0] === this.lastWeek && dateVal[1] === this.today) {
+                  this.finalActiveVal = this.$i18n.t('common.export.7_days') as string;
                 } else {
                   const firstFormattedValue = moment(
                     dateVal[0],
@@ -123,10 +152,7 @@ export default class Logic extends Vue {
                     dateVal[1],
                     'YYYY-M-D',
                   ).format('jYYYY/jM/jD');
-                  dateVal = [firstFormattedValue, secondFormattedValue];
-                  this.finalActiveVal = this.activeValue
-                    ? this.activeValue
-                    : `از ${firstFormattedValue} تا ${secondFormattedValue}`;
+                  this.finalActiveVal = `از ${firstFormattedValue} تا ${secondFormattedValue}`;
                 }
               }
             } else {
@@ -139,6 +165,12 @@ export default class Logic extends Vue {
           this.finalActiveVal = '';
         }
       });
+      if (queries[this.value]) {
+        if (typeof queries[this.value] === 'string' && (queries[this.value] as string).toUpperCase() === 'ALL') {
+          this.isActive = false;
+          this.finalActiveVal = '';
+        }
+      }
     } else {
       this.isActive = false;
       this.finalActiveVal = '';

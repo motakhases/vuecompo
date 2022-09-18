@@ -112,23 +112,70 @@ export default class FilterDate extends Vue {
     this.$emit('updateFilter', { date: this.value });
   }
 
+  updateInfo() {
+    const dateQuery = this.$route.query.date;
+    if (dateQuery) {
+      const dateValue = (moment(dateQuery as string).format('jYYYY/jM/jD'));
+      if (typeof dateQuery === 'string') {
+        this.value = JSON.parse(JSON.stringify(dateQuery));
+        if (dateValue === this.today) {
+          this.date = 'TODAY';
+        } else {
+          this.date = dateValue;
+        }
+      } else {
+        const firstDate = (moment(dateQuery[0] as string).format('jYYYY/jM/jD'));
+        const secondDate = (moment(dateQuery[1] as string).format('jYYYY/jM/jD'));
+        const firstFormattedValue = moment(dateQuery[0] as string).format('jYYYY-jM-jD');
+        const secondFormattedValue = moment(dateQuery[1] as string).format('jYYYY-jM-jD');
+        this.value = [firstFormattedValue, secondFormattedValue];
+        if (firstDate === this.startOfWeek && secondDate === this.endOfWeek) {
+          this.date = 'CURRENT_WEEK';
+        } else if (
+          firstDate === this.startOfMonth
+          && secondDate === this.endOfMonth
+        ) {
+          this.date = 'CURRENT_MONTH';
+        } else if (firstDate === this.lastMonth && secondDate === this.today) {
+          this.date = 'LAST_MONTH';
+        } else if (firstDate === this.lastWeek && secondDate === this.today) {
+          this.date = 'LAST_WEEK';
+        } else {
+          this.date = 'OPTIONAL_PERIOD';
+        }
+      }
+    } else {
+      this.date = '';
+    }
+  }
+
   mounted(): void {
+    this.updateInfo();
     /**
      * update value based on query
      */
-    if (Object.keys(this.$route.query).includes('date')) {
-      if (this.$route.query.date) {
-        this.date = 'OPTIONAL_PERIOD';
-        this.value = JSON.parse(JSON.stringify(this.$route.query.date));
-        if (typeof this.value === 'string') {
-          const formattedValue = moment(this.value, 'YYYY-M-D').format('jYYYY-jM-jD');
-          this.value = [formattedValue, formattedValue];
-        } else {
-          const firstFormattedValue = moment(this.value[0], 'YYYY-M-D').format('jYYYY-jM-jD');
-          const secondFormattedValue = moment(this.value[1], 'YYYY-M-D').format('jYYYY-jM-jD');
-          this.value = [firstFormattedValue, secondFormattedValue];
-        }
-      }
-    }
+    // if (Object.keys(this.$route.query).includes('date')) {
+    //   if (this.$route.query.date) {
+    //     this.date = 'OPTIONAL_PERIOD';
+    //     this.value = JSON.parse(JSON.stringify(this.$route.query.date));
+    //     if (typeof this.value === 'string') {
+    //       const formattedValue = moment(this.value, 'YYYY-M-D').format('jYYYY-jM-jD');
+    //       this.value = [formattedValue, formattedValue];
+    //     } else {
+    //       const firstFormattedValue = moment(this.value[0], 'YYYY-M-D').format('jYYYY-jM-jD');
+    //       const secondFormattedValue = moment(this.value[1], 'YYYY-M-D').format('jYYYY-jM-jD');
+    //       this.value = [firstFormattedValue, secondFormattedValue];
+    //     }
+    //   }
+    // }
+  }
+
+  /**
+   * Watcher
+   * ------------------------------
+   * */
+  @Watch('$route.query')
+  refresh() {
+    this.updateInfo();
   }
 }
