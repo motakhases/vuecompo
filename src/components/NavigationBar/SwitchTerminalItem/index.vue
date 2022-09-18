@@ -3,11 +3,7 @@
     class="zpl-terminal-item"
     @click="$emit('terminalClick', terminalConcatedData)"
   >
-    <Thumbnail
-      :icon="icon"
-      :img="img"
-      :alt="alt"
-    />
+    <Thumbnail :icon="icon" :img="img" :alt="alt" />
     <div class="zpl-terminal-item-header">
       <div class="zpl-terminal-item-title">
         {{ title }}
@@ -15,15 +11,13 @@
       <div class="zpl-terminal-item-link">
         {{ link }}
       </div>
-      <Status
-        :type="state"
-        :text="stateText(state)"
-        class="mt-sm"
-      />
-      <div
-        v-if="active === true"
-        class="zpl-terminal-item-active"
-      >
+      <div class="flex gap-sm items-center mt-sm">
+        <Status :type="state" :text="stateText(state)" />
+        <div class="zpl-terminal-item-pin" v-if="pinned">
+          <Icon name="PinFill" />
+        </div>
+      </div>
+      <div v-if="active === true" class="zpl-terminal-item-active">
         <Icon name="tickSmall" />
       </div>
     </div>

@@ -9,10 +9,11 @@ import {
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
+import PremiumBadge from '@/components/PremiumBadge/index.vue';
 
 @Component({
   components: {
-    Icon, NotificationBadge, Tooltip,
+    Icon, NotificationBadge, Tooltip, PremiumBadge,
   },
 })
 export default class NavItem extends Vue {
@@ -25,6 +26,8 @@ export default class NavItem extends Vue {
   @Prop({ type: String }) title!: string
 
   @Prop({ type: String }) badge!: string
+
+  @Prop({ type: Boolean }) premiumBadge!: boolean
 
   @Prop({ type: Function }) toggle!: () => boolean
 

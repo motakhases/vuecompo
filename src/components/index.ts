@@ -47,6 +47,7 @@ export { default as MessageBox } from './MessageBox/index.vue';
 export { default as Modal } from './Modal/index.vue';
 
 export { default as NavigationBar } from './NavigationBar/index.vue';
+export { default as SwitchTerminalItem } from './NavigationBar/SwitchTerminalItem/index.vue';
 
 export { default as NotificationBadge } from './NotificationBadge/index.vue';
 
@@ -117,3 +118,5 @@ export { default as Zp } from './Zp/index.vue';
 export { default as Otp } from './Otp/index.vue';
 
 export { default as Timer } from './Timer/index.vue';
+
+export { default as PremiumBadge } from './PremiumBadge/index.vue';

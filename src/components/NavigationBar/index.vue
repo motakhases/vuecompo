@@ -32,6 +32,7 @@
             :title="link.title"
             :icon="link.icon"
             :badge="link.badge"
+            :premium-badge="link.premiumBadge"
             :toggle="toggle"
             :isShow="isShow"
             :subMenu="link.subMenu"

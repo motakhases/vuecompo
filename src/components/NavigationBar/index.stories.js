@@ -20,6 +20,8 @@ const Template = (_, { argTypes }) => ({
         logo: "...",
         link: "...",
         route: "...",
+        active: true,
+        pinned: true
       },
       {
         domain: "zarin.express/zardu",
@@ -37,7 +39,7 @@ const Template = (_, { argTypes }) => ({
         link: "/",
         icon: "GridLayout",
         active: true,
-        badge: "25",
+        premiumBadge: true,
       },
       {
         title: "تراکنش‌ها",
@@ -53,6 +55,7 @@ const Template = (_, { argTypes }) => ({
             title: "پیشخوان",
             link: "/",
             active: true,
+            premiumBadge:true
           },
           {
             title: "تراکنش‌ها",

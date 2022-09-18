@@ -20,6 +20,7 @@
             {{ title }}
           </span>
           <NotificationBadge v-if="findBadge(subMenu)" />
+
           <Icon class="arrow-icon" v-if="showSub" name="AngleUp" />
           <Icon class="arrow-icon" v-else name="AngleDown" />
         </div>
@@ -33,6 +34,7 @@
                 {{ link.title }}
               </span>
               <NotificationBadge v-if="link.badge" :text="link.badge" />
+              <PremiumBadge v-if="link.premiumBadge" />
             </router-link>
           </li>
         </ul>
@@ -43,6 +45,7 @@
           {{ title }}
         </span>
         <NotificationBadge v-if="badge" :text="badge" />
+         <PremiumBadge v-if="premiumBadge" />
       </router-link>
     </Tooltip>
   </li>
