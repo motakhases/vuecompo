@@ -262,6 +262,14 @@ export default class Search extends Vue {
   }
 
   activeNextInput(value: string, index: number, event:Event) {
+    this.inputs.forEach((item, i) => {
+      this.$nextTick(() => {
+        // this.shallowTextRef[index].innerHTML = item.value;
+        this.tagRef[i].style.width = `${
+          this.shallowTextRef[i].getBoundingClientRect().width
+        }px`;
+      });
+    });
     this.activeInput = index;
     if (this.inputs[index].title) {
       if (value) {
@@ -423,7 +431,8 @@ export default class Search extends Vue {
         this.inputs.splice(index, 1);
         finalArr.forEach((item) => {
           this.inputs.splice(index + 1, 0, item);
-          this.shallowTextRef[index].innerHTML = item.value;
+          console.log(item.value, 'item.value');
+          // this.shallowTextRef[index].innerHTML = item.value;
         });
         if (!this.inputs[this.inputs.length - 1].disabled) {
           this.inputs.push({
@@ -717,5 +726,14 @@ export default class Search extends Vue {
     this.$nextTick(() => {
       this.$el.querySelectorAll<HTMLInputElement>('.tag-input')[index]?.select();
     });
+  }
+
+  toEnNumber(payload: number | string): string {
+    const modifiedToEnNumber = payload
+      .toString()
+      .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d: string) => (d.charCodeAt(0) - 1632).toString())
+      .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d: string) => (d.charCodeAt(0) - 1776).toString());
+
+    return payload === '' ? payload : modifiedToEnNumber;
   }
 }
