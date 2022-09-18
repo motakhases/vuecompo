@@ -431,7 +431,6 @@ export default class Search extends Vue {
         this.inputs.splice(index, 1);
         finalArr.forEach((item) => {
           this.inputs.splice(index + 1, 0, item);
-          console.log(item.value, 'item.value');
           // this.shallowTextRef[index].innerHTML = item.value;
         });
         if (!this.inputs[this.inputs.length - 1].disabled) {
@@ -467,7 +466,7 @@ export default class Search extends Vue {
 
   onSearchClick(): void {
     this.hideOptions();
-    const filteredSearchRes = this.inputs.filter((i) => !i.disabled && i.value.trim().length).map((i) => ({ [i.key]: i.value.trim() }));
+    const filteredSearchRes = this.inputs.filter((i) => !i.disabled && i.value.trim().length).map((i) => ({ [i.key]: this.toEnNumber(i.value.trim()) }));
     this.onSearch(filteredSearchRes.reduce(((r, c) => Object.assign(r, c)), {}));
   }
 
