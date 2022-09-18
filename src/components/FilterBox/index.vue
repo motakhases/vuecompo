@@ -11,7 +11,7 @@
         <button :class="['zpl-filter-button', { isActive }]">
           {{ title }}
           <div v-if="isActive">
-            <span>: {{ finalActiveVal }}</span>
+            <span class="hidden lg:inline-flex">: {{ finalActiveVal }}</span>
             <Icon
               name="FilledDelete"
               class="zpl-filter-delete"
