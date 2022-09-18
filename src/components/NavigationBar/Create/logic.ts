@@ -1,11 +1,11 @@
 import {
   Vue, Prop, Component,
 } from 'vue-property-decorator';
-import Thumbnail from '../../Thumbnail/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 @Component({
   components: {
-    Thumbnail,
+    Icon,
   },
 })
 export default class Create extends Vue {
