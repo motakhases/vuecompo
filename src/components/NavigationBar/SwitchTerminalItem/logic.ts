@@ -18,6 +18,8 @@ import Thumbnail from '@/components/Thumbnail/index.vue';
 export default class SwitchTerminalItem extends Vue {
   @Prop({ type: Boolean, default: false }) active!: boolean
 
+  @Prop({ type: Boolean, default: false }) pinned!: boolean
+
   @Prop({ type: String }) id!: string
 
   @Prop({ type: String }) title!: string

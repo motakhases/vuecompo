@@ -94,6 +94,8 @@ import AtSign from './icons/AtSign.vue';
 import CircleDelete from './icons/CircleDelete.vue';
 import SearchSmall from './icons/SearchSmall.vue';
 import ExcelColor from './icons/ExcelColor.vue';
+import Premium from './icons/Premium.vue';
+import PinFill from './icons/PinFill.vue';
 
 @Component({
   components: {
@@ -190,7 +192,8 @@ import ExcelColor from './icons/ExcelColor.vue';
     CircleDelete,
     SearchSmall,
     ExcelColor,
-
+    Premium,
+    PinFill,
   },
 })
 export default class Icon extends Vue {

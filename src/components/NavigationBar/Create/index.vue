@@ -4,7 +4,7 @@
       :to="link"
       class="zpl-nav-create"
     >
-      <Thumbnail icon="plus" />
+      <Icon name="plus" />
       <slot />
     </a>
   </div>

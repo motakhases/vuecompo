@@ -16,6 +16,7 @@
               :id="terminal.id"
               :key="index"
               :active="terminal.id === activeTerminal.id"
+              :pinned="terminal.pinned"
               :title="terminal.name"
               :link="terminal.domain"
               :route="terminal.route"

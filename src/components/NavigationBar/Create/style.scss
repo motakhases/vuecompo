@@ -1,6 +1,6 @@
 .zpl-nav-create {
   /* Default */
-  @apply flex items-center p-xs text-text text-b2 gap-sm cursor-pointer rounded-sm;
+  @apply flex items-center justify-center p-sm text-text text-b2 font-medium gap-sm cursor-pointer rounded-sm;
   @apply dark:text-text-dark;
 
   /* Hover */
@@ -18,5 +18,8 @@
   &-box {
     @apply border-t border-border-divider p-xs;
     @apply dark:border-border-dark-divider;
+  }
+  svg {
+    @apply w-xl h-xl;
   }
 }
