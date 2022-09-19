@@ -14,7 +14,7 @@
             :key="index"
             :class="[
               'zpl-search-tag-input',
-              inputWidthHandler(input, index) ? 'w-full' : '',
+              inputWidthHandler(input, index) && notLastInput(index) ? 'w-full' : '',
             ]"
           >
             <Label
@@ -32,11 +32,10 @@
               @keyup="(e) => filterInputs(input, index, e)"
               :class="[
                 'tag-input ',
-                !input.title && !input.value.trim() && !input.disabled
+                !input.title && !input.value.trim() && !input.disabled && notLastInput(index)
                   ? 'w-full'
                   : '',
-                input.disabled ||
-                (!input.value && !input.disabled) ||
+                input.disabled || (!input.value && !input.disabled && notLastInput(index)) ||
                 (inputs.length - 1 === index && !input.disabled) ||
                 (inputs.length - 2 === index &&
                   inputs[inputs.length - 1].disabled)
