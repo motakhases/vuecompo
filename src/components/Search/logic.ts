@@ -421,15 +421,14 @@ export default class Search extends Vue {
                 ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
                 : str.substring(item.end).trim().replace(/  +/g, ' '),
             key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ?? this.descriptionKey,
+
           });
+          this.shallowTextRef[index].innerHTML = indicesArr.length - 1 > i
+            ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
+            : str.substring(item.end).trim().replace(/  +/g, ' ');
 
           // console.log(finalArr, 'slm', last);
           // const isUniqueInput = this.options.map((i) => i.key === el.key && !i.isUnique)
-          finalArr.filter((el, ind) => {
-            console.log('here', finalArr.splice(ind, 0));
-
-            // finalArr.splice(ind, 0);
-          });
           // this.inputs.push({
           //   title,
           //   value: input.value.replace(title, ''),
