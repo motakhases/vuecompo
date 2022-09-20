@@ -161,8 +161,8 @@ export default class Search extends Vue {
       this.tagRef[0].focus();
     }
     if (input) {
-      if (input?.title) {
-        if (index === 0 && !input?.value) {
+      if (this.inputs[index]?.title) {
+        if (index === 0 && !this.inputs[index]?.value) {
           this.hideOptions();
         } else if (this.buttonSearchText) {
           this.showMenueList = false;
@@ -565,7 +565,7 @@ export default class Search extends Vue {
           ?.toLowerCase()
           .includes(input.value.trim().toLowerCase()));
       }
-    } else if (index === 0 && !input.value) {
+    } else if (index === 0 && !input.value && input.title) {
       this.hideOptions();
     } else {
       this.showOptions();
@@ -579,6 +579,7 @@ export default class Search extends Vue {
         }px`;
       });
     });
+    this.onEscPress(event);
   }
 
   onKeyDown(index: number, e: KeyboardEvent): void {
@@ -690,12 +691,12 @@ export default class Search extends Vue {
     }
     this.showList = false;
     window.removeEventListener('keypress', this.onSlashPress);
-    window.removeEventListener('keyup', this.onEscPress);
+    // window.removeEventListener('keyup', this.onEscPress);
   }
 
   created() {
     window.addEventListener('keypress', this.onSlashPress);
-    window.addEventListener('keyup', this.onEscPress);
+    // window.addEventListener('keyup', this.onEscPress);
   }
 
   onEscPress(event: KeyboardEvent) {
@@ -711,8 +712,9 @@ export default class Search extends Vue {
 
   onSlashPress(event: KeyboardEvent) {
     if (!this.$el.contains(event.target as HTMLInputElement)) {
-      event.preventDefault();
       if (event.key === '/') {
+        event.preventDefault();
+
         if (this.inputs[this.inputs.length - 1].disabled) {
           this.focusNextInput(this.inputs.length - 2);
         } else {

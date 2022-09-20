@@ -1,6 +1,5 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
-    
     <div :class="['zpl-search']" @click.self="onFocusIn">
       <div class="w-full h-full flex items-center">
         <span
@@ -15,7 +14,7 @@
             :key="index"
             :class="[
               'zpl-search-tag-input',
-              inputWidthHandler(input, index) && notLastInput(index) || index === inputs.length - 1 ? 'w-full' : '',
+              inputWidthHandler(input, index) && notLastInput(index) || index === inputs.length - 1 && !input.disabled ? 'w-full' : '',
             ]"
           >
             <Label
@@ -33,7 +32,7 @@
               @keyup="(e) => filterInputs(input, index, e)"
               :class="[
                 'tag-input ',
-               ( !input.title && !input.value.trim() && !input.disabled && notLastInput(index)) || index === inputs.length - 1
+               ( !input.title && !input.value.trim() && !input.disabled && notLastInput(index)) || index === inputs.length - 1 && !input.disabled
                   ? 'w-full'
                   : '',
                 input.disabled || (!input.value && !input.disabled && notLastInput(index)) ||
