@@ -3,9 +3,14 @@
   @apply bg-surface px-md py-xs flex items-center justify-between top-0 sticky z-[31] shadow-divider-bottom;
   @apply dark:bg-surface-dark dark:text-text-dark dark:shadow-dark-divider-bottom;
 }
+.zpl-topbar-center {
+  /* Default */
+  @apply bg-surface py-md flex items-center justify-center top-0 sticky z-[31];
+  @apply dark:bg-surface-dark;
+}
 .zpl-topbar-right-side {
   /* Default */
-  @apply flex flex-1 items-center;
+  @apply flex flex-1 items-center gap-xs;
 }
 .zpl-topbar-left-side {
   /* Default */
@@ -18,11 +23,11 @@
 .zpl-topbar-logo {
   flex: 0 0 108px;
   max-width: 108px;
-  @apply hidden lg:block mr-xs;
+  @apply hidden lg:block;
 }
-.zpl-topbar-terminal-btn{
+.zpl-topbar-terminal-btn {
   @apply block lg:hidden mr-xs;
 }
-.zpl-topbar-question-btn{
+.zpl-topbar-question-btn {
   @apply hidden lg:block;
 }
