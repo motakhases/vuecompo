@@ -11,20 +11,54 @@ const Template = (_, { argTypes }) => ({
   components: { CheckboxCard, Button },
   data() {
     return {
-      image:'gfffdfd',
+      image,
+      check: ['first'],
     };
   },
 
   props: Object.keys(argTypes),
   template: `
   <div class="p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <CheckboxCard title="لیبل" description="توضیحات" :image="image">
-      <div >محتوای دلخواه در کارت</div>
-      <template #actions>
-        <Button type="secondary" text="دکمه" />
-      </template>
-    </CheckboxCard>
-    <img :src="image" />
+  <div class="w-full flex gap-2xl mt-2xl">
+  <div class="flex-[0_0_360px]">
+    <CheckboxCard
+      title="لیبل"
+      description="توضیحات"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
+      v-model="check"
+      val="first"
+      disabled
+    />
+  </div>
+  <div class="flex-[0_0_360px]">
+    <CheckboxCard
+      title="لیبل"
+      description="توضیحات"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
+      v-model="check"
+      val="second"
+      disabled
+    />
+  </div>
+  <div class="flex-[0_0_360px]">
+    <CheckboxCard
+      title="لیبل"
+      description="توضیحات"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
+      v-model="check"
+      val="third"
+    />
+  </div>
+  <div class="flex-[0_0_360px]">
+    <CheckboxCard
+      title="لیبل"
+      description="توضیحات"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
+      v-model="check"
+      val="forth"
+    />
+  </div>
+</div>
   </div>
   `,
 });

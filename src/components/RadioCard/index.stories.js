@@ -24,7 +24,7 @@ const Template = (_, { argTypes }) => ({
     <RadioCard
       title="لیبل"
       description="توضیحات"
-      :image="image"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
       v-model="data"
       val="first"
       disabled
@@ -34,7 +34,7 @@ const Template = (_, { argTypes }) => ({
     <RadioCard
       title="لیبل"
       description="توضیحات"
-      :image="image"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
       v-model="data"
       val="second"
       disabled
@@ -44,7 +44,7 @@ const Template = (_, { argTypes }) => ({
     <RadioCard
       title="لیبل"
       description="توضیحات"
-      :image="image"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
       v-model="data"
       val="third"
     />
@@ -53,7 +53,7 @@ const Template = (_, { argTypes }) => ({
     <RadioCard
       title="لیبل"
       description="توضیحات"
-      :image="image"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU"
       v-model="data"
       val="forth"
     />
