@@ -9,16 +9,17 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    sm: "سلام از طرف یک فیلد غیر فعال",
-    md: "",
-    lg: "",
+    list: [
+      { id: 1, subSteps: 3, completed: 3 },
+      { id: 2, subSteps: 1, completed: 1 },
+      { id: 3, subSteps: 5, completed: 5 },
+      { id: 4, subSteps: 8, completed: 2 },
+    ],
   }),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-	  <StepperGroup :subSteps="1" :completed="1" />
-	  <StepperGroup :subSteps="2" :completed="1" />
-	  <StepperGroup :subSteps="3" :completed="2" />
-	  <StepperGroup :subSteps="4" :completed="3" />
+	  <StepperGroup :steppers="list" />
+
 
   </div>
   `,

@@ -1,11 +1,10 @@
 <template>
-  <div class="zpl-stepper">
-    <component
-        :is="completed >= (i) ? 'span' : 'div'"
-
-      :class="['zpl-stepper-item', completed >= (i) ? 'fill' : null]"
-      v-for="i in subSteps"
-      :key="i"
+  <div class="zpl-stepper-group">
+    <Stepper
+      v-for="step in steppers"
+      :key="step.id"
+      :subSteps="step.subSteps"
+      :completed="step.completed"
     />
   </div>
 </template>
