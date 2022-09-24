@@ -1,6 +1,6 @@
 .zpl-radio-card {
-  @apply p-xl flex flex-col gap-2xl border border-border rounded-md cursor-pointer;
-  @apply dark:border-border-dark;
+  @apply p-xl flex flex-col justify-between gap-2xl h-full outline-1 outline outline-border rounded-md cursor-pointer;
+  @apply dark:outline-border-dark;
   @apply focus:shadow-border-focus-heavy dark:focus:shadow-dark-border-focus-heavy;
   &:not(.disabled) {
     @apply active:bg-surface-active dark:active:bg-surface-dark-active;
@@ -8,15 +8,15 @@
     @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
   }
   &.selected {
-    @apply border-2;
+    @apply outline-2;
     &:not(.disabled) {
-      @apply border-primaryZarinpal dark:border-primaryZarinpal-dark;
-      @apply active:border-primaryZarinpal-active dark:active:border-primaryZarinpal-dark-active;
-      @apply hover:border-primaryZarinpal-hover hover:dark:border-primaryZarinpal-dark-hover;
+      @apply outline-primaryZarinpal dark:outline-primaryZarinpal-dark;
+      @apply active:outline-primaryZarinpal-active dark:active:outline-primaryZarinpal-dark-active;
+      @apply hover:outline-primaryZarinpal-hover hover:dark:outline-primaryZarinpal-dark-hover;
     }
     &.disabled {
-      @apply border-primaryZarinpal-disabled;
-      @apply dark:border-primaryZarinpal-dark-disabled;
+      @apply outline-primaryZarinpal-disabled;
+      @apply dark:outline-primaryZarinpal-dark-disabled;
     }
   }
   &.disabled {

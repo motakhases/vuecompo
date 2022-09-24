@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['zpl-radio-card', model === val ? 'selected' : null, { disabled }]"
+    :class="['zpl-radio-card', model.includes(val) ? 'selected' : null, { disabled }]"
     @click="selectCardHandler"
   >
     <!-- Header -->
