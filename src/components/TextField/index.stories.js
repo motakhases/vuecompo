@@ -102,7 +102,7 @@ const Template = (_, { argTypes }) => ({
   	<TextField
   	  v-model="error"
   	  class="col-span-1"
-  	  rules="required"
+  	  rules="Multiplication"
   	/>
   </div>
   `,

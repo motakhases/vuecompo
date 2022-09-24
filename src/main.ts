@@ -19,3 +19,4 @@ new Vue({
   router,
   i18n,
 }).$mount('#app');
+

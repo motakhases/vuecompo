@@ -62,8 +62,9 @@ extend('isPhoneValidate', {
 });
 extend('Multiplication', {
   validate(value, { step }) {
-    if (value) {
-      return value % step === 0;
+    const val = value.replace(/,/g, '');
+    if (val) {
+      return val % step === 0;
     }
     return false;
   },
