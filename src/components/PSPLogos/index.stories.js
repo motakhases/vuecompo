@@ -13,10 +13,10 @@ const Template = (args, { argTypes }) => ({
       logos: [
         "Asan",
         "Bpm",
-        "FanAVACart",
+        "WFan",
         "Ikc",
         "Pna",
-        "Parsian",
+        "Pec",
         "Pep",
         "Sadad",
         "Mca",
