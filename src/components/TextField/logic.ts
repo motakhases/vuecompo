@@ -9,7 +9,7 @@ import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
 
-import '@/utils/validations';
+// import '@/utils/validations';
 
 @Component({
   components: {
@@ -64,6 +64,10 @@ export default class TextField extends Vue {
   @Prop({ type: String }) readonly placeholder?: string;
 
   @Prop({ type: String }) readonly min?: string;
+
+  @Prop({ type: Array }) readonly errors?: [];
+
+  @Prop({ type: Boolean }) readonly passed!: boolean;
 
   @Prop({ type: String, default: '' }) readonly value!: string;
 

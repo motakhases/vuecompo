@@ -1,10 +1,5 @@
 <template>
-  <ValidationProvider
-    v-slot="{ errors, passed }"
-    :rules="rules"
-    :name="label"
-    :vid="inputName"
-  >
+  <div>
     <div v-if="loading" class="zpl-textfield-loading">
       <Skeleton type="body" class="w-1/3" />
     </div>
@@ -118,7 +113,6 @@
         </span>
       </div>
     </div>
-  </ValidationProvider>
 </template>
 
 <script lang="ts">
