@@ -6,6 +6,8 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+  <Button type="tertiary" icon="PinFill" class="text-zarin" />
+
     <Button size="medium" text="دکمه" type="primary"  />
     <Button text="دکمه" type="primaryText" beforeIcon="QuestionCircle"  afterIcon="QuestionCircle" />
 
