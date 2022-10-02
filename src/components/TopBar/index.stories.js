@@ -13,6 +13,9 @@ const Template = (_, { argTypes }) => ({
       :terminals="terminals"
       @showNotifs="()=>{}"
     />
+    <h1 class="mt-sm font-bold dark:text-surface"> تاپ بار با لوگو در وسط</h1>
+
+    <TopBar centerLogo/>
   </div>
   `,
 });
