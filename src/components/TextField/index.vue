@@ -19,7 +19,7 @@
         <input
           v-model="model"
           autocomplete="off"
-          :class="['zpl-textfield-input', { ltr, 'font-Mono': mono }]"
+          :class="['zpl-textfield-input', { ltr, 'font-Mono': mono, numLtr }]"
           :disabled="disabled"
           :placeholder="placeholder"
           :name="inputName"
