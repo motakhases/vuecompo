@@ -13,12 +13,12 @@ const Template = (args, { argTypes }) => ({
       logos: [
         "Asan",
         "Bpm",
-        "WFan",
+        "Fan",
         "Ikc",
         "Pna",
         "Pec",
         "Pep",
-        "Sadad",
+        "Sep",
         "Mca",
       ],
     };
@@ -29,7 +29,7 @@ const Template = (args, { argTypes }) => ({
       <div class="text-center flex flex-col items-center bg-surface h-[150px] rounded-md py-xl px-md dark:text-surface dark:bg-surface-dark">
         <PSPLogos :logo="logo" class="mb-sm flex-1 w-[66px]" />
         <span> {{ logo }} </span>
-      </div>	
+      </div>
     </div>
   </div>
 	`,
