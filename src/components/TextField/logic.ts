@@ -95,10 +95,11 @@ export default class TextField extends Vue {
     this.isInputFocused = true;
   }
 
-  onFocusOut(): void {
+  onFocusOut(e:Event): void {
     if (!this.value) {
       this.isInputFocused = false;
     }
+    this.$emit('blur', e);
   }
 
   formattedValue(): string {
