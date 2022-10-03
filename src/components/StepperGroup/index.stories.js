@@ -18,6 +18,15 @@ const Template = (_, { argTypes }) => ({
   }),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
+  <div class="grid grid-cols-12">
+    <h1 class="col-span-3 text-center">استپر اول: ۳ مرحله ای</h1>
+    <h1 class="col-span-3 text-center">استپر دوم: ۱ مرحله ای</h1>
+    <h1 class="col-span-3 text-center">استپر سوم: ۵ مرحله ای</h1>
+    <h1 class="col-span-3 text-center">استپر چهارم: ۸ مرحله ای  که ۲ مرحله کامل شده</h1>
+  </div>
+  <h1 class="mt-sm font-bold dark:text-surface">
+  </h1>
+
 	  <StepperGroup :steppers="list" />
 
 
