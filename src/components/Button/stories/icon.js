@@ -8,7 +8,7 @@ const Template = (_, { argTypes }) => ({
     <Button type="primary" text="Before Icon" beforeIcon="QuestionCircle" />
     <Button type="primary" text="After Icon" afterIcon="QuestionCircle" />
     <Button type="primary" text="both Icons" beforeIcon="QuestionCircle" afterIcon="QuestionCircle" />
-    <Button type="primary" icon="QuestionCircle" />
+    <Button type="primary" icon="Pin" class="text-primaryZarinpal" />
   </div>
   `,
 });

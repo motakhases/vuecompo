@@ -18,6 +18,8 @@ export default class TopBar extends Vue {
 
   @Prop({ type: Boolean, default: true }) readonly hasMenu?: boolean
 
+  @Prop({ type: Boolean, default: false }) readonly centerLogo?: boolean
+
   @Prop({ type: String, default: 'عنوان درگاه' }) readonly activeTerminal?: string
 
   showTerminalList = false

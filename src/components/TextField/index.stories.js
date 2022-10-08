@@ -17,10 +17,17 @@ const Template = (_, { argTypes }) => ({
     error: "",
     limit: "",
     limitNum: 5,
+    num: "",
     url: "https://zarinp.al/376218",
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">
+	<TextField
+	v-model="hint"
+	class="col-span-1"
+	label="  ltr فیلد عادی"
+	ltr
+/>
 	<TextField
   	  v-model="hint"
   	  class="col-span-1"
@@ -71,6 +78,12 @@ const Template = (_, { argTypes }) => ({
 			label="فیلد با تعداد کاراکتر محدود"
 			:limit="limitNum"
 		/>
+		<TextField
+  	  v-model="num"
+  	  class="col-span-1"
+  	  label="فیلد عددی چپ چین"
+			numLtr
+  	/>
 		<TextField
   	  v-model="url"
   	  class="col-span-1"
