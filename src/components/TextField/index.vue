@@ -5,7 +5,7 @@
     </div>
     <div class="zpl-textfield-group" v-else>
       <div
-        :class="['zpl-textfield', { invalid: errors.length }]"
+        :class="['zpl-textfield', { invalid: errors }]"
         :disabled="disabled"
       >
         <!-- Prefix Icon -->
@@ -85,7 +85,7 @@
       <div class="zpl-textfield-hint-box">
         <!-- Hint -->
         <div
-          v-if="hint && !(successMessage && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors"
           class="zpl-textfield-hint helper"
         >
           <span>
@@ -102,9 +102,9 @@
         </div>
 
         <!-- Errors -->
-        <div v-if="errors.length" class="zpl-textfield-hint error">
+        <div v-if="errors" class="zpl-textfield-hint error">
           <Icon name="warning" />
-          <span>{{ errors[0] }}</span>
+          <span>{{ errors }}</span>
         </div>
 
         <!-- Max Length -->
@@ -113,6 +113,7 @@
         </span>
       </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">

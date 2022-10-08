@@ -1,15 +1,11 @@
 import {
   Vue, Component, Prop, VModel, Watch,
 } from 'vue-property-decorator';
-import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
 
-import '@/utils/validations';
-
 @Component({
   components: {
-    ValidationProvider,
     Icon,
     Skeleton,
   },
@@ -38,6 +34,8 @@ export default class TextBox extends Vue {
   @Prop({ type: String, default: '' }) readonly successMessage?: string
 
   @Prop({ type: String, default: '' }) readonly value!: string
+
+  @Prop({ type: String }) readonly errors?: string;
 
   isInputFocused = false
 

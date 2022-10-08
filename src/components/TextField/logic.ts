@@ -3,17 +3,13 @@ import {
 } from 'vue-property-decorator';
 
 // Components
-import { ValidationProvider } from 'vee-validate';
 import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
 
-// import '@/utils/validations';
-
 @Component({
   components: {
-    ValidationProvider,
     Icon,
     Button,
     Tooltip,
@@ -65,7 +61,7 @@ export default class TextField extends Vue {
 
   @Prop({ type: String }) readonly min?: string;
 
-  @Prop({ type: Array }) readonly errors?: [];
+  @Prop({ type: String }) readonly errors?: string;
 
   @Prop({ type: Boolean }) readonly passed!: boolean;
 

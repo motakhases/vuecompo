@@ -10,7 +10,6 @@ import './assets/tailwind.css';
 // Utils
 import './utils/directives';
 import './utils/filters/index';
-import './validation';
 import App from './App.vue';
 
 Vue.config.productionTip = false;

@@ -1,5 +1,4 @@
 import Status from "./index.vue";
-import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
