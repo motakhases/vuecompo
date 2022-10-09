@@ -1,16 +1,11 @@
 <template>
-  <ValidationProvider
-    v-slot="{ errors, passed }"
-    :rules="rules"
-    :name="label"
-    :vid="inputName"
-  >
+  <div>
     <div v-if="loading" class="zpl-textfield-loading">
       <Skeleton type="body" class="w-1/3" />
     </div>
     <div class="zpl-textfield-group" v-else>
       <div
-        :class="['zpl-textfield', { invalid: errors.length }]"
+        :class="['zpl-textfield', { invalid: errors }]"
         :disabled="disabled"
       >
         <!-- Prefix Icon -->
@@ -19,7 +14,7 @@
         <input
           v-model="model"
           autocomplete="off"
-          :class="['zpl-textfield-input', { ltr, 'font-Mono': mono }]"
+          :class="['zpl-textfield-input', { ltr, 'font-Mono': mono, numLtr }]"
           :disabled="disabled"
           :placeholder="placeholder"
           :name="inputName"
@@ -90,7 +85,7 @@
       <div class="zpl-textfield-hint-box">
         <!-- Hint -->
         <div
-          v-if="hint && !(successMessage && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors"
           class="zpl-textfield-hint helper"
         >
           <span>
@@ -107,9 +102,9 @@
         </div>
 
         <!-- Errors -->
-        <div v-if="errors.length" class="zpl-textfield-hint error">
+        <div v-if="errors" class="zpl-textfield-hint error">
           <Icon name="warning" />
-          <span>{{ errors[0] }}</span>
+          <span>{{ errors }}</span>
         </div>
 
         <!-- Max Length -->
@@ -118,7 +113,7 @@
         </span>
       </div>
     </div>
-  </ValidationProvider>
+  </div>
 </template>
 
 <script lang="ts">

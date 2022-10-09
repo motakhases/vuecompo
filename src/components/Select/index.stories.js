@@ -1,5 +1,4 @@
 import Select from "./index.vue";
-import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -42,7 +41,6 @@ select.args = {
   ],
   disabledOptionId: null,
   loading: false,
-  rules: "required",
 };
 
 export default select;

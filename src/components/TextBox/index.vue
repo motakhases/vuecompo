@@ -1,10 +1,5 @@
 <template>
-  <ValidationProvider
-    v-slot="{ errors, passed }"
-    :rules="rules"
-    :name="label"
-    :vid="inputName"
-  >
+  <div>
     <div v-if="loading" class="zpl-textbox-loading">
       <Skeleton type="body" class="w-1/3" />
     </div>
@@ -13,7 +8,7 @@
         v-model="model"
         :class="[
           'zpl-textbox',
-          { error: errors && errors.length },
+          { error: errors },
           { isInputFocused },
         ]"
         :rows="rows"
@@ -33,7 +28,7 @@
       <div class="zpl-textbox-hint-box">
         <!-- show when we have hint -->
         <div
-          v-if="hint && !(successMessage && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors"
           class="zpl-textbox-hint helper"
         >
           <span>
@@ -50,9 +45,9 @@
         </div>
 
         <!-- show when we have errors -->
-        <div v-if="errors && errors.length" class="zpl-textbox-hint error">
+        <div v-if="errors && errors" class="zpl-textbox-hint error">
           <Icon name="warning" />
-          <span>{{ errors[0] }}</span>
+          <span>{{ errors }}</span>
         </div>
 
         <!-- show when we have maxlength -->
@@ -61,7 +56,7 @@
         </span>
       </div>
     </div>
-  </ValidationProvider>
+  </div>
 </template>
 
 <script lang="ts">

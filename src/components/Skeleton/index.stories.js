@@ -1,5 +1,5 @@
 import Skeleton from "./index.vue";
-import "@/utils/validations";
+
 export default {
   component: Skeleton,
   title: "Components/Skeleton",
