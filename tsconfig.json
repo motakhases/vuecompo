@@ -16,10 +16,7 @@
     "declaration": true,
     "noImplicitAny": false,
 
-    "types": [
-      "webpack-env",
-      "jest",
-    ],
+    "types": ["webpack-env", "jest"],
     "paths": {
       "@/*": ["src/*"]
     },

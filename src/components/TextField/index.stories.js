@@ -1,5 +1,4 @@
 import TextField from "./index.vue";
-import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -26,7 +25,7 @@ const Template = (_, { argTypes }) => ({
 	<TextField
 	v-model="hint"
 	class="col-span-1"
-	label="  ltr فیلد عادی"  
+	label="  ltr فیلد عادی"
 	ltr
 />
 	<TextField
@@ -115,7 +114,6 @@ const Template = (_, { argTypes }) => ({
   	<TextField
   	  v-model="error"
   	  class="col-span-1"
-  	  rules="required"
   	/>
   </div>
   `,
