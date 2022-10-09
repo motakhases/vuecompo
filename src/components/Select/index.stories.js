@@ -56,7 +56,6 @@ select.args = {
   ],
   disabledOptionId: null,
   loading: false,
-  rules: "required",
 };
 
 export default select;
