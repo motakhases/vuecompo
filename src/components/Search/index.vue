@@ -28,7 +28,6 @@
               v-show="!input.disabled"
               v-model="input.value"
               @keydown.delete="(e) => removeInput(input, index, e)"
-              @keydown.space="(e) => activeNextInput(input.value, index, e)"
               @keyup="(e) => filterInputs(input, index, e)"
               :class="[
                 'tag-input ',

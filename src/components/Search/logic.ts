@@ -327,23 +327,37 @@ export default class Search extends Vue {
     });
 
     // check if there's : in the word
-    const regex = /([^ \\:]+ ?){1,2}: ?$/;
+    const regex = /^.*:/;
     // const regex = /([^:\s]+ ?){1,2}:/;
     const myRegexp = new RegExp(regex);
     const match = myRegexp.exec(input.value);
 
     // this.inputs[index].width = `${0}ch`;
     if (match) {
+      console.log('valid', match);
+
       const availableLabel: ISelectItem[] = this.options.filter(
         (option) => option?.title?.toLowerCase() === match[0],
       );
+      console.log(availableLabel);
+
       // check if the label exists in the list
       if (availableLabel.length) {
+        console.log('repeatativre label');
+
         const isUniqueInput = this.inputs.filter(
           (i) => i.key === availableLabel[0].key,
         );
         // event.preventDefault();
-        this.inputs[index].value = input.value.replace(match[0], '');
+        this.inputs[index].value = input.value.replace(match[0], '').trim();
+        this.shallowTextRef[index].innerHTML = input.value.replace(match[0], '');
+
+        this.tagRef[index].style.width = `${
+          this.shallowTextRef[index].getBoundingClientRect().width
+        }px`;
+
+        console.log(index);
+
         const unique = availableLabel[0].isUnique;
         if (!unique || (unique && !isUniqueInput.length)) {
           // if label is not unique so create the label
@@ -362,7 +376,7 @@ export default class Search extends Vue {
             this.inputs[index].title = availableLabel[0].title;
             this.inputs[index].key = availableLabel[0].key;
           }
-
+          this.inputs = this.inputs.filter((inp) => inp.disabled !== true);
           this.inputs.push({
             title: null,
             value: '',
@@ -372,104 +386,115 @@ export default class Search extends Vue {
           this.hideOptions();
         }
         // event.target.value = ''
-      }
-    } else {
-      const indicesArr: IItemPosition[] = [];
-      const matchLabel = this.options.map((i) => i.title);
-      // matchLabel.sort((a, b) => b.length - a.length);
-      const regexObj = new RegExp(
-        matchLabel
-          // eslint-disable-next-line no-useless-escape
-          .map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
-          .join('|'),
-        'gi',
-      );
-      let matches;
-      // eslint-disable-next-line no-cond-assign
-      while ((matches = regexObj.exec(input.value))) {
-        const obj: IItemPosition = {
-          start: matches.index,
-          end: regexObj.lastIndex,
-        };
-        indicesArr.push(obj);
-      }
-      console.log(indicesArr, 'ins');
-      if (indicesArr.length) {
-        const finalArr: IInput[] = [];
-        const str = input.value;
-        indicesArr.forEach((item, i) => {
-          const title = input.value.substring(item.start, item.end);
-          console.log(item, this.inputs);
-          if (i === 0 && item.start > 0) {
-            finalArr.push({
-              title: null,
-              value: str.substring(0, item.start).trim().replace(/  +/g, ' '),
-              key: this.descriptionKey,
-            });
-            this.shallowTextRef[index].innerHTML = str.substring(0, item.start).replace(/  +/g, ' ');
-            this.$nextTick(() => {
-              this.tagRef[index].style.width = `${
-                this.shallowTextRef[index].getBoundingClientRect().width
-              }px`;
-            });
+      } else {
+        const containLabel: ISelectItem[] = this.options.filter(
+          (option) => match[0].includes(option?.title?.toLowerCase()),
+        );
+        if (containLabel) {
+          console.log(containLabel);
+
+          const indicesArr: IItemPosition[] = [];
+          const matchLabel = this.options.map((i) => i.title);
+          // matchLabel.sort((a, b) => b.length - a.length);
+          const regexObj = new RegExp(
+            matchLabel
+            // eslint-disable-next-line no-useless-escape
+              .map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
+              .join('|'),
+            'gi',
+          );
+          let matches;
+
+          // eslint-disable-next-line no-cond-assign
+          while ((matches = regexObj.exec(input.value))) {
+            const obj: IItemPosition = {
+              start: matches.index,
+              end: regexObj.lastIndex,
+            };
+            indicesArr.push(obj);
           }
-          // this.inputs.splice(index, 1);
-          finalArr.push({
-            title,
-            value:
+          if (indicesArr.length) {
+            const finalArr: IInput[] = [];
+            const str = input.value;
+            indicesArr.forEach((item, i) => {
+              const title = input.value.substring(item.start, item.end);
+              if (i === 0 && item.start > 0) {
+                finalArr.push({
+                  title: null,
+                  value: str.substring(0, item.start).trim().replace(/  +/g, ' '),
+                  key: this.descriptionKey,
+                });
+                this.shallowTextRef[index].innerHTML = str.substring(0, item.start).replace(/  +/g, ' ');
+                console.log(this.shallowTextRef[index].innerHTML);
+                this.$nextTick(() => {
+                  this.tagRef[index].style.width = `${
+                    this.shallowTextRef[index].getBoundingClientRect().width
+                  }px`;
+                });
+              }
+              // this.inputs.splice(index, 1);
+              finalArr.push({
+                title,
+                value:
               indicesArr.length - 1 > i
                 ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
                 : str.substring(item.end).trim().replace(/  +/g, ' '),
-            key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ?? this.descriptionKey,
+                key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ?? this.descriptionKey,
 
-          });
-          this.shallowTextRef[index].innerHTML = indicesArr.length - 1 > i
-            ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
-            : str.substring(item.end).trim().replace(/  +/g, ' ');
+              });
+              this.shallowTextRef[index].innerHTML = indicesArr.length - 1 > i
+                ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
+                : str.substring(item.end).trim().replace(/  +/g, ' ');
 
-          // console.log(finalArr, 'slm', last);
-          // const isUniqueInput = this.options.map((i) => i.key === el.key && !i.isUnique)
-          // this.inputs.push({
-          //   title,
-          //   value: input.value.replace(title, ''),
-          // });
-          // this.inputs[index].value = labelVal.replace(title, '');
-        });
-        // finalArr.push({
-        //   title: null, value: '', disabled: true, key: '',
-        // });
-        // this.inputs = finalArr;
-        console.log(finalArr);
+              // console.log(finalArr, 'slm', last);
+              // const isUniqueInput = this.options.map((i) => i.key === el.key && !i.isUnique)
+              // this.inputs.push({
+              //   title,
+              //   value: input.value.replace(title, ''),
+              // });
+              // this.inputs[index].value = labelVal.replace(title, '');
+            });
+            // finalArr.push({
+            //   title: null, value: '', disabled: true, key: '',
+            // });
+            // this.inputs = finalArr;
+            console.log(finalArr);
 
-        this.inputs.splice(index, 1);
-        finalArr.forEach((item) => {
-          const availableInput = this.inputs.filter((inputEl) => inputEl.key === item.key);
-          const isUniqueIn = this.options.filter((element) => element.key === availableInput[0]?.key);
-          console.log(availableInput, isUniqueIn);
-          console.log(!availableInput || (availableInput && !isUniqueIn[0]?.isUnique));
+            // this.inputs.splice(index, 1);
+            finalArr.forEach((item) => {
+              const availableInput = this.inputs.filter((inputEl) => inputEl.key === item.key);
+              const isUniqueIn = this.options.filter((element) => element.key === availableInput[0]?.key);
+              console.log(availableInput, isUniqueIn);
+              console.log(!availableInput || (availableInput && !isUniqueIn[0]?.isUnique));
 
-          if (!isUniqueIn[0]?.isUnique || (availableInput && !isUniqueIn[0]?.isUnique)) {
-            this.inputs.splice(index + 1, 0, item);
+              if (!isUniqueIn[0]?.isUnique || (availableInput && !isUniqueIn[0]?.isUnique)) {
+                // this.inputs.splice(index + 1, 0, item);
+              }
+              this.inputs = this.inputs.filter((inp) => inp.disabled !== true);
+              this.inputs.push(item);
+              // this.shallowTextRef[index].innerHTML = item.value;
+            });
+            if (!this.inputs[this.inputs.length - 1].disabled) {
+              this.inputs.push({
+                title: null,
+                value: '',
+                disabled: true,
+                key: this.descriptionKey,
+              });
+            }
+            this.$nextTick(() => {
+              // this.tagRef[this.inputs.length - 2].focus();
+              this.isInputFocused = true;
+            });
+            // console.log(this.inputs);
+            // console.log(finalArr, 'finalArr', index);
+
+            // this.shallowTextRef[index].innerHTML = input.value;
           }
-          // this.shallowTextRef[index].innerHTML = item.value;
-        });
-        if (!this.inputs[this.inputs.length - 1].disabled) {
-          this.inputs.push({
-            title: null,
-            value: '',
-            disabled: true,
-            key: this.descriptionKey,
-          });
         }
-        this.$nextTick(() => {
-          // this.tagRef[this.inputs.length - 2].focus();
-          this.isInputFocused = true;
-        });
-        // console.log(this.inputs);
-        // console.log(finalArr, 'finalArr', index);
-
-        // this.shallowTextRef[index].innerHTML = input.value;
       }
+    } else {
+      console.log('nis');
     }
   }
 
