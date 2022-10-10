@@ -9,7 +9,7 @@
         :disabled="disabled"
       >
         <!-- Prefix Icon -->
-        <Icon v-if="prefixIcon" :name="prefixIcon" class="zpl-textfield-icon" />
+        <Icon v-if="prefixIcon" :name="prefixIcon" class="zpl-textfield-icon"/>
 
         <input
           v-model="model"
@@ -25,7 +25,7 @@
         />
 
         <!-- Suffic Icon -->
-        <Icon v-if="suffixIcon" :name="suffixIcon" class="zpl-textfield-icon" />
+        <Icon v-if="suffixIcon" :name="suffixIcon" class="zpl-textfield-icon"/>
         <!-- shows stepper to increase number or descrease -->
         <div v-if="stepper && type === 'number'" class="zpl-textfield-stepper">
           <button
