@@ -10,7 +10,6 @@ import './assets/tailwind.css';
 // Utils
 import './utils/directives';
 import './utils/filters/index';
-
 import App from './App.vue';
 
 Vue.config.productionTip = false;
@@ -19,3 +18,6 @@ new Vue({
   router,
   i18n,
 }).$mount('#app');
+
+// Now tell vue to use this plugin
+

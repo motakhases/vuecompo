@@ -1,16 +1,11 @@
 <template>
-  <ValidationProvider
-    v-slot="{ errors, passed }"
-    :rules="rules"
-    :name="label"
-    :vid="inputName"
-  >
+  <div>
     <div :class="['zpl-select-group']">
       <div
         :class="[
           'zpl-select',
           isBoxFocused ? 'focused' : '',
-          { error: errors.length },
+          { error: errors },
         ]"
         :disabled="disabled"
         @click="onFocusIn"
@@ -60,7 +55,7 @@
       <div class="zpl-select-hint-box">
         <!-- show when we have hint -->
         <div
-          v-if="hint && !(successMessage && passed) && !errors.length"
+          v-if="hint && !(successMessage && passed) && !errors"
           class="zpl-select-hint helper"
         >
           <span>
@@ -77,9 +72,9 @@
         </div>
 
         <!-- show when we have errors -->
-        <div v-if="errors.length" class="zpl-select-hint error">
+        <div v-if="errors" class="zpl-select-hint error">
           <Icon name="warning" />
-          <span>{{ errors[0] }}</span>
+          <span>{{ errors }}</span>
         </div>
       </div>
       <div ref="menuRef">
@@ -130,7 +125,7 @@
         </div>
       </div>
     </div>
-  </ValidationProvider>
+  </div>
 </template>
 
 <script lang="ts">

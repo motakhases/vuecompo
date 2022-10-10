@@ -3,17 +3,13 @@ import {
 } from 'vue-property-decorator';
 
 // Components
-import { ValidationProvider } from 'vee-validate';
 import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
 
-import '@/utils/validations';
-
 @Component({
   components: {
-    ValidationProvider,
     Icon,
     Button,
     Tooltip,
@@ -29,7 +25,6 @@ export default class TextField extends Vue {
 
   @Prop({ type: Number }) readonly maxlength?: number;
 
-  @Prop({ type: [String, Object] }) readonly rules?: string|object;
 
   @Prop({ type: String }) readonly inputName?: string;
 
@@ -51,6 +46,8 @@ export default class TextField extends Vue {
 
   @Prop({ type: Boolean }) readonly ltr!: boolean;
 
+  @Prop({ type: Boolean }) readonly numLtr!: boolean;
+
   @Prop({ type: Boolean, default: false }) readonly maxPreview!: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly mono?: boolean;
@@ -64,6 +61,10 @@ export default class TextField extends Vue {
   @Prop({ type: String }) readonly placeholder?: string;
 
   @Prop({ type: String }) readonly min?: string;
+
+  @Prop({ type: String }) readonly errors?: string;
+
+  @Prop({ type: Boolean }) readonly passed!: boolean;
 
   @Prop({ type: String, default: '' }) readonly value!: string;
 
@@ -91,10 +92,11 @@ export default class TextField extends Vue {
     this.isInputFocused = true;
   }
 
-  onFocusOut(): void {
+  onFocusOut(e:Event): void {
     if (!this.value) {
       this.isInputFocused = false;
     }
+    this.$emit('blur', e);
   }
 
   formattedValue(): string {

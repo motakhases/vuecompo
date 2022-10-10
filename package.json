@@ -113,7 +113,6 @@
     "storybook-vue-router": "^1.0.7",
     "tailwindcss": "^3",
     "url-loader": "^4.1.1",
-    "vee-validate": "^3.4.13",
     "vue-apexcharts": "^1.6.2",
     "vue-class-component": "^7.2.6",
     "vue-i18n": "8.27.1",

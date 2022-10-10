@@ -1,5 +1,4 @@
 import TextField from "./index.vue";
-import "@/utils/validations";
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -18,10 +17,17 @@ const Template = (_, { argTypes }) => ({
     error: "",
     limit: "",
     limitNum: 5,
-    url: 'https://zarinp.al/376218',
+    num: "",
+    url: "https://zarinp.al/376218",
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">
+	<TextField
+	v-model="hint"
+	class="col-span-1"
+	label="  ltr فیلد عادی"
+	ltr
+/>
 	<TextField
   	  v-model="hint"
   	  class="col-span-1"
@@ -71,7 +77,13 @@ const Template = (_, { argTypes }) => ({
 			class="col-span-1"
 			label="فیلد با تعداد کاراکتر محدود"
 			:limit="limitNum"
-		/> 
+		/>
+		<TextField
+  	  v-model="num"
+  	  class="col-span-1"
+  	  label="فیلد عددی چپ چین"
+			numLtr
+  	/>
 		<TextField
   	  v-model="url"
   	  class="col-span-1"
@@ -102,7 +114,6 @@ const Template = (_, { argTypes }) => ({
   	<TextField
   	  v-model="error"
   	  class="col-span-1"
-  	  rules="required"
   	/>
   </div>
   `,

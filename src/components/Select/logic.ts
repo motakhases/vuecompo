@@ -2,7 +2,6 @@
 import {
   Vue, Component, Prop, Ref, Watch,
 } from 'vue-property-decorator';
-import { ValidationProvider } from 'vee-validate';
 import Icon from '@/components/Icon/index.vue';
 import BankLogos from '@/components/BankLogos/index.vue';
 import { ISelectOptions, IEvent } from '@/types';
@@ -12,7 +11,6 @@ const keyList = ['ArrowUp', 'ArrowDown', 'Enter'];
 
 @Component({
   components: {
-    ValidationProvider,
     Icon,
     BankLogos,
     Skeleton,
@@ -40,11 +38,11 @@ export default class Select extends Vue {
 
   @Prop({ type: Boolean }) readonly search?: boolean;
 
-  @Prop({ type: [String, Object] }) readonly rules?: string | object;
-
   @Prop({ type: String }) readonly placeholder?: string;
 
   @Prop({ type: String, default: '' }) readonly value!: string;
+
+  @Prop({ type: String }) readonly errors?: string;
 
   /**
    * Refs
