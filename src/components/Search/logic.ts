@@ -105,6 +105,21 @@ export default class Search extends Vue {
     if (this.value) {
       this.inputs[0].value = this.value;
       this.checkValidLabel(this.inputs[0], 0);
+      this.shallowTextRef[0].innerHTML = this.inputs[0].value;
+      this.tagRef[0].blur();
+      console.log(this.tagRef[0]);
+      this.$nextTick(() => {
+        this.onBlur();
+      });
+      // this.showMenueList = true;
+      // this.updateButtonText();
+
+      // this.showMenueList = true;
+      // if (!this.inputs[0].value) {
+      //   this.filteredOptions = this.options;
+      // }
+      // console.log(this.inputs[0].value);
+      // this.checkValidLabel(this.inputs[0], 0);
     }
   }
 
@@ -121,6 +136,8 @@ export default class Search extends Vue {
     this.$nextTick(() => {
       if (this.showList) {
         this.updateStyle();
+      } else {
+        console.log('clos');
       }
     });
     if (this.showList) {
@@ -128,6 +145,19 @@ export default class Search extends Vue {
       document.body.appendChild(this.menuRef);
     }
   }
+
+  // @Watch('showMenueList')
+  // watchMenuList():void {
+  //   console.log(this.showMenueList);
+  //   if(!this.showMenueList && this.showList){
+  //     const isEnterKey = event.key === 'Enter';
+  //     this.$nextTick(() => {
+  //       if (isEnterKey) {
+  //         // this.onSearchClick();
+  //       }
+  //     });
+  //   }
+  // }
 
   /**
    * Methods
@@ -158,15 +188,18 @@ export default class Search extends Vue {
     this.isInputFocused = true;
     // when whole container is clicked, focus in first input
     if (!index) {
-      this.tagRef[0].focus();
+      // this.tagRef[0].focus();
     }
     if (input) {
+      console.log(input, 'input');
       if (this.inputs[index]?.title) {
         if (index === 0 && !this.inputs[index]?.value) {
-          this.hideOptions();
+          // this.hideOptions();
         } else if (this.buttonSearchText) {
           this.showMenueList = false;
           this.showOptions();
+        } else {
+          this.showMenueList = false;
         }
       } else {
         this.showMenueList = true;
@@ -188,8 +221,28 @@ export default class Search extends Vue {
       this.$nextTick(() => {
         this.tagRef[this.inputs.length - 2]?.focus();
       });
+    } const inputsLatestObjectIndex = this.inputs.length - 1;
+
+    if (this.inputs.length > 1) {
+      const n: string[] = this.inputs[inputsLatestObjectIndex - 1].value.split(' ');
+      const arr: string[] = [];
+      n.forEach((item :string) => {
+        if (!option.title.includes(item)) {
+          arr.push(item);
+        }
+      });
+      this.inputs[inputsLatestObjectIndex - 1].value = arr.join(',');
+      this.$nextTick(() => {
+        this.shallowTextRef[inputsLatestObjectIndex - 1].innerHTML = arr.join(',');
+        // this.tagRef[i].style.width = `${
+        //   this.shallowTextRef[i].getBoundingClientRect().width
+        // }px`;
+      });
+      // return n[n.length - 1];
+
+      // console.log(test(this.inputs[inputsLatestObjectIndex - 1].value), option);
     }
-    const inputsLatestObjectIndex = this.inputs.length - 1;
+
     if (!this.inputs[inputsLatestObjectIndex].value) {
       this.inputs[inputsLatestObjectIndex] = {
         title: option.title,
@@ -262,30 +315,31 @@ export default class Search extends Vue {
   }
 
   activeNextInput(value: string, index: number, event:Event) {
-    this.inputs.forEach((item, i) => {
-      this.$nextTick(() => {
-        // this.shallowTextRef[index].innerHTML = item.value;
-        this.tagRef[i].style.width = `${
-          this.shallowTextRef[i].getBoundingClientRect().width
-        }px`;
-      });
-    });
+    // this.inputs.forEach((item, i) => {
+    //   this.$nextTick(() => {
+    //     // this.shallowTextRef[index].innerHTML = item.value;
+    //     this.tagRef[i].style.width = `${
+    //       this.shallowTextRef[i].getBoundingClientRect().width
+    //     }px`;
+    //   });
+    // });
     this.activeInput = index;
-    if (this.inputs[index].title) {
-      if (value) {
-        this.inputs[index + 1].disabled = false;
-        this.focusNextInput(index + 1);
-        event.preventDefault();
-      }
-    } else if (value.trim()) {
-      if (index === this.inputs.length - 1) {
-        this.showMenueList = false;
-      } else {
-        this.inputs[index + 1].disabled = false;
-        this.focusNextInput(index + 1);
-        event.preventDefault();
-      }
-    }
+    // this.showMenueList = true;
+    // if (this.inputs[index].title) {
+    //   if (value) {
+    //     this.inputs[index + 1].disabled = false;
+    //     this.focusNextInput(index + 1);
+    //     event.preventDefault();
+    //   }
+    // } else if (value.trim()) {
+    //   if (index === this.inputs.length - 1) {
+    //     this.showMenueList = false;
+    //   } else {
+    //     this.inputs[index + 1].disabled = false;
+    //     this.focusNextInput(index + 1);
+    //     event.preventDefault();
+    //   }
+    // }
     this.filteredOptions = this.options.filter(
       (objFromA) => !this.inputs.find(
         (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
@@ -306,7 +360,7 @@ export default class Search extends Vue {
   inputsHandler(input: IInput, event: Event, index: number) {
     event.stopPropagation();
     this.shallowTextRef[index].innerHTML = input.value;
-
+    // this.showMenueList = true;
     if (input.value.trim()) {
       this.updateButtonText();
     } else if (index === 0) {
@@ -325,196 +379,182 @@ export default class Search extends Vue {
         this.shallowTextRef[index].getBoundingClientRect().width
       }px`;
     });
-
     // check if there's : in the word
     const regex = /^.*:/;
     // const regex = /([^:\s]+ ?){1,2}:/;
     const myRegexp = new RegExp(regex);
     const match = myRegexp.exec(input.value);
-
     // this.inputs[index].width = `${0}ch`;
     if (match) {
-      console.log('valid', match);
-
       const availableLabel: ISelectItem[] = this.options.filter(
-        (option) => option?.title?.toLowerCase() === match[0],
+        (option) => option?.title?.toLowerCase() === match[0].trim(),
       );
-      console.log(availableLabel, this.options[0].title);
-
       // check if the label exists in the list
-      if (availableLabel.length) {
-        console.log('repeatativre label');
+      // if (availableLabel.length) {
+      //   console.log('aval');
+      //   const isUniqueInput = this.inputs.filter(
+      //     (i) => i.key === availableLabel[0].key,
+      //   );
+      //   // event.preventDefault();
+      //   this.inputs[index].value = input.value.replace(match[0], '').trim();
+      //   this.shallowTextRef[index].innerHTML = input.value.replace(match[0], '');
 
-        const isUniqueInput = this.inputs.filter(
-          (i) => i.key === availableLabel[0].key,
-        );
-        // event.preventDefault();
-        this.inputs[index].value = input.value.replace(match[0], '').trim();
-        this.shallowTextRef[index].innerHTML = input.value.replace(match[0], '');
+      //   this.tagRef[index].style.width = `${
+      //     this.shallowTextRef[index].getBoundingClientRect().width
+      //   }px`;
 
-        this.tagRef[index].style.width = `${
-          this.shallowTextRef[index].getBoundingClientRect().width
-        }px`;
+      //   const unique = availableLabel[0].isUnique;
+      //   if (!unique || (unique && !isUniqueInput.length)) {
+      //     // if label is not unique so create the label
+      //     this.$nextTick(() => {
+      //       this.tagRef[index + 1].focus();
+      //       this.isInputFocused = true;
+      //     });
 
-        console.log(index);
+      //     if (this.inputs[index].value.trim()) {
+      //       this.inputs.push({
+      //         title: availableLabel[0].title,
+      //         value: '',
+      //         key: availableLabel[0].key,
+      //       });
+      //     } else {
+      //       this.inputs[index].title = availableLabel[0].title;
+      //       this.inputs[index].key = availableLabel[0].key;
+      //     }
+      //     this.inputs = this.inputs.filter((inp) => inp.disabled !== true);
+      //     this.inputs.push({
+      //       title: null,
+      //       value: '',
+      //       disabled: true,
+      //       key: this.descriptionKey,
+      //     });
+      //     this.hideOptions();
+      //     console.log(this.inputs);
+      //   }
+      //   // event.target.value = ''
+      // } else {
 
-        const unique = availableLabel[0].isUnique;
-        if (!unique || (unique && !isUniqueInput.length)) {
-          // if label is not unique so create the label
-          this.$nextTick(() => {
-            this.tagRef[index + 1].focus();
-            this.isInputFocused = true;
-          });
-
-          if (this.inputs[index].value.trim()) {
-            this.inputs.push({
-              title: availableLabel[0].title,
-              value: '',
-              key: availableLabel[0].key,
-            });
-          } else {
-            this.inputs[index].title = availableLabel[0].title;
-            this.inputs[index].key = availableLabel[0].key;
-          }
-          this.inputs = this.inputs.filter((inp) => inp.disabled !== true);
-          this.inputs.push({
-            title: null,
-            value: '',
-            disabled: true,
-            key: this.descriptionKey,
-          });
-          this.hideOptions();
-        }
-        // event.target.value = ''
-      } else {
-        const containLabel: ISelectItem[] = this.options.filter(
-          (option) => match[0].includes(option?.title?.toLowerCase()),
-        );
+      const containLabel: ISelectItem[] = this.options.filter(
+        (option) => match[0].includes(option?.title?.toLowerCase()),
+      );
         // this.inputs.splice(index, 1);
-        if (containLabel) {
-          console.log(containLabel);
-          // this.inputs.splice(index, 1);
-          const indicesArr: IItemPosition[] = [];
-          const matchLabel = this.options.map((i) => i.title);
-          // matchLabel.sort((a, b) => b.length - a.length);
-          const regexObj = new RegExp(
-            matchLabel
+      if (containLabel) {
+        // this.inputs.splice(index, 1);
+        const indicesArr: IItemPosition[] = [];
+        const matchLabel = this.options.map((i) => i.title);
+        // matchLabel.sort((a, b) => b.length - a.length);
+        const regexObj = new RegExp(
+          matchLabel
             // eslint-disable-next-line no-useless-escape
-              .map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
-              .join('|'),
-            'gi',
-          );
-          let matches;
+            .map((x) => x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
+            .join('|'),
+          'gi',
+        );
+        let matches;
 
-          // eslint-disable-next-line no-cond-assign
-          while ((matches = regexObj.exec(input.value))) {
-            const obj: IItemPosition = {
-              start: matches.index,
-              end: regexObj.lastIndex,
-            };
-            indicesArr.push(obj);
-          }
-          if (indicesArr.length) {
-            const finalArr: IInput[] = [];
-            let str = input.value;
-            indicesArr.forEach((item, i) => {
-              const title = input.value.substring(item.start, item.end);
-              if (i === 0 && item.start > 0) {
-                finalArr.push({
-                  title: null,
-                  value: str.substring(0, item.start).trim().replace(/  +/g, ' '),
-                  key: this.descriptionKey,
-                });
-                this.shallowTextRef[index].innerHTML = str.substring(0, item.start).replace(/  +/g, ' ');
-                console.log(this.shallowTextRef[index].innerHTML);
-                this.$nextTick(() => {
-                  this.tagRef[index].style.width = `${
-                    this.shallowTextRef[index].getBoundingClientRect().width
-                  }px`;
-                });
-              }
-              // this.inputs.splice(index, 1);
+        // eslint-disable-next-line no-cond-assign
+        while ((matches = regexObj.exec(input.value))) {
+          const obj: IItemPosition = {
+            start: matches.index,
+            end: regexObj.lastIndex,
+          };
+          indicesArr.push(obj);
+        }
+        if (indicesArr.length) {
+          const finalArr: IInput[] = [];
+          let str = input.value;
+          indicesArr.forEach((item, i) => {
+            const title = input.value.substring(item.start, item.end);
+            if (i === 0 && item.start > 0) {
               finalArr.push({
-                title,
-                value:
+                title: null,
+                value: str.substring(0, item.start).trim().replace(/  +/g, ' '),
+                key: this.descriptionKey,
+              });
+              this.shallowTextRef[index].innerHTML = str.substring(0, item.start).replace(/  +/g, ' ');
+              this.$nextTick(() => {
+                this.tagRef[index].style.width = `${
+                  this.shallowTextRef[index].getBoundingClientRect().width
+                }px`;
+              });
+            }
+            // this.inputs.splice(index, 1);
+            finalArr.push({
+              title,
+              value:
               indicesArr.length - 1 > i
                 ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
                 : str.substring(item.end).trim().replace(/  +/g, ' '),
-                key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ?? this.descriptionKey,
+              key: this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ?? this.descriptionKey,
 
-              });
-              console.log(indicesArr.length - 1 > i
-                ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
-                : str.substring(item.end).trim().replace(/  +/g, ' '), 'val');
-
-              this.shallowTextRef[index].innerHTML = indicesArr.length - 1 > i
-                ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
-                : str.substring(item.end).trim().replace(/  +/g, ' ');
-
-              // console.log(finalArr, 'slm', last);
-              // const isUniqueInput = this.options.map((i) => i.key === el.key && !i.isUnique)
-              // this.inputs.push({
-              //   title,
-              //   value: input.value.replace(title, ''),
-              // });
-              // this.inputs[index].value = labelVal.replace(title, '');
             });
-            // finalArr.push({
-            //   title: null, value: '', disabled: true, key: '',
+
+            this.shallowTextRef[index].innerHTML = indicesArr.length - 1 > i
+              ? str.substring(item.end, indicesArr[i + 1].start).trim().replace(/  +/g, ' ')
+              : str.substring(item.end).trim().replace(/  +/g, ' ');
+
+            // console.log(finalArr, 'slm', last);
+            // const isUniqueInput = this.options.map((i) => i.key === el.key && !i.isUnique)
+            // this.inputs.push({
+            //   title,
+            //   value: input.value.replace(title, ''),
             // });
-            // this.inputs = finalArr;
-            console.log(finalArr, str, 'str');
+            // this.inputs[index].value = labelVal.replace(title, '');
+          });
+          // finalArr.push({
+          //   title: null, value: '', disabled: true, key: '',
+          // });
+          // this.inputs = finalArr;
 
-            // this.inputs.splice(index, 1);
-            finalArr.forEach((item) => {
-              const availableInput = this.inputs.filter((inputEl) => inputEl.key === item.key);
-              const isUniqueIn = this.options.filter((element) => element.key === availableInput[0]?.key);
+          // this.inputs.splice(index, 1);
+          finalArr.forEach((item) => {
+            const availableInput = this.inputs.filter((inputEl) => inputEl.key === item.key);
+            const isUniqueIn = this.options.filter((element) => element.key === availableInput[0]?.key);
 
-              if (!item.title) {
-                this.inputs[index].value = item.value;
-                console.log(this.inputs, 'nio');
-              } else {
-                str = str.replace(item.title, '');
-                str = str.replace(item.value, '');
-                if (!isUniqueIn[0]?.isUnique || (availableInput && !isUniqueIn[0]?.isUnique)) {
-                  this.inputs.splice(index + 1, 0, item);
-                }
+            if (!item.title) {
+              this.inputs[index].value = item.value;
+            } else {
+              str = str.replace(item.title, '');
+              str = str.replace(item.value, '');
+              if (!isUniqueIn[0]?.isUnique || (availableInput && !isUniqueIn[0]?.isUnique)) {
+                this.inputs.splice(index + 1, 0, item);
               }
-
-              if (!str.trim().length) {
-                this.inputs.splice(index, 1);
-              }
-              // this.shallowTextRef[index].innerHTML
-              this.inputs = this.inputs.filter((inp) => inp.disabled !== true);
-              // this.inputs.push(item);
-              // this.shallowTextRef[index].innerHTML = item.value;
-            });
-            console.log(str, 'string val');
-
-            // eslint-disable-next-line no-return-assign
-            this.inputs.forEach((inp, ind) => {
-              if (this.shallowTextRef[ind]) {
-                this.shallowTextRef[ind].innerHTML = inp.value;
-              }
-            });
-            if (!this.inputs[this.inputs.length - 1].disabled) {
-              this.inputs.push({
-                title: null,
-                value: '',
-                disabled: true,
-                key: this.descriptionKey,
-              });
             }
-            this.$nextTick(() => {
-              this.tagRef[this.inputs.length - 2].focus();
-              this.isInputFocused = true;
-            });
-            // console.log(this.inputs);
-            // console.log(finalArr, 'finalArr', index);
 
-            // this.shallowTextRef[index].innerHTML = input.value;
+            if (!str.trim().length) {
+              this.inputs.splice(index, 1);
+            }
+            // this.shallowTextRef[index].innerHTML
+            this.inputs = this.inputs.filter((inp) => inp.disabled !== true);
+            // this.inputs.push(item);
+            // this.shallowTextRef[index].innerHTML = item.value;
+          });
+          // eslint-disable-next-line no-return-assign
+          this.inputs.forEach((inp, ind) => {
+            if (this.shallowTextRef[ind]) {
+              this.shallowTextRef[ind].innerHTML = inp.value;
+            }
+          });
+          if (!this.inputs[this.inputs.length - 1].disabled) {
+            this.inputs.push({
+              title: null,
+              value: '',
+              disabled: true,
+              key: this.descriptionKey,
+            });
           }
+          this.$nextTick(() => {
+            this.tagRef[this.inputs.length - 2].focus();
+            this.isInputFocused = true;
+          });
+          // console.log(this.inputs);
+          // console.log(finalArr, 'finalArr', index);
+
+          // this.shallowTextRef[index].innerHTML = input.value;
         }
+        this.tagRef[index].style.width = `${
+          this.shallowTextRef[index].getBoundingClientRect().width
+        }px`;
       }
     } else {
       console.log('nis');
@@ -588,6 +628,20 @@ export default class Search extends Vue {
   }
 
   filterInputs(input: IInput, index: number, event: KeyboardEvent) {
+    function test(words) {
+      const n = words.split(' ');
+      return n[n.length - 1];
+    }
+    const filterUniqueItem = this.options.filter(
+      (objFromA) => !this.inputs.find(
+        (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
+      ),
+    );
+    // this.filteredOptions = shayeste.filter((option) => option?.title
+    //   ?.toLowerCase()
+    //   .includes(input.value.trim().toLowerCase()));
+    this.filteredOptions = filterUniqueItem.filter((option) => option?.title?.toLowerCase().includes(test(input.value)));
+
     event.stopPropagation();
     this.isInputFocused = true;
     this.updateButtonText();
@@ -595,15 +649,15 @@ export default class Search extends Vue {
     if (index === 0 && !input.value) {
       this.buttonSearchText = '';
       if (!input.title) {
-        this.deleteInputHandler();
+        // this.deleteInputHandler();
+        this.focusNextInput(0);
+        this.showOptions();
+        this.showMenueList = true;
       }
     }
-    this.isInputFocused = true;
 
     const isEnterKey = event.key === 'Enter';
-    if (isEnterKey) {
-      this.onSearchClick();
-    }
+
     if (!input.title) {
       // this.filteredOptions = this.filteredOptions.length
       //   ? this.filteredOptions.filter((option) => option?.title?.toLowerCase().includes(input.value.trim().toLowerCase()))
@@ -611,21 +665,25 @@ export default class Search extends Vue {
       if (index === 0 && !input.value) {
         this.filteredOptions = this.options;
       } else {
-        const shayeste = this.options.filter(
-          (objFromA) => !this.inputs.find(
-            (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
-          ),
-        );
-        this.filteredOptions = shayeste.filter((option) => option?.title
-          ?.toLowerCase()
-          .includes(input.value.trim().toLowerCase()));
+        // const shayeste = this.options.filter(
+        //   (objFromA) => !this.inputs.find(
+        //     (objFromB) => objFromA.title === objFromB.title && objFromA.isUnique,
+        //   ),
+        // );
+        // this.filteredOptions = shayeste.filter((option) => option?.title
+        //   ?.toLowerCase()
+        //   .includes(input.value.trim().toLowerCase()));
       }
     } else if (index === 0 && !input.value && input.title) {
       this.hideOptions();
-    } else {
+    } else if (input.title && !input.value) {
       this.showOptions();
       this.showMenueList = false;
+    } else if (!isEnterKey) {
+      this.showOptions();
+      this.showMenueList = true;
     }
+
     this.inputs.forEach((item, i) => {
       this.$nextTick(() => {
         // this.shallowTextRef[index].innerHTML = item.value;
@@ -635,6 +693,14 @@ export default class Search extends Vue {
       });
     });
     this.onEscPress(event);
+  }
+
+  enter(e) {
+    if (this.activeOptionIndex < 0) {
+      this.onSearchClick();
+      this.hideOptions();
+      this.isInputFocused = false;
+    }
   }
 
   onKeyDown(index: number, e: KeyboardEvent): void {
@@ -702,10 +768,20 @@ export default class Search extends Vue {
           // // this.$emit('updateData', newValue);
           // close the dropdown
           this.selectOption(this.filteredOptions[this.activeOptionIndex]);
-
           this.hideOptions();
           // disable the active option
           this.activeOptionIndex = -1;
+          if (!this.showMenueList && this.showList) {
+            // const isEnterKey = e.key === 'Enter';
+            this.$nextTick(() => {
+              if (isEnterKey) {
+                // this.onSearchClick();
+              }
+            });
+            if (isEnterKey) {
+              // this.onSearchClick();
+            }
+          }
         }
       }
       // if dropdown is closed and enter key is pressed
@@ -756,13 +832,17 @@ export default class Search extends Vue {
 
   onEscPress(event: KeyboardEvent) {
     if (event.key === 'Escape') {
-      const input = this.$el.getElementsByTagName('input');
-      const inputList = Array.prototype.slice.call(input);
-      inputList.forEach((element) => {
-        element.blur();
-      });
-      this.hideOptions();
+      this.onBlur();
     }
+  }
+
+  onBlur() {
+    const input = this.$el.getElementsByTagName('input');
+    const inputList = Array.prototype.slice.call(input);
+    inputList.forEach((element) => {
+      element.blur();
+    });
+    this.hideOptions();
   }
 
   onSlashPress(event: KeyboardEvent) {
@@ -796,7 +876,6 @@ export default class Search extends Vue {
       this.focusNextInput(0);
       this.showOptions();
       this.showMenueList = true;
-      console.log(this.filteredOptions);
     }
     this.$router.replace({ query: {} });
 

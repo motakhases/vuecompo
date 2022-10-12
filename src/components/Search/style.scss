@@ -65,13 +65,14 @@
   }
   &-icon {
     @apply w-xl h-xl absolute right-xs top-2xs flex text-icon z-0;
+    @apply dark:text-icon-dark;
   }
   &-dash {
     @apply w-xl h-xl absolute left-2xs top-2xs flex justify-center rounded-circle;
   }
   &-list {
     /* Default */
-    @apply flex flex-col gap-xs bg-surface border border-border-soft shadow-elevation-100 rounded-sm 
+    @apply flex flex-col gap-xs bg-surface border border-border-soft shadow-elevation-100 rounded-sm
     p-xs fixed w-full mt-2xs z-50;
     @apply dark:bg-surface-dark dark:border-border-dark-soft	dark:shadow-dark-elevation-100;
     direction: rtl;
