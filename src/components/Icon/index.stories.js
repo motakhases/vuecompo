@@ -100,7 +100,10 @@ const Template = (_, { argTypes }) => ({
         "Refresh",
         "ExcelColor",
         "Premium",
-        "PinFill"
+        "PinFill",
+        "UserCircle",
+        "MoonStar",
+        "AttachLink"
       ],
     };
   },
@@ -110,7 +113,7 @@ const Template = (_, { argTypes }) => ({
   	  <div class="text-center flex flex-col items-center bg-surface h-[150px] rounded-md py-xl px-md dark:text-surface dark:bg-surface-dark">
 				<Icon :name="name" class="w-[24px] h-[24px] mb-sm flex-1" />
 				<span> {{ name }} </span>
-			</div>	
+			</div>
 		</div>
 	</div>
   `,

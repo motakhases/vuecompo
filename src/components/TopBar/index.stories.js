@@ -7,11 +7,53 @@ import Button from "@/components/Button/index.vue";
 const Template = (_, { argTypes }) => ({
   components: { TopBar, Logo, Icon, Notification, Button },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      list: [
+        {
+          title: "حساب ‌کاربری",
+          icon: "UserCircle",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "همکاری در فروش",
+          icon: "AttachLink",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "ظاهر پنل کاربری",
+          icon: "MoonStar",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "راهنما استفاده",
+          icon: "QuestionCircle",
+          color: "",
+          action: () => console.log("click"),
+        },
+        {
+          title: "خروج",
+          icon: "ExitLogOut",
+          color: "",
+          action: () => console.log("click"),
+        },
+      ],
+    };
+  },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl h-[630px]">
     <TopBar
       :terminals="terminals"
+      :profileList="list"
+      username="نام و نام‌خانوادگی"
+      userPhone="09382372496"
+      userPremium
       @showNotifs="()=>{}"
+      ticketingBadge="5"
+      notificationBadge="2"
     />
     <h1 class="mt-sm font-bold dark:text-surface"> تاپ بار با لوگو در وسط</h1>
 
@@ -25,39 +67,39 @@ const topBar = Template.bind({});
 topBar.args = {
   terminals: [
     {
-      domain: 'zarin.express/zardu',
-      name: 'زاردو',
-      status: 'ACTIVE',
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
     },
     {
-      domain: 'zarin.express/zardu',
-      name: 'زاردو',
-      status: 'ACTIVE',
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
     },
     {
-      domain: 'zarin.express/zardu',
-      name: 'زاردو',
-      status: 'ACTIVE',
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
     },
     {
-      domain: 'zarin.express/zardu',
-      name: 'زاردو',
-      status: 'ACTIVE',
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
     },
     {
-      domain: 'zarin.express/zardu',
-      name: 'زاردو',
-      status: 'ACTIVE',
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
     },
     {
-      domain: 'zarin.express/zardu',
-      name: 'زاردو',
-      status: 'ACTIVE',
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
     },
     {
-      domain: 'zarinp.al/xandar',
-      name: 'زاندار',
-      status: 'deactive',
+      domain: "zarinp.al/xandar",
+      name: "زاندار",
+      status: "deactive",
     },
   ],
 };

@@ -1,0 +1,23 @@
+.zpl-topbar-profile {
+  @apply bg-surface p-2xs rounded-sm dark:bg-surface-dark;
+  @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
+  /* focused */
+  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+  @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
+
+  &-name {
+    @apply flex gap-xs items-center text-text text-b2;
+    @apply dark:text-text-dark;
+    svg {
+      @apply text-silver w-xl h-xl;
+    }
+  }
+  &-phone {
+    @apply mt-xs text-text-soft text-ls-cp font-IRANYekanFaNum;
+    @apply dark:text-text-dark-soft;
+  }
+  &-header {
+    @apply p-xs pb-sm border-b border-border-divider mb-2xs;
+    @apply dark:border-border-dark-divider;
+  }
+}
