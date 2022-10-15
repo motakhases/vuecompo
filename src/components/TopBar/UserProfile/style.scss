@@ -1,8 +1,8 @@
 .zpl-topbar-profile {
-  @apply bg-surface p-2xs rounded-sm dark:bg-surface-dark;
+  @apply bg-surface p-2xs rounded-sm dark:bg-surface-dark border border-transparent outline-none;
   @apply hover:bg-surface-hover dark:hover:bg-surface-dark-hover;
   /* focused */
-  @apply focus:shadow-border-focus-heavy focus:border focus:border-surface;
+  @apply focus:shadow-border-focus-heavy focus:border-surface;
   @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
 
   &-name {
