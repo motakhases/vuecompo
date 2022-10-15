@@ -9,7 +9,7 @@
       <div class="zpl-topbar-profile-header">
         <div class="zpl-topbar-profile-name">
           {{ username }}
-          <Icon v-if="userPremium" name="Premium" />
+          <PremiumBadge v-if="userPremium" />
         </div>
         <div class="zpl-topbar-profile-phone">{{ userPhone }}</div>
       </div>

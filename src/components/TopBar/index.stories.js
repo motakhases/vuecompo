@@ -3,9 +3,9 @@ import Logo from "@/components/Logo/index.vue";
 import Icon from "@/components/Icon/index.vue";
 import Notification from "./Notification/index.vue";
 import Button from "@/components/Button/index.vue";
-
+import ThemeSwitcher from "@/components/ThemeSwitcher/index.vue";
 const Template = (_, { argTypes }) => ({
-  components: { TopBar, Logo, Icon, Notification, Button },
+  components: { TopBar, Logo, Icon, Notification, Button, ThemeSwitcher },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -26,7 +26,7 @@ const Template = (_, { argTypes }) => ({
           title: "ظاهر پنل کاربری",
           icon: "MoonStar",
           color: "",
-          action: () => console.log("click"),
+          action: () => this.toggle(),
         },
         {
           title: "راهنما استفاده",
@@ -41,7 +41,13 @@ const Template = (_, { argTypes }) => ({
           action: () => console.log("click"),
         },
       ],
+      modal: false,
     };
+  },
+  methods: {
+    toggle() {
+      this.modal = !this.modal;
+    },
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl h-[630px]">
@@ -58,6 +64,7 @@ const Template = (_, { argTypes }) => ({
     <h1 class="mt-sm font-bold dark:text-surface"> تاپ بار با لوگو در وسط</h1>
 
     <TopBar centerLogo/>
+    <ThemeSwitcher :open="modal" :toggleModal="toggle" />
   </div>
   `,
 });

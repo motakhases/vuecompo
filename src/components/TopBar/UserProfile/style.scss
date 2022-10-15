@@ -8,9 +8,6 @@
   &-name {
     @apply flex gap-xs items-center text-text text-b2;
     @apply dark:text-text-dark;
-    svg {
-      @apply text-silver w-xl h-xl;
-    }
   }
   &-phone {
     @apply mt-xs text-text-soft text-ls-cp font-IRANYekanFaNum;

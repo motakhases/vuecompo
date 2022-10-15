@@ -48,9 +48,4 @@ export default class TopBar extends Vue {
     this.toggleTerminalList();
     this.$emit('terminalClick', payload);
   }
-
-  toggleBodyClass() {
-    const el = document.body;
-    el.classList.toggle('dark');
-  }
 }

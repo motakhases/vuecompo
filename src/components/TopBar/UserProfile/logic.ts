@@ -3,9 +3,12 @@ import Icon from '@/components/Icon/index.vue';
 import Avatar from '@/components/Avatar/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
 import { IDropdownOptions } from '@/types';
+import PremiumBadge from '@/components/PremiumBadge/index.vue';
 
 @Component({
-  components: { Icon, Avatar, Dropdown },
+  components: {
+    Icon, Avatar, Dropdown, PremiumBadge,
+  },
 })
 export default class UserProfile extends Vue {
   @Prop({ type: Array }) readonly profileList!: IDropdownOptions[];
