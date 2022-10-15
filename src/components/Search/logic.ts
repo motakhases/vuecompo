@@ -110,6 +110,7 @@ export default class Search extends Vue {
       console.log(this.tagRef[0]);
       this.$nextTick(() => {
         this.onBlur();
+        this.isInputFocused = false;
       });
       // this.showMenueList = true;
       // this.updateButtonText();
@@ -138,6 +139,7 @@ export default class Search extends Vue {
         this.updateStyle();
       } else {
         console.log('clos');
+        // this.onBlur();
       }
     });
     if (this.showList) {
@@ -200,6 +202,8 @@ export default class Search extends Vue {
           this.showOptions();
         } else {
           this.showMenueList = false;
+          this.updateButtonText();
+          // this.isInputFocused = true;
         }
       } else {
         this.showMenueList = true;
@@ -650,7 +654,9 @@ export default class Search extends Vue {
       this.buttonSearchText = '';
       if (!input.title) {
         // this.deleteInputHandler();
-        this.focusNextInput(0);
+        if (event.key !== 'Escape') {
+          this.focusNextInput(0);
+        }
         this.showOptions();
         this.showMenueList = true;
       }
@@ -840,6 +846,7 @@ export default class Search extends Vue {
     const input = this.$el.getElementsByTagName('input');
     const inputList = Array.prototype.slice.call(input);
     inputList.forEach((element) => {
+      console.log(element);
       element.blur();
     });
     this.hideOptions();

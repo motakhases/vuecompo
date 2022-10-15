@@ -1,7 +1,7 @@
 <template>
   <div :class="['zpl-search-group']" ref="inputRef">
-    <div :class="['zpl-search']" @click.self="onFocusIn">
-      <div class="w-full h-full flex items-center">
+    <div :class="['zpl-search']">
+      <div class="w-full h-2xl flex items-center">
         <span
           class="zpl-search-placeholder"
           v-if="!inputs[0].value && !inputs[0].title"
@@ -14,16 +14,20 @@
             :key="index"
             :class="[
               'zpl-search-tag-input',
-              inputWidthHandler(input, index) && notLastInput(index) || index === inputs.length - 1 && !input.disabled ? 'w-full' : '',
+              (inputWidthHandler(input, index) && notLastInput(index)) ||
+              (index === inputs.length - 1 && !input.disabled)
+                ? 'w-full'
+                : '',
             ]"
           >
-            <Label
-              type="neutral"
-              size="small"
-              :text="input.title"
+            <div
               v-if="input.title"
-              @click.native="() => labelClickHandler(index)"
-            />
+              @click="() => labelClickHandler(index)"
+              class="py-[2px]"
+            >
+              <Label type="neutral" size="small" :text="input.title" />
+            </div>
+
             <input
               v-show="!input.disabled"
               v-model="input.value"
@@ -33,10 +37,15 @@
               @keyup="(e) => filterInputs(input, index, e)"
               :class="[
                 'tag-input ',
-               ( !input.title && !input.value.trim() && !input.disabled && notLastInput(index)) || index === inputs.length - 1 && !input.disabled
+                (!input.title &&
+                  !input.value.trim() &&
+                  !input.disabled &&
+                  notLastInput(index)) ||
+                (index === inputs.length - 1 && !input.disabled)
                   ? 'w-full'
                   : '',
-                input.disabled || (!input.value && !input.disabled && notLastInput(index)) ||
+                input.disabled ||
+                (!input.value && !input.disabled && notLastInput(index)) ||
                 (inputs.length - 1 === index && !input.disabled) ||
                 (inputs.length - 2 === index &&
                   inputs[inputs.length - 1].disabled)

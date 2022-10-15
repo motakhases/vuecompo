@@ -1,8 +1,9 @@
 .zpl-search {
   /* Default */
-  @apply bg-transparent flex items-center border border-border-divider rounded-xl w-full text-text-soft h-2xl relative z-10;
-  @apply dark:border-border-dark dark:text-text-dark  py-2xs pr-[36px] pl-2xl cursor-text;
+  @apply bg-transparent flex items-center border border-border-divider pr-[36px] rounded-xl w-full text-text-soft h-2xl relative z-10;
+  @apply dark:border-border-dark dark:text-text-dark cursor-text;
 
+  // py-2xs pr-[36px] pl-2xl
   /* hover */
   &:not(:focus-within):not(.focused):not(.error):not([disabled]):hover {
     @apply shadow-border-hover;
@@ -42,7 +43,7 @@
   &-tag-input {
     @apply flex gap-xs;
     input {
-      @apply outline-none min-w-[12px]  bg-transparent text-text text-b2 font-IRANYekanFaNum;
+      @apply outline-none min-w-[12px]  bg-transparent text-text text-b2 font-IRANYekanFaNum py-2xs;
       @apply dark:text-text-dark focus-visible:outline-none;
     }
     .tag-input {
