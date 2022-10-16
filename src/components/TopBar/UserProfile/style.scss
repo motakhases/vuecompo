@@ -6,7 +6,7 @@
   @apply dark:focus:shadow-dark-border-focus-heavy dark:focus:border-surface-dark;
 
   &-name {
-    @apply flex gap-xs items-center text-text text-b2;
+    @apply flex gap-xs items-center text-text text-b2 font-medium;
     @apply dark:text-text-dark;
   }
   &-phone {
