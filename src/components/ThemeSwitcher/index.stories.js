@@ -10,7 +10,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      modal: false,
+      modal: true,
     };
   },
   methods: {
@@ -20,7 +20,7 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-    <ThemeSwitcher :open="modal" :toggleModal="toggleModal" />
+    <ThemeSwitcher :open="modal" :toggleModal="toggleModal" :lightImage="@/assets/images/light-mode.svg" />
     <Button
     type="primary"
     size="medium"
@@ -32,10 +32,3 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-
-// Default.argTypes = {};
-
-// Default.args = {
-//   label: "عنوان تگ",
-//   btn: false,
-// };

@@ -7,22 +7,22 @@
     width="400px"
   >
     <div slot="body" class="px-md pt-md pb-xl">
-      <div class="grid grid-cols-12 gap-xl mb-xl">
+      <div class="zpl-theme-box">
         <RadioCard
           :title="$t('notif_settings.light')"
-          :image="lightImage"
+          icon="LightTheme"
           v-model="mode"
           val="light"
           :disabled="systemTheme"
-          class="col-span-6"
+          class="zpl-theme-icon"
         />
         <RadioCard
           :title="$t('notif_settings.dark')"
-          :image="darkImage"
+          icon="DarkTheme"
           v-model="mode"
           val="dark"
           :disabled="systemTheme"
-          class="col-span-6"
+          class="zpl-theme-icon"
         />
       </div>
       <Toggle v-model="systemTheme" :text="$t('notif_settings.settings')" />
@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import Vue from "vue";
-import logic from "./logic";
-import "./style.scss";
+import Vue from 'vue';
+import logic from './logic';
+import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
 </script>

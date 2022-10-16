@@ -98,6 +98,8 @@ import PinFill from './icons/PinFill.vue';
 import UserCircle from './icons/UserCircle.vue';
 import MoonStar from './icons/MoonStar.vue';
 import AttachLink from './icons/AttachLink.vue';
+import LightTheme from './icons/LightTheme.vue';
+import DarkTheme from './icons/DarkTheme.vue';
 
 @Component({
   components: {
@@ -198,6 +200,8 @@ import AttachLink from './icons/AttachLink.vue';
     UserCircle,
     MoonStar,
     AttachLink,
+    LightTheme,
+    DarkTheme,
   },
 })
 export default class Icon extends Vue {

@@ -103,7 +103,7 @@ const Template = (_, { argTypes }) => ({
         "PinFill",
         "UserCircle",
         "MoonStar",
-        "AttachLink"
+        "AttachLink",
       ],
     };
   },
