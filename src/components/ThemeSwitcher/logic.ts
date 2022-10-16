@@ -34,19 +34,17 @@ export default class ThemeSwitcher extends Vue {
   @Watch('systemTheme')
   toggleSystemTheme() {
     const el = document.body;
-    let theme: string;
     if (this.systemTheme) {
       if (
         window.matchMedia
         && window.matchMedia('(prefers-color-scheme:dark)').matches
       ) {
         el.classList.add('dark');
-        theme = 'dark';
+        this.mode = 'dark';
       } else {
         el.classList.remove('dark');
-        theme = 'light';
+        this.mode = 'light';
       }
-      localStorage.setItem('theme', theme);
     } else {
       this.toggleBodyClass();
     }

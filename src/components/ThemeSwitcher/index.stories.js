@@ -20,7 +20,7 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-    <ThemeSwitcher :open="modal" :toggleModal="toggleModal" :lightImage="@/assets/images/light-mode.svg" />
+    <ThemeSwitcher :open="modal" :toggleModal="toggleModal" />
     <Button
     type="primary"
     size="medium"
