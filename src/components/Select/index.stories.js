@@ -6,7 +6,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    data: "",
+    data: "third",
   }),
   methods: {},
   template: `
@@ -38,21 +38,6 @@ select.args = {
       value: "third",
       disabled: true,
     },
-    {
-      id: 4,
-      text: " گزینه",
-      sub: "زیرنویس",
-      logo: "Saman",
-      value: "forth",
-    },
-    {
-      id: 8,
-      text: "چهارمین گزینه",
-      sub: "زیرنویس",
-      logo: "Saman",
-      value: "ollll",
-    },
-    { id: 5, text: "پنجمین گزینه", value: "fifth" },
   ],
   disabledOptionId: null,
   loading: false,

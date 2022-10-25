@@ -1,0 +1,135 @@
+.zpl-search {
+  /* Default */
+  @apply bg-transparent flex items-center border border-border-divider pr-[36px] rounded-xl w-full text-text-soft h-2xl relative z-10;
+  @apply dark:border-border-dark dark:text-text-dark cursor-text;
+
+  // py-2xs pr-[36px] pl-2xl
+  /* hover */
+  &:not(:focus-within):not(.focused):not(.error):not([disabled]):hover {
+    @apply shadow-border-hover;
+  }
+
+  /* focus */
+  &:focus-within:not(.error) {
+    @apply border-interactive-focus outline-none shadow-border-focus-soft rounded-sm;
+    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
+    & ~ .zpl-search-dash {
+      @apply hidden;
+    }
+    .zpl-search-placeholder {
+      @apply hidden;
+    }
+  }
+  &.focused {
+    @apply border-interactive-focus outline-none shadow-border-focus-soft rounded-sm;
+    @apply dark:border-interactive-dark-focus dark:shadow-dark-border-focus-soft;
+  }
+
+  &.error {
+    &:not([disabled]) {
+      /* Default */
+      @apply border border-border-danger;
+      @apply dark:border-border-dark-danger;
+    }
+  }
+  &-group {
+    /* Default */
+    @apply relative;
+  }
+  &-format {
+    @apply p-xs text-text-soft text-ls-cp font-medium;
+    @apply dark:text-text-dark-soft;
+  }
+  &-tag-input {
+    @apply flex gap-xs;
+    input {
+      @apply outline-none min-w-[12px]  bg-transparent text-text text-b2 font-IRANYekanFaNum py-2xs;
+      @apply dark:text-text-dark focus-visible:outline-none;
+    }
+    .tag-input {
+      @apply whitespace-nowrap text-text text-b2 font-IRANYekanFaNum text-right;
+      @apply dark:text-text-dark focus-visible:outline-none;
+    }
+  }
+  &-shallow-input {
+    @apply absolute invisible text-b2 font-IRANYekanFaNum text-text-onPrimary;
+    @apply dark:text-text;
+  }
+  &-placeholder {
+    @apply absolute z-[9] text-b2  text-text;
+    @apply dark:text-text-dark;
+  }
+  &-input {
+    /* Default */
+    @apply bg-transparent border-none outline-none flex-auto min-w-0 relative z-10 w-full resize-none text-b3;
+    @apply placeholder:text-b2 placeholder:text-text;
+  }
+  &-icon {
+    @apply w-xl h-xl absolute right-xs top-2xs flex text-icon z-0;
+    @apply dark:text-icon-dark;
+  }
+  &-dash {
+    @apply w-xl h-xl absolute left-2xs top-2xs flex justify-center rounded-circle;
+  }
+  &-list {
+    /* Default */
+    @apply flex flex-col gap-xs bg-surface border border-border-soft shadow-elevation-100 rounded-sm
+    p-xs fixed w-full mt-2xs z-50;
+    @apply dark:bg-surface-dark dark:border-border-dark-soft	dark:shadow-dark-elevation-100;
+    direction: rtl;
+    &.showList {
+      @apply flex;
+    }
+  }
+  &-item {
+    /* Default */
+    @apply p-xs rounded-sm cursor-pointer flex gap-xs text-b2 font-IRANYekanFaNum;
+
+    /* Active */
+    @apply active:bg-surface-active;
+    @apply dark:active:bg-surface-dark-active;
+
+    /* Disabled */
+    &.disabled {
+      @apply opacity-50 pointer-events-none text-text-disabled;
+      @apply dark:text-text-dark-disabled;
+    }
+    &.selected {
+      @apply bg-primarySurface-select text-text relative flex;
+      @apply dark:bg-primarySurface-dark-select dark:text-text-dark;
+    }
+
+    &.active:not(.selected):not(.disabled) {
+      @apply bg-surface-hover;
+      @apply dark:bg-surface-dark-hover;
+    }
+    .info {
+      @apply flex gap-x-xs items-center;
+    }
+    .title {
+      @apply text-text-soft text-b3;
+      @apply dark:text-text-dark-soft;
+    }
+    &:hover {
+      .zpl-lable {
+        @apply bg-surface;
+        @apply dark:bg-surface-dark;
+      }
+    }
+  }
+  &-tags {
+    @apply select-none w-full h-full flex z-20 bg-transparent gap-xs overflow-auto;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+  }
+  &-delete {
+    @apply absolute top-xs left-xs text-icon-disabled cursor-pointer z-10;
+    @apply dark:text-icon-dark-disabled;
+  }
+  &-btn {
+    @apply w-full justify-start truncate font-IRANYekanFaNum #{!important};
+  }
+}

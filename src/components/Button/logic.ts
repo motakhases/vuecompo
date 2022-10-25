@@ -26,6 +26,8 @@ export default class Button extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
 
+  @Prop({ type: Boolean, default: false }) readonly truncate!: boolean
+
   @Prop({ type: Boolean, default: false }) readonly fill!: boolean
 
   @Prop({ type: Boolean, default: false }) readonly loading!: boolean

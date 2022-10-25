@@ -22,7 +22,7 @@
     />
 
     <!-- shows if before icon exists -->
-    <span v-if="!loading && text">
+    <span v-if="!loading && text" :class="[{truncate}]">
       {{ text }}
     </span>
 
