@@ -1,5 +1,4 @@
 import Search from "./index.vue";
-import "@/utils/validations";
 export default {
   component: Search,
   title: "Components/Search",
