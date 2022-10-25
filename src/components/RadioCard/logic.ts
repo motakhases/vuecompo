@@ -18,6 +18,8 @@ export default class RadioCard extends Vue {
 
   @Prop({ type: String }) readonly value!: string;
 
+  @Prop({ type: String }) readonly icon!: string;
+
   @Prop({ type: Boolean }) readonly disabled?: boolean
 
   get model(): string | number {

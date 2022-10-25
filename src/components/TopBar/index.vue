@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="zpl-topbar">
     <div v-if="centerLogo" class="zpl-topbar-center">
       <div class="zpl-topbar-logo">
         <Logo size="medium" name="zarinpal" type="logo" language="fa" />
@@ -32,15 +32,29 @@
         </div>
       </div>
       <div class="zpl-topbar-left-side">
-        <div class="zpl-topbar-question-btn">
-          <Button icon="questionCircle" type="tertiary" size="medium" />
+        <div class="zpl-topbar-ticket-btn">
+          <Button
+            icon="ChatMessage"
+            type="tertiary"
+            size="medium"
+            @click.native="$emit('showTickets')"
+          />
+          <NotificationBadge
+            v-if="ticketingBadge"
+            class="zpl-topbar-navigation-badge"
+            :text="ticketingBadge"
+          />
         </div>
-        <Notification badge="1" @click.native="$emit('showNotifs')" />
-        <Dropdown :list="profileList" width="256px">
-          <template slot="button">
-            <Button type="tertiary" size="medium" icon="profile" />
-          </template>
-        </Dropdown>
+        <Notification
+          :badge="notificationBadge"
+          @click.native="$emit('showNotifs')"
+        />
+        <UserProfile
+          :profileList="profileList"
+          :username="username"
+          :userPhone="userPhone"
+          :userPremium="userPremium"
+        />
       </div>
       <TerminalList
         v-if="hasMenu"

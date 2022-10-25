@@ -4,24 +4,34 @@
 
   &-icon {
     /* Default */
-    @apply inline-flex items-center text-icon;
-
-    svg {
-      @apply h-xl w-xl;
-    }
+    @apply inline-flex items-center text-black-40 bg-surface-soft rounded-circle border border-border-divider;
+    @apply dark:bg-surface-dark-soft dark:border-border-dark-divider dark:text-white-40;
 
     &.small {
-      @apply dark:text-icon-dark;
+      @apply p-xs;
+      svg {
+        @apply h-md w-md;
+      }
     }
 
     &.medium {
-      @apply p-xs bg-surface-soft rounded-circle;
-      @apply dark:bg-surface-dark-soft;
+      @apply p-[10px];
+      svg {
+        @apply h-lg w-lg;
+      }
     }
 
     &.large {
-      @apply p-lg bg-surface-soft rounded-circle;
-      @apply dark:bg-surface-dark-soft;
+      @apply p-lg;
+      svg {
+        @apply h-xl w-xl;
+      }
+    }
+    &.xlarge {
+      @apply p-[28px];
+      svg {
+        @apply h-xl w-xl;
+      }
     }
   }
 
@@ -45,7 +55,7 @@
       @apply w-[80px] h-[80px];
     }
   }
-  .zpl-avatar-border{
-    @apply border-2 border-surface dark:border-surface-dark
+  .zpl-avatar-border {
+    @apply border-2 border-surface dark:border-surface-dark;
   }
 }

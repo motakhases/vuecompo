@@ -95,6 +95,11 @@ import CircleDelete from './icons/CircleDelete.vue';
 import ExcelColor from './icons/ExcelColor.vue';
 import Premium from './icons/Premium.vue';
 import PinFill from './icons/PinFill.vue';
+import UserCircle from './icons/UserCircle.vue';
+import MoonStar from './icons/MoonStar.vue';
+import AttachLink from './icons/AttachLink.vue';
+import LightTheme from './icons/LightTheme.vue';
+import DarkTheme from './icons/DarkTheme.vue';
 
 @Component({
   components: {
@@ -192,6 +197,11 @@ import PinFill from './icons/PinFill.vue';
     ExcelColor,
     Premium,
     PinFill,
+    UserCircle,
+    MoonStar,
+    AttachLink,
+    LightTheme,
+    DarkTheme,
   },
 })
 export default class Icon extends Vue {

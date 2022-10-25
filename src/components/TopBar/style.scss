@@ -1,12 +1,15 @@
-.zpl-topbar-container {
-  /* Default */
-  @apply bg-surface px-md py-xs flex items-center justify-between top-0 sticky z-[31] shadow-divider-bottom;
-  @apply dark:bg-surface-dark dark:text-text-dark dark:shadow-dark-divider-bottom;
-}
-.zpl-topbar-center {
-  /* Default */
-  @apply bg-surface py-md flex items-center justify-center top-0 sticky z-[31];
-  @apply dark:bg-surface-dark;
+.zpl-topbar {
+  @apply top-0 sticky z-[31];
+  &-container {
+    /* Default */
+    @apply bg-surface px-md py-xs flex items-center justify-between shadow-divider-bottom;
+    @apply dark:bg-surface-dark dark:text-text-dark dark:shadow-dark-divider-bottom;
+  }
+  &-center {
+    /* Default */
+    @apply bg-surface py-md flex items-center justify-center;
+    @apply dark:bg-surface-dark;
+  }
 }
 .zpl-topbar-right-side {
   /* Default */
@@ -28,6 +31,6 @@
 .zpl-topbar-terminal-btn {
   @apply block lg:hidden mr-xs;
 }
-.zpl-topbar-question-btn {
-  @apply hidden lg:block;
+.zpl-topbar-ticket-btn {
+  @apply relative;
 }

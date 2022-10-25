@@ -1,6 +1,12 @@
 module.exports = {
   colors: {
     transparent: 'transparent',
+    silver: {
+      DEFAULT: '#AEBDC8',
+      dark: {
+        DEFAULT: '#AEBDC8',
+      },
+    },
     primaryZarinpal: {
       DEFAULT: '#0A33FF',
       hover: '#082BD5',
