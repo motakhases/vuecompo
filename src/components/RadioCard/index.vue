@@ -13,8 +13,9 @@
         {{ description }}
       </div>
     </div>
-    <div class="zpl-radio-card-img" v-if="image">
-      <img :src="image" alt="image" />
+    <div class="zpl-radio-card-img" v-if="image || icon">
+      <img v-if="image" :src="image" alt="image" />
+      <Icon v-if="icon" :name="icon" />
     </div>
     <!-- body -->
     <slot />

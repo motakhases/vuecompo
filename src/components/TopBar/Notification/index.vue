@@ -8,6 +8,7 @@
     <NotificationBadge
       class="zpl-topbar-navigation-badge"
       :text="badge"
+      v-if="badge"
     />
   </div>
 </template>

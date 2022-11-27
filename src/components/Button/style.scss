@@ -38,7 +38,7 @@
     }
   }
 
-  &.secondary { 
+  &.secondary {
     /* Default */
     @apply bg-secondary text-text;
     @apply dark:bg-secondary-dark dark:text-text-dark;
@@ -354,7 +354,7 @@
     @apply w-full;
   }
   .zpl-button-icon {
-    @apply h-xl w-xl;
+    @apply h-xl w-xl flex-[0_0_24px];
   }
   .zpl-button-loading {
     /* Default */

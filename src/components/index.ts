@@ -119,4 +119,9 @@ export { default as Otp } from './Otp/index.vue';
 
 export { default as Timer } from './Timer/index.vue';
 
+export { default as Search } from './Search/index.vue';
+
 export { default as PremiumBadge } from './PremiumBadge/index.vue';
+
+export { default as ThemeSwitcher } from './ThemeSwitcher/index.vue';
+

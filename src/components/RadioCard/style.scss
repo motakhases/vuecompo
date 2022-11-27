@@ -26,8 +26,9 @@
       @apply text-text-disabled;
       @apply dark:text-text-dark-disabled;
     }
-    img {
-      @apply grayscale;
+    img,
+    svg {
+      @apply opacity-60;
     }
   }
 

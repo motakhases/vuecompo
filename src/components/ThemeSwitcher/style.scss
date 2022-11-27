@@ -1,0 +1,11 @@
+.zpl-theme {
+  &-box {
+    @apply grid grid-cols-12 gap-md mb-xl;
+  }
+  &-icon {
+    @apply col-span-6 p-md;
+    .zpl-radio-card-img {
+      @apply w-[144px];
+    }
+  }
+}
