@@ -5,23 +5,22 @@ export default {
 };
 const Template = (_, { argTypes }) => ({
   components: { AvatarUploader },
-  data(){
-    return{
-      image:''
-    }
+  data() {
+    return {
+      image: "",
+    };
   },
   props: Object.keys(argTypes),
   methods: {
     uploadFile(e) {
-      alert('error')
+      alert("error");
     },
-    sendFileHandlers(file){
-      console.log(file)
-      this.image=file.image
+    sendFileHandlers(file) {
+      this.image = file.image;
     },
-    deleteFileHandlers(file){
-      this.image=''
-    }
+    deleteFileHandlers(file) {
+      this.image = "";
+    },
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
@@ -33,7 +32,7 @@ const Template = (_, { argTypes }) => ({
     :sendFileHandler="sendFileHandlers"
     :deleteFileHandler="deleteFileHandlers"
     url="https://next.zarinpal.com/api/v4/graphql"
-    :img="image"
+     img="https://logoland.zarinpal.com/90aa9d7418a74d25d67955c72eb0f111/36x36.png"
     />
 
   </div>
