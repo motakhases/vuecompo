@@ -1,12 +1,10 @@
-import {
-  Component, Prop, Vue, Ref,
-} from 'vue-property-decorator';
-import Thumbnail from '@/components/Thumbnail/index.vue';
-import Icon from '@/components/Icon/index.vue';
-import Dropdown from '@/components/Dropdown/index.vue';
-import vue2Dropzone from 'vue2-dropzone';
-import 'vue2-dropzone/dist/vue2Dropzone.min.css';
-import { IUploadedFiles, IDropzoneFiles } from '@/types';
+import { Component, Prop, Vue, Ref } from "vue-property-decorator";
+import Thumbnail from "@/components/Thumbnail/index.vue";
+import Icon from "@/components/Icon/index.vue";
+import Dropdown from "@/components/Dropdown/index.vue";
+import vue2Dropzone from "vue2-dropzone";
+import "vue2-dropzone/dist/vue2Dropzone.min.css";
+import { IUploadedFiles, IDropzoneFiles } from "@/types";
 
 @Component({
   components: {
@@ -17,7 +15,7 @@ import { IUploadedFiles, IDropzoneFiles } from '@/types';
   },
 })
 export default class AvatarUploader extends Vue {
-  @Prop({ type: String, default: 'medium' }) readonly size!: string;
+  @Prop({ type: String, default: "medium" }) readonly size!: string;
 
   @Prop({ type: String }) readonly url!: string;
 
@@ -44,53 +42,55 @@ export default class AvatarUploader extends Vue {
 
   @Ref() readonly dropzoneRef!: any;
 
+  imgRef = "image";
+
   dropzoneOptions = {
-    url: '',
+    url: "",
     maxFilesize: 1,
     maxFiles: 1,
-    acceptedFiles: '',
+    acceptedFiles: "",
     headers: {},
     previewsContainer: false,
-    dictFileTooBig: this.$i18n.t('warnings.upload.size'),
-    dictInvalidFileType: this.$i18n.t('warnings.upload.format'),
-    dictMaxFilesExceeded: this.$i18n.t('warnings.upload.files', {
+    dictFileTooBig: this.$i18n.t("warnings.upload.size"),
+    dictInvalidFileType: this.$i18n.t("warnings.upload.format"),
+    dictMaxFilesExceeded: this.$i18n.t("warnings.upload.files", {
       maxFiles: this.maxFiles,
     }),
     autoProcessQueue: false,
   };
 
   uploadedItem: IUploadedFiles = {
-    image: '',
-    name: '',
-    status: '',
-    id: '',
-    progress: '',
+    image: "",
+    name: "",
+    status: "",
+    id: "",
+    progress: "",
   };
 
   compeletList!: IUploadedFiles | undefined;
 
   dropList = [
     {
-      icon: '',
-      title: this.$i18n.t('terminal.change_image'),
-      color: '',
+      icon: "",
+      title: this.$i18n.t("terminal.change_image"),
+      color: "",
       action: () => this.openFilesFolder(),
     },
     {
-      icon: '',
-      title: this.$i18n.t('common.delete'),
-      color: 'text-danger',
+      icon: "",
+      title: this.$i18n.t("common.delete"),
+      color: "text-danger",
       action: () => this.removeFileHandler(),
     },
   ];
 
   fetchInitialData(file: IDropzoneFiles) {
     const attachment: IUploadedFiles = {
-      name: '',
-      image: '',
-      status: '',
-      id: '',
-      progress: '',
+      name: "",
+      image: "",
+      status: "",
+      id: "",
+      progress: "",
     };
     attachment.image = file.dataURL;
     attachment.status = file.status;
@@ -108,8 +108,8 @@ export default class AvatarUploader extends Vue {
   }
 
   error(file: IDropzoneFiles, msg: string) {
-    if (file.status !== 'canceled') {
-      this.toast(msg, 'error');
+    if (file.status !== "canceled") {
+      this.toast(msg, "error");
     }
   }
 
@@ -120,33 +120,35 @@ export default class AvatarUploader extends Vue {
   }
 
   removeFileHandler() {
-    this.dropzoneRef.removeFile(this.compeletList);
+    // this.dropzoneRef.removeFile(this.compeletList);
     this.compeletList = undefined;
+    this.imgRef = "";
     this.uploadedItem = {
-      image: '',
-      name: '',
-      status: '',
-      id: '',
-      progress: '',
+      image: "",
+      name: "",
+      status: "",
+      id: "",
+      progress: "",
     };
     this.deleteFileHandler(this.uploadedItem);
   }
 
   created(): void {
+    this.imgRef = this.img;
     this.dropzoneOptions.url = this.url;
     this.dropzoneOptions.maxFilesize = this.maxFileSize;
     this.dropzoneOptions.maxFiles = this.maxFiles;
     this.dropzoneOptions.acceptedFiles = this.acceptedFiles
       ? this.acceptedFiles
-      : '';
+      : "";
     this.dropzoneOptions.headers = this.headers;
-    this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
+    this.dropzoneOptions.dictFileTooBig = this.$i18n.t("warnings.upload.size");
     this.dropzoneOptions.dictInvalidFileType = this.$i18n.t(
-      'warnings.upload.format',
+      "warnings.upload.format"
     );
     this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t(
-      'warnings.upload.files',
-      { maxFiles: this.maxFiles },
+      "warnings.upload.files",
+      { maxFiles: this.maxFiles }
     );
   }
 }
