@@ -21,14 +21,14 @@
               :icon="label.icon"
             />
           </template>
-          <template v-if="item.type === 'label'">
-            <Label
+          <template v-if="item.type === 'label'" >
+           <div> <Label
               v-for="(label, labelIndex) in item.data"
               :key="labelIndex"
               :text="label.text"
               :type="label.type"
               size="small"
-            />
+            /></div>
           </template>
         </div>
       </div>
