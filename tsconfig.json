@@ -15,7 +15,6 @@
     "baseUrl": ".",
     "declaration": true,
     "noImplicitAny": false,
-
     "types": ["webpack-env", "jest"],
     "paths": {
       "@/*": ["src/*"]
@@ -23,15 +22,12 @@
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
-    "./src/**/*",
     "src/**/*.ts",
-    "src/**/*.js",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "index.d.ts",
-    "stories/form.stories.js"
+    "index.d.ts"
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "lang"]
 }
