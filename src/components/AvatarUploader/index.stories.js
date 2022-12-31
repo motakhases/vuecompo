@@ -32,7 +32,7 @@ const Template = (_, { argTypes }) => ({
     :sendFileHandler="sendFileHandlers"
     :deleteFileHandler="deleteFileHandlers"
     url="https://next.zarinpal.com/api/v4/graphql"
-     img="https://logoland.zarinpal.com/90aa9d7418a74d25d67955c72eb0f111/36x36.png"
+    :img="image"
     />
 
   </div>
