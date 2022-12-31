@@ -1,10 +1,12 @@
-import { Component, Prop, Vue, Ref } from "vue-property-decorator";
-import vue2Dropzone from "vue2-dropzone";
-import Button from "@/components/Button/index.vue";
-import { IUploadedFiles, IDropzoneFiles } from "@/types";
-import UploadedFile from "./_uploadedFile/index.vue";
-import "vue2-dropzone/dist/vue2Dropzone.min.css";
-import Loading from "./Loading/index.vue";
+import {
+  Component, Prop, Vue, Ref,
+} from 'vue-property-decorator';
+import vue2Dropzone from 'vue2-dropzone';
+import Button from '@/components/Button/index.vue';
+import { IUploadedFiles, IDropzoneFiles } from '@/types';
+import UploadedFile from './_uploadedFile/index.vue';
+import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+import Loading from './Loading/index.vue';
 
 @Component({
   components: {
@@ -49,15 +51,15 @@ export default class Upload extends Vue {
   @Ref() readonly dropzoneRef!: any;
 
   dropzoneOptions = {
-    url: "",
+    url: '',
     maxFilesize: 1,
     maxFiles: 1,
-    acceptedFiles: "",
+    acceptedFiles: '',
     headers: {},
     previewsContainer: false,
-    dictFileTooBig: this.$i18n.t("warnings.upload.size"),
-    dictInvalidFileType: this.$i18n.t("warnings.upload.format"),
-    dictMaxFilesExceeded: this.$i18n.t("warnings.upload.files", {
+    dictFileTooBig: this.$i18n.t('warnings.upload.size'),
+    dictInvalidFileType: this.$i18n.t('warnings.upload.format'),
+    dictMaxFilesExceeded: this.$i18n.t('warnings.upload.files', {
       maxFiles: this.maxFiles,
     }),
     autoProcessQueue: false,
@@ -70,18 +72,18 @@ export default class Upload extends Vue {
   successUploaded(file: IDropzoneFiles) {
     this.uploadedList.forEach((item, index) => {
       if (item.id === file.upload.uuid) {
-        this.$set(this.uploadedList[index], "status", file.status);
+        this.$set(this.uploadedList[index], 'status', file.status);
       }
     });
   }
 
   fetchInitialData(file: IDropzoneFiles) {
     const attachment: IUploadedFiles = {
-      name: "",
-      image: "",
-      status: "",
-      id: "",
-      progress: "",
+      name: '',
+      image: '',
+      status: '',
+      id: '',
+      progress: '',
     };
     attachment.image = file.dataURL;
     attachment.status = file.status;
@@ -95,14 +97,14 @@ export default class Upload extends Vue {
   }
 
   error(file: IDropzoneFiles, msg: string, xhr: IDropzoneFiles) {
-    if (file.status !== "canceled") {
-      this.toast(msg, "error");
+    if (file.status !== 'canceled') {
+      this.toast(msg, 'error');
     }
   }
 
   addFileManually(file: IDropzoneFiles) {
-    console.log("🚀  file: logic.ts:104  Upload  addFileManually  file", file);
-    this.dropzoneRef.manuallyAddFile(file, "fileUrl");
+    console.log('🚀  file: logic.ts:104  Upload  addFileManually  file', file);
+    this.dropzoneRef.manuallyAddFile(file, 'fileUrl');
   }
 
   fileUploadProgress(file: IDropzoneFiles, progress: number) {
@@ -110,8 +112,8 @@ export default class Upload extends Vue {
       if (item.id === file.upload.uuid) {
         this.$set(
           this.uploadedList[index],
-          "progress",
-          `${Math.floor(progress)}`
+          'progress',
+          `${Math.floor(progress)}`,
         );
       }
     });
@@ -134,15 +136,15 @@ export default class Upload extends Vue {
     this.dropzoneOptions.maxFiles = this.maxFiles;
     this.dropzoneOptions.acceptedFiles = this.acceptedFiles
       ? this.acceptedFiles
-      : "";
+      : '';
     this.dropzoneOptions.headers = this.headers;
-    this.dropzoneOptions.dictFileTooBig = this.$i18n.t("warnings.upload.size");
+    this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
     this.dropzoneOptions.dictInvalidFileType = this.$i18n.t(
-      "warnings.upload.format"
+      'warnings.upload.format',
     );
     this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t(
-      "warnings.upload.files",
-      { maxFiles: this.maxFiles }
+      'warnings.upload.files',
+      { maxFiles: this.maxFiles },
     );
   }
 }
