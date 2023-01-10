@@ -30,8 +30,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "index.d.ts",
-    "stories/form.stories.js"
+    "index.d.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }
