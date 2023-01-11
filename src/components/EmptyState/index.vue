@@ -3,7 +3,8 @@
     <div
       class="zpl-emptystate-box"
     >
-      <div class="bg-empty-state" />
+      <img class="logo-empty" v-if="image" :src="image" alt="image" />
+      <div v-else class="bg-empty-state" />
       <div class="zpl-emptystate-content">
         <p class="zpl-emptystate-title">{{ title }}</p>
         <p class="zpl-emptystate-caption">{{ caption }}</p>
