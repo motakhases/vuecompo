@@ -4,11 +4,17 @@ import Icon from "@/components/Icon/index.vue";
 import Notification from "./Notification/index.vue";
 import Button from "@/components/Button/index.vue";
 import ThemeSwitcher from "@/components/ThemeSwitcher/index.vue";
+import { TitleTooltip } from '@/types';
 const Template = (_, { argTypes }) => ({
   components: { TopBar, Logo, Icon, Notification, Button, ThemeSwitcher },
   props: Object.keys(argTypes),
   data() {
     return {
+      titleTooltip : TitleTooltip = {
+        ticket : 'عنوان تیکت',
+        notification : 'عنوان نوتیف',
+        userProfile : 'عنوان یوزر',
+      },
       list: [
         {
           title: "حساب ‌کاربری",
@@ -60,10 +66,11 @@ const Template = (_, { argTypes }) => ({
       @showNotifs="()=>{}"
       ticketingBadge="5"
       notificationBadge="2"
+      :titleTooltip="titleTooltip"
     />
     <h1 class="mt-sm font-bold dark:text-surface"> تاپ بار با لوگو در وسط</h1>
 
-    <TopBar centerLogo/>
+    <TopBar centerLogo :titleTooltip="titleTooltip" />
     <ThemeSwitcher :open="modal" :toggleModal="toggle" />
   </div>
   `,

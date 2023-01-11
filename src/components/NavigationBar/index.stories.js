@@ -1,5 +1,6 @@
 import NavigationBar from "./index.vue";
 import TopBar from "../TopBar/index.vue";
+import { TitleTooltip } from '@/types';
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -10,6 +11,11 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
 
   data: () => ({
+    titleTooltip : TitleTooltip = {
+      ticket : 'تیکت',
+      notification : 'اعلانات',
+      userProfile : 'حساب کاربری',
+    },
     activeTerminal: {},
     terminals: [
       {
@@ -70,7 +76,7 @@ const Template = (_, { argTypes }) => ({
           {
             title: "پیشخوان",
             link: "/",
-            active: true,
+            active: false,
             badge:'10'
           },
           {
@@ -102,12 +108,14 @@ const Template = (_, { argTypes }) => ({
           :terminals="terminals"
           @showNotifs="$refs.notificationCenter.toggle()"
           @toggleMenu="$refs.navigationBar.toggle()"
-        />  
+          :titleTooltip="titleTooltip"
+        />
         <NavigationBar
           ref="navigationBar"
           :terminals="terminals"
           :nav-items="sidebarLinks"
           :active-terminal="activeTerminal"
+          @toggleMenu="$refs.navigationBar.toggle()"
         />
       </div>
     </div>
