@@ -20,7 +20,7 @@
               :title="terminal.name"
               :link="terminal.domain"
               :route="terminal.route"
-              :img="terminal.logo"
+             :img="terminal.logo + logoAddress"
               :state="terminal.status"
               icon="terminal"
               v-on="$listeners"
