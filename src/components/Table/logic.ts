@@ -64,6 +64,8 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly emptyCaption?: string
 
+  @Prop({ type: String }) readonly image!: string;
+
   @Prop({ type: Boolean, default: false }) readonly inCard!: boolean;
 
   @Prop({ type: Object }) readonly params?: any

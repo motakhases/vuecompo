@@ -136,6 +136,7 @@
     :title="emptyTitle"
     :caption="emptyCaption"
     :inCard="inCard"
+    :image="image"
     />
   </div>
 </template>
