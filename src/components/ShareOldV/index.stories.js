@@ -1,20 +1,20 @@
-import Share from "./index.vue";
+import ShareOldV from "./index.vue";
 
 export default {
-  component: Share,
-  title: "Components/Share",
+  component: ShareOldV,
+  title: "Components/ShareOldV",
 };
 
 const Template = (_, { argTypes }) => ({
-  components: { Share },
+  components: { ShareOldV },
   props: Object.keys(argTypes),
   template: `
   <div class="dark:bg-surface-dark" dir="rtl">
-    <Share
+    <ShareOldV
       url="https://zarinp.al/376218"
       title="This is product FELAAN"
     />
-    <Share
+    <ShareOldV
    loading
   />
   </div>

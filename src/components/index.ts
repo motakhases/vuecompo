@@ -1,5 +1,3 @@
-import StepperGroup from "./StepperGroup/logic";
-
 export { default as Avatar } from "./Avatar/index.vue";
 
 export { default as AvatarProgressBar } from "./AvatarProgressBar/index.vue";
@@ -126,5 +124,4 @@ export { default as Search } from "./Search/index.vue";
 export { default as PremiumBadge } from "./PremiumBadge/index.vue";
 
 export { default as ThemeSwitcher } from "./ThemeSwitcher/index.vue";
-export { default as Stepper } from "./Stepper/index.vue";
-export { default as StepperGroup } from "./StepperGroup/index.vue";
+

@@ -1,5 +1,5 @@
 .zpl-topbar {
-  @apply top-0 sticky z-[31];
+  @apply top-0 sticky z-[31] h-[56px];
   &-container {
     /* Default */
     @apply bg-surface px-md py-xs flex items-center justify-between shadow-divider-bottom;
@@ -30,6 +30,10 @@
 }
 .zpl-topbar-terminal-btn {
   @apply block lg:hidden mr-xs;
+
+  .zpl-button{
+    @apply whitespace-nowrap pr-xs pl-2xs
+  }
 }
 .zpl-topbar-ticket-btn {
   @apply relative;

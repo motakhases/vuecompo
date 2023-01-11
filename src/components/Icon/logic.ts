@@ -101,7 +101,6 @@ import MoonStar from './icons/MoonStar.vue';
 import AttachLink from './icons/AttachLink.vue';
 import LightTheme from './icons/LightTheme.vue';
 import DarkTheme from './icons/DarkTheme.vue';
-import Add from './icons/Add.vue';
 
 @Component({
   components: {
@@ -205,7 +204,6 @@ import Add from './icons/Add.vue';
     AttachLink,
     LightTheme,
     DarkTheme,
-    Add,
   },
 })
 export default class Icon extends Vue {

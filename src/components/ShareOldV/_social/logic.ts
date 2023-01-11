@@ -14,7 +14,7 @@ import { SocialType } from '@/types';
 export default class Social extends Vue {
   @Prop({ type: String, required: true }) keyName!: string;
 
-  @Prop({ type: String, default: '' }) name?: string;
+  @Prop({ type: String, required: true }) name!: string;
 
   @Prop({ type: String }) title!: string;
 

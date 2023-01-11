@@ -1,26 +1,23 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 // Components
+import Tabs from '@/components/Tabs/index.vue';
 import Tab from '@/components/Tabs/Tab/index.vue';
-import Social from '@/components/Share/_social/index.vue';
+import Button from '@/components/Button/index.vue';
+import TextField from '@/components/TextField/index.vue';
 import { Translation } from '@/types';
-import {
-  Skeleton,TextField,Button,Tabs,CopyToClipboard,Icon,
-} from '@/components';
+import Social from './_social/index.vue';
 
 @Component({
   components: {
     Tab,
     Tabs,
+    Social,
     Button,
     TextField,
-    CopyToClipboard,
-    Icon,
-    Social,
-    Skeleton,
   },
 })
-export default class Share extends Vue {
+export default class ShareOldV extends Vue {
   @Prop({ type: String }) title!: string;
 
   @Prop({ type: String }) url!: string;

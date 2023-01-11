@@ -1,10 +1,10 @@
-.zpl-social {
+.zpl-social-old {
   // default
-  @apply flex flex-row items-center justify-center gap-xs w-[48px] h-[48px];
+  @apply flex flex-col items-center justify-center gap-sm p-md;
 
   &-icon {
     // default
-    @apply w-[48px] h-[48px] p-sm border border-border-soft flex justify-center items-center;
+    @apply w-[80px] h-[80px] border border-border-soft flex justify-center items-center;
     @apply dark:border-border-dark-soft;
 
     // hover
