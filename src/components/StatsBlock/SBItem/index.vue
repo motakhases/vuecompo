@@ -1,15 +1,45 @@
 <template>
-  <div :class="['zpl-sb-item ', spans, { row, leftAlign, loading }]">
+  <div :class="['zpl-sb-item ', { loading }]">
     <!-- loading -->
+    <div v-if="loading" class="zpl-sb-item-cont flex-col">
+      <div class="loading-title">
+        <Skeleton type="body" class="w-[64px] h-[12px]" />
+      </div>
+      <div class="loading-title">
+        <Skeleton type="body" class="w-[168px] h-[20px]" />
+      </div>
+      <div class="loading-title">
+        <Skeleton type="body" class="w-[120px] h-[12px]" />
+      </div>
+      <div class="loading-title">
+        <Skeleton type="body" class="w-[46px] h-[12px]" />
+      </div>
+    </div>
 
     <!-- content -->
-    <div :class="['zpl-sb-item-cont flex w-full gap-xs', row ? 'flex-row' : 'flex-col']">
-      <span class="zpl-sb-item-title" v-if="title">
+    <div class="zpl-sb-item-cont flex-col">
+      <span class="title" v-if="title">
         {{ title }}
+        <Tooltip v-if="info" :text="info" indicator position="topCenter">
+            <Icon name="Info" class="zpl-reciept-icon" />
+        </Tooltip>
       </span>
-      <span :class="['truncate flex-1',{ 'text-left flex justify-end': leftAlign && row }]">
-        <slot />
+
+      <span class="content">
+        <slot name="content" />
       </span>
+
+      <span class="caption">
+        <slot name="caption" />
+      </span>
+      <Link
+        v-if="link"
+        :to="link"
+        :href="link"
+        :exact="link"
+        :target="link"
+        :text="'مشاهده'"
+      />
     </div>
   </div>
 </template>

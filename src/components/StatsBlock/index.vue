@@ -4,9 +4,7 @@
       <StatsBlockItem
         v-for="index in loadingNumber"
         :key="index"
-        :row="row"
         :loading="loading"
-        :leftAlign="leftAlign"
       />
     </StatsBlockRow>
     <slot v-else />
