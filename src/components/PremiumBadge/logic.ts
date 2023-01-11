@@ -5,5 +5,5 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class PremiumBadge extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly isShow?: boolean
+  @Prop({ type: Boolean, default: false }) readonly isCollapsed?: boolean
 }

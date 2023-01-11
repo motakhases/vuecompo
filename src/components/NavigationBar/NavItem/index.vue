@@ -50,7 +50,7 @@
           {{ title }}
         </span>
         <NotificationBadge v-if="badge" :text="badge" />
-         <PremiumBadge v-if="premiumBadge" :is-show="!isCollapsed" />
+         <PremiumBadge v-if="premiumBadge" :isCollapsed="isCollapsed" />
       </router-link>
     </Tooltip>
   </li>
