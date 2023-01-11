@@ -4,7 +4,7 @@
     &::before {
         @apply absolute inset-0	-translate-x-full content-[""] bg-skeleton;
         @apply dark:bg-skeleton-dark;
-        animation: shimmer 1s infinite;      
+        animation: shimmer 1s infinite;
       /* animation */
       @keyframes shimmer {
         100% {

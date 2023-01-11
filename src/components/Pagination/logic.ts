@@ -52,7 +52,7 @@ export default class Pagination extends Vue {
   }
 
   mounted() {
-    this.$router.push({
+    this.$router?.push({
       query: { limit: String(this.initLimit), ...this.$route.query },
     });
   }

@@ -11,7 +11,7 @@
     "build:rollup": "rimraf dist/filters.js && rimraf dist/designTokens.js && rollup --config rollup.config.js",
     "build:vue": "vue-cli-service build src/index.ts --target lib --name zwc --modern && rm ./dist/demo.html",
     "build": "yarn build:vue && yarn build:rollup",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
+    "story:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test": "yarn test:unit",
     "generate": "node fetchLangs.mjs"
@@ -101,6 +101,8 @@
   "dependencies": {
     "@types/moment-jalaali": "^0.7.5",
     "@types/node": "^17.0.26",
+    "@vue/composition-api": "^1.7.1",
+    "@vueuse/core": "^9.9.0",
     "apexcharts": "^3.35.3",
     "autoprefixer": "^10",
     "axios": "^0.26.1",

@@ -9,6 +9,7 @@ import Status from '@/components/Status/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Thumbnail from '@/components/Thumbnail/index.vue';
 
+const { lg } = require('@/utils/helper');
 // Interface
 @Component({
   components: {
@@ -35,6 +36,8 @@ export default class SwitchTerminalItem extends Vue {
   @Prop({ type: String }) alt!: string
 
   @Prop({ type: String }) state!: string
+
+  isFocused = false
 
   stateText(state: Translation): Translation {
     let statusText: Translation = '';
@@ -79,5 +82,22 @@ export default class SwitchTerminalItem extends Vue {
       route,
       status: state,
     };
+  }
+
+  onFocus(e: KeyboardEvent): void {
+    this.isFocused = true;
+    lg('SwitchTerminalItem onFocus')
+  }
+
+  onBlur(e: KeyboardEvent): void {
+    lg('SwitchTerminalItem onBlur')
+    this.isFocused = false;
+  }
+
+  onEnter(e: KeyboardEvent,callerComp):void {
+    lg('SwitchTerminalItem onEnter')
+    this.isFocused = false;
+    this.$emit('terminalClick', this.terminalConcatedData)
+    callerComp.f_doBlurComp(e)
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <Icon name="Premium" class="w-lg h-lg text-silver" />
+  <Icon name="Premium" :class="['w-lg h-lg','text-silver',isShow ? 'hidden' : '']" />
 </template>
 
 <script lang="ts">
