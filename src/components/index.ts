@@ -126,3 +126,5 @@ export { default as PremiumBadge } from "./PremiumBadge/index.vue";
 export { default as ThemeSwitcher } from "./ThemeSwitcher/index.vue";
 export { default as Stepper } from "./Stepper/index.vue";
 export { default as StepperGroup } from "./StepperGroup/index.vue";
+
+export { default as StatsBlock } from "./StatsBlock/index.vue";

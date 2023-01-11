@@ -1,0 +1,77 @@
+.zpl-sb {
+  // default
+  @apply rounded-sm border border-border-divider;
+
+  // dark
+  @apply dark:border-border-dark-divider;
+
+  &-row {
+    // default
+    @apply border-b border-border-divider overflow-hidden;
+
+    // dark
+    @apply dark:border-border-dark-divider;
+
+    // last child
+    @apply last:border-b-0;
+
+    &-hidder {
+      // default
+      @apply flex flex-wrap;
+    }
+  }
+
+  &-item {
+    // default
+    @apply font-IRANYekanFaNum text-b2 flex flex-col min-w-[200px] p-md border-l ml-[-1px] mb-[-1px] border-b border-border-divider gap-xs;
+    @apply flex-[1_0_25%];
+
+    // dark
+    @apply dark:border-border-dark-divider dark:text-text-dark;
+
+    //loading
+    &.loading {
+      @apply py-lg;
+      &.row {
+        @apply py-[22px];
+        .zpl-ds-item-box {
+          @apply flex-row;
+        }
+        .loading-title {
+          @apply flex-1;
+        }
+        &.leftAlign {
+          .loading-title-skeleton {
+            @apply mr-auto;
+          }
+        }
+      }
+      &-skeleton {
+        @apply w-[200px];
+      }
+    }
+    &-box {
+      @apply flex w-full gap-lg flex-col;
+    }
+    &-title {
+      // default
+      @apply text-b3 text-text-soft font-IRANYekanFaNum font-normal flex-1;
+
+      // dark
+      @apply dark:text-text-dark-soft;
+    }
+
+    > span {
+      @apply whitespace-nowrap;
+    }
+
+    &.row {
+      @apply flex-[1_0_100%] flex-row items-center;
+
+      > span {
+        @apply w-full;
+      }
+    }
+  }
+
+}

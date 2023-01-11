@@ -236,3 +236,14 @@ export enum SocialType {
   circle = 'circle',
   square = 'square',
 }
+
+/**
+ * @/components/StatsBlock
+ * --------------------------------------------------
+ */
+export interface StatsBlockItemSpans {
+  xs?: number;
+  md?: number;
+  lg?: number;
+}
+

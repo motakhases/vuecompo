@@ -1,7 +1,8 @@
+const comps = 'Avatar|Card|Share|nav|StatsBlock|DataSheet'
 module.exports = {
   stories: [
-    '../../src/components/@(MessageBox|Avatar|AvatarUploader|Card|Share|nav)*/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../../stories/@(Popover|Button|Avatar|Card|Share|nav)*.stories.js',
+    `../../src/components/@(${comps})*/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
+    `../../stories/@(${comps})*.stories.js`,
     // '../../**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [
