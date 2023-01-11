@@ -14,4 +14,6 @@ export default class EmptyState extends Vue {
   @Prop({ type: Array, default: () => [] }) readonly buttons!: [];
 
   @Prop({ type: Boolean, default: false }) readonly inCard!: boolean;
+
+  @Prop({ type: String }) readonly image!: string;
 }

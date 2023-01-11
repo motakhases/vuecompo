@@ -27,7 +27,7 @@ const Template = (_, { argTypes }) => ({
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-  <Empty-state :buttons="emptyStateButtons" caption="تراکنش‌های شما به صورت لحظه‌ای در این صفحه قابل مشاهده است" title="‌تراکنش‌های درگاه شما" />
+  <Empty-state :buttons="emptyStateButtons" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqutFS4N1iAqUH3HDW0lc32pnwoHeK_iq_Jw&usqp=CAU" caption="تراکنش‌های شما به صورت لحظه‌ای در این صفحه قابل مشاهده است" title="‌تراکنش‌های درگاه شما" />
   </div>
   `,
 });
