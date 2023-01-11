@@ -86,7 +86,7 @@ export default class NavItem extends KeyNavigate {
   }
 
   onKeyup(e: KeyboardEvent){
-    // lg('NavItem onKeyup')
+    lg('NavItem onKeyup')
   }
 
   onFocus(e: KeyboardEvent): void {

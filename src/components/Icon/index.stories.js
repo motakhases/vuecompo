@@ -106,6 +106,10 @@ const Template = (_, { argTypes }) => ({
         "UserCircle",
         "MoonStar",
         "AttachLink",
+        "Add",
+        "Gateway",
+        "Websitebuild",
+        "MobileSetting",
       ],
     };
   },

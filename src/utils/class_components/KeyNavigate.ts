@@ -26,8 +26,10 @@ export default class KeyNavigate extends Vue{
     this.f_dbg = new DbgTool()
     let brkPoint1 = ()=>{
       // eslint-disable-next-line no-debugger
+      //   debugger
       },brkPoint2=()=>{
       // eslint-disable-next-line no-debugger
+        debugger
       };
     this.f_dbg.addDbg<KeyNavigate>([
       (dis,resultConds,i,args)=>{
@@ -83,7 +85,7 @@ export default class KeyNavigate extends Vue{
       kd = this.f_mainNav.f_keydown
     }
     else{
-      // lg('dbg')
+      debugger
     }
     return kd
   }
@@ -146,6 +148,14 @@ export default class KeyNavigate extends Vue{
   }
 
   f_doFocusOut(){
+    lg('doFocusOut')
+    // const actElm = document.activeElement
+    // document.querySelectorAll('a')?.[0]?.focus()
+    // document.querySelectorAll('button')?.[0]?.focus()
+    // document.querySelectorAll('input')?.[0]?.focus()
+    // lg(actElm,'actElm')
+    // lg(document.activeElement,'document.activeElement')
+    // window.focus();
     const inpE = document.createElement('input')
     inpE.style.cssText = 'opacity:0;width:0;height:0;display:hidden;position:absolute;top:0;'
     document.body.appendChild(inpE)
@@ -165,6 +175,8 @@ export default class KeyNavigate extends Vue{
   }
 
   private f_offMySec(){
+    // this.onKeyup(e)
+    // return
     this.f_onMySec = false
     if(this.f_parComp){
       this.f_parComp.f_onMySec = true
@@ -205,6 +217,7 @@ export default class KeyNavigate extends Vue{
   f_doKeyDown(e: KeyboardEvent){
     const {key} = e;
     if(!this.f_findKeyDown(key)){
+      lg(key,'key')
       this.f_addKeyDown(key)
     }
     prevUp(e)
@@ -323,19 +336,19 @@ export default class KeyNavigate extends Vue{
     this.f_dbg.dbgRun({key})
 
     if(key==='Tab'){
-      if(this.f_curDests){
-        if(this.f_goingLatestItm(key)){
-          if(this.f_latestComp(key)){
+      if(this.f_curDests){ lg(this.f_curDests,'f_doKeyup > f_curDests',2);
+        if(this.f_goingLatestItm(key)){ lg(this.f_goingLatestItm(key),'... > f_goingLatestItm',2);
+          if(this.f_latestComp(key)){ lg(this.f_latestComp(key),'... > f_latestComp',2);
             this.f_offMySec()
           }
         }
-        else if(this.f_latestItm(key)){
+        else if(this.f_latestItm(key)){ lg(this.f_latestItm(key),'... > f_latestItm',2);// agar ife balayi succes mishdo be marhaleye badi va in shart nemiresid va in this az doKey up kharej mishe, be ebarate dige hanooz bad az in bache bacheye digei ham vojood dare va ife avali ta enteha succ nashode
           this.f_swichOutChildComp(e,simulKey)
           this.f_incrDecr(key)
         }
       }
       else{
-        if(this.f_goingLatestComp($refs,key)){
+        if(this.f_goingLatestComp($refs,key)){ lg(this.f_goingLatestComp($refs,key),'... > f_goingLatestComp',2);
           this.f_offMySec()
         }
         this.f_doBlurComp(e,simulKey)
@@ -349,11 +362,13 @@ export default class KeyNavigate extends Vue{
   }
 
   f_onGlobalKeyup(e: KeyboardEvent){
-    // lg(e,'---- onGlobalKeyup')
+    lg(e,'---- onGlobalKeyup')
+    // this.f_doBlurComp(e)
+    // this.f_destroyKeyUp()
   }
 
   f_onGlobalClick(e: Event){
-    // lg(e,'---- onGlobalClick')
+    lg(e,'---- onGlobalClick')
     this.f_curComp?.f_doBlurComp(e)
     this.f_doBlurComp(e)
     this.f_curComp?.f_destroyKeyUp()

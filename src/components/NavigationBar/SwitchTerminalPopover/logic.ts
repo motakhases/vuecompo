@@ -95,12 +95,12 @@ export default class SwitchTerminalPopover extends KeyNavigate {
   }
 
   onKeyDown(e: KeyboardEvent){
-    // lg(e,'popover onKeyDown',2)
+    lg(e,'popover onKeyDown',2)
     this.f_doKeyDown(e)
   }
 
   onKeyup(e: KeyboardEvent){
-    // lg(this.f_onMySec,'poopver onKeyup')
+    lg(this.f_onMySec,'poopver onKeyup')
   }
 
   onFocus(e: KeyboardEvent): void {

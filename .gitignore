@@ -29,3 +29,4 @@ pnpm-debug.log*
 /src/App.vue
 
 safelist.txt
+/.__incl/

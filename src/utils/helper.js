@@ -14,6 +14,22 @@ const lg=function (val,str='',prio=-1){
 }
 
 const prevUp=function (e){
+  /* if(key==='Enter'||key==='Tab'){
+      const {stopImmediatePropagation} : any = e
+      try{
+        if(stopImmediatePropagation){
+          stopImmediatePropagation()
+        }
+      }
+      catch (err){
+        e.stopPropagation();
+        e.cancelBubble=true;
+        e.preventDefault()
+      }
+      e.stopPropagation();
+      e.cancelBubble=true;
+      e.preventDefault()
+    } */
   e.stopPropagation();
   e.cancelBubble=true;
   e.preventDefault()

@@ -13,7 +13,7 @@
   @apply active:bg-surface-active;
   @apply dark:active:bg-surface-dark-active;
 
-  /* focus */
+  /* focus *///todo movaghat ta keyboard navigate kamel beshe
   @apply focus:bg-surface focus:shadow-border-focus-heavy focus:relative focus:z-10;
   @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
 

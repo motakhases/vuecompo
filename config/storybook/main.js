@@ -1,6 +1,8 @@
 module.exports = {
   stories: [
-    '../../**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../../src/components/@(MessageBox|Avatar|AvatarUploader|Card|Share|nav)*/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../../stories/@(Popover|Button|Avatar|Card|Share|nav)*.stories.js',
+    // '../../**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [
     '@storybook/addon-essentials',

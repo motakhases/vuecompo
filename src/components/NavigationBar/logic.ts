@@ -127,22 +127,29 @@ export default class NavigationBar extends KeyNavigate {
   }
 
   onKeyDown(e: KeyboardEvent){
+    lg(e,'navbar onKeyDown',2)
     this.f_doKeyDown(e)
   }
 
   onKeyup(e: KeyboardEvent){
     const {key} = e
+    lg(key,'NavBar > key')
+    lg(this.f_onMySec,'NavBar > this.onMySec',2)
     const curComp = this.f_curComp??this
+    lg(curComp.f_onMySec,'NavBar > curComp.onMySec',2)
     if(curComp.f_onMySec){
+      lg(key,'NavBar > going run..... f_doKeyup 1',2)
       curComp.f_doKeyup(e)
     }
-    else if(curComp.f_mainNav){
+    else if(curComp.f_mainNav){ // in yani dar iteme akhari mainNav hastim va mikhahim beparim biroon
       const {key} = e
       if(key==='Tab'||(key==='Tab'&&this.f_findKeyDown('Shift'))){
+        lg(key,'NavBar > going active..... mysec',2)
         this.f_doBlurComp(e)
         this.f_onMySec = true
         if((this.f_curKeyMove === 'Tab'&&(key==='Tab'&&this.f_findKeyDown('Shift')))
           ||(this.f_curKeyMove === 'ShiftTab'&&key==='Tab')){
+          lg(key,'NavBar > going run..... f_doKeyup 2',2)
           curComp.f_doKeyup(e)
         }
         else{

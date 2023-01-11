@@ -1,4 +1,5 @@
 
+// https://www.typescriptlang.org/docs/handbook/2/objects.html
 interface resultConds {
   [index: number]: boolean;
 }
