@@ -64,7 +64,7 @@ export default class Logic extends Vue {
 
   @Prop({ type: String }) readonly emptyCaption?: string
 
-  @Prop({ type: Array, default: () => [] }) readonly emptyButtons!: [];
+  @Prop({ type: Array, default: () => [] }) readonly emptyButton!: [];
 
   @Prop({ type: String }) readonly image!: string;
 
