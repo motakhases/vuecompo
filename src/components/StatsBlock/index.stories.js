@@ -41,7 +41,7 @@ const Template = (_, { argTypes }) => ({
             مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
           </template>
         </StatsBlockItem>
-        <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
+        <StatsBlockItem title="تعداد تراکنش‌های موفق" info="اطلاعات" row>
           <template #content>
             <div>
               ۵٬۴۲۰٬۰۰۰
