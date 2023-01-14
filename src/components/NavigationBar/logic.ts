@@ -112,6 +112,10 @@ export default class NavigationBar extends KeyNavigate {
   }
 
   toggle(): void {
+    this.detStats()
+  }
+
+  toggleMenu(){
     this.isToggle = !this.isToggle;
     this.detStats()
   }

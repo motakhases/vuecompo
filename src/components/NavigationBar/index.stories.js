@@ -107,7 +107,7 @@ const Template = (_, { argTypes }) => ({
         <TopBar
           :terminals="terminals"
           @showNotifs="$refs.notificationCenter.toggle()"
-          @toggleMenu="$refs.navigationBar.toggle()"
+          @toggleMenu="$refs.navigationBar.toggleMenu()"
           :titleTooltip="titleTooltip"
         />
         <NavigationBar
@@ -115,7 +115,7 @@ const Template = (_, { argTypes }) => ({
           :terminals="terminals"
           :nav-items="sidebarLinks"
           :active-terminal="activeTerminal"
-          @toggleMenu="$refs.navigationBar.toggle()"
+          @toggleMenu="$refs.navigationBar.toggleMenu()"
         />
       </div>
     </div>

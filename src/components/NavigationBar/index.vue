@@ -34,7 +34,7 @@
       />
 
       <!-- Nav item links -->
-      <div class="zpl-nav-bar-content">
+      <div class="zpl-nav-bar-content" v-bind:datasrc="isToggle">
         <ul
           v-if="navItems.length"
           class="zpl-nav-bar-list"
