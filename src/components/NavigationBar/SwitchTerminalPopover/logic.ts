@@ -28,7 +28,7 @@ export default class SwitchTerminalPopover extends Vue {
 
   @Ref('terminal') readonly terminal!: HTMLElement;
 
-  @Prop({ type: String, required: true, default: '/36x36.png' }) logoAddress!: string
+  @Prop({ type: String, default: '/36x36.png' }) logoAddress!: string
 
   showPopover = false;
 
