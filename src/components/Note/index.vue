@@ -4,22 +4,35 @@
       v-model="noteText"
       size="large"
       :label="$t('session.show.note.title')"
+      ref="myTextBox"
     />
-    <ButtonGroup class="mt-md justify-end">
-      <Button
-        type="secondary"
-        :text="$t('common.cancel')"
-        size="medium"
-        @click.native="cancelNote"
-      />
-      <Button
-        type="primary"
-        :text="$t('common.save')"
-        size="medium"
-        :loading="loading"
-        :disabled="disabled"
-        @click.native="addNote"
-      />
+    <ButtonGroup class="mt-md justify-between">
+      <div>
+        <Button
+          type="primary"
+          :text="$t('common.clean')"
+          size="medium"
+          :loading="loading"
+          :disabled="disabled"
+          @click.native="$refs.myTextBox.doClean()"
+        />
+      </div>
+      <div>
+        <Button
+          type="secondary"
+          :text="$t('common.cancel')"
+          size="medium"
+          @click.native="cancelNote"
+        />
+        <Button
+          type="primary"
+          :text="$t('common.save')"
+          size="medium"
+          :loading="loading"
+          :disabled="disabled"
+          @click.native="addNote"
+        />
+      </div>
     </ButtonGroup>
   </div>
 </template>

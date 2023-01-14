@@ -1,4 +1,4 @@
-const comps = 'Avatar|Card|Share|nav|StatsBlock|DataSheet'
+const comps = 'Card|Share|nav|StatsBlock|DataSheet|Timeline|Note'
 module.exports = {
   stories: [
     `../../src/components/@(${comps})*/**/*.stories.@(js|jsx|ts|tsx|mdx)`,

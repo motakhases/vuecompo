@@ -31,7 +31,7 @@ export default class TextBox extends Vue {
 
   @Prop({ type: String, default: '' }) readonly successMessage?: string
 
-  @Prop({ type: String, default: '' }) readonly value!: string
+  @Prop({ type: String, default: '' }) value!: string
 
   @Prop({ type: String }) readonly errors?: string;
 
@@ -70,5 +70,9 @@ export default class TextBox extends Vue {
     if (this.value.length) {
       this.isInputFocused = true;
     }
+  }
+
+  doClean(){
+    this.value = ''
   }
 }
