@@ -225,3 +225,13 @@ export interface ITableActions {
   action: void,
   isShow: any,
 }
+
+/**
+ * @/components/StatsBlock
+ * --------------------------------------------------
+ */
+export interface StatsBlockItemSpans {
+  xs?: number;
+  md?: number;
+  lg?: number;
+}
