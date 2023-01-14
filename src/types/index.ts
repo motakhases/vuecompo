@@ -246,4 +246,3 @@ export interface StatsBlockItemSpans {
   md?: number;
   lg?: number;
 }
-

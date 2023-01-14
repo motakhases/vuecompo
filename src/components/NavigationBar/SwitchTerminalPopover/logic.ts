@@ -1,5 +1,5 @@
 import {
-  Vue, Prop, Component, Ref,
+  Prop, Component, Ref,
 } from 'vue-property-decorator';
 
 // Interfaces
@@ -37,8 +37,8 @@ export default class SwitchTerminalPopover extends KeyNavigate {
   isFocused = false
 
   created(): void {
-    this.f_order = ['switchTerminalItem']
-    this.f_created()
+    this.f_order = ['switchTerminalItem'];
+    this.f_created();
   }
 
   get hasActive(): boolean {
@@ -46,8 +46,8 @@ export default class SwitchTerminalPopover extends KeyNavigate {
   }
 
   get maxHeightList(): number {
-    const {height} = useWindowSize()
-    return Math.round((height.value/100)*70);
+    const { height } = useWindowSize();
+    return Math.round((height.value / 100) * 70);
   }
 
   get switcher(): INavigationBarActiveTerminal {
@@ -94,40 +94,40 @@ export default class SwitchTerminalPopover extends KeyNavigate {
     }
   }
 
-  onKeyDown(e: KeyboardEvent){
-    lg(e,'popover onKeyDown',2)
-    this.f_doKeyDown(e)
+  onKeyDown(e: KeyboardEvent) {
+    lg(e, 'popover onKeyDown', 2);
+    this.f_doKeyDown(e);
   }
 
-  onKeyup(e: KeyboardEvent){
-    lg(this.f_onMySec,'poopver onKeyup')
+  onKeyup() {
+    lg(this.f_onMySec, 'poopver onKeyup');
   }
 
-  onFocus(e: KeyboardEvent): void {
+  onFocus(): void {
     this.isFocused = true;
-    lg('poopver onFocus')
+    lg('poopver onFocus');
   }
 
   onBlur(e: KeyboardEvent): void {
-    lg('poopver onBlur')
+    lg('poopver onBlur');
     this.isFocused = false;
-    if(this.showPopover){
-      this.f_doBlurComp(e)
-      this.showPopover = false
-      this.f_destroyKeyUp()
+    if (this.showPopover) {
+      this.f_doBlurComp(e);
+      this.showPopover = false;
+      this.f_destroyKeyUp();
     }
   }
 
   onEnter(e: KeyboardEvent):void {
-    lg('poopver onEnter')
+    lg('poopver onEnter');
     this.isFocused = false;
-    this.showPopover = true
-    this.$nextTick(()=>{
-      this.f_doKeyup(e,'Tab')
-    })
+    this.showPopover = true;
+    this.$nextTick(() => {
+      this.f_doKeyup(e, 'Tab');
+    });
   }
 
   beforeDestroy():void {
-    this.f_destroyKeyUp()
+    this.f_destroyKeyUp();
   }
 }

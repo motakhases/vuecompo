@@ -84,20 +84,20 @@ export default class SwitchTerminalItem extends Vue {
     };
   }
 
-  onFocus(e: KeyboardEvent): void {
+  onFocus(): void {
     this.isFocused = true;
-    lg('SwitchTerminalItem onFocus')
+    lg('SwitchTerminalItem onFocus');
   }
 
-  onBlur(e: KeyboardEvent): void {
-    lg('SwitchTerminalItem onBlur')
+  onBlur(): void {
+    lg('SwitchTerminalItem onBlur');
     this.isFocused = false;
   }
 
-  onEnter(e: KeyboardEvent,callerComp):void {
-    lg('SwitchTerminalItem onEnter')
+  onEnter(e: KeyboardEvent, callerComp):void {
+    lg('SwitchTerminalItem onEnter');
     this.isFocused = false;
-    this.$emit('terminalClick', this.terminalConcatedData)
-    callerComp.f_doBlurComp(e)
+    this.$emit('terminalClick', this.terminalConcatedData);
+    callerComp.f_doBlurComp(e);
   }
 }

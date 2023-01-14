@@ -6,7 +6,7 @@ import Icon from '@/components/Icon/index.vue';
 
 @Component({
   components: {
-    Button, TextBox, ButtonGroup,Icon,
+    Button, TextBox, ButtonGroup, Icon,
   },
 })
 export default class Note extends Vue {

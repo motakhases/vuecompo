@@ -8,7 +8,7 @@ import Loading from './Loading/index.vue';
 
 @Component({
   components: {
-    Icon, Tooltip, Loading,Skeleton,
+    Icon, Tooltip, Loading, Skeleton,
   },
 })
 export default class CopyToClipboard extends Vue {

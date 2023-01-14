@@ -1,5 +1,5 @@
 import {
-  Vue, Prop, Component,
+  Prop, Component,
 } from 'vue-property-decorator';
 // Interfaces
 import {
@@ -48,7 +48,7 @@ export default class NavItem extends KeyNavigate {
   isFocused = false
 
   created(): void {
-    this.f_order = ['subMenu']
+    this.f_order = ['subMenu'];
   }
 
   toggleSub() {
@@ -59,8 +59,8 @@ export default class NavItem extends KeyNavigate {
   }
 
   toggleMobileHandler(): void {
-    const [lg] = toInt(screens.lg);
-    if (window.innerWidth < lg) {
+    const [slg] = toInt(screens.lg);
+    if (window.innerWidth < slg) {
       this.toggle();
     }
   }
@@ -85,25 +85,25 @@ export default class NavItem extends KeyNavigate {
     return false;
   }
 
-  onKeyup(e: KeyboardEvent){
-    lg('NavItem onKeyup')
+  onKeyup() {
+    lg('NavItem onKeyup');
   }
 
-  onFocus(e: KeyboardEvent): void {
-    lg(this.f_onMySec,'NavItem onFocus')
+  onFocus(): void {
+    lg(this.f_onMySec, 'NavItem onFocus');
     this.isFocused = true;
   }
 
-  onBlur(e: KeyboardEvent): void {
-    lg('NavItem onBlur')
+  onBlur(): void {
+    lg('NavItem onBlur');
     this.isFocused = false;
   }
 
-  onEnter(e: KeyboardEvent){
-    lg('NavItem onEnter')
+  onEnter() {
+    lg('NavItem onEnter');
   }
 
   beforeDestroy():void {
-    this.f_destroyKeyUp()
+    this.f_destroyKeyUp();
   }
 }

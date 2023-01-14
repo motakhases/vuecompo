@@ -5,7 +5,7 @@ import Tab from '@/components/Tabs/Tab/index.vue';
 import Social from '@/components/Share/_social/index.vue';
 import { Translation } from '@/types';
 import {
-  Skeleton,TextField,Button,Tabs,CopyToClipboard,Icon,
+  Skeleton, TextField, Button, Tabs, CopyToClipboard, Icon,
 } from '@/components';
 
 @Component({

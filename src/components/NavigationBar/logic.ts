@@ -1,5 +1,5 @@
 import {
-  Vue, Prop, Component,
+  Prop, Component,
 } from 'vue-property-decorator';
 
 // Interfaces
@@ -33,95 +33,93 @@ export default class NavigationBar extends KeyNavigate {
   @Prop({ type: Object }) readonly activeTerminal?: INavigationBarTerminal
 
   isCollapsed = false;
+
   isVisible = false;
+
   isDrawer = false;
+
   isFixed = false;
+
   isToggle = false;
 
   showSwitch = false;
+
   zplLogo = 'topbar';
+
   menuBurger = 'topbar';
 
   created(): void {
-    this.f_order = ['switchTerminalPopover','navItem']
+    this.f_order = ['switchTerminalPopover', 'navItem'];
     this.f_onMySec = true;
     this.f_mainNav = this;
     this.f_setCurComp(this);
     window.addEventListener('keyup', this.f_onGlobalKeyup);
     document.body.addEventListener('keyup', this.f_onGlobalKeyup);
-    this.f_created()
+    this.f_created();
   }
 
-  private detStats(){
-    const [xl,lg] = toInt(screens.xl,screens.lg);
+  private detStats() {
+    const [xl, slg] = toInt(screens.xl, screens.lg);
     const width = window.innerWidth;
-    if(width > lg){
+    if (width > slg) {
       this.showSwitch = true;
-      this.isVisible = true
-      if(this.isToggle){
-        if(width < xl){
-          this.isDrawer = true
+      this.isVisible = true;
+      if (this.isToggle) {
+        if (width < xl) {
+          this.isDrawer = true;
+        } else {
+          this.isDrawer = false;
         }
-        else{
-          this.isDrawer = false
-        }
-        this.isCollapsed = false
+        this.isCollapsed = false;
+      } else {
+        this.isCollapsed = true;
+        this.isDrawer = false;
       }
-      else{
-        this.isCollapsed = true
-        this.isDrawer = false
-      }
-    }
-    else{
-      this.isVisible = false
+    } else {
+      this.isVisible = false;
       this.showSwitch = false;
       this.isCollapsed = false;
-      if(this.isToggle){
-        this.isDrawer = true
-      }
-      else{
-        this.isDrawer = false
+      if (this.isToggle) {
+        this.isDrawer = true;
+      } else {
+        this.isDrawer = false;
       }
     }
-    if(width > xl){
-      this.menuBurger = 'topbar'
+    if (width > xl) {
+      this.menuBurger = 'topbar';
       this.zplLogo = 'topbar';
-      if(this.isToggle){
-        this.isFixed = true
+      if (this.isToggle) {
+        this.isFixed = true;
+      } else {
+        this.isFixed = false;
       }
-      else{
-        this.isFixed = false
-      }
-    }
-    else{
-      this.isFixed = false
-      if(this.isToggle){
-        if(this.isDrawer){
-          this.zplLogo = 'navbar'
-          this.menuBurger = 'navbar'
+    } else {
+      this.isFixed = false;
+      if (this.isToggle) {
+        if (this.isDrawer) {
+          this.zplLogo = 'navbar';
+          this.menuBurger = 'navbar';
+        } else {
+          this.menuBurger = 'topbar';
         }
-        else{
-          this.menuBurger = 'topbar'
-        }
-      }
-      else{
-        this.zplLogo = 'topbar'
-        this.menuBurger = 'topbar'
+      } else {
+        this.zplLogo = 'topbar';
+        this.menuBurger = 'topbar';
       }
     }
   }
 
   toggle(): void {
-    this.detStats()
+    this.detStats();
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.isToggle = !this.isToggle;
-    this.detStats()
+    this.detStats();
   }
 
   onResize(): void {
-    this.detStats()
+    this.detStats();
   }
 
   mounted(): void {
@@ -130,35 +128,32 @@ export default class NavigationBar extends KeyNavigate {
     window.addEventListener('click', this.f_onGlobalClick);
   }
 
-  onKeyDown(e: KeyboardEvent){
-    lg(e,'navbar onKeyDown',2)
-    this.f_doKeyDown(e)
+  onKeyDown(e: KeyboardEvent) {
+    lg(e, 'navbar onKeyDown', 2);
+    this.f_doKeyDown(e);
   }
 
-  onKeyup(e: KeyboardEvent){
-    const {key} = e
-    lg(key,'NavBar > key')
-    lg(this.f_onMySec,'NavBar > this.onMySec',2)
-    const curComp = this.f_curComp??this
-    lg(curComp.f_onMySec,'NavBar > curComp.onMySec',2)
-    if(curComp.f_onMySec){
-      lg(key,'NavBar > going run..... f_doKeyup 1',2)
-      curComp.f_doKeyup(e)
-    }
-    else if(curComp.f_mainNav){ // in yani dar iteme akhari mainNav hastim va mikhahim beparim biroon
-      const {key} = e
-      if(key==='Tab'||(key==='Tab'&&this.f_findKeyDown('Shift'))){
-        lg(key,'NavBar > going active..... mysec',2)
-        this.f_doBlurComp(e)
-        this.f_onMySec = true
-        if((this.f_curKeyMove === 'Tab'&&(key==='Tab'&&this.f_findKeyDown('Shift')))
-          ||(this.f_curKeyMove === 'ShiftTab'&&key==='Tab')){
-          lg(key,'NavBar > going run..... f_doKeyup 2',2)
-          curComp.f_doKeyup(e)
-        }
-        else{
-          this.f_destroyKeyUp()
-          this.f_doFocusOut()
+  onKeyup(e: KeyboardEvent) {
+    const { key } = e;
+    lg(key, 'NavBar > key');
+    lg(this.f_onMySec, 'NavBar > this.onMySec', 2);
+    const curComp = this.f_curComp ?? this;
+    lg(curComp.f_onMySec, 'NavBar > curComp.onMySec', 2);
+    if (curComp.f_onMySec) {
+      lg(key, 'NavBar > going run..... f_doKeyup 1', 2);
+      curComp.f_doKeyup(e);
+    } else if (curComp.f_mainNav) { // in yani dar iteme akhari mainNav hastim va mikhahim beparim biroon
+      if (key === 'Tab' || (key === 'Tab' && this.f_findKeyDown('Shift'))) {
+        lg(key, 'NavBar > going active..... mysec', 2);
+        this.f_doBlurComp(e);
+        this.f_onMySec = true;
+        if ((this.f_curKeyMove === 'Tab' && (key === 'Tab' && this.f_findKeyDown('Shift')))
+          || (this.f_curKeyMove === 'ShiftTab' && key === 'Tab')) {
+          lg(key, 'NavBar > going run..... f_doKeyup 2', 2);
+          curComp.f_doKeyup(e);
+        } else {
+          this.f_destroyKeyUp();
+          this.f_doFocusOut();
         }
       }
     }
@@ -169,6 +164,6 @@ export default class NavigationBar extends KeyNavigate {
     window.removeEventListener('keyup', this.f_onGlobalKeyup);
     window.removeEventListener('click', this.f_onGlobalClick);
     document.body.removeEventListener('keyup', this.f_onGlobalKeyup);
-    this.f_destroyKeyUp()
+    this.f_destroyKeyUp();
   }
 }

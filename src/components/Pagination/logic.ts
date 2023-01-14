@@ -92,4 +92,3 @@ export default class Pagination extends Vue {
     return this.$i18n.t('pagination.result', { from, to, all });
   }
 }
-

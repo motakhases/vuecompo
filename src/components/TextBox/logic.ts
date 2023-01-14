@@ -78,18 +78,18 @@ export default class TextBox extends Vue {
 
   statFill=false
 
-  onKeyup(){
-    let isEmpty=false
-    if(!this.value){
-      isEmpty=true
+  onKeyup() {
+    let isEmpty = false;
+    if (!this.value) {
+      isEmpty = true;
     }
-    if(this.statFill!==isEmpty){
-      this.statFill=isEmpty;
-      this.$emit('TextBox_Note_Stat',isEmpty)
+    if (this.statFill !== isEmpty) {
+      this.statFill = isEmpty;
+      this.$emit('TextBox_Note_Stat', isEmpty);
     }
   }
 
-  doClean(){
-    this.value = ''
+  doClean() {
+    this.value = '';
   }
 }
