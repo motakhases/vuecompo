@@ -9,11 +9,11 @@
     <ButtonGroup class="mt-md justify-between">
       <div>
         <Button
-          type="primary"
-          :text="$t('common.clean')"
-          size="medium"
           :loading="loading"
           :disabled="disabled"
+          icon="Trash"
+          type="tertiary"
+          size="medium"
           @click.native="$refs.myTextBox.doClean()"
         />
       </div>

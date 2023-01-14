@@ -35,6 +35,10 @@ export default class TextBox extends Vue {
 
   @Prop({ type: String }) readonly errors?: string;
 
+  // @Prop({ type: Boolean, default: false }) statFill?: boolean;
+
+  filled=false
+
   isInputFocused = false
 
   get rows():number {
@@ -69,6 +73,19 @@ export default class TextBox extends Vue {
   updateLabel() {
     if (this.value.length) {
       this.isInputFocused = true;
+    }
+  }
+
+  statFill=false
+
+  onKeyup(){
+    let isEmpty=false
+    if(!this.value){
+      isEmpty=true
+    }
+    if(this.statFill!==isEmpty){
+      this.statFill=isEmpty;
+      this.$emit('TextBox_Note_Stat',isEmpty)
     }
   }
 

@@ -2,9 +2,12 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
 import TextBox from '@/components/TextBox/index.vue';
 import ButtonGroup from '@/components/ButtonGroup/index.vue';
+import Icon from '@/components/Icon/index.vue';
 
 @Component({
-  components: { Button, TextBox, ButtonGroup },
+  components: {
+    Button, TextBox, ButtonGroup,Icon,
+  },
 })
 export default class Note extends Vue {
   @Prop({ type: String }) readonly title!: string;

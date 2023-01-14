@@ -17,6 +17,7 @@
         :maxlength="maxlength"
         @focusout="onFocusOut"
         @focusin="onFocusIn"
+        @keyup="onKeyup"
       />
 
       <!-- show when we have label -->
