@@ -11,7 +11,7 @@
       <div class="zpl-emptystate-buttons" v-if="buttons.length">
         <Button
           v-for="(button, index) in buttons"
-          class="mx-2xs"
+          class="mx-2xs py-xs px-md"
           :key="index"
           :text="button.text"
           @click.native="button.action"

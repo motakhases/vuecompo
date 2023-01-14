@@ -11,13 +11,13 @@
       <div class="loading-title">
         <Skeleton type="body" class="w-[120px] h-[12px]" />
       </div>
-      <div class="loading-title">
+      <div class="loading-title pt-xs">
         <Skeleton type="body" class="w-[46px] h-[12px]" />
       </div>
     </div>
 
     <!-- content -->
-    <div class="zpl-sb-item-cont flex-col">
+    <div v-else class="zpl-sb-item-cont flex-col">
       <span class="title" v-if="title">
         {{ title }}
         <Tooltip v-if="info" :text="info" indicator position="topCenter">
@@ -32,14 +32,7 @@
       <span class="caption">
         <slot name="caption" />
       </span>
-      <Link
-        v-if="link"
-        :to="link"
-        :href="link"
-        :exact="link"
-        :target="link"
-        :text="'مشاهده'"
-      />
+      <Button :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>
     </div>
   </div>
 </template>
