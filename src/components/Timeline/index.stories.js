@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Timeline },
   template: `
 	<div class="dark:bg-surface-dark p-lg rounded-md flex flex-col rtl">
-    <div class="w-[296px] mb-md">  
+    <div class="w-[296px]">
       <Timeline title="عنوان رویداد" subText="" date="" icon="QuestionCircle" />
     </div>
     <div class="w-[296px]">
