@@ -35,11 +35,11 @@ export default class TextBox extends Vue {
 
   @Prop({ type: String }) readonly errors?: string;
 
-  // @Prop({ type: Boolean, default: false }) statFill?: boolean;
-
   filled=false
 
   isInputFocused = false
+
+  isEmpty = true
 
   get rows():number {
     switch (this.size) {
@@ -71,25 +71,14 @@ export default class TextBox extends Vue {
 
   @Watch('value')
   updateLabel() {
+    let isEmpty = true;
     if (this.value.length) {
       this.isInputFocused = true;
+      isEmpty = false;
     }
-  }
-
-  statFill=false
-
-  onKeyup() {
-    let isEmpty = false;
-    if (!this.value) {
-      isEmpty = true;
+    if (this.isEmpty !== isEmpty) {
+      this.isEmpty = isEmpty;
+      this.$emit('onEmptyStat', isEmpty);
     }
-    if (this.statFill !== isEmpty) {
-      this.statFill = isEmpty;
-      this.$emit('TextBox_Note_Stat', isEmpty);
-    }
-  }
-
-  doClean() {
-    this.value = '';
   }
 }

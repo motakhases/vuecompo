@@ -14,18 +14,17 @@ export default class Note extends Vue {
 
   @Prop({ type: String }) readonly value!: string;
 
-  @Prop({ type: Boolean, required: true, default: false })
-  readonly show!: boolean
+  @Prop({ type: Boolean, required: true, default: false }) readonly show!: boolean
 
-  @Prop({ type: Boolean, required: true, default: false })
-  readonly loading!: boolean
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean
 
-  @Prop({ type: Boolean, default: false })
-  readonly disabled?: boolean
+  @Prop({ type: Boolean, default: false }) disabled?: boolean
 
   @Prop({ type: Function }) readonly addNote!: () => boolean
 
   @Prop({ type: Function }) readonly cancelNote!: () => boolean
+
+  offBtns = true
 
   get noteText(): string | string[] {
     return this.value;
@@ -33,5 +32,19 @@ export default class Note extends Vue {
 
   set noteText(value: string | string[]) {
     this.$emit('input', value);
+  }
+
+  get isDisabled() {
+    return this.disabled || this.offBtns;
+  }
+
+  onEmptyStat(isEmpty) {
+    this.offBtns = isEmpty;
+  }
+
+  onDeleteNote() {
+    this.$emit('deleteNote', () => {
+      this.cancelNote();
+    });
   }
 }

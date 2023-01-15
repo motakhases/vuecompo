@@ -4,21 +4,22 @@
       v-model="noteText"
       size="large"
       :label="$t('session.show.note.title')"
-      ref="myTextBox"
+      @onEmptyStat="onEmptyStat"
     />
     <ButtonGroup class="mt-md justify-between">
       <div>
         <Button
           :loading="loading"
-          :disabled="disabled"
+          :disabled="isDisabled"
           icon="Trash"
           type="tertiary"
           size="medium"
-          @click.native="$refs.myTextBox.doClean()"
+          @click.native="onDeleteNote"
         />
       </div>
       <div>
         <Button
+          :disabled="isDisabled"
           type="secondary"
           :text="$t('common.cancel')"
           size="medium"
@@ -29,7 +30,7 @@
           :text="$t('common.save')"
           size="medium"
           :loading="loading"
-          :disabled="disabled"
+          :disabled="isDisabled"
           @click.native="addNote"
         />
       </div>
