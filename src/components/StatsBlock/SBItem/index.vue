@@ -32,7 +32,7 @@
       <span class="caption">
         <slot name="caption" class="font-sans"/>
       </span>-->
-      <span class="body">
+      <span v-if="body" class="body">
         <slot name="body"/>
       </span>
       <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>

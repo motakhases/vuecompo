@@ -19,11 +19,13 @@ export default class StatsBlockItem extends Vue {
 
   @Prop({ type: String }) title?: string; // onvan balayi ??
 
-  @Prop({ type: String }) caption?: string; // matne payini ke kamel az samte next-panel miad
+  // @Prop({ type: Boolean }) caption?: boolean; // matne payini ke kamel az samte next-panel miad
 
   @Prop({ type: String }) link?: string; // infoe button
 
-  @Prop({ type: String }) content?: string; // adade vasati
+  // @Prop({ type: Boolean }) content?: boolean; // adade vasati
+
+  @Prop({ type: Boolean }) body?: boolean; // adade vasati
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 }
