@@ -26,13 +26,16 @@ const Template = (_, { argTypes }) => ({
       this.showValue = false;
       this.noteValue = "";
     },
+    onDelete(calb) {
+      calb()
+    },
   },
   template: `
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
   <Button @click.native="showNote" text="افزودن یادداشت" />
   یادداشت شما :{{noteValue}}
 
-	  <Note v-model="noteValue" :show="showValue" :addNote="add" :cancelNote="cancel">
+	  <Note v-model="noteValue" :show="showValue" :addNote="add" :cancelNote="cancel" @deleteNote="onDelete">
     </Note>
   </div>
   `,

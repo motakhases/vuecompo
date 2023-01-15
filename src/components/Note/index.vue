@@ -4,22 +4,36 @@
       v-model="noteText"
       size="large"
       :label="$t('session.show.note.title')"
+      @onEmptyStat="onEmptyStat"
     />
-    <ButtonGroup class="mt-md justify-end">
-      <Button
-        type="secondary"
-        :text="$t('common.cancel')"
-        size="medium"
-        @click.native="cancelNote"
-      />
-      <Button
-        type="primary"
-        :text="$t('common.save')"
-        size="medium"
-        :loading="loading"
-        :disabled="disabled"
-        @click.native="addNote"
-      />
+    <ButtonGroup class="mt-md justify-between">
+      <div>
+        <Button
+          :loading="loading"
+          :disabled="isDisabled"
+          icon="Trash"
+          type="tertiary"
+          size="medium"
+          @click.native="onDeleteNote"
+        />
+      </div>
+      <div>
+        <Button
+          :disabled="isDisabled"
+          type="secondary"
+          :text="$t('common.cancel')"
+          size="medium"
+          @click.native="cancelNote"
+        />
+        <Button
+          type="primary"
+          :text="$t('common.save')"
+          size="medium"
+          :loading="loading"
+          :disabled="isDisabled"
+          @click.native="addNote"
+        />
+      </div>
     </ButtonGroup>
   </div>
 </template>

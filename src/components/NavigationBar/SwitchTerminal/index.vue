@@ -4,7 +4,7 @@
     class="zpl-nav-terminal-container"
   >
     <div
-      class="zpl-nav-terminal"
+      :class="['zpl-nav-terminal',isFocused?'isFocused':'']"
     >
       <Thumbnail
         :icon="icon"
