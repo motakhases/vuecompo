@@ -228,6 +228,11 @@ export interface ITableActions {
   isShow: any,
 }
 
+export enum SocialType {
+  circle = 'circle',
+  square = 'square',
+}
+
 /**
  * @/components/StatsBlock
  * --------------------------------------------------

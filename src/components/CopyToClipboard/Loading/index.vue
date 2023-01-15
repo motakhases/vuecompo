@@ -1,5 +1,5 @@
 <template>
-  <div class="loading">
+  <div class="loading w-full">
     <div class="title-box" v-if="title">
       <Skeleton class="w-1/3" type="body" />
     </div>

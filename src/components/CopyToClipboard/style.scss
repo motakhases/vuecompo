@@ -7,7 +7,7 @@
   }
 
   &-box {
-    @apply flex gap-md items-center bg-surface-soft rounded-md py-xs pl-md pr-xs pointer-events-none;
+    @apply flex gap-md items-center bg-surface-soft rounded-md py-xs pl-md pr-xs;
     @apply dark:bg-surface-dark-soft;
   }
   &-icon {

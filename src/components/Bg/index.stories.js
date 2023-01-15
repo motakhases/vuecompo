@@ -21,6 +21,7 @@ const Template = (args, { argTypes }) => ({
         "Appearance",
         "Tickets",
         "EmailDownload",
+        "TimeRange",
       ,
       ],
     };
