@@ -12,7 +12,7 @@ module.exports = {
     indent: ['error', 2],
     '@typescript-eslint/no-var-requires': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
-    'max-len': ['error', { code: 180 }],
+    'max-len': 'off',
     'import/no-extraneous-dependencies': 0,
     'vue/no-v-html': 0,
     'linebreak-style': 0,
