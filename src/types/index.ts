@@ -226,6 +226,12 @@ export interface ITableActions {
   isShow: any,
 }
 
+export type TitleTooltip = {
+  ticket : string,
+  notification : string,
+  userProfile : string,
+}
+
 /**
  * @/components/StatsBlock
  * --------------------------------------------------
