@@ -46,6 +46,10 @@ export default class SwitchTerminalPopover extends Vue {
         this.activeTerminal && this.activeTerminal.domain
           ? this.activeTerminal.domain
           : '',
+      img:
+      this.activeTerminal && this.activeTerminal.domain
+        ? this.activeTerminal.logo + this.logoAddress
+        : '',
       icon:
         this.activeTerminal && this.activeTerminal.name
           ? 'terminal'

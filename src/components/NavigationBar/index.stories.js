@@ -10,7 +10,17 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
 
   data: () => ({
-    activeTerminal: {},
+    activeTerminal: {
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
+      id: "1",
+      logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
+      link: "...",
+      route: "...",
+      active: true,
+      pinned: true
+    },
     terminals: [
       {
         domain: "zarin.express/zardu",
