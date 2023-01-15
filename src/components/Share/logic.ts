@@ -21,18 +21,28 @@ import {
   },
 })
 export default class Share extends Vue {
+  @Prop({ type: String }) qrdCode?: string;
+
   @Prop({ type: String }) title!: string;
 
-  @Prop({ type: String }) url!: string;
+  @Prop({ type: String }) text!: string;
+
+  @Prop({ type: String }) title2?: string;
+
+  @Prop({ type: String }) text2?: string;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
+  @Prop({ type: String }) readonly urlTlg?: string;
+
+  @Prop({ type: String }) readonly urlWApp?: string;
+
   get qrcode(): string {
-    return `https://tools.zarinpal.com/qr?r=q&s=256&q=${this.url}`;
+    return `https://tools.zarinpal.com/qr?r=q&s=256&q=${this.qrdCode}`;
   }
 
   get html(): Translation {
-    return this.$i18n.t('product.show.html_code', { link: this.url });
+    return this.$i18n.t('product.show.html_code', { link: this.text });
   }
 
   async download(dataUrl: string): Promise<void> {

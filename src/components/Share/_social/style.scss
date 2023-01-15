@@ -6,6 +6,7 @@
     // default
     @apply w-[48px] h-[48px] p-sm border border-border-soft flex justify-center items-center;
     @apply dark:border-border-dark-soft;
+    border-radius: 4px;
 
     // hover
     @apply hover:bg-surface-hover;

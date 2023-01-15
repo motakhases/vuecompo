@@ -2,27 +2,27 @@
   <div class="zpl-share">
     <div class="zpl-share-body">
       <Skeleton v-if="loading" type="body" class="w-[160px] h-[160px]" />
-      <div v-else class="_qr-wrapper">
+      <div v-else-if="qrcode" class="_qr-wrapper">
         <img
           :src="qrcode"
           :alt="$t('auth.qr.alt')"
         >
       </div>
       <CopyToClipboard
-        :title="$t('common.link')"
-        :text="url"
+        :title="title"
+        :text="text"
         :loading="loading"
       />
       <CopyToClipboard
-        :title="$t('product.show.html_code_label')"
-        :text="html"
+        :title="title2"
+        :text="text2"
         :loading="loading"
       />
     </div>
     <div class="zpl-share-footer">
       <Skeleton v-if="loading" type="button" class="w-[200px] h-[48px]"/>
       <Button
-        v-else
+        v-else-if="qrcode"
         :text="$t('auth.qr.download')"
         type="neutral"
         before-icon="Download"
@@ -33,16 +33,16 @@
       />
       <div class="zpl-share-socials">
         <Social
+          v-if="urlTlg"
           key-name="telegram"
-          :title="title"
-          :url="url"
+          :url="urlTlg"
           :loading="loading"
           type="square"
         />
         <Social
+          v-if="urlWApp"
           key-name="whatsapp"
-          :title="title"
-          :url="url"
+          :url="urlWApp"
           :loading="loading"
           type="square"
         />

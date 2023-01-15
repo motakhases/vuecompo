@@ -11,8 +11,12 @@ const Template = (_, { argTypes }) => ({
   template: `
   <div class="dark:bg-surface-dark" dir="rtl">
     <Share
-      url="https://zarinp.al/376218"
-      title="This is product FELAAN"
+      :title="$t('common.link')"
+      text="https://zarinp.al/376218"
+      :title2="$t('product.show.html_code_label')"
+      text2="https://zarinp.al/376218"
+      url-tlg="https://zarinp.al/376218"
+      url-w-app="https://zarinp.al/376218"
     />
     <Share
    loading
