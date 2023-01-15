@@ -7,31 +7,31 @@ import DbgTool from '../devTools/DbgTool';
 
 @Component({})
 export default class KeyNavigate extends Vue {
-  f_order:any = null
+  kOrder:any = null
 
-  f_curOrd = -1
+  kCurOrd = -1
 
-  f_curIndxComp = -1
+  kCurIndxComp = -1
 
-  f_curDests:any = null
+  kCurDests:any = null
 
-  f_onMySec = false
+  kOnMySec = false
 
-  f_parComp:any = null
+  kParComp:any = null
 
-  f_curComp:any = null
+  kCurComp:any = null
 
-  f_mainNav:any = null
+  kMainNav:any = null
 
-  f_keydown:Array<string> = []
+  kKeydown:Array<string> = []
 
-  f_dbg : DbgTool
+  kDbg : DbgTool
 
-  f_curKeyMove = ''
+  kCurKeyMove = ''
 
-  f_created() {
+  kCreated() {
     lgConf.priority = 2;
-    this.f_dbg = new DbgTool();
+    this.kDbg = new DbgTool();
     const brkPoint1 = () => {
       // eslint-disable-next-line no-debugger
       //   debugger
@@ -39,10 +39,10 @@ export default class KeyNavigate extends Vue {
       // eslint-disable-next-line no-debugger
       debugger;
     };
-    this.f_dbg.addDbg<KeyNavigate>([
+    this.kDbg.addDbg<KeyNavigate>([
       (dis, resultConds, i, args):any => {
         if (args.key === 'Tab') {
-          if (dis.f_findKeyDown('Shift')) {
+          if (dis.kFindKeyDown('Shift')) {
             resultConds[i] = true;
           }
           resultConds[i] = false;
@@ -55,34 +55,34 @@ export default class KeyNavigate extends Vue {
       },
     ], brkPoint1);
 
-    this.f_dbg.addDbg<KeyNavigate>([
+    this.kDbg.addDbg<KeyNavigate>([
       (dis, resultConds, i) => {
-        if (dis.f_findKeyDown('z')) {
+        if (dis.kFindKeyDown('z')) {
           resultConds[i] = true;
         }
       },
     ], brkPoint2);
   }
 
-  f_destroyKeyUp() {
-    this.f_curOrd = -1;
-    this.f_curIndxComp = -1;
-    this.f_curDests = null;
-    this.f_curComp = null;
-    this.f_onMySec = false;
-    if (this.f_mainNav) {
-      this.f_mainNav.f_onMySec = true;
+  kDestroyKeyUp() {
+    this.kCurOrd = -1;
+    this.kCurIndxComp = -1;
+    this.kCurDests = null;
+    this.kCurComp = null;
+    this.kOnMySec = false;
+    if (this.kMainNav) {
+      this.kMainNav.kOnMySec = true;
     }
   }
 
-  private f_getKeyDown() {
+  private kGetKeyDown() {
     let kd;
-    if (this.f_keydown.length) {
-      kd = this.f_keydown;
-    } else if (this.f_parComp?.f_keydown.length) {
-      kd = this.f_parComp.f_keydown;
-    } else if (this.f_mainNav) {
-      kd = this.f_mainNav.f_keydown;
+    if (this.kKeydown.length) {
+      kd = this.kKeydown;
+    } else if (this.kParComp?.kKeydown.length) {
+      kd = this.kParComp.kKeydown;
+    } else if (this.kMainNav) {
+      kd = this.kMainNav.kKeydown;
     } else {
       // eslint-disable-next-line no-debugger
       debugger;
@@ -90,25 +90,25 @@ export default class KeyNavigate extends Vue {
     return kd;
   }
 
-  f_findKeyDown(str, get = false):boolean|number {
-    const kd = this.f_getKeyDown();
+  kFindKeyDown(str, get = false):boolean|number {
+    const kd = this.kGetKeyDown();
     if (get) {
       return kd.indexOf(str);
     }
     return kd.indexOf(str) > -1;
   }
 
-  f_addKeyDown(str):boolean {
-    const kd = this.f_getKeyDown();
+  kAddKeyDown(str):boolean {
+    const kd = this.kGetKeyDown();
     return kd.push(str);
   }
 
-  f_delKeyDown(indx):void {
-    const kd = this.f_getKeyDown();
+  kDelKeyDown(indx):void {
+    const kd = this.kGetKeyDown();
     kd.splice(indx, 1);
   }
 
-  private f_trigger(e, key, destComp, justBlur, { onBlur, onFocus, onEnter }:any) {
+  private kTrigger(e, key, destComp, justBlur, { onBlur, onFocus, onEnter }:any) {
     const clicking = !key;
     if (key === 'Tab' || clicking) {
       if (justBlur) {
@@ -121,31 +121,31 @@ export default class KeyNavigate extends Vue {
     }
     if (key === 'Enter') {
       if (onEnter) {
-        if (destComp.f_order && destComp.f_order.length) {
-          destComp.f_parComp = this;
-          this.f_onMySec = false;
-          destComp.f_onMySec = true;
-          destComp.f_mainNav = this.f_mainNav;
-          this.f_setCurComp(destComp);
+        if (destComp.kOrder && destComp.kOrder.length) {
+          destComp.kParComp = this;
+          this.kOnMySec = false;
+          destComp.kOnMySec = true;
+          destComp.kMainNav = this.kMainNav;
+          this.kSetCurComp(destComp);
         }
         onEnter(e, this);
       }
     }
   }
 
-  f_doBlurComp(e, simulKey = '') {
-    const befNam = this.f_order?.[this.f_curOrd];
+  kDoBlurComp(e, simulKey = '') {
+    const befNam = this.kOrder?.[this.kCurOrd];
     if (befNam) {
       const befComp = this.$refs[befNam];
       let { key } = e;
       if (simulKey) {
         key = simulKey;
       }
-      this.f_runDest(e, key, befComp, true);
+      this.kRunDest(e, key, befComp, true);
     }
   }
 
-  f_doFocusOut() {
+  kDoFocusOut() {
     lg('doFocusOut');
     // const actElm = document.activeElement
     // document.querySelectorAll('a')?.[0]?.focus()
@@ -163,205 +163,207 @@ export default class KeyNavigate extends Vue {
     inpE.focus();
   }
 
-  f_setCurComp(curComp) {
-    if (this.f_mainNav) {
-      this.f_curComp = curComp;
+  kSetCurComp(curComp) {
+    if (this.kMainNav) {
+      this.kCurComp = curComp;
     } else {
-      this.f_parComp.f_setCurComp(curComp);
+      this.kParComp.kSetCurComp(curComp);
     }
   }
 
-  private f_offMySec() {
+  private kOffMySec() {
     // this.onKeyup(e)
     // return
-    this.f_onMySec = false;
-    if (this.f_parComp) {
-      this.f_parComp.f_onMySec = true;
-      this.f_parComp.f_setCurComp(this.f_parComp);
+    this.kOnMySec = false;
+    if (this.kParComp) {
+      this.kParComp.kOnMySec = true;
+      this.kParComp.kSetCurComp(this.kParComp);
     }
   }
 
-  private f_incrDecrIndx(key, chgSelf = true, bef = false) {
-    if (this.f_findKeyDown('Shift') && key === 'Tab') {
+  private kIncrDecrIndx(key, chgSelf = true, bef = false) {
+    if (this.kFindKeyDown('Shift') && key === 'Tab') {
       if (chgSelf) {
-        return --this.f_curIndxComp;
+        this.kCurIndxComp -= 1;
+        return this.kCurIndxComp;
       }
-      return this.f_curIndxComp + (bef ? +1 : -1);
+      return this.kCurIndxComp + (bef ? +1 : -1);
     }
 
     if (chgSelf) {
-      return ++this.f_curIndxComp;
+      this.kCurIndxComp += 1;
+      return this.kCurIndxComp;
     }
-    return this.f_curIndxComp + (bef ? -1 : +1);
+    return this.kCurIndxComp + (bef ? -1 : +1);
   }
 
-  private f_incrDecr(key, chgSelf = true) {
-    if (this.f_findKeyDown('Shift') && key === 'Tab') {
+  private kIncrDecr(key, chgSelf = true) {
+    if (this.kFindKeyDown('Shift') && key === 'Tab') {
       if (chgSelf) {
-        return --this.f_curOrd;
+        this.kCurOrd -= 1;
+        return this.kCurOrd;
       }
-      return this.f_curOrd - 1;
+      return this.kCurOrd - 1;
     }
 
     if (chgSelf) {
-      /* this.f_curOrd += 1;
-      return this.f_curOrd; */
-      return ++this.f_curOrd;
+      this.kCurOrd += 1;
+      return this.kCurOrd;
     }
-    return this.f_curOrd + 1;
+    return this.kCurOrd + 1;
   }
 
-  f_doKeyDown(e: KeyboardEvent) {
+  kDoKeyDown(e: KeyboardEvent) {
     const { key } = e;
-    if (!this.f_findKeyDown(key)) {
+    if (!this.kFindKeyDown(key)) {
       lg(key, 'key');
-      this.f_addKeyDown(key);
+      this.kAddKeyDown(key);
     }
     prevUp(e);
   }
 
-  private f_swichOutChildComp(e, simulKey) {
-    this.f_doBlurComp(e, simulKey);
-    this.f_curDests = null;
-    this.f_curIndxComp = -1;
+  private kSwichOutChildComp(e, simulKey) {
+    this.kDoBlurComp(e, simulKey);
+    this.kCurDests = null;
+    this.kCurIndxComp = -1;
   }
 
-  private f_runDest(e, key, destComp, justBlur = false) {
+  private kRunDest(e, key, destComp, justBlur = false) {
     if (destComp) {
       const focusing = key === 'Tab';
       const clicking = !key;
 
       if (destComp instanceof Array) {
-        this.f_curDests = destComp;
+        this.kCurDests = destComp;
 
         let befIndx;
         if (justBlur) {
-          befIndx = this.f_curIndxComp;
+          befIndx = this.kCurIndxComp;
         } else {
           if (focusing) {
-            this.f_incrDecrIndx(key);
+            this.kIncrDecrIndx(key);
           }
-          befIndx = this.f_incrDecrIndx(key, false, true);
+          befIndx = this.kIncrDecrIndx(key, false, true);
         }
 
         if ((focusing || clicking) && befIndx > -1 && befIndx < destComp.length) {
-          this.f_trigger(e, key, destComp, true, destComp[befIndx]);
+          this.kTrigger(e, key, destComp, true, destComp[befIndx]);
         }
 
         if (!justBlur) {
-          this.f_trigger(e, key, destComp, justBlur, destComp[this.f_curIndxComp]);
+          this.kTrigger(e, key, destComp, justBlur, destComp[this.kCurIndxComp]);
         }
       } else {
-        this.f_trigger(e, key, destComp, justBlur, destComp);
+        this.kTrigger(e, key, destComp, justBlur, destComp);
       }
     }
   }
 
-  private f_getCompByOrd($refs, indxOrd) {
-    const refName = this.f_order?.[indxOrd];
+  private kGetCompByOrd($refs, indxOrd) {
+    const refName = this.kOrder?.[indxOrd];
 
     return $refs[refName];
   }
 
-  private f_goingLatestItm(key) {
-    if (this.f_findKeyDown('Shift') && key === 'Tab') {
-      return this.f_curIndxComp - 1 === 0;
+  private kGoingLatestItm(key) {
+    if (this.kFindKeyDown('Shift') && key === 'Tab') {
+      return this.kCurIndxComp - 1 === 0;
     }
 
-    return this.f_curIndxComp + 1 === this.f_curDests.length - 1;
+    return this.kCurIndxComp + 1 === this.kCurDests.length - 1;
   }
 
-  private f_latestItm(key) {
-    if (this.f_findKeyDown('Shift') && key === 'Tab') {
-      return this.f_curIndxComp - 1 === -1;
+  private kLatestItm(key) {
+    if (this.kFindKeyDown('Shift') && key === 'Tab') {
+      return this.kCurIndxComp - 1 === -1;
     }
 
-    return this.f_curIndxComp + 1 === this.f_curDests.length;
+    return this.kCurIndxComp + 1 === this.kCurDests.length;
   }
 
-  private f_goingLatestComp($ref, key) {
-    if (this.f_findKeyDown('Shift') && key === 'Tab') {
-      return this.f_curOrd - 1 === 0 && !(this.f_getCompByOrd($ref, 0) instanceof Array);
+  private kGoingLatestComp($ref, key) {
+    if (this.kFindKeyDown('Shift') && key === 'Tab') {
+      return this.kCurOrd - 1 === 0 && !(this.kGetCompByOrd($ref, 0) instanceof Array);
     }
 
-    return this.f_curOrd + 1 === this.f_order.length - 1 && !(this.f_getCompByOrd($ref, this.f_order.length - 1) instanceof Array);
+    return this.kCurOrd + 1 === this.kOrder.length - 1 && !(this.kGetCompByOrd($ref, this.kOrder.length - 1) instanceof Array);
   }
 
-  private f_latestComp(key) {
-    if (this.f_findKeyDown('Shift') && key === 'Tab') {
-      return this.f_curOrd - 1 === -1;
+  private kLatestComp(key) {
+    if (this.kFindKeyDown('Shift') && key === 'Tab') {
+      return this.kCurOrd - 1 === -1;
     }
 
-    return this.f_curOrd + 1 === this.f_order.length;
+    return this.kCurOrd + 1 === this.kOrder.length;
   }
 
-  f_doKeyup(e: KeyboardEvent, simulKey = '') {
+  kDoKeyup(e: KeyboardEvent, simulKey = '') {
     let { key } = e;
     if (simulKey) {
       key = simulKey;
     }
-    const { $refs } = this; lg($refs, 'f_doKeyup > $refs', 1); lg(this.f_keydown, 'f_doKeyup > f_keydown', 1);
+    const { $refs } = this; lg($refs, 'kDoKeyup > $refs', 1); lg(this.kKeydown, 'kDoKeyup > kKeydown', 1);
 
-    let findx;
-    if ((findx = this.f_findKeyDown(key, true)) > -1) {
-      this.f_delKeyDown(findx);
+    const findx = this.kFindKeyDown(key, true);
+    if (findx > -1) {
+      this.kDelKeyDown(findx);
     }
 
     if (!Object.keys($refs).length) return;
 
     if (key === 'Tab') {
-      this.f_curKeyMove = 'Tab';
-    } else if (key === 'Tab' && this.f_findKeyDown('Shift')) {
-      this.f_curKeyMove = 'ShiftTab';
+      this.kCurKeyMove = 'Tab';
+    } else if (key === 'Tab' && this.kFindKeyDown('Shift')) {
+      this.kCurKeyMove = 'ShiftTab';
     } else if (key !== 'Enter') {
       return;
     }
 
     prevUp(e);
 
-    this.f_dbg.dbgChk(this, { key });
-    this.f_dbg.dbgRun({ key });
+    this.kDbg.dbgChk(this, { key });
+    this.kDbg.dbgRun({ key });
 
     if (key === 'Tab') {
-      if (this.f_curDests) {
-        lg(this.f_curDests, 'f_doKeyup > f_curDests', 2);
-        if (this.f_goingLatestItm(key)) {
-          lg(this.f_goingLatestItm(key), '... > f_goingLatestItm', 2);
-          if (this.f_latestComp(key)) {
-            lg(this.f_latestComp(key), '... > f_latestComp', 2);
-            this.f_offMySec();
+      if (this.kCurDests) {
+        lg(this.kCurDests, 'kDoKeyup > kCurDests', 2);
+        if (this.kGoingLatestItm(key)) {
+          lg(this.kGoingLatestItm(key), '... > kGoingLatestItm', 2);
+          if (this.kLatestComp(key)) {
+            lg(this.kLatestComp(key), '... > kLatestComp', 2);
+            this.kOffMySec();
           }
-        } else if (this.f_latestItm(key)) {
-          lg(this.f_latestItm(key), '... > f_latestItm', 2);// agar ife balayi succes mishdo be marhaleye badi va in shart nemiresid va in this az doKey up kharej mishe, be ebarate dige hanooz bad az in bache bacheye digei ham vojood dare va ife avali ta enteha succ nashode
-          this.f_swichOutChildComp(e, simulKey);
-          this.f_incrDecr(key);
+        } else if (this.kLatestItm(key)) {
+          lg(this.kLatestItm(key), '... > kLatestItm', 2);// agar ife balayi succes mishdo be marhaleye badi va in shart nemiresid va in this az doKey up kharej mishe, be ebarate dige hanooz bad az in bache bacheye digei ham vojood dare va ife avali ta enteha succ nashode
+          this.kSwichOutChildComp(e, simulKey);
+          this.kIncrDecr(key);
         }
       } else {
-        if (this.f_goingLatestComp($refs, key)) {
-          lg(this.f_goingLatestComp($refs, key), '... > f_goingLatestComp', 2);
-          this.f_offMySec();
+        if (this.kGoingLatestComp($refs, key)) {
+          lg(this.kGoingLatestComp($refs, key), '... > kGoingLatestComp', 2);
+          this.kOffMySec();
         }
-        this.f_doBlurComp(e, simulKey);
-        this.f_incrDecr(key); lg(this.f_curOrd, '... > increment occured > f_curOrd', 2);
+        this.kDoBlurComp(e, simulKey);
+        this.kIncrDecr(key); lg(this.kCurOrd, '... > increment occured > kCurOrd', 2);
       }
     }
 
-    const destComp = this.f_getCompByOrd($refs, this.f_curOrd);
+    const destComp = this.kGetCompByOrd($refs, this.kCurOrd);
 
-    this.f_runDest(e, key, destComp);
+    this.kRunDest(e, key, destComp);
   }
 
-  f_onGlobalKeyup(e: KeyboardEvent) {
+  kOnGlobalKeyup(e: KeyboardEvent) {
     lg(e, '---- onGlobalKeyup');
-    // this.f_doBlurComp(e)
-    // this.f_destroyKeyUp()
+    // this.kDoBlurComp(e)
+    // this.kDestroyKeyUp()
   }
 
-  f_onGlobalClick(e: Event) {
+  kOnGlobalClick(e: Event) {
     lg(e, '---- onGlobalClick');
-    this.f_curComp?.f_doBlurComp(e);
-    this.f_doBlurComp(e);
-    this.f_curComp?.f_destroyKeyUp();
-    this.f_destroyKeyUp();
+    this.kCurComp?.kDoBlurComp(e);
+    this.kDoBlurComp(e);
+    this.kCurComp?.kDestroyKeyUp();
+    this.kDestroyKeyUp();
   }
 }

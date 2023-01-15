@@ -98,6 +98,6 @@ export default class SwitchTerminalItem extends Vue {
     lg('SwitchTerminalItem onEnter');
     this.isFocused = false;
     this.$emit('terminalClick', this.terminalConcatedData);
-    callerComp.f_doBlurComp(e);
+    callerComp.kDoBlurComp(e);
   }
 }

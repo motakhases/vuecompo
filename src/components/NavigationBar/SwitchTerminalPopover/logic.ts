@@ -39,8 +39,8 @@ export default class SwitchTerminalPopover extends KeyNavigate {
   isFocused = false
 
   created(): void {
-    this.f_order = ['switchTerminalItem'];
-    this.f_created();
+    this.kOrder = ['switchTerminalItem'];
+    this.kCreated();
   }
 
   get hasActive(): boolean {
@@ -98,11 +98,11 @@ export default class SwitchTerminalPopover extends KeyNavigate {
 
   onKeyDown(e: KeyboardEvent) {
     lg(e, 'popover onKeyDown', 2);
-    this.f_doKeyDown(e);
+    this.kDoKeyDown(e);
   }
 
   onKeyup() {
-    lg(this.f_onMySec, 'poopver onKeyup');
+    lg(this.kOnMySec, 'poopver onKeyup');
   }
 
   onFocus(): void {
@@ -114,9 +114,9 @@ export default class SwitchTerminalPopover extends KeyNavigate {
     lg('poopver onBlur');
     this.isFocused = false;
     if (this.showPopover) {
-      this.f_doBlurComp(e);
+      this.kDoBlurComp(e);
       this.showPopover = false;
-      this.f_destroyKeyUp();
+      this.kDestroyKeyUp();
     }
   }
 
@@ -125,11 +125,11 @@ export default class SwitchTerminalPopover extends KeyNavigate {
     this.isFocused = false;
     this.showPopover = true;
     this.$nextTick(() => {
-      this.f_doKeyup(e, 'Tab');
+      this.kDoKeyup(e, 'Tab');
     });
   }
 
   beforeDestroy():void {
-    this.f_destroyKeyUp();
+    this.kDestroyKeyUp();
   }
 }

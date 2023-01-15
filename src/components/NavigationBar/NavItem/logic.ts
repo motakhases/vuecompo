@@ -48,7 +48,7 @@ export default class NavItem extends KeyNavigate {
   isFocused = false
 
   created(): void {
-    this.f_order = ['subMenu'];
+    this.kOrder = ['subMenu'];
   }
 
   toggleSub() {
@@ -90,7 +90,7 @@ export default class NavItem extends KeyNavigate {
   }
 
   onFocus(): void {
-    lg(this.f_onMySec, 'NavItem onFocus');
+    lg(this.kOnMySec, 'NavItem onFocus');
     this.isFocused = true;
   }
 
@@ -104,6 +104,6 @@ export default class NavItem extends KeyNavigate {
   }
 
   beforeDestroy():void {
-    this.f_destroyKeyUp();
+    this.kDestroyKeyUp();
   }
 }

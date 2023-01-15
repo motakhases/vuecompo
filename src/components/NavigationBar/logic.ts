@@ -49,13 +49,13 @@ export default class NavigationBar extends KeyNavigate {
   menuBurger = 'topbar';
 
   created(): void {
-    this.f_order = ['switchTerminalPopover', 'navItem'];
-    this.f_onMySec = true;
-    this.f_mainNav = this;
-    this.f_setCurComp(this);
-    window.addEventListener('keyup', this.f_onGlobalKeyup);
-    document.body.addEventListener('keyup', this.f_onGlobalKeyup);
-    this.f_created();
+    this.kOrder = ['switchTerminalPopover', 'navItem'];
+    this.kOnMySec = true;
+    this.kMainNav = this;
+    this.kSetCurComp(this);
+    window.addEventListener('keyup', this.kOnGlobalKeyup);
+    document.body.addEventListener('keyup', this.kOnGlobalKeyup);
+    this.kCreated();
   }
 
   private detStats() {
@@ -125,35 +125,35 @@ export default class NavigationBar extends KeyNavigate {
   mounted(): void {
     this.onResize();
     window.addEventListener('resize', this.onResize);
-    window.addEventListener('click', this.f_onGlobalClick);
+    window.addEventListener('click', this.kOnGlobalClick);
   }
 
   onKeyDown(e: KeyboardEvent) {
     lg(e, 'navbar onKeyDown', 2);
-    this.f_doKeyDown(e);
+    this.kDoKeyDown(e);
   }
 
   onKeyup(e: KeyboardEvent) {
     const { key } = e;
     lg(key, 'NavBar > key');
-    lg(this.f_onMySec, 'NavBar > this.onMySec', 2);
-    const curComp = this.f_curComp ?? this;
-    lg(curComp.f_onMySec, 'NavBar > curComp.onMySec', 2);
-    if (curComp.f_onMySec) {
-      lg(key, 'NavBar > going run..... f_doKeyup 1', 2);
-      curComp.f_doKeyup(e);
-    } else if (curComp.f_mainNav) { // in yani dar iteme akhari mainNav hastim va mikhahim beparim biroon
-      if (key === 'Tab' || (key === 'Tab' && this.f_findKeyDown('Shift'))) {
+    lg(this.kOnMySec, 'NavBar > this.onMySec', 2);
+    const curComp = this.kCurComp ?? this;
+    lg(curComp.kOnMySec, 'NavBar > curComp.onMySec', 2);
+    if (curComp.kOnMySec) {
+      lg(key, 'NavBar > going run..... kDoKeyup 1', 2);
+      curComp.kDoKeyup(e);
+    } else if (curComp.kMainNav) { // in yani dar iteme akhari mainNav hastim va mikhahim beparim biroon
+      if (key === 'Tab' || (key === 'Tab' && this.kFindKeyDown('Shift'))) {
         lg(key, 'NavBar > going active..... mysec', 2);
-        this.f_doBlurComp(e);
-        this.f_onMySec = true;
-        if ((this.f_curKeyMove === 'Tab' && (key === 'Tab' && this.f_findKeyDown('Shift')))
-          || (this.f_curKeyMove === 'ShiftTab' && key === 'Tab')) {
-          lg(key, 'NavBar > going run..... f_doKeyup 2', 2);
-          curComp.f_doKeyup(e);
+        this.kDoBlurComp(e);
+        this.kOnMySec = true;
+        if ((this.kCurKeyMove === 'Tab' && (key === 'Tab' && this.kFindKeyDown('Shift')))
+          || (this.kCurKeyMove === 'ShiftTab' && key === 'Tab')) {
+          lg(key, 'NavBar > going run..... kDoKeyup 2', 2);
+          curComp.kDoKeyup(e);
         } else {
-          this.f_destroyKeyUp();
-          this.f_doFocusOut();
+          this.kDestroyKeyUp();
+          this.kDoFocusOut();
         }
       }
     }
@@ -161,9 +161,9 @@ export default class NavigationBar extends KeyNavigate {
 
   beforeDestroy():void {
     window.removeEventListener('resize', this.onResize);
-    window.removeEventListener('keyup', this.f_onGlobalKeyup);
-    window.removeEventListener('click', this.f_onGlobalClick);
-    document.body.removeEventListener('keyup', this.f_onGlobalKeyup);
-    this.f_destroyKeyUp();
+    window.removeEventListener('keyup', this.kOnGlobalKeyup);
+    window.removeEventListener('click', this.kOnGlobalClick);
+    document.body.removeEventListener('keyup', this.kOnGlobalKeyup);
+    this.kDestroyKeyUp();
   }
 }

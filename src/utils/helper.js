@@ -1,7 +1,7 @@
 const lgConf = {
   priority: 0,
 };
-const lg = function (val, str = '', prio = -1) {
+const lg = (val, str = '', prio = -1) => {
   if (prio < lgConf.priority) {
     return;
   }
@@ -12,7 +12,7 @@ const lg = function (val, str = '', prio = -1) {
   }
 };
 
-const prevUp = function (e) {
+const prevUp = (e) => {
   /* if(key==='Enter'||key==='Tab'){
       const {stopImmediatePropagation} : any = e
       try{
