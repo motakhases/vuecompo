@@ -17,7 +17,7 @@ const Template = (_, { argTypes }) => ({
       userProfile : 'حساب کاربری',
     },
 
-  
+
     activeTerminal: {
       domain: "zarin.express/zardu",
       name: "زاردو",
@@ -128,7 +128,7 @@ const Template = (_, { argTypes }) => ({
           :terminals="terminals"
           :nav-items="sidebarLinks"
           :active-terminal="activeTerminal"
-          @toggleMenu="$refs.navigationBar.toggle()"
+          @toggleMenu="$refs.navigationBar.toggleMenu()"
 
         />
       </div>
