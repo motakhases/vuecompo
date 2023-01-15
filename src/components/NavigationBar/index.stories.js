@@ -16,6 +16,7 @@ const Template = (_, { argTypes }) => ({
       notification : 'اعلانات',
       userProfile : 'حساب کاربری',
     },
+
   
     activeTerminal: {
       domain: "zarin.express/zardu",
@@ -118,6 +119,7 @@ const Template = (_, { argTypes }) => ({
         <TopBar
           :terminals="terminals"
           @showNotifs="$refs.notificationCenter.toggle()"
+
           @toggleMenu="$refs.navigationBar.toggleMenu()"
           :titleTooltip="titleTooltip"
         />
@@ -126,7 +128,8 @@ const Template = (_, { argTypes }) => ({
           :terminals="terminals"
           :nav-items="sidebarLinks"
           :active-terminal="activeTerminal"
-          @toggleMenu="$refs.navigationBar.toggleMenu()"
+          @toggleMenu="$refs.navigationBar.toggle()"
+
         />
       </div>
     </div>
