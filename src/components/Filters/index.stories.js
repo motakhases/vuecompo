@@ -7,7 +7,7 @@ import Button from "@/components/Button/index.vue";
 
 import { storiesOf } from '@storybook/vue';
 import StoryRouter from 'storybook-vue-router';
- 
+
 storiesOf('Components/Filters', module)
   .addDecorator(StoryRouter())
   .add('default', () => ({
@@ -19,7 +19,7 @@ storiesOf('Components/Filters', module)
       FilterAmount,
       Button,
     },
-  
+
     data() {
       return {
         filters: {
@@ -29,11 +29,11 @@ storiesOf('Components/Filters', module)
         modal: false,
       };
     },
-  
+
     created() {
       this.fillStatus();
     },
-  
+
     methods: {
       /**
        * add property to filter in components
@@ -42,7 +42,7 @@ storiesOf('Components/Filters', module)
       updateFilter(i) {
         this.filters = { ...this.filters, ...i };
       },
-  
+
       /**
        * delete property from filter in components
        * ------------------------------------------
@@ -50,7 +50,7 @@ storiesOf('Components/Filters', module)
       deleteFilter(i) {
         delete this.filters[i];
       },
-  
+
       /**
        * filter
        * ------------------------------------------
@@ -72,7 +72,7 @@ storiesOf('Components/Filters', module)
               this.activeAccordion.forEach((element) => {
 
                 /**
-                 * to check if it includes the item for 
+                 * to check if it includes the item for
                  * min_amount, max_Amount, range_amount
                  */
                 if (item.includes(element)) {
@@ -97,14 +97,14 @@ storiesOf('Components/Filters', module)
          * push filters list to query
          */
         this.$router.push({ query: filterList });
-  
+
         console.log({
           queries: this.$route.query
         });
 
         this.toggleModal();
       },
-  
+
       /**
        * toggle modal
        * ------------------------------------------
@@ -112,7 +112,7 @@ storiesOf('Components/Filters', module)
       toggleModal() {
         this.modal = !this.modal;
       },
-  
+
       /**
        * status
        * ------------------------------------------
@@ -122,7 +122,7 @@ storiesOf('Components/Filters', module)
         this.activeAccordion = Object.keys(this.$route.query);
         this.filters = { ...this.filters, ...this.$route.query };
       },
-  
+
       /**
        * clear
        * ------------------------------------------
@@ -136,7 +136,7 @@ storiesOf('Components/Filters', module)
         this.$router.replace({ query: {} });
       },
     },
-  
+
     template: `
     <div class="bg-surface-focus dark:bg-surface-dark-focus p-lg rounded-md flex flex-col gap-md rtl">
       <Button
@@ -145,8 +145,8 @@ storiesOf('Components/Filters', module)
       />
 
       <pre dir="ltr">{{filters}}</pre>
-  
-      
+
+
       <Filters
         :is-open="modal"
         :toggle="toggleModal"
@@ -158,6 +158,7 @@ storiesOf('Components/Filters', module)
           text="وضعیت"
           name="secondCheckBox"
           val="status"
+          value=""
         >
           <Radio
             v-model="filters.status"
@@ -177,6 +178,7 @@ storiesOf('Components/Filters', module)
           text="تاریخ"
           name="secondCheckBox"
           val="date"
+          value=""
         >
           <FilterDate
             @updateFilter="updateFilter"
@@ -188,6 +190,7 @@ storiesOf('Components/Filters', module)
           text="مبلغ"
           name="thirdCheckBox"
           val="amount"
+          value=""
         >
           <FilterAmount
             @updateFilter="updateFilter"
@@ -198,4 +201,3 @@ storiesOf('Components/Filters', module)
     </div>
     `,
   }));
-  

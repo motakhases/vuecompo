@@ -7,6 +7,7 @@
         :link="switcher.link"
         :icon="switcher.icon"
         :isFocused="isFocused"
+        :img="switcher.img"
       />
       <div class="zpl-nav-popover" v-show="showPopover" @click="handleHidePopover">
         <div>

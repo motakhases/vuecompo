@@ -1,0 +1,58 @@
+/**-------------------------------------------------------------------------------------------------------------------
+card-bank-variable
+-------------------------------------------------------------------------------------------------------------------- */
+$bgBackground: (
+	"Transactions": (
+    "uri": "Transactions.svg",
+  ),
+	"Reconciliation": (
+    "uri": "Reconciliation.svg",
+  ),
+	"TimeRange": (
+    "uri": "TimeRange.svg",
+  ),
+	"ProductPaymentLink": (
+    "uri": "ProductPaymentLink.svg",
+  ),
+	"Coupons": (
+    "uri": "Coupons.svg",
+  ),
+	"Notifications": (
+    "uri": "Notifications.svg",
+  ),
+	"NoResult": (
+    "uri": "NoResult.svg",
+  ),
+	"Placeholder": (
+    "uri": "Placeholder.svg",
+  ),
+	"Tickets": (
+    "uri": "Tickets.svg",
+  ),
+	"Appearance": (
+    "uri": "Appearance.svg",
+  ),
+	"EmailDownload": (
+    "uri": "EmailDownload.svg",
+  ),
+  
+);
+/**-------------------------------------------------------------------------------------------------------------------
+css for logo
+-------------------------------------------------------------------------------------------------------------------- */
+@for $i from 1 through length($bgBackground) {
+  $name: nth(map-keys($bgBackground), $i);
+  $obj: map-get($bgBackground, $name);
+  $uri: map-get($obj, "uri");
+  .dark {
+    .logo-#{$name} {
+        background-image: url("./image/dark-mode/#{$uri}");
+    }
+  }
+  .logo-#{$name} {
+    @apply min-h-[24px] min-w-[24px] h-full w-full bg-cover	bg-no-repeat ;
+
+      background-image: url("./image/#{$uri}");
+    
+  }
+}

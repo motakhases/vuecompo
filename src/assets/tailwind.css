@@ -1,9 +1,16 @@
 @import url("https://cdn.zarinpal.com/assets/fonts/all.css");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400&display=swap"); /* roboto-mono-regular - latin */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400&display=swap");
+@import '@/assets/scrollbar.css'; /* roboto-mono-regular - latin */
 
 @tailwind base;
+
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #fafafa;
+  --secondary: #D7D7DA;
+}
 
 @layer utilities {
   .rtl {

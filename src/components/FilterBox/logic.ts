@@ -73,10 +73,10 @@ export default class Logic extends Vue {
   }
 
   updateValuequeries() {
-    const queries = this.$route.query;
+    const queries = this.$route?.query;
     const queryKeys = Object.keys(queries);
     const amountList = ['min_amount', 'range_amount', 'max_amount', 'amount'];
-    if (queryKeys.length) {
+    if (queryKeys?.length) {
       queryKeys.forEach((i) => {
         if (this.value === 'amount') {
         // update value based on query

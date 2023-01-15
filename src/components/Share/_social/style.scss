@@ -1,11 +1,12 @@
 .zpl-social {
   // default
-  @apply flex flex-col items-center justify-center gap-sm p-md;
+  @apply flex flex-row items-center justify-center gap-xs w-[48px] h-[48px];
 
   &-icon {
     // default
-    @apply w-[80px] h-[80px] border border-border-soft rounded-circle flex justify-center items-center;
+    @apply w-[48px] h-[48px] p-sm border border-border-soft flex justify-center items-center;
     @apply dark:border-border-dark-soft;
+    border-radius: 4px;
 
     // hover
     @apply hover:bg-surface-hover;
@@ -18,6 +19,10 @@
     // focus
     @apply focus:bg-surface-focus;
     @apply dark:focus:bg-surface-dark-focus;
+
+    &._circle{
+      @apply rounded-circle
+    }
 
     ._icon {
       // default

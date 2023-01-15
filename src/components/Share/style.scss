@@ -1,21 +1,56 @@
 .zpl-share {
-  &-tab {
-    // default
-    @apply flex flex-col gap-xl pt-md;
+  // default
+  @apply w-[400px];
 
-    ._qr-wrapper {
-      // default
-      @apply flex justify-center items-center w-full h-[214px];
-
-      > img {
-        // default
-        @apply h-[200px] rounded-md;
-      }
-    }
+  img {
+    @apply m-auto
   }
 
   &-socials {
     // default
-    @apply flex justify-center;
+    @apply flex flex-row gap-xs items-center
+  }
+
+  .zpl-button{
+
+    span {
+      @apply flex text-btn w-[94px] h-[24px] items-center text-right
+    }
+
+  }
+
+  .zpl-clipboard {
+    // default
+    @apply flex flex-col items-start gap-sm w-full h-[88px];
+
+    &-title {
+      @apply mb-0;
+    }
+
+    &-text {
+      direction: ltr;
+      background: none;
+      @apply whitespace-nowrap focus-visible:outline-none;
+    }
+  }
+}
+
+
+.zpl-share-body{
+  // default
+  @apply flex flex-col items-center px-md pt-md pb-xl gap-md;
+
+  img{
+    @apply items-center w-[160px] h-[160px]
+  }
+}
+
+
+.zpl-share-footer{
+  // default
+  @apply flex flex-row-reverse justify-between items-center p-md gap-md h-[80px];
+
+  .zpl-button{
+    @apply flex flex-row items-center w-[200px] h-[48px] gap-xs content-center py-[12px] pl-[22px] pr-[24px];
   }
 }

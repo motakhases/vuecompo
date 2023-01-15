@@ -132,3 +132,4 @@ export { default as StepperGroup } from './StepperGroup/index.vue';
 export { default as StatsBlock } from './StatsBlock/index.vue';
 export { default as StatsBlockItem } from './StatsBlock/SBItem/index.vue';
 export { default as StatsBlockRow } from './StatsBlock/SBRow/index.vue';
+export { default as Bg } from './Bg/index.vue';
