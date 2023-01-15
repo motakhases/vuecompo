@@ -39,7 +39,7 @@ export default class NavigationBar extends KeyNavigate {
 
   isFixed = false;
 
-  isToggle = false;
+  isToggle = true;
 
   showSwitch = false;
 
