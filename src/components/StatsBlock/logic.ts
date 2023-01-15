@@ -17,5 +17,4 @@ export default class StatsBlock extends Vue {
   @Prop({ type: Boolean }) readonly row?: boolean;
 
   @Prop({ type: Boolean }) readonly leftAlign?: boolean;
-
 }

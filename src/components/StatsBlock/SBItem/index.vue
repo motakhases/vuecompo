@@ -21,18 +21,21 @@
       <span class="title" v-if="title">
         {{ title }}
         <Tooltip v-if="info" :text="info" indicator position="topCenter">
-            <Icon name="Info" class="zpl-reciept-icon" />
+            <Icon :name="infoType" class="zpl-reciept-icon" />
         </Tooltip>
       </span>
 
-      <span class="content">
-        <slot name="content" />
+<!--      <span class="content">
+        <slot name="content" class="font-YekanBakh"/>
       </span>
 
       <span class="caption">
-        <slot name="caption" />
+        <slot name="caption" class="font-sans"/>
+      </span>-->
+      <span class="body">
+        <slot name="body"/>
       </span>
-      <Button :href="link" text="مشاهده" v-if="link" type="primaryText" class="pt-xs"/>
+      <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>
     </div>
   </div>
 </template>

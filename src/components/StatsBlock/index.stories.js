@@ -20,35 +20,29 @@ const Template = (_, { argTypes }) => ({
     <StatsBlock class="mb-xl">
       <StatsBlockRow>
         <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
-          <template #content>
+          <template #body>
             <div>
               ۵٬۴۲۰٬۰۰۰
               <span class="zpl-lable small neutral"> ریال </span>
             </div>
-          </template>
-          <template #caption>
             مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
           </template>
         </StatsBlockItem>
         <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
-          <template #content>
+          <template #body>
             <div>
               ۵٬۴۲۰٬۰۰۰
               <span class="zpl-lable small neutral"> ریال </span>
             </div>
-          </template>
-          <template #caption>
             مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
           </template>
         </StatsBlockItem>
         <StatsBlockItem title="تعداد تراکنش‌های موفق" info="اطلاعات" row>
-          <template #content>
+          <template #body>
             <div>
               ۵٬۴۲۰٬۰۰۰
               <span class="zpl-lable small neutral"> ریال </span>
             </div>
-          </template>
-          <template #caption>
             مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
           </template>
         </StatsBlockItem>

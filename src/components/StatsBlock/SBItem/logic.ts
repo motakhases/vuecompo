@@ -11,6 +11,8 @@ import Link from '@/components/Link/index.vue';
   },
 })
 export default class StatsBlockItem extends Vue {
+  @Prop({ type: String, default: 'Info' }) infoType?: string; // icon (component) e rahnama be hamrahe tooltip
+
   @Prop({ type: String }) info?: string; // icon (component) e rahnama be hamrahe tooltip
 
   @Prop({ type: Boolean }) label?: boolean; // onvan balayi ??
