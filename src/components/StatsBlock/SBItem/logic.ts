@@ -11,17 +11,19 @@ import Link from '@/components/Link/index.vue';
   },
 })
 export default class StatsBlockItem extends Vue {
-  @Prop({ type: String }) info?: string; // icon (component) e rahnama be hamrahe tooltip
+  @Prop({ type: String, default: 'Info' }) infoType?: string; // icon (component) e rahnama be hamrahe tooltip
 
-  @Prop({ type: Boolean }) label?: boolean; // onvan balayi ??
+  @Prop({ type: String }) info?: string;
 
-  @Prop({ type: String }) title?: string; // onvan balayi ??
+  @Prop({ type: String }) title?: string;
 
-  @Prop({ type: String }) caption?: string; // matne payini ke kamel az samte next-panel miad
+  @Prop({ type: String }) link?: string;
 
-  @Prop({ type: String }) link?: string; // infoe button
+  @Prop({ type: String }) amount?: string;
 
-  @Prop({ type: String }) content?: string; // adade vasati
+  @Prop({ type: String }) caption?: string;
+
+  @Prop({ type: String, default: 'ریال' }) unit?: string;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 }
