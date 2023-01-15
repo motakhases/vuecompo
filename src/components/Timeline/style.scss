@@ -1,6 +1,10 @@
 .zpl-timeline {
   @apply flex items-center relative bg-surface;
-  @apply dark:bg-surface-dark;
+  @apply dark:bg-surface-dark py-xs;
+
+  &:only-child {
+    @apply pt-0;
+  }
 
   &::before {
     content: "";
@@ -27,16 +31,13 @@
     }
   }
 
-  &:not(:last-child) {
-    @apply pb-md;
-  }
   &-box{
-    
+
   }
 }
 
 .zpl-timeline-cart {
-  @apply rounded-sm p-md border border-border-divider w-full;
+  @apply rounded-sm p-md border border-border-divider w-full gap-xs;
   @apply dark:border-border-dark-divider;
 }
 .zpl-timeline-title {
