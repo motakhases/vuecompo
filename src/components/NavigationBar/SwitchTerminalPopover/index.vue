@@ -1,5 +1,5 @@
 <template>
-  <div class="zpl-nav-popover-container" @keyup="onKeyup" @keydown="onKeyDown">
+  <div class="zpl-nav-popover-container" @keydown="onKeyDown">
     <!-- Active terminal -->
     <div @click="handleShowPopover" ref="terminal">
       <SwitchTerminal
