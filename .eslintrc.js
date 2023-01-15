@@ -37,7 +37,7 @@ module.exports = {
     'arrow-body-style': 'warn',
     'comma-spacing': 'warn',
     'semi-spacing': 'warn',
-    'no-plusplus': 'off', // line:208 KeyNavigate return ++this.f_curOrd;
+    'no-plusplus': 'warn', // line:208 KeyNavigate return ++this.k_curOrd;
     'brace-style': 'warn',
     'no-else-return': 'warn',
     'no-param-reassign': 'off', // line:46 KeyNavigate resultConds[i] = true;
@@ -48,17 +48,17 @@ module.exports = {
     'one-var-declaration-per-line': 'warn',
     'no-multiple-empty-lines': 'warn',
     'one-var': 'warn',
-    camelcase: 'off',
+    camelcase: 'warn',
     semi: 'warn',
     '@typescript-eslint/prefer-ts-expect-error': 'warn',
     'import/no-named-as-default': 'warn',
     'import/no-named-as-default-member': 'warn',
     'eol-last': 'warn',
-    'no-cond-assign': 'off', // line:305 KeyNavigate if ((findx = this.f_findKeyDown(key, true)) > -1) {
+    'no-cond-assign': 'warn', // line:305 KeyNavigate if ((findx = this.k_findKeyDown(key, true)) > -1) {
     'prefer-const': 'warn',
     'consistent-return': 'warn',
-    'func-names': 'off', // https://eslint.org/docs/latest/rules/func-names
-    'no-console': 'off',
+    'func-names': 'warn', // https://eslint.org/docs/latest/rules/func-names
+    'no-console': 'warn',
     // hamed
     'import/extensions': [
       'error',
