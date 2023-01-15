@@ -6,6 +6,7 @@
         :title="switcher.title"
         :link="switcher.link"
         :icon="switcher.icon"
+        :img="switcher.img"
       />
       <div class="zpl-nav-popover" v-show="showPopover" @click="handleHidePopover">
         <div>
