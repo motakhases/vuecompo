@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.1.94",
+  "version": "2.1.108",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
@@ -104,6 +104,8 @@
   "dependencies": {
     "@types/moment-jalaali": "^0.7.5",
     "@types/node": "^17.0.26",
+    "@vue/composition-api": "^1.7.1",
+    "@vueuse/core": "^9.9.0",
     "apexcharts": "^3.35.3",
     "autoprefixer": "^10",
     "axios": "^0.26.1",

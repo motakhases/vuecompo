@@ -23,4 +23,3 @@ export default class Timeline extends Vue {
 
   @Prop({ type: Number, default: 1 }) readonly loadingNumber!: number;
 }
-

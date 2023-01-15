@@ -1,6 +1,6 @@
 <template>
   <button
-    class="zpl-terminal-item"
+    :class="['zpl-terminal-item',isFocused?'isFocused':'']"
     @click="$emit('terminalClick', terminalConcatedData)"
   >
     <Thumbnail :icon="icon" :img="img" :alt="alt" />

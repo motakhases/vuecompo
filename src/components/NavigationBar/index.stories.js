@@ -1,5 +1,6 @@
 import NavigationBar from "./index.vue";
 import TopBar from "../TopBar/index.vue";
+import { TitleTooltip } from '@/types';
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -10,14 +11,31 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
 
   data: () => ({
-    activeTerminal: {},
+    titleTooltip : TitleTooltip = {
+      ticket : 'تیکت',
+      notification : 'اعلانات',
+      userProfile : 'حساب کاربری',
+    },
+
+  
+    activeTerminal: {
+      domain: "zarin.express/zardu",
+      name: "زاردو",
+      status: "ACTIVE",
+      id: "1",
+      logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
+      link: "...",
+      route: "...",
+      active: true,
+      pinned: true
+    },
     terminals: [
       {
         domain: "zarin.express/zardu",
         name: "زاردو",
         status: "ACTIVE",
         id: "1",
-        logo: "...",
+        logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
         link: "...",
         route: "...",
         active: true,
@@ -28,7 +46,7 @@ const Template = (_, { argTypes }) => ({
         name: "hgffghfh",
         status: "ACTIVE",
         id: "2",
-        logo: "...",
+        logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
         link: "...",
         route: "...",
       },
@@ -70,7 +88,7 @@ const Template = (_, { argTypes }) => ({
           {
             title: "پیشخوان",
             link: "/",
-            active: true,
+            active: false,
             badge:'10'
           },
           {
@@ -101,13 +119,17 @@ const Template = (_, { argTypes }) => ({
         <TopBar
           :terminals="terminals"
           @showNotifs="$refs.notificationCenter.toggle()"
-          @toggleMenu="$refs.navigationBar.toggle()"
-        />  
+
+          @toggleMenu="$refs.navigationBar.toggleMenu()"
+          :titleTooltip="titleTooltip"
+        />
         <NavigationBar
           ref="navigationBar"
           :terminals="terminals"
           :nav-items="sidebarLinks"
           :active-terminal="activeTerminal"
+          @toggleMenu="$refs.navigationBar.toggle()"
+
         />
       </div>
     </div>
