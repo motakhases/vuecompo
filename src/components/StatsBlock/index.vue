@@ -7,7 +7,8 @@
         :loading="loading"
         :title="title"
         :link="link"
-        :body="body"
+        :amount="amount"
+        :caption="caption"
       />
     </StatsBlockRow>
     <slot v-else />

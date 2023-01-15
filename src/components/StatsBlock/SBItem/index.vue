@@ -5,11 +5,11 @@
       <div class="loading-title" v-if="title">
         <Skeleton type="body" class="w-[64px] h-[12px]" />
       </div>
-      <div v-if="body" class="allContent">
-        <div class="loading-title">
+      <div class="allContent">
+        <div class="loading-title" v-if="amount">
           <Skeleton type="body" class="w-[168px] h-[20px]" />
         </div>
-        <div class="loading-title">
+        <div class="loading-title" v-if="caption">
           <Skeleton type="body" class="w-[120px] h-[12px]" />
         </div>
       </div>
@@ -27,9 +27,13 @@
         </Tooltip>
       </span>
 
-      <span class="allContent">
-        <slot name="body"/>
-      </span>
+      <div class="allContent">
+        <span class="content" v-if="amount" >
+            <span v-text="amount"></span>
+            <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
+        </span>
+        <span v-if="caption" class="caption" v-text="caption"></span>
+      </div>
       <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>
     </div>
   </div>

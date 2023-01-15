@@ -15,13 +15,15 @@ export default class StatsBlockItem extends Vue {
 
   @Prop({ type: String }) info?: string;
 
-  @Prop({ type: Boolean }) label?: boolean;
-
   @Prop({ type: String }) title?: string;
 
   @Prop({ type: String }) link?: string;
 
-  @Prop({ type: Boolean }) body?: boolean;
+  @Prop({ type: String }) amount?: string;
+
+  @Prop({ type: String }) caption?: string;
+
+  @Prop({ type: String, default: 'ریال' }) unit?: string;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 }
