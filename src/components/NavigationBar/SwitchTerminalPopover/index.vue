@@ -1,16 +1,17 @@
 <template>
-  <div class="zpl-nav-popover-container">
+  <div class="zpl-nav-popover-container" @keyup="onKeyup" @keydown="onKeyDown">
     <!-- Active terminal -->
     <div @click="handleShowPopover" ref="terminal">
       <SwitchTerminal
         :title="switcher.title"
         :link="switcher.link"
         :icon="switcher.icon"
+        :isFocused="isFocused"
       />
       <div class="zpl-nav-popover" v-show="showPopover" @click="handleHidePopover">
         <div>
           <!-- Terminals -->
-          <div class="zpl-nav-terminal-items">
+          <div class="zpl-nav-terminal-items" :style="{maxHeight:`${maxHeightList}px`}">
             <SwitchTerminalItem
               v-for="(terminal, index) in terminals"
               :id="terminal.id"
@@ -24,6 +25,7 @@
               :state="terminal.status"
               icon="terminal"
               v-on="$listeners"
+              ref="switchTerminalItem"
             />
           </div>
 

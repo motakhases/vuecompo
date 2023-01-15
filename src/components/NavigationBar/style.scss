@@ -4,12 +4,12 @@
   @apply h-full w-[256px] bg-surface z-[40];
 
   //responsive
-  @apply lg:h-[calc(100vh-58px)] lg:sticky lg:top-[58px] lg:right-0;
+  @apply lg:h-[calc(100vh-60px)] lg:sticky lg:top-[58px];
 
   // dark
   @apply dark:bg-surface-dark;
 
-  &.show {
+  &.isCollapsed {
     @apply lg:w-[72px] right-0;
 
     .zpl-nav-bar-header-title,
@@ -31,10 +31,19 @@
       }
     }
   }
+
+
+  &.isDrawer {
+    @apply lg:fixed lg:top-0 lg:h-full;
+  }
+
+  &.show {
+    @apply right-0
+  }
 }
 
-.zpl-nav-overlay.show {
-  @apply w-full h-full fixed z-[39] bg-alpha-overlay left-0 top-0 lg:hidden;
+.zpl-nav-overlay.isDrawer {
+  @apply w-full h-full fixed z-[39] bg-alpha-overlay left-0 top-0;
 }
 
 .zpl-nav-bar-storybook {
@@ -59,7 +68,7 @@
 }
 
 .zpl-nav-bar-logo {
-  @apply p-md lg:hidden;
+  @apply p-md;
 
   div {
     @apply w-[108px];
