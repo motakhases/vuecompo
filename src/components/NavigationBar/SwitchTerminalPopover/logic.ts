@@ -1,15 +1,18 @@
 import {
-  Vue, Prop, Component, Ref,
+  Prop, Component, Ref,
 } from 'vue-property-decorator';
 
 // Interfaces
 import { INavigationBarTerminal, INavigationBarActiveTerminal } from '@/types';
 
 // Components
+import KeyNavigate from '@/utils/class_components/KeyNavigate';
 import Create from '../Create/index.vue';
 import Overview from '../Overview/index.vue';
 import SwitchTerminal from '../SwitchTerminal/index.vue';
 import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
+
+const { useWindowSize } = require('@vueuse/core');
 
 @Component({
   components: {
@@ -19,7 +22,7 @@ import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
     SwitchTerminalItem,
   },
 })
-export default class SwitchTerminalPopover extends Vue {
+export default class SwitchTerminalPopover extends KeyNavigate {
   @Prop({ type: Boolean, default: false }) show!: boolean;
 
   @Prop({ type: Array }) terminals!: INavigationBarTerminal[];
@@ -32,8 +35,20 @@ export default class SwitchTerminalPopover extends Vue {
 
   showPopover = false;
 
+  isFocused = false
+
+  created(): void {
+    this.kOrder = ['switchTerminalItem'];
+    this.kCreated();
+  }
+
   get hasActive(): boolean {
     return !!(this.activeTerminal && this.activeTerminal.domain);
+  }
+
+  get maxHeightList(): number {
+    const { height } = useWindowSize();
+    return Math.round((height.value / 100) * 70);
   }
 
   get switcher(): INavigationBarActiveTerminal {
@@ -82,5 +97,34 @@ export default class SwitchTerminalPopover extends Vue {
         this.showPopover = false;
       });
     }
+  }
+
+  onKeyDown(e: KeyboardEvent) {
+    this.kDoKeyDown(e);
+  }
+
+  onFocus(): void {
+    this.isFocused = true;
+  }
+
+  onBlur(e: KeyboardEvent): void {
+    this.isFocused = false;
+    if (this.showPopover) {
+      this.kDoBlurComp(e);
+      this.showPopover = false;
+      this.kDestroyKeyUp();
+    }
+  }
+
+  onEnter(e: KeyboardEvent):void {
+    this.isFocused = false;
+    this.showPopover = true;
+    this.$nextTick(() => {
+      this.kDoKeyup(e, 'Tab');
+    });
+  }
+
+  beforeDestroy():void {
+    this.kDestroyKeyUp();
   }
 }

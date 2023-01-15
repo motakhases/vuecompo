@@ -36,6 +36,8 @@ export default class SwitchTerminalItem extends Vue {
 
   @Prop({ type: String }) state!: string
 
+  isFocused = false
+
   stateText(state: Translation): Translation {
     let statusText: Translation = '';
 
@@ -79,5 +81,19 @@ export default class SwitchTerminalItem extends Vue {
       route,
       status: state,
     };
+  }
+
+  onFocus(): void {
+    this.isFocused = true;
+  }
+
+  onBlur(): void {
+    this.isFocused = false;
+  }
+
+  onEnter(e: KeyboardEvent, callerComp):void {
+    this.isFocused = false;
+    this.$emit('terminalClick', this.terminalConcatedData);
+    callerComp.kDoBlurComp(e);
   }
 }
