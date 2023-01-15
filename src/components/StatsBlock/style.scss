@@ -43,7 +43,7 @@
     }
 
     &-cont {
-      @apply flex w-full gap-xs flex-col p-md items-center;
+      @apply flex w-full flex-col items-center;
 
       .title{
         @apply text-b3 tracking-normal zpl-sb-item-title font-sans font-medium text-right text-[#747481];

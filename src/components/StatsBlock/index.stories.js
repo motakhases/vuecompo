@@ -47,6 +47,26 @@ const Template = (_, { argTypes }) => ({
           </template>
         </StatsBlockItem>
       </StatsBlockRow>
+      <StatsBlockRow>
+        <StatsBlockItem title="تعداد تراکنش‌های موفق" info="اطلاعات" row>
+          <template #body>
+            <div class="content">
+              ۵٬۴۲۰٬۰۰۰
+              <span class="zpl-lable small neutral"> ریال </span>
+            </div>
+            <div class="caption">مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال</div>
+          </template>
+        </StatsBlockItem>
+        <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
+          <template #body>
+            <div class="content">
+              ۵٬۴۲۰٬۰۰۰
+              <span class="zpl-lable small neutral"> ریال </span>
+            </div>
+            <div class="caption">مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال</div>
+          </template>
+        </StatsBlockItem>
+      </StatsBlockRow>
     </StatsBlock>
     <StatsBlock class="mb-xl" loading :loadingNumber="1" title="." link="." body/>
   </div>
