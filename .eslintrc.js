@@ -3,11 +3,8 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
-  ],
+  plugins: ['prettier'],
+  extends: ['plugin:vue/essential', '@vue/airbnb', '@vue/typescript/recommended', 'prettier'],
   parserOptions: {
     ecmaVersion: 2020,
   },
@@ -15,8 +12,8 @@ module.exports = {
     indent: ['error', 2],
     '@typescript-eslint/no-var-requires': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
+    'max-len': ['error', { code: 180 }],
     'import/no-extraneous-dependencies': 0,
-    'max-len': 'off',
     'vue/no-v-html': 0,
     'linebreak-style': 0,
     'class-methods-use-this': 'off',
@@ -31,6 +28,7 @@ module.exports = {
         jsx: 'never',
         ts: 'never',
         tsx: 'never',
+     
       }],
     'no-shadow': 'off', // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
     '@typescript-eslint/no-shadow': ['error'],
@@ -38,11 +36,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-        '**/src/**/*.test.{j,t}s?(x)',
-      ],
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)', '**/src/**/*.test.{j,t}s?(x)'],
       env: {
         jest: true,
       },
