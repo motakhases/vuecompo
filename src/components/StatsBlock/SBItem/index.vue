@@ -2,16 +2,18 @@
   <div :class="['zpl-sb-item ', { loading }]">
     <!-- loading -->
     <div v-if="loading" class="zpl-sb-item-cont flex-col">
-      <div class="loading-title">
+      <div class="loading-title" v-if="title">
         <Skeleton type="body" class="w-[64px] h-[12px]" />
       </div>
-      <div class="loading-title">
-        <Skeleton type="body" class="w-[168px] h-[20px]" />
+      <div v-if="body" class="allContent">
+        <div class="loading-title">
+          <Skeleton type="body" class="w-[168px] h-[20px]" />
+        </div>
+        <div class="loading-title">
+          <Skeleton type="body" class="w-[120px] h-[12px]" />
+        </div>
       </div>
-      <div class="loading-title">
-        <Skeleton type="body" class="w-[120px] h-[12px]" />
-      </div>
-      <div class="loading-title pt-xs">
+      <div class="loading-title pt-xs" v-if="link">
         <Skeleton type="body" class="w-[46px] h-[12px]" />
       </div>
     </div>
@@ -25,14 +27,7 @@
         </Tooltip>
       </span>
 
-<!--      <span class="content">
-        <slot name="content" class="font-YekanBakh"/>
-      </span>
-
-      <span class="caption">
-        <slot name="caption" class="font-sans"/>
-      </span>-->
-      <span v-if="body" class="body">
+      <span class="allContent">
         <slot name="body"/>
       </span>
       <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>

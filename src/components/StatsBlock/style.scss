@@ -33,7 +33,7 @@
     &.loading {
       @apply py-lg;
       .loading-title {
-        padding: 4px 0px;
+        padding: 4px 0;
         gap: 8px;
         @apply flex-1;
       }
@@ -52,7 +52,7 @@
         @apply dark:border-border-dark-divider;
       }
 
-      /*.content{
+      .content{
         @apply text-[#2E2E38] flex text-center font-bold not-italic items-center text-ls-md flex-1 font-YekanBakhFaNum gap-xs;
 
         // dark
@@ -64,10 +64,10 @@
 
         // dark
         @apply dark:border-border-dark-soft;
-      }*/
+      }
 
-      .body{
-        @apply text-[#2E2E38] flex text-center font-bold not-italic items-center text-ls-md flex-1 gap-xs;
+      .allContent{
+        @apply flex flex-col items-center text-center;
 
         // dark
         @apply dark:text-white-100;

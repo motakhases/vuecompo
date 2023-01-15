@@ -5,6 +5,9 @@
         v-for="index in loadingNumber"
         :key="index"
         :loading="loading"
+        :title="title"
+        :link="link"
+        :body="body"
       />
     </StatsBlockRow>
     <slot v-else />

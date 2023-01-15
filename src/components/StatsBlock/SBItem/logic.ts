@@ -13,19 +13,15 @@ import Link from '@/components/Link/index.vue';
 export default class StatsBlockItem extends Vue {
   @Prop({ type: String, default: 'Info' }) infoType?: string; // icon (component) e rahnama be hamrahe tooltip
 
-  @Prop({ type: String }) info?: string; // icon (component) e rahnama be hamrahe tooltip
+  @Prop({ type: String }) info?: string;
 
-  @Prop({ type: Boolean }) label?: boolean; // onvan balayi ??
+  @Prop({ type: Boolean }) label?: boolean;
 
-  @Prop({ type: String }) title?: string; // onvan balayi ??
+  @Prop({ type: String }) title?: string;
 
-  // @Prop({ type: Boolean }) caption?: boolean; // matne payini ke kamel az samte next-panel miad
+  @Prop({ type: String }) link?: string;
 
-  @Prop({ type: String }) link?: string; // infoe button
-
-  // @Prop({ type: Boolean }) content?: boolean; // adade vasati
-
-  @Prop({ type: Boolean }) body?: boolean; // adade vasati
+  @Prop({ type: Boolean }) body?: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 }

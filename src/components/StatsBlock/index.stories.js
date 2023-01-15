@@ -21,34 +21,34 @@ const Template = (_, { argTypes }) => ({
       <StatsBlockRow>
         <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
           <template #body>
-            <div>
+            <div class="content">
               ۵٬۴۲۰٬۰۰۰
               <span class="zpl-lable small neutral"> ریال </span>
             </div>
-            مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
-          </template>
-        </StatsBlockItem>
-        <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
-          <template #body>
-            <div>
-              ۵٬۴۲۰٬۰۰۰
-              <span class="zpl-lable small neutral"> ریال </span>
-            </div>
-            مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
+            <div class="caption">مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال</div>
           </template>
         </StatsBlockItem>
         <StatsBlockItem title="تعداد تراکنش‌های موفق" info="اطلاعات" row>
           <template #body>
-            <div>
+            <div class="content">
               ۵٬۴۲۰٬۰۰۰
               <span class="zpl-lable small neutral"> ریال </span>
             </div>
-            مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال
+            <div class="caption">مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال</div>
+          </template>
+        </StatsBlockItem>
+        <StatsBlockItem title="تعداد تراکنش‌های موفق" link="my-link" info="اطلاعات" row>
+          <template #body>
+            <div class="content">
+              ۵٬۴۲۰٬۰۰۰
+              <span class="zpl-lable small neutral"> ریال </span>
+            </div>
+            <div class="caption">مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال</div>
           </template>
         </StatsBlockItem>
       </StatsBlockRow>
     </StatsBlock>
-    <StatsBlock class="mb-xl" loading :loadingNumber="1"/>
+    <StatsBlock class="mb-xl" loading :loadingNumber="1" title="." link="." body/>
   </div>
   `,
 });
