@@ -32,6 +32,8 @@ export default class SwitchTerminalPopover extends KeyNavigate {
 
   @Ref('terminal') readonly terminal!: HTMLElement;
 
+  @Prop({ type: String, default: '/36x36.png' }) logoAddress!: string
+
   showPopover = false;
 
   isFocused = false

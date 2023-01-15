@@ -32,7 +32,7 @@
       <span class="caption">
         <slot name="caption" />
       </span>
-      <Button :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>
+      <Button :href="link" text="مشاهده" v-if="link" type="primaryText" class="pt-xs"/>
     </div>
   </div>
 </template>
