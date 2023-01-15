@@ -135,11 +135,13 @@ export interface INavigationBarTerminal {
   domain: string;
   id?: string;
   name: string;
+  logo: string;
 }
 export interface INavigationBarActiveTerminal {
   title: Translation;
   link: string | null;
   icon: string;
+  img: string;
 }
 export interface INavigationBarLinks extends INavigationBarActiveTerminal {
   active?: boolean;
@@ -230,6 +232,10 @@ export type TitleTooltip = {
   ticket : string,
   notification : string,
   userProfile : string,
+}
+export enum SocialType {
+  circle = 'circle',
+  square = 'square',
 }
 
 /**

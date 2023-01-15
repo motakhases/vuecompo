@@ -1,7 +1,7 @@
 <template>
   <div class="zpl-clipboard">
     <Loading v-if="loading" :title="title" />
-    <div v-else>
+    <template v-else>
       <!-- Header -->
       <h4 class="zpl-clipboard-title">
         {{ title }}
@@ -22,12 +22,10 @@
           </div>
 
           <!-- clipboard text -->
-          <div class="zpl-clipboard-text">
-            {{ text }}
-          </div>
+          <input class="zpl-clipboard-text" v-model="text">
         </div>
       </Tooltip>
-    </div>
+    </template>
   </div>
 </template>
 

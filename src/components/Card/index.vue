@@ -15,6 +15,11 @@
     <div :class="{ 'zpl-card-content': title }" v-if="hasContent">
       <slot />
     </div>
+    <div class="flex gap-sm items-center mt-sm">
+      <div class="zpl-terminal-item-pin" v-if="pinned">
+        <Icon name="PinFill" />
+      </div>
+    </div>
   </div>
 </template>
 

@@ -1,69 +1,53 @@
 <template>
   <div class="zpl-share">
-    <Tabs :loading="loading" :loadingNumber="2">
-      <!-- Sharing methods -->
-      <tab :title="$t('common.link')">
-        <div class="zpl-share-tab">
-          <!-- Social networks sharing -->
-          <div class="zpl-share-socials">
-            <Social
-              key-name="telegram"
-              :name="$t('common.TELEGRAM')"
-              :title="title"
-              :url="url"
-              :loading="loading"
-            />
-            <Social
-              key-name="whatsapp"
-              :name="$t('common.WHATSAPP')"
-              :title="title"
-              :url="url"
-              :loading="loading"
-            />
-          </div>
-
-          <!-- Link -->
-          <TextField
-            v-model="url"
-            :label="$t('common.link')"
-            readonly
-            copyable
-            ltr
-            :loading="loading"
-          />
-          <!-- Html code -->
-          <TextField
-            v-model="html"
-            :label="$t('product.show.html_code_label')"
-            readonly
-            copyable
-            ltr
-            :loading="loading"
-          />
-        </div>
-      </tab>
-
-      <!-- QR Code sharing method -->
-      <tab :title="$t('auth.qr.code')">
-        <div class="zpl-share-tab">
-          <div class="_qr-wrapper">
-            <img
-              :src="qrcode"
-              :alt="$t('auth.qr.alt')"
-            >
-          </div>
-
-          <Button
-            :text="$t('auth.qr.download')"
-            type="neutral"
-            before-icon="Download"
-            size="large"
-            fill
-            @click.native="download(qrcode)"
-          />
-        </div>
-      </tab>
-    </Tabs>
+    <div class="zpl-share-body">
+      <Skeleton v-if="loading" type="body" class="w-[160px] h-[160px]" />
+      <div v-else-if="qrcode" class="_qr-wrapper">
+        <img
+          :src="qrcode"
+          :alt="$t('auth.qr.alt')"
+        >
+      </div>
+      <CopyToClipboard
+        :title="title"
+        :text="text"
+        :loading="loading"
+      />
+      <CopyToClipboard
+        :title="title2"
+        :text="text2"
+        :loading="loading"
+      />
+    </div>
+    <div class="zpl-share-footer">
+      <Skeleton v-if="loading" type="button" class="w-[200px] h-[48px]"/>
+      <Button
+        v-else-if="qrcode"
+        :text="$t('auth.qr.download')"
+        type="neutral"
+        before-icon="Download"
+        size="small"
+        fill
+        :loading="loading"
+        @click.native="download(qrcode)"
+      />
+      <div class="zpl-share-socials">
+        <Social
+          v-if="urlTlg"
+          key-name="telegram"
+          :url="urlTlg"
+          :loading="loading"
+          type="square"
+        />
+        <Social
+          v-if="urlWApp"
+          key-name="whatsapp"
+          :url="urlWApp"
+          :loading="loading"
+          type="square"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

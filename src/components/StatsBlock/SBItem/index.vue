@@ -2,16 +2,18 @@
   <div :class="['zpl-sb-item ', { loading }]">
     <!-- loading -->
     <div v-if="loading" class="zpl-sb-item-cont flex-col">
-      <div class="loading-title">
+      <div class="loading-title" v-if="title">
         <Skeleton type="body" class="w-[64px] h-[12px]" />
       </div>
-      <div class="loading-title">
-        <Skeleton type="body" class="w-[168px] h-[20px]" />
+      <div class="allContent">
+        <div class="loading-title" v-if="amount">
+          <Skeleton type="body" class="w-[168px] h-[20px]" />
+        </div>
+        <div class="loading-title" v-if="caption">
+          <Skeleton type="body" class="w-[120px] h-[12px]" />
+        </div>
       </div>
-      <div class="loading-title">
-        <Skeleton type="body" class="w-[120px] h-[12px]" />
-      </div>
-      <div class="loading-title pt-xs">
+      <div class="loading-title pt-xs" v-if="link">
         <Skeleton type="body" class="w-[46px] h-[12px]" />
       </div>
     </div>
@@ -21,18 +23,18 @@
       <span class="title" v-if="title">
         {{ title }}
         <Tooltip v-if="info" :text="info" indicator position="topCenter">
-            <Icon name="Info" class="zpl-reciept-icon" />
+            <Icon :name="infoType" class="zpl-reciept-icon" />
         </Tooltip>
       </span>
 
-      <span class="content">
-        <slot name="content" />
-      </span>
-
-      <span class="caption">
-        <slot name="caption" />
-      </span>
-      <Button :href="link" text="مشاهده" v-if="link" type="primaryText" class="pt-xs"/>
+      <div class="allContent">
+        <span class="content" v-if="amount" >
+            <span v-text="amount"></span>
+            <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
+        </span>
+        <span v-if="caption" class="caption" v-text="caption"></span>
+      </div>
+      <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>
     </div>
   </div>
 </template>
