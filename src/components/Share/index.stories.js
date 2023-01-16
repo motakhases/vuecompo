@@ -20,23 +20,23 @@ const Template = (_, { argTypes }) => ({
       title-post="This is product FELAAN"
     />
     <Share class="mt-[50px]"
-      title="نمونه کد"
-      text="<div>test no qr-code</div>"
-     title2="نمونه آدرس"
-     text2="https://zarinp.al/376218"
+           title="نمونه کد"
+           text="<div>test no qr-code</div>"
+           title2="نمونه آدرس"
+           text2="https://zarinp.al/376218"
     />
     <Share class="mt-[50px]"
-      text="https://zarinp.al/376218"
-      text2="."
-      url-tlg="."
-      url-w-app="."
-      loading
+           text="https://zarinp.al/376218"
+           text2="."
+           url-tlg="."
+           url-w-app="."
+           loading
     />
     <Share class="mt-[50px]"
-      text="."
-      text2="."
-      no-qr
-      loading
+           text="."
+           text2="."
+           no-qr
+           loading
     />
     </div>
   `,
