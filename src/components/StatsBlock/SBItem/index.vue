@@ -6,7 +6,7 @@
         <Skeleton type="body" class="w-[64px] h-[12px]" />
       </div>
       <div class="allContent">
-        <div class="loading-title" v-if="amount | numberFormat">
+        <div class="loading-title" v-if="amount">
           <Skeleton type="body" class="w-[168px] h-[20px]" />
         </div>
         <div class="loading-title" v-if="caption">
