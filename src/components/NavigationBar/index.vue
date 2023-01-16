@@ -60,7 +60,7 @@
 
     <div
       :class="['zpl-nav-overlay', { 'isDrawer': isDrawer  }]"
-      @click="toggle"
+      @click="toggleMenu"
     />
   </div>
 </template>
