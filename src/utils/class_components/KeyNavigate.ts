@@ -25,7 +25,7 @@ export default class KeyNavigate extends Vue {
 
   kKeydown:Array<string> = []
 
-  kDbg : DbgTool
+  kDbg : DbgTool|null = null
 
   kCurKeyMove = ''
 
@@ -35,9 +35,13 @@ export default class KeyNavigate extends Vue {
     const brkPoint1 = () => {
       // eslint-disable-next-line no-debugger
       //   debugger
+      // eslint-disable-next-line no-console
+      // console.log(1);
     }; const brkPoint2 = () => {
       // eslint-disable-next-line no-debugger
       debugger;
+      // eslint-disable-next-line no-console
+      // console.log(2);
     };
     this.kDbg.addDbg<KeyNavigate>([
       (dis, resultConds, i, args):any => {
@@ -321,8 +325,8 @@ export default class KeyNavigate extends Vue {
 
     prevUp(e);
 
-    this.kDbg.dbgChk(this, { key });
-    this.kDbg.dbgRun({ key });
+    this.kDbg?.dbgChk(this, { key });
+    this.kDbg?.dbgRun({ key });
 
     if (key === 'Tab') {
       if (this.kCurDests) {
@@ -357,6 +361,8 @@ export default class KeyNavigate extends Vue {
     lg(e, '---- onGlobalKeyup');
     // this.kDoBlurComp(e)
     // this.kDestroyKeyUp()
+    // eslint-disable-next-line no-console
+    // console.log(1);
   }
 
   kOnGlobalClick(e: Event) {

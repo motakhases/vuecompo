@@ -15,7 +15,7 @@ const Template = (_, { argTypes }) => ({
   methods: {},
   template: `
     <div class="dark:bg-surface-dark grid grid-cols-3 gap-xs p-sm rounded-md h-[300px] rtl">
-      <Search v-model="data" v-bind="$props" class="col-span-3" placeholder="متن"/>
+      <Search v-model="data" v-bind="$props" class="col-span-3" placeholder="متن" labelWidth="min-w-[100px]"/>
     </div>
   `,
 });
@@ -38,7 +38,7 @@ Default.args = {
       title: "شناسه پرداخت:",
       text: "1255",
       value: "pay",
-      isUnique: true
+      isUnique: true,
     },
     {
       id: 8,

@@ -1,7 +1,7 @@
 .zpl-button {
   /* Default */
   @apply rounded-sm inline-flex justify-center items-center text-center gap-x-xs w-max
-	border border-transparent outline-none font-medium text-ss-h3;
+	border border-transparent outline-none font-medium text-btn;
   /* Disabled */
   @apply disabled:cursor-default;
 
@@ -354,7 +354,7 @@
     @apply w-full;
   }
   .zpl-button-icon {
-    @apply h-xl w-xl flex-[0_0_24px] h-[22px] w-[22px]; //todo todo
+    @apply h-xl w-xl flex-[0_0_24px];
   }
   .zpl-button-loading {
     /* Default */

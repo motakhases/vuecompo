@@ -111,7 +111,12 @@
             @mouseleave="deactivateOption"
           >
             <div class="info">
-              <Label type="neutral" size="small" :text="option.title" />
+              <Label
+                type="neutral"
+                size="small"
+                :text="option.title"
+                :width="labelWidth"
+              />
               <div class="title">{{ option.text }}</div>
             </div>
           </li>
@@ -132,9 +137,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import logic from './logic';
-import './style.scss';
+import Vue from "vue";
+import logic from "./logic";
+import "./style.scss";
 
 export default Vue.extend({ mixins: [logic] });
 </script>

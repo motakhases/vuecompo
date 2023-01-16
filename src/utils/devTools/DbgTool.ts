@@ -36,7 +36,7 @@ export default class DbgTool {
         if (!eDbg.resultConds[i]) {
           return;
         }
-        i++;
+        i += 1;
       }
       eDbg.chker(args);
     });
@@ -44,7 +44,7 @@ export default class DbgTool {
 
   dbgChk(dis:any, args:{[index: string]: any}) {
     this.dbgHanlder.forEach((eDbg) => {
-      for (let i = 0; i < eDbg.conds.length; i++) {
+      for (let i = 0; i < eDbg.conds.length; i += 1) {
         if (typeof eDbg.conds[i](dis, eDbg.resultConds, i, args) === 'boolean') {
           return;
         }

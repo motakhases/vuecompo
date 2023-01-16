@@ -9,7 +9,7 @@ const Template = (_, { argTypes }) => ({
   components: { Share },
   props: Object.keys(argTypes),
   template: `
-  <div class="dark:bg-surface-dark" dir="rtl">
+    <div class="dark:bg-surface-dark" dir="rtl">
     <Share
       :title="$t('common.link')"
       text="https://zarinp.al/376218"
@@ -19,9 +19,9 @@ const Template = (_, { argTypes }) => ({
       url-w-app="https://zarinp.al/376218"
     />
     <Share
-   loading
-  />
-  </div>
+      loading
+    />
+    </div>
   `,
 });
 
