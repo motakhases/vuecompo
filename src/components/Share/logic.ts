@@ -28,11 +28,11 @@ export default class Share extends Vue {
 
   @Prop({ type: String, default: '' }) text2?: string;
 
-  @Prop({ type: String, default: '' }) readonly titlePost?: string;
+  @Prop({ type: String, default: '' }) titlePost?: string;
 
-  @Prop({ type: String, default: '' }) readonly urlTlg?: string;
+  @Prop({ type: String, default: '' }) urlTlg?: string;
 
-  @Prop({ type: String, default: '' }) readonly urlWApp?: string;
+  @Prop({ type: String, default: '' }) urlWApp?: string;
 
   @Prop({ type: Boolean, default: false }) noQr?: boolean;
 

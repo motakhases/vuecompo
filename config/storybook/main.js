@@ -1,4 +1,4 @@
-const comps = 'Card|Share|nav|StatsBlock|DataSheet|Timeline|Note|EmptyState|TopBar';
+// const comps = 'Card|Share|nav|StatsBlock|DataSheet|Timeline|Note|EmptyState|TopBar';
 module.exports = {
   stories: [
     // `../../src/components/@(${comps})*/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
