@@ -20,7 +20,7 @@
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "strictPropertyInitialization": false
+//    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*.ts",
