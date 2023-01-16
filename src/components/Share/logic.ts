@@ -45,7 +45,7 @@ export default class Share extends Vue {
     return '';
   }
 
-  private socialAdrs =  {
+  private socialAdrs = {
     telegram: 'https://t.me/share/url',
     whatsapp: 'https://api.whatsapp.com/send',
     twitter: 'https://twitter.com/share',
@@ -54,7 +54,7 @@ export default class Share extends Vue {
   private mkScoialUrl(socialName, zplAdr, text) {
     let res; const socialAdr = this.socialAdrs[socialName];
     switch (socialName) {
-    case 'telegram':case 'twitter':
+    case 'telegram': case 'twitter':
       res = `${socialAdr}?url=${zplAdr}`;
       if (text) {
         res += `&text=${text}`;
