@@ -21,7 +21,7 @@
   }
 
   &.isFocused{
-    @apply shadow-border-focus-heavy;
+    @apply shadow-border-focus-heavy rounded-sm;
     @apply dark:shadow-dark-border-focus-heavy;
   }
 
