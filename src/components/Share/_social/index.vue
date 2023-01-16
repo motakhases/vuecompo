@@ -1,19 +1,10 @@
 <template>
   <div class="zpl-social">
+    <Skeleton v-if="loading" type="button" class="w-[48px] h-[48px]"/>
     <!-- Icon -->
-    <div class="zpl-social-icon" v-if="loading">
-      <Skeleton type="iconCircle" />
-    </div>
-    <a v-else :href="socials[keyName]" target="_blank" :class="['zpl-social-icon',`_${type}`]">
-      <Icon :name="keyName" class="_icon" />
+    <a v-else :href="urlAdr" target="_blank" :class="['zpl-social-icon',`_${typeStyle}`]">
+      <Icon :name="typeIcon" class="_icon" />
     </a>
-
-    <!-- Name -->
-    <Skeleton v-if="loading" type="body" class="w-[54px]" />
-
-    <span v-else-if="name" class="zpl-social-name">
-      {{ name }}
-    </span>
   </div>
 </template>
 

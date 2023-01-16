@@ -12,23 +12,13 @@ import { SocialType } from '@/types';
   },
 })
 export default class Social extends Vue {
-  @Prop({ type: String, required: true }) keyName!: string;
+  @Prop({ type: String, required: true }) urlAdr?: string;
 
-  @Prop({ type: String, default: '' }) name?: string;
+  @Prop({ type: String }) typeStyle?: string;
 
-  @Prop({ type: String }) title!: string;
+  @Prop({ type: String }) text?: string;
 
-  @Prop({ type: String }) url!: string;
+  @Prop({ type: Boolean, default: false }) loading?: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
-
-  @Prop({ type: String, default: 'circle' }) type?: SocialType;
-
-  get socials() {
-    return {
-      telegram: `https://t.me/share/url?url=${this.url}&text=${this.title}`,
-      whatsapp: `https://api.whatsapp.com/send?text=${this.url} – ${this.title}`,
-      twitter: `https://twitter.com/share?url=${this.url}&text=${this.title}`,
-    };
-  }
+  @Prop({ type: String, default: 'circle' }) typeIcon?: SocialType;
 }

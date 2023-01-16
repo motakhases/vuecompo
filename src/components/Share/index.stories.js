@@ -17,9 +17,26 @@ const Template = (_, { argTypes }) => ({
       text2="https://zarinp.al/376218"
       url-tlg="https://zarinp.al/376218"
       url-w-app="https://zarinp.al/376218"
+      title-post="This is product FELAAN"
     />
-    <Share
-      loading
+    <Share class="mt-[50px]"
+           title="نمونه کد"
+           text="<div>test no qr-code</div>"
+           title2="نمونه آدرس"
+           text2="https://zarinp.al/376218"
+    />
+    <Share class="mt-[50px]"
+           text="https://zarinp.al/376218"
+           text2="."
+           url-tlg="."
+           url-w-app="."
+           loading
+    />
+    <Share class="mt-[50px]"
+           text="."
+           text2="."
+           no-qr
+           loading
     />
     </div>
   `,
