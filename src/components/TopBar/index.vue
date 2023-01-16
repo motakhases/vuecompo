@@ -31,7 +31,7 @@
           />
         </div>
       </div>
-      <div class="zpl-topbar-left-side">
+      <div class="zpl-topbar-left-side" v-if="titleTooltip">
         <div class="zpl-topbar-ticket-btn">
           <Tooltip
             :text="titleTooltip.ticket"
