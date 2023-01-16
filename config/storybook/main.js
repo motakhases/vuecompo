@@ -1,9 +1,9 @@
 const comps = 'Card|Share|nav|StatsBlock|DataSheet|Timeline|Note|EmptyState|TopBar';
 module.exports = {
   stories: [
-    `../../src/components/@(${comps})*/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
-    `../../stories/@(${comps})*.stories.js`,
-    // '../../**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    // `../../src/components/@(${comps})*/**/*.stories.@(js|jsx|ts|tsx|mdx)`,
+    // `../../stories/@(${comps})*.stories.js`,
+    '../../**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [
     '@storybook/addon-essentials',
