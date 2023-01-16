@@ -21,6 +21,8 @@ export default class StatsBlockItem extends Vue {
 
   @Prop({ type: String }) amount?: string;
 
+  @Prop({ type: String }) numberFormat?: string;
+
   @Prop({ type: String }) caption?: string;
 
   @Prop({ type: String, default: 'ریال' }) unit?: string;

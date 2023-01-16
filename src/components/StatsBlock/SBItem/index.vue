@@ -28,8 +28,8 @@
       </span>
 
       <div class="allContent">
-        <span class="content" v-if="amount" >
-            <span v-text="amount"></span>
+        <span class="content" v-if="amount||numberFormat" >
+            <span v-text="amount||numberFormat"></span>
             <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
         </span>
         <span v-if="caption" class="caption" v-text="caption"></span>
