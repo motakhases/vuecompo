@@ -22,24 +22,24 @@ const Template = (_, { argTypes }) => ({
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۵۴۲۰۰۰۰"
-          caption="مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال"
+          amount="543000"
+          caption="مجموع درآمد از ابتدا 24,582,000 ریال"
           link="my-link"
           row>
         </StatsBlockItem>
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۰"
-          caption="مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال"
+          amount="0"
+          caption="مجموع درآمد از ابتدا 24,582,000 ریال"
           link="my-link"
           row>
         </StatsBlockItem>
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۵۴۲۰۰۰۰"
-          caption="مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال"
+          amount="543000"
+          caption="مجموع درآمد از ابتدا 24,582,000 ریال"
           row>
         </StatsBlockItem>
       </StatsBlockRow>
@@ -47,15 +47,15 @@ const Template = (_, { argTypes }) => ({
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۵۴۲۰۰۰۰"
+          amount="543000"
           link="my-link"
           row>
         </StatsBlockItem>
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۲۰"
-          caption="مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال"
+          amount="20"
+          caption="مجموع درآمد از ابتدا 24,582,000 ریال"
           unit=""
           link="my-link"
           row>

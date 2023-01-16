@@ -28,8 +28,10 @@
       </span>
 
       <div class="allContent">
-        <span class="content" v-if="amount>-1" >
-            <span v-text="amount | numberFormat"></span>
+        <span class="content" v-if="amount" >
+            <span>
+              {{ amount | numberFormat }}
+            </span>
             <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
         </span>
         <span v-if="caption" class="caption" v-text="caption"></span>
