@@ -6,7 +6,7 @@
         <Skeleton type="body" class="w-[64px] h-[12px]" />
       </div>
       <div class="allContent">
-        <div class="loading-title" v-if="amount">
+        <div class="loading-title" v-if="amount | numberFormat">
           <Skeleton type="body" class="w-[168px] h-[20px]" />
         </div>
         <div class="loading-title" v-if="caption">
@@ -28,8 +28,8 @@
       </span>
 
       <div class="allContent">
-        <span class="content" v-if="amount||numberFormat" >
-            <span v-text="amount||numberFormat"></span>
+        <span class="content" v-if="amount>-1" >
+            <span v-text="amount | numberFormat"></span>
             <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
         </span>
         <span v-if="caption" class="caption" v-text="caption"></span>

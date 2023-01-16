@@ -19,9 +19,7 @@ export default class StatsBlockItem extends Vue {
 
   @Prop({ type: String }) link?: string;
 
-  @Prop({ type: String }) amount?: string;
-
-  @Prop({ type: String }) numberFormat?: string;
+  @Prop({ type: Number }) amount?: number;
 
   @Prop({ type: String }) caption?: string;
 

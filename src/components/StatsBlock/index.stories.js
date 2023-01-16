@@ -22,7 +22,7 @@ const Template = (_, { argTypes }) => ({
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۵٬۴۲۰٬۰۰۰"
+          amount="۵۴۲۰۰۰۰"
           caption="مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال"
           link="my-link"
           row>
@@ -38,7 +38,7 @@ const Template = (_, { argTypes }) => ({
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۵٬۴۲۰٬۰۰۰"
+          amount="۵۴۲۰۰۰۰"
           caption="مجموع درآمد از ابتدا ۲۴٬۵۸۲٬۰۰۰ ریال"
           row>
         </StatsBlockItem>
@@ -47,7 +47,7 @@ const Template = (_, { argTypes }) => ({
         <StatsBlockItem
           title="تعداد تراکنش‌های موفق"
           info="اطلاعات"
-          amount="۵٬۴۲۰٬۰۰۰"
+          amount="۵۴۲۰۰۰۰"
           link="my-link"
           row>
         </StatsBlockItem>
@@ -63,7 +63,7 @@ const Template = (_, { argTypes }) => ({
       </StatsBlockRow>
     </StatsBlock>
     <StatsBlock class="mb-xl" loading :loadingNumber="1"
-                title="." link="." amount="." caption="."
+                title="." link="." amount="0" caption="."
     />
   </div>
   `,

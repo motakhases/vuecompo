@@ -22,7 +22,7 @@ export default class StatsBlock extends Vue {
 
   @Prop({ type: String }) link?: string;
 
-  @Prop({ type: String }) amount?: string;
+  @Prop({ type: Number }) amount?: number;
 
   @Prop({ type: String }) caption?: string;
 }
