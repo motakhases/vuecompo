@@ -122,6 +122,11 @@ export default class NavigationBar extends KeyNavigate {
   }
 
   mounted(): void {
+    const [slg] = toInt(screens.lg);
+    const width = window.innerWidth;
+    if (width < slg) {
+      this.isToggle = false;
+    }
     this.onResize();
     window.addEventListener('resize', this.onResize);
     window.addEventListener('click', this.kOnGlobalClick);
