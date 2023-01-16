@@ -19,6 +19,12 @@ const Template = (_, { argTypes }) => ({
     };
   },
   methods: {
+    deleteFilter(){
+      console.log("deleteFilter");
+    },
+    updateFilter(){
+      console.log("updateFilter");
+    },
     filter() {
       console.log("Try to add queries...");
       const filterList = {};
@@ -44,7 +50,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="   dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <FilterBox title="عنوان کارت" :filter="filter" title="تاریخ">
+	  <FilterBox title="عنوان کارت" :filter="filter" >
     <div class="w-full">
         <Radio
     v-model="filters.status"
@@ -61,7 +67,7 @@ const Template = (_, { argTypes }) => ({
     </div>
 
     </FilterBox>
-    <FilterBox title="عنوان کارت" :filter="filter" title="یتاریخ">
+    <FilterBox title="عنوان کارت" :filter="filter" >
     <div class="w-full">
     <FilterDate
     @updateFilter="updateFilter"

@@ -67,7 +67,7 @@ const Template = (_, { argTypes }) => ({
       ticketingBadge="5"
       notificationBadge="2"
       :titleTooltip="titleTooltip"
-      :hasMenu
+      :hasMenu=false
     />
     <h1 class="mt-sm font-bold dark:text-surface"> تاپ بار با لوگو در وسط</h1>
 

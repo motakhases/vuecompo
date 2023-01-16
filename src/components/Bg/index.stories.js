@@ -12,7 +12,6 @@ const Template = (args, { argTypes }) => ({
     return {
       bgImages: [
         "Transactions",
-        "ProductPaymentLink",
         "Coupons",
         "ProductPaymentLink",
         "Reconciliation",

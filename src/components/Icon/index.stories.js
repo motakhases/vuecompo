@@ -97,7 +97,6 @@ const Template = (_, { argTypes }) => ({
         "Info",
         "AtSign",
         "CircleDelete",
-        "Refresh",
         "SearchSmall",
         "Refresh",
         "ExcelColor",

@@ -7,7 +7,7 @@
         <Skeleton type="body" class="w-[56px] mt-sm" />
       </div>
     </div>
-    <div class="zpl-bank-cards-bottom py-lg" v-if="amont || rrn">
+    <div class="zpl-bank-cards-bottom py-lg" v-if="amount || rrn">
       <div class="flex justify-between" v-if="amount">
         <Skeleton type="body" class="w-1/4" />
         <Skeleton type="body" class="w-1/5" />

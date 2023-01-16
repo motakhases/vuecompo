@@ -19,6 +19,10 @@ import FilledArrowDown from './icons/FilledArrowDown.vue';
 import FilledArrowUp from './icons/FilledArrowUp.vue';
 import TickLarge from './icons/TickLarge.vue';
 import TickSmall from './icons/TickSmall.vue';
+import Gateway from './icons/Gateway.vue';
+import Websitebuild from './icons/WebsiteBuild.vue';
+import MobileSetting from './icons/MobileSettings.vue';
+
 import Warning from './icons/Warning.vue';
 import WarningOutline from './icons/WarningOutline.vue';
 import MenuBurger from './icons/MenuBurger.vue';
@@ -145,6 +149,8 @@ import Add from './icons/Add.vue';
     ArrowRight,
     ArrowFirst,
     ArrowLast,
+    Gateway,
+    Websitebuild,
     AlarmTime,
     Star,
     NightModeCircle,
@@ -158,6 +164,7 @@ import Add from './icons/Add.vue';
     CheckMarkCircleOutlined,
     Reload,
     Letter,
+    MobileSetting,
     LetterOpen,
     Discount,
     DollarFill,
