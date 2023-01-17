@@ -78,10 +78,10 @@ export default {
       return `
         <div class="c-t">
           ${
-            xType === 'day'
-              ? `<div>${hour(date)}</div>`
-              : `<div>${hour(date)} - ${dayName(date)} - ${month(date)}</div>`
-          }
+  xType === 'day'
+    ? `<div>${hour(date)}</div>`
+    : `<div>${hour(date)} - ${dayName(date)} - ${month(date)}</div>`
+}
           <div class="series">
             ${generateSeries(w, dataPointIndex)}
           </div>

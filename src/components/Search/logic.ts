@@ -356,9 +356,9 @@ export default class Search extends Vue {
               value:
                 indicesArr.length - 1 > i
                   ? str
-                      .substring(item.end, indicesArr[i + 1].start)
-                      .trim()
-                      .replace(/  +/g, ' ')
+                    .substring(item.end, indicesArr[i + 1].start)
+                    .trim()
+                    .replace(/  +/g, ' ')
                   : str.substring(item.end).trim().replace(/  +/g, ' '),
               key:
                 this.options.filter((option) => (option.title === title ? option.key : ''))[0].key ??
@@ -368,9 +368,9 @@ export default class Search extends Vue {
             this.shallowTextRef[index].innerHTML =
               indicesArr.length - 1 > i
                 ? str
-                    .substring(item.end, indicesArr[i + 1].start)
-                    .trim()
-                    .replace(/  +/g, ' ')
+                  .substring(item.end, indicesArr[i + 1].start)
+                  .trim()
+                  .replace(/  +/g, ' ')
                 : str.substring(item.end).trim().replace(/  +/g, ' ');
           });
           finalArr.forEach((item) => {

@@ -7,5 +7,5 @@ export default (value) => {
   // eslint-disable-next-line radix
   return value
     .toString()
-    .replace(/\d/g, (match) => ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'][parseInt(match)]);
+    .replace(/\d/g, (match) => ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'][parseInt(match, 10)]);
 };

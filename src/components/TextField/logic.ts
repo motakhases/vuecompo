@@ -99,12 +99,12 @@ export default class TextField extends Vue {
   formattedValue(): string {
     if (this.type === 'number') {
       switch (this.separator) {
-        case 'comma':
-          return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        case 'dash':
-          return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
-        default:
-          return this.value;
+      case 'comma':
+        return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      case 'dash':
+        return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
+      default:
+        return this.value;
       }
     } else {
       return this.value;

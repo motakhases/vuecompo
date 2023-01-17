@@ -37,14 +37,14 @@ export default class TextBox extends Vue {
 
   get rows(): number {
     switch (this.size) {
-      case 'small':
-        return 2;
-      case 'medium':
-        return 3;
-      case 'large':
-        return 4;
-      default:
-        return 3;
+    case 'small':
+      return 2;
+    case 'medium':
+      return 3;
+    case 'large':
+      return 4;
+    default:
+      return 3;
     }
   }
 

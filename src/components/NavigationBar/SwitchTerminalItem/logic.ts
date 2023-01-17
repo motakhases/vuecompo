@@ -42,23 +42,23 @@ export default class SwitchTerminalItem extends Vue {
     let statusText: Translation = '';
 
     switch (state) {
-      case 'ACTIVE':
-        statusText = this.$i18n.t('status.ACTIVE');
-        break;
-      case 'INACTIVE':
-        statusText = this.$i18n.t('status.INACTIVE');
-        break;
-      case 'PENDING_SHAPARAK':
-        statusText = this.$i18n.t('status.PENDING_SHAPARAK');
-        break;
-      case 'PENDING':
-        statusText = this.$i18n.t('status.PENDING');
-        break;
-      case 'REJECTED':
-        statusText = this.$i18n.t('status.REJECTED');
-        break;
-      default:
-        break;
+    case 'ACTIVE':
+      statusText = this.$i18n.t('status.ACTIVE');
+      break;
+    case 'INACTIVE':
+      statusText = this.$i18n.t('status.INACTIVE');
+      break;
+    case 'PENDING_SHAPARAK':
+      statusText = this.$i18n.t('status.PENDING_SHAPARAK');
+      break;
+    case 'PENDING':
+      statusText = this.$i18n.t('status.PENDING');
+      break;
+    case 'REJECTED':
+      statusText = this.$i18n.t('status.REJECTED');
+      break;
+    default:
+      break;
     }
 
     return statusText;

@@ -49,18 +49,18 @@ export default class Share extends Vue {
     let res;
     const socialAdr = this.socialAdrs[socialName];
     switch (socialName) {
-      case 'telegram':
-      case 'twitter':
-        res = `${socialAdr}?url=${zplAdr}`;
-        if (text) {
-          res += `&text=${text}`;
-        }
-        break;
-      default: // whatsapp
-        res = `${socialAdr}?text=${zplAdr}`;
-        if (text) {
-          res += ` – ${text}`;
-        }
+    case 'telegram':
+    case 'twitter':
+      res = `${socialAdr}?url=${zplAdr}`;
+      if (text) {
+        res += `&text=${text}`;
+      }
+      break;
+    default: // whatsapp
+      res = `${socialAdr}?text=${zplAdr}`;
+      if (text) {
+        res += ` – ${text}`;
+      }
     }
     return res;
   }

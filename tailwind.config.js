@@ -1,3 +1,4 @@
+const typography = require('@tailwindcss/typography');
 const {
   colors,
   fontFamily,
@@ -44,6 +45,6 @@ module.exports = {
       center: true,
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [typography],
   variants: {},
 };

@@ -13,21 +13,21 @@ export default class Status extends Vue {
     let text = '';
 
     switch (this.level) {
-      case 'BASIC':
-        text = 'تایید اولیه';
-        break;
-      case 'GOLD':
-        text = 'طلایی';
-        break;
-      case 'NEW':
-        text = 'عضو جدید';
-        break;
-      case 'SILVER':
-        text = 'نقره‌ای';
-        break;
+    case 'BASIC':
+      text = 'تایید اولیه';
+      break;
+    case 'GOLD':
+      text = 'طلایی';
+      break;
+    case 'NEW':
+      text = 'عضو جدید';
+      break;
+    case 'SILVER':
+      text = 'نقره‌ای';
+      break;
 
-      default:
-        break;
+    default:
+      break;
     }
 
     return text;

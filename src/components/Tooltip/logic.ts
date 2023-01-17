@@ -47,41 +47,41 @@ export default class Tooltip extends Vue {
         this.$set(this.style, 'top', `${top + height / 2 - tooltipHeight / 2}px`);
       }
       switch (this.position) {
-        case 'left':
-          this.$set(this.style, 'left', `${left - tooltipWidth - distance}px`);
-          this.$set(this.style, 'top', `${top + height / 2 - tooltipHeight / 2}px`);
-          break;
-        case 'right':
-          this.$set(this.style, 'left', `${left + width + distance}px`);
-          this.$set(this.style, 'top', `${top}px`);
-          break;
-        case 'bottomRight':
-          this.$set(this.style, 'left', `${left + width - tooltipWidth}px`);
-          this.$set(this.style, 'top', `${top + height + distance}px`);
-          break;
-        case 'bottomCenter':
-          this.$set(this.style, 'left', `${left + width / 2 - tooltipWidth / 2}px`);
-          this.$set(this.style, 'top', `${top + height + distance}px`);
-          break;
-        case 'bottomLeft':
-          this.$set(this.style, 'left', `${left}px`);
-          this.$set(this.style, 'top', `${top + height + distance}px`);
-          break;
-        case 'topRight':
-          this.$set(this.style, 'left', `${left + width - tooltipWidth}px`);
-          this.$set(this.style, 'top', `${top - tooltipHeight - distance}px`);
-          break;
-        case 'topCenter':
-          this.$set(this.style, 'left', `${left + width / 2 - tooltipWidth / 2}px`);
-          this.$set(this.style, 'top', `${top - tooltipHeight - distance}px`);
-          break;
-        case 'topLeft':
-          this.$set(this.style, 'left', `${left}px`);
-          this.$set(this.style, 'top', `${top - tooltipHeight - distance}px`);
-          break;
-        default:
-          this.$set(this.style, 'left', `${left - tooltipWidth - distance}px`);
-          this.$set(this.style, 'top', `${top}px`);
+      case 'left':
+        this.$set(this.style, 'left', `${left - tooltipWidth - distance}px`);
+        this.$set(this.style, 'top', `${top + height / 2 - tooltipHeight / 2}px`);
+        break;
+      case 'right':
+        this.$set(this.style, 'left', `${left + width + distance}px`);
+        this.$set(this.style, 'top', `${top}px`);
+        break;
+      case 'bottomRight':
+        this.$set(this.style, 'left', `${left + width - tooltipWidth}px`);
+        this.$set(this.style, 'top', `${top + height + distance}px`);
+        break;
+      case 'bottomCenter':
+        this.$set(this.style, 'left', `${left + width / 2 - tooltipWidth / 2}px`);
+        this.$set(this.style, 'top', `${top + height + distance}px`);
+        break;
+      case 'bottomLeft':
+        this.$set(this.style, 'left', `${left}px`);
+        this.$set(this.style, 'top', `${top + height + distance}px`);
+        break;
+      case 'topRight':
+        this.$set(this.style, 'left', `${left + width - tooltipWidth}px`);
+        this.$set(this.style, 'top', `${top - tooltipHeight - distance}px`);
+        break;
+      case 'topCenter':
+        this.$set(this.style, 'left', `${left + width / 2 - tooltipWidth / 2}px`);
+        this.$set(this.style, 'top', `${top - tooltipHeight - distance}px`);
+        break;
+      case 'topLeft':
+        this.$set(this.style, 'left', `${left}px`);
+        this.$set(this.style, 'top', `${top - tooltipHeight - distance}px`);
+        break;
+      default:
+        this.$set(this.style, 'left', `${left - tooltipWidth - distance}px`);
+        this.$set(this.style, 'top', `${top}px`);
       }
 
       // if left space is smaller than menu width so open menue on right

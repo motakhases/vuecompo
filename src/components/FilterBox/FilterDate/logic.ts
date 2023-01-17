@@ -73,31 +73,31 @@ export default class FilterDate extends Vue {
   @Watch('date')
   watchDate(): string {
     switch (this.date) {
-      case 'TODAY':
-        this.value = this.today;
-        this.shownValue = this.getDateValue(this.date);
-        break;
-      case 'CURRENT_WEEK':
-        this.value = [this.startOfWeek, this.endOfWeek];
-        this.shownValue = this.getDateValue(this.date);
-        break;
-      case 'CURRENT_MONTH':
-        this.value = [this.startOfMonth, this.endOfMonth];
-        this.shownValue = this.getDateValue(this.date);
-        break;
-      case 'LAST_MONTH':
-        this.value = [this.lastMonth, this.today];
-        this.shownValue = this.getDateValue(this.date);
-        break;
-      case 'LAST_WEEK':
-        this.value = [this.lastWeek, this.today];
-        this.shownValue = this.getDateValue(this.date);
-        break;
-      case 'OPTIONAL_PERIOD':
-        this.shownValue = '';
-        break;
-      default:
-        return '';
+    case 'TODAY':
+      this.value = this.today;
+      this.shownValue = this.getDateValue(this.date);
+      break;
+    case 'CURRENT_WEEK':
+      this.value = [this.startOfWeek, this.endOfWeek];
+      this.shownValue = this.getDateValue(this.date);
+      break;
+    case 'CURRENT_MONTH':
+      this.value = [this.startOfMonth, this.endOfMonth];
+      this.shownValue = this.getDateValue(this.date);
+      break;
+    case 'LAST_MONTH':
+      this.value = [this.lastMonth, this.today];
+      this.shownValue = this.getDateValue(this.date);
+      break;
+    case 'LAST_WEEK':
+      this.value = [this.lastWeek, this.today];
+      this.shownValue = this.getDateValue(this.date);
+      break;
+    case 'OPTIONAL_PERIOD':
+      this.shownValue = '';
+      break;
+    default:
+      return '';
     }
     this.$emit('updatedValue', this.shownValue);
 

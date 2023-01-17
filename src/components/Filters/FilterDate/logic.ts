@@ -60,23 +60,23 @@ export default class FilterDate extends Vue {
   @Watch('date')
   watchDate(): string {
     switch (this.date) {
-      case 'TODAY':
-        this.value = this.today;
-        break;
-      case 'CURRENT_WEEK':
-        this.value = [this.startOfWeek, this.endOfWeek];
-        break;
-      case 'CURRENT_MONTH':
-        this.value = [this.startOfMonth, this.endOfMonth];
-        break;
-      case 'LAST_MONTH':
-        this.value = [this.lastMonth, this.today];
-        break;
-      case 'LAST_WEEK':
-        this.value = [this.lastWeek, this.today];
-        break;
-      default:
-        return '';
+    case 'TODAY':
+      this.value = this.today;
+      break;
+    case 'CURRENT_WEEK':
+      this.value = [this.startOfWeek, this.endOfWeek];
+      break;
+    case 'CURRENT_MONTH':
+      this.value = [this.startOfMonth, this.endOfMonth];
+      break;
+    case 'LAST_MONTH':
+      this.value = [this.lastMonth, this.today];
+      break;
+    case 'LAST_WEEK':
+      this.value = [this.lastWeek, this.today];
+      break;
+    default:
+      return '';
     }
     return '';
   }

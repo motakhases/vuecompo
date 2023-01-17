@@ -99,25 +99,25 @@ export default class Otp extends Vue {
   // Handle cases of backspace, delete, left arrow, right arrow
   handleOnKeyDown(event) {
     switch (event.keyCode) {
-      case BACKSPACE:
-        event.preventDefault();
-        this.changeCodeAtFocus('');
-        this.focusPrevInput();
-        break;
-      case DELETE:
-        event.preventDefault();
-        this.changeCodeAtFocus('');
-        break;
-      case LEFT_ARROW:
-        event.preventDefault();
-        this.focusPrevInput();
-        break;
-      case RIGHT_ARROW:
-        event.preventDefault();
-        this.focusNextInput();
-        break;
-      default:
-        break;
+    case BACKSPACE:
+      event.preventDefault();
+      this.changeCodeAtFocus('');
+      this.focusPrevInput();
+      break;
+    case DELETE:
+      event.preventDefault();
+      this.changeCodeAtFocus('');
+      break;
+    case LEFT_ARROW:
+      event.preventDefault();
+      this.focusPrevInput();
+      break;
+    case RIGHT_ARROW:
+      event.preventDefault();
+      this.focusNextInput();
+      break;
+    default:
+      break;
     }
   }
 }
