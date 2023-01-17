@@ -26,6 +26,9 @@ const Template = (_, { argTypes }) => ({
       ],
     };
   },
+  filter() {
+    console.log('filte');
+  },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
     <h1 class="mt-sm font-bold dark:text-surface"> دکمه فیلتر </h1>
