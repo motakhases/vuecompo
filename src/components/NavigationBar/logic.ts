@@ -8,12 +8,10 @@ import Icon from '@/components/Icon/index.vue';
 import Logo from '@/components/Logo/index.vue';
 import Button from '@/components/Button/index.vue';
 import KeyNavigate from '@/utils/class_components/KeyNavigate';
+import { screens } from '@/designTokens/screens';
+import { toInt } from '@/utils/converts';
 import NavItem from './NavItem/index.vue';
 import SwitchTerminalPopover from './SwitchTerminalPopover/index.vue';
-
-const { screens } = require('@/designTokens/screens');
-
-const { toInt } = require('@/utils/converts');
 
 @Component({
   components: {

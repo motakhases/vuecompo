@@ -7,8 +7,7 @@ import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
 import PremiumBadge from '@/components/PremiumBadge/index.vue';
 import KeyNavigate from '@/utils/class_components/KeyNavigate';
-
-const { lg } = require('@/utils/helper');
+import { lg } from '@/utils/helper';
 
 @Component({
   components: {

@@ -5,12 +5,11 @@ import { INavigationBarTerminal, INavigationBarActiveTerminal } from '@/types';
 
 // Components
 import KeyNavigate from '@/utils/class_components/KeyNavigate';
+import { useWindowSize } from '@vueuse/core';
 import Create from '../Create/index.vue';
 import Overview from '../Overview/index.vue';
 import SwitchTerminal from '../SwitchTerminal/index.vue';
 import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
-
-const { useWindowSize } = require('@vueuse/core');
 
 @Component({
   components: {
