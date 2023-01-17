@@ -20,15 +20,12 @@ const Template = (_, { argTypes }) => ({
   },
   methods: {
     deleteFilter() {
-      debugger;
       console.log('deleteFilter');
     },
     updateFilter() {
-      debugger;
       console.log('updateFilter');
     },
     filters1() {
-      debugger;
       console.log('Try to add queries...');
       const filterList = {};
 
