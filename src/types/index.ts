@@ -234,10 +234,10 @@ export type TitleTooltip = {
   userProfile : string,
 }
 
-export enum SocialType {
+/* export enum SocialType {
   circle = 'circle',
   square = 'square',
-}
+} */
 
 /**
  * @/components/StatsBlock

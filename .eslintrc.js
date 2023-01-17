@@ -25,7 +25,7 @@ module.exports = {
     'vue/script-setup-uses-vars': 'off',
     // hamed
     quotes: 'warn',
-    'no-shadow': 'off', // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
+    'no-shadow': 'warn', // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
     '@typescript-eslint/no-shadow': ['error'],
     'lines-between-class-members': 'warn',
     'keyword-spacing': 'warn',
@@ -40,7 +40,7 @@ module.exports = {
     'no-plusplus': 'warn', // line:208 KeyNavigate return ++this.k_curOrd;
     'brace-style': 'warn',
     'no-else-return': 'warn',
-    'no-param-reassign': 'off', // line:46 KeyNavigate resultConds[i] = true;
+    'no-param-reassign': 'warn', // line:46 KeyNavigate resultConds[i] = true;
     'prefer-destructuring': 'warn',
     'object-curly-spacing': 'warn',
     'padded-blocks': 'warn',

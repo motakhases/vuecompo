@@ -3,7 +3,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 // Components
 import Icon from '@/components/Icon/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
-import { SocialType } from '@/types';
+// import { SocialType } from '@/types';
 
 @Component({
   components: {
@@ -22,7 +22,7 @@ export default class Social extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
-  @Prop({ type: String, default: 'circle' }) type?: SocialType;
+  @Prop({ type: String, default: 'circle' }) type?: string;
 
   get socials() {
     return {
