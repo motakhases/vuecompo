@@ -15,12 +15,12 @@
     "baseUrl": ".",
     "declaration": true,
     "noImplicitAny": false,
-    "types": ["webpack-env", "jest"],
+    "types": [],
     "paths": {
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx", "index.d.ts"],
-  "exclude": ["node_modules", "dist", "./lang/**/*"]
+  "exclude": ["node_modules", "dist", "lang"]
 }

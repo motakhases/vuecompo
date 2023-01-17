@@ -233,10 +233,7 @@ export type TitleTooltip = {
   notification: string;
   userProfile: string;
 };
-export enum SocialType {
-  circle = 'circle',
-  square = 'square',
-}
+export type SocialType = 'square' | 'circle';
 
 /**
  * @/components/StatsBlock
