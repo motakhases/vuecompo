@@ -23,7 +23,7 @@
       <span class="title" v-if="title">
         {{ title }}
         <Tooltip v-if="info" :text="info" indicator position="topCenter">
-            <Icon :name="infoType" class="zpl-reciept-icon" />
+            <Icon :name="infoType" />
         </Tooltip>
       </span>
 
