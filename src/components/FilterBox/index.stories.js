@@ -71,6 +71,7 @@ const Template = (_, { argTypes }) => ({
 
     </FilterBox>
     <FilterBox title="عنوان کارت" :filter="filters1" >
+
     <div class="w-full">
     <FilterDate
     @updateFilter="updateFilter"
