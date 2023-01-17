@@ -15,7 +15,7 @@
     "baseUrl": ".",
     "declaration": true,
     "noImplicitAny": false,
-    "types": [],
+    "types": ["webpack-env", "jest"],
     "paths": {
       "@/*": ["src/*"]
     },
