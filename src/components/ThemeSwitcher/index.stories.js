@@ -14,18 +14,21 @@ const Template = (_, { argTypes }) => ({
     };
   },
   methods: {
-    toggleModal() {
+    toggle() {
       this.modal = !this.modal;
+    },
+    submit() {
+      console.log('close');
     },
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
-    <ThemeSwitcher :open="modal" :toggleModal="toggleModal" />
+    <ThemeSwitcher :open="modal" :toggleModal="toggle" />
     <Button
     type="primary"
     size="medium"
     text="کلیک کن"
-    @click.native="toggleModal"
+    @click.native="submit"
   />
   </div>
   `,

@@ -11,7 +11,6 @@ const Template = (_, { argTypes }) => ({
   components: { CheckboxCard, Button },
   data() {
     return {
-      image,
       check: ['first'],
     };
   },

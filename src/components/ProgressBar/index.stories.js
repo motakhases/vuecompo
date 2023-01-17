@@ -10,7 +10,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      pro: 0,
+      pro: '0',
     };
   },
   methods: {
@@ -23,7 +23,6 @@ const Template = (_, { argTypes }) => ({
   <div class="p-sm relative rounded-md rtl h-[300px]">
     <div class="w-[250px] absolute rtl flex flex-col gap-md">
       <ProgressBar
-        :items="data"
         title="در حال آپلود Filename.png"
         percent="25"
         type="indeterminate"
