@@ -11,8 +11,11 @@
         <slot name="actions" />
       </div>
     </div>
+    <h4 class="zpl-card-helper mt-xl" v-if="helper && !loading">
+      {{ helper }}
+    </h4>
     <!-- body -->
-    <div :class="{ 'zpl-card-content': title }" v-if="hasContent">
+    <div :class="[{ 'zpl-card-content': title },!helper?'pt-xl':'pt-md']" v-if="hasContent">
       <slot />
     </div>
     <div class="flex gap-sm items-center mt-sm">

@@ -15,6 +15,8 @@ export default class Card extends Vue {
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
+  @Prop({ type: String }) readonly helper?: string;
+
   hasContent = false
 
   toggleSlot() {
