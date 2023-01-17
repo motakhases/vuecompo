@@ -30,7 +30,6 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'no-param-reassign': 'off', // KeyNavigate: resultConds[i] = true;
   },
   overrides: [
     {

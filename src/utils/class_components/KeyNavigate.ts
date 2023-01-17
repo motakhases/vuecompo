@@ -40,16 +40,18 @@ export default class KeyNavigate extends Vue {
     this.kDbg.addDbg<KeyNavigate>(
       [
         (dis, resultConds, i, args): any => {
+          const res = resultConds;
           if (args.key === 'Tab') {
             if (dis.kFindKeyDown('Shift')) {
-              resultConds[i] = true;
+              res[i] = true;
             }
-            resultConds[i] = false;
+            res[i] = false;
           }
         },
         (dis, resultConds, i, args) => {
+          const res = resultConds;
           if (args.key === 'Enter') {
-            resultConds[i] = true;
+            res[i] = true;
           }
         },
       ],
@@ -59,8 +61,9 @@ export default class KeyNavigate extends Vue {
     this.kDbg.addDbg<KeyNavigate>(
       [
         (dis, resultConds, i) => {
+          const res = resultConds;
           if (dis.kFindKeyDown('z')) {
-            resultConds[i] = true;
+            res[i] = true;
           }
         },
       ],
@@ -113,6 +116,7 @@ export default class KeyNavigate extends Vue {
   }
 
   private kTrigger(e, key, destComp, justBlur, { onBlur, onFocus, onEnter }: any) {
+    const compute = destComp;
     const clicking = !key;
     if (key === 'Tab' || clicking) {
       if (justBlur) {
@@ -126,10 +130,10 @@ export default class KeyNavigate extends Vue {
     if (key === 'Enter') {
       if (onEnter) {
         if (destComp.kOrder && destComp.kOrder.length) {
-          destComp.kParComp = this;
+          compute.kParComp = this;
           this.kOnMySec = false;
-          destComp.kOnMySec = true;
-          destComp.kMainNav = this.kMainNav;
+          compute.kOnMySec = true;
+          compute.kMainNav = this.kMainNav;
           this.kSetCurComp(destComp);
         }
         onEnter(e, this);
