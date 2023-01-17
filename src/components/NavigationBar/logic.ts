@@ -15,7 +15,7 @@ import KeyNavigate from '@/utils/class_components/KeyNavigate';
 import NavItem from './NavItem/index.vue';
 import SwitchTerminalPopover from './SwitchTerminalPopover/index.vue';
 
-const { lg } = require('@/utils/helper');
+const { lg, lgConf } = require('@/utils/helper');
 const { screens } = require('@/designTokens/screens');
 
 const { toInt } = require('@/utils/converts');
@@ -42,11 +42,56 @@ export default class NavigationBar extends KeyNavigate {
 
   isToggle = true;
 
-  showSwitch = false;
-
   zplLogo = 'topbar';
 
   menuBurger = 'topbar';
+
+  private iShowSwitch = false
+
+  private getHeadParent($parent) {
+    while ($parent.$parent) {
+      $parent = $parent.$parent;
+    }
+    return $parent;
+  }
+
+  get iBefIssue() {
+    lgConf.priority = 0;
+    lg('', 'iBefIssue', 3);
+    const $par = this.getHeadParent(this.$parent);
+    lg($par.$el, '$par.$el', 3);
+    this.$nextTick(() => {
+      $par.$el.id = 'iBefIssue';
+      const doc = $par?.$el?.ownerDocument;
+      if (doc) {
+        if (doc.onDbg) {
+          doc.onDbg();
+        }
+        if (!doc.thisDbg) {
+          doc.thisDbg = this;
+        }
+      }
+      lg($par, '$par', 3);
+    });
+    return true;
+  }
+
+  get iAftIssue() {
+    lg('', 'iAftIssue', 3);
+
+    return true;
+  }
+
+  get showSwitch() {
+    lg(this.iShowSwitch, 'myTrble_swch get()', 3);
+    return this.iShowSwitch;
+  }
+
+  set showSwitch(val) {
+    lg(this.iShowSwitch, 'myTrble_swch set(bef)', 3);
+    this.iShowSwitch = val;
+    lg(this.iShowSwitch, 'myTrble_swch set(aft)', 3);
+  }
 
   created(): void {
     this.kOrder = ['switchTerminalPopover', 'navItem'];

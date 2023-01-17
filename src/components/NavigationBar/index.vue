@@ -24,6 +24,9 @@
         </div>
       </div>
 
+      <div v-if="iBefIssue" class="hidden">
+        iBefIssue
+      </div>
       <!-- Terminals -->
       <SwitchTerminalPopover
         v-if="showSwitch"
@@ -32,6 +35,9 @@
         v-on="$listeners"
         ref="switchTerminalPopover"
       />
+      <div v-if="iAftIssue" class="hidden">
+        iAftIssue
+      </div>
 
       <!-- Nav item links -->
       <div class="zpl-nav-bar-content">
