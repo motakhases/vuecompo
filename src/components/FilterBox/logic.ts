@@ -56,6 +56,11 @@ export default class Logic extends Vue {
     this.isClose = !this.isClose;
   }
 
+  @Watch('isClose')
+  isCloser() {
+    this.$emit('isCloser', this.isClose);
+  }
+
   clearHandler() {
     this.isClose = true;
     if (this.amountQueryKey) {
@@ -157,5 +162,10 @@ export default class Logic extends Vue {
   @Watch('$route.query')
   refresh() {
     this.updateValuequeries();
+  }
+
+  @Watch('toggleClose')
+  isCloserValue(): void {
+    this.$emit('isCloser', this.isClose);
   }
 }
