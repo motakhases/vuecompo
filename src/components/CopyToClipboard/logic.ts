@@ -3,12 +3,11 @@ import {
 } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
-import { Skeleton } from '@/components';
 import Loading from './Loading/index.vue';
 
 @Component({
   components: {
-    Icon, Tooltip, Loading, Skeleton,
+    Icon, Tooltip, Loading,
   },
 })
 export default class CopyToClipboard extends Vue {

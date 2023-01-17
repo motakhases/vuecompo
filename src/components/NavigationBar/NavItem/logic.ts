@@ -12,9 +12,7 @@ import Tooltip from '@/components/Tooltip/index.vue';
 import PremiumBadge from '@/components/PremiumBadge/index.vue';
 import KeyNavigate from '@/utils/class_components/KeyNavigate';
 
-const { screens } = require('@/designTokens/screens');
-
-const { toInt } = require('@/utils/converts');
+const { lg } = require('@/utils/helper');
 
 @Component({
   components: {
@@ -34,9 +32,11 @@ export default class NavItem extends KeyNavigate {
 
   @Prop({ type: Boolean }) premiumBadge!: boolean
 
-  @Prop({ type: Function }) toggle!: () => boolean
+  @Prop({ type: Function }) toggleMenu!: () => boolean
 
   @Prop({ type: Boolean }) isCollapsed!: boolean
+
+  @Prop({ type: Boolean }) isToggle!: boolean
 
   @Prop({ type: Boolean }) divider!: boolean
 
@@ -51,17 +51,10 @@ export default class NavItem extends KeyNavigate {
   }
 
   toggleSub() {
-    if (!this.isCollapsed) {
-      this.toggle();
+    if (this.isCollapsed && !this.isToggle) {
+      this.toggleMenu();
     }
     this.showSub = !this.showSub;
-  }
-
-  toggleMobileHandler(): void {
-    const [slg] = toInt(screens.lg);
-    if (window.innerWidth < slg) {
-      this.toggle();
-    }
   }
 
   findBadge(subList: any) {
@@ -82,6 +75,10 @@ export default class NavItem extends KeyNavigate {
       }
     }
     return false;
+  }
+
+  onKeyup() {
+    lg('NavItem onKeyup');
   }
 
   onFocus(): void {

@@ -1,18 +1,14 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 // Components
-import Tab from '@/components/Tabs/Tab/index.vue';
 import Social from '@/components/Share/_social/index.vue';
 import {
-  Skeleton, TextField, Button, Tabs, CopyToClipboard, Icon,
+  Skeleton, Button, CopyToClipboard, Icon,
 } from '@/components';
 
 @Component({
   components: {
-    Tab,
-    Tabs,
     Button,
-    TextField,
     CopyToClipboard,
     Icon,
     Social,
@@ -28,11 +24,11 @@ export default class Share extends Vue {
 
   @Prop({ type: String, default: '' }) text2?: string;
 
-  @Prop({ type: String, default: '' }) readonly titlePost?: string;
+  @Prop({ type: String, default: '' }) titlePost?: string;
 
-  @Prop({ type: String, default: '' }) readonly urlTlg?: string;
+  @Prop({ type: String, default: '' }) urlTlg?: string;
 
-  @Prop({ type: String, default: '' }) readonly urlWApp?: string;
+  @Prop({ type: String, default: '' }) urlWApp?: string;
 
   @Prop({ type: Boolean, default: false }) noQr?: boolean;
 
@@ -45,7 +41,7 @@ export default class Share extends Vue {
     return '';
   }
 
-  private socialAdrs =  {
+  private socialAdrs = {
     telegram: 'https://t.me/share/url',
     whatsapp: 'https://api.whatsapp.com/send',
     twitter: 'https://twitter.com/share',
@@ -54,7 +50,7 @@ export default class Share extends Vue {
   private mkScoialUrl(socialName, zplAdr, text) {
     let res; const socialAdr = this.socialAdrs[socialName];
     switch (socialName) {
-    case 'telegram':case 'twitter':
+    case 'telegram': case 'twitter':
       res = `${socialAdr}?url=${zplAdr}`;
       if (text) {
         res += `&text=${text}`;
