@@ -13,7 +13,7 @@ const Template = (_, { argTypes }) => ({
       show: false,
     };
   },
-  
+
   props: Object.keys(argTypes),
   template: `
   <div class="bg-background dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
@@ -25,7 +25,7 @@ const Template = (_, { argTypes }) => ({
         <Button type="secondary" text="دکمه" />
       </template>
     </Card>
-    <Card title="ss">
+    <Card title="ss" helper="این قسمت راهنمای کارکردن است">
       <div >محتوای دلخواه در کارت</div>
     </Card>
     <Card title="dsdssd" >
