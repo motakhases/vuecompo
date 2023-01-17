@@ -1,11 +1,11 @@
-import FilterBox from "./index.vue";
-import Button from "../Button/index.vue";
-import Radio from "@/components/Radio/index.vue";
-import FilterDate from "./FilterDate/index.vue";
+import FilterBox from './index.vue';
+import Button from '../Button/index.vue';
+import Radio from '@/components/Radio/index.vue';
+import FilterDate from './FilterDate/index.vue';
 
 export default {
   component: FilterBox,
-  title: "Components/FilterBox",
+  title: 'Components/FilterBox',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -14,19 +14,22 @@ const Template = (_, { argTypes }) => ({
     return {
       show: false,
       filters: {
-        status: "",
+        status: '',
       },
     };
   },
   methods: {
-    deleteFilter(){
-      console.log("deleteFilter");
+    deleteFilter() {
+      debugger;
+      console.log('deleteFilter');
     },
-    updateFilter(){
-      console.log("updateFilter");
+    updateFilter() {
+      debugger;
+      console.log('updateFilter');
     },
-    filter() {
-      console.log("Try to add queries...");
+    filters1() {
+      debugger;
+      console.log('Try to add queries...');
       const filterList = {};
 
       console.log({
@@ -50,7 +53,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="   dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <FilterBox title="عنوان کارت" :filter="filter" >
+	  <FilterBox title="عنوان کارت" :filter="filters1" >
     <div class="w-full">
         <Radio
     v-model="filters.status"
@@ -67,7 +70,7 @@ const Template = (_, { argTypes }) => ({
     </div>
 
     </FilterBox>
-    <FilterBox title="عنوان کارت" :filter="filter" >
+    <FilterBox title="عنوان کارت" :filter="filters1" >
     <div class="w-full">
     <FilterDate
     @updateFilter="updateFilter"
