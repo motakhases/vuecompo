@@ -1,6 +1,4 @@
-import {
-  Vue, Prop, Component, Emit,
-} from 'vue-property-decorator';
+import { Vue, Prop, Component, Emit } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
 import Popover from '@/components/Popover/index.vue';
 import { ListsObject, Translation } from '@/types';
@@ -16,11 +14,11 @@ import Loading from './Loading/index.vue';
   },
 })
 export default class Pagination extends Vue {
-  @Prop({ type: Number, default: 1 }) initPage!: number
+  @Prop({ type: Number, default: 1 }) initPage!: number;
 
-  @Prop({ type: Number, default: 15 }) initLimit!: number
+  @Prop({ type: Number, default: 15 }) initLimit!: number;
 
-  @Prop({ type: Number, default: 1 }) lastPage!: number
+  @Prop({ type: Number, default: 1 }) lastPage!: number;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
@@ -38,13 +36,13 @@ export default class Pagination extends Vue {
     return newPage;
   }
 
-  limit = 0
+  limit = 0;
 
-  page = 0
+  page = 0;
 
-  limitBox = false
+  limitBox = false;
 
-  pageBox = false
+  pageBox = false;
 
   created(): void {
     this.limit = this.initLimit;
@@ -59,13 +57,11 @@ export default class Pagination extends Vue {
 
   get limitsList(): ListsObject[] {
     const list: ListsObject[] = [];
-    for (let limit = 5; limit <= 25;) {
-      list.push(
-        {
-          title: limit.toString(),
-          action: () => this.emitChangeLimit(limit - 5),
-        },
-      );
+    for (let limit = 5; limit <= 25; ) {
+      list.push({
+        title: limit.toString(),
+        action: () => this.emitChangeLimit(limit - 5),
+      });
       limit += 5;
     }
     return list;
@@ -75,21 +71,18 @@ export default class Pagination extends Vue {
     const list: ListsObject[] = [];
     // eslint-disable-next-line no-plusplus
     for (let page = 1; page <= this.lastPage; page++) {
-      list.push(
-        {
-          title: page.toString(),
-          action: () => this.emitChangePage(page),
-        },
-      );
+      list.push({
+        title: page.toString(),
+        action: () => this.emitChangePage(page),
+      });
     }
     return list;
   }
 
-  get period():Translation {
+  get period(): Translation {
     const all = this.lastPage * this.limit;
     const to = this.page * this.limit;
     const from = to - (this.limit - 1);
     return this.$i18n.t('pagination.result', { from, to, all });
   }
 }
-

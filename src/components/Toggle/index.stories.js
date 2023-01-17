@@ -4,7 +4,7 @@ const Template = (_, { argTypes }) => ({
   components: { Toggle },
   props: Object.keys(argTypes),
   data: () => ({
-    value: true
+    value: true,
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm rounded-md" dir="rtl">
@@ -19,4 +19,4 @@ const Template = (_, { argTypes }) => ({
 
 const toggle = Template.bind({});
 
-export default toggle
+export default toggle;

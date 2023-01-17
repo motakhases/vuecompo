@@ -1,8 +1,8 @@
-import Bg from "./index.vue";
+import Bg from './index.vue';
 
 export default {
   component: Bg,
-  title: "Components/Bg",
+  title: 'Components/Bg',
 };
 
 const Template = (args, { argTypes }) => ({
@@ -11,17 +11,17 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       bgImages: [
-        "Transactions",
-        "Coupons",
-        "ProductPaymentLink",
-        "Reconciliation",
-        "NoResult",
-        "Placeholder",
-        "Appearance",
-        "Tickets",
-        "EmailDownload",
-        "TimeRange",
-      ,
+        'Transactions',
+        'Coupons',
+        'ProductPaymentLink',
+        'Reconciliation',
+        'NoResult',
+        'Placeholder',
+        'Appearance',
+        'Tickets',
+        'EmailDownload',
+        'TimeRange',
+        ,
       ],
     };
   },

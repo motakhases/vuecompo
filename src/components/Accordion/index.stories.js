@@ -1,9 +1,9 @@
-import Accordion from "./index.vue";
-import AccordionItem from './_item/index.vue'
+import Accordion from './index.vue';
+import AccordionItem from './_item/index.vue';
 
 export default {
   component: Accordion,
-  title: "Components/Accordion",
+  title: 'Components/Accordion',
 };
 
 const Template = () => ({

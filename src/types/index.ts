@@ -44,7 +44,7 @@ export interface Announcement {
  */
 export interface ListsObject {
   title: string;
-  action: ()=> void;
+  action: () => void;
 }
 
 export interface Paginate {
@@ -221,22 +221,19 @@ export interface ISummaryOptions {
  * --------------------------------------------------
  */
 export interface ITableActions {
-  title: string,
-  icon: string,
-  color: string,
-  action: void,
-  isShow: any,
+  title: string;
+  icon: string;
+  color: string;
+  action: void;
+  isShow: any;
 }
 
 export type TitleTooltip = {
-  ticket : string,
-  notification : string,
-  userProfile : string,
-}
-export enum SocialType {
-  circle = 'circle',
-  square = 'square',
-}
+  ticket: string;
+  notification: string;
+  userProfile: string;
+};
+export type SocialType = 'square' | 'circle';
 
 /**
  * @/components/StatsBlock

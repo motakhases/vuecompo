@@ -1,12 +1,7 @@
 <template>
   <div :class="['zpl-emptystate', inCard ? 'in-card' : null]">
-
-    <div
-      class="zpl-emptystate-box"
-    >
-    <Bg class="logo-empty" v-if="image"
-        :bgImage="image"
-     />
+    <div class="zpl-emptystate-box">
+      <Bg class="logo-empty" v-if="image" :bgImage="image" />
       <div v-else class="bg-empty-state" />
 
       <div class="zpl-emptystate-content">

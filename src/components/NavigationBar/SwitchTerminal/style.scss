@@ -25,7 +25,7 @@
     @apply w-full;
   }
 
-  &.isFocused{
+  &.isFocused {
     @apply bg-surface shadow-border-focus-heavy relative z-10;
     @apply dark:bg-surface-dark dark:shadow-dark-border-focus-heavy;
   }

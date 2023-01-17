@@ -1,8 +1,8 @@
-import ThemeSwitcher from "./index.vue";
-import Button from "@/components/Button/index.vue";
+import ThemeSwitcher from './index.vue';
+import Button from '@/components/Button/index.vue';
 export default {
   component: ThemeSwitcher,
-  title: "Components/ThemeSwitcher",
+  title: 'Components/ThemeSwitcher',
 };
 
 const Template = (_, { argTypes }) => ({

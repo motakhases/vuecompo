@@ -22,8 +22,10 @@ const i18n = new VueI18n({
   locale: 'fa',
   messages,
 });
-export const decorators = [(story) => ({
-  components: { story },
-  i18n,
-  template: '<story />',
-})];
+export const decorators = [
+  (story) => ({
+    components: { story },
+    i18n,
+    template: '<story />',
+  }),
+];

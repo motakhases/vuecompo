@@ -2,11 +2,7 @@
   <div>
     <div :class="['zpl-select-group']">
       <div
-        :class="[
-          'zpl-select',
-          isBoxFocused ? 'focused' : '',
-          { error: errors },
-        ]"
+        :class="['zpl-select', isBoxFocused ? 'focused' : '', { error: errors }]"
         :disabled="disabled"
         @click="onFocusIn"
         ref="inputRef"
@@ -25,10 +21,7 @@
         />
 
         <!-- Value -->
-        <div
-          v-else
-          :class="['zpl-select-value', { 'has-value': inputVal.length }]"
-        >
+        <div v-else :class="['zpl-select-value', { 'has-value': inputVal.length }]">
           <input v-model="inputVal" v-show="false" />
           <span>
             {{ inputVal.length ? inputVal : placeholder }}
@@ -36,13 +29,7 @@
         </div>
 
         <!-- label -->
-        <label
-          v-if="label"
-          :class="[
-            'zpl-select-label',
-            isInputFocused | isBoxFocused ? 'isInputFocused' : '',
-          ]"
-        >
+        <label v-if="label" :class="['zpl-select-label', isInputFocused | isBoxFocused ? 'isInputFocused' : '']">
           {{ label }}
         </label>
 
@@ -54,10 +41,7 @@
       <!-- hint text -->
       <div class="zpl-select-hint-box">
         <!-- show when we have hint -->
-        <div
-          v-if="hint && !(successMessage && passed) && !errors"
-          class="zpl-select-hint helper"
-        >
+        <div v-if="hint && !(successMessage && passed) && !errors" class="zpl-select-hint helper">
           <span>
             {{ hint }}
           </span>
@@ -106,20 +90,12 @@
               @mouseleave="deactivateOption"
             >
               <Icon v-if="option.icon" :name="option.icon" class="w-xl h-xl" />
-              <BankLogos
-                v-if="option.logo"
-                :logo="option.logo"
-                class="w-xl h-xl"
-              />
+              <BankLogos v-if="option.logo" :logo="option.logo" class="w-xl h-xl" />
               <div class="info">
                 <div class="title">{{ option.text }}</div>
                 <div class="sub">{{ option.sub }}</div>
               </div>
-              <Icon
-                v-if="value === option.value"
-                name="tickSmall"
-                class="zpl-select-selected-icon"
-              />
+              <Icon v-if="value === option.value" name="tickSmall" class="zpl-select-selected-icon" />
             </li>
           </ul>
         </div>

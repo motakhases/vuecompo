@@ -1,9 +1,9 @@
-import Filters from "./index.vue";
-import Radio from "@/components/Radio/index.vue";
-import FilterAccordion from "./FilterAccordion/index.vue";
-import FilterDate from "./FilterDate/index.vue";
-import FilterAmount from "./FilterAmount/index.vue";
-import Button from "@/components/Button/index.vue";
+import Filters from './index.vue';
+import Radio from '@/components/Radio/index.vue';
+import FilterAccordion from './FilterAccordion/index.vue';
+import FilterDate from './FilterDate/index.vue';
+import FilterAmount from './FilterAmount/index.vue';
+import Button from '@/components/Button/index.vue';
 
 import { storiesOf } from '@storybook/vue';
 import StoryRouter from 'storybook-vue-router';
@@ -23,7 +23,7 @@ storiesOf('Components/Filters', module)
     data() {
       return {
         filters: {
-          status: "",
+          status: '',
         },
         activeAccordion: [],
         modal: false,
@@ -64,13 +64,11 @@ storiesOf('Components/Filters', module)
            * if property of filter has value
            */
           if (this.filters[item]?.length) {
-
             /**
              * if property exist in active accordion
              */
             if (this.activeAccordion.length) {
               this.activeAccordion.forEach((element) => {
-
                 /**
                  * to check if it includes the item for
                  * min_amount, max_Amount, range_amount
@@ -83,14 +81,14 @@ storiesOf('Components/Filters', module)
               /**
                * if there is no active accordion so empty filters
                */
-              this.filters = { status: "", date: "" };
+              this.filters = { status: '', date: '' };
             }
           }
         });
 
         console.log({
           filterList,
-          queries: this.$route.query
+          queries: this.$route.query,
         });
 
         /**
@@ -99,7 +97,7 @@ storiesOf('Components/Filters', module)
         this.$router.push({ query: filterList });
 
         console.log({
-          queries: this.$route.query
+          queries: this.$route.query,
         });
 
         this.toggleModal();
@@ -131,7 +129,7 @@ storiesOf('Components/Filters', module)
         // clear filter list and query and close the modal
         this.modal = false;
         this.filters = {
-          status: "",
+          status: '',
         };
         this.$router.replace({ query: {} });
       },

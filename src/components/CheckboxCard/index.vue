@@ -5,13 +5,7 @@
   >
     <!-- Header -->
     <div class="zpl-radio-card-top">
-      <CheckBox
-        @click.native.stop=""
-        v-model="model"
-        name="CheckBox"
-        :val="val"
-        :disabled="disabled"
-      />
+      <CheckBox @click.native.stop="" v-model="model" name="CheckBox" :val="val" :disabled="disabled" />
       <h4 class="zpl-radio-card-title" v-if="title">
         {{ title }}
       </h4>

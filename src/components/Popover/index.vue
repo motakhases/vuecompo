@@ -1,16 +1,12 @@
 <template>
   <ul class="zpl-popover">
     <li
-      v-for="(item,index) in items"
+      v-for="(item, index) in items"
       :key="index"
-      :class="['popover-item', {'negative-item': negative}]"
+      :class="['popover-item', { 'negative-item': negative }]"
       @click="select(item.value)"
     >
-      <Icon
-        v-if="iconName"
-        :name="iconName"
-        class="zpl-button-icon"
-      />
+      <Icon v-if="iconName" :name="iconName" class="zpl-button-icon" />
       {{ item.title }}
     </li>
   </ul>
@@ -24,5 +20,4 @@ import logic from './logic';
 import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
-
 </script>

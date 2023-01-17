@@ -1,6 +1,6 @@
-import TasksStack from "./index.vue";
-import { storiesOf } from "@storybook/vue";
-import StoryRouter from "storybook-vue-router";
+import TasksStack from './index.vue';
+import { storiesOf } from '@storybook/vue';
+import StoryRouter from 'storybook-vue-router';
 
 // storiesOf("Components/UserProfileCard/TasksStack", module)
 //   .addDecorator(StoryRouter())
@@ -31,24 +31,24 @@ Default.args = {
       complete: true,
       before: true,
       disabled: false,
-      link: "#link",
-      text: "عنوان تسک",
+      link: '#link',
+      text: 'عنوان تسک',
     },
     {
       id: 2,
       complete: true,
       before: true,
       disabled: false,
-      link: "#link",
-      text: "عنوان تسک",
+      link: '#link',
+      text: 'عنوان تسک',
     },
     {
       id: 3,
       complete: false,
       before: true,
       disabled: false,
-      link: "#link",
-      text: "عنوان تسک",
+      link: '#link',
+      text: 'عنوان تسک',
     },
   ],
 };

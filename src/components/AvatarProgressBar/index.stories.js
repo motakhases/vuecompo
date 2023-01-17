@@ -1,4 +1,4 @@
-import AvatarProgressBar from "./index.vue";
+import AvatarProgressBar from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { AvatarProgressBar },
@@ -43,15 +43,15 @@ const progressBar = Template.bind({});
 
 progressBar.argTypes = {
   type: {
-    options: ["beginner", "silver", "gold"],
-    control: { type: "radio" },
+    options: ['beginner', 'silver', 'gold'],
+    control: { type: 'radio' },
   },
 };
 
 progressBar.args = {
-  type: "beginner",
+  type: 'beginner',
   percent: 10,
-  img: "https://www.digikala.com/static/files/fd4840b2.svg",
+  img: 'https://www.digikala.com/static/files/fd4840b2.svg',
 };
 
 export default progressBar;

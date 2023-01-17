@@ -1,7 +1,7 @@
-import Search from "./index.vue";
+import Search from './index.vue';
 export default {
   component: Search,
-  title: "Components/Search",
+  title: 'Components/Search',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -10,7 +10,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    data: "",
+    data: '',
   }),
   methods: {},
   template: `
@@ -23,31 +23,31 @@ export const Default = Template.bind({});
 
 Default.args = {
   disabled: false,
-  label: "",
-  hint: "",
-  successMessage: "عملیات موفقیت آمیز بود",
+  label: '',
+  hint: '',
+  successMessage: 'عملیات موفقیت آمیز بود',
   options: [
     {
       id: 3,
-      title: "شماره کارت:",
-      text: "شماره کارت شانزده رقمی",
-      value: "card",
+      title: 'شماره کارت:',
+      text: 'شماره کارت شانزده رقمی',
+      value: 'card',
     },
     {
       id: 4,
-      title: "شناسه پرداخت:",
-      text: "1255",
-      value: "pay",
+      title: 'شناسه پرداخت:',
+      text: '1255',
+      value: 'pay',
       isUnique: true,
     },
     {
       id: 8,
-      title: "ایمیل:",
-      text: "email@example.com",
-      value: "email",
+      title: 'ایمیل:',
+      text: 'email@example.com',
+      value: 'email',
     },
   ],
   disabledOptionId: null,
   loading: false,
-  rules: "required",
+  rules: 'required',
 };

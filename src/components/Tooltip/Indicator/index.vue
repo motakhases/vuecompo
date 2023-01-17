@@ -12,4 +12,3 @@ import './style.scss';
 @Component
 export default class Indicator extends Mixins(Logic) {}
 </script>
-

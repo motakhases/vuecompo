@@ -1,6 +1,4 @@
-import {
-  Component, Vue, Watch,
-} from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import Select from '@/components/Select/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import { AmountFilterValue, Translation } from '@/types';
@@ -18,7 +16,7 @@ export default class FilterAmount extends Vue {
 
   typeValue = 'amount';
 
-  shownValue: Translation = ''
+  shownValue: Translation = '';
 
   types = {
     EQUAL_TO: 'amount',
@@ -35,7 +33,7 @@ export default class FilterAmount extends Vue {
   ];
 
   getDateValue(option: string) {
-    const filteredList = this.options.filter((i) => (i.value === option));
+    const filteredList = this.options.filter((i) => i.value === option);
     return filteredList ? filteredList[0].text : '';
   }
 

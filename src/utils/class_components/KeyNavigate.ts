@@ -1,33 +1,30 @@
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import { prevUp, lgConf } from '@/utils/helper';
 import DbgTool from '../devTools/DbgTool';
 
 @Component({})
 export default class KeyNavigate extends Vue {
-  kOrder:any = null
+  kOrder: any = null;
 
-  kCurOrd = -1
+  kCurOrd = -1;
 
-  kCurIndxComp = -1
+  kCurIndxComp = -1;
 
-  kCurDests:any = null
+  kCurDests: any = null;
 
-  kOnMySec = false
+  kOnMySec = false;
 
-  kParComp:any = null
+  kParComp: any = null;
 
-  kCurComp:any = null
+  kCurComp: any = null;
 
-  kMainNav:any = null
+  kMainNav: any = null;
 
-  kKeydown:Array<string> = []
+  kKeydown: Array<string> = [];
 
-  kDbg : DbgTool|null = null
+  kDbg: DbgTool | null = null;
 
-  kCurKeyMove = ''
+  kCurKeyMove = '';
 
   kCreated() {
     lgConf.priority = 2;
@@ -35,33 +32,43 @@ export default class KeyNavigate extends Vue {
     const brkPoint1 = () => {
       // eslint-disable-next-line no-console
       // console.log(1);
-    }; const brkPoint2 = () => {
+    };
+    const brkPoint2 = () => {
       // eslint-disable-next-line no-console
       // console.log(2);
     };
-    this.kDbg.addDbg<KeyNavigate>([
-      (dis, resultConds, i, args):any => {
-        if (args.key === 'Tab') {
-          if (dis.kFindKeyDown('Shift')) {
-            resultConds[i] = true;
+    this.kDbg.addDbg<KeyNavigate>(
+      [
+        (dis, resultConds, i, args): any => {
+          const res = resultConds;
+          if (args.key === 'Tab') {
+            if (dis.kFindKeyDown('Shift')) {
+              res[i] = true;
+            }
+            res[i] = false;
           }
-          resultConds[i] = false;
-        }
-      },
-      (dis, resultConds, i, args) => {
-        if (args.key === 'Enter') {
-          resultConds[i] = true;
-        }
-      },
-    ], brkPoint1);
+        },
+        (dis, resultConds, i, args) => {
+          const res = resultConds;
+          if (args.key === 'Enter') {
+            res[i] = true;
+          }
+        },
+      ],
+      brkPoint1,
+    );
 
-    this.kDbg.addDbg<KeyNavigate>([
-      (dis, resultConds, i) => {
-        if (dis.kFindKeyDown('z')) {
-          resultConds[i] = true;
-        }
-      },
-    ], brkPoint2);
+    this.kDbg.addDbg<KeyNavigate>(
+      [
+        (dis, resultConds, i) => {
+          const res = resultConds;
+          if (dis.kFindKeyDown('z')) {
+            res[i] = true;
+          }
+        },
+      ],
+      brkPoint2,
+    );
   }
 
   kDestroyKeyUp() {
@@ -90,7 +97,7 @@ export default class KeyNavigate extends Vue {
     return kd;
   }
 
-  kFindKeyDown(str, get = false):boolean|number {
+  kFindKeyDown(str, get = false): boolean | number {
     const kd = this.kGetKeyDown();
     if (get) {
       return kd.indexOf(str);
@@ -98,17 +105,18 @@ export default class KeyNavigate extends Vue {
     return kd.indexOf(str) > -1;
   }
 
-  kAddKeyDown(str):boolean {
+  kAddKeyDown(str): boolean {
     const kd = this.kGetKeyDown();
     return kd.push(str);
   }
 
-  kDelKeyDown(indx):void {
+  kDelKeyDown(indx): void {
     const kd = this.kGetKeyDown();
     kd.splice(indx, 1);
   }
 
-  private kTrigger(e, key, destComp, justBlur, { onBlur, onFocus, onEnter }:any) {
+  private kTrigger(e, key, destComp, justBlur, { onBlur, onFocus, onEnter }: any) {
+    const compute = destComp;
     const clicking = !key;
     if (key === 'Tab' || clicking) {
       if (justBlur) {
@@ -122,10 +130,10 @@ export default class KeyNavigate extends Vue {
     if (key === 'Enter') {
       if (onEnter) {
         if (destComp.kOrder && destComp.kOrder.length) {
-          destComp.kParComp = this;
+          compute.kParComp = this;
           this.kOnMySec = false;
-          destComp.kOnMySec = true;
-          destComp.kMainNav = this.kMainNav;
+          compute.kOnMySec = true;
+          compute.kMainNav = this.kMainNav;
           this.kSetCurComp(destComp);
         }
         onEnter(e, this);
@@ -275,7 +283,10 @@ export default class KeyNavigate extends Vue {
       return this.kCurOrd - 1 === 0 && !(this.kGetCompByOrd($ref, 0) instanceof Array);
     }
 
-    return this.kCurOrd + 1 === this.kOrder.length - 1 && !(this.kGetCompByOrd($ref, this.kOrder.length - 1) instanceof Array);
+    return (
+      this.kCurOrd + 1 === this.kOrder.length - 1 &&
+      !(this.kGetCompByOrd($ref, this.kOrder.length - 1) instanceof Array)
+    );
   }
 
   private kLatestComp(key) {

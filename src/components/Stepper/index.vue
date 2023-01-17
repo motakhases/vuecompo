@@ -1,9 +1,8 @@
 <template>
   <div class="zpl-stepper">
     <component
-        :is="completed >= (i) ? 'span' : 'div'"
-
-      :class="['zpl-stepper-item', completed >= (i) ? 'fill' : null]"
+      :is="completed >= i ? 'span' : 'div'"
+      :class="['zpl-stepper-item', completed >= i ? 'fill' : null]"
       v-for="i in subSteps"
       :key="i"
     />

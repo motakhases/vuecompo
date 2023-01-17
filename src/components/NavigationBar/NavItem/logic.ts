@@ -1,50 +1,48 @@
-import {
-  Prop, Component,
-} from 'vue-property-decorator';
+import { Prop, Component } from 'vue-property-decorator';
 // Interfaces
-import {
-  INavigationBarLinks,
-} from '@/types';
+import { INavigationBarLinks } from '@/types';
 // Components
 import NotificationBadge from '@/components/NotificationBadge/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
 import PremiumBadge from '@/components/PremiumBadge/index.vue';
 import KeyNavigate from '@/utils/class_components/KeyNavigate';
-
-const { lg } = require('@/utils/helper');
+import { lg } from '@/utils/helper';
 
 @Component({
   components: {
-    Icon, NotificationBadge, Tooltip, PremiumBadge,
+    Icon,
+    NotificationBadge,
+    Tooltip,
+    PremiumBadge,
   },
 })
 export default class NavItem extends KeyNavigate {
-  @Prop({ type: [String, Object] }) link!: string | { name?: string, path?: string }
+  @Prop({ type: [String, Object] }) link!: string | { name?: string; path?: string };
 
-  @Prop({ type: Array }) readonly subMenu?: INavigationBarLinks[]
+  @Prop({ type: Array }) readonly subMenu?: INavigationBarLinks[];
 
-  @Prop({ type: String }) icon!: string
+  @Prop({ type: String }) icon!: string;
 
-  @Prop({ type: String }) title!: string
+  @Prop({ type: String }) title!: string;
 
-  @Prop({ type: String }) badge!: string
+  @Prop({ type: String }) badge!: string;
 
-  @Prop({ type: Boolean }) premiumBadge!: boolean
+  @Prop({ type: Boolean }) premiumBadge!: boolean;
 
-  @Prop({ type: Function }) toggleMenu!: () => boolean
+  @Prop({ type: Function }) toggleMenu!: () => boolean;
 
-  @Prop({ type: Boolean }) isCollapsed!: boolean
+  @Prop({ type: Boolean }) isCollapsed!: boolean;
 
-  @Prop({ type: Boolean }) isToggle!: boolean
+  @Prop({ type: Boolean }) isToggle!: boolean;
 
-  @Prop({ type: Boolean }) divider!: boolean
+  @Prop({ type: Boolean }) divider!: boolean;
 
-  showSub = false
+  showSub = false;
 
-  active = false
+  active = false;
 
-  isFocused = false
+  isFocused = false;
 
   created(): void {
     this.kOrder = ['subMenu'];
@@ -89,7 +87,7 @@ export default class NavItem extends KeyNavigate {
     this.isFocused = false;
   }
 
-  beforeDestroy():void {
+  beforeDestroy(): void {
     this.kDestroyKeyUp();
   }
 }

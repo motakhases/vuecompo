@@ -28,11 +28,8 @@ module.exports = {
         jsx: 'never',
         ts: 'never',
         tsx: 'never',
-     
-      }],
-    'no-shadow': 'off', // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
-    '@typescript-eslint/no-shadow': ['error'],
-    'no-param-reassign': 'off', // KeyNavigate: resultConds[i] = true;
+      },
+    ],
   },
   overrides: [
     {
@@ -49,7 +46,7 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
       },
     },
   },

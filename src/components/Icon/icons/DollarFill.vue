@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -21,20 +15,8 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M12 6V7.5"
-      stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M12 18V16.5"
-      stroke="white"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M12 6V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M12 18V16.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       d="M9 14.255V14.255C9 15.498 10.007 16.505 11.25 16.505H12.893C14.056 16.505 15 15.562 15 14.398V14.398C15
        13.432 14.343 12.59 13.406 12.355L10.594 11.65C9.657 11.415 9 10.573 9 9.607V9.607C9 8.443 9.943 7.5 11.107

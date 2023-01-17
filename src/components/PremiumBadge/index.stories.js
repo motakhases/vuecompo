@@ -1,4 +1,4 @@
-import PremiumBadge from "./index.vue";
+import PremiumBadge from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -14,4 +14,3 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-

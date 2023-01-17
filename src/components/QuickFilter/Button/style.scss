@@ -16,7 +16,7 @@
 
   /* border */
   &::after {
-    content: "";
+    content: '';
     @apply bg-surface-heavy rounded-xs h-[2px] w-0 absolute bottom-0 right-0;
     @apply dark:bg-surface-dark-heavy;
     transition: all 0.25s ease-in;

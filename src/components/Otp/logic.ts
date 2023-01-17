@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import SingleOtpInput from './SingleOtpInput/index.vue';
 // keyCode constants
@@ -15,7 +13,7 @@ const DELETE = 46;
 export default class Otp extends Vue {
   @Prop({ type: String, default: 'tel' }) readonly inputType!: string;
 
-  @Prop({ type: Boolean }) readonly shouldAutoFocus?: boolean
+  @Prop({ type: Boolean }) readonly shouldAutoFocus?: boolean;
 
   @Prop({ type: String }) readonly errorMsg!: string;
 

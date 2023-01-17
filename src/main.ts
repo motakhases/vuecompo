@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import Vue from 'vue';
 import i18n from './i18n';
 
@@ -20,4 +21,3 @@ new Vue({
 }).$mount('#app');
 
 // Now tell vue to use this plugin
-

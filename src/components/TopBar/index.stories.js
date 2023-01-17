@@ -1,50 +1,50 @@
-import TopBar from "./index.vue";
-import Logo from "@/components/Logo/index.vue";
-import Icon from "@/components/Icon/index.vue";
-import Notification from "./Notification/index.vue";
-import Button from "@/components/Button/index.vue";
-import ThemeSwitcher from "@/components/ThemeSwitcher/index.vue";
+import TopBar from './index.vue';
+import Logo from '@/components/Logo/index.vue';
+import Icon from '@/components/Icon/index.vue';
+import Notification from './Notification/index.vue';
+import Button from '@/components/Button/index.vue';
+import ThemeSwitcher from '@/components/ThemeSwitcher/index.vue';
 import { TitleTooltip } from '@/types';
 const Template = (_, { argTypes }) => ({
   components: { TopBar, Logo, Icon, Notification, Button, ThemeSwitcher },
   props: Object.keys(argTypes),
   data() {
     return {
-      titleTooltip : TitleTooltip = {
-        ticket : 'عنوان تیکت',
-        notification : 'عنوان نوتیف',
-        userProfile : 'عنوان یوزر',
-      },
+      titleTooltip: (TitleTooltip = {
+        ticket: 'عنوان تیکت',
+        notification: 'عنوان نوتیف',
+        userProfile: 'عنوان یوزر',
+      }),
       list: [
         {
-          title: "حساب ‌کاربری",
-          icon: "UserCircle",
-          color: "",
-          action: () => console.log("click"),
+          title: 'حساب ‌کاربری',
+          icon: 'UserCircle',
+          color: '',
+          action: () => console.log('click'),
         },
         {
-          title: "همکاری در فروش",
-          icon: "AttachLink",
-          color: "",
-          action: () => console.log("click"),
+          title: 'همکاری در فروش',
+          icon: 'AttachLink',
+          color: '',
+          action: () => console.log('click'),
         },
         {
-          title: "ظاهر پنل کاربری",
-          icon: "MoonStar",
-          color: "",
+          title: 'ظاهر پنل کاربری',
+          icon: 'MoonStar',
+          color: '',
           action: () => this.toggle(),
         },
         {
-          title: "راهنما استفاده",
-          icon: "QuestionCircle",
-          color: "",
-          action: () => console.log("click"),
+          title: 'راهنما استفاده',
+          icon: 'QuestionCircle',
+          color: '',
+          action: () => console.log('click'),
         },
         {
-          title: "خروج",
-          icon: "ExitLogOut",
-          color: "",
-          action: () => console.log("click"),
+          title: 'خروج',
+          icon: 'ExitLogOut',
+          color: '',
+          action: () => console.log('click'),
         },
       ],
       modal: false,
@@ -82,39 +82,39 @@ const topBar = Template.bind({});
 topBar.args = {
   terminals: [
     {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
     },
     {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
     },
     {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
     },
     {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
     },
     {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
     },
     {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
     },
     {
-      domain: "zarinp.al/xandar",
-      name: "زاندار",
-      status: "deactive",
+      domain: 'zarinp.al/xandar',
+      name: 'زاندار',
+      status: 'deactive',
     },
   ],
 };

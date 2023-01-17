@@ -1,9 +1,7 @@
-$bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
-  melall, sanatMadan, toseeTaavon, mellat, eghtesadNovin, futurebank,
-  khavarMianeh, melli, parsian, pasargad, kosar, sepah, gardeshgari, iranZamin,
-  ayandeh, caspian, zarinCard, karafarin, postbank, sina, ansar, shahr, tejarat,
-  sarmayeh, standardChartered, taavonEslami, tosee, saderat, ghavamin, maskan,
-  mehrEghtesad, mehrIran, resalat, noor, bankMarkazi, toseeSaderat;
+$bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi, melall, sanatMadan, toseeTaavon, mellat,
+  eghtesadNovin, futurebank, khavarMianeh, melli, parsian, pasargad, kosar, sepah, gardeshgari, iranZamin, ayandeh,
+  caspian, zarinCard, karafarin, postbank, sina, ansar, shahr, tejarat, sarmayeh, standardChartered, taavonEslami, tosee,
+  saderat, ghavamin, maskan, mehrEghtesad, mehrIran, resalat, noor, bankMarkazi, toseeSaderat;
 
 @each $bankLogo in $bankLogos {
   .#{$bankLogo}-card {
@@ -19,7 +17,7 @@ $bankLogos: saman, refah, dey, hekmat, iranEurope, iranVenezuela, keshavarzi,
   @apply dark:bg-surface-dark dark:border-border-dark-soft dark:shadow-dark-elevation-50;
   &.background {
     &::after {
-      content: "";
+      content: '';
       @apply absolute w-full h-[40px] top-0 z-0 left-0 right-0;
     }
   }

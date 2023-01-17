@@ -13,11 +13,10 @@
   /* focus */
   //@apply focus:bg-surface focus:shadow-border-focus-heavy focus:relative focus:z-10;
   //@apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
-  &.isFocused{
+  &.isFocused {
     @apply bg-surface shadow-border-focus-heavy relative z-10;
     @apply dark:bg-surface-dark dark:shadow-dark-border-focus-heavy;
   }
-
 
   &-pin {
     @apply text-zarin pr-sm border-r border-border-divider h-md flex;

@@ -1,16 +1,7 @@
 <template>
-  <a
-    :to="link"
-    class="zpl-nav-terminal-container"
-  >
-    <div
-      :class="['zpl-nav-terminal',isFocused?'isFocused':'']"
-    >
-      <Thumbnail
-        :icon="icon"
-        :img="img"
-        :alt="alt"
-      />
+  <a :to="link" class="zpl-nav-terminal-container">
+    <div :class="['zpl-nav-terminal', isFocused ? 'isFocused' : '']">
+      <Thumbnail :icon="icon" :img="img" :alt="alt" />
       <div class="zpl-nav-terminal-header">
         <div class="zpl-nav-terminal-box">
           <div class="zpl-nav-terminal-title">
@@ -20,10 +11,7 @@
             {{ link }}
           </div>
         </div>
-        <Icon
-          name="AngleLeft"
-          class="zpl-nav-terminal-arrow"
-        />
+        <Icon name="AngleLeft" class="zpl-nav-terminal-arrow" />
       </div>
       <slot />
     </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="zpl-social">
-    <Skeleton v-if="loading" type="button" class="w-[48px] h-[48px]"/>
+    <Skeleton v-if="loading" type="button" class="w-[48px] h-[48px]" />
     <!-- Icon -->
-    <a v-else :href="urlAdr" target="_blank" :class="['zpl-social-icon',`_${typeStyle}`]">
+    <a v-else :href="urlAdr" target="_blank" :class="['zpl-social-icon', `_${typeStyle}`]">
       <Icon :name="typeIcon" class="_icon" />
     </a>
   </div>

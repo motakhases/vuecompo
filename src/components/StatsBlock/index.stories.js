@@ -1,10 +1,10 @@
-import StatsBlock from "./index.vue";
-import StatsBlockRow from "./SBRow/index.vue";
-import StatsBlockItem from "./SBItem/index.vue";
+import StatsBlock from './index.vue';
+import StatsBlockRow from './SBRow/index.vue';
+import StatsBlockItem from './SBItem/index.vue';
 
 export default {
   component: StatsBlock,
-  title: "Components/StatsBlock",
+  title: 'Components/StatsBlock',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data: () => ({
     obj: {
-      empty: "",
+      empty: '',
     },
   }),
   template: `

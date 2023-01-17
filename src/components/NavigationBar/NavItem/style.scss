@@ -20,7 +20,7 @@
     }
   }
 
-  &.isFocused{
+  &.isFocused {
     @apply shadow-border-focus-heavy rounded-sm;
     @apply dark:shadow-dark-border-focus-heavy;
   }
@@ -74,7 +74,7 @@
   //@apply focus:bg-surface focus:shadow-border-focus-heavy;
   //@apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
 
-  &.subMenuActive{
+  &.subMenuActive {
     @apply bg-surface-active;
     @apply dark:bg-surface-dark-active;
   }
@@ -88,7 +88,7 @@
     @apply bg-primarySurface hover:cursor-default;
     @apply dark:bg-primarySurface-dark-select;
     &:before {
-      content: "";
+      content: '';
       @apply bg-primaryZarinpal w-2xs h-2xl absolute right-[-16px] rounded-tl-sm rounded-bl-sm;
       @apply dark:bg-primaryZarinpal-dark;
     }

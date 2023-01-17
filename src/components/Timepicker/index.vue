@@ -15,32 +15,17 @@
         type="time"
         auto-submit
       >
-          <template #now-btn="{ goToday }">
-            <Button
-              size="medium"
-              type="secondary"
-              text="اکنون"
-              @click.native="goToday"
-            />
-          </template>
-          <template #submit-btn="{ submit }">
-            <div class="flex gap-xs mr-auto">
-              <!-- slot for "submit-btn" -->
-              <Button
-                size="medium"
-                type="secondary"
-                :text="$t('common.cancel')"
-                @click.native="toggleTime"
-              />
+        <template #now-btn="{ goToday }">
+          <Button size="medium" type="secondary" text="اکنون" @click.native="goToday" />
+        </template>
+        <template #submit-btn="{ submit }">
+          <div class="flex gap-xs mr-auto">
+            <!-- slot for "submit-btn" -->
+            <Button size="medium" type="secondary" :text="$t('common.cancel')" @click.native="toggleTime" />
 
-              <Button
-                size="medium"
-                type="primary"
-                :text="$t('auth.accept')"
-                @click.native="submitHandler(submit)"
-              />
-            </div>
-          </template>
+            <Button size="medium" type="primary" :text="$t('auth.accept')" @click.native="submitHandler(submit)" />
+          </div>
+        </template>
       </VuePersianDatetimePicker>
     </div>
   </div>

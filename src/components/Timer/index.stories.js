@@ -1,8 +1,8 @@
-import Timer from "./index.vue";
+import Timer from './index.vue';
 
 export default {
   component: Timer,
-  title: "Components/Timer",
+  title: 'Components/Timer',
 };
 
 const Template = () => ({

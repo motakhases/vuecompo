@@ -113,6 +113,7 @@ export default class FilterDate extends Vue {
   }
 
   updateInfo() {
+
     const dateQuery = this.$route?.query.date;
     if (dateQuery !== undefined) {
       const dateValue = moment(dateQuery as string).format('jYYYY/jM/jD');

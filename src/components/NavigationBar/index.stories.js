@@ -1,5 +1,5 @@
-import NavigationBar from "./index.vue";
-import TopBar from "../TopBar/index.vue";
+import NavigationBar from './index.vue';
+import TopBar from '../TopBar/index.vue';
 import { TitleTooltip } from '@/types';
 
 const Template = (_, { argTypes }) => ({
@@ -11,104 +11,103 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
 
   data: () => ({
-    titleTooltip : TitleTooltip = {
-      ticket : 'تیکت',
-      notification : 'اعلانات',
-      userProfile : 'حساب کاربری',
-    },
-
+    titleTooltip: (TitleTooltip = {
+      ticket: 'تیکت',
+      notification: 'اعلانات',
+      userProfile: 'حساب کاربری',
+    }),
 
     activeTerminal: {
-      domain: "zarin.express/zardu",
-      name: "زاردو",
-      status: "ACTIVE",
-      id: "1",
-      logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
-      link: "...",
-      route: "...",
+      domain: 'zarin.express/zardu',
+      name: 'زاردو',
+      status: 'ACTIVE',
+      id: '1',
+      logo: 'https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37',
+      link: '...',
+      route: '...',
       active: true,
-      pinned: true
+      pinned: true,
     },
     terminals: [
       {
-        domain: "zarin.express/zardu",
-        name: "زاردو",
-        status: "ACTIVE",
-        id: "1",
-        logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
-        link: "...",
-        route: "...",
+        domain: 'zarin.express/zardu',
+        name: 'زاردو',
+        status: 'ACTIVE',
+        id: '1',
+        logo: 'https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37',
+        link: '...',
+        route: '...',
         active: true,
-        pinned: true
+        pinned: true,
       },
       {
-        domain: "zarin.express/zardu",
-        name: "hgffghfh",
-        status: "ACTIVE",
-        id: "2",
-        logo: "https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37",
-        link: "...",
-        route: "...",
+        domain: 'zarin.express/zardu',
+        name: 'hgffghfh',
+        status: 'ACTIVE',
+        id: '2',
+        logo: 'https://logoland.zarinpal.com/4fe2915301d8b2b79715a170588bcb37',
+        link: '...',
+        route: '...',
       },
     ],
     sidebarLinks: [
       {
-        title: "پیشخوان",
-        link: "/",
-        icon: "GridLayout",
+        title: 'پیشخوان',
+        link: '/',
+        icon: 'GridLayout',
         active: true,
         premiumBadge: true,
       },
       {
-        title: "تراکنش‌ها",
-        link: "/",
-        icon: "DrpItemCheck",
-        badge:'2'
+        title: 'تراکنش‌ها',
+        link: '/',
+        icon: 'DrpItemCheck',
+        badge: '2',
       },
       {
-        title: "تسویه حساب",
-        icon: "CreditCheckout",
+        title: 'تسویه حساب',
+        icon: 'CreditCheckout',
         subMenu: [
           {
-            title: "پیشخوان",
-            link: "/",
+            title: 'پیشخوان',
+            link: '/',
             active: true,
-            premiumBadge:true
+            premiumBadge: true,
           },
           {
-            title: "تراکنش‌ها",
-            link: "/",
+            title: 'تراکنش‌ها',
+            link: '/',
           },
         ],
       },
       {
-        title: "محصولات",
-        icon: "Box",
+        title: 'محصولات',
+        icon: 'Box',
         subMenu: [
           {
-            title: "پیشخوان",
-            link: "/",
+            title: 'پیشخوان',
+            link: '/',
             active: false,
-            badge:'10'
+            badge: '10',
           },
           {
-            title: "تراکنش‌ها",
-            link: "/",
+            title: 'تراکنش‌ها',
+            link: '/',
           },
         ],
       },
       {
-        divider:true
+        divider: true,
       },
       {
-        title: "حساب‌های بانکی",
-        link: "/",
-        icon: "PaymentCard",
+        title: 'حساب‌های بانکی',
+        link: '/',
+        icon: 'PaymentCard',
       },
       {
-        title: "تیکت‌ها",
-        link: "/",
-        icon: "ChatMessage",
+        title: 'تیکت‌ها',
+        link: '/',
+        icon: 'ChatMessage',
       },
     ],
   }),

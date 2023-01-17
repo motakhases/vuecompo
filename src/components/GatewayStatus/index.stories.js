@@ -1,4 +1,4 @@
-import GatewayStatus from "./index.vue";
+import GatewayStatus from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { GatewayStatus },
@@ -17,17 +17,17 @@ const Template = (_, { argTypes }) => ({
   `,
 });
 
- const gatewayStatus = Template.bind({});
+const gatewayStatus = Template.bind({});
 
- gatewayStatus.argTypes = {
+gatewayStatus.argTypes = {
   type: {
-    options: ["inactive", "active", "pending", "deactive"],
-    control: { type: "radio" },
+    options: ['inactive', 'active', 'pending', 'deactive'],
+    control: { type: 'radio' },
   },
 };
 
 gatewayStatus.args = {
-  text: "وضعیت",
-  type: "active",
+  text: 'وضعیت',
+  type: 'active',
 };
-export default gatewayStatus
+export default gatewayStatus;

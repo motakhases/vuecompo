@@ -10,4 +10,3 @@ import logic from './logic';
 
 export default Vue.extend({ mixins: [logic] });
 </script>
-

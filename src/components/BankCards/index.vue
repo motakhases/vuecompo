@@ -7,10 +7,7 @@
     ]"
   >
     <Loading v-if="loading" :amount="!!amount" :rrn="!!rrn" />
-    <div
-      v-else
-      :class="['zpl-bank-cards-container', defaultAccount ? 'background' : '']"
-    >
+    <div v-else :class="['zpl-bank-cards-container', defaultAccount ? 'background' : '']">
       <div class="zpl-bank-cards-top">
         <Thumbnail :logo="logo" />
         <div>
@@ -18,7 +15,7 @@
             {{ iban }}
           </div>
           <span v-if="defaultAccount" class="zpl-bank-cards-username">
-            {{ $t("reconcilation.reconcileDetail.reconcileDefaultAccount") }}
+            {{ $t('reconcilation.reconcileDetail.reconcileDefaultAccount') }}
           </span>
           <span v-else class="zpl-bank-cards-username">
             {{ username }}
@@ -28,18 +25,18 @@
       <div v-if="amount || rrn" class="zpl-bank-cards-bottom">
         <div class="zpl-bank-cards-row" v-if="amount">
           <div class="zpl-bank-cards-title">
-            {{ $t("reconcilation.reconcileDetail.amount") }}
+            {{ $t('reconcilation.reconcileDetail.amount') }}
           </div>
           <div class="zpl-bank-cards-text">
             <FilterSample :number="amount" number-format />
             <span class="zpl-bank-cards-currency">
-              {{ $t("common.rial") }}
+              {{ $t('common.rial') }}
             </span>
           </div>
         </div>
         <div class="zpl-bank-cards-row" v-if="rrn">
           <div class="zpl-bank-cards-title">
-            {{ $t("reconcilation.reconcileDetail.rrn") }}
+            {{ $t('reconcilation.reconcileDetail.rrn') }}
           </div>
           <div class="zpl-bank-cards-text">
             {{ rrn }}

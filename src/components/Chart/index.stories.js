@@ -1,8 +1,8 @@
-import Chart from "./index.vue";
+import Chart from './index.vue';
 
 export default {
   component: Chart,
-  title: "Components/Chart",
+  title: 'Components/Chart',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -17,7 +17,7 @@ const Template = (_, { argTypes }) => ({
             { x: '2022-06-18 00:00:00', y: 3220 },
             { x: '2022-06-18 01:00:00', y: 5400 },
             { x: '2022-06-18 02:00:00', y: 5000 },
-            { x: '2022-06-18 03:00:00', y: 3000},
+            { x: '2022-06-18 03:00:00', y: 3000 },
             { x: '2022-06-18 04:00:00', y: 9000 },
             { x: '2022-06-18 05:00:00', y: 12500 },
             { x: '2022-06-18 06:00:00', y: 8000 },
@@ -115,7 +115,7 @@ const Template = (_, { argTypes }) => ({
           ],
         },
       ],
-    }
+    };
   },
   template: `
     <div class="dark:bg-surface-dark box-border grid w-full grid-cols-2 p-xl gap-xl">

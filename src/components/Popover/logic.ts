@@ -18,7 +18,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    select(val:any) {
+    select(val: any) {
       this.$emit('select', val);
     },
   },

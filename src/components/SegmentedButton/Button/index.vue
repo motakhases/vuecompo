@@ -1,8 +1,5 @@
 <template>
-  <button
-    :class="['zpl-segment-button', { active }]"
-    type="button"
-  >
+  <button :class="['zpl-segment-button', { active }]" type="button">
     {{ text }}
   </button>
 </template>

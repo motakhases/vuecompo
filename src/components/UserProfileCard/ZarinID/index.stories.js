@@ -1,4 +1,4 @@
-import ZarinId from "./index.vue";
+import ZarinId from './index.vue';
 // export default {
 //   component: ZarinId,
 //   title: "Components/UserProfileCard/ZarinId",
@@ -18,12 +18,12 @@ export const Default = Template.bind({});
 
 Default.argTypes = {
   type: {
-    options: ["beginner", "silver", "gold"],
-    control: { type: "radio" },
+    options: ['beginner', 'silver', 'gold'],
+    control: { type: 'radio' },
   },
 };
 
 Default.args = {
-  id: "ZP.12652",
-  type: "gold",
+  id: 'ZP.12652',
+  type: 'gold',
 };

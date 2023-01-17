@@ -1,9 +1,9 @@
-import Tooltip from "./index.vue";
-import Button from "../Button/index.vue";
+import Tooltip from './index.vue';
+import Button from '../Button/index.vue';
 
 export default {
   component: Tooltip,
-  title: "Components/Tooltip",
+  title: 'Components/Tooltip',
 };
 
 const Template = (_, { argTypes }) => ({

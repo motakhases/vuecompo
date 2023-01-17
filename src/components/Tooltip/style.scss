@@ -24,7 +24,7 @@
   span {
     @apply flex text-text-dark text-right font-IRANYekanFaNum;
     @apply dark:text-text;
-    direction: rtl
+    direction: rtl;
   }
 
   &.small {
@@ -34,5 +34,4 @@
   &.large {
     @apply py-[6px] text-b3;
   }
-  
 }

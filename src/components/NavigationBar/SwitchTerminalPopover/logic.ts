@@ -1,18 +1,15 @@
-import {
-  Prop, Component, Ref,
-} from 'vue-property-decorator';
+import { Prop, Component, Ref } from 'vue-property-decorator';
 
 // Interfaces
 import { INavigationBarTerminal, INavigationBarActiveTerminal } from '@/types';
 
 // Components
 import KeyNavigate from '@/utils/class_components/KeyNavigate';
+import { useWindowSize } from '@vueuse/core';
 import Create from '../Create/index.vue';
 import Overview from '../Overview/index.vue';
 import SwitchTerminal from '../SwitchTerminal/index.vue';
 import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
-
-const { useWindowSize } = require('@vueuse/core');
 
 @Component({
   components: {
@@ -31,11 +28,11 @@ export default class SwitchTerminalPopover extends KeyNavigate {
 
   @Ref('terminal') readonly terminal!: HTMLElement;
 
-  @Prop({ type: String, default: '/36x36.png' }) logoAddress!: string
+  @Prop({ type: String, default: '/36x36.png' }) logoAddress!: string;
 
   showPopover = false;
 
-  isFocused = false
+  isFocused = false;
 
   created(): void {
     this.kOrder = ['switchTerminalItem'];
@@ -54,21 +51,10 @@ export default class SwitchTerminalPopover extends KeyNavigate {
   get switcher(): INavigationBarActiveTerminal {
     return {
       title:
-        this.activeTerminal && this.activeTerminal.name
-          ? this.activeTerminal.name
-          : this.$i18n.t('common.overview'),
-      link:
-        this.activeTerminal && this.activeTerminal.domain
-          ? this.activeTerminal.domain
-          : '',
-      img:
-      this.activeTerminal && this.activeTerminal.domain
-        ? this.activeTerminal.logo + this.logoAddress
-        : '',
-      icon:
-        this.activeTerminal && this.activeTerminal.name
-          ? 'terminal'
-          : 'ChartSquare',
+        this.activeTerminal && this.activeTerminal.name ? this.activeTerminal.name : this.$i18n.t('common.overview'),
+      link: this.activeTerminal && this.activeTerminal.domain ? this.activeTerminal.domain : '',
+      img: this.activeTerminal && this.activeTerminal.domain ? this.activeTerminal.logo + this.logoAddress : '',
+      icon: this.activeTerminal && this.activeTerminal.name ? 'terminal' : 'ChartSquare',
     };
   }
 
@@ -76,11 +62,7 @@ export default class SwitchTerminalPopover extends KeyNavigate {
    * Mounted
    */
   mounted(): void {
-    document.documentElement.addEventListener(
-      'click',
-      this.outsideClick,
-      false,
-    );
+    document.documentElement.addEventListener('click', this.outsideClick, false);
   }
 
   handleShowPopover() {
@@ -116,7 +98,7 @@ export default class SwitchTerminalPopover extends KeyNavigate {
     }
   }
 
-  onEnter(e: KeyboardEvent):void {
+  onEnter(e: KeyboardEvent): void {
     this.isFocused = false;
     this.showPopover = true;
     this.$nextTick(() => {
@@ -124,7 +106,7 @@ export default class SwitchTerminalPopover extends KeyNavigate {
     });
   }
 
-  beforeDestroy():void {
+  beforeDestroy(): void {
     this.kDestroyKeyUp();
   }
 }

@@ -1,8 +1,8 @@
-import QuickFilter from "./index.vue";
+import QuickFilter from './index.vue';
 
 export default {
   component: QuickFilter,
-  title: "Components/QuickFilter",
+  title: 'Components/QuickFilter',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,15 +12,15 @@ const Template = (_, { argTypes }) => ({
     return {
       list: [
         {
-          text: "همه",
+          text: 'همه',
           value: 'all',
         },
         {
-          text: "موفق",
+          text: 'موفق',
           value: 'success',
         },
         {
-          text: "ناموفق",
+          text: 'ناموفق',
           value: 'not success',
         },
       ],

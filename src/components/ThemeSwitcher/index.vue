@@ -1,11 +1,5 @@
 <template>
-  <Modal
-    :title="$t('notif_settings.theme')"
-    v-if="open"
-    @close="toggleModal"
-    closable
-    width="400px"
-  >
+  <Modal :title="$t('notif_settings.theme')" v-if="open" @close="toggleModal" closable width="400px">
     <div slot="body" class="px-md pt-md pb-xl">
       <div class="zpl-theme-box">
         <RadioCard

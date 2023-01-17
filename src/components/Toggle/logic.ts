@@ -1,6 +1,4 @@
-import {
-  Vue, Component, Prop, VModel,
-} from 'vue-property-decorator';
+import { Vue, Component, Prop, VModel } from 'vue-property-decorator';
 import Skeleton from '@/components/Skeleton/index.vue';
 
 @Component({
@@ -9,11 +7,11 @@ import Skeleton from '@/components/Skeleton/index.vue';
   },
 })
 export default class Toggle extends Vue {
-  @VModel({ type: Boolean }) model!: boolean
+  @VModel({ type: Boolean }) model!: boolean;
 
-  @Prop({ type: Boolean }) readonly disabled?: boolean
+  @Prop({ type: Boolean }) readonly disabled?: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
-  @Prop({ type: String }) readonly text?: string
+  @Prop({ type: String }) readonly text?: string;
 }

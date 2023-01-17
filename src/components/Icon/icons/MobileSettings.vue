@@ -1,12 +1,5 @@
-
 <template>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M9 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H15C16.1046 3 17 3.89543 17 5V11"
       stroke="#393946"
@@ -21,13 +14,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M15.52 15.04V16"
-      stroke="#393946"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M15.52 15.04V16" stroke="#393946" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       d="M15.52 19.8401V20.8001"
       stroke="#393946"
@@ -73,9 +60,9 @@
   </svg>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "MobileSetting",
+  name: 'MobileSetting',
 });
 </script>

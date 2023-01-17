@@ -5,7 +5,7 @@
       <h4 class="zpl-card-head-title" v-if="title && !loading">
         {{ title }}
       </h4>
-          <Skeleton type="heading" class="w-1/5" v-if="loading && title"  />
+      <Skeleton type="heading" class="w-1/5" v-if="loading && title" />
 
       <div class="zpl-card-actions">
         <slot name="actions" />
@@ -15,7 +15,7 @@
       {{ helper }}
     </h4>
     <!-- body -->
-    <div :class="[{ 'zpl-card-content': title },!helper?'pt-xl':'pt-md']" v-if="hasContent">
+    <div :class="[{ 'zpl-card-content': title }, !helper ? 'pt-xl' : 'pt-md']" v-if="hasContent">
       <slot />
     </div>
     <div class="flex gap-sm items-center mt-sm">

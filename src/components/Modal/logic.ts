@@ -14,7 +14,7 @@ export default class Modal extends Vue {
 
   @Prop({ type: String }) readonly maxHeight!: string;
 
-  finalWidth = ''
+  finalWidth = '';
 
   onResize(): void {
     if (window.innerWidth >= 992) {
@@ -33,7 +33,7 @@ export default class Modal extends Vue {
     this.onResize();
   }
 
-  beforeDestroy():void {
+  beforeDestroy(): void {
     window.removeEventListener('resize', this.onResize);
   }
 }

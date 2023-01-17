@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -15,27 +9,9 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M2.5 8H21.5"
-      stroke="#393946"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M10 14H14"
-      stroke="#393946"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M12 16V12"
-      stroke="#393946"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M2.5 8H21.5" stroke="#393946" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M10 14H14" stroke="#393946" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M12 16V12" stroke="#393946" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       d="M5.50488 5.49C5.50188 5.49 5.49988 5.492 5.49988 5.495C5.49988 5.498 5.50188 5.5 5.50488 5.5C5.50788 5.5 5.50988 5.498 5.50988 5.495C5.50988 5.492 5.50788 5.49 5.50488 5.49"
       stroke="#393946"
@@ -60,9 +36,9 @@
   </svg>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "Gateway",
+  name: 'Gateway',
 });
 </script>

@@ -2,30 +2,30 @@
   @apply bg-surface rounded-md;
   @apply dark:bg-surface-dark;
 
-  &:not(.in-card){
+  &:not(.in-card) {
     @apply shadow-elevation-50;
     @apply dark:shadow-dark-elevation-50;
   }
-  .zpl-emptystate-box{
+  .zpl-emptystate-box {
     @apply max-w-[296px] mx-auto text-center px-md py-xl box-content;
     .bg-empty-state {
       @apply w-[128px] h-[128px] bg-no-repeat bg-center mx-auto;
     }
-    .logo-empty{
-      @apply w-[128px] h-[128px] bg-center mx-auto
+    .logo-empty {
+      @apply w-[128px] h-[128px] bg-center mx-auto;
     }
     .zpl-emptystate-content {
       @apply mt-2xl;
-      .zpl-emptystate-title{
+      .zpl-emptystate-title {
         @apply text-b1 text-text;
         @apply dark:text-text-dark;
       }
-      .zpl-emptystate-caption{
+      .zpl-emptystate-caption {
         @apply text-b2 mt-sm text-text-soft;
         @apply dark:text-text-dark-soft;
       }
     }
-    .zpl-emptystate-buttons{
+    .zpl-emptystate-buttons {
       @apply mt-2xl;
     }
   }

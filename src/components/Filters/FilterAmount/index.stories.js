@@ -1,6 +1,6 @@
-import Radio from "@/components/Radio/index.vue";
+import Radio from '@/components/Radio/index.vue';
 
-import FilterAmount from "./index.vue";
+import FilterAmount from './index.vue';
 
 // export default {
 //   component: FilterAmount,
@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      amountValue: "",
+      amountValue: '',
     };
   },
   method: {
@@ -32,15 +32,15 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.argTypes = {
   amountFilter: {
-    options: ["min", "max", "equal", "range"],
-    control: { type: "radio" },
+    options: ['min', 'max', 'equal', 'range'],
+    control: { type: 'radio' },
   },
 };
 
 Default.args = {
-  name: "some name",
-  text: "عنوان فیلتر",
-  val: "value",
+  name: 'some name',
+  text: 'عنوان فیلتر',
+  val: 'value',
   disabled: false,
-  amountFilter: "equal",
+  amountFilter: 'equal',
 };

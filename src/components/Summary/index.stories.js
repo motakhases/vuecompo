@@ -1,8 +1,8 @@
-import Summary from "./index.vue";
+import Summary from './index.vue';
 
 export default {
   component: Summary,
-  title: "Components/Summary",
+  title: 'Components/Summary',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -24,8 +24,8 @@ export const Default = Template.bind({});
 
 Default.args = {
   options: [
-    { id: 1, text: "عنوان", sub: "۱۰۰۰۰ ریال" },
-    { id: 4, text: "عنوان", sub: "۵۰۰۰۰۰ ریال" },
-    { id: 5, text: "عنوان", sub: "۴۵۰۰۰۰ ریال", infoText: "متن" },
+    { id: 1, text: 'عنوان', sub: '۱۰۰۰۰ ریال' },
+    { id: 4, text: 'عنوان', sub: '۵۰۰۰۰۰ ریال' },
+    { id: 5, text: 'عنوان', sub: '۴۵۰۰۰۰ ریال', infoText: 'متن' },
   ],
 };

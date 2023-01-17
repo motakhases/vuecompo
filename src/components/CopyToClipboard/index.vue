@@ -22,7 +22,7 @@
           </div>
 
           <!-- clipboard text -->
-          <input class="zpl-clipboard-text" v-model="text">
+          <input class="zpl-clipboard-text" v-model="text" />
         </div>
       </Tooltip>
     </template>

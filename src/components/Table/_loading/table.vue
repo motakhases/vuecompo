@@ -3,11 +3,7 @@
     <table>
       <thead>
         <tr>
-          <th
-            v-for="(col, i) in cols"
-            :key="`${i}-col`"
-            :style="[{ width: col.width, minWidth: col.minWidth }]"
-          >
+          <th v-for="(col, i) in cols" :key="`${i}-col`" :style="[{ width: col.width, minWidth: col.minWidth }]">
             <Skeleton type="body" class="w-[64px]" />
           </th>
         </tr>
@@ -53,6 +49,6 @@ export default class Loading extends Vue {
 
   @Prop({ type: Array }) readonly actions?: ITableActions[];
 
-  @Prop({ type: Boolean, default: true }) readonly hasImage?: boolean
+  @Prop({ type: Boolean, default: true }) readonly hasImage?: boolean;
 }
 </script>

@@ -1,6 +1,6 @@
-import TaskAction from "./index.vue";
-import { storiesOf } from "@storybook/vue";
-import StoryRouter from "storybook-vue-router";
+import TaskAction from './index.vue';
+import { storiesOf } from '@storybook/vue';
+import StoryRouter from 'storybook-vue-router';
 
 // storiesOf("Components/UserProfileCard/TaskAction", module)
 //   .addDecorator(StoryRouter())
@@ -27,7 +27,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   disabled: false,
-  link: "#link",
-  text: "item",
+  link: '#link',
+  text: 'item',
   complete: true,
 };

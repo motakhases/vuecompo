@@ -1,9 +1,9 @@
-import Tabs from "./index.vue";
-import Tab from "./Tab/index.vue";
+import Tabs from './index.vue';
+import Tab from './Tab/index.vue';
 
 export default {
   component: Tabs,
-  title: "Components/Tabs",
+  title: 'Components/Tabs',
 };
 
 const Template = (_, { argTypes }) => ({

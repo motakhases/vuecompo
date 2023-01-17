@@ -1,12 +1,5 @@
 <template>
-  <component
-    :is="linkComponentDetector"
-    :href="href"
-    :to="to"
-    :exact="exact"
-    :target="target"
-    class="zpl-link"
-  >
+  <component :is="linkComponentDetector" :href="href" :to="to" :exact="exact" :target="target" class="zpl-link">
     {{ text }}
   </component>
 </template>

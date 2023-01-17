@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.1.115",
+  "version": "2.1.116",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
@@ -14,7 +14,8 @@
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test": "yarn test:unit",
-    "generate": "node fetchLangs.mjs"
+    "generate": "node fetchLangs.mjs",
+    "format": "prettier --write ."
   },
   "main": "dist/zwc.umd.js",
   "files": [
@@ -103,7 +104,7 @@
   "types": "index.d.ts",
   "dependencies": {
     "@types/moment-jalaali": "^0.7.5",
-    "@types/node": "^17.0.26",
+    "@types/node": "^18.11.18",
     "@vue/composition-api": "^1.7.1",
     "@vueuse/core": "^9.9.0",
     "apexcharts": "^3.35.3",

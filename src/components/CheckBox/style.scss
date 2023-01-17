@@ -24,7 +24,7 @@
       @apply border-surface;
       // dark states
       @apply dark:border-surface-dark;
-      content: "";
+      content: '';
       transform: rotate(45deg);
     }
   }

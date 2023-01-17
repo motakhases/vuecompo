@@ -1,8 +1,8 @@
-import EmptyState from "./index.vue";
+import EmptyState from './index.vue';
 
 export default {
   component: EmptyState,
-  title: "Components/EmptyState",
+  title: 'Components/EmptyState',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -15,12 +15,16 @@ const Template = (_, { argTypes }) => ({
       emptyStateButtons: [
         {
           text: 'دکمه',
-          action: () => { console.log('hi'); },
+          action: () => {
+            console.log('hi');
+          },
           type: 'secondary',
         },
         {
           text: 'دکمه',
-          action: () => { console.log('hi'); },
+          action: () => {
+            console.log('hi');
+          },
         },
       ],
     };

@@ -2,11 +2,7 @@
   <div class="zpl-tooltip-container" ref="tooltipBtn">
     <slot />
     <div ref="tooltip">
-      <div
-        v-if="toggle"
-        :class="['zpl-tooltip', position, space, size]"
-        :style="[style]"
-      >
+      <div v-if="toggle" :class="['zpl-tooltip', position, space, size]" :style="[style]">
         <Indicator v-if="indicator" :position="position" />
         <span>{{ text }}</span>
       </div>

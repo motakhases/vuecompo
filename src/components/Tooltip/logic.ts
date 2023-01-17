@@ -1,25 +1,23 @@
-import {
-  Component, Prop, Vue, Ref, Watch,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref, Watch } from 'vue-property-decorator';
 import Indicator from './Indicator/index.vue';
 
 @Component({
   components: { Indicator },
 })
 export default class Tooltip extends Vue {
-  @Prop({ type: String, required: true }) readonly text!: string
+  @Prop({ type: String, required: true }) readonly text!: string;
 
-  @Prop({ type: String, default: 'bottomLeft' }) readonly position!: string
+  @Prop({ type: String, default: 'bottomLeft' }) readonly position!: string;
 
-  @Prop({ type: String, default: 'smallSpace' }) readonly space!: string
+  @Prop({ type: String, default: 'smallSpace' }) readonly space!: string;
 
-  @Prop({ type: Boolean, default: true }) readonly indicator!: boolean
+  @Prop({ type: Boolean, default: true }) readonly indicator!: boolean;
 
-  @Prop({ type: Boolean }) readonly hideTooltip?: boolean
+  @Prop({ type: Boolean }) readonly hideTooltip?: boolean;
 
-  @Prop({ type: String, default: 'large' }) readonly size!: string
+  @Prop({ type: String, default: 'large' }) readonly size!: string;
 
-  @Prop({ type: String, default: 'hover' }) readonly trigger!: string
+  @Prop({ type: String, default: 'hover' }) readonly trigger!: string;
 
   @Ref('tooltipBtn') readonly buttonRef!: HTMLElement;
 
@@ -40,9 +38,7 @@ export default class Tooltip extends Vue {
     // get the position of button and set it to tooltip
     const distance = this.space === 'smallSpace' ? 8 : 16;
     if (this.buttonRef) {
-      const {
-        height, top, left, width,
-      } = this.buttonRef?.children[0]?.getBoundingClientRect();
+      const { height, top, left, width } = this.buttonRef?.children[0]?.getBoundingClientRect();
       const tooltipWidth = this.tooltipRef?.children[0]?.getBoundingClientRect().width;
       const tooltipHeight = this.tooltipRef?.children[0]?.getBoundingClientRect().height;
 
@@ -125,15 +121,16 @@ export default class Tooltip extends Vue {
     }
   }
 
-  getScrollParent = (node:any) => {
+  getScrollParent = (node: any) => {
     if (node === null) {
       return null;
-    } if (node.scrollHeight > node.clientHeight) {
+    }
+    if (node.scrollHeight > node.clientHeight) {
       return node;
     }
 
     return this.getScrollParent(node.parentNode);
-  }
+  };
 
   outsideTrigger(e: Event): void {
     // close tooltip
@@ -160,31 +157,25 @@ export default class Tooltip extends Vue {
 
   triggerHandler() {
     if (this.trigger === 'hover') {
-      document.documentElement.addEventListener(
-        'mouseover',
-        this.outsideTrigger,
-        false,
-      ); this.buttonRef.children[0].addEventListener(
-        'mouseenter',
-        this.onButtonTrigger,
-        false,
-      );
+      document.documentElement.addEventListener('mouseover', this.outsideTrigger, false);
+      this.buttonRef.children[0].addEventListener('mouseenter', this.onButtonTrigger, false);
     } else if (this.trigger === 'click') {
       this.buttonRef.children[0].addEventListener(
-        'click', () => {
+        'click',
+        () => {
           this.onButtonTrigger();
           // hide tooltip after 1500ms
-          setTimeout(() => {
-            this.toggle = false;
-          }, 1500, this);
+          setTimeout(
+            () => {
+              this.toggle = false;
+            },
+            1500,
+            this,
+          );
         },
         false,
       );
-      document.documentElement.addEventListener(
-        'click',
-        this.outsideTrigger,
-        false,
-      );
+      document.documentElement.addEventListener('click', this.outsideTrigger, false);
     }
   }
 

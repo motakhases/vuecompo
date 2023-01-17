@@ -1,23 +1,6 @@
 <template>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 16L13 12L9 8"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M16.75 7.75L16.75 16.25"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-    />
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 16L13 12L9 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M16.75 7.75L16.75 16.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
   </svg>
 </template>

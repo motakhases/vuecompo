@@ -4,12 +4,9 @@
       <Skeleton type="body" class="w-1/3" />
     </div>
     <div class="zpl-textfield-group" v-else>
-      <div
-        :class="['zpl-textfield', { invalid: errors }]"
-        :disabled="disabled"
-      >
+      <div :class="['zpl-textfield', { invalid: errors }]" :disabled="disabled">
         <!-- Prefix Icon -->
-        <Icon v-if="prefixIcon" :name="prefixIcon" class="zpl-textfield-icon"/>
+        <Icon v-if="prefixIcon" :name="prefixIcon" class="zpl-textfield-icon" />
 
         <input
           v-model="model"
@@ -25,23 +22,14 @@
         />
 
         <!-- Suffic Icon -->
-        <Icon v-if="suffixIcon" :name="suffixIcon" class="zpl-textfield-icon"/>
+        <Icon v-if="suffixIcon" :name="suffixIcon" class="zpl-textfield-icon" />
         <!-- shows stepper to increase number or descrease -->
         <div v-if="stepper && type === 'number'" class="zpl-textfield-stepper">
-          <button
-            class="zpl-textfield-stepper-btn"
-            type="button"
-            @click="increment"
-          >
+          <button class="zpl-textfield-stepper-btn" type="button" @click="increment">
             <Icon name="filledArrowUp" />
           </button>
 
-          <button
-            class="zpl-textfield-stepper-btn"
-            type="button"
-            :disabled="value === min"
-            @click="decrement"
-          >
+          <button class="zpl-textfield-stepper-btn" type="button" :disabled="value === min" @click="decrement">
             <Icon name="filledArrowDown" />
           </button>
         </div>
@@ -74,20 +62,14 @@
         </Tooltip>
 
         <!-- label -->
-        <label
-          v-if="label"
-          :class="['zpl-textfield-label', { isInputFocused }]"
-        >
+        <label v-if="label" :class="['zpl-textfield-label', { isInputFocused }]">
           {{ label }}
         </label>
       </div>
 
       <div class="zpl-textfield-hint-box">
         <!-- Hint -->
-        <div
-          v-if="hint && !(successMessage && passed) && !errors"
-          class="zpl-textfield-hint helper"
-        >
+        <div v-if="hint && !(successMessage && passed) && !errors" class="zpl-textfield-hint helper">
           <span>
             {{ hint }}
           </span>
@@ -108,9 +90,7 @@
         </div>
 
         <!-- Max Length -->
-        <span v-if="maxPreview" class="zpl-textfield-hint-maxlength">
-          {{ maxlength }}/{{ value.length }}
-        </span>
+        <span v-if="maxPreview" class="zpl-textfield-hint-maxlength"> {{ maxlength }}/{{ value.length }} </span>
       </div>
     </div>
   </div>

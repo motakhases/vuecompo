@@ -1,11 +1,6 @@
 <template>
   <div class="zpl-uploaded-box" v-if="uploadedList.length">
-    <div
-      class="zpl-uploaded"
-      v-for="(file, index) in uploadedList"
-      :key="index"
-      :removeFileHandler="removeFileHandler"
-    >
+    <div class="zpl-uploaded" v-for="(file, index) in uploadedList" :key="index" :removeFileHandler="removeFileHandler">
       <!-- icon -->
       <Icon name="clip" v-if="hasIcon" />
 

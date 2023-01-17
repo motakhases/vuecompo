@@ -1,8 +1,8 @@
-import Thumbnail from "./index.vue";
-import image from "../../assets/images/product_img.png";
+import Thumbnail from './index.vue';
+import image from '../../assets/images/product_img.png';
 export default {
   component: Thumbnail,
-  title: "Components/Thumbnail",
+  title: 'Components/Thumbnail',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -40,7 +40,7 @@ const Template = (_, { argTypes }) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-  icon: "terminal",
-  alt: "",
-  img: "",
+  icon: 'terminal',
+  alt: '',
+  img: '',
 };

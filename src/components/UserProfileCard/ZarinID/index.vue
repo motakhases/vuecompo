@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="zpl-user-card-id"
-  >
+  <div class="zpl-user-card-id">
     <span class="zpl-user-card-task-title">
       {{ id }}
     </span>
-    <div :class="['circle',type]" />
+    <div :class="['circle', type]" />
   </div>
 </template>
 
