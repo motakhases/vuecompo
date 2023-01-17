@@ -27,11 +27,15 @@
     }
   }
 
+  &-helper {
+    @apply text-right font-normal text-b2 font-sans text-text-soft items-center;
+  }
+
   &-actions {
     @apply flex gap-xs;
   }
 
   &-content {
-    @apply pt-xl flex-1;
+    @apply flex-1;
   }
 }
