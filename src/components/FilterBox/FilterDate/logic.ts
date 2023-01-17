@@ -19,7 +19,7 @@ import { DatePickerValue, Translation } from '@/types';
   },
 })
 export default class FilterDate extends Vue {
-  date = ''
+  date = '';
 
   dateList = {
     TODAY: this.$i18n.t('common.export.today'),
@@ -28,11 +28,11 @@ export default class FilterDate extends Vue {
     LAST_MONTH: this.$i18n.t('common.export.prev_month'),
     LAST_WEEK: this.$i18n.t('common.export.7_days'),
     OPTIONAL_PERIOD: this.$i18n.t('common.export.range'),
-  }
+  };
 
   value: DatePickerValue = '';
 
-  shownValue: Translation = ''
+  shownValue: Translation = '';
 
   today = moment().format('jYYYY/jM/jD');
 
@@ -44,9 +44,9 @@ export default class FilterDate extends Vue {
 
   endOfMonth = moment().endOf('jMonth').format('jYYYY/jM/jD');
 
-  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY/jM/jD')
+  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY/jM/jD');
 
-  lastWeek = moment().subtract(1, 'week').format('jYYYY/jM/jD')
+  lastWeek = moment().subtract(1, 'week').format('jYYYY/jM/jD');
 
   options = [
     { id: 1, text: this.dateList.TODAY, value: 'TODAY' },
@@ -66,38 +66,38 @@ export default class FilterDate extends Vue {
   }
 
   getDateValue(option: string) {
-    const filteredList = this.options.filter((i) => (i.value === option));
+    const filteredList = this.options.filter((i) => i.value === option);
     return filteredList ? filteredList[0].text : '';
   }
 
   @Watch('date')
   watchDate(): string {
     switch (this.date) {
-    case 'TODAY':
-      this.value = this.today;
-      this.shownValue = this.getDateValue(this.date);
-      break;
-    case 'CURRENT_WEEK':
-      this.value = [this.startOfWeek, this.endOfWeek];
-      this.shownValue = this.getDateValue(this.date);
-      break;
-    case 'CURRENT_MONTH':
-      this.value = [this.startOfMonth, this.endOfMonth];
-      this.shownValue = this.getDateValue(this.date);
-      break;
-    case 'LAST_MONTH':
-      this.value = [this.lastMonth, this.today];
-      this.shownValue = this.getDateValue(this.date);
-      break;
-    case 'LAST_WEEK':
-      this.value = [this.lastWeek, this.today];
-      this.shownValue = this.getDateValue(this.date);
-      break;
-    case 'OPTIONAL_PERIOD':
-      this.shownValue = '';
-      break;
-    default:
-      return '';
+      case 'TODAY':
+        this.value = this.today;
+        this.shownValue = this.getDateValue(this.date);
+        break;
+      case 'CURRENT_WEEK':
+        this.value = [this.startOfWeek, this.endOfWeek];
+        this.shownValue = this.getDateValue(this.date);
+        break;
+      case 'CURRENT_MONTH':
+        this.value = [this.startOfMonth, this.endOfMonth];
+        this.shownValue = this.getDateValue(this.date);
+        break;
+      case 'LAST_MONTH':
+        this.value = [this.lastMonth, this.today];
+        this.shownValue = this.getDateValue(this.date);
+        break;
+      case 'LAST_WEEK':
+        this.value = [this.lastWeek, this.today];
+        this.shownValue = this.getDateValue(this.date);
+        break;
+      case 'OPTIONAL_PERIOD':
+        this.shownValue = '';
+        break;
+      default:
+        return '';
     }
     this.$emit('updatedValue', this.shownValue);
 
@@ -113,9 +113,9 @@ export default class FilterDate extends Vue {
   }
 
   updateInfo() {
-    const dateQuery = this.$route.query.date;
-    if (dateQuery) {
-      const dateValue = (moment(dateQuery as string).format('jYYYY/jM/jD'));
+    const dateQuery = this.$route?.query.date;
+    if (dateQuery !== undefined) {
+      const dateValue = moment(dateQuery as string).format('jYYYY/jM/jD');
       if (typeof dateQuery === 'string') {
         this.value = JSON.parse(JSON.stringify(dateQuery));
         if (dateValue === this.today) {
@@ -124,17 +124,14 @@ export default class FilterDate extends Vue {
           this.date = dateValue;
         }
       } else {
-        const firstDate = (moment(dateQuery[0] as string).format('jYYYY/jM/jD'));
-        const secondDate = (moment(dateQuery[1] as string).format('jYYYY/jM/jD'));
+        const firstDate = moment(dateQuery[0] as string).format('jYYYY/jM/jD');
+        const secondDate = moment(dateQuery[1] as string).format('jYYYY/jM/jD');
         const firstFormattedValue = moment(dateQuery[0] as string).format('jYYYY-jM-jD');
         const secondFormattedValue = moment(dateQuery[1] as string).format('jYYYY-jM-jD');
         this.value = [firstFormattedValue, secondFormattedValue];
         if (firstDate === this.startOfWeek && secondDate === this.endOfWeek) {
           this.date = 'CURRENT_WEEK';
-        } else if (
-          firstDate === this.startOfMonth
-          && secondDate === this.endOfMonth
-        ) {
+        } else if (firstDate === this.startOfMonth && secondDate === this.endOfMonth) {
           this.date = 'CURRENT_MONTH';
         } else if (firstDate === this.lastMonth && secondDate === this.today) {
           this.date = 'LAST_MONTH';

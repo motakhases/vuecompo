@@ -99,7 +99,7 @@ export default class Logic extends Vue {
             this.isActive = false;
             this.finalActiveVal = '';
           }
-        } else if (queryKeys.includes(this.value)) {
+        } else if (queries && queryKeys.includes(this.value)) {
           if (i === this.value) {
             if (queries[i]) {
               this.isActive = true;
