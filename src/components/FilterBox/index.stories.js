@@ -25,7 +25,7 @@ const Template = (_, { argTypes }) => ({
     updateFilter(){
       console.log("updateFilter");
     },
-    filter() {
+    updatefilter1() {
       console.log("Try to add queries...");
       const filterList = {};
 
@@ -67,7 +67,7 @@ const Template = (_, { argTypes }) => ({
     </div>
 
     </FilterBox>
-    <FilterBox title="عنوان کارت" :filter="filter" >
+    <FilterBox title="عنوان کارت" :filter="updatefilter1" >
     <div class="w-full">
     <FilterDate
     @updateFilter="updateFilter"
