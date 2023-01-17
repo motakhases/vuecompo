@@ -9,7 +9,6 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    indent: ['error', 2],
     '@typescript-eslint/no-var-requires': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'max-len': 'off',
