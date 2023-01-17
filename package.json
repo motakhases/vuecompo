@@ -104,7 +104,7 @@
   "types": "index.d.ts",
   "dependencies": {
     "@types/moment-jalaali": "^0.7.5",
-    "@types/node": "^18.11.18",
+    "@types/node": "^17.0.26",
     "@vue/composition-api": "^1.7.1",
     "@vueuse/core": "^9.9.0",
     "apexcharts": "^3.35.3",

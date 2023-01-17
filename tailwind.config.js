@@ -1,4 +1,3 @@
-const typography = require('@tailwindcss/typography');
 const {
   colors,
   fontFamily,
@@ -45,6 +44,7 @@ module.exports = {
       center: true,
     },
   },
-  plugins: [typography],
+  // eslint-disable-next-line global-require
+  plugins: [require('@tailwindcss/typography')],
   variants: {},
 };
