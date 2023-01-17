@@ -1,6 +1,6 @@
 <template>
   <li :class="['zpl-nav-item',isFocused?'isFocused':'']"
-      @click="toggleMobileHandler" draggable="true" @keyup="onKeyup" @keydown.stop.prevent>
+      draggable="true" @keyup="onKeyup" @keydown.stop.prevent>
     <span v-if="divider" class="divider"  />
     <Tooltip
       :text="title"
