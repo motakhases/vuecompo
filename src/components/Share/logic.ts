@@ -2,9 +2,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 // Components
 import Social from '@/components/Share/_social/index.vue';
-import {
-  Skeleton, Button, CopyToClipboard, Icon,
-} from '@/components';
+import CopyToClipboard from '@/components/CopyToClipboard/index.vue';
+import Button from '@/components/Button/index.vue';
+import Icon from '@/components/Icon/index.vue';
+import Skeleton from '@/components/Skeleton/index.vue';
 
 @Component({
   components: {
@@ -41,13 +42,13 @@ export default class Share extends Vue {
     return '';
   }
 
-  private socialAdrs = {
+  private socialAdrs:any = {
     telegram: 'https://t.me/share/url',
     whatsapp: 'https://api.whatsapp.com/send',
     twitter: 'https://twitter.com/share',
   }
 
-  private mkScoialUrl(socialName, zplAdr, text) {
+  private mkScoialUrl(socialName:any, zplAdr:any, text:any) {
     let res; const socialAdr = this.socialAdrs[socialName];
     switch (socialName) {
     case 'telegram': case 'twitter':

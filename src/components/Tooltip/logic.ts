@@ -125,7 +125,7 @@ export default class Tooltip extends Vue {
     }
   }
 
-  getScrollParent = (node:any) => {
+  getScrollParent = (node:any):any => {
     if (node === null) {
       return null;
     } if (node.scrollHeight > node.clientHeight) {
@@ -155,7 +155,7 @@ export default class Tooltip extends Vue {
   }
 
   click() {
-    console.log('clik');
+    // console.log('clik');
   }
 
   triggerHandler() {
