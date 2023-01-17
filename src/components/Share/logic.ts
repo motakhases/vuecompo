@@ -1,18 +1,14 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 // Components
-import Tab from '@/components/Tabs/Tab/index.vue';
 import Social from '@/components/Share/_social/index.vue';
 import {
-  Skeleton, TextField, Button, Tabs, CopyToClipboard, Icon,
+  Skeleton, Button, CopyToClipboard, Icon,
 } from '@/components';
 
 @Component({
   components: {
-    Tab,
-    Tabs,
     Button,
-    TextField,
     CopyToClipboard,
     Icon,
     Social,
