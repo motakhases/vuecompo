@@ -13,10 +13,6 @@
     }
   }
 
-  &-helper {
-    @apply text-right font-normal text-b2 font-sans text-text-soft items-center;
-  }
-
   &-actions {
     @apply flex gap-xs;
   }
