@@ -14,7 +14,8 @@
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test": "yarn test:unit",
-    "generate": "node fetchLangs.mjs"
+    "generate": "node fetchLangs.mjs",
+    "format": "prettier --write ."
   },
   "main": "dist/zwc.umd.js",
   "files": [
