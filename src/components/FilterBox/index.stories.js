@@ -20,15 +20,12 @@ const Template = (_, { argTypes }) => ({
   },
   methods: {
     deleteFilter() {
-      debugger;
       console.log('deleteFilter');
     },
     updateFilter() {
-      debugger;
       console.log('updateFilter');
     },
     filters1() {
-      debugger;
       console.log('Try to add queries...');
       const filterList = {};
 
@@ -48,12 +45,15 @@ const Template = (_, { argTypes }) => ({
 
       this.toggleModal();
     },
+    discloserHandle(val) {
+      console.log('st', val);
+    },
   },
 
   props: Object.keys(argTypes),
   template: `
   <div class="   dark:bg-background-dark p-lg rounded-md flex flex-col gap-md" dir="rtl">
-	  <FilterBox title="عنوان کارت" :filter="filters1" >
+	  <FilterBox title="عنوان کارت" :filter="filters1" @isCloser="discloserHandle">
     <div class="w-full">
         <Radio
     v-model="filters.status"
@@ -87,3 +87,7 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
+
+Default.args = {
+  isCloser: { action: 'isCloser' },
+};
