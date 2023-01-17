@@ -1,6 +1,5 @@
 import NavigationBar from './index.vue';
 import TopBar from '../TopBar/index.vue';
-import { TitleTooltip } from '@/types';
 
 const Template = (_, { argTypes }) => ({
   components: {

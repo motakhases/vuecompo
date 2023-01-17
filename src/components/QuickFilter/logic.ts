@@ -26,8 +26,10 @@ export default class QuickFilter extends Vue {
   }
 
   created(): void {
-    if (!this.$route.query[this.queryKey]) {
-      this.changeFilter(this.items[0]);
+    if (this.$route) {
+      if (!this.$route.query[this.queryKey]) {
+        this.changeFilter(this.items[0]);
+      }
     }
   }
 
