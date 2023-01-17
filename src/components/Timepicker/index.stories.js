@@ -1,8 +1,8 @@
-import Timepicker from "./index.vue";
+import Timepicker from './index.vue';
 
 export default {
   component: Timepicker,
-  title: "Components/Timepicker",
+  title: 'Components/Timepicker',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -10,9 +10,9 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      singleDate: "",
+      singleDate: '',
       rangeDate: [],
-      previewDate: "",
+      previewDate: '',
       rangeMode: true,
       previewMode: true,
     };

@@ -10,15 +10,15 @@ import TypeRenderer from '../_typeRenderer/index.vue';
 // Interfaces
 interface ITableColumns {
   title: string;
-  key: string
+  key: string;
 }
 interface ITableRowData {
   title: string;
-  type: string
+  type: string;
 }
 interface ITableRow {
   type: string;
-  data: string | number | ITableRowData[]
+  data: string | number | ITableRowData[];
 }
 
 @Component({
@@ -31,21 +31,21 @@ interface ITableRow {
   },
 })
 export default class Logic extends Vue {
-  @Prop({ type: Object }) readonly td!: ITableRow[]
+  @Prop({ type: Object }) readonly td!: ITableRow[];
 
-  @Prop({ type: Array }) readonly columns!: ITableColumns[]
+  @Prop({ type: Array }) readonly columns!: ITableColumns[];
 
-  @Prop({ type: Boolean }) readonly bordered?: boolean
+  @Prop({ type: Boolean }) readonly bordered?: boolean;
 
-  @Prop({ type: Array }) readonly actions?: []
+  @Prop({ type: Array }) readonly actions?: [];
 
-  @Prop({ type: String }) readonly routeName?: string
+  @Prop({ type: String }) readonly routeName?: string;
 
-  @Prop({ type: [String, Number] }) readonly linkId!: string | number
+  @Prop({ type: [String, Number] }) readonly linkId!: string | number;
 
-  @Prop({ type: Object }) readonly params?: any
+  @Prop({ type: Object }) readonly params?: any;
 
-  @Prop({ type: Function }) readonly handleClickFromOutside?: () => void
+  @Prop({ type: Function }) readonly handleClickFromOutside?: () => void;
 
   get headerRight(): ITableRow {
     return Object.values(this.td)[0];

@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Radio from '@/components/Radio/index.vue';
 
@@ -20,7 +18,7 @@ export default class RadioCard extends Vue {
 
   @Prop({ type: String }) readonly icon!: string;
 
-  @Prop({ type: Boolean }) readonly disabled?: boolean
+  @Prop({ type: Boolean }) readonly disabled?: boolean;
 
   get model(): string | number {
     return this.value;
@@ -30,7 +28,7 @@ export default class RadioCard extends Vue {
     this.$emit('input', value);
   }
 
-  selectCardHandler():void {
+  selectCardHandler(): void {
     if (!this.disabled) {
       this.$emit('input', this.val);
     }

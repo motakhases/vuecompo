@@ -2,9 +2,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 // Components
 import Social from '@/components/Share/_social/index.vue';
-import {
-  Skeleton, Button, CopyToClipboard, Icon,
-} from '@/components';
+import { Skeleton, Button, CopyToClipboard, Icon } from '@/components';
 
 @Component({
   components: {
@@ -45,22 +43,24 @@ export default class Share extends Vue {
     telegram: 'https://t.me/share/url',
     whatsapp: 'https://api.whatsapp.com/send',
     twitter: 'https://twitter.com/share',
-  }
+  };
 
   private mkScoialUrl(socialName, zplAdr, text) {
-    let res; const socialAdr = this.socialAdrs[socialName];
+    let res;
+    const socialAdr = this.socialAdrs[socialName];
     switch (socialName) {
-    case 'telegram': case 'twitter':
-      res = `${socialAdr}?url=${zplAdr}`;
-      if (text) {
-        res += `&text=${text}`;
-      }
-      break;
-    default: // whatsapp
-      res = `${socialAdr}?text=${zplAdr}`;
-      if (text) {
-        res += ` – ${text}`;
-      }
+      case 'telegram':
+      case 'twitter':
+        res = `${socialAdr}?url=${zplAdr}`;
+        if (text) {
+          res += `&text=${text}`;
+        }
+        break;
+      default: // whatsapp
+        res = `${socialAdr}?text=${zplAdr}`;
+        if (text) {
+          res += ` – ${text}`;
+        }
     }
     return res;
   }

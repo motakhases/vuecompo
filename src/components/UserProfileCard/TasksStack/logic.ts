@@ -6,5 +6,5 @@ import TaskItem from '../TaskItem/index.vue';
   components: { TaskItem },
 })
 export default class TasksStack extends Vue {
-  @Prop({ type: Array }) readonly items!: UserTaskItems[]
+  @Prop({ type: Array }) readonly items!: UserTaskItems[];
 }

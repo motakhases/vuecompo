@@ -1,4 +1,4 @@
-import Zp from "./index.vue";
+import Zp from './index.vue';
 
 const Template = () => ({
   components: {
@@ -18,5 +18,5 @@ export const Default = Template.bind({});
 
 export default {
   component: Zp,
-  title: "Components/Zp",
+  title: 'Components/Zp',
 };

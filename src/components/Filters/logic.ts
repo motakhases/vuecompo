@@ -17,11 +17,11 @@ import FilterAmount from './FilterAmount/index.vue';
   },
 })
 export default class Logic extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
+  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean;
 
-  @Prop({ type: Function }) readonly toggle!: () => boolean
+  @Prop({ type: Function }) readonly toggle!: () => boolean;
 
-  @Prop({ type: Function }) readonly clearQuery!: () => boolean
+  @Prop({ type: Function }) readonly clearQuery!: () => boolean;
 
-  @Prop({ type: Function }) readonly filter!: () => boolean
+  @Prop({ type: Function }) readonly filter!: () => boolean;
 }

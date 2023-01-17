@@ -1,8 +1,8 @@
-import Tag from "./index.vue";
+import Tag from './index.vue';
 
 export default {
   component: Tag,
-  title: "Components/Tag",
+  title: 'Components/Tag',
 };
 
 const Template = (_, { argTypes }) => ({

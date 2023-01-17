@@ -6,11 +6,7 @@
     <div :class="['zpl-textbox-group']" v-else>
       <textarea
         v-model="model"
-        :class="[
-          'zpl-textbox',
-          { error: errors },
-          { isInputFocused },
-        ]"
+        :class="['zpl-textbox', { error: errors }, { isInputFocused }]"
         :rows="rows"
         :disabled="disabled"
         name="inputName"
@@ -27,10 +23,7 @@
       <!-- show when we have hint text or maxlength -->
       <div class="zpl-textbox-hint-box">
         <!-- show when we have hint -->
-        <div
-          v-if="hint && !(successMessage && passed) && !errors"
-          class="zpl-textbox-hint helper"
-        >
+        <div v-if="hint && !(successMessage && passed) && !errors" class="zpl-textbox-hint helper">
           <span>
             {{ hint }}
           </span>
@@ -51,9 +44,7 @@
         </div>
 
         <!-- show when we have maxlength -->
-        <span v-if="maxPreview" class="zpl-textbox-hint-maxlength">
-          {{ maxlength }}/{{ value.length }}
-        </span>
+        <span v-if="maxPreview" class="zpl-textbox-hint-maxlength"> {{ maxlength }}/{{ value.length }} </span>
       </div>
     </div>
   </div>

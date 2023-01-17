@@ -8,7 +8,7 @@ import Loading from './Loading/index.vue';
   components: { Icon, Tooltip, Loading },
 })
 export default class Summary extends Vue {
-  @Prop({ type: Array }) readonly options!: ISummaryOptions[]
+  @Prop({ type: Array }) readonly options!: ISummaryOptions[];
 
   @Prop({ type: Number, default: 1 }) readonly loadingNumber!: number;
 

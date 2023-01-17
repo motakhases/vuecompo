@@ -1,8 +1,8 @@
-import StoryRouter from 'storybook-vue-router'
+import StoryRouter from 'storybook-vue-router';
 
 export default {
-  title: "Components/Button",
-  decorators: [storyFn => StoryRouter()(storyFn)],
+  title: 'Components/Button',
+  decorators: [(storyFn) => StoryRouter()(storyFn)],
 };
 
 export { default as Button } from '@/components/Button/stories/default.js';

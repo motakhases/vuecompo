@@ -32,13 +32,12 @@
     }
   }
 
-
   &.isDrawer {
     @apply lg:fixed lg:top-0 lg:h-full;
   }
 
   &.show {
-    @apply right-0
+    @apply right-0;
   }
 }
 
@@ -58,13 +57,12 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .zpl-nav-bar-list {
   @apply list-none flex flex-col gap-xs;
-
 }
 
 .zpl-nav-bar-logo {

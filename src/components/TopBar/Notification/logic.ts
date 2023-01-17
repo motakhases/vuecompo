@@ -7,5 +7,5 @@ import Button from '@/components/Button/index.vue';
   components: { Icon, NotificationBadge, Button },
 })
 export default class Notification extends Vue {
-  @Prop({ type: String }) readonly badge?: string
+  @Prop({ type: String }) readonly badge?: string;
 }

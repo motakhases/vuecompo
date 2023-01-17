@@ -1,11 +1,6 @@
 <template>
   <div v-if="show" class="zpl-note">
-    <TextBox
-      v-model="noteText"
-      size="large"
-      :label="$t('session.show.note.title')"
-      @onEmptyStat="onEmptyStat"
-    />
+    <TextBox v-model="noteText" size="large" :label="$t('session.show.note.title')" @onEmptyStat="onEmptyStat" />
     <ButtonGroup class="mt-md justify-between">
       <div>
         <Button

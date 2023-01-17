@@ -7,11 +7,7 @@
 
       <!-- Left side (Status and Actions) -->
       <div class="zpl-table-card-header-left">
-        <div
-          v-for="(item, index) in headerLeft"
-          :key="index"
-          class="zpl-table-card-status"
-        >
+        <div v-for="(item, index) in headerLeft" :key="index" class="zpl-table-card-status">
           <template v-if="item.type === 'status'">
             <Status
               v-for="(label, labelIndex) in item.data"
@@ -21,25 +17,23 @@
               :icon="label.icon"
             />
           </template>
-          <template v-if="item.type === 'label'" >
-           <div> <Label
-              v-for="(label, labelIndex) in item.data"
-              :key="labelIndex"
-              :text="label.text"
-              :type="label.type"
-              size="small"
-            /></div>
+          <template v-if="item.type === 'label'">
+            <div>
+              <Label
+                v-for="(label, labelIndex) in item.data"
+                :key="labelIndex"
+                :text="label.text"
+                :type="label.type"
+                size="small"
+              />
+            </div>
           </template>
         </div>
       </div>
     </div>
     <ul>
       <!-- Rows -->
-      <li
-        v-for="(col, colIndex) in rendredData"
-        :key="colIndex"
-        class="zpl-table-card-row"
-      >
+      <li v-for="(col, colIndex) in rendredData" :key="colIndex" class="zpl-table-card-row">
         <!-- Title of row [Static] -->
         <span>
           {{ col.title }}
@@ -67,10 +61,7 @@
         v-if="handleClickFromOutside"
       />
       <div v-if="actions" class="w-full">
-        <div
-          v-if="actions.length === 1"
-          :class="['outside-action flex justify-end']"
-        >
+        <div v-if="actions.length === 1" :class="['outside-action flex justify-end']">
           <Button
             type="tertiary"
             size="small"

@@ -1,26 +1,25 @@
 <template>
   <div @keyup="onKeyup" @keydown="onKeyDown" tabindex="1">
-    <nav :class="['zpl-nav-bar-container', { 'show':isVisible||isToggle,'isCollapsed': isCollapsed,'isDrawer':isDrawer,'isFixed':isFixed }]">
+    <nav
+      :class="[
+        'zpl-nav-bar-container',
+        { show: isVisible || isToggle, isCollapsed: isCollapsed, isDrawer: isDrawer, isFixed: isFixed },
+      ]"
+    >
       <!-- Logo -->
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <Button
-          v-if="menuBurger==='navbar'"
+          v-if="menuBurger === 'navbar'"
           icon="menuBurger"
           type="tertiary"
           size="medium"
           @click.native="$emit('toggleMenu')"
           class="mr-[8px] mt-[8px]"
-          style="margin-bottom: 16px;"
+          style="margin-bottom: 16px"
         />
 
-        <div v-if="zplLogo==='navbar'" :class="['zpl-nav-bar-logo']">
-          <Logo
-            name="zarinpal"
-            type="logo"
-            language="fa"
-            size="medium"
-            style="padding: 16px 8px;"
-          />
+        <div v-if="zplLogo === 'navbar'" :class="['zpl-nav-bar-logo']">
+          <Logo name="zarinpal" type="logo" language="fa" size="medium" style="padding: 16px 8px" />
         </div>
       </div>
 
@@ -35,10 +34,7 @@
 
       <!-- Nav item links -->
       <div class="zpl-nav-bar-content">
-        <ul
-          v-if="navItems.length"
-          class="zpl-nav-bar-list"
-        >
+        <ul v-if="navItems.length" class="zpl-nav-bar-list">
           <NavItem
             v-for="(link, index) in navItems"
             :key="index"
@@ -59,10 +55,7 @@
       </div>
     </nav>
 
-    <div
-      :class="['zpl-nav-overlay', { 'isDrawer': isDrawer  }]"
-      @click="toggleMenu"
-    />
+    <div :class="['zpl-nav-overlay', { isDrawer: isDrawer }]" @click="toggleMenu" />
   </div>
 </template>
 

@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Ref,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref } from 'vue-property-decorator';
 import vue2Dropzone from 'vue2-dropzone';
 import Button from '@/components/Button/index.vue';
 import { IUploadedFiles, IDropzoneFiles } from '@/types';
@@ -43,10 +41,7 @@ export default class Upload extends Vue {
 
   @Prop({ type: Function }) readonly deleteFileHandler!: (file) => void;
 
-  @Prop({ type: Function, required: true }) readonly toast!: (
-    text: string,
-    type: string
-  ) => void;
+  @Prop({ type: Function, required: true }) readonly toast!: (text: string, type: string) => void;
 
   @Ref() readonly dropzoneRef!: any;
 
@@ -110,11 +105,7 @@ export default class Upload extends Vue {
   fileUploadProgress(file: IDropzoneFiles, progress: number) {
     this.uploadedList.forEach((item, index) => {
       if (item.id === file.upload.uuid) {
-        this.$set(
-          this.uploadedList[index],
-          'progress',
-          `${Math.floor(progress)}`,
-        );
+        this.$set(this.uploadedList[index], 'progress', `${Math.floor(progress)}`);
       }
     });
   }
@@ -134,17 +125,10 @@ export default class Upload extends Vue {
     this.dropzoneOptions.url = this.url;
     this.dropzoneOptions.maxFilesize = this.maxFileSize;
     this.dropzoneOptions.maxFiles = this.maxFiles;
-    this.dropzoneOptions.acceptedFiles = this.acceptedFiles
-      ? this.acceptedFiles
-      : '';
+    this.dropzoneOptions.acceptedFiles = this.acceptedFiles ? this.acceptedFiles : '';
     this.dropzoneOptions.headers = this.headers;
     this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
-    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t(
-      'warnings.upload.format',
-    );
-    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t(
-      'warnings.upload.files',
-      { maxFiles: this.maxFiles },
-    );
+    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t('warnings.upload.format');
+    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t('warnings.upload.files', { maxFiles: this.maxFiles });
   }
 }

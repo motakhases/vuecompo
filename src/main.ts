@@ -20,4 +20,3 @@ new Vue({
 }).$mount('#app');
 
 // Now tell vue to use this plugin
-

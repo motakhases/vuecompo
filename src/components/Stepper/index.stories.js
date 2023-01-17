@@ -1,7 +1,7 @@
-import Stepper from "./index.vue";
+import Stepper from './index.vue';
 export default {
   component: Stepper,
-  title: "Components/Stepper",
+  title: 'Components/Stepper',
 };
 const Template = (_, { argTypes }) => ({
   components: {

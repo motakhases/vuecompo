@@ -8,13 +8,7 @@
     <label v-else :class="['zpl-radio', { 'zpl-radio-disabled': disabled }]">
       {{ text }}
 
-      <input
-        v-model="model"
-        type="radio"
-        :name="`radio-${name}`"
-        :value="val"
-        :disabled="disabled"
-      />
+      <input v-model="model" type="radio" :name="`radio-${name}`" :value="val" :disabled="disabled" />
 
       <span class="checkmark" />
     </label>

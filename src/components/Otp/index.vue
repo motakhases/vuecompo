@@ -2,13 +2,7 @@
   <div class="w-full">
     <div class="zpl-otp">
       <!-- To turn off autocomplete when otp-input is password-->
-      <input
-        v-if="inputType === 'password'"
-        autocomplete="off"
-        name="hidden"
-        type="text"
-        class="hidden"
-      />
+      <input v-if="inputType === 'password'" autocomplete="off" name="hidden" type="text" class="hidden" />
       <SingleOtpInput
         v-for="(item, i) in numInputs"
         :key="i"

@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="['zpl-store-status', type.toLowerCase() ]"
-  >
+  <div :class="['zpl-store-status', type.toLowerCase()]">
     {{ text }}
   </div>
 </template>

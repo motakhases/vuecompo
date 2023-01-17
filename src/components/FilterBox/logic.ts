@@ -88,11 +88,15 @@ export default class Logic extends Vue {
 
             if (amountVal) {
               if (queryAmount === 'range_amount') {
-                this.finalActiveVal = `از ${(this as any).$options.filters.numberFormat(amountVal[0])} تا ${(this as any).$options.filters.numberFormat(amountVal[1])}
+                this.finalActiveVal = `از ${(this as any).$options.filters.numberFormat(amountVal[0])} تا ${(
+                  this as any
+                ).$options.filters.numberFormat(amountVal[1])}
                   ${this.$i18n.t('common.rial')}
                   `;
               } else {
-                this.finalActiveVal = `${this.$i18n.t(`common.export.${queryAmount}`)} ${(this as any).$options.filters.numberFormat(amountVal)} ${this.$i18n.t('common.rial')}`;
+                this.finalActiveVal = `${this.$i18n.t(`common.export.${queryAmount}`)} ${(
+                  this as any
+                ).$options.filters.numberFormat(amountVal)} ${this.$i18n.t('common.rial')}`;
               }
             }
           } else {

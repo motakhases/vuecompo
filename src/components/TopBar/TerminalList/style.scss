@@ -11,8 +11,8 @@
     @apply flex flex-col max-h-[85vh];
     @apply text-text bg-surface shadow-elevation-100;
     @apply dark:text-text-dark dark:bg-surface-dark dark:shadow-dark-elevation-100;
-    .terminal-items{
-      @apply overflow-y-scroll max-h-[calc(85vh-145px)]
+    .terminal-items {
+      @apply overflow-y-scroll max-h-[calc(85vh-145px)];
     }
   }
   .backdrop {

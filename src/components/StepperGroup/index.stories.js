@@ -1,7 +1,7 @@
-import StepperGroup from "./index.vue";
+import StepperGroup from './index.vue';
 export default {
   component: StepperGroup,
-  title: "Components/StepperGroup",
+  title: 'Components/StepperGroup',
 };
 const Template = (_, { argTypes }) => ({
   components: {

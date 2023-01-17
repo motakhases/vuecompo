@@ -1,6 +1,4 @@
-import {
-  Component, Vue, Prop,
-} from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Button from '@/components/Button/index.vue';
 import Bg from '@/components/Bg/index.vue';
 

@@ -1,11 +1,7 @@
-import {
-  Prop, Component,
-} from 'vue-property-decorator';
+import { Prop, Component } from 'vue-property-decorator';
 
 // Interfaces
-import {
-  INavigationBarTerminal,
-} from '@/types';
+import { INavigationBarTerminal } from '@/types';
 
 // Components
 import Icon from '@/components/Icon/index.vue';
@@ -21,15 +17,19 @@ const { toInt } = require('@/utils/converts');
 
 @Component({
   components: {
-    Icon, Logo, NavItem, SwitchTerminalPopover, Button,
+    Icon,
+    Logo,
+    NavItem,
+    SwitchTerminalPopover,
+    Button,
   },
 })
 export default class NavigationBar extends KeyNavigate {
-  @Prop({ type: Array }) readonly terminals!: INavigationBarTerminal[]
+  @Prop({ type: Array }) readonly terminals!: INavigationBarTerminal[];
 
-  @Prop({ type: Array, required: true }) readonly navItems!: INavigationBarTerminal[]
+  @Prop({ type: Array, required: true }) readonly navItems!: INavigationBarTerminal[];
 
-  @Prop({ type: Object }) readonly activeTerminal?: INavigationBarTerminal
+  @Prop({ type: Object }) readonly activeTerminal?: INavigationBarTerminal;
 
   isCollapsed = false;
 
@@ -141,8 +141,10 @@ export default class NavigationBar extends KeyNavigate {
       if (key === 'Tab' || (key === 'Tab' && this.kFindKeyDown('Shift'))) {
         this.kDoBlurComp(e);
         this.kOnMySec = true;
-        if ((this.kCurKeyMove === 'Tab' && (key === 'Tab' && this.kFindKeyDown('Shift')))
-          || (this.kCurKeyMove === 'ShiftTab' && key === 'Tab')) {
+        if (
+          (this.kCurKeyMove === 'Tab' && key === 'Tab' && this.kFindKeyDown('Shift')) ||
+          (this.kCurKeyMove === 'ShiftTab' && key === 'Tab')
+        ) {
           curComp.kDoKeyup(e);
         } else {
           this.kDestroyKeyUp();
@@ -152,7 +154,7 @@ export default class NavigationBar extends KeyNavigate {
     }
   }
 
-  beforeDestroy():void {
+  beforeDestroy(): void {
     window.removeEventListener('resize', this.onResize);
     window.removeEventListener('keyup', this.kOnGlobalKeyup);
     window.removeEventListener('click', this.kOnGlobalClick);

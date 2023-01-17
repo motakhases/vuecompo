@@ -1,25 +1,25 @@
-import AvatarUploader from "./index.vue";
+import AvatarUploader from './index.vue';
 export default {
   component: AvatarUploader,
-  title: "Components/AvatarUploader",
+  title: 'Components/AvatarUploader',
 };
 const Template = (_, { argTypes }) => ({
   components: { AvatarUploader },
   data() {
     return {
-      image: "",
+      image: '',
     };
   },
   props: Object.keys(argTypes),
   methods: {
     uploadFile(e) {
-      alert("error");
+      alert('error');
     },
     sendFileHandlers(file) {
       this.image = file.image;
     },
     deleteFileHandlers(file) {
-      this.image = "";
+      this.image = '';
     },
   },
   template: `

@@ -1,19 +1,9 @@
 <template>
   <div class="zpl-filter-acc">
     <div class="zpl-filter-toggle">
-      <CheckBox
-        v-model="model"
-        :text="text"
-        :disabled="disabled"
-        :name="name"
-        :val="val"
-        :change="check"
-      />
+      <CheckBox v-model="model" :text="text" :disabled="disabled" :name="name" :val="val" :change="check" />
     </div>
-    <div
-      v-if="isActive"
-      class="zpl-filter-status"
-    >
+    <div v-if="isActive" class="zpl-filter-status">
       <slot />
     </div>
   </div>

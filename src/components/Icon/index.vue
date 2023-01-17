@@ -1,9 +1,5 @@
 <template>
-  <component
-    :is="iconComponent"
-    role="img"
-    class="inline-block"
-  />
+  <component :is="iconComponent" role="img" class="inline-block" />
 </template>
 
 <script lang="ts">

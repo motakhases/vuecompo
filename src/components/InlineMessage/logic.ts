@@ -5,17 +5,17 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class InlineMessage extends Vue {
-  @Prop({ type: String, required: true }) readonly title!: string
+  @Prop({ type: String, required: true }) readonly title!: string;
 
-  @Prop({ type: String, default: 'neutral' }) readonly type!: string
+  @Prop({ type: String, default: 'neutral' }) readonly type!: string;
 
-  @Prop({ type: String }) readonly description!: string
+  @Prop({ type: String }) readonly description!: string;
 
-  @Prop({ type: Boolean, default: false }) readonly toggle!: boolean
+  @Prop({ type: Boolean, default: false }) readonly toggle!: boolean;
 
-  show = true
+  show = true;
 
-  showAlertHandler():void {
+  showAlertHandler(): void {
     this.show = false;
   }
 }

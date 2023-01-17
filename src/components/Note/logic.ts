@@ -6,7 +6,10 @@ import Icon from '@/components/Icon/index.vue';
 
 @Component({
   components: {
-    Button, TextBox, ButtonGroup, Icon,
+    Button,
+    TextBox,
+    ButtonGroup,
+    Icon,
   },
 })
 export default class Note extends Vue {
@@ -14,17 +17,17 @@ export default class Note extends Vue {
 
   @Prop({ type: String }) readonly value!: string;
 
-  @Prop({ type: Boolean, required: true, default: false }) readonly show!: boolean
+  @Prop({ type: Boolean, required: true, default: false }) readonly show!: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly loading?: boolean
+  @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
-  @Prop({ type: Boolean, default: false }) disabled?: boolean
+  @Prop({ type: Boolean, default: false }) disabled?: boolean;
 
-  @Prop({ type: Function }) readonly addNote!: () => boolean
+  @Prop({ type: Function }) readonly addNote!: () => boolean;
 
-  @Prop({ type: Function }) readonly cancelNote!: () => boolean
+  @Prop({ type: Function }) readonly cancelNote!: () => boolean;
 
-  offBtns = true
+  offBtns = true;
 
   get noteText(): string | string[] {
     return this.value;

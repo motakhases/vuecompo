@@ -1,4 +1,4 @@
-import Select from "./index.vue";
+import Select from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -6,7 +6,7 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    data: "third",
+    data: 'third',
   }),
   methods: {},
   template: `
@@ -24,18 +24,18 @@ const select = Template.bind({});
 
 select.args = {
   disabled: false,
-  label: "",
-  hint: "",
-  successMessage: "عملیات موفقیت آمیز بود",
+  label: '',
+  hint: '',
+  successMessage: 'عملیات موفقیت آمیز بود',
   options: [
-    { id: 1, text: "اولین گزینه", icon: "warning", value: "first" },
-    { id: 2, text: "دومین گزینه", value: "second", disabled: true },
+    { id: 1, text: 'اولین گزینه', icon: 'warning', value: 'first' },
+    { id: 2, text: 'دومین گزینه', value: 'second', disabled: true },
     {
       id: 3,
-      text: "سومین گزینه",
-      sub: "زیرنویس",
-      logo: "Saman",
-      value: "third",
+      text: 'سومین گزینه',
+      sub: 'زیرنویس',
+      logo: 'Saman',
+      value: 'third',
       disabled: true,
     },
   ],

@@ -1,8 +1,8 @@
-import Dropdown from "./index.vue";
-import Button from "@/components/Button/index.vue";
+import Dropdown from './index.vue';
+import Button from '@/components/Button/index.vue';
 export default {
   component: Dropdown,
-  title: "Components/Dropdown",
+  title: 'Components/Dropdown',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,22 +12,22 @@ const Template = (_, { argTypes }) => ({
     return {
       mylist: [
         {
-          title: "عنوان",
-          icon: "plus",
-          color: "text-danger",
-          action: () => console.log("click"),
+          title: 'عنوان',
+          icon: 'plus',
+          color: 'text-danger',
+          action: () => console.log('click'),
         },
         {
-          title: "عنوان",
-          icon: "plus",
-          color: "",
-          action: () => console.log("click"),
+          title: 'عنوان',
+          icon: 'plus',
+          color: '',
+          action: () => console.log('click'),
         },
         {
-          title: "عنوان",
-          icon: "plus",
-          color: "",
-          action: () => console.log("click"),
+          title: 'عنوان',
+          icon: 'plus',
+          color: '',
+          action: () => console.log('click'),
         },
       ],
     };

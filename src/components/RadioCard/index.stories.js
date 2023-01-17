@@ -1,10 +1,10 @@
-import RadioCard from "./index.vue";
-import Button from "../Button/index.vue";
-import image from "../../assets/images/product_img.png";
+import RadioCard from './index.vue';
+import Button from '../Button/index.vue';
+import image from '../../assets/images/product_img.png';
 
 export default {
   component: RadioCard,
-  title: "Components/RadioCard",
+  title: 'Components/RadioCard',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       image,
-      data: "first",
+      data: 'first',
     };
   },
 

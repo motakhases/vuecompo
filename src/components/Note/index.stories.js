@@ -1,9 +1,9 @@
-import Note from "./index.vue";
-import Button from "../Button/index.vue";
+import Note from './index.vue';
+import Button from '../Button/index.vue';
 
 export default {
   component: Note,
-  title: "Components/Note",
+  title: 'Components/Note',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       showValue: false,
-      noteValue: "",
+      noteValue: '',
     };
   },
   methods: {
@@ -24,10 +24,10 @@ const Template = (_, { argTypes }) => ({
     },
     cancel() {
       this.showValue = false;
-      this.noteValue = "";
+      this.noteValue = '';
     },
     onDelete(calb) {
-      calb()
+      calb();
     },
   },
   template: `

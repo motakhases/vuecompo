@@ -1,14 +1,14 @@
-import UserProfileCard from "./index.vue";
-import { storiesOf } from "@storybook/vue";
-import StoryRouter from "storybook-vue-router";
+import UserProfileCard from './index.vue';
+import { storiesOf } from '@storybook/vue';
+import StoryRouter from 'storybook-vue-router';
 
-storiesOf("Components/UserProfileCard", module)
+storiesOf('Components/UserProfileCard', module)
   .addDecorator(StoryRouter())
-  .add("default", () => UserProfileCard);
+  .add('default', () => UserProfileCard);
 
 export default {
   component: UserProfileCard,
-  title: "Components/UserProfileCard",
+  title: 'Components/UserProfileCard',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -18,45 +18,45 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      img: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=160",
+      img: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=160',
       tasks: [
         {
           id: 1,
           complete: true,
           before: true,
           disabled: true,
-          link: "#link",
-          text: "تکمیل مشخصات کاربری",
+          link: '#link',
+          text: 'تکمیل مشخصات کاربری',
         },
         {
           id: 2,
           complete: true,
           before: true,
           disabled: true,
-          link: "#link",
-          text: "ثبت آدرس محل سکونت",
+          link: '#link',
+          text: 'ثبت آدرس محل سکونت',
         },
         {
           id: 3,
           complete: false,
           before: true,
           disabled: false,
-          link: "#link",
-          text: " اضافه کردن حساب بانکی",
+          link: '#link',
+          text: ' اضافه کردن حساب بانکی',
         },
         {
           id: 4,
           complete: false,
           before: true,
           disabled: false,
-          link: "#link",
-          text: "درخواست درگاه پرداخت",
+          link: '#link',
+          text: 'درخواست درگاه پرداخت',
         },
       ],
       labels: [
-        { id: 1, size: "medium", type: "outlined", text: "حقوقی" },
-        { id: 2, size: "medium", type: "positive", text: "VIP" },
-        { id: 3, size: "medium", type: "negative", text: "توقیف شده" },
+        { id: 1, size: 'medium', type: 'outlined', text: 'حقوقی' },
+        { id: 2, size: 'medium', type: 'positive', text: 'VIP' },
+        { id: 3, size: 'medium', type: 'negative', text: 'توقیف شده' },
       ],
     };
   },

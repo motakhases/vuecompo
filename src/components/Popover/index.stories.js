@@ -33,7 +33,7 @@ const Template = (_, { argTypes }) => ({
       {
         title: 'گزینه ششم',
         value: 1,
-      }
+      },
     ],
   }),
   template: `

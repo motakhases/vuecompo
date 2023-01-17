@@ -1,9 +1,9 @@
-import Otp from "./index.vue";
-import Button from "../Button/index.vue";
+import Otp from './index.vue';
+import Button from '../Button/index.vue';
 
 export default {
   component: Otp,
-  title: "Components/Otp",
+  title: 'Components/Otp',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   data() {
     return {
       showValue: false,
-      noteValue: "",
+      noteValue: '',
     };
   },
   methods: {
@@ -21,7 +21,7 @@ const Template = (_, { argTypes }) => ({
         .toString()
         .replace(/[٠١٢٣٤٥٦٧٨٩]/g, (d) => (d.charCodeAt(0) - 1632).toString())
         .replace(/[۰۱۲۳۴۵۶۷۸۹]/g, (d) => (d.charCodeAt(0) - 1776).toString());
-  
+
       return payload === '' ? payload : modifiedToEnNumber;
     },
     handleOnComplete(value) {

@@ -10,7 +10,7 @@
   &.complete {
     &.before {
       &:before {
-        content: "";
+        content: '';
         @apply w-[1px] h-2xl border-l border-primaryZarinpal absolute bottom-full left-1/2;
         @apply dark:border-primaryZarinpal-dark;
         transform: translateX(-50%);
@@ -31,7 +31,7 @@
     }
     &.before {
       &:before {
-        content: "";
+        content: '';
         @apply w-[1px] h-2xl border-l border-primaryZarinpal absolute bottom-full left-1/2 border-dashed;
         @apply dark:border-primaryZarinpal-dark;
         transform: translateX(-50%);

@@ -7,9 +7,7 @@
     </span>
 
     <!-- Id -->
-    <span class="zpl-zp-id">
-      ZP.{{ id }}
-    </span>
+    <span class="zpl-zp-id"> ZP.{{ id }} </span>
   </span>
 </template>
 

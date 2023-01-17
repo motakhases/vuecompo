@@ -5,7 +5,7 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class CheckMark extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly complete!: boolean
+  @Prop({ type: Boolean, default: false }) readonly complete!: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly before!: boolean
+  @Prop({ type: Boolean, default: false }) readonly before!: boolean;
 }

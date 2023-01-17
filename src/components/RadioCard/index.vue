@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="['zpl-radio-card', model === val ? 'selected' : null, { disabled }]"
-    @click="selectCardHandler"
-  >
+  <div :class="['zpl-radio-card', model === val ? 'selected' : null, { disabled }]" @click="selectCardHandler">
     <!-- Header -->
     <div class="zpl-radio-card-top">
       <Radio v-model="model" name="radio" :val="val" :disabled="disabled" />

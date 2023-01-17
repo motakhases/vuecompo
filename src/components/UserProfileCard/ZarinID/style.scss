@@ -7,7 +7,7 @@
   .circle {
     @apply rounded-circle w-md h-md flex items-center justify-center;
     &:after {
-      content: "";
+      content: '';
       @apply w-xs h-xs rounded-circle;
     }
   }

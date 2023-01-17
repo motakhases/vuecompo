@@ -1,13 +1,5 @@
 <template>
-  <div
-    :class="[
-      'zpl-logo',
-      size,
-      type
-    ]"
-    :language="language"
-    :name="name"
-  />
+  <div :class="['zpl-logo', size, type]" :language="language" :name="name" />
 </template>
 
 <script lang="ts">

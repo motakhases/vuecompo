@@ -1,4 +1,4 @@
-import SegmentedButton from "./index.vue";
+import SegmentedButton from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -10,20 +10,20 @@ const Template = (_, { argTypes }) => ({
       list: [
         {
           id: 1,
-          text: "بانک ملی",
-          click: () => console.log("clicked"),
+          text: 'بانک ملی',
+          click: () => console.log('clicked'),
           active: true,
         },
         {
           id: 2,
-          text: "بانک سامان",
-          click: () => console.log("clicked"),
+          text: 'بانک سامان',
+          click: () => console.log('clicked'),
           active: false,
         },
         {
           id: 3,
-          text: "بانک پاسارگاد",
-          click: () => console.log("clicked"),
+          text: 'بانک پاسارگاد',
+          click: () => console.log('clicked'),
           active: false,
         },
       ],
@@ -50,20 +50,20 @@ segmentedButton.args = {
   items: [
     {
       id: 1,
-      text: "بانک ملی",
-      click: () => console.log("clicked"),
+      text: 'بانک ملی',
+      click: () => console.log('clicked'),
       active: true,
     },
     {
       id: 2,
-      text: "بانک سامان",
-      click: () => console.log("clicked"),
+      text: 'بانک سامان',
+      click: () => console.log('clicked'),
       active: false,
     },
     {
       id: 3,
-      text: "بانک پاسارگاد",
-      click: () => console.log("clicked"),
+      text: 'بانک پاسارگاد',
+      click: () => console.log('clicked'),
       active: false,
     },
   ],

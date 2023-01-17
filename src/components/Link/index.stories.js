@@ -1,10 +1,10 @@
-import Link from "./index.vue";
-import { storiesOf } from "@storybook/vue";
-import StoryRouter from "storybook-vue-router";
+import Link from './index.vue';
+import { storiesOf } from '@storybook/vue';
+import StoryRouter from 'storybook-vue-router';
 
-storiesOf("Components/Link", module)
+storiesOf('Components/Link', module)
   .addDecorator(StoryRouter())
-  .add("default", () => Link);
+  .add('default', () => Link);
 
 const Template = (_, { argTypes }) => ({
   components: { Link },
@@ -27,18 +27,18 @@ const Template = (_, { argTypes }) => ({
 const link = Template.bind({});
 
 link.argTypes = {
-	target: {
+  target: {
     options: ['_blank', '_self', '_parent', '_top'],
-    control: { type: "select" },
-  }
+    control: { type: 'select' },
+  },
 };
 
 link.args = {
-  text: "صنعت چاپ",
-  to: "/home",
-  target: "_blank",
-  href: "",
+  text: 'صنعت چاپ',
+  to: '/home',
+  target: '_blank',
+  href: '',
   exact: false,
 };
 
-export default link
+export default link;

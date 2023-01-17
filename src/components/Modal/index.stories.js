@@ -1,9 +1,9 @@
-import Modal from "./index.vue";
-import Button from "@/components/Button/index.vue";
+import Modal from './index.vue';
+import Button from '@/components/Button/index.vue';
 
 export default {
   component: Modal,
-  title: "Components/Modal",
+  title: 'Components/Modal',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -59,6 +59,6 @@ export const Default = Template.bind({});
 Default.argTypes = {};
 
 Default.args = {
-  title: "تست عنوان",
-  ButtonText: "دکمه",
+  title: 'تست عنوان',
+  ButtonText: 'دکمه',
 };

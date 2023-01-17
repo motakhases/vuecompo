@@ -1,17 +1,9 @@
 <template>
-  <a
-    :to="link"
-    class="zpl-user-card-task"
-    :disabled="disabled"
-    :event="disabled ? '' : 'click'"
-  >
+  <a :to="link" class="zpl-user-card-task" :disabled="disabled" :event="disabled ? '' : 'click'">
     <span :class="['zpl-user-card-task-title', { complete }]">
       {{ text }}
     </span>
-    <Icon
-      v-if="!disabled && !complete"
-      name="angleLeft"
-    />
+    <Icon v-if="!disabled && !complete" name="angleLeft" />
   </a>
 </template>
 

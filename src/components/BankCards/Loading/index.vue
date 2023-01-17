@@ -13,7 +13,7 @@
         <Skeleton type="body" class="w-1/5" />
       </div>
       <div class="flex justify-between mt-lg" v-if="rrn">
-        <Skeleton type="body"  class="w-1/6"/>
+        <Skeleton type="body" class="w-1/6" />
         <Skeleton type="body" class="w-2/5" />
       </div>
     </div>

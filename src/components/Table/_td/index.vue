@@ -1,5 +1,5 @@
 <template>
-  <td v-if="data" :style="[{ width, minWidth, maxWidth}]">
+  <td v-if="data" :style="[{ width, minWidth, maxWidth }]">
     <TypeRenderer
       :data="data"
       :route-name="routeName"

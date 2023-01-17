@@ -14,12 +14,7 @@
       <span class="zpl-ds-item-title" v-if="title">
         {{ title }}
       </span>
-      <span
-        :class="[
-          'truncate flex-1',
-          { 'text-left flex justify-end': leftAlign && row },
-        ]"
-      >
+      <span :class="['truncate flex-1', { 'text-left flex justify-end': leftAlign && row }]">
         <slot />
       </span>
     </div>

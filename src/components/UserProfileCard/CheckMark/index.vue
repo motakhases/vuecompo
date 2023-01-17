@@ -1,19 +1,7 @@
 <template>
-  <div
-    :class="[
-      'zpl-user-card-check',
-      complete ? 'complete' : 'incomplete',
-      { before },
-    ]"
-  >
-    <Icon
-      v-if="complete"
-      name="checkmarkCircle"
-    />
-    <Icon
-      v-else
-      name="undoneCheck"
-    />
+  <div :class="['zpl-user-card-check', complete ? 'complete' : 'incomplete', { before }]">
+    <Icon v-if="complete" name="checkmarkCircle" />
+    <Icon v-else name="undoneCheck" />
     <slot />
   </div>
 </template>

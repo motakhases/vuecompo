@@ -1,10 +1,10 @@
-import CheckboxCard from "./index.vue";
-import Button from "../Button/index.vue";
-import image from "../../assets/images/product_img.png";
+import CheckboxCard from './index.vue';
+import Button from '../Button/index.vue';
+import image from '../../assets/images/product_img.png';
 
 export default {
   component: CheckboxCard,
-  title: "Components/CheckboxCard",
+  title: 'Components/CheckboxCard',
 };
 
 const Template = (_, { argTypes }) => ({

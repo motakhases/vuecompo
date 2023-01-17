@@ -1,6 +1,6 @@
-import TaskItem from "./index.vue";
-import { storiesOf } from "@storybook/vue";
-import StoryRouter from "storybook-vue-router";
+import TaskItem from './index.vue';
+import { storiesOf } from '@storybook/vue';
+import StoryRouter from 'storybook-vue-router';
 
 // storiesOf("Components/UserProfileCard/TaskItem", module)
 //   .addDecorator(StoryRouter())
@@ -28,6 +28,6 @@ Default.args = {
   complete: true,
   before: true,
   disabled: false,
-  link: "#link",
-  text: "عنوان تسک",
+  link: '#link',
+  text: 'عنوان تسک',
 };

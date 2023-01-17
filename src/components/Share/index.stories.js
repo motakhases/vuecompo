@@ -1,8 +1,8 @@
-import Share from "./index.vue";
+import Share from './index.vue';
 
 export default {
   component: Share,
-  title: "Components/Share",
+  title: 'Components/Share',
 };
 
 const Template = (_, { argTypes }) => ({

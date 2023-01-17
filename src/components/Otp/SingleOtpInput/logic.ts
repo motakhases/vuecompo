@@ -1,22 +1,20 @@
-import {
-  Component, Prop, Vue, Ref, Watch,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref, Watch } from 'vue-property-decorator';
 
 @Component
 export default class SingleOtpInput extends Vue {
-  @Prop({ type: String, default: '' }) readonly value!: string
+  @Prop({ type: String, default: '' }) readonly value!: string;
 
-  @Prop({ type: Boolean }) readonly focus?: boolean
+  @Prop({ type: Boolean }) readonly focus?: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly error?: boolean
+  @Prop({ type: Boolean, default: false }) readonly error?: boolean;
 
-  @Prop({ type: Boolean }) readonly shouldAutoFocus?: boolean
+  @Prop({ type: Boolean }) readonly shouldAutoFocus?: boolean;
 
   @Prop({ type: String, default: 'tel' }) readonly inputType!: string;
 
   @Ref('input') readonly input!: HTMLInputElement;
 
-  model = this.value || ''
+  model = this.value || '';
 
   handleOnChange() {
     if (this.model.length > 1) {
@@ -27,12 +25,9 @@ export default class SingleOtpInput extends Vue {
 
   handleOnKeyDown(event) {
     // Only allow characters 0-9, DEL, Backspace and Pasting
-    const keyEvent = (event) || window.event;
-    const charCode = (keyEvent.which) ? keyEvent.which : keyEvent.keyCode;
-    if (this.isCodeNumeric(charCode)
-        || (charCode === 8)
-        || (charCode === 86)
-        || (charCode === 46)) {
+    const keyEvent = event || window.event;
+    const charCode = keyEvent.which ? keyEvent.which : keyEvent.keyCode;
+    if (this.isCodeNumeric(charCode) || charCode === 8 || charCode === 86 || charCode === 46) {
       this.$emit('on-keydown', event);
     } else {
       keyEvent.preventDefault();
@@ -75,7 +70,7 @@ export default class SingleOtpInput extends Vue {
   focusChange(newFocusValue: string, oldFocusValue: string) {
     // Check if focusedInput changed
     // Prevent calling function if input already in focus
-    if (oldFocusValue !== newFocusValue && (this.input && this.focus)) {
+    if (oldFocusValue !== newFocusValue && this.input && this.focus) {
       this.input.focus();
       this.input.select();
     }

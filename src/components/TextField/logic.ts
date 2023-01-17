@@ -1,6 +1,4 @@
-import {
-  Vue, Component, Prop, Watch,
-} from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 // Components
 import Button from '@/components/Button/index.vue';
@@ -91,7 +89,7 @@ export default class TextField extends Vue {
     this.isInputFocused = true;
   }
 
-  onFocusOut(e:Event): void {
+  onFocusOut(e: Event): void {
     if (!this.value) {
       this.isInputFocused = false;
     }
@@ -101,12 +99,12 @@ export default class TextField extends Vue {
   formattedValue(): string {
     if (this.type === 'number') {
       switch (this.separator) {
-      case 'comma':
-        return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      case 'dash':
-        return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
-      default:
-        return this.value;
+        case 'comma':
+          return this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        case 'dash':
+          return this.value.replace(/\B(?=(\d{4})+(?!\d))/g, '-');
+        default:
+          return this.value;
       }
     } else {
       return this.value;

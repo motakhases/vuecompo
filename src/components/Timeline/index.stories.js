@@ -1,8 +1,8 @@
-import Timeline from "./index.vue";
+import Timeline from './index.vue';
 
 export default {
   component: Timeline,
-  title: "Components/Timeline",
+  title: 'Components/Timeline',
 };
 
 const Template = (_, { argTypes }) => ({
