@@ -1,6 +1,4 @@
-import {
-  Component, Vue, Prop, Watch,
-} from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Button from '@/components/Button/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
@@ -18,7 +16,7 @@ import FilterAmount from './FilterAmount/index.vue';
   },
 })
 export default class Logic extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
+  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean;
 
   @Prop({ type: Function }) readonly clearQuery!: (key: string) => boolean;
 
@@ -38,21 +36,21 @@ export default class Logic extends Vue {
 
   amountQueryKey = '';
 
-  showFilterBtn = false
+  showFilterBtn = false;
 
-  today = moment().format('YYYY-MM-D')
+  today = moment().format('YYYY-MM-D');
 
-  startOfWeek = moment().startOf('week').format('YYYY-MM-D')
+  startOfWeek = moment().startOf('week').format('YYYY-MM-D');
 
-  endOfWeek = moment().endOf('week').format('YYYY-MM-D')
+  endOfWeek = moment().endOf('week').format('YYYY-MM-D');
 
-  startOfMonth = moment().startOf('jMonth').format('YYYY-MM-D')
+  startOfMonth = moment().startOf('jMonth').format('YYYY-MM-D');
 
-  endOfMonth = moment().endOf('jMonth').format('YYYY-MM-D')
+  endOfMonth = moment().endOf('jMonth').format('YYYY-MM-D');
 
-  lastMonth = moment().subtract(1, 'jMonth').format('YYYY-MM-D')
+  lastMonth = moment().subtract(1, 'jMonth').format('YYYY-MM-D');
 
-  lastWeek = moment().subtract(1, 'week').format('YYYY-MM-D')
+  lastWeek = moment().subtract(1, 'week').format('YYYY-MM-D');
 
   toggleClose() {
     this.isClose = !this.isClose;
@@ -74,39 +72,27 @@ export default class Logic extends Vue {
 
   updateValuequeries() {
     const queries = this.$route?.query;
-    const queryKeys = Object.keys(queries);
+    const queryKeys = queries ? Object.keys(queries) : [];
     const amountList = ['min_amount', 'range_amount', 'max_amount', 'amount'];
-    if (queryKeys?.length) {
+    if (queries !== undefined) {
       queryKeys.forEach((i) => {
         if (this.value === 'amount') {
-        // update value based on query
+          // update value based on query
           const queryAmount = queryKeys.filter((el) => amountList.includes(el))[0];
           if (queryAmount) {
-            const amountVal = JSON.parse(
-              JSON.stringify(this.$route.query[queryAmount]),
-            );
+            const amountVal = JSON.parse(JSON.stringify(this.$route.query[queryAmount]));
             this.amountQueryKey = queryAmount;
 
             this.isActive = true;
-            this.finalActiveVal = this.activeValue
-              ? this.activeValue
-              : amountVal;
+            this.finalActiveVal = this.activeValue ? this.activeValue : amountVal;
 
             if (amountVal) {
               if (queryAmount === 'range_amount') {
-                this.finalActiveVal = `از ${(
-                    this as any
-                ).$options.filters.numberFormat(amountVal[0])} تا ${(
-                    this as any
-                ).$options.filters.numberFormat(amountVal[1])}
+                this.finalActiveVal = `از ${(this as any).$options.filters.numberFormat(amountVal[0])} تا ${(this as any).$options.filters.numberFormat(amountVal[1])}
                   ${this.$i18n.t('common.rial')}
                   `;
               } else {
-                this.finalActiveVal = `${this.$i18n.t(
-                  `common.export.${queryAmount}`,
-                )} ${(this as any).$options.filters.numberFormat(
-                  amountVal,
-                )} ${this.$i18n.t('common.rial')}`;
+                this.finalActiveVal = `${this.$i18n.t(`common.export.${queryAmount}`)} ${(this as any).$options.filters.numberFormat(amountVal)} ${this.$i18n.t('common.rial')}`;
               }
             }
           } else {
@@ -119,39 +105,26 @@ export default class Logic extends Vue {
               this.isActive = true;
               this.finalActiveVal = this.activeValue;
               if (this.value === 'date') {
-                let dateVal = JSON.parse(
-                  JSON.stringify(this.$route.query.date),
-                );
+                let dateVal = JSON.parse(JSON.stringify(this.$route.query.date));
                 if (typeof dateVal === 'string') {
                   if (dateVal === this.today) {
                     this.finalActiveVal = this.$i18n.t('common.export.today') as string;
                   } else {
-                    const formattedValue = moment(dateVal, 'YYYY-M-D').format(
-                      'jYYYY/jM/jD',
-                    );
+                    const formattedValue = moment(dateVal, 'YYYY-M-D').format('jYYYY/jM/jD');
                     dateVal = [formattedValue, formattedValue];
                     this.finalActiveVal = dateVal;
                   }
                 } else if (dateVal[0] === this.startOfWeek && dateVal[1] === this.endOfWeek) {
                   this.finalActiveVal = this.$i18n.t('common.export.current_week') as string;
-                } else if (
-                  dateVal[0] === this.startOfMonth
-                    && dateVal[1] === this.endOfMonth
-                ) {
+                } else if (dateVal[0] === this.startOfMonth && dateVal[1] === this.endOfMonth) {
                   this.finalActiveVal = this.$i18n.t('common.export.current_month') as string;
                 } else if (dateVal[0] === this.lastMonth && dateVal[1] === this.today) {
                   this.finalActiveVal = this.$i18n.t('common.export.prev_month') as string;
                 } else if (dateVal[0] === this.lastWeek && dateVal[1] === this.today) {
                   this.finalActiveVal = this.$i18n.t('common.export.7_days') as string;
                 } else {
-                  const firstFormattedValue = moment(
-                    dateVal[0],
-                    'YYYY-M-D',
-                  ).format('jYYYY/jM/jD');
-                  const secondFormattedValue = moment(
-                    dateVal[1],
-                    'YYYY-M-D',
-                  ).format('jYYYY/jM/jD');
+                  const firstFormattedValue = moment(dateVal[0], 'YYYY-M-D').format('jYYYY/jM/jD');
+                  const secondFormattedValue = moment(dateVal[1], 'YYYY-M-D').format('jYYYY/jM/jD');
                   this.finalActiveVal = `از ${firstFormattedValue} تا ${secondFormattedValue}`;
                 }
               }
