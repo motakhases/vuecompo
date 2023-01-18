@@ -12,7 +12,7 @@ import Overview from '../Overview/index.vue';
 import SwitchTerminal from '../SwitchTerminal/index.vue';
 import SwitchTerminalItem from '../SwitchTerminalItem/index.vue';
 
-const { useWindowSize } = require('@vueuse/core');
+// const { useWindowSize } = require('@vueuse/core');
 const { lg } = require('@/utils/helper');
 
 @Component({
@@ -38,6 +38,8 @@ export default class SwitchTerminalPopover extends KeyNavigate {
 
   isFocused = false
 
+  maxHeightList = 100
+
   created(): void {
     this.kOrder = ['switchTerminalItem'];
     this.kCreated();
@@ -47,9 +49,8 @@ export default class SwitchTerminalPopover extends KeyNavigate {
     return !!(this.activeTerminal && this.activeTerminal.domain);
   }
 
-  get maxHeightList(): number {
-    const { height } = useWindowSize();
-    return Math.round((height.value / 100) * 70);
+  onResize() {
+    this.maxHeightList = Math.round((window.innerHeight / 100) * 70);
   }
 
   get switcher(): INavigationBarActiveTerminal {
@@ -77,6 +78,10 @@ export default class SwitchTerminalPopover extends KeyNavigate {
    * Mounted
    */
   mounted(): void {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    /* this.$nextTick(() => {
+    }); */
     document.documentElement.addEventListener(
       'click',
       this.outsideClick,
@@ -135,5 +140,6 @@ export default class SwitchTerminalPopover extends KeyNavigate {
 
   beforeDestroy():void {
     this.kDestroyKeyUp();
+    window.removeEventListener('resize', this.onResize);
   }
 }
