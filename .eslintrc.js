@@ -25,7 +25,7 @@ module.exports = {
     'vue/script-setup-uses-vars': 'off',
     // hamed
     quotes: 'warn',
-    'no-shadow': 'warn', // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
+    'no-shadow': 'off', // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
     '@typescript-eslint/no-shadow': ['error'],
     'lines-between-class-members': 'warn',
     'keyword-spacing': 'warn',

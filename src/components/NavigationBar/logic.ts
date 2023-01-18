@@ -15,7 +15,8 @@ import KeyNavigate from '@/utils/class_components/KeyNavigate';
 import NavItem from './NavItem/index.vue';
 import SwitchTerminalPopover from './SwitchTerminalPopover/index.vue';
 
-const { lg, lgConf } = require('@/utils/helper');
+// const { lg, lgConf } = require('@/utils/helper');
+const { lg } = require('@/utils/helper');
 const { screens } = require('@/designTokens/screens');
 
 const { toInt } = require('@/utils/converts');
@@ -48,16 +49,16 @@ export default class NavigationBar extends KeyNavigate {
 
   private iShowSwitch = false
 
-  private getHeadParent($parent) {
+  /* private getHeadParent($parent) {
     while ($parent.$parent) {
       $parent = $parent.$parent;
     }
     return $parent;
-  }
+  } */
 
-  get iBefIssue() {
+  /* get iBefIssue() {
     lgConf.priority = 0;
-    lg('', 'iBefIssue', 3);
+    /!* lg('', 'iBefIssue', 3);
     const $par = this.getHeadParent(this.$parent);
     lg($par.$el, '$par.$el', 3);
     this.$nextTick(() => {
@@ -72,15 +73,15 @@ export default class NavigationBar extends KeyNavigate {
         }
       }
       lg($par, '$par', 3);
-    });
+    }); *!/
     return true;
-  }
+  } */
 
-  get iAftIssue() {
+  /* get iAftIssue() {
     lg('', 'iAftIssue', 3);
 
     return true;
-  }
+  } */
 
   get showSwitch() {
     lg(this.iShowSwitch, 'myTrble_swch get()', 3);
