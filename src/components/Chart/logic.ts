@@ -21,7 +21,7 @@ export default class Chart extends Vue {
 
   @Prop({ type: String }) readonly xType!: string;
 
-  @Ref() readonly Chart!: any
+  @Ref() readonly Chart!: any;
 
   options = {
     ...options,
@@ -29,7 +29,7 @@ export default class Chart extends Vue {
       crosshairs: { show: false },
       tooltip: { enabled: false },
     },
-  }
+  };
 
   get resolveData() {
     /**

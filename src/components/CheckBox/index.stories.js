@@ -4,9 +4,7 @@ const Template = (_, { argTypes }) => ({
   components: { CheckBox },
   props: Object.keys(argTypes),
   data: () => ({
-    data: [
-      'سومین گزینه',
-    ],
+    data: ['سومین گزینه'],
   }),
   template: `
   <div class="dark:bg-surface-dark grid gap-y-md p-sm rounded-md rtl">

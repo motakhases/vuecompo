@@ -1,31 +1,31 @@
-import AvatarUploader from "./index.vue";
+import AvatarUploader from './index.vue';
 export default {
   component: AvatarUploader,
-  title: "Components/AvatarUploader",
+  title: 'Components/AvatarUploader',
 };
 const Template = (_, { argTypes }) => ({
   components: { AvatarUploader },
   data() {
     return {
-      image: "",
+      image: '',
     };
   },
   props: Object.keys(argTypes),
   methods: {
     uploadFile(e) {
-      alert("error");
+      alert('error');
     },
     sendFileHandlers(file) {
       this.image = file.image;
     },
     deleteFileHandlers(file) {
-      this.image = "";
+      this.image = '';
     },
   },
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">
     <h1 class="font-bold dark:text-surface"> آواتار </h1>
-	  <AvatarUploader 
+	  <AvatarUploader
     size="medium"
     acceptedFiles=".jpeg,.jpg,.png,.gif"
     :toast="uploadFile"

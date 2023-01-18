@@ -1,9 +1,9 @@
-import Card from "./index.vue";
-import Button from "../Button/index.vue";
+import Card from './index.vue';
+import Button from '../Button/index.vue';
 
 export default {
   component: Card,
-  title: "Components/Card",
+  title: 'Components/Card',
 };
 
 const Template = (_, { argTypes }) => ({

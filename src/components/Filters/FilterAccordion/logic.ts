@@ -43,10 +43,7 @@ export default class Logic extends Vue {
       Object.keys(this.$route.query).forEach((key) => {
         if (amountList.includes(key) && this.val === 'amount') {
           queryKeys.splice(this.value.indexOf(key), 1, 'amount');
-          this.$emit(
-            'input',
-            queryKeys,
-          );
+          this.$emit('input', queryKeys);
           this.isActive = true;
         } else {
           this.$emit('input', queryKeys);

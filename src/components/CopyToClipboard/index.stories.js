@@ -1,8 +1,8 @@
-import CopyToClipboard from "./index.vue";
+import CopyToClipboard from './index.vue';
 
 export default {
   component: CopyToClipboard,
-  title: "Components/CopyToClipboard",
+  title: 'Components/CopyToClipboard',
 };
 
 const Template = (_, { argTypes }) => ({

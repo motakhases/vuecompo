@@ -1,9 +1,9 @@
-import DatePicker from "./index.vue";
+import DatePicker from './index.vue';
 import moment from 'moment-jalaali';
 
 export default {
   component: DatePicker,
-  title: "Components/DatePicker",
+  title: 'Components/DatePicker',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -13,7 +13,7 @@ const Template = (_, { argTypes }) => ({
     return {
       singleDate: moment().subtract(1, 'days').format('jYYYY-jMM-jDD'),
       rangeDate: [],
-      previewDate: "",
+      previewDate: '',
       drpdata: '',
       rangeMode: true,
       previewMode: true,

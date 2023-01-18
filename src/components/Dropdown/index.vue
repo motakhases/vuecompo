@@ -4,12 +4,7 @@
       <slot name="button" />
     </div>
     <div ref="menu">
-      <div
-        v-if="toggle"
-        class="zpl-dropdown"
-        :style="[style, { width, maxHeight }]"
-        dir="rtl"
-      >
+      <div v-if="toggle" class="zpl-dropdown" :style="[style, { width, maxHeight }]" dir="rtl">
         <slot name="header" />
         <slot name="body" />
 
@@ -25,11 +20,7 @@
             ]"
             @click="item.action(customPayload)"
           >
-            <Icon
-              v-if="item.icon"
-              :name="item.icon"
-              class="zpl-dropdown-icon"
-            />
+            <Icon v-if="item.icon" :name="item.icon" class="zpl-dropdown-icon" />
             {{ item.title }}
           </li>
         </ul>

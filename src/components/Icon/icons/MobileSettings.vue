@@ -1,4 +1,3 @@
-
 <template>
   <svg
     width="24"
@@ -73,9 +72,9 @@
   </svg>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "MobileSetting",
+  name: 'MobileSetting',
 });
 </script>

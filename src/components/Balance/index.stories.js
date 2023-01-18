@@ -1,8 +1,8 @@
-import Balance from "./index.vue";
+import Balance from './index.vue';
 
 export default {
   component: Balance,
-  title: "Components/Balance",
+  title: 'Components/Balance',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -23,8 +23,8 @@ export const Default = Template.bind({});
 // Default.argTypes = {};
 
 Default.args = {
-  title: "موجودی",
-  amount: "125255252",
+  title: 'موجودی',
+  amount: '125255252',
   reloadHandler: () => console.log('reloadHandler'),
-  href:'https://google.com'
+  href: 'https://google.com',
 };

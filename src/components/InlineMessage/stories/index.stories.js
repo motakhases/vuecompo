@@ -1,16 +1,15 @@
 export default {
-  title: "Components/InlineMessage",
+  title: 'Components/InlineMessage',
   parameters: {
     docs: {
       description: {
         component: `
 Provide contextual feedback messages for typical user actions.
         `,
-      }
-    }
-  }
+      },
+    },
+  },
 };
-
 
 export { default as InlineMessage } from './examples/default.js';
 // export { default as Content } from './examples/content.js';

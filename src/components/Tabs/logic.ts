@@ -42,4 +42,3 @@ export default class Tabs extends Vue {
     this.selectTab(0);
   }
 }
-

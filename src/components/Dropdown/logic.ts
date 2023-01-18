@@ -115,17 +115,9 @@ export default class Dropdown extends Vue {
 
   mounted(): void {
     document.addEventListener('scroll', this.updateStyle);
-    document.documentElement.addEventListener(
-      'click',
-      this.outsideClick,
-      true,
-    );
+    document.documentElement.addEventListener('click', this.outsideClick, true);
 
-    this.buttonRef.children[0].addEventListener(
-      'click',
-      this.onButtonClick,
-      true,
-    );
+    this.buttonRef.children[0].addEventListener('click', this.onButtonClick, true);
     window.addEventListener('resize', this.onResize);
   }
 

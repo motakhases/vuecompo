@@ -46,4 +46,3 @@ export default class NotificationCenter extends Vue {
     return announcements?.filter(({ date }) => moment(date).isSameOrBefore(beforeDays(7, 'YYYY-M-D')));
   }
 }
-

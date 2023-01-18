@@ -1,4 +1,4 @@
-import Avatar from "./index.vue";
+import Avatar from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { Avatar },
@@ -53,4 +53,4 @@ const avatar = Template.bind({});
 //   size: 'medium'
 // };
 
-export default avatar
+export default avatar;

@@ -1,6 +1,6 @@
 {
   "name": "@zarinpal/web-components",
-  "version": "2.1.115",
+  "version": "2.1.120",
   "private": false,
   "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "ZarinPal front-end team",
@@ -14,7 +14,8 @@
     "story:build": "vue-cli-service storybook:build -c config/storybook",
     "story": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test": "yarn test:unit",
-    "generate": "node fetchLangs.mjs"
+    "generate": "node fetchLangs.mjs",
+    "format": "prettier --write ."
   },
   "main": "dist/zwc.umd.js",
   "files": [
@@ -52,10 +53,13 @@
     "core-js": "^3.21.1",
     "css-loader": "^6.2.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.0.3",
     "fs": "^0.0.1-security",
     "node-sass": "^6.0.1",
+    "prettier": "^2.8.2",
     "rollup": "^2.53.3",
     "sass": "^1.38.0",
     "sass-loader": "^10",

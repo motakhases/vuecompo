@@ -1,8 +1,8 @@
-import Label from "./index.vue";
+import Label from './index.vue';
 
 export default {
   component: Label,
-  title: "Components/Label",
+  title: 'Components/Label',
 };
 
 const Template = (_, { argTypes }) => ({

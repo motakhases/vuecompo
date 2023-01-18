@@ -3,7 +3,7 @@ import { DataSheetItemSpans } from '@/types';
 
 @Component
 export default class DataSheetRow extends Vue {
-  @Prop({ type: Object }) readonly cols?: DataSheetItemSpans
+  @Prop({ type: Object }) readonly cols?: DataSheetItemSpans;
 
   get columns(): string {
     let classes = '';

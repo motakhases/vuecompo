@@ -6,23 +6,26 @@ import Loading from './Loading/index.vue';
 
 @Component({
   components: {
-    FilterSample, BankLogos, Thumbnail, Loading,
+    FilterSample,
+    BankLogos,
+    Thumbnail,
+    Loading,
   },
 })
 export default class BankCards extends Vue {
-  @Prop({ type: String }) readonly bankName!: string
+  @Prop({ type: String }) readonly bankName!: string;
 
-  @Prop({ type: String }) readonly logo!: string
+  @Prop({ type: String }) readonly logo!: string;
 
-  @Prop({ type: String }) readonly username!: string
+  @Prop({ type: String }) readonly username!: string;
 
-  @Prop({ type: String }) readonly amount?: string
+  @Prop({ type: String }) readonly amount?: string;
 
-  @Prop({ type: String }) readonly iban!: string
+  @Prop({ type: String }) readonly iban!: string;
 
-  @Prop({ type: String }) readonly rrn?: string
+  @Prop({ type: String }) readonly rrn?: string;
 
-  @Prop({ type: Boolean, default: false }) readonly defaultAccount!: boolean
+  @Prop({ type: Boolean, default: false }) readonly defaultAccount!: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 

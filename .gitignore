@@ -30,3 +30,4 @@ pnpm-debug.log*
 
 safelist.txt
 /.__incl/
+/.__excl/

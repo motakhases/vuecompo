@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Tooltip from '@/components/Tooltip/index.vue';
 // import { Skeleton } from '@/components'; // in ro uncomment konam + commente dakhele componenets be ye errori mikhoram ke moshakhas nist az injast
@@ -9,7 +7,9 @@ import Loading from './Loading/index.vue';
 @Component({
   components: {
     // Icon, Tooltip, Loading, Skeleton, // in ro uncomment konam va payini ro comment, be ye errori mikhoram ke moshakhas nist az injast
-    Icon, Tooltip, Loading,
+    Icon,
+    Tooltip,
+    Loading,
   },
 })
 export default class CopyToClipboard extends Vue {

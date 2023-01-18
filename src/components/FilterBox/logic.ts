@@ -1,4 +1,6 @@
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+import {
+  Component, Vue, Prop, Watch,
+} from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Button from '@/components/Button/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';
@@ -56,6 +58,11 @@ export default class Logic extends Vue {
     this.isClose = !this.isClose;
   }
 
+  @Watch('isClose')
+  isCloser() {
+    this.$emit('isCloser', this.isClose);
+  }
+
   clearHandler() {
     this.isClose = true;
     if (this.amountQueryKey) {
@@ -88,18 +95,22 @@ export default class Logic extends Vue {
 
             if (amountVal) {
               if (queryAmount === 'range_amount') {
-                this.finalActiveVal = `از ${(this as any).$options.filters.numberFormat(amountVal[0])} تا ${(this as any).$options.filters.numberFormat(amountVal[1])}
+                this.finalActiveVal = `از ${(this as any).$options.filters.numberFormat(amountVal[0])} تا ${(
+                  this as any
+                ).$options.filters.numberFormat(amountVal[1])}
                   ${this.$i18n.t('common.rial')}
                   `;
               } else {
-                this.finalActiveVal = `${this.$i18n.t(`common.export.${queryAmount}`)} ${(this as any).$options.filters.numberFormat(amountVal)} ${this.$i18n.t('common.rial')}`;
+                this.finalActiveVal = `${this.$i18n.t(`common.export.${queryAmount}`)} ${(
+                  this as any
+                ).$options.filters.numberFormat(amountVal)} ${this.$i18n.t('common.rial')}`;
               }
             }
           } else {
             this.isActive = false;
             this.finalActiveVal = '';
           }
-        } else if (queryKeys.includes(this.value)) {
+        } else if (queries && queryKeys.includes(this.value)) {
           if (i === this.value) {
             if (queries[i]) {
               this.isActive = true;
@@ -157,5 +168,10 @@ export default class Logic extends Vue {
   @Watch('$route.query')
   refresh() {
     this.updateValuequeries();
+  }
+
+  @Watch('toggleClose')
+  isCloserValue(): void {
+    this.$emit('isCloser', this.isClose);
   }
 }

@@ -28,7 +28,6 @@ export default Vue.extend({
     number: {
       type: String,
       default: '',
-
     },
   },
   data() {

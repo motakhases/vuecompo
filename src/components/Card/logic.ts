@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Skeleton from '@/components/Skeleton/index.vue';
 import Loading from './Loading/index.vue';
@@ -11,13 +9,13 @@ import Loading from './Loading/index.vue';
 export default class Card extends Vue {
   @Prop({ type: String }) readonly title!: string;
 
-  @Prop({ type: Boolean, default: false }) pinned!: boolean
+  @Prop({ type: Boolean, default: false }) pinned!: boolean;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
   @Prop({ type: String }) readonly helper?: string;
 
-  hasContent = false
+  hasContent = false;
 
   toggleSlot() {
     if (this.$slots.default) {

@@ -24,7 +24,7 @@
       <Button slot="next-month" type="tertiary" icon="ArrowRight" />
       <!-- slot for "month-name" -->
       <template #month-name="{ date }">
-        {{ date.xFormat("jMMMM") }}
+        {{ date.xFormat('jMMMM') }}
         <Icon name="angleDown" />
       </template>
       <template #header-year="{ selectedDate }">
@@ -51,12 +51,7 @@
       </div>
       <div class="zpl-date-picker-range-input">
         <label for="">{{ $t('common.to') }}</label>
-        <TextField
-          v-model="model[1]"
-          suffix-icon="Calendar"
-          :placeholder="$t('date.format')"
-          :disabled="disableEnd"
-        />
+        <TextField v-model="model[1]" suffix-icon="Calendar" :placeholder="$t('date.format')" :disabled="disableEnd" />
       </div>
     </div>
     <!-- Main input -->

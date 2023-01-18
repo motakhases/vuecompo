@@ -11,13 +11,7 @@
           {{ amount | numberFormat }}
           <Label size="small" type="neutral" :text="$t('common.rial')" />
         </div>
-        <Button
-          icon="plus"
-          size="small"
-          type="primary-LE"
-          :href="href"
-          target="_blank"
-        />
+        <Button icon="plus" size="small" type="primary-LE" :href="href" target="_blank" />
       </div>
     </div>
   </div>

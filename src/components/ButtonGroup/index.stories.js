@@ -19,4 +19,4 @@ const Template = (_, { argTypes }) => ({
 
 const group = Template.bind({});
 
-export default group
+export default group;

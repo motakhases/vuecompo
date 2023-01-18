@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import CheckBox from '@/components/CheckBox/index.vue';
 
@@ -18,7 +16,7 @@ export default class CheckboxCard extends Vue {
 
   @Prop({ type: Array }) readonly value!: [];
 
-  @Prop({ type: Boolean }) readonly disabled?: boolean
+  @Prop({ type: Boolean }) readonly disabled?: boolean;
 
   get model(): string[] {
     return this.value;
@@ -28,11 +26,14 @@ export default class CheckboxCard extends Vue {
     this.$emit('input', value);
   }
 
-  selectCardHandler():void {
+  selectCardHandler(): void {
     if (!this.disabled) {
       const isChecked = this.model.filter((i: string) => i === this.val);
       if (isChecked.length) {
-        this.$emit('input', this.model.filter((i: string) => i !== this.val));
+        this.$emit(
+          'input',
+          this.model.filter((i: string) => i !== this.val),
+        );
       } else {
         this.$emit('input', [...this.model, this.val]);
       }

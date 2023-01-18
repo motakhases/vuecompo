@@ -12,12 +12,7 @@ const {
 module.exports = {
   darkMode: 'class',
   important: true,
-  content: [
-    './public/**/*.html',
-    './src/**/*.vue',
-    './src/**/*.js',
-    './safelist.txt',
-  ],
+  content: ['./public/**/*.html', './src/**/*.vue', './src/**/*.js', './safelist.txt'],
   safelist: [
     {
       pattern: /grid-cols-(1|2|3|4)/,
@@ -49,6 +44,7 @@ module.exports = {
       center: true,
     },
   },
+  // eslint-disable-next-line global-require
   plugins: [require('@tailwindcss/typography')],
   variants: {},
 };

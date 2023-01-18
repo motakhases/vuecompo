@@ -1,10 +1,10 @@
-import DataSheet from "./index.vue";
-import DataSheetRow from "./Row/index.vue";
-import DataSheetItem from "./Item/index.vue";
+import DataSheet from './index.vue';
+import DataSheetRow from './Row/index.vue';
+import DataSheetItem from './Item/index.vue';
 
 export default {
   component: DataSheet,
-  title: "Components/DataSheet",
+  title: 'Components/DataSheet',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -12,7 +12,7 @@ const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
   data: () => ({
     obj: {
-      empty: "",
+      empty: '',
     },
   }),
   template: `
@@ -31,7 +31,7 @@ const Template = (_, { argTypes }) => ({
       <DataSheetRow>
         <DataSheetItem
           title="مجموع تراکنش‌ها"
-          
+
         >
           260,000
           ریال
@@ -73,7 +73,7 @@ const Template = (_, { argTypes }) => ({
     <DataSheetRow>
       <DataSheetItem
         title="مجموع تراکنش‌ها"
-        
+
       >
         260,000
         ریال
@@ -179,7 +179,7 @@ const Template = (_, { argTypes }) => ({
   </DataSheetItem>
   <DataSheetItem
   row
-  
+
   title="مجموع تراکنش‌ها"
 >
   260,000

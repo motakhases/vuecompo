@@ -13,7 +13,7 @@ import { DatePickerValue } from '@/types';
   },
 })
 export default class FilterDate extends Vue {
-  date = ''
+  date = '';
 
   dateList = {
     TODAY: this.$i18n.t('common.export.today'),
@@ -22,7 +22,7 @@ export default class FilterDate extends Vue {
     LAST_MONTH: this.$i18n.t('common.export.prev_month'),
     LAST_WEEK: this.$i18n.t('common.export.7_days'),
     OPTIONAL_PERIOD: this.$i18n.t('common.export.range'),
-  }
+  };
 
   value: DatePickerValue = '';
 
@@ -36,9 +36,9 @@ export default class FilterDate extends Vue {
 
   endOfMonth = moment().endOf('jMonth').format('jYYYY-jM-jD');
 
-  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY-jM-jD')
+  lastMonth = moment().subtract(1, 'jMonth').format('jYYYY-jM-jD');
 
-  lastWeek = moment().subtract(1, 'week').format('jYYYY-jM-jD')
+  lastWeek = moment().subtract(1, 'week').format('jYYYY-jM-jD');
 
   options = [
     { id: 1, text: this.dateList.TODAY, value: 'TODAY' },

@@ -27,4 +27,3 @@ export default class UserProfileCard extends Vue {
 
   @Prop({ type: Array }) readonly taskItems?: UserTaskItems[]
 }
-

@@ -15,23 +15,15 @@
     </div>
 
     <!-- shows if before icon exists -->
-    <Icon
-      v-if="beforeIcon && !loading"
-      :name="beforeIcon"
-      class="zpl-button-icon"
-    />
+    <Icon v-if="beforeIcon && !loading" :name="beforeIcon" class="zpl-button-icon" />
 
     <!-- shows if before icon exists -->
-    <span v-if="!loading && text" :class="[{truncate}]">
+    <span v-if="!loading && text" :class="[{ truncate }]">
       {{ text }}
     </span>
 
     <!-- shows if after icon exists -->
-    <Icon
-      v-if="afterIcon && !loading"
-      :name="afterIcon"
-      class="zpl-button-icon"
-    />
+    <Icon v-if="afterIcon && !loading" :name="afterIcon" class="zpl-button-icon" />
     <!-- shows if icon exists -->
 
     <Icon v-if="icon && !loading" :name="icon" class="zpl-button-icon" />

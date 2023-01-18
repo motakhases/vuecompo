@@ -13,4 +13,3 @@ export default class TerminalList extends Vue {
 
   @Prop({ type: Array }) terminals!: []
 }
-

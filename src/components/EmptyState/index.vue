@@ -1,12 +1,7 @@
 <template>
   <div :class="['zpl-emptystate', inCard ? 'in-card' : null]">
-
-    <div
-      class="zpl-emptystate-box"
-    >
-    <Bg class="logo-empty" v-if="image"
-        :bgImage="image"
-     />
+    <div class="zpl-emptystate-box">
+      <Bg class="logo-empty" v-if="image" :bgImage="image" />
       <div v-else class="bg-empty-state" />
 
       <div class="zpl-emptystate-content">
@@ -16,7 +11,7 @@
       <div class="zpl-emptystate-buttons" v-if="buttons.length">
         <Button
           v-for="(button, index) in buttons"
-          class="mx-2xs py-xs px-md font-sans text-b2 text-right font-medium py-xs px-md"
+          class="mx-2xs py-xs px-md"
           :key="index"
           :text="button.text"
           @click.native="button.action"

@@ -1,6 +1,4 @@
-import {
-  Component, Vue, Watch,
-} from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import Select from '@/components/Select/index.vue';
 import Textfield from '@/components/TextField/index.vue';
 import { AmountFilterValue } from '@/types';

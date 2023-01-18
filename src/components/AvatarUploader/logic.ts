@@ -37,10 +37,7 @@ export default class AvatarUploader extends Vue {
 
   @Prop({ type: Function }) readonly deleteFileHandler!: (file) => void;
 
-  @Prop({ type: Function, required: true }) readonly toast!: (
-    text: string,
-    type: string
-  ) => void;
+  @Prop({ type: Function, required: true }) readonly toast!: (text: string, type: string) => void;
 
   @Ref() readonly dropzoneRef!: any;
 
@@ -140,17 +137,10 @@ export default class AvatarUploader extends Vue {
     this.dropzoneOptions.url = this.url;
     this.dropzoneOptions.maxFilesize = this.maxFileSize;
     this.dropzoneOptions.maxFiles = this.maxFiles;
-    this.dropzoneOptions.acceptedFiles = this.acceptedFiles
-      ? this.acceptedFiles
-      : '';
+    this.dropzoneOptions.acceptedFiles = this.acceptedFiles ? this.acceptedFiles : '';
     this.dropzoneOptions.headers = this.headers;
     this.dropzoneOptions.dictFileTooBig = this.$i18n.t('warnings.upload.size');
-    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t(
-      'warnings.upload.format',
-    );
-    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t(
-      'warnings.upload.files',
-      { maxFiles: this.maxFiles },
-    );
+    this.dropzoneOptions.dictInvalidFileType = this.$i18n.t('warnings.upload.format');
+    this.dropzoneOptions.dictMaxFilesExceeded = this.$i18n.t('warnings.upload.files', { maxFiles: this.maxFiles });
   }
 }

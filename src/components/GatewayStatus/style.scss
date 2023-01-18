@@ -2,10 +2,10 @@
   /* Default */
   @apply flex items-center py-[6px] text-ls-cp text-text-soft gap-2xs;
   @apply dark:text-text-dark;
-	
+
   /* circle */
   &:before {
-    content: "";
+    content: '';
     @apply w-xs h-xs rounded-circle;
   }
 

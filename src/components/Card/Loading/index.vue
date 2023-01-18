@@ -12,6 +12,5 @@ import Skeleton from '@/components/Skeleton/index.vue';
     Skeleton,
   },
 })
-export default class CardLoading extends Vue {
-}
+export default class CardLoading extends Vue {}
 </script>

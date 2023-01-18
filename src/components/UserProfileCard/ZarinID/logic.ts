@@ -9,4 +9,3 @@ export default class ZarinID extends Vue {
 
   @Prop({ type: String, default: 'beginner' }) readonly type!: string
 }
-
