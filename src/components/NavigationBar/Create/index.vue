@@ -1,6 +1,9 @@
 <template>
   <div class="zpl-nav-create-box">
-    <a :to="link" class="zpl-nav-create">
+    <a
+      :to="link"
+      class="zpl-nav-create"
+    >
       <Icon name="plus" />
       <slot />
     </a>
