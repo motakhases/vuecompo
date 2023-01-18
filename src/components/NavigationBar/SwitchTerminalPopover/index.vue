@@ -1,18 +1,17 @@
 <template>
-  <div class="zpl-nav-popover-container" @keydown="onKeyDown">
+  <div class="zpl-nav-popover-container">
     <!-- Active terminal -->
     <div @click="handleShowPopover" ref="terminal">
       <SwitchTerminal
         :title="switcher.title"
         :link="switcher.link"
         :icon="switcher.icon"
-        :isFocused="isFocused"
         :img="switcher.img"
       />
       <div class="zpl-nav-popover" v-show="showPopover" @click="handleHidePopover">
         <div>
           <!-- Terminals -->
-          <div class="zpl-nav-terminal-items" :style="{ maxHeight: `${maxHeightList}px` }">
+          <div class="zpl-nav-terminal-items">
             <SwitchTerminalItem
               v-for="(terminal, index) in terminals"
               :id="terminal.id"
@@ -22,17 +21,16 @@
               :title="terminal.name"
               :link="terminal.domain"
               :route="terminal.route"
-              :img="terminal.logo + logoAddress"
+             :img="terminal.logo + logoAddress"
               :state="terminal.status"
               icon="terminal"
               v-on="$listeners"
-              ref="switchTerminalItem"
             />
           </div>
 
           <!-- Add new terminal -->
           <Create link="/home">
-            {{ $t('terminal.create.new') }}
+            {{ $t("terminal.create.new") }}
           </Create>
         </div>
       </div>

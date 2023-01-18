@@ -1,4 +1,6 @@
-import { Vue, Prop, Component } from 'vue-property-decorator';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import { Route } from 'vue-router';
 import { Translation, IActiveTerminal } from '@/types';
 
@@ -10,33 +12,29 @@ import Thumbnail from '@/components/Thumbnail/index.vue';
 // Interface
 @Component({
   components: {
-    Thumbnail,
-    Icon,
-    Status,
+    Thumbnail, Icon, Status,
   },
 })
 export default class SwitchTerminalItem extends Vue {
-  @Prop({ type: Boolean, default: false }) active!: boolean;
+  @Prop({ type: Boolean, default: false }) active!: boolean
 
-  @Prop({ type: Boolean, default: false }) pinned!: boolean;
+  @Prop({ type: Boolean, default: false }) pinned!: boolean
 
-  @Prop({ type: String }) id!: string;
+  @Prop({ type: String }) id!: string
 
-  @Prop({ type: String }) title!: string;
+  @Prop({ type: String }) title!: string
 
-  @Prop({ type: String }) link!: string;
+  @Prop({ type: String }) link!: string
 
-  @Prop({ type: [String, Object] }) route!: Route;
+  @Prop({ type: [String, Object] }) route!: Route
 
-  @Prop({ type: String }) icon!: string;
+  @Prop({ type: String }) icon!: string
 
-  @Prop({ type: String }) img!: string;
+  @Prop({ type: String }) img!: string
 
-  @Prop({ type: String }) alt!: string;
+  @Prop({ type: String }) alt!: string
 
-  @Prop({ type: String }) state!: string;
-
-  isFocused = false;
+  @Prop({ type: String }) state!: string
 
   stateText(state: Translation): Translation {
     let statusText: Translation = '';
@@ -65,7 +63,9 @@ export default class SwitchTerminalItem extends Vue {
   }
 
   get terminalConcatedData(): IActiveTerminal {
-    const { id, title, link, state, img, route } = this.$props;
+    const {
+      id, title, link, state, img, route,
+    } = this.$props;
 
     /**
      * This pattern is based on
@@ -79,19 +79,5 @@ export default class SwitchTerminalItem extends Vue {
       route,
       status: state,
     };
-  }
-
-  onFocus(): void {
-    this.isFocused = true;
-  }
-
-  onBlur(): void {
-    this.isFocused = false;
-  }
-
-  onEnter(e: KeyboardEvent, callerComp): void {
-    this.isFocused = false;
-    this.$emit('terminalClick', this.terminalConcatedData);
-    callerComp.kDoBlurComp(e);
   }
 }

@@ -1,4 +1,6 @@
-import { Vue, Prop, Component } from 'vue-property-decorator';
+import {
+  Vue, Prop, Component,
+} from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
 @Component({
@@ -7,7 +9,7 @@ import Icon from '@/components/Icon/index.vue';
   },
 })
 export default class Create extends Vue {
-  @Prop({ type: Boolean, default: false }) active!: boolean;
+  @Prop({ type: Boolean, default: false }) active!: boolean
 
-  @Prop({ type: String }) link!: string;
+  @Prop({ type: String }) link!: string
 }
