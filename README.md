@@ -1,4 +1,4 @@
-# @vuecompo/web-components.
+# @vuecompo/vuecompo.
 
 This package providing a new design system for [vuecompo](https://www.vuecompo.com/) that contains a foundation and many components based on the new design system. although this package developing for vuecompo, it will use for other vuecompo products in the future. In order to increase development speed and consistency on the style guide, we decided to use TailwindCSS. So this package uses [TailwindCSS](https://tailwindcss.com/), [Typescript](https://www.typescriptlang.org/) and [Vuejs](https://vuejs.org/).
 
@@ -13,28 +13,28 @@ This package providing a new design system for [vuecompo](https://www.vuecompo.c
 
 ## Installation
 
-First install and configure `TailwindCSS` with a minimal config then add `@vuecompo/web-components` dependency to your project:
+First install and configure `TailwindCSS` with a minimal config then add `@vuecompo/vuecompo` dependency to your project:
 
 ```bash
 # using npm
-npm install @vuecompo/web-components
+npm install @vuecompo/vuecompo
 
 # using yarn
-yarn add @vuecompo/web-components
+yarn add @vuecompo/vuecompo
 ```
 
 Add it to your project:
 
 ### Nuxtjs
 
-1. Create a plugin with `web-components.js` name
+1. Create a plugin with `vuecompo.js` name
 
 ```javascript
-// web-components.js
+// vuecompo.js
 
 import Vue from 'vue';
-import zwc from '@vuecompo/web-components';
-import '@vuecompo/web-components/dist/zwc.css';
+import zwc from '@vuecompo/vuecompo';
+import '@vuecompo/vuecompo/dist/zwc.css';
 
 Vue.use(zwc);
 ```
@@ -47,7 +47,7 @@ Vue.use(zwc);
 ...
 
 plugins: [
-  '~/plugin/web-components',
+  '~/plugin/vuecompo',
 ],
 
 ...
@@ -61,7 +61,7 @@ plugins: [
 ...
 
 purge: [
-  'node_modules/@vuecompo/web-components/**/*.vue',
+  'node_modules/@vuecompo/vuecompo/**/*.vue',
 ],
 
 ...
