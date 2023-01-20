@@ -1,6 +1,6 @@
 {
   "name": "vuecompo",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "description": "vuecompo web components and design system with Vue, Typescript, and TailwindCSS",
   "author": "vuecompo front-end team",
