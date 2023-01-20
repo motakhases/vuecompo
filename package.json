@@ -1,5 +1,5 @@
 {
-  "name": "@vuecompo/vuecompo",
+  "name": "vuecompo",
   "version": "1.0.1",
   "private": false,
   "description": "vuecompo web components and design system with Vue, Typescript, and TailwindCSS",
