@@ -1,6 +1,6 @@
-# @zarinpal/web-components.
+# @vuecompo/web-components.
 
-This package providing a new design system for [ZarinPal](https://www.zarinpal.com/) that contains a foundation and many components based on the new design system. although this package developing for ZarinPal, it will use for other ZarinPal products in the future. In order to increase development speed and consistency on the style guide, we decided to use TailwindCSS. So this package uses [TailwindCSS](https://tailwindcss.com/), [Typescript](https://www.typescriptlang.org/) and [Vuejs](https://vuejs.org/).
+This package providing a new design system for [vuecompo](https://www.vuecompo.com/) that contains a foundation and many components based on the new design system. although this package developing for vuecompo, it will use for other vuecompo products in the future. In order to increase development speed and consistency on the style guide, we decided to use TailwindCSS. So this package uses [TailwindCSS](https://tailwindcss.com/), [Typescript](https://www.typescriptlang.org/) and [Vuejs](https://vuejs.org/).
 
 > NOTE: This package is under construction and it's not ready to use!
 
@@ -13,14 +13,14 @@ This package providing a new design system for [ZarinPal](https://www.zarinpal.c
 
 ## Installation
 
-First install and configure `TailwindCSS` with a minimal config then add `@zarinpal/web-components` dependency to your project:
+First install and configure `TailwindCSS` with a minimal config then add `@vuecompo/web-components` dependency to your project:
 
 ```bash
 # using npm
-npm install @zarinpal/web-components
+npm install @vuecompo/web-components
 
 # using yarn
-yarn add @zarinpal/web-components
+yarn add @vuecompo/web-components
 ```
 
 Add it to your project:
@@ -33,8 +33,8 @@ Add it to your project:
 // web-components.js
 
 import Vue from 'vue';
-import zwc from '@zarinpal/web-components';
-import '@zarinpal/web-components/dist/zwc.css';
+import zwc from '@vuecompo/web-components';
+import '@vuecompo/web-components/dist/zwc.css';
 
 Vue.use(zwc);
 ```
@@ -61,7 +61,7 @@ plugins: [
 ...
 
 purge: [
-  'node_modules/@zarinpal/web-components/**/*.vue',
+  'node_modules/@vuecompo/web-components/**/*.vue',
 ],
 
 ...

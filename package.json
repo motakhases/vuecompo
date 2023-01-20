@@ -1,9 +1,9 @@
 {
-  "name": "@zarinpal/web-components",
-  "version": "2.1.120",
+  "name": "@vuecompo/vuecompo",
+  "version": "1.0.1",
   "private": false,
-  "description": "ZarinPal web components and design system with Vue, Typescript, and TailwindCSS",
-  "author": "ZarinPal front-end team",
+  "description": "vuecompo web components and design system with Vue, Typescript, and TailwindCSS",
+  "author": "vuecompo front-end team",
   "scripts": {
     "serve": "vue-cli-service serve",
     "test:unit": "vue-cli-service test:unit",
@@ -92,16 +92,16 @@
     ]
   },
   "keywords": [
-    "ZarinPal",
+    "vuecompo",
     "Component Library",
     "Web Components",
     "Vue",
     "TailwindCSS"
   ],
-  "license": "ZarinPal",
+  "license": "vuecompo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ZarinPal/web-components"
+    "url": "https://github.com/vuecompo/web-components"
   },
   "types": "index.d.ts",
   "dependencies": {
