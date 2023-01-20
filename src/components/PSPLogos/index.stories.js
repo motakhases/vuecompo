@@ -1,8 +1,8 @@
-import PSPLogos from "./index.vue";
+import PSPLogos from './index.vue';
 
 export default {
   component: PSPLogos,
-  title: "Components/PSPLogos",
+  title: 'Components/PSPLogos',
 };
 
 const Template = (args, { argTypes }) => ({
@@ -10,17 +10,7 @@ const Template = (args, { argTypes }) => ({
   components: { PSPLogos },
   data() {
     return {
-      logos: [
-        "Asan",
-        "Bpm",
-        "Fan",
-        "Ikc",
-        "Pna",
-        "Pec",
-        "Pep",
-        "Sep",
-        "Mca",
-      ],
+      logos: ['Asan', 'Bpm', 'Fan', 'Ikc', 'Pna', 'Pec', 'Pep', 'Sep', 'Mca'],
     };
   },
   template: `

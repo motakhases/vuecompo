@@ -1,4 +1,4 @@
-import NotificationBadge from "./index.vue";
+import NotificationBadge from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: { NotificationBadge },
@@ -14,4 +14,4 @@ const Template = (_, { argTypes }) => ({
 
 const notificationBadge = Template.bind({});
 
-export default notificationBadge
+export default notificationBadge;

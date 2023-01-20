@@ -23,6 +23,4 @@ export default class SwitchTerminal extends Vue {
   @Prop({ type: String }) img?: string
 
   @Prop({ type: String }) alt?: string
-
-  @Prop({ type: Boolean, default: false }) isFocused?: boolean
 }

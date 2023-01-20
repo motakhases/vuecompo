@@ -1,11 +1,6 @@
 <template>
   <div class="zpl-stepper-group">
-    <Stepper
-      v-for="step in steppers"
-      :key="step.id"
-      :subSteps="step.subSteps"
-      :completed="step.completed"
-    />
+    <Stepper v-for="step in steppers" :key="step.id" :subSteps="step.subSteps" :completed="step.completed" />
   </div>
 </template>
 

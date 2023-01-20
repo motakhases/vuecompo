@@ -1,23 +1,9 @@
 <template>
-  <th
-    :style="[{ width, minWidth, maxWidth}]"
-  >
-    <div
-      :class="['zpl-table-cell', { 'can-sort': canSort }]"
-      @click="sort"
-    >
+  <th :style="[{ width, minWidth, maxWidth }]">
+    <div :class="['zpl-table-cell', { 'can-sort': canSort }]" @click="sort">
       {{ title }}
-      <Label
-        v-if="label"
-        size="small"
-        type="neutral"
-        :text="label"
-      />
-      <Icon
-        v-if="canSort"
-        class="sort-icon"
-        :name="sortIcon"
-      />
+      <Label v-if="label" size="small" type="neutral" :text="label" />
+      <Icon v-if="canSort" class="sort-icon" :name="sortIcon" />
     </div>
   </th>
 </template>

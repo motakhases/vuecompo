@@ -7,9 +7,9 @@ import Create from '@/components/NavigationBar/Create/index.vue';
   components: { SwitchTerminalItem, Overview, Create },
 })
 export default class TerminalList extends Vue {
-  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean
+  @Prop({ type: Boolean, default: false }) readonly isOpen!: boolean;
 
-  @Prop({ type: Function }) toggle!: () => boolean
+  @Prop({ type: Function }) toggle!: () => boolean;
 
-  @Prop({ type: Array }) terminals!: []
+  @Prop({ type: Array }) terminals!: [];
 }

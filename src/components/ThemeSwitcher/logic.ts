@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Watch,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import Modal from '@/components/Modal/index.vue';
 import RadioCard from '@/components/RadioCard/index.vue';
 import Toggle from '@/components/Toggle/index.vue';
@@ -8,7 +6,6 @@ import Toggle from '@/components/Toggle/index.vue';
 @Component({
   components: { Modal, RadioCard, Toggle },
 })
-
 export default class ThemeSwitcher extends Vue {
   @Prop({ type: Function }) readonly toggleModal!: () => boolean;
 
@@ -35,10 +32,7 @@ export default class ThemeSwitcher extends Vue {
   toggleSystemTheme() {
     const el = document.body;
     if (this.systemTheme) {
-      if (
-        window.matchMedia
-        && window.matchMedia('(prefers-color-scheme:dark)').matches
-      ) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches) {
         el.classList.add('dark');
         this.mode = 'dark';
       } else {

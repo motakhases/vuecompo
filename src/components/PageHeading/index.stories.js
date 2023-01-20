@@ -1,4 +1,4 @@
-import PageHeading from "./index.vue";
+import PageHeading from './index.vue';
 import Button from '@/components/Button/index.vue';
 
 const Template = (_, { argTypes }) => ({
@@ -45,24 +45,24 @@ const Template = (_, { argTypes }) => ({
 
 const pageHeading = Template.bind({});
 
-pageHeading.argTypes = {
-};
+pageHeading.argTypes = {};
 
 pageHeading.args = {
-  title: "عنوان",
-  desc: "توضیحات صفحه",
+  title: 'عنوان',
+  desc: 'توضیحات صفحه',
   sticky: false,
   returnBTN: true,
   statuses: [
     {
-      text:'غیر فعال', type:'negative'
+      text: 'غیر فعال',
+      type: 'negative',
     },
     {
-      text:'فعال', type:'positive'
-    }
+      text: 'فعال',
+      type: 'positive',
+    },
   ],
-  returnFunction:()=> console.log('click')
-
+  returnFunction: () => console.log('click'),
 };
 
-export default pageHeading
+export default pageHeading;

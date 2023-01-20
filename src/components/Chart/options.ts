@@ -2,8 +2,9 @@ import { dayName, hour, month } from '@/utils/momentCustom';
 
 function generateSeries(w: any, dataPointIndex: number) {
   return w.globals.series
-    .map((i: any, index: number) => (i[dataPointIndex]
-      ? `
+    .map((i: any, index: number) =>
+      i[dataPointIndex]
+        ? `
     <div class="serie">
       <span class="title">
         <span style="background-color: ${w.globals.fill.colors[index]}"></span>
@@ -15,7 +16,8 @@ function generateSeries(w: any, dataPointIndex: number) {
       </span>
     </div>
     `
-      : null))
+        : null,
+    )
     .join(' ');
 }
 
@@ -69,19 +71,17 @@ export default {
     offsetY: 24,
   },
   tooltip: {
-    custom({
-      series, seriesIndex, dataPointIndex, w,
-    }: any) {
+    custom({ series, seriesIndex, dataPointIndex, w }: any) {
       const date = w.config.categories[dataPointIndex];
       const { xType } = w.config;
 
       return `
         <div class="c-t">
           ${
-  xType === 'day'
-    ? `<div>${hour(date)}</div>`
-    : `<div>${hour(date)} - ${dayName(date)} - ${month(date)}</div>`
-}
+        xType === 'day'
+          ? `<div>${hour(date)}</div>`
+          : `<div>${hour(date)} - ${dayName(date)} - ${month(date)}</div>`
+      }
           <div class="series">
             ${generateSeries(w, dataPointIndex)}
           </div>

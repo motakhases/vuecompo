@@ -216,7 +216,7 @@ import Add from './icons/Add.vue';
   },
 })
 export default class Icon extends Vue {
-  @Prop({ type: String, required: true }) readonly name!: string
+  @Prop({ type: String, required: true }) readonly name!: string;
 
   get iconComponent(): string {
     return this.name;

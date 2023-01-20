@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -24,20 +18,8 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M14 16V14"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M17.8 17.8H15.8"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M14 16V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M17.8 17.8H15.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -54,13 +36,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M16.3 14H17.8"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M16.3 14H17.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       d="M7.978 2.5H4.5C3.395 2.5 2.5 3.395 2.5 4.5V7.978"
       stroke="currentColor"

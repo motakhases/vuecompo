@@ -6,19 +6,10 @@
         <Avatar :img="user.managed_avatar" />
       </div>
       <div class="left-side">
-        <div
-          :class="[
-            'message-box',
-            { 'my-reply': user.id === myId, 'others-reply': user.id !== myId },
-          ]"
-        >
+        <div :class="['message-box', { 'my-reply': user.id === myId, 'others-reply': user.id !== myId }]">
           <pre class="content prose max-w-none" v-html="markDownToHtml"></pre>
           <div class="attachment-link" v-if="attachment">
-            <Link
-              :href="attachment"
-              :text="$t(`ticket.downloadAttachment`)"
-              target="_blank"
-            />
+            <Link :href="attachment" :text="$t(`ticket.downloadAttachment`)" target="_blank" />
           </div>
           <div class="detail">
             <span>{{ user.name }}</span>
@@ -29,16 +20,8 @@
         <div class="reply-feedback" v-if="user.id !== myId && user.id !== '11'">
           <div class="question" v-if="feedback_type === 'NONE'">
             <span>{{ $t(`ticket.wasHelpful`) }}</span>
-            <Icon
-              name="ThumbsUp"
-              class="thumbs-icons"
-              @click.native="replyFeedback('HELPFUL')"
-            />
-            <Icon
-              name="ThumbsDown"
-              class="thumbs-icons"
-              @click.native="replyFeedbackModal = true"
-            />
+            <Icon name="ThumbsUp" class="thumbs-icons" @click.native="replyFeedback('HELPFUL')" />
+            <Icon name="ThumbsDown" class="thumbs-icons" @click.native="replyFeedbackModal = true" />
             <Modal
               v-if="replyFeedbackModal"
               @close="replyFeedbackModal = false"
@@ -54,9 +37,7 @@
                 >
                   <Icon name="WarningOutline" class="warn-icon" />
                   <div class="feedback-box-content">
-                    <span>{{
-                      $t(`ticket.replyReportTypes.${item.type}`)
-                    }}</span>
+                    <span>{{ $t(`ticket.replyReportTypes.${item.type}`) }}</span>
                     <p>{{ item.content }}</p>
                   </div>
                 </div>
@@ -67,10 +48,7 @@
             <span>{{ $t(`ticket.replyReportTypes.${feedback_type}`) }}</span>
             <Icon
               :name="feedback_type === 'HELPFUL' ? 'ThumbsUp' : 'ThumbsDown'"
-              :class="[
-                'thumbs-icons',
-                feedback_type === 'HELPFUL' ? 'thumbs-up' : 'thumbs-down',
-              ]"
+              :class="['thumbs-icons', feedback_type === 'HELPFUL' ? 'thumbs-up' : 'thumbs-down']"
               @click.native="replyFeedback('HELPFUL')"
             />
           </div>

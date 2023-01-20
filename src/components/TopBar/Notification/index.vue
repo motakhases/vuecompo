@@ -1,15 +1,7 @@
 <template>
   <div class="zpl-topbar-navigation">
-    <Button
-      icon="notification"
-      type="tertiary"
-      size="medium"
-    />
-    <NotificationBadge
-      class="zpl-topbar-navigation-badge"
-      :text="badge"
-      v-if="badge"
-    />
+    <Button icon="notification" type="tertiary" size="medium" />
+    <NotificationBadge class="zpl-topbar-navigation-badge" :text="badge" v-if="badge" />
   </div>
 </template>
 

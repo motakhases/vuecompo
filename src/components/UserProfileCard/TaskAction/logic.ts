@@ -5,11 +5,11 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class TaskAction extends Vue {
-  @Prop({ type: String, required: true }) readonly link!: string
+  @Prop({ type: String, required: true }) readonly link!: string;
 
-  @Prop({ type: String, required: true }) readonly text!: string
+  @Prop({ type: String, required: true }) readonly text!: string;
 
-  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean
+  @Prop({ type: Boolean, default: false }) readonly disabled!: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly complete!: boolean
+  @Prop({ type: Boolean, default: false }) readonly complete!: boolean;
 }

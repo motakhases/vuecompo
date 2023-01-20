@@ -1,4 +1,4 @@
-import CheckMark from "./index.vue";
+import CheckMark from './index.vue';
 
 // export default {
 //   component: CheckMark,

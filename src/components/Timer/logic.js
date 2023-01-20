@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       timer: null,
-      totalTime: (1 * this.time),
+      totalTime: 1 * this.time,
     };
   },
 
@@ -24,7 +24,7 @@ export default {
     },
 
     seconds() {
-      const seconds = this.totalTime - (this.minutes * 60);
+      const seconds = this.totalTime - this.minutes * 60;
       return this.padTime(seconds);
     },
   },
@@ -35,7 +35,7 @@ export default {
     },
 
     resetTimer() {
-      this.totalTime = (1 * 60);
+      this.totalTime = 1 * 60;
       clearInterval(this.timer);
       this.timer = null;
     },

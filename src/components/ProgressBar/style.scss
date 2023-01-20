@@ -20,7 +20,7 @@
   &-percent {
     @apply flex items-center font-IRANYekanFaNum;
     &::before {
-      content: "";
+      content: '';
       @apply w-[2px] h-[2px] bg-text-soft ml-xs rounded-circle;
       @apply dark:bg-text-dark-soft;
     }

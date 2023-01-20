@@ -1,6 +1,4 @@
-import {
-  Component, Emit, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 
 import { IListMenu } from '@/types';
@@ -11,7 +9,7 @@ import { IListMenu } from '@/types';
 export default class Card extends Vue {
   @Prop({ type: Array }) readonly list!: IListMenu[];
 
-  items: null|IListMenu[] = null;
+  items: null | IListMenu[] = null;
 
   @Emit()
   itemClicked(id: number) {

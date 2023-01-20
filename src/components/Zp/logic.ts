@@ -5,9 +5,9 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class Status extends Vue {
-  @Prop({ type: String }) readonly id?: string
+  @Prop({ type: String }) readonly id?: string;
 
-  @Prop({ type: String }) readonly level!: string
+  @Prop({ type: String }) readonly level!: string;
 
   get levelText() {
     let text = '';

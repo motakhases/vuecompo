@@ -24,18 +24,12 @@
       :hasCustom="hasCustom"
       :hasImage="hasImage"
       :actions="actions"
-      :class="[ { bordered } ]"
+      :class="[{ bordered }]"
     />
 
     <!-- Large view - Table -->
     <template v-if="!loading && !isLoadCards && data && data.length">
-      <div
-        :class="[
-          'zpl-table-box',
-          { bordered }
-        ]"
-         ref="table"
-      >
+      <div :class="['zpl-table-box', { bordered }]" ref="table">
         <table>
           <!-- Head -->
           <thead>
@@ -62,20 +56,10 @@
 
           <!-- Body -->
           <tbody>
-
-            <tr
-              v-for="(td, tdIndex) in data"
-              :key="tdIndex"
-              :class="isRowSelected(tdIndex)"
-            >
+            <tr v-for="(td, tdIndex) in data" :key="tdIndex" :class="isRowSelected(tdIndex)">
               <!-- CheckBox -->
               <td v-if="selectable" class="checkbox-holder">
-                <CheckBox
-                  v-model="model"
-                  :val="tdIndex"
-                  name="single"
-                  @click.native="selectRow"
-                />
+                <CheckBox v-model="model" :val="tdIndex" name="single" @click.native="selectRow" />
               </td>
 
               <!-- Row's data -->
@@ -92,34 +76,22 @@
                 :params="params"
               />
               <!-- Actions -->
-              <td :class="{ 'action-col': actions, 'stick': tableOverflow }">
-                <div
-                  v-if="actions && handleSingleAction(td)"
-                  class="zpl-table-action"
-                >
-                  <div :class="['outside-action', {'outside-show': actions.length === 1}]">
+              <td :class="{ 'action-col': actions, stick: tableOverflow }">
+                <div v-if="actions && handleSingleAction(td)" class="zpl-table-action">
+                  <div :class="['outside-action', { 'outside-show': actions.length === 1 }]">
                     <Button
                       type="tertiary"
                       :class="[item.color ? `text-${item.color}` : null]"
                       size="small"
                       :icon="item.icon"
-                      v-for="(item, index) in actions.filter((i)=>i.icon).slice(0, 2)"
+                      v-for="(item, index) in actions.filter((i) => i.icon).slice(0, 2)"
                       :key="index"
                       @click.native="item.action(td)"
                     />
                   </div>
-                  <Dropdown
-                    v-if="actions.length>1"
-                    :list="actions"
-                    :custom-payload="td"
-                    :width="dropdownWidth"
-                  >
+                  <Dropdown v-if="actions.length > 1" :list="actions" :custom-payload="td" :width="dropdownWidth">
                     <template slot="button">
-                      <Button
-                        type="tertiary"
-                        size="small"
-                        icon="DotsMenu"
-                      />
+                      <Button type="tertiary" size="small" icon="DotsMenu" />
                     </template>
                   </Dropdown>
                 </div>
@@ -132,12 +104,12 @@
 
     <!-- Empty State -->
     <Empty-state
-    v-if="(!data && !loading) || (data && !data.length && !loading)"
-    :title="emptyTitle"
-    :caption="emptyCaption"
-    :buttons="emptyButton"
-    :inCard="inCard"
-    :image="image"
+      v-if="(!data && !loading) || (data && !data.length && !loading)"
+      :title="emptyTitle"
+      :caption="emptyCaption"
+      :buttons="emptyButton"
+      :inCard="inCard"
+      :image="image"
     />
   </div>
 </template>

@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Watch, Ref,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch, Ref } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import Button from '@/components/Button/index.vue';
 import { IDropdownOptions } from '@/types';
@@ -48,9 +46,7 @@ export default class Dropdown extends Vue {
     // get the position of button and set it to menu
 
     if (this.buttonRef) {
-      const {
-        height, top, left, width, bottom, y,
-      } = this.buttonRef?.children[0]?.getBoundingClientRect();
+      const { height, top, left, width, bottom, y } = this.buttonRef?.children[0]?.getBoundingClientRect();
       const menuWidth = this.menuRef?.children[0]?.getBoundingClientRect().width;
       const menuHeight = this.menuRef?.children[0]?.getBoundingClientRect().height;
       this.$set(this.style, 'top', `${top + height + 2}px`);

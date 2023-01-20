@@ -11,21 +11,21 @@ import Icon from '@/components/Icon/index.vue';
   },
 })
 export default class Logic extends Vue {
-  @Prop({ type: String }) readonly title?: string
+  @Prop({ type: String }) readonly title?: string;
 
-  @Prop({ type: String }) readonly label?: string
+  @Prop({ type: String }) readonly label?: string;
 
-  @Prop({ type: String }) readonly objectKey?: string
+  @Prop({ type: String }) readonly objectKey?: string;
 
-  @Prop({ type: String }) readonly width?: string
+  @Prop({ type: String }) readonly width?: string;
 
-  @Prop({ type: String }) readonly minWidth?: string
+  @Prop({ type: String }) readonly minWidth?: string;
 
-  @Prop({ type: String }) readonly maxWidth?: string
+  @Prop({ type: String }) readonly maxWidth?: string;
 
-  @Prop({ type: Boolean }) readonly canSort?: boolean
+  @Prop({ type: Boolean }) readonly canSort?: boolean;
 
-  sortIcon = ''
+  sortIcon = '';
 
   sort(): void {
     if (this.canSort) {

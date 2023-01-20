@@ -20,8 +20,8 @@
     @apply focus:bg-surface-focus;
     @apply dark:focus:bg-surface-dark-focus;
 
-    &._circle{
-      @apply rounded-circle
+    &._circle {
+      @apply rounded-circle;
     }
 
     ._icon {

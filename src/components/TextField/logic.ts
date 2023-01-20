@@ -1,6 +1,4 @@
-import {
-  Vue, Component, Prop, Watch,
-} from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 // Components
 import Button from '@/components/Button/index.vue';
@@ -91,7 +89,7 @@ export default class TextField extends Vue {
     this.isInputFocused = true;
   }
 
-  onFocusOut(e:Event): void {
+  onFocusOut(e: Event): void {
     if (!this.value) {
       this.isInputFocused = false;
     }

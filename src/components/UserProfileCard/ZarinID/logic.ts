@@ -5,7 +5,7 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class ZarinID extends Vue {
-  @Prop({ type: String, required: true }) readonly id!: string
+  @Prop({ type: String, required: true }) readonly id!: string;
 
-  @Prop({ type: String, default: 'beginner' }) readonly type!: string
+  @Prop({ type: String, default: 'beginner' }) readonly type!: string;
 }

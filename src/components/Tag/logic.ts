@@ -5,7 +5,7 @@ import Icon from '@/components/Icon/index.vue';
   components: { Icon },
 })
 export default class Tag extends Vue {
-  @Prop({ type: String, required: true }) readonly label!: string
+  @Prop({ type: String, required: true }) readonly label!: string;
 
-  @Prop({ type: Boolean, default: false }) readonly btn!: boolean
+  @Prop({ type: Boolean, default: false }) readonly btn!: boolean;
 }

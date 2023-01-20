@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="isOpen"
-    :class="['zpl-topbar-terminal-list', { 'show' : isOpen }]"
-  >
+  <div v-if="isOpen" :class="['zpl-topbar-terminal-list', { show: isOpen }]">
     <div class="modal">
       <div>
         <!-- Terminals -->
@@ -24,10 +21,7 @@
         </Create>
       </div>
     </div>
-    <div
-      class="backdrop"
-      @click="toggle"
-    />
+    <div class="backdrop" @click="toggle" />
   </div>
 </template>
 
@@ -37,5 +31,4 @@ import logic from './logic';
 import './style.scss';
 
 export default Vue.extend({ mixins: [logic] });
-
 </script>

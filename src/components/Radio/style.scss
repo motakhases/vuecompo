@@ -15,9 +15,9 @@
     @apply bg-transparent border-border;
     @apply hover:bg-surface-hover;
     @apply disabled:border-border-disabled;
-    
+
     // dark states
-    @apply  dark:border-border-dark;
+    @apply dark:border-border-dark;
     @apply dark:hover:bg-surface-dark-hover;
     @apply dark:disabled:border-border-dark-disabled;
     &:after {
@@ -25,7 +25,7 @@
       @apply bg-surface;
       // dark states
       @apply dark:bg-surface-dark;
-      content: "";
+      content: '';
     }
   }
 

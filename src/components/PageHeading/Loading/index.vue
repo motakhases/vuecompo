@@ -1,18 +1,8 @@
 <template>
-  <div
-    :class="[
-      'page-heading-container',
-      smallContainer ? 'small-container' : 'container',
-    ]"
-  >
+  <div :class="['page-heading-container', smallContainer ? 'small-container' : 'container']">
     <div class="flex justify-between w-full">
       <div class="flex gap-md">
-        <Button
-          v-if="returnBtn"
-          icon="ArrowRight"
-          type="tertiary"
-          size="medium"
-        />
+        <Button v-if="returnBtn" icon="ArrowRight" type="tertiary" size="medium" />
         <div>
           <div class="py-[10px] w-[160px]">
             <Skeleton type="heading" />
@@ -21,7 +11,7 @@
         </div>
       </div>
       <div v-if="button > 0" class="flex gap-xs">
-      <Skeleton v-for="index in button" :key="index" type="button" class="w-[80px]" />
+        <Skeleton v-for="index in button" :key="index" type="button" class="w-[80px]" />
       </div>
     </div>
   </div>

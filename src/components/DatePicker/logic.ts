@@ -1,6 +1,4 @@
-import {
-  Vue, Prop, Component, Watch,
-} from 'vue-property-decorator';
+import { Vue, Prop, Component, Watch } from 'vue-property-decorator';
 import moment from 'moment-jalaali';
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 import Icon from '@/components/Icon/index.vue';

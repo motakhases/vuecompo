@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Ref,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref } from 'vue-property-decorator';
 import { PageHeadingStatus } from '@/types';
 import Button from '@/components/Button/index.vue';
 import Icon from '@/components/Icon/index.vue';
@@ -28,7 +26,7 @@ export default class PageHeading extends Vue {
 
   @Prop({ type: Array }) readonly statuses?: PageHeadingStatus[];
 
-  @Prop({ type: Function }) readonly returnFunction?: () => void
+  @Prop({ type: Function }) readonly returnFunction?: () => void;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 

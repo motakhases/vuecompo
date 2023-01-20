@@ -1,8 +1,8 @@
-import ListMenu from "./index.vue";
+import ListMenu from './index.vue';
 
 export default {
   component: ListMenu,
-  title: "Components/ListMenu",
+  title: 'Components/ListMenu',
 };
 
 const Template = () => ({
@@ -27,7 +27,7 @@ const Template = () => ({
         },
       ],
 
-      active: null
+      active: null,
     };
   },
   template: `

@@ -1,7 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import {
-  Vue, Component, Prop, Ref, Watch,
-} from 'vue-property-decorator';
+import { Vue, Component, Prop, Ref, Watch } from 'vue-property-decorator';
 import Icon from '@/components/Icon/index.vue';
 import BankLogos from '@/components/BankLogos/index.vue';
 import { ISelectOptions, IEvent } from '@/types';
@@ -79,29 +77,21 @@ export default class Select extends Vue {
   }
 
   set inputModel(value: string) {
-    this.inputVal = this.options
-      ? this.options.filter((i) => i.value === this.value)[0].text
-      : '';
+    this.inputVal = this.options ? this.options.filter((i) => i.value === this.value)[0].text : '';
   }
 
   /**
    * Mounted
    */
   mounted(): void {
-    document.documentElement.addEventListener(
-      'click',
-      this.outsideClick,
-      false,
-    );
+    document.documentElement.addEventListener('click', this.outsideClick, false);
     document.addEventListener('scroll', this.updateStyle);
     // this.inputRef.children[0].addEventListener('click', this.onButtonClick, false);
     window.addEventListener('resize', this.onResize);
   }
 
   created(): void {
-    this.inputVal = this.options && this.value.length
-      ? this.options.filter((i) => i.value === this.value)[0].text
-      : '';
+    this.inputVal = this.options && this.value.length ? this.options.filter((i) => i.value === this.value)[0].text : '';
     this.isInputFocused = !!this.value.length;
     this.filteredOptions = this.options;
   }
@@ -113,9 +103,7 @@ export default class Select extends Vue {
 
   @Watch('value')
   updateValue() {
-    this.inputVal = this.options && this.value.length
-      ? this.options.filter((i) => i.value === this.value)[0].text
-      : '';
+    this.inputVal = this.options && this.value.length ? this.options.filter((i) => i.value === this.value)[0].text : '';
   }
 
   @Watch('showList')
@@ -138,9 +126,7 @@ export default class Select extends Vue {
     // get the position of button and set it to menu
 
     if (this.inputRef) {
-      const {
-        height, top, left, width,
-      } = this.inputRef?.children[0]?.getBoundingClientRect();
+      const { height, top, left, width } = this.inputRef?.children[0]?.getBoundingClientRect();
       const menuWidth = this.menuRef?.children[0]?.getBoundingClientRect().width;
 
       this.$set(this.style, 'top', `${top + height + 2}px`);
@@ -217,7 +203,9 @@ export default class Select extends Vue {
     }
 
     // otherwise filter the list based on value that user is typing
-    this.filteredOptions = this.options.filter((option: ISelectOptions) => option.text.toLowerCase().includes(this.inputVal.toLowerCase()));
+    this.filteredOptions = this.options.filter((option: ISelectOptions) =>
+      option.text.toLowerCase().includes(this.inputVal.toLowerCase()),
+    );
   }
 
   onKeyDown(e: KeyboardEvent): void {

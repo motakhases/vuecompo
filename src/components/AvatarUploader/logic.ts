@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Ref,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref } from 'vue-property-decorator';
 import Thumbnail from '@/components/Thumbnail/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import Dropdown from '@/components/Dropdown/index.vue';

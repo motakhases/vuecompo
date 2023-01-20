@@ -1,7 +1,7 @@
 <template>
   <div :class="[{ 'zpl-timeline': !loading }]">
     <!-- loading -->
-    <Loading  :loadingNumber="loadingNumber" v-if="loading" />
+    <Loading :loadingNumber="loadingNumber" v-if="loading" />
 
     <div v-if="!loading" class="zpl-timeline-icon">
       <Icon
@@ -20,12 +20,7 @@
     <div v-if="!loading" class="zpl-timeline-cart">
       <div class="zpl-timeline-title">
         <span>{{ title }}</span>
-        <Label
-          v-if="labelText"
-          size="small"
-          :type="labelType"
-          :text="labelText"
-        />
+        <Label v-if="labelText" size="small" :type="labelType" :text="labelText" />
       </div>
       <div class="zpl-timeline-sub" v-if="subText">
         {{ subText }}

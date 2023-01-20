@@ -19,7 +19,7 @@
     @apply sm:w-sm sm:h-sm;
     @apply bg-surface;
     @apply dark:bg-surface-dark;
-    content: "";
+    content: '';
   }
   // checked and disabled states
   input:checked + .slider {

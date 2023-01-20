@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M12 19C11.158 19 10.315 18.822 9.49597 18.505"
       stroke="currentColor"
@@ -27,13 +21,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M5 19L19 5"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M5 19L19 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       d="M9.77302 14.227C8.54302 12.997 8.54302 11.002 9.77302 9.77199C11.003 8.54199 12.998 8.54199 14.228 9.77199"
       stroke="currentColor"

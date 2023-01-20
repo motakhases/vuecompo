@@ -1,4 +1,4 @@
-import TextField from "./index.vue";
+import TextField from './index.vue';
 
 const Template = (_, { argTypes }) => ({
   components: {
@@ -6,19 +6,19 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    disabled: "سلام از طرف یک فیلد غیر فعال",
-    hint: "vals",
-    number: "",
-    icon1: "",
-    icon2: "",
-    unit: "",
-    helper: "",
-    success: "",
-    error: "",
-    limit: "",
+    disabled: 'سلام از طرف یک فیلد غیر فعال',
+    hint: 'vals',
+    number: '',
+    icon1: '',
+    icon2: '',
+    unit: '',
+    helper: '',
+    success: '',
+    error: '',
+    limit: '',
     limitNum: 5,
-    num: "",
-    url: "https://zarinp.al/376218",
+    num: '',
+    url: 'https://zarinp.al/376218',
   }),
   template: `
   <div class="dark:bg-surface-dark p-sm pb-md rounded-md grid grid-cols-2 gap-sm rtl">

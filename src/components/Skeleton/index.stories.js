@@ -1,8 +1,8 @@
-import Skeleton from "./index.vue";
+import Skeleton from './index.vue';
 
 export default {
   component: Skeleton,
-  title: "Components/Skeleton",
+  title: 'Components/Skeleton',
 };
 const Template = (_, { argTypes }) => ({
   components: {
@@ -10,9 +10,9 @@ const Template = (_, { argTypes }) => ({
   },
   props: Object.keys(argTypes),
   data: () => ({
-    sm: "سلام از طرف یک فیلد غیر فعال",
-    md: "",
-    lg: "",
+    sm: 'سلام از طرف یک فیلد غیر فعال',
+    md: '',
+    lg: '',
   }),
   template: `
   <div class="dark:bg-surface-dark p-lg rounded-md flex flex-col gap-md rtl">

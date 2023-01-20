@@ -13,35 +13,42 @@ import UserProfile from './UserProfile/index.vue';
 
 @Component({
   components: {
-    Icon, Logo, Button, Notification, TerminalList, NotificationBadge, UserProfile, Tooltip,
+    Icon,
+    Logo,
+    Button,
+    Notification,
+    TerminalList,
+    NotificationBadge,
+    UserProfile,
+    Tooltip,
   },
 })
 export default class TopBar extends Vue {
-  @Prop({ type: Array }) terminals!: []
+  @Prop({ type: Array }) terminals!: [];
 
-  @Prop({ type: Boolean, default: true }) readonly hasMenu?: boolean
+  @Prop({ type: Boolean, default: true }) readonly hasMenu?: boolean;
 
-  @Prop({ type: Boolean, default: false }) readonly centerLogo?: boolean
+  @Prop({ type: Boolean, default: false }) readonly centerLogo?: boolean;
 
-  @Prop({ type: String, default: 'عنوان درگاه؟؟' }) readonly activeTerminal?: string
+  @Prop({ type: String, default: 'عنوان درگاه؟؟' }) readonly activeTerminal?: string;
 
-  @Prop({ type: String }) readonly notificationBadge?: string
+  @Prop({ type: String }) readonly notificationBadge?: string;
 
-  @Prop({ type: String }) readonly ticketingBadge?: string
+  @Prop({ type: String }) readonly ticketingBadge?: string;
 
   @Prop({ type: Array }) readonly profileList!: IDropdownOptions[];
 
-  @Prop({ type: String }) readonly username?: string
+  @Prop({ type: String }) readonly username?: string;
 
-  @Prop({ type: String }) readonly userPhone?: string
+  @Prop({ type: String }) readonly userPhone?: string;
 
-  @Prop({ type: Boolean }) readonly userPremium?: boolean
+  @Prop({ type: Boolean }) readonly userPremium?: boolean;
 
-  @Prop({ type: Object }) readonly titleTooltip?: TitleTooltip
+  @Prop({ type: Object }) readonly titleTooltip?: TitleTooltip;
 
-  showTerminalList = false
+  showTerminalList = false;
 
-  showProfileBox = false
+  showProfileBox = false;
 
   toggleTerminalList(): void {
     this.showTerminalList = !this.showTerminalList;

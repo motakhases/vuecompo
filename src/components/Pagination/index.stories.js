@@ -1,8 +1,8 @@
-import Pagination from "./index.vue";
+import Pagination from './index.vue';
 
 export default {
   component: Pagination,
-  title: "Components/Pagination",
+  title: 'Components/Pagination',
 };
 
 const Template = (_, { argTypes }) => ({
@@ -22,11 +22,10 @@ const Template = (_, { argTypes }) => ({
 
 export const Default = Template.bind({});
 
-Default.argTypes = {
-};
+Default.argTypes = {};
 
 Default.args = {
   lastPage: 20,
   initLimit: 15,
-  initPage: 1
+  initPage: 1,
 };

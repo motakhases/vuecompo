@@ -3,7 +3,7 @@
 import { VueConstructor } from 'vue';
 import * as components from './components';
 
-const install = (Vue:VueConstructor) => {
+const install = (Vue: VueConstructor) => {
   Object.entries(components).forEach(([name, component]) => {
     Vue.component(name, component);
   });

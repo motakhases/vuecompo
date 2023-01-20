@@ -7,5 +7,5 @@ import { Announcement } from '@/types';
   components: { Link, Icon },
 })
 export default class NotificationCard extends Vue {
-  @Prop({ type: Array, required: true }) readonly cards!: Announcement[]
+  @Prop({ type: Array, required: true }) readonly cards!: Announcement[];
 }

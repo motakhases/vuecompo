@@ -1,8 +1,8 @@
-import ProgressBar from "./index.vue";
+import ProgressBar from './index.vue';
 
 export default {
   component: ProgressBar,
-  title: "Components/ProgressBar",
+  title: 'Components/ProgressBar',
 };
 
 const Template = (_, { argTypes }) => ({

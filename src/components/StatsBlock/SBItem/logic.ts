@@ -7,7 +7,11 @@ import Link from '@/components/Link/index.vue';
 
 @Component({
   components: {
-    Skeleton, Button, Icon, Tooltip, Link,
+    Skeleton,
+    Button,
+    Icon,
+    Tooltip,
+    Link,
   },
 })
 export default class StatsBlockItem extends Vue {

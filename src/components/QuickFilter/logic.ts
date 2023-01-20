@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Watch,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { QuickFilterBtn } from '@/types';
 import QuickFilterButton from './Button/index.vue';
 import Loading from './Loading/index.vue';
@@ -8,7 +6,6 @@ import Loading from './Loading/index.vue';
 @Component({
   components: { QuickFilterButton, Loading },
 })
-
 export default class QuickFilter extends Vue {
   @Prop({ type: Array, required: true, default: () => [] })
   items!: QuickFilterBtn[];
@@ -20,7 +17,7 @@ export default class QuickFilter extends Vue {
 
   @Prop({ type: Number, default: 1 }) readonly loadingNumber!: number;
 
-  changeFilter(item:QuickFilterBtn): void {
+  changeFilter(item: QuickFilterBtn): void {
     delete this.$route.query[this.queryKey];
     delete this.$route.query.page;
     this.$router.push({
@@ -29,8 +26,10 @@ export default class QuickFilter extends Vue {
   }
 
   created(): void {
-    if (!this.$route.query[this.queryKey]) {
-      this.changeFilter(this.items[0]);
+    if (this.$route) {
+      if (!this.$route.query[this.queryKey]) {
+        this.changeFilter(this.items[0]);
+      }
     }
   }
 

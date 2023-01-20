@@ -17,50 +17,50 @@
   }
 
   /* zarinpal logo */
-  &[name="zarinpal"] {
+  &[name='zarinpal'] {
     &.logo {
-      &[language="fa"] {
+      &[language='fa'] {
         /* Default */
-        background-image: url("~@/assets/images/ZarinPal-Logo-fa.svg");
+        background-image: url('~@/assets/images/ZarinPal-Logo-fa.svg');
       }
-      &[language="en"] {
+      &[language='en'] {
         /* Default */
-        background-image: url("~@/assets/images/ZarinPal-Logo-en.svg");
+        background-image: url('~@/assets/images/ZarinPal-Logo-en.svg');
       }
     }
     &.logo-type {
-      &[language="fa"] {
+      &[language='fa'] {
         /* Default */
-        background-image: url("~@/assets/images/ZarinPal-Logo-type-fa.svg");
+        background-image: url('~@/assets/images/ZarinPal-Logo-type-fa.svg');
       }
-      &[language="en"] {
+      &[language='en'] {
         /* Default */
-        background-image: url("~@/assets/images/ZarinPal-Logo-type-en.svg");
+        background-image: url('~@/assets/images/ZarinPal-Logo-type-en.svg');
       }
     }
     &.logo-mark {
-      background-image: url("~@/assets/images/ZarinPal-Logo-mark.svg");
+      background-image: url('~@/assets/images/ZarinPal-Logo-mark.svg');
     }
   }
 }
 .dark {
   .zpl-logo {
-    &[name="zarinpal"] {
+    &[name='zarinpal'] {
       &.logo {
-        &[language="fa"] {
-          background-image: url("~@/assets/images/ZarinPal-Logo-fa-dark.svg");
+        &[language='fa'] {
+          background-image: url('~@/assets/images/ZarinPal-Logo-fa-dark.svg');
         }
-        &[language="en"] {
-          background-image: url("~@/assets/images/ZarinPal-Logo-en-dark.svg");
+        &[language='en'] {
+          background-image: url('~@/assets/images/ZarinPal-Logo-en-dark.svg');
         }
       }
 
       &.logo-type {
-        &[language="fa"] {
-          background-image: url("~@/assets/images/ZarinPal-Logo-type-fa-dark.svg");
+        &[language='fa'] {
+          background-image: url('~@/assets/images/ZarinPal-Logo-type-fa-dark.svg');
         }
-        &[language="en"] {
-          background-image: url("~@/assets/images/ZarinPal-Logo-type-en-dark.svg");
+        &[language='en'] {
+          background-image: url('~@/assets/images/ZarinPal-Logo-type-en-dark.svg');
         }
       }
     }

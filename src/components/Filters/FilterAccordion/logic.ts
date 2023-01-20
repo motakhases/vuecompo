@@ -1,6 +1,4 @@
-import {
-  Component, Prop, VModel, Vue,
-} from 'vue-property-decorator';
+import { Component, Prop, VModel, Vue } from 'vue-property-decorator';
 import { IEvent, AccordionValue } from '@/types';
 import CheckBox from '@/components/CheckBox/index.vue';
 

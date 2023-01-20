@@ -3,7 +3,7 @@ import { StatsBlockItemSpans } from '@/types';
 
 @Component
 export default class StatsBlockRow extends Vue {
-  @Prop({ type: Object }) readonly cols?: StatsBlockItemSpans
+  @Prop({ type: Object }) readonly cols?: StatsBlockItemSpans;
 
   get columns(): string {
     let classes = '';

@@ -1,9 +1,5 @@
 <template>
-  <svg
-    viewBox="0 0 26 26"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-  >
+  <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" fill="none">
     <circle
       cx="13"
       cy="13"

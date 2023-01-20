@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Emit,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
 import Link from '@/components/Link/index.vue';
 import Modal from '@/components/Modal/index.vue';
 import Icon from '@/components/Icon/index.vue';
@@ -11,29 +9,33 @@ import Loading from './Loading/index.vue';
 
 @Component({
   components: {
-    Link, Modal, Icon, Avatar, Loading,
+    Link,
+    Modal,
+    Icon,
+    Avatar,
+    Loading,
   },
 })
 export default class MessageBox extends Vue {
-  @Prop({ type: String }) readonly id!: string
+  @Prop({ type: String }) readonly id!: string;
 
   // eslint-disable-next-line camelcase
-  @Prop({ type: String }) readonly created_at!: string
+  @Prop({ type: String }) readonly created_at!: string;
 
-  @Prop({ type: String }) readonly content!: string
+  @Prop({ type: String }) readonly content!: string;
 
   // eslint-disable-next-line camelcase
-  @Prop({ type: String }) readonly feedback_type!: string
+  @Prop({ type: String }) readonly feedback_type!: string;
 
-  @Prop({ type: String }) readonly attachment?: string
+  @Prop({ type: String }) readonly attachment?: string;
 
-  @Prop({ type: Object }) readonly user?: ITicketRepliedUser
+  @Prop({ type: Object }) readonly user?: ITicketRepliedUser;
 
-  @Prop({ type: String }) readonly myId!: string
+  @Prop({ type: String }) readonly myId!: string;
 
   @Prop({ type: Boolean, default: false }) readonly loading?: boolean;
 
-  replyFeedbackModal = false
+  replyFeedbackModal = false;
 
   replyFeedbackItems = [
     {
@@ -48,7 +50,7 @@ export default class MessageBox extends Vue {
       type: 'DISRESPECTFUL',
       content: this.$i18n.t('ticket.replyReportContents.DISRESPECTFUL'),
     },
-  ]
+  ];
 
   get markDownToHtml() {
     return marked.parse(this.content);

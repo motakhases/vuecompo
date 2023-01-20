@@ -19,12 +19,6 @@
       }
     }
   }
-
-  &.isFocused{
-    @apply shadow-border-focus-heavy rounded-sm;
-    @apply dark:shadow-dark-border-focus-heavy;
-  }
-
   &-sub {
     @apply p-xs text-b2 font-medium text-text flex items-center rounded-sm gap-xs;
     @apply dark:text-text-dark;
@@ -32,8 +26,8 @@
     @apply hover:before:flex;
 
     /* focus */
-    //@apply focus:shadow-border-focus-heavy;
-    //@apply dark:focus:shadow-dark-border-focus-heavy;
+    @apply focus:shadow-border-focus-heavy;
+    @apply dark:focus:shadow-dark-border-focus-heavy;
 
     &::before {
       @apply content-[''] w-[2px] h-xl bg-border absolute right-lg rounded-l-xs hidden;
@@ -71,13 +65,8 @@
   @apply dark:active:bg-surface-dark-active;
 
   /* focus */
-  //@apply focus:bg-surface focus:shadow-border-focus-heavy;
-  //@apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
-
-  &.subMenuActive{
-    @apply bg-surface-active;
-    @apply dark:bg-surface-dark-active;
-  }
+  @apply focus:bg-surface focus:shadow-border-focus-heavy;
+  @apply dark:focus:bg-surface-dark dark:focus:shadow-dark-border-focus-heavy;
 
   svg {
     @apply h-xl w-xl;

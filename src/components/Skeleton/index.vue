@@ -1,6 +1,6 @@
 <template>
   <div class="zpl-skeleton">
-    <div :class="['zpl-skeleton-item',color,type]" />
+    <div :class="['zpl-skeleton-item', color, type]" />
   </div>
 </template>
 

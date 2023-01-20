@@ -6,7 +6,7 @@ import { UserLabelList } from '@/types';
   components: { Label },
 })
 export default class UserLevel extends Vue {
-  @Prop({ type: String }) readonly text?: string
+  @Prop({ type: String }) readonly text?: string;
 
-  @Prop({ type: Array }) readonly list?: UserLabelList[]
+  @Prop({ type: Array }) readonly list?: UserLabelList[];
 }

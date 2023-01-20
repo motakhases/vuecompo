@@ -1,8 +1,5 @@
 <template>
-  <div
-    ref="pageHeading"
-    :class="['zpl-page-heading', { 'fixed-page-heading': stickHeading }]"
-  >
+  <div ref="pageHeading" :class="['zpl-page-heading', { 'fixed-page-heading': stickHeading }]">
     <Loading
       v-if="loading"
       :smallContainer="smallContainer"
@@ -10,13 +7,7 @@
       :desc="desc && !stickHeading"
       :button="numberOfButtons()"
     />
-    <div
-      :class="[
-        'page-heading-container',
-        smallContainer ? 'small-container' : 'container',
-      ]"
-      v-else
-    >
+    <div :class="['page-heading-container', smallContainer ? 'small-container' : 'container']" v-else>
       <div v-if="returnBtn" class="return-btn" @click="returnFunction">
         <Button icon="ArrowRight" type="tertiary" size="medium" />
       </div>

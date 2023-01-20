@@ -23,20 +23,20 @@
       <span class="title" v-if="title">
         {{ title }}
         <Tooltip v-if="info" :text="info" indicator position="topCenter">
-            <Icon :name="infoType" />
+          <Icon :name="infoType" />
         </Tooltip>
       </span>
 
       <div class="allContent">
-        <span class="content" v-if="amount" >
-            <span>
-              {{ amount | numberFormat }}
-            </span>
-            <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
+        <span class="content" v-if="amount">
+          <span>
+            {{ amount | numberFormat }}
+          </span>
+          <span class="zpl-lable small neutral" v-if="unit" v-text="unit"></span>
         </span>
         <span v-if="caption" class="caption" v-text="caption"></span>
       </div>
-      <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs"/>
+      <Button v-if="link" :href="link" text="مشاهده" type="primaryText" class="pt-xs" />
     </div>
   </div>
 </template>

@@ -30,6 +30,6 @@
   @apply flex-1;
   &.complete {
     @apply text-text-disabled;
-		@apply dark:text-text-dark-disabled
+    @apply dark:text-text-dark-disabled;
   }
 }

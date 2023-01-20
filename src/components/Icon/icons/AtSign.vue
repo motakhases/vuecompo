@@ -16,7 +16,6 @@
       stroke-linejoin="round"
     />
   </svg>
-
 </template>
 
 <script lang="ts">

@@ -1,6 +1,4 @@
-import {
-  Component, Prop, Vue, Ref,
-} from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref } from 'vue-property-decorator';
 import VueApexCharts from 'vue-apexcharts';
 import { dayName, hour, dayNumber } from '@/utils/momentCustom';
 import options from './options';

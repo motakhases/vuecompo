@@ -1,7 +1,7 @@
-import Logo from "./index.vue";
+import Logo from './index.vue';
 export default {
   component: Logo,
-  title: "Components/Logo",
+  title: 'Components/Logo',
 };
 
 const Template = (_, { argTypes }) => ({
